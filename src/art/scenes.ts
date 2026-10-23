@@ -1,0 +1,800 @@
+import { Pen, rng, cutout } from './pen';
+import {
+  C, elif, can, anne, baba, babaanne, dede, ayse, maya, bunting, iznikTile, tulip, teaGlass, caydanlik,
+  baklavaTray, lokumBox, candy, CANDY_COLORS, windowFrame, curtain, crescent, star, plant, clockTower, turkishFlag,
+} from './kit';
+import type { Hotspot, LayerSpec } from '../types';
+
+export interface ProcLayer extends LayerSpec {
+  draw: (p: Pen) => void;
+}
+
+export interface BuiltLayer {
+  spec: LayerSpec;
+  canvas: HTMLCanvasElement;
+  alpha: Uint8Array;
+  aw: number;
+  ah: number;
+  hotspots: Hotspot[];
+}
+
+const BACK = { z: 0.04, w: 0.96, h: 0.86 };
+const MID = { z: 0.45, w: 0.92, h: 0.6 };
+const FRONT = { z: 0.84, w: 0.94, h: 0.3 };
+
+function sky(p: Pen, top: string, bottom: string, x = 0, y = 0, w = p.W, h = p.H) {
+  const g = p.c.createLinearGradient(0, y, 0, y + h);
+  g.addColorStop(0, top);
+  g.addColorStop(1, bottom);
+  p.rect(x, y, w, h, g as unknown as string);
+}
+
+function grad(p: Pen, y0: number, y1: number, stops: [number, string][]) {
+  const g = p.c.createLinearGradient(0, y0, 0, y1);
+  for (const [o, c] of stops) g.addColorStop(o, c);
+  return g;
+}
+
+function cloud(p: Pen, x: number, y: number, s: number, color = '#ffffff') {
+  p.circle(x, y, s, color);
+  p.circle(x + s * 0.9, y + s * 0.15, s * 0.75, color);
+  p.circle(x - s * 0.9, y + s * 0.2, s * 0.7, color);
+  p.rect(x - s * 1.5, y + s * 0.1, s * 3.1, s * 0.75, color, s * 0.37);
+}
+
+function framedTile(p: Pen, x: number, y: number, s: number) {
+  p.rect(x - 10, y - 10, s + 20, s + 20, C.woodDark, 6);
+  iznikTile(p, x, y, s, 2);
+}
+
+function shelf(p: Pen, x: number, y: number, w: number) {
+  p.rect(x, y, w, 16, C.woodDark, 4);
+  p.poly([x + 20, y + 16, x + 50, y + 16, x + 20, y + 50], C.woodDark);
+  p.poly([x + w - 20, y + 16, x + w - 50, y + 16, x + w - 20, y + 50], C.woodDark);
+}
+
+function books(p: Pen, x: number, y: number) {
+  const cols = [C.red, C.cobalt, C.saffron, C.turq, C.leaf];
+  let xx = x;
+  cols.forEach((c, i) => {
+    const h = 70 + ((i * 17) % 30);
+    p.rect(xx, y - h, 22, h, c, 3);
+    xx += 25;
+  });
+}
+
+/* ------------------------------------------------------------------ */
+/* Scenes                                                              */
+/* ------------------------------------------------------------------ */
+
+const SCENES: Record<string, ProcLayer[]> = {
+  /* 1. Bedroom, Bayram morning */
+  p1: [
+    {
+      ...BACK,
+      draw: (p) => {
+        p.arch(14, 14, 972, p.H - 28, '#CFE6F2');
+        windowFrame(p, 330, 230, 340, 300, (q) => {
+          sky(q, '#FFD9A6', '#FFF3D6', 330, 230, 340, 300);
+          // sun
+          for (let i = 0; i < 12; i++) {
+            const a = (i / 12) * Math.PI * 2;
+            q.line([500 + Math.cos(a) * 70, 360 + Math.sin(a) * 70, 500 + Math.cos(a) * 95, 360 + Math.sin(a) * 95], C.saffron, 10);
+          }
+          q.circle(500, 360, 58, C.saffron);
+          q.circle(500, 360, 46, '#FFCF5C');
+          cloud(q, 400, 290, 26);
+          q.shape('#8CC77B', (c) => {
+            c.moveTo(330, 470);
+            c.quadraticCurveTo(430, 420, 520, 465);
+            c.quadraticCurveTo(600, 430, 670, 455);
+            c.lineTo(670, 530);
+            c.lineTo(330, 530);
+          });
+        });
+        p.hot('güneş', 435, 290, 130, 140);
+        p.hot('pencere', 316, 216, 368, 350);
+        p.rect(230, 186, 540, 12, C.woodDark, 6);
+        curtain(p, 236, 196, 120, 400, C.turq, 'l');
+        curtain(p, 644, 196, 120, 400, C.turq, 'r');
+        bunting(p, 110, 890, 120, 22, 9);
+        framedTile(p, 820, 360, 100);
+        shelf(p, 70, 470, 170);
+        books(p, 90, 470);
+        p.rect(14, p.H - 70, 972, 56, '#B8D6E6');
+      },
+    },
+    {
+      ...MID,
+      draw: (p) => {
+        // headboard
+        p.shape(C.wood, (c) => {
+          c.moveTo(150, 470);
+          c.lineTo(150, 270);
+          c.quadraticCurveTo(500, 150, 850, 270);
+          c.lineTo(850, 470);
+          c.closePath();
+        });
+        p.shape(C.woodDark, (c) => {
+          c.moveTo(190, 470);
+          c.lineTo(190, 290);
+          c.quadraticCurveTo(500, 200, 810, 290);
+          c.lineTo(810, 470);
+          c.closePath();
+        });
+        p.ellipse(300, 425, 120, 55, '#ffffff');
+        elif(p, 470, 610, 400, { top: '#9ED9D4', dress: false, bottom: '#9ED9D4', arms: 'up', mouth: 'open', noLegs: true });
+        // blanket
+        p.rect(110, 470, 780, 170, C.cobalt, 26);
+        p.rect(110, 470, 780, 34, '#ffffff', 16);
+        for (let i = 0; i < 6; i++) tulip(p, 200 + i * 125, 625, 90, i % 2 ? C.saffron : '#ffffff');
+        p.hot('yatak', 110, 170, 780, 470);
+      },
+    },
+    {
+      ...FRONT,
+      draw: (p) => {
+        // nightstand + alarm clock
+        p.rect(60, 140, 230, 170, C.wood, 14);
+        p.rect(80, 170, 190, 50, C.woodDark, 8);
+        p.circle(175, 195, 9, C.saffron);
+        p.circle(140, 40, 22, C.saffron);
+        p.circle(210, 40, 22, C.saffron);
+        p.circle(175, 85, 56, C.red);
+        p.circle(175, 85, 42, '#ffffff');
+        p.line([175, 85, 175, 55], C.ink, 6);
+        p.line([175, 85, 198, 92], C.ink, 6);
+        p.line([135, 137, 125, 150], C.red, 8);
+        p.line([215, 137, 225, 150], C.red, 8);
+        p.hot('saat', 110, 15, 130, 135);
+        // chair with the Bayram dress
+        p.rect(420, 40, 22, 270, C.woodDark, 8);
+        p.rect(600, 40, 22, 270, C.woodDark, 8);
+        p.rect(420, 40, 202, 30, C.wood, 10);
+        p.rect(420, 200, 202, 24, C.wood, 10);
+        p.shape('#3F6FD1', (c) => {
+          c.moveTo(455, 60);
+          c.lineTo(585, 60);
+          c.lineTo(620, 250);
+          c.quadraticCurveTo(520, 270, 420, 250);
+          c.closePath();
+        });
+        p.rect(470, 120, 100, 14, 'rgba(255,255,255,0.6)', 7);
+        p.hot('bayramlık', 410, 30, 225, 285);
+        // slippers
+        p.ellipse(745, 290, 55, 20, '#F28DB2');
+        p.ellipse(830, 290, 55, 20, '#F28DB2');
+        plant(p, 900, 300, 210, C.cobalt);
+      },
+    },
+  ],
+
+  /* 2. Getting dressed */
+  p2: [
+    {
+      ...BACK,
+      draw: (p) => {
+        p.arch(14, 14, 972, p.H - 28, '#BFE3DF');
+        bunting(p, 120, 880, 110, 20, 8);
+        // mirror
+        p.ellipse(225, 470, 140, 240, C.saffron);
+        p.ellipse(225, 470, 118, 218, grad(p, 250, 690, [[0, '#E9F6FB'], [1, '#B6D9EA']]) as unknown as string);
+        p.line([170, 340, 210, 300], 'rgba(255,255,255,0.9)', 14);
+        p.line([180, 390, 240, 330], 'rgba(255,255,255,0.7)', 10);
+        p.hot('ayna', 80, 225, 290, 490);
+        // wardrobe
+        p.rect(610, 230, 320, p.H - 250, C.wood, 18);
+        p.rect(630, 255, 132, p.H - 300, C.woodDark, 10);
+        p.rect(778, 255, 132, p.H - 300, C.woodDark, 10);
+        p.circle(750, 540, 10, C.saffron);
+        p.circle(790, 540, 10, C.saffron);
+        p.rect(14, p.H - 60, 972, 46, '#9FCFC9');
+      },
+    },
+    {
+      ...MID,
+      draw: (p) => {
+        const e = elif(p, 360, 640, 450, { arms: 'forward', mouth: 'smile' });
+        p.hot('elbise', 270, e.bodyTop - 10, 190, 640 - e.bodyTop - 70);
+        const k = can(p, 640, 640, 360, { bow: undefined, mouth: 'grin' });
+        p.hot('bayramlık', 640 - 70, k.bodyTop, 140, 640 - k.bodyTop - 20);
+        // crooked bow tie
+        const by = k.bodyTop + k.headR * 0.15;
+        p.save();
+        p.translate(640, by);
+        p.rotate(0.45);
+        p.poly([0, 0, -26, -13, -26, 15], C.red);
+        p.poly([0, 0, 26, -15, 26, 13], C.red);
+        p.circle(0, 0, 7, C.red);
+        p.restore();
+        p.hot('papyon', 600, by - 35, 80, 70);
+      },
+    },
+    {
+      ...FRONT,
+      draw: (p) => {
+        // shoe box with new shoes
+        p.rect(120, 150, 300, 160, C.red, 10);
+        p.rect(120, 150, 300, 30, '#E35A4F', 10);
+        p.shape(C.red, (c) => {
+          c.moveTo(130, 140);
+          c.lineTo(420, 60);
+          c.lineTo(440, 100);
+          c.lineTo(150, 180);
+          c.closePath();
+        });
+        p.rect(255, 150, 30, 160, C.saffron);
+        p.ellipse(230, 140, 70, 30, '#3A2A22');
+        p.ellipse(330, 140, 70, 30, '#3A2A22');
+        p.ellipse(215, 130, 30, 10, 'rgba(255,255,255,0.35)');
+        p.hot('ayakkabı', 110, 50, 340, 265);
+        plant(p, 860, 305, 240, C.saffron);
+        // folded clothes on a stool
+        p.rect(530, 190, 200, 120, C.woodDark, 10);
+        p.rect(545, 120, 170, 40, '#F7F2E6', 10);
+        p.rect(555, 85, 150, 36, C.turq, 10);
+      },
+    },
+  ],
+
+  /* 3. Kitchen, Bayram table */
+  p3: [
+    {
+      ...BACK,
+      draw: (p) => {
+        p.arch(14, 14, 972, p.H - 28, '#DDEBD7');
+        windowFrame(p, 400, 130, 200, 180, (q) => {
+          sky(q, '#9FD4F2', '#E2F3FB', 400, 130, 200, 180);
+          cloud(q, 470, 200, 20);
+        });
+        shelf(p, 90, 430, 260);
+        caydanlik(p, 170, 430, 170);
+        p.hot('çaydanlık', 95, 250, 170, 185);
+        // jars
+        p.rect(270, 360, 50, 70, '#F7F2E6', 10);
+        p.rect(270, 360, 50, 18, C.red, 6);
+        shelf(p, 650, 430, 260);
+        teaGlass(p, 700, 425, 70);
+        teaGlass(p, 760, 425, 70);
+        teaGlass(p, 820, 425, 70);
+        // tile band
+        for (let i = 0; i < 10; i++) iznikTile(p, 60 + i * 88, 520, 88, i);
+        p.rect(30, 608, 940, 36, '#C9A27A', 8);
+        p.rect(14, 644, 972, p.H - 658, '#E8D9C2');
+      },
+    },
+    {
+      ...MID,
+      draw: (p) => {
+        const a = anne(p, 170, 640, 540, { arms: 'hold', apron: '#F7F2E6', mouth: 'smile' });
+        const ty = (a.handL[1] + a.handR[1]) / 2;
+        baklavaTray(p, 170, ty, 230);
+        p.hot('baklava', 45, ty - 70, 250, 130);
+        const b = baba(p, 420, 640, 570, { arms: 'hold' });
+        const by = (b.handL[1] + b.handR[1]) / 2;
+        p.ellipse(420, by + 6, 120, 22, '#C9CED6');
+        teaGlass(p, 370, by, 62);
+        teaGlass(p, 420, by - 4, 62);
+        teaGlass(p, 470, by, 62);
+        p.hot('çay', 300, by - 80, 240, 110);
+        const e = elif(p, 650, 640, 400, { arms: 'hold' });
+        const ey = (e.handL[1] + e.handR[1]) / 2;
+        for (let i = 0; i < 3; i++) p.ellipse(650, ey - i * 10, 70, 16, i === 2 ? '#ffffff' : '#E6EEF5');
+        p.ellipse(650, ey - 20, 48, 9, C.cobalt);
+        const k = can(p, 860, 640, 340, { arms: 'hold', mouth: 'grin' });
+        const ky = (k.handL[1] + k.handR[1]) / 2 + 30;
+        lokumBox(p, 860, ky, 120, false);
+        p.hot('lokum', 790, ky - 70, 140, 80);
+      },
+    },
+    {
+      ...FRONT,
+      draw: (p) => {
+        p.rect(20, 110, 960, 200, '#ffffff', 16);
+        p.rect(20, 110, 960, 26, C.cobalt, 12);
+        for (let i = 0; i < 14; i++) p.circle(60 + i * 68, 123, 6, '#ffffff');
+        p.rect(20, 268, 960, 20, C.turq);
+        // plates and glasses on the table
+        [150, 420, 690].forEach((x) => {
+          p.ellipse(x, 110, 80, 18, '#ffffff');
+          p.ellipse(x, 110, 60, 12, '#E6EEF5');
+        });
+        teaGlass(p, 285, 108, 70);
+        teaGlass(p, 555, 108, 70);
+        // lokum plate
+        p.ellipse(840, 108, 80, 18, C.saffron);
+        for (let i = 0; i < 5; i++) p.rect(790 + i * 20, 70 + (i % 2) * 8, 22, 22, i % 2 ? '#F28DB2' : '#F7F2E6', 4);
+        p.hot('lokum', 760, 50, 160, 75);
+        p.hot('sofra', 20, 60, 960, 250);
+      },
+    },
+  ],
+
+  /* 4. Video call with grandparents in İzmir */
+  p4: [
+    {
+      ...BACK,
+      draw: (p) => {
+        p.arch(14, 14, 972, p.H - 28, '#DCE4F5');
+        windowFrame(p, 130, 240, 260, 260, (q) => {
+          sky(q, '#A9DCF5', '#E6F6FD', 130, 240, 260, 260);
+          q.circle(200, 470, 70, '#6FB165');
+          q.circle(330, 480, 90, '#5C9F55');
+          q.rect(250, 400, 14, 100, C.woodDark);
+        });
+        curtain(p, 90, 220, 90, 340, '#C0504D', 'l');
+        curtain(p, 340, 220, 90, 340, '#C0504D', 'r');
+        // framed photo of İzmir's clock tower
+        p.rect(560, 250, 260, 200, C.woodDark, 8);
+        p.rect(575, 265, 230, 170, '#BFE1F3');
+        p.rect(575, 395, 230, 40, '#4C8FCB');
+        clockTower(p, 690, 400, 140);
+        bunting(p, 120, 880, 110, 20, 8);
+        p.rect(14, p.H - 60, 972, 46, '#BCC8E6');
+      },
+    },
+    {
+      ...MID,
+      draw: (p) => {
+        // sofa back
+        p.rect(40, 300, 640, 230, C.turq, 50);
+        p.rect(20, 380, 90, 220, '#178C88', 40);
+        p.rect(610, 380, 90, 220, '#178C88', 40);
+        elif(p, 250, 600, 400, { arms: 'wave', mouth: 'open', sitting: true });
+        can(p, 470, 600, 340, { arms: 'wave', mouth: 'grin', sitting: true });
+        p.rect(60, 520, 600, 110, '#1A9894', 30);
+        p.rect(80, 600, 30, 40, C.woodDark, 6);
+        p.rect(610, 600, 30, 40, C.woodDark, 6);
+      },
+    },
+    {
+      z: 0.8,
+      w: 0.56,
+      h: 0.5,
+      x: 0.2,
+      draw: (p) => {
+        // stand
+        p.poly([430, 760, 570, 760, 620, p.H - 16, 380, p.H - 16], '#5A6070');
+        // tablet
+        p.rect(30, 40, 940, 720, '#2B2F3A', 56);
+        p.save();
+        p.c.beginPath();
+        p.c.roundRect(70, 80, 860, 640, 26);
+        p.c.clip();
+        sky(p, '#7EC4EE', '#D6EEF9', 70, 80, 860, 640);
+        p.rect(70, 470, 860, 250, '#3D7FC1');
+        for (let i = 0; i < 6; i++) p.line([120 + i * 140, 520 + (i % 2) * 30, 180 + i * 140, 520 + (i % 2) * 30], 'rgba(255,255,255,0.6)', 6);
+        clockTower(p, 760, 540, 380);
+        p.hot('Saat Kulesi', 680, 140, 165, 410);
+        babaanne(p, 270, 860, 560, { arms: 'wave', mouth: 'open' });
+        p.hot('babaanne', 160, 300, 220, 420);
+        dede(p, 500, 860, 600, { arms: 'down', mouth: 'grin' });
+        p.hot('dede', 400, 260, 200, 460);
+        p.restore();
+        p.circle(500, 680, 30, '#E0443A');
+        p.rect(486, 676, 28, 8, '#ffffff', 4);
+        p.hot('tablet', 30, 40, 940, 720);
+      },
+    },
+  ],
+
+  /* 5. Kissing Aunt Ayşe's hand at the door */
+  p5: [
+    {
+      ...BACK,
+      draw: (p) => {
+        p.arch(14, 14, 972, p.H - 28, '#E3EEF3');
+        // open door
+        p.rect(520, 210, 360, p.H - 230, '#ffffff', 10);
+        p.rect(545, 235, 310, p.H - 260, grad(p, 235, p.H, [[0, '#9ED3F0'], [0.55, '#DCF1FA'], [0.56, '#86C47B'], [1, '#6AAE60']]) as unknown as string);
+        tulip(p, 600, p.H - 40, 90);
+        tulip(p, 650, p.H - 40, 80, C.saffron);
+        p.poly([855, 235, 960, 200, 960, p.H - 20, 855, p.H - 25], C.wood);
+        p.circle(880, 560, 10, C.saffron);
+        // coat hooks
+        p.rect(90, 260, 260, 18, C.woodDark, 6);
+        p.circle(150, 290, 10, C.saffron);
+        p.circle(290, 290, 10, C.saffron);
+        p.shape('#C0504D', (c) => {
+          c.moveTo(130, 290);
+          c.lineTo(175, 290);
+          c.lineTo(200, 460);
+          c.lineTo(110, 460);
+          c.closePath();
+        });
+        // side table with candy bowl
+        p.rect(90, 560, 260, 20, C.woodDark, 6);
+        p.rect(110, 580, 20, p.H - 600, C.woodDark);
+        p.rect(310, 580, 20, p.H - 600, C.woodDark);
+        p.shape('#ffffff', (c) => {
+          c.moveTo(140, 500);
+          c.lineTo(300, 500);
+          c.quadraticCurveTo(290, 560, 220, 560);
+          c.quadraticCurveTo(150, 560, 140, 500);
+        });
+        for (let i = 0; i < 6; i++) candy(p, 160 + i * 25, 498 - (i % 2) * 14, 13, CANDY_COLORS[i % CANDY_COLORS.length], i * 0.7);
+        p.hot('bayram şekeri', 130, 460, 180, 105);
+        p.rect(14, p.H - 50, 972, 36, '#C8D9E2');
+      },
+    },
+    {
+      ...MID,
+      draw: (p) => {
+        const a = ayse(p, 330, 640, 560, { arms: 'offer', mouth: 'smile' });
+        // envelope with pocket money in the other hand
+        p.rect(a.handL[0] - 34, a.handL[1] - 18, 70, 46, '#F2F7EF', 6);
+        p.poly([a.handL[0] - 34, a.handL[1] - 18, a.handL[0] + 36, a.handL[1] - 18, a.handL[0] + 1, a.handL[1] + 8], '#D9EAD3');
+        p.rect(a.handL[0] - 10, a.handL[1] - 32, 34, 22, '#7FC46A', 3);
+        p.hot('harçlık', a.handL[0] - 50, a.handL[1] - 50, 100, 90);
+        p.hot('teyze', 230, 90, 200, 540);
+        const e = elif(p, 610, 640, 400, { arms: 'kiss', lean: -0.18, mouth: 'smile' });
+        p.circle(a.handR[0] + 6, a.handR[1] - 4, 18, '#F0C8A8');
+        p.hot('el öpmek', Math.min(a.handR[0], e.headX) - 70, e.headY - 70, 190, 170);
+      },
+    },
+    {
+      ...FRONT,
+      draw: (p) => {
+        p.rect(60, 250, 520, 50, '#B85C3C', 12);
+        const pairs = [C.red, C.cobalt, '#3A2A22', C.saffron, '#F28DB2'];
+        pairs.forEach((col, i) => {
+          const x = 110 + i * 100;
+          p.ellipse(x, 245, 30, 15, col);
+          p.ellipse(x + 34, 245, 30, 15, col);
+        });
+        p.hot('ayakkabı', 70, 210, 520, 70);
+        plant(p, 820, 305, 250, C.turq);
+      },
+    },
+  ],
+
+  /* 6. Sharing the candy fairly */
+  p6: [
+    {
+      ...BACK,
+      draw: (p) => {
+        p.arch(14, 14, 972, p.H - 28, '#FBE3E1');
+        bunting(p, 120, 880, 110, 20, 8);
+        windowFrame(p, 620, 250, 230, 250, (q) => {
+          sky(q, '#A9DCF5', '#E6F6FD', 620, 250, 230, 250);
+          cloud(q, 720, 330, 24);
+        });
+        curtain(p, 580, 230, 80, 330, C.cobalt, 'l');
+        curtain(p, 810, 230, 80, 330, C.cobalt, 'r');
+        p.rect(140, 260, 200, 230, C.woodDark, 8);
+        p.rect(158, 278, 164, 194, '#FFF6EE');
+        tulip(p, 240, 455, 160);
+        p.rect(14, p.H - 60, 972, 46, '#F0C9C4');
+      },
+    },
+    {
+      ...MID,
+      draw: (p) => {
+        const k = can(p, 330, 640, 380, { arms: 'hug', mouth: 'open' });
+        const by = k.chestY + 40;
+        for (let i = 0; i < 9; i++) candy(p, 270 + (i % 5) * 30, by - 30 - Math.floor(i / 5) * 18, 15, CANDY_COLORS[i % 6], i);
+        p.shape('#ffffff', (c) => {
+          c.moveTo(240, by - 30);
+          c.lineTo(420, by - 30);
+          c.quadraticCurveTo(410, by + 50, 330, by + 52);
+          c.quadraticCurveTo(250, by + 50, 240, by - 30);
+        });
+        for (let i = 0; i < 5; i++) p.circle(262 + i * 34, by + 2, 8, C.cobalt);
+        p.hot('kâse', 225, by - 65, 210, 125);
+        elif(p, 650, 640, 420, { arms: 'offer', mouth: 'grin' });
+      },
+    },
+    {
+      ...FRONT,
+      draw: (p) => {
+        p.rect(70, 140, 860, 50, C.wood, 14);
+        p.rect(110, 190, 30, 120, C.woodDark, 6);
+        p.rect(860, 190, 30, 120, C.woodDark, 6);
+        const pile = (cx: number, seed: number) => {
+          const r = rng(seed);
+          const spots = [[-40, 0], [0, 0], [40, 0], [-20, -26], [20, -26]];
+          spots.forEach(([dx, dy], i) => candy(p, cx + dx, 120 + dy, 15, CANDY_COLORS[(i + seed) % 6], r() * 1.5));
+        };
+        pile(330, 1);
+        pile(560, 2);
+        p.hot('eşit', 250, 60, 400, 100);
+        p.ellipse(790, 135, 70, 16, '#ffffff');
+        candy(p, 765, 118, 13, C.saffron, 0.3);
+        candy(p, 815, 118, 13, C.turq, -0.4);
+        candy(p, 790, 100, 13, '#F28DB2', 0.1);
+        p.hot('bayram şekeri', 710, 70, 160, 90);
+      },
+    },
+  ],
+
+  /* 7. Maya visits */
+  p7: [
+    {
+      ...BACK,
+      draw: (p) => {
+        p.arch(14, 14, 972, p.H - 28, grad(p, 14, p.H, [[0, '#8FD0F2'], [1, '#E6F6FD']]) as unknown as string);
+        p.circle(180, 190, 50, C.saffron);
+        p.hot('güneş', 120, 130, 120, 120);
+        cloud(p, 360, 180, 30);
+        // house with porch
+        p.poly([470, 360, 700, 200, 930, 360], '#8B4A3C');
+        p.rect(500, 350, 400, p.H - 380, '#F4F1E8');
+        for (let i = 0; i < 9; i++) p.line([500, 380 + i * 50, 900, 380 + i * 50], '#E0DACB', 4);
+        p.rect(640, 520, 120, p.H - 550, C.red, 8);
+        p.circle(740, 680, 8, C.saffron);
+        p.rect(530, 430, 80, 90, '#AFDCF2', 6);
+        p.rect(790, 430, 80, 90, '#AFDCF2', 6);
+        // tree
+        p.rect(250, 420, 40, p.H - 450, C.woodDark, 8);
+        p.circle(270, 380, 110, '#5C9F55');
+        p.circle(210, 430, 70, '#6FB165');
+        p.circle(335, 430, 75, '#6FB165');
+        // mailbox
+        p.rect(105, 560, 16, p.H - 590, '#5A6070');
+        p.rect(70, 520, 90, 50, '#3B5C99', 22);
+        p.rect(150, 500, 8, 40, C.red);
+        p.rect(14, p.H - 60, 972, 46, '#7DBB6F');
+      },
+    },
+    {
+      ...MID,
+      draw: (p) => {
+        maya(p, 320, 640, 400, { arms: 'wave', mouth: 'open' });
+        p.hot('arkadaş', 220, 210, 200, 430);
+        const e = elif(p, 620, 640, 410, { arms: 'offer', mouth: 'smile' });
+        lokumBox(p, e.handR[0] + 30, e.handR[1] + 10, 130, true);
+        p.hot('lokum', e.handR[0] - 50, e.handR[1] - 60, 170, 85);
+      },
+    },
+    {
+      ...FRONT,
+      draw: (p) => {
+        p.rect(30, 230, 940, 80, '#7A4F35', 20);
+        const cols = [C.red, C.saffron, '#F28DB2', C.red, C.saffron, '#E35A4F', '#F28DB2', C.red, C.saffron];
+        cols.forEach((col, i) => tulip(p, 90 + i * 105, 260, 170 + (i % 3) * 25, col));
+        p.hot('lale', 40, 40, 920, 240);
+      },
+    },
+  ],
+
+  /* 8. Evening, crescent moon */
+  p8: [
+    {
+      ...BACK,
+      draw: (p) => {
+        p.arch(14, 14, 972, p.H - 28, grad(p, 14, p.H, [[0, '#0E1C46'], [1, '#2B3F7E']]) as unknown as string);
+        const r = rng(8);
+        for (let i = 0; i < 60; i++) p.circle(60 + r() * 880, 80 + r() * 520, 2 + r() * 3, 'rgba(255,255,255,0.85)');
+        crescent(p, 700, 220, 75, '#FFE7A3', '#16275A');
+        p.hot('hilal', 610, 130, 170, 180);
+        star(p, 290, 210, 40, '#FFE7A3');
+        p.hot('yıldız', 240, 160, 100, 100);
+        // rooftops
+        p.shape('#15214D', (c) => {
+          c.moveTo(14, p.H - 14);
+          c.lineTo(14, 700);
+          c.lineTo(120, 640);
+          c.lineTo(230, 700);
+          c.lineTo(230, 620);
+          c.lineTo(330, 560);
+          c.lineTo(430, 620);
+          c.lineTo(430, 690);
+          c.lineTo(560, 630);
+          c.lineTo(690, 690);
+          c.lineTo(690, 600);
+          c.lineTo(800, 540);
+          c.lineTo(910, 600);
+          c.lineTo(986, 640);
+          c.lineTo(986, p.H - 14);
+          c.closePath();
+        });
+        [[90, 720], [300, 650], [360, 650], [520, 700], [760, 620], [840, 620], [620, 730]].forEach(([x, y]) => p.rect(x, y, 26, 30, '#FFD58A', 3));
+      },
+    },
+    {
+      ...MID,
+      draw: (p) => {
+        p.rect(60, 120, 880, p.H - 130, '#3B4F86', 20);
+        p.rect(170, 170, 660, 440, '#ffffff', 14);
+        p.rect(190, 190, 620, 400, grad(p, 190, 590, [[0, '#FFE3A6'], [1, '#FFC46B']]) as unknown as string, 6);
+        const sil = '#8A4E2B';
+        p.save();
+        p.c.beginPath();
+        p.c.rect(190, 190, 620, 400);
+        p.c.clip();
+        baba(p, 300, 760, 640, { skin: sil, hair: sil, top: sil, bottom: sil, mustache: sil });
+        anne(p, 480, 760, 600, { skin: sil, hair: sil, top: sil, arms: 'hug' });
+        elif(p, 630, 760, 470, { skin: sil, hair: sil, top: sil, ribbon: sil });
+        can(p, 740, 760, 400, { skin: sil, hair: sil, top: sil, bottom: sil, bow: sil });
+        p.restore();
+        p.rect(490, 190, 20, 400, '#ffffff');
+        p.hot('aile', 190, 190, 620, 400);
+      },
+    },
+    {
+      ...FRONT,
+      draw: (p) => {
+        p.rect(150, 200, 700, 100, '#7A4F35', 16);
+        p.rect(130, 190, 740, 24, '#5C3A26', 10);
+        [220, 320, 420, 580, 680, 780].forEach((x, i) => tulip(p, x, 205, 170, i % 2 ? C.saffron : C.red));
+        p.hot('lale', 150, 20, 700, 200);
+        // lantern
+        p.rect(470, 90, 60, 100, '#FFD58A', 10);
+        p.rect(462, 80, 76, 16, '#5C3A26', 6);
+        p.rect(462, 186, 76, 14, '#5C3A26', 6);
+        p.line([500, 80, 500, 50], '#5C3A26', 6);
+      },
+    },
+  ],
+};
+
+export function sceneLayers(sceneId: string): ProcLayer[] {
+  return SCENES[sceneId] ?? [];
+}
+
+/** Draw one procedural layer and turn it into a paper cut-out. */
+export function buildProcLayer(layer: ProcLayer, px = 1024): BuiltLayer {
+  const aspect = layer.h / layer.w;
+  const pen = new Pen(px, aspect);
+  layer.draw(pen);
+  const cut = cutout(pen.canvas, Math.round(px / 130));
+  const { draw: _d, ...spec } = layer;
+  return { spec, canvas: cut.canvas, alpha: cut.alpha, aw: cut.aw, ah: cut.ah, hotspots: pen.hotspots };
+}
+
+/** A flat picture of a pop-up page, for activity cards. */
+export function sceneThumb(layers: BuiltLayer[], width = 560): HTMLCanvasElement {
+  const S = width;
+  const maxH = Math.max(...layers.map((l) => l.spec.h));
+  const c = document.createElement('canvas');
+  c.width = width;
+  // layers further back sit higher, as if the page is seen from slightly above
+  const lift = 0.3 * S;
+  c.height = Math.round(maxH * S + lift + 16);
+  const g = c.getContext('2d')!;
+  for (const l of layers) {
+    const w = l.spec.w * S;
+    const hh = l.spec.h * S;
+    const x = width / 2 + (l.spec.x ?? 0) * S - w / 2;
+    const bottom = c.height - 8 - (1 - l.spec.z) * lift;
+    g.drawImage(l.canvas, x, bottom - hh, w, hh);
+  }
+  return c;
+}
+
+/**
+ * A layer drawn from an image file (for example an illustration made with ChatGPT or Gemini,
+ * saved as a transparent PNG/WebP). The image is fitted to the layer and bottom-aligned.
+ */
+export async function buildImageLayer(spec: LayerSpec, baseUrl: string, px = 1024): Promise<BuiltLayer> {
+  const img = new Image();
+  img.src = baseUrl + spec.src;
+  await img.decode();
+  const c = document.createElement('canvas');
+  c.width = px;
+  c.height = Math.round((px * spec.h) / spec.w);
+  const s = Math.min(c.width / img.naturalWidth, c.height / img.naturalHeight);
+  const w = img.naturalWidth * s;
+  const hgt = img.naturalHeight * s;
+  c.getContext('2d')!.drawImage(img, (c.width - w) / 2, c.height - hgt, w, hgt);
+  const cut = cutout(c, Math.round(px / 130));
+  return { spec, canvas: cut.canvas, alpha: cut.alpha, aw: cut.aw, ah: cut.ah, hotspots: spec.hotspots ?? [] };
+}
+
+/* ------------------------------------------------------------------ */
+/* Covers                                                              */
+/* ------------------------------------------------------------------ */
+
+function tileBorder(p: Pen, color: string) {
+  p.rect(0, 0, p.W, p.H, color, 40);
+  const s = 92;
+  const n = Math.floor((p.W - 40) / s);
+  const off = (p.W - n * s) / 2;
+  const m = Math.floor((p.H - 40) / s);
+  const offY = (p.H - m * s) / 2;
+  for (let i = 0; i < n; i++) {
+    iznikTile(p, off + i * s, offY, s, i);
+    iznikTile(p, off + i * s, offY + (m - 1) * s, s, i + 1);
+  }
+  for (let j = 1; j < m - 1; j++) {
+    iznikTile(p, off, offY + j * s, s, j);
+    iznikTile(p, off + (n - 1) * s, offY + j * s, s, j + 1);
+  }
+  return { x: off + s, y: offY + s, w: (n - 2) * s, h: (m - 2) * s };
+}
+
+function wrap(p: Pen, text: string, maxW: number, size: number): string[] {
+  p.c.font = `600 ${size}px "DynaPuff", system-ui`;
+  const words = text.split(' ');
+  const lines: string[] = [];
+  let cur = '';
+  for (const w of words) {
+    const t = cur ? cur + ' ' + w : w;
+    if (p.c.measureText(t).width > maxW && cur) {
+      lines.push(cur);
+      cur = w;
+    } else cur = t;
+  }
+  if (cur) lines.push(cur);
+  return lines;
+}
+
+function titleText(p: Pen, title: string, cx: number, y: number, maxW: number, size: number) {
+  const lines = wrap(p, title, maxW, size);
+  lines.forEach((l, i) => {
+    const yy = y + i * size * 1.02;
+    p.c.lineWidth = size * 0.16;
+    p.c.strokeStyle = C.ink;
+    p.c.font = `600 ${size}px "DynaPuff", system-ui`;
+    p.c.textAlign = 'center';
+    p.c.strokeText(l, cx, yy);
+    p.text(l, cx, yy, size, '#FFFFFF');
+  });
+  return lines.length;
+}
+
+export function drawCover(art: string, title: string, opts: { color?: string; motif?: string } = {}, px = 700): HTMLCanvasElement {
+  const p = new Pen(px, 1.36);
+  if (art === 'cover-bayram') {
+    const inner = tileBorder(p, C.cobalt);
+    p.rect(inner.x, inner.y, inner.w, inner.h, grad(p, inner.y, inner.y + inner.h, [[0, '#86CDEB'], [0.65, '#FFE6B8'], [1, '#FFD089']]) as unknown as string);
+    p.save();
+    p.c.beginPath();
+    p.c.rect(inner.x, inner.y, inner.w, inner.h);
+    p.c.clip();
+    bunting(p, inner.x - 20, inner.x + inner.w + 20, inner.y + 330, 30, 10);
+    crescent(p, inner.x + inner.w - 120, inner.y + 470, 46, '#FFFFFF', '#C8E5F1');
+    const e = elif(p, inner.x + inner.w * 0.38, inner.y + inner.h - 40, 520, { arms: 'hold', mouth: 'open' });
+    const ty = (e.handL[1] + e.handR[1]) / 2;
+    p.shape('#ffffff', (c) => {
+      c.moveTo(e.headX - 90, ty - 20);
+      c.lineTo(e.headX + 90, ty - 20);
+      c.quadraticCurveTo(e.headX + 80, ty + 50, e.headX, ty + 52);
+      c.quadraticCurveTo(e.headX - 80, ty + 50, e.headX - 90, ty - 20);
+    });
+    for (let i = 0; i < 6; i++) candy(p, e.headX - 60 + i * 24, ty - 26 - (i % 2) * 10, 12, CANDY_COLORS[i], i);
+    can(p, inner.x + inner.w * 0.74, inner.y + inner.h - 40, 420, { arms: 'wave', mouth: 'grin' });
+    for (let i = 0; i < 7; i++) tulip(p, inner.x + 30 + i * (inner.w / 6.5), inner.y + inner.h + 10, 120, i % 2 ? C.saffron : C.red);
+    p.restore();
+    titleText(p, title, p.W / 2, inner.y + 150, inner.w - 40, 150);
+  } else {
+    const color = opts.color ?? C.turq;
+    const inner = tileBorder(p, color);
+    p.rect(inner.x, inner.y, inner.w, inner.h, color);
+    const cx = p.W / 2;
+    const cy = inner.y + inner.h * 0.66;
+    switch (opts.motif) {
+      case 'kazan':
+        p.ellipse(cx - 60, cy + 30, 190, 150, '#2B2F3A');
+        p.ellipse(cx - 60, cy - 110, 200, 34, '#4A4F5C');
+        p.ellipse(cx - 60, cy - 110, 165, 22, '#1A1D25');
+        p.ellipse(cx + 200, cy + 120, 80, 62, '#2B2F3A');
+        p.ellipse(cx + 200, cy + 60, 86, 16, '#4A4F5C');
+        p.circle(cx + 200, cy + 110, 16, '#5A606D');
+        break;
+      case 'tohum':
+        p.rect(inner.x, cy + 120, inner.w, inner.h - (cy + 120 - inner.y), '#7A4F35');
+        [-160, 0, 160].forEach((dx, i) => {
+          p.line([cx + dx, cy + 130, cx + dx, cy - 60 - i * 40], C.leaf, 16);
+          p.ellipse(cx + dx - 45, cy - 40 - i * 40, 50, 22, '#7FC46A', -0.5);
+          p.ellipse(cx + dx + 45, cy - 70 - i * 40, 50, 22, '#7FC46A', 0.5);
+        });
+        break;
+      case 'bayrak':
+        turkishFlag(p, cx - 210, cy - 180, 420);
+        p.line([cx - 230, cy - 200, cx - 230, cy + 230], '#E8E8E8', 12);
+        [[cx + 150, cy + 150, C.saffron], [cx - 120, cy + 190, C.turq], [cx + 40, cy + 230, '#F28DB2']].forEach(([x, y, col]) => {
+          p.ellipse(x as number, y as number, 46, 56, col as string);
+        });
+        break;
+      case 'ebru': {
+        const cols = ['#ffffff', C.saffron, C.red, '#F28DB2', C.cobalt];
+        for (let i = 0; i < 5; i++) p.ellipse(cx, cy, 330 - i * 60, 260 - i * 48, cols[i]);
+        tulip(p, cx, cy + 150, 300, C.red);
+        break;
+      }
+    }
+    titleText(p, title, p.W / 2, inner.y + 170, inner.w - 40, 120);
+  }
+  return p.canvas;
+}

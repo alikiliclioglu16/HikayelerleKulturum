@@ -1,0 +1,65 @@
+{
+  "books": [
+    {
+      "id": "bayram-sabahi",
+      "status": "ready",
+      "title": "Bayram Sabahı",
+      "titleEn": "Bayram Morning",
+      "pages": 8,
+      "values": ["saygi", "aile-butunlugu", "adalet", "dostluk"],
+      "blurb": {
+        "tr": "Elif ve Can'ın Amerika'daki bayram sabahı: bayramlıklar, baklava, el öpme ve babaanneyle görüntülü bir bayramlaşma.",
+        "en": "Elif and Can celebrate Bayram in America: new clothes, baklava, kissing an elder's hand and a video call with Grandma."
+      },
+      "cover": { "art": "cover-bayram" }
+    },
+    {
+      "id": "nasreddin-hoca-kazan",
+      "status": "soon",
+      "title": "Nasreddin Hoca ve Kazan",
+      "titleEn": "Nasreddin Hodja and the Pot",
+      "values": ["adalet", "durustluk"],
+      "blurb": {
+        "tr": "Ödünç alınan kazan bir gün 'doğurursa', başka bir gün 'ölebilir' mi?",
+        "en": "If a borrowed pot can 'give birth', can it also 'die'?"
+      },
+      "cover": { "art": "cover-soon", "color": "#1F5FA8", "motif": "kazan" }
+    },
+    {
+      "id": "keloglan-tohum",
+      "status": "soon",
+      "title": "Keloğlan ve Üç Tohum",
+      "titleEn": "Keloğlan and the Three Seeds",
+      "values": ["caliskanlik", "sabir"],
+      "blurb": {
+        "tr": "Keloğlan, annesinin verdiği üç tohumla bütün köye bereket getirebilir mi?",
+        "en": "Can Keloğlan bring a good harvest to the whole village with three seeds?"
+      },
+      "cover": { "art": "cover-soon", "color": "#2E8B57", "motif": "tohum" }
+    },
+    {
+      "id": "23-nisan",
+      "status": "soon",
+      "title": "23 Nisan Şenliği",
+      "titleEn": "The April 23 Festival",
+      "values": ["sevgi", "vatanseverlik"],
+      "blurb": {
+        "tr": "Dünyanın çocuklara armağan edilen ilk bayramında Elif'in sınıfı bir şenlik hazırlıyor.",
+        "en": "Elif's class prepares for the first holiday in the world dedicated to children."
+      },
+      "cover": { "art": "cover-soon", "color": "#D2372C", "motif": "bayrak" }
+    },
+    {
+      "id": "ebru",
+      "status": "soon",
+      "title": "Ebru'nun Renkleri",
+      "titleEn": "The Colors of Ebru",
+      "values": ["estetik", "sabir"],
+      "blurb": {
+        "tr": "Su üstünde açan laleler: Can, dedesiyle ilk ebrusunu yapıyor.",
+        "en": "Tulips that bloom on water: Can makes his first marbled painting with Grandpa."
+      },
+      "cover": { "art": "cover-soon", "color": "#1FA4A0", "motif": "ebru" }
+    }
+  ]
+}

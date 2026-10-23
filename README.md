@@ -1,2 +1,100 @@
-# HikayelerleKulturum
-Türk kültürünü ve Türkçeyi öğreten interaktif resimli kitaplar
+# Hikâyelerle Kültürüm
+
+Amerika'da büyüyen 4–11 yaş arası çift dilli Türk çocukları için etkileşimli, açılır sayfalı (pop-up) resimli kitaplar. Her kitap bir Türk kültürü ögesini ve Türkiye Yüzyılı Maarif Modeli'nin değerlerini işler.
+
+Bu sürüm bir prototiptir: ilk kitap **Bayram Sabahı** hazır, dört kitap "Yakında" olarak listelenir.
+
+## Neler var?
+
+- Masanın üstünde açılan 3D kitap; her sayfada kâğıttan kesilmiş katmanlar ayağa kalkar (Three.js).
+- Türkçe metin, üç okuma seviyesi: Tomurcuk (4–6), Lale (7–9), Çınar (10–11).
+- Sesli okuma ve kelime kelime vurgulama (cihazın Türkçe sesiyle; ses yoksa kelimeler okuma hızında parlar).
+- Altı noktalı kelimeye dokununca kelime okunur, İngilizcesi çıkar ve resimdeki nesne zıplar. Resimdeki nesneye dokununca da metindeki kelime parlar.
+- Sayfanın İngilizce çevirisi, "Biliyor musun?" kültür notları.
+- Kelime Sandığı, bilgi yarışması, değer avı ve ebeveynler için aile köşesi.
+- Hesap, çerez, reklam ve analitik yok. İlerleme yalnızca tarayıcıda (localStorage) saklanır.
+
+## GitHub'a yükleme ve yayın
+
+1. Zip'teki her şeyi `Documents\GitHub\HikayelerleKulturum` klasörüne kopyalayın (README'nin üzerine yazılabilir).
+2. GitHub Desktop'ta değişiklikleri görün, bir özet yazıp **Commit to main**, sonra **Push origin** deyin.
+3. Vercel'de proje zaten bağlıysa her push sonrası site kendiliğinden güncellenir. İlk kez bağlıyorsanız Framework Preset olarak **Vite** seçilir; Build Command `npm run build`, Output Directory `dist`.
+
+## Bilgisayarda çalıştırmak (isteğe bağlı)
+
+[Node.js 20+](https://nodejs.org) kurulu olmalı.
+
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # yayın paketini dist/ klasörüne üretir
+```
+
+## Klasör yapısı
+
+```
+public/books/index.json            Raftaki kitaplar (hazır ve yakında)
+public/books/bayram-sabahi/book.json   Kitabın bütün içeriği
+src/art/                           Geçici çizimler (kod ile çizilen kâğıt-kesik sahneler)
+src/three/bookScene.ts             3D masa, kitap, sayfa çevirme ve dokunma
+src/pages/                         Ana sayfa, okuyucu, etkinlikler, sandık, ebeveyn sayfası
+src/values.ts                      Maarif Modeli'nin 20 değeri
+docs/gorsel-promptlari.md          ChatGPT/Gemini ve Meshy için hazır istemler
+```
+
+## Yeni kitap eklemek
+
+1. `public/books/<kitap-id>/book.json` dosyasını `bayram-sabahi/book.json` örneğine göre oluşturun.
+2. `public/books/index.json` içine kitabı `"status": "ready"` ile ekleyin.
+
+Metin işaretleme kuralı:
+
+- `{lokum}` → sözlükte `lokum` olarak geçen kelime.
+- `{yatağından|yatak}` → metinde "yatağından" görünür, sözlükte `yatak` aranır.
+- Birden fazla kelime de olur: `{Ellerinizden öperim|ellerinizden öperim}`.
+
+Her sayfada `text` altında `"1"`, `"2"`, `"3"` seviyeleri vardır; her biri `tr` ve `en` içerir.
+
+## Kendi resimlerinizi kullanmak
+
+Bir sayfaya `layers` eklenirse kodla çizilen geçici sahne yerine sizin resimleriniz kullanılır. Resimler arka planı şeffaf PNG veya WebP olmalı.
+
+```json
+"layers": [
+  { "src": "art/p1-arka.webp", "z": 0.04, "w": 0.96, "h": 0.86 },
+  { "src": "art/p1-orta.webp", "z": 0.45, "w": 0.92, "h": 0.60,
+    "hotspots": [{ "word": "yatak", "rect": [0.1, 0.3, 0.8, 0.7] }] },
+  { "src": "art/p1-on.webp",   "z": 0.84, "w": 0.94, "h": 0.30 }
+]
+```
+
+- `z`: sayfanın arkasından (0) önüne (1) konum.
+- `w`, `h`: genişlik ve yükseklik, sayfa genişliğine göre. Resim oranı `h / w` olmalı (arka katman için yaklaşık 1000×900 px).
+- `hotspots`: dokunulabilir alanlar; `rect` = [x, y, genişlik, yükseklik], resmin sol üst köşesinden 0–1 arası.
+- Kapak için `index.json` içinde `"cover": { "src": "art/kapak.webp" }` (oran 1 : 1,36).
+
+İstemler için `docs/gorsel-promptlari.md` dosyasına bakın.
+
+## Gerçek anlatıcı sesi eklemek
+
+Okuyucu kayıtlı sesi destekler. Bir sayfaya şunu ekleyin:
+
+```json
+"audio": {
+  "2": { "src": "/books/bayram-sabahi/audio/p1-l2.mp3", "marks": [0.20, 0.55, 1.10] }
+}
+```
+
+`marks`, metindeki her kelimenin saniye cinsinden başlangıç zamanıdır (sırayla). Bu zamanlar kelime zaman damgası veren bir seslendirme aracıyla ya da kayıt üzerinde hizalama yapan bir araçla çıkarılabilir. Ses varsa cihazın sesi yerine kayıt çalınır ve kelimeler kayda göre parlar.
+
+## Güvenlik ve gizlilik
+
+`vercel.json` içinde içerik güvenlik politikası (CSP) ve güvenlik başlıkları tanımlıdır. İleride dışarıdan bir analitik veya ödeme betiği eklenirse CSP'ye o alan adı eklenmelidir. Çocuklara yönelik bir üründe çerez kullanan analitik eklemeden önce gizlilik açısından hukuki görüş alın.
+
+## Sonraki adımlar
+
+- Resimlemeleri ChatGPT/Gemini ile üretip `layers` ile eklemek.
+- Meshy'den gelen 3D objeler (GLB) için yükleme desteği.
+- Her seviye için gerçek anlatıcı kaydı.
+- Yeni kitaplar: Nasreddin Hoca ve Kazan, Keloğlan ve Üç Tohum, 23 Nisan Şenliği, Ebru'nun Renkleri.
+- Ebeveyn hesabı ve ödeme (Supabase + Stripe).
