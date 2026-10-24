@@ -5,6 +5,10 @@ import { store } from './store';
  * Everything goes through one master bus with a soft room reverb and a limiter,
  * so the effects are clear and full but never harsh.
  */
+/** Overall loudness of the object sounds and of the background music. */
+const FX_LEVEL = 0.7;
+const MUSIC_LEVEL = 0.95;
+
 let ctx: AudioContext | null = null;
 let fxBus: GainNode | null = null;
 let musicBus: GainNode | null = null;
@@ -59,6 +63,7 @@ function audio(force = false): AudioContext | null {
       reverbIn = ctx.createGain();
       reverbIn.connect(verb);
       fxBus = ctx.createGain();
+      fxBus.gain.value = FX_LEVEL;
       fxBus.connect(master);
       fxBus.connect(reverbIn);
       musicBus = ctx.createGain();
@@ -450,7 +455,7 @@ export const sfx = {
     music.nextBar = Math.max(music.nextBar, a.currentTime + 0.2);
     musicBus!.gain.cancelScheduledValues(a.currentTime);
     musicBus!.gain.setValueAtTime(musicBus!.gain.value, a.currentTime);
-    musicBus!.gain.linearRampToValueAtTime(0.6, a.currentTime + 2.5);
+    musicBus!.gain.linearRampToValueAtTime(MUSIC_LEVEL, a.currentTime + 2.5);
     scheduleMusic();
     window.clearInterval(music.timer);
     music.timer = window.setInterval(scheduleMusic, 400);
@@ -472,7 +477,7 @@ export const sfx = {
     const t = ctx.currentTime;
     musicBus.gain.cancelScheduledValues(t);
     musicBus.gain.setValueAtTime(musicBus.gain.value, t);
-    musicBus.gain.linearRampToValueAtTime(on ? 0.22 : 0.6, t + 0.4);
+    musicBus.gain.linearRampToValueAtTime(on ? MUSIC_LEVEL * 0.35 : MUSIC_LEVEL, t + 0.4);
   },
 };
 

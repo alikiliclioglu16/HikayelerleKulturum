@@ -37,7 +37,7 @@ npm run build    # yayın paketini dist/ klasörüne üretir
 public/books/index.json            Raftaki kitaplar (hazır ve yakında)
 public/books/bayram-sabahi/book.json   Kitabın bütün içeriği
 public/culture/items.json          Kültür rafındaki 20 öge (ad, İngilizcesi, bilgi, isteğe bağlı 3D model)
-src/home3d/                        3D ana sayfa: oda, raflar, geçici kültür modelleri
+src/home3d/                        3D ana sayfa: oda, raflar, geçici kültür modelleri, duvardaki kilim motifleri (kilim.ts)
 src/art/                           Geçici çizimler (kod ile çizilen kâğıt-kesik sahneler)
 src/three/bookScene.ts             3D masa, kitap, sayfa çevirme ve dokunma
 src/pages/                         Ana sayfa, okuyucu, etkinlikler, sandık, ebeveyn sayfası
@@ -80,7 +80,7 @@ Bir sayfaya `layers` eklenirse kodla çizilen geçici sahne yerine sizin resimle
 
 ## Kültür rafına 3D model eklemek
 
-Meshy'den gelen GLB dosyalarını `public/models/culture/` klasörüne koyup `public/culture/items.json` içinde ögeye `"model": "/models/culture/<id>.glb"` ekleyin. Gerekirse `"rotY"` (derece) ve `"height"` ile yön ve boyut ayarlanır. İstemler `docs/gorsel-promptlari.md` dosyasında.
+Meshy'den gelen GLB dosyalarını `public/models/culture/` klasörüne koyup `public/culture/items.json` içinde ögeye `"model": "/models/culture/<id>.glb"` ekleyin. Gerekirse `"rotY"` (derece), `"height"` (yükseklik) ve `"width"` (raftaki yer genişliği, varsayılan 0.46) ile yön ve boyut ayarlanır. Meshy dosyaları çok büyük gelirse (20 MB gibi) önce küçültülmeli; bunu Claude ile yapabilirsiniz. İstemler `docs/gorsel-promptlari.md` dosyasında.
 
 ## Gerçek anlatıcı sesi eklemek
 

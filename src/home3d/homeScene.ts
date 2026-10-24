@@ -3,7 +3,8 @@ import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment
 import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js';
 import { Tweens, ease } from '../three/tween';
 import { CULTURE_BUILDERS, placeholder } from './culture';
-import { wallTexture, woodTexture, tileBandTexture, mosaicLamp } from './room';
+import { woodTexture, tileBandTexture, mosaicLamp } from './room';
+import { MOTIFS, kilimCanvas } from './kilim';
 import { fitToSlot, disposeObject, std, mesh, tex, canvas, V3 } from './kit3d';
 import { Sparkles } from './sparkles';
 
@@ -19,6 +20,8 @@ export interface CultureDef {
   rotY?: number;
   /** Height on the shelf for a GLB model, in shelf units (default per item, about 0.3–0.56). */
   height?: number;
+  /** Slot width on the shelf (default 0.46). Wide objects can take more room. */
+  width?: number;
 }
 
 export interface ShelfBook {
@@ -50,6 +53,7 @@ interface ItemObj {
   inner: THREE.Object3D;
   hit: THREE.Mesh;
   x: number;
+  w: number;
   lift: number;
   hopK: number;
   glow: GlowMat[];
@@ -138,6 +142,10 @@ export class HomeScene {
   private size = { W: 1, H: 1 };
   private sparkles = new Sparkles(220);
   private laidOut = false;
+  private shelfLen = 0;
+  private walls: THREE.Mesh[] = [];
+  private motifTex = new Map<number, THREE.Texture>();
+  motif = 0;
 
   constructor(readonly host: HTMLElement) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'default' });
@@ -191,12 +199,17 @@ export class HomeScene {
     fill.position.set(5, 2.5, 5);
     this.scene.add(fill);
 
-    const wall = mesh(new THREE.PlaneGeometry(44, 18), std('#ffffff', { roughness: 0.95, map: Object.assign(wallTexture(), {}) }), [0, 5, 0]);
-    const wm = wall.material as THREE.MeshStandardMaterial;
-    wm.map!.wrapS = wm.map!.wrapT = THREE.RepeatWrapping;
-    wm.map!.repeat.set(44 / 1.15, 18 / 1.15);
-    wall.castShadow = false;
-    this.scene.add(wall);
+    // Wall covered with kilim motifs: two layers so one motif can fade into the next
+    const tile = 1.35;
+    for (let i = 0; i < 2; i++) {
+      const t = tex(kilimCanvas(MOTIFS[i]), [44 / tile, 18 / tile]);
+      this.motifTex.set(i, t);
+      const mat = std('#ffffff', { roughness: 0.96, map: t, transparent: i === 1, opacity: i === 1 ? 0 : 1, depthWrite: i === 0 });
+      const wall = mesh(new THREE.PlaneGeometry(44, 18), mat, [0, 5, i * 0.001]);
+      wall.castShadow = false;
+      this.walls.push(wall);
+      this.scene.add(wall);
+    }
 
     const band = mesh(new THREE.PlaneGeometry(44, BAND_H), std('#ffffff', { roughness: 0.3, map: tileBandTexture(44 / (BAND_H * 4)) }), [0, BAND_Y0 + BAND_H / 2, 0.003]);
     band.castShadow = false;
@@ -213,14 +226,13 @@ export class HomeScene {
     this.scene.add(mesh(new THREE.BoxGeometry(44, 0.012, 0.006), std('#C99A42', { metalness: 0.8, roughness: 0.35 }), [0, -0.13, SIDE_DEPTH + 0.003]));
   }
 
-  private buildShelf(n: number) {
+  private buildShelf(L: number) {
     if (this.board) {
       this.shelf.remove(this.board);
       this.board.geometry.dispose();
     }
     this.shelf.remove(this.brackets);
     disposeObject(this.brackets);
-    const L = (n - 1) * ITEM_GAP + 0.95;
     const shelfWood = std('#ffffff', { roughness: 0.55, map: woodTexture('#8A5530', [L / 3, 1], 11) });
     const edge = std('#7A4728', { roughness: 0.5 });
     this.board = mesh(new RoundedBoxGeometry(L, 0.06, SHELF_DEPTH, 2, 0.012), [edge, edge, shelfWood, edge, edge, edge], [0, SHELF_Y - 0.03, SHELF_DEPTH / 2]);
@@ -247,17 +259,24 @@ export class HomeScene {
   /* ---------------- items ---------------- */
 
   setItems(defs: CultureDef[]) {
-    this.buildShelf(defs.length);
+    // each item gets its own slot width (wide objects like the coffee set get more room)
+    const widths = defs.map((d) => d.width ?? SLOT_W);
+    const pitch = widths.map((w) => w + ITEM_GAP - SLOT_W);
+    const total = pitch.reduce((a, b) => a + b, 0);
+    this.shelfLen = total;
+    this.buildShelf(total + 0.5);
+    let cursor = -total / 2;
     defs.forEach((def, i) => {
       const pivot = new THREE.Group();
-      const x = (i - (defs.length - 1) / 2) * ITEM_GAP;
+      const x = cursor + pitch[i] / 2;
+      cursor += pitch[i];
       pivot.position.set(x, SHELF_Y, ITEM_Z);
       const b = CULTURE_BUILDERS[def.id];
-      const inner = fitToSlot(b ? b.build() : placeholder(), (b?.h ?? 0.4) * ITEM_SCALE, SLOT_W, SLOT_D);
+      const inner = fitToSlot(b ? b.build() : placeholder(), (b?.h ?? 0.4) * ITEM_SCALE, widths[i], SLOT_D);
       pivot.add(inner);
       const hit = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), invisible);
       pivot.add(hit);
-      const item: ItemObj = { def, pivot, inner, hit, x, lift: 0, hopK: 0, glow: glowMats(inner) };
+      const item: ItemObj = { def, pivot, inner, hit, x, w: widths[i], lift: 0, hopK: 0, glow: glowMats(inner) };
       this.sizeHit(item);
       this.items.push(item);
       this.shelf.add(pivot);
@@ -268,7 +287,7 @@ export class HomeScene {
   private sizeHit(item: ItemObj) {
     const box = new THREE.Box3().setFromObject(item.inner);
     const h = Math.max(0.2, box.max.y - box.min.y) + 0.04;
-    item.hit.scale.set(SLOT_W + 0.04, h, SLOT_D);
+    item.hit.scale.set(item.w + 0.04, h, SLOT_D);
     item.hit.position.set(0, h / 2, 0);
   }
 
@@ -294,7 +313,7 @@ export class HomeScene {
           if (it.def.rotY) obj.rotation.y = THREE.MathUtils.degToRad(it.def.rotY);
           const wrap = new THREE.Group();
           wrap.add(obj);
-          fitToSlot(wrap, (it.def.height ?? CULTURE_BUILDERS[it.def.id]?.h ?? 0.45) * ITEM_SCALE, SLOT_W, SLOT_D);
+          fitToSlot(wrap, (it.def.height ?? CULTURE_BUILDERS[it.def.id]?.h ?? 0.45) * ITEM_SCALE, it.w, SLOT_D);
           it.pivot.remove(it.inner);
           disposeObject(it.inner);
           it.inner = wrap;
@@ -430,7 +449,7 @@ export class HomeScene {
     this.lamp.position.x = -visW / 2 + 0.62;
 
     const visWs = W / this.ppuShelf;
-    const content = (this.items.length - 1) * ITEM_GAP + SLOT_W + 1.5;
+    const content = this.shelfLen + (W >= 700 ? 1.5 : 0.3);
     this.maxOff = Math.max(0, (content - visWs) / 2);
     // start with the first items in view
     if (!this.laidOut) this.offset = this.maxOff;
@@ -534,7 +553,7 @@ export class HomeScene {
     if (kind === 'item') {
       const it = this.items[i];
       const h = it.hit.scale.y;
-      this.sparkles.burst(V3(it.x + this.offset, SHELF_Y + h * 0.55, ITEM_Z), V3(SLOT_W * 0.55, h * 0.45, SLOT_D * 0.5), Math.round(16 * strength), strength);
+      this.sparkles.burst(V3(it.x + this.offset, SHELF_Y + h * 0.55, ITEM_Z), V3(it.w * 0.55, h * 0.45, SLOT_D * 0.5), Math.round(16 * strength), strength);
     } else {
       const b = this.books[i];
       const x = this.booksGroup.position.x + b.group.position.x;
@@ -593,6 +612,33 @@ export class HomeScene {
         b.group.rotation.y = r0 + ((want ? 0 : b.baseRotY) - r0) * k;
         b.mesh.position.y = y0 + ((want ? BOOK_H / 2 + 0.08 : BOOK_H / 2) - y0) * k;
       }, ease.inOut);
+    });
+    this.invalidate();
+  }
+
+  private motifTexture(i: number) {
+    let t = this.motifTex.get(i);
+    if (!t) {
+      t = tex(kilimCanvas(MOTIFS[i]), [44 / 1.35, 18 / 1.35]);
+      this.motifTex.set(i, t);
+    }
+    return t;
+  }
+
+  /** Fade the wall to another kilim motif. */
+  setMotif(i: number) {
+    if (i === this.motif) return;
+    const [back, front] = this.walls.map((w) => w.material as THREE.MeshStandardMaterial);
+    front.map = this.motifTexture(i);
+    front.needsUpdate = true;
+    front.opacity = 0;
+    this.motif = i;
+    this.tweens.add(1400, 0, 1, (v) => (front.opacity = v), ease.inOut).then(() => {
+      if (this.disposed || this.motif !== i) return;
+      back.map = front.map;
+      back.needsUpdate = true;
+      front.opacity = 0;
+      this.invalidate();
     });
     this.invalidate();
   }
@@ -662,6 +708,7 @@ export class HomeScene {
 
   dispose() {
     this.disposed = true;
+    this.motifTex.forEach((t) => t.dispose());
     cancelAnimationFrame(this.raf);
     disposeObject(this.scene);
     this.scene.environment?.dispose();

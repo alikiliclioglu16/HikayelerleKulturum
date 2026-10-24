@@ -5,6 +5,7 @@ import { LEVELS, valueById } from '../values';
 import { Narrator } from '../narrator';
 import { sfx } from '../sfx';
 import { HomeScene, ITEM_GAP, type CultureDef } from '../home3d/homeScene';
+import { MOTIFS } from '../home3d/kilim';
 import type { BookListing, LevelId } from '../types';
 
 /**
@@ -54,6 +55,9 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   const carNext = h('button', { class: 'round-btn car-arrow next', type: 'button', 'aria-label': 'Sonraki kitaplar' }, icon.next());
   const dots = h('div', { class: 'car-dots', role: 'group', 'aria-label': 'Kitap sayfaları' });
   const ring = h('div', { class: 'item-ring', hidden: true, 'aria-hidden': 'true' });
+  const motifName = h('strong', null, '');
+  const motifText = h('span', null, '');
+  const motifCap = h('div', { class: 'motif-cap', role: 'status', 'aria-live': 'polite' }, h('span', { class: 'mc-dot', 'aria-hidden': 'true' }), h('span', { class: 'mc-body' }, motifName, motifText));
   const hint = h('div', { class: 'home-hint', hidden: true, role: 'status' }, icon.tulip(), 'Raftaki nesnelere dokun, Türkçe adlarını duy!');
 
   const cards = list.map((b, i) => {
@@ -93,6 +97,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     shelfNext,
     ring,
     hint,
+    motifCap,
     cardLayer,
     carPrev,
     carNext,
@@ -389,6 +394,9 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     shelfPrev.hidden = scene.offset >= scene.maxOff - 0.01;
     shelfNext.hidden = scene.offset <= -scene.maxOff + 0.01;
     hint.style.top = `${sBottom + 18}px`;
+    const narrowNow = shell.clientWidth < 720;
+    motifCap.style.top = `${sBottom + 14}px`;
+    motifCap.style.visibility = narrowNow && !hint.hidden ? 'hidden' : '';
     if (focused !== null) {
       const a = scene.itemAnchor(focused);
       const w = ITEM_GAP * scene.ppuShelf;
@@ -494,6 +502,27 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   };
   window.addEventListener('keydown', onKey);
 
+  /* ---------- kilim motifs on the wall, a new one every 5 seconds ---------- */
+  function showMotif(i: number) {
+    const m = MOTIFS[i];
+    motifCap.classList.remove('show');
+    window.setTimeout(() => {
+      motifName.textContent = `${m.name} motifi`;
+      motifText.textContent = m.meaning;
+      motifCap.title = m.en;
+      (motifCap.querySelector('.mc-dot') as HTMLElement).style.background = m.palette.b;
+      motifCap.classList.add('show');
+    }, 350);
+  }
+  let motifTimer = 0;
+  showMotif(0);
+  motifTimer = window.setInterval(() => {
+    if (document.hidden) return;
+    const next = (scene.motif + 1) % MOTIFS.length;
+    scene.setMotif(next);
+    showMotif(next);
+  }, 5000);
+
   /* ---------- start ---------- */
   updateStats();
   updateSound();
@@ -508,6 +537,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   return () => {
     window.removeEventListener('keydown', onKey);
     sfx.stopMusic(0.6);
+    window.clearInterval(motifTimer);
     ro.disconnect();
     narrator.stop();
     closePop();
