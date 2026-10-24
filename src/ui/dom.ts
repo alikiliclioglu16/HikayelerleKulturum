@@ -50,6 +50,15 @@ export const icon = {
     ),
   lang: () => svg(S('<path d="M4 6h8M8 4v2M5.5 6c.8 3 3 5.5 6 7M10.5 6c-.8 3-3.3 6-6.5 7.5"/><path d="M13 20l3.5-9 3.5 9M14.2 17h4.6"/>')),
   home: () => svg(S('<path d="M4 11l8-6.5 8 6.5"/><path d="M6 10v9.5h12V10"/>')),
+  mute: () => svg(S('<path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z" fill="currentColor"/><path d="M16 9.5l5 5M21 9.5l-5 5"/>')),
+  parents: () =>
+    svg(
+      S('<circle cx="8.5" cy="7.5" r="2.8"/><circle cx="16.5" cy="9" r="2.3"/><path d="M3.5 19.5c0-3.3 2.2-5.5 5-5.5s5 2.2 5 5.5"/><path d="M13.5 15c.8-.9 1.8-1.4 3-1.4 2.4 0 4 1.9 4 4.9"/>'),
+    ),
+  tulip: () =>
+    svg(
+      `<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 21v-8" stroke="#5BC07A" stroke-width="2.2" stroke-linecap="round"/><path d="M12 17c-2.2-.3-4-2-4.6-4 2.4 0 4 1.5 4.6 4z" fill="#5BC07A"/><path d="M6.5 4c-.4 3.8 1.2 7.3 5.5 8 4.3-.7 5.9-4.2 5.5-8l-2.6 2.2L12 3 9.1 6.2z" fill="#F0614F"/></svg>`,
+    ),
   book: () => svg(S('<path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5c-3.5-.5-6.5 0-8.5 1.5z"/><path d="M12 6.5v13"/>')),
 };
 

@@ -1,0 +1,204 @@
+{
+  "items": [
+    {
+      "id": "cay",
+      "name": "çay",
+      "en": "tea",
+      "icon": "🍵",
+      "fact": {
+        "tr": "Türkiye'de çay ince belli bardaklarda içilir. Türkiye, dünyada en çok çay içilen ülkelerden biridir.",
+        "en": "In Türkiye, tea is served in slim, tulip-shaped glasses. Türkiye is one of the biggest tea-drinking countries in the world."
+      }
+    },
+    {
+      "id": "caydanlik",
+      "name": "çaydanlık",
+      "en": "two-level teapot",
+      "icon": "🫖",
+      "fact": {
+        "tr": "Çaydanlık iki katlıdır: altta su kaynar, üstte çay demlenir.",
+        "en": "A çaydanlık has two levels: water boils at the bottom and tea brews on top."
+      }
+    },
+    {
+      "id": "simit",
+      "name": "simit",
+      "en": "sesame bread ring",
+      "icon": "🥯",
+      "fact": {
+        "tr": "Simit, susamlı ve halka şeklinde bir ekmektir. Kahvaltıda çayla çok yakışır.",
+        "en": "Simit is a ring-shaped bread covered in sesame seeds. It goes perfectly with tea at breakfast."
+      }
+    },
+    {
+      "id": "baglama",
+      "name": "bağlama",
+      "en": "bağlama, a Turkish lute",
+      "icon": "🪕",
+      "fact": {
+        "tr": "Bağlama ya da saz, türkülerde çalınan telli bir çalgıdır. Âşıklar sözlerini sazla söyler.",
+        "en": "The bağlama, also called saz, is a stringed instrument for Turkish folk songs. Folk poets called âşık sing with it."
+      }
+    },
+    {
+      "id": "peri-bacasi",
+      "name": "peri bacası",
+      "en": "fairy chimney",
+      "icon": "🏜️",
+      "fact": {
+        "tr": "Peri bacaları Kapadokya'dadır. Rüzgâr ve yağmur, yumuşak kayaları çok uzun yıllar boyunca bu şekle sokmuştur.",
+        "en": "Fairy chimneys are in Cappadocia. Wind and rain shaped the soft rock over a very long time."
+      }
+    },
+    {
+      "id": "balon",
+      "name": "sıcak hava balonu",
+      "en": "hot air balloon",
+      "icon": "🎈",
+      "fact": {
+        "tr": "Kapadokya'da sabahları gökyüzü rengârenk sıcak hava balonlarıyla dolar.",
+        "en": "In Cappadocia, the morning sky fills with colorful hot air balloons."
+      }
+    },
+    {
+      "id": "baklava",
+      "name": "baklava",
+      "en": "baklava",
+      "icon": "🥮",
+      "fact": {
+        "tr": "Baklava, ince yufkalar, ceviz ya da fıstık ve şerbetle yapılan bir tatlıdır. Bayram sofralarının baş tacıdır.",
+        "en": "Baklava is a dessert made of thin pastry layers, walnuts or pistachios and syrup. It is the star of holiday tables."
+      }
+    },
+    {
+      "id": "nazar",
+      "name": "nazar boncuğu",
+      "en": "nazar, the blue eye bead",
+      "icon": "🧿",
+      "fact": {
+        "tr": "Nazar boncuğu mavi camdan yapılan geleneksel bir süstür. Kapılara ve bebek odalarına iyi dilek olarak asılır.",
+        "en": "The nazar is a traditional blue glass charm. People hang it on doors and in baby rooms as a good wish."
+      }
+    },
+    {
+      "id": "lale",
+      "name": "lale",
+      "en": "tulip",
+      "icon": "🌷",
+      "fact": {
+        "tr": "Lale, Türk sanatının en sevilen çiçeğidir. Çinilerde, kilimlerde ve kumaşlarda lale desenleri görürsün.",
+        "en": "The tulip is the favorite flower of Turkish art. You can find tulip patterns on tiles, rugs and fabrics."
+      }
+    },
+    {
+      "id": "kahve",
+      "name": "Türk kahvesi",
+      "en": "Turkish coffee",
+      "icon": "☕",
+      "fact": {
+        "tr": "Türk kahvesi cezvede pişirilir ve köpüklü içilir. Yanında bir bardak su ve lokum ikram edilir.",
+        "en": "Turkish coffee is cooked in a small pot called a cezve and served with foam, a glass of water and Turkish delight."
+      }
+    },
+    {
+      "id": "lokum",
+      "name": "lokum",
+      "en": "Turkish delight",
+      "icon": "🍬",
+      "fact": {
+        "tr": "Lokum yumuşacık bir Türk tatlısıdır. Gül, nar ya da fıstıklı olabilir ve pudra şekerine bulanır.",
+        "en": "Turkish delight is a soft, chewy sweet. It can taste of rose, pomegranate or pistachio and is dusted with powdered sugar."
+      }
+    },
+    {
+      "id": "galata",
+      "name": "Galata Kulesi",
+      "en": "Galata Tower",
+      "icon": "🗼",
+      "fact": {
+        "tr": "Galata Kulesi İstanbul'dadır. Yüzyıllardır şehri ve denizi tepeden seyreder.",
+        "en": "Galata Tower is in Istanbul. It has watched over the city and the sea for centuries."
+      }
+    },
+    {
+      "id": "kiz-kulesi",
+      "name": "Kız Kulesi",
+      "en": "Maiden's Tower",
+      "icon": "🏝️",
+      "fact": {
+        "tr": "Kız Kulesi, İstanbul Boğazı'nda küçük bir adacığın üstünde durur.",
+        "en": "The Maiden's Tower stands on a tiny island in the Bosphorus in Istanbul."
+      }
+    },
+    {
+      "id": "davul",
+      "name": "davul",
+      "en": "drum",
+      "icon": "🥁",
+      "fact": {
+        "tr": "Ramazan'da davulcular sahur vakti sokakları gezip davul çalar ve herkesi uyandırır.",
+        "en": "During Ramadan, drummers walk the streets before dawn and play the drum to wake people for the sahur meal."
+      }
+    },
+    {
+      "id": "ebru",
+      "name": "ebru",
+      "en": "ebru, paper marbling",
+      "icon": "🎨",
+      "fact": {
+        "tr": "Ebru, su üstüne boya damlatılarak yapılan bir sanattır. Sudaki desen sonra kâğıda aktarılır.",
+        "en": "Ebru is the art of dropping paint onto water. The pattern on the water is then printed onto paper."
+      }
+    },
+    {
+      "id": "karagoz",
+      "name": "Karagöz ile Hacivat",
+      "en": "Karagöz and Hacivat, a shadow play",
+      "icon": "🎭",
+      "fact": {
+        "tr": "Karagöz ile Hacivat, ışıklı bir perdeye yansıyan renkli figürlerle oynanan bir gölge oyunudur.",
+        "en": "Karagöz and Hacivat is a shadow play: colorful puppets are pressed against a lit screen."
+      }
+    },
+    {
+      "id": "dondurma",
+      "name": "Maraş dondurması",
+      "en": "Maraş ice cream",
+      "icon": "🍦",
+      "fact": {
+        "tr": "Maraş dondurması salep ve keçi sütüyle yapılır. O kadar sıkıdır ki uzar ve bıçakla kesilir.",
+        "en": "Maraş ice cream is made with salep and goat's milk. It is so thick that it stretches and is cut with a knife."
+      }
+    },
+    {
+      "id": "cini",
+      "name": "çini",
+      "en": "İznik tile art",
+      "icon": "🍽️",
+      "fact": {
+        "tr": "İznik çinileri mavi, turkuaz ve kırmızı renkleriyle ünlüdür. Camileri ve sarayları süsler.",
+        "en": "İznik tiles are famous for their blue, turquoise and red colors. They decorate mosques and palaces."
+      }
+    },
+    {
+      "id": "mangala",
+      "name": "mangala",
+      "en": "mangala, a stone game",
+      "icon": "🎲",
+      "fact": {
+        "tr": "Mangala, çukurlara taş dağıtarak oynanan çok eski bir Türk zekâ oyunudur.",
+        "en": "Mangala is a very old Turkish strategy game played by moving stones between little pits."
+      }
+    },
+    {
+      "id": "bayrak",
+      "name": "Türk bayrağı",
+      "en": "Turkish flag",
+      "icon": "🇹🇷",
+      "fact": {
+        "tr": "Türk bayrağı kırmızı zemin üzerinde beyaz ay ve yıldızdan oluşur.",
+        "en": "The Turkish flag has a white crescent and star on a red background."
+      }
+    }
+  ]
+}

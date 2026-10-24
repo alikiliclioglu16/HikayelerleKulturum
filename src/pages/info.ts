@@ -13,7 +13,7 @@ export function renderChest(root: HTMLElement) {
       'div',
       { class: 'page-head' },
       h('h1', null, 'Kelime Sandığım'),
-      h('p', null, 'Kitaplarda dokunduğun kelimeler burada toplanır. Bir karta dokun, kelimeyi dinle.'),
+      h('p', null, 'Kitaplarda ve kültür rafında dokunduğun kelimeler burada toplanır. Bir karta dokun, kelimeyi dinle.'),
     ),
   ];
   if (!words.length) {
@@ -73,6 +73,8 @@ export function renderParents(root: HTMLElement) {
         h('h2', { style: 'margin-top:0' }, 'Nasıl çalışır?'),
         h('p', null, 'Her kitap masanın üzerinde açılan, sayfaları kâğıttan sahnelerle canlanan bir resimli kitaptır. Metin Türkçedir; altı noktalı kelimelere dokununca kelime okunur ve İngilizce karşılığı görünür. Dil düğmesiyle sayfanın İngilizcesi de açılabilir.'),
         h('p', null, 'Resimdeki nesnelere dokunmak da işe yarar: dokunulan nesnenin Türkçesi okunur ve metindeki kelime parlar. Böylece çocuk kelimeyle resmi birlikte öğrenir.'),
+        h('h2', null, 'Kültür rafı'),
+        h('p', null, 'Ana sayfadaki üst rafta 20 Türk kültürü ögesi durur: çay, simit, bağlama, peri bacaları, nazar boncuğu, Karagöz ile Hacivat ve daha fazlası. Çocuk bir ögeye dokununca Türkçe adını duyar, İngilizcesini ve kısa bir bilgiyi okur; öge Kelime Sandığı’na eklenir.'),
         h('h2', null, 'Üç okuma seviyesi'),
         h('ul', null, ...LEVELS.map((l) => h('li', null, h('strong', null, `${l.name} (${l.ages}): `), l.note))),
         h('p', null, 'Aynı hikâye üç farklı uzunlukta yazıldı. Kardeşler aynı kitabı kendi seviyelerinde okuyabilir.'),

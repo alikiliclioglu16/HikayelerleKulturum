@@ -73,16 +73,48 @@ Boyutlar: **arka** 1000×900, **orta** 1000×650, **ön** 1000×320 (yatay şeri
 - **Orta:** A house wall with a big window glowing warm yellow; inside, the family (Baba, Anne, Elif, Can) seen as warm silhouettes, hugging.
 - **Ön:** A wooden window box with red and yellow tulips and a small glowing lantern.
 
-## Meshy için 3D obje istemleri
+## Meshy için kültür rafı modelleri (20 öge)
 
-Masadaki süs objeleri için (çay bardağı, lale vazosu vb.). Ticari kullanım için Meshy'nin ücretli planında üretin; ücretsiz plandaki modeller CC BY 4.0 lisanslıdır ve Meshy'ye atıf ister.
+Ana sayfanın üst rafındaki 20 öge şu an kodla yapılmış geçici modellerdir. Meshy'den gelen GLB dosyaları bunların yerine geçer.
 
-Ayarlar: **Text to 3D**, stilize, düşük poligon; **GLB** olarak dışa aktarın; 20.000 üçgenin altında, doku 1024 px.
+**Meshy ayarları**
 
-- **Turkish tea glass:** "A traditional tulip-shaped Turkish tea glass filled with dark red tea on a small red and white saucer, stylized, clean, low poly."
-- **Çaydanlık:** "A two-level Turkish teapot (çaydanlık), shiny silver lower kettle with a white porcelain teapot on top decorated with blue İznik flowers, stylized, low poly."
-- **Lokum kutusu:** "An open red gift box of Turkish delight cubes, pink and white, dusted with powdered sugar, stylized, low poly."
-- **Lale vazosu:** "A single red tulip in a slim turquoise ceramic vase with İznik patterns, stylized, low poly."
-- **Nazar boncuğu (isteğe bağlı):** "A blue glass evil eye bead charm on a small stand, stylized, low poly."
+- Ticari kullanım için ücretli planda üretin (ücretsiz plandaki modeller CC BY 4.0 lisanslıdır ve Meshy'ye atıf ister).
+- Tek bir nesne, düz zeminde dik duran, önden bakınca tanınan bir oyuncak/biblo gibi olsun.
+- Dışa aktarma: **GLB**, 20.000 üçgenin altı, doku 1024 px. Mümkünse sıkıştırma (Draco) kapalı.
+- Dosya adı aşağıdaki tablodaki `id` ile aynı olsun, ör. `cay.glb`.
 
-GLB dosyalarını `public/models/` klasörüne koyun. Uygulamada bunları yükleyen kod bir sonraki adımda eklenecek.
+**Stil (her isteme ekleyin):**
+
+> Cute stylized miniature figurine, hand-painted toy look, smooth rounded shapes, soft clay and painted wood materials, warm saturated colors, clean simple details, single object standing upright on a flat base, centered, front view.
+
+| id | Öge | İstem (İngilizce) |
+|---|---|---|
+| `cay` | Çay | A tulip-shaped Turkish tea glass filled with dark red tea, gold rim, on a small red saucer with a white rim, a sugar cube and tiny spoon on the saucer |
+| `caydanlik` | Çaydanlık | A two-level Turkish teapot: shiny silver kettle at the bottom, white porcelain teapot on top with a blue İznik flower band |
+| `simit` | Simit | A Turkish simit, twisted sesame bread ring, golden brown, standing upright on a small wooden peg stand |
+| `baglama` | Bağlama | A Turkish bağlama (saz) lute standing upright on a small stand, pear-shaped ribbed wooden body, long neck with frets and tuning pegs |
+| `peri-bacasi` | Peri bacası | Three Cappadocia fairy chimneys of different heights with dark mushroom caps, tiny carved doors and windows, on a sandy rock base |
+| `balon` | Sıcak hava balonu | A hot air balloon with red, yellow, cobalt blue and turquoise stripes and a small wicker basket, resting on its basket |
+| `baklava` | Baklava | A round copper tray of diamond-shaped baklava pieces with green pistachio crumbs, leaning on a small wooden plate stand |
+| `nazar` | Nazar boncuğu | A blue glass evil eye bead (nazar) hanging from a small brass stand on a wooden base, with a red string and tassel |
+| `lale` | Lale | A single red tulip in a small white İznik vase painted with cobalt and red tulips |
+| `kahve` | Türk kahvesi | A small Turkish coffee cup with saucer, foamy coffee, next to a copper cezve pot with a long brass handle |
+| `lokum` | Lokum | A pyramid of pink and white Turkish delight cubes dusted with powdered sugar on a white footed dish |
+| `galata` | Galata Kulesi | Istanbul's Galata Tower: round stone tower with small arched windows, a gallery and a grey conical roof |
+| `kiz-kulesi` | Kız Kulesi | Istanbul's Maiden's Tower on a tiny rocky island in blue water: white building, red roof, small tower with a grey cupola and a tiny Turkish flag |
+| `davul` | Davul | A traditional Turkish drum (davul) with red body and white zigzag ropes, lying on a small wooden cradle, with a mallet |
+| `ebru` | Ebru | A small framed ebru (marbled paper) painting with swirls of blue, turquoise, red and yellow, on a wooden easel |
+| `karagoz` | Karagöz ile Hacivat | A miniature shadow-puppet theater: a glowing white screen in a wooden frame with two colorful puppets, Karagöz with a round black beard and Hacivat with a pointed beard and tall hat, red cloth below |
+| `dondurma` | Maraş dondurması | A Maraş ice cream cone with a white and a pistachio scoop, a stretchy tip on top, in a small wooden cone holder |
+| `cini` | Çini | A round İznik ceramic plate with tulips, carnations and leaves in cobalt, turquoise and red, cobalt wave rim, on a plate stand |
+| `mangala` | Mangala | A wooden mangala game board with two rows of six pits and colorful stones, leaning on a small stand |
+| `bayrak` | Türk bayrağı | A small Turkish flag waving on a white pole with a gold ball, on a round wooden base |
+
+**Modelleri siteye eklemek**
+
+1. GLB dosyalarını `public/models/culture/` klasörüne koyun (ör. `public/models/culture/cay.glb`).
+2. `public/culture/items.json` içinde ilgili ögeye `"model": "/models/culture/cay.glb"` satırını ekleyin.
+3. Model ters ya da yan duruyorsa `"rotY": 180` gibi bir açı, çok küçük ya da büyük duruyorsa `"height": 0.5` gibi bir yükseklik ekleyin.
+
+Dosyalar büyük gelirse (birkaç MB'tan fazla) bana gönderin; dokuları küçültüp sıkıştırarak yerleştiririm.

@@ -9,6 +9,7 @@ export interface Settings {
   big: boolean;
   showEn: boolean;
   calm: boolean;
+  sound: boolean;
 }
 
 export interface ChestWord {
@@ -33,12 +34,16 @@ interface Data {
   settings: Settings;
   chest: Record<string, ChestWord>;
   progress: Record<string, BookProgress>;
+  culture: string[];
+  hints: string[];
 }
 
 const defaults: Data = {
-  settings: { level: '2', rate: 0.9, big: false, showEn: false, calm: false },
+  settings: { level: '2', rate: 0.9, big: false, showEn: false, calm: false, sound: true },
   chest: {},
   progress: {},
+  culture: [],
+  hints: [],
 };
 
 function load(): Data {
@@ -50,6 +55,8 @@ function load(): Data {
       settings: { ...defaults.settings, ...(d.settings ?? {}) },
       chest: d.chest ?? {},
       progress: d.progress ?? {},
+      culture: d.culture ?? [],
+      hints: d.hints ?? [],
     };
   } catch {
     return structuredClone(defaults);
@@ -99,6 +106,25 @@ export const store = {
   markRead(book: string, pageId: string) {
     const p = store.progress(book);
     if (!p.read.includes(pageId)) store.setProgress(book, { read: [...p.read, pageId] });
+  },
+  get culture() {
+    return data.culture;
+  },
+  /** Mark a culture shelf item as discovered; returns true the first time. */
+  discover(id: string): boolean {
+    if (data.culture.includes(id)) return false;
+    data.culture = [...data.culture, id];
+    save();
+    return true;
+  },
+  seenHint(id: string): boolean {
+    return data.hints.includes(id);
+  },
+  markHint(id: string) {
+    if (!data.hints.includes(id)) {
+      data.hints = [...data.hints, id];
+      save();
+    }
   },
   reset() {
     data = structuredClone(defaults);

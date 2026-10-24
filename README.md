@@ -6,6 +6,7 @@ Bu sürüm bir prototiptir: ilk kitap **Bayram Sabahı** hazır, dört kitap "Ya
 
 ## Neler var?
 
+- 3D ana sayfa: üst rafta 20 Türk kültürü ögesi (dokununca Türkçe adı okunur, İngilizcesi ve kısa bir bilgi çıkar, Kelime Sandığı'na eklenir), alt rafta kitaplar. Raf parmakla kaydırılır, kitaplar oklarla değişir.
 - Masanın üstünde açılan 3D kitap; her sayfada kâğıttan kesilmiş katmanlar ayağa kalkar (Three.js).
 - Türkçe metin, üç okuma seviyesi: Tomurcuk (4–6), Lale (7–9), Çınar (10–11).
 - Sesli okuma ve kelime kelime vurgulama (cihazın Türkçe sesiyle; ses yoksa kelimeler okuma hızında parlar).
@@ -35,6 +36,8 @@ npm run build    # yayın paketini dist/ klasörüne üretir
 ```
 public/books/index.json            Raftaki kitaplar (hazır ve yakında)
 public/books/bayram-sabahi/book.json   Kitabın bütün içeriği
+public/culture/items.json          Kültür rafındaki 20 öge (ad, İngilizcesi, bilgi, isteğe bağlı 3D model)
+src/home3d/                        3D ana sayfa: oda, raflar, geçici kültür modelleri
 src/art/                           Geçici çizimler (kod ile çizilen kâğıt-kesik sahneler)
 src/three/bookScene.ts             3D masa, kitap, sayfa çevirme ve dokunma
 src/pages/                         Ana sayfa, okuyucu, etkinlikler, sandık, ebeveyn sayfası
@@ -75,6 +78,10 @@ Bir sayfaya `layers` eklenirse kodla çizilen geçici sahne yerine sizin resimle
 
 İstemler için `docs/gorsel-promptlari.md` dosyasına bakın.
 
+## Kültür rafına 3D model eklemek
+
+Meshy'den gelen GLB dosyalarını `public/models/culture/` klasörüne koyup `public/culture/items.json` içinde ögeye `"model": "/models/culture/<id>.glb"` ekleyin. Gerekirse `"rotY"` (derece) ve `"height"` ile yön ve boyut ayarlanır. İstemler `docs/gorsel-promptlari.md` dosyasında.
+
 ## Gerçek anlatıcı sesi eklemek
 
 Okuyucu kayıtlı sesi destekler. Bir sayfaya şunu ekleyin:
@@ -94,7 +101,6 @@ Okuyucu kayıtlı sesi destekler. Bir sayfaya şunu ekleyin:
 ## Sonraki adımlar
 
 - Resimlemeleri ChatGPT/Gemini ile üretip `layers` ile eklemek.
-- Meshy'den gelen 3D objeler (GLB) için yükleme desteği.
 - Her seviye için gerçek anlatıcı kaydı.
 - Yeni kitaplar: Nasreddin Hoca ve Kazan, Keloğlan ve Üç Tohum, 23 Nisan Şenliği, Ebru'nun Renkleri.
 - Ebeveyn hesabı ve ödeme (Supabase + Stripe).

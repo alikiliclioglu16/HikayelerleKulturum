@@ -1,3 +1,4 @@
+import type { CultureDef } from './home3d/homeScene';
 import type { Book, BookListing } from './types';
 import { drawCover } from './art/scenes';
 
@@ -25,6 +26,17 @@ export function loadBook(id: string): Promise<Book> {
     );
   }
   return books.get(id)!;
+}
+
+let culture: Promise<CultureDef[]> | null = null;
+export function loadCulture(): Promise<CultureDef[]> {
+  culture ??= fetch('/culture/items.json')
+    .then((r) => {
+      if (!r.ok) throw new Error('Kültür rafı yüklenemedi');
+      return r.json();
+    })
+    .then((d: { items: CultureDef[] }) => d.items);
+  return culture;
 }
 
 let fontsReady: Promise<unknown> | null = null;

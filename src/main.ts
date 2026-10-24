@@ -1,7 +1,6 @@
 import './styles.css';
 import { h } from './ui/dom';
 import { page } from './ui/shell';
-import { renderHome } from './pages/home';
 import { renderEnd, renderQuiz, renderHunt, renderFamily } from './pages/activities';
 import { renderChest, renderParents } from './pages/info';
 
@@ -34,8 +33,11 @@ async function route() {
     document.title = 'Hikâyelerle Kültürüm';
     if (parts[0] === 'sandik') return renderChest(app);
     if (parts[0] === 'ebeveyn') return renderParents(app);
-    await renderHome(app);
     document.title = 'Hikâyelerle Kültürüm | Türk kültürüyle büyüyen resimli kitaplar';
+    const { renderHome } = await import('./pages/home');
+    const disposeHome = await renderHome(app);
+    if (id !== routeId) disposeHome();
+    else cleanup = disposeHome;
   } catch (err) {
     console.error(err);
     if (id !== routeId) return;
