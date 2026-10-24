@@ -5,6 +5,7 @@ import { Tweens, ease } from '../three/tween';
 import { CULTURE_BUILDERS, placeholder } from './culture';
 import { wallTexture, woodTexture, tileBandTexture, mosaicLamp } from './room';
 import { fitToSlot, disposeObject, std, mesh, tex, canvas, V3 } from './kit3d';
+import { Sparkles } from './sparkles';
 
 export interface CultureDef {
   id: string;
@@ -52,6 +53,45 @@ interface ItemObj {
   x: number;
   lift: number;
   hopK: number;
+  glow: GlowMat[];
+}
+
+interface GlowMat {
+  mat: THREE.MeshStandardMaterial;
+  color: THREE.Color;
+  intensity: number;
+}
+
+const GLOW = new THREE.Color('#FFC46B');
+
+/** Remember each material's own emissive so a hover glow can be blended in and out. */
+function glowMats(o: THREE.Object3D): GlowMat[] {
+  const out: GlowMat[] = [];
+  const seen = new Set<THREE.Material>();
+  o.traverse((n) => {
+    const m = (n as THREE.Mesh).material;
+    if (!m) return;
+    for (const mat of Array.isArray(m) ? m : [m]) {
+      const sm = mat as THREE.MeshStandardMaterial;
+      if (seen.has(mat) || !sm.isMeshStandardMaterial) continue;
+      seen.add(mat);
+      out.push({ mat: sm, color: sm.emissive.clone(), intensity: sm.emissiveIntensity });
+    }
+  });
+  return out;
+}
+
+function applyGlow(list: GlowMat[], k: number) {
+  for (const g of list) {
+    if (k <= 0.001) {
+      g.mat.emissive.copy(g.color);
+      g.mat.emissiveIntensity = g.intensity;
+      continue;
+    }
+    // keep a material's own glow (like the shadow-play screen) and add a warm light on top
+    g.mat.emissive.copy(g.color).multiplyScalar(g.intensity).lerp(GLOW, k * 0.42);
+    g.mat.emissiveIntensity = 1;
+  }
 }
 
 interface BookObj {
@@ -61,6 +101,7 @@ interface BookObj {
   baseRotY: number;
   lift: number;
   pulled: boolean;
+  glow: GlowMat[];
 }
 
 export type Hit = { kind: 'item'; index: number } | { kind: 'book'; index: number };
@@ -96,6 +137,7 @@ export class HomeScene {
   reducedMotion: boolean;
   onFrame: (() => void) | null = null;
   private size = { W: 1, H: 1 };
+  private sparkles = new Sparkles(220);
   private laidOut = false;
 
   constructor(readonly host: HTMLElement) {
@@ -118,7 +160,7 @@ export class HomeScene {
     pmrem.dispose();
 
     this.buildRoom();
-    this.scene.add(this.shelf, this.booksGroup);
+    this.scene.add(this.shelf, this.booksGroup, this.sparkles.points);
     this.lamp = mosaicLamp();
     this.lamp.position.set(-4, 0, 0.74);
     this.scene.add(this.lamp);
@@ -216,7 +258,7 @@ export class HomeScene {
       pivot.add(inner);
       const hit = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), invisible);
       pivot.add(hit);
-      const item: ItemObj = { def, pivot, inner, hit, x, lift: 0, hopK: 0 };
+      const item: ItemObj = { def, pivot, inner, hit, x, lift: 0, hopK: 0, glow: glowMats(inner) };
       this.sizeHit(item);
       this.items.push(item);
       this.shelf.add(pivot);
@@ -257,6 +299,7 @@ export class HomeScene {
           it.pivot.remove(it.inner);
           disposeObject(it.inner);
           it.inner = wrap;
+          it.glow = glowMats(wrap);
           it.pivot.add(wrap);
           this.sizeHit(it);
           this.invalidate();
@@ -293,7 +336,7 @@ export class HomeScene {
       group.rotation.y = baseRotY;
       group.add(m);
       this.booksGroup.add(group);
-      this.books.push({ id: b.id, group, mesh: m, baseRotY, lift: 0, pulled: false });
+      this.books.push({ id: b.id, group, mesh: m, baseRotY, lift: 0, pulled: false, glow: glowMats(m) });
     });
   }
 
@@ -368,6 +411,7 @@ export class HomeScene {
     cam.updateProjectionMatrix();
     cam.updateMatrixWorld();
 
+    this.sparkles.setScale((rh / (2 * Math.tan(THREE.MathUtils.degToRad(cam.fov / 2)))) * this.renderer.getPixelRatio());
     this.ppu = this.unitPx(BOOK_Z, 0.6);
     this.ppuShelf = this.unitPx(ITEM_Z, SHELF_Y);
     const visW = W / this.ppu;
@@ -476,6 +520,22 @@ export class HomeScene {
     it.pivot.rotation.y = ease.inOut(k) * Math.PI * 2;
     const s = 1 + it.lift * 0.05;
     it.pivot.scale.setScalar(s);
+    applyGlow(it.glow, it.lift);
+  }
+
+  /** Sparkle burst around a shelf item or a book. */
+  sparkle(kind: 'item' | 'book', i: number, strength = 1) {
+    if (this.reducedMotion) return;
+    if (kind === 'item') {
+      const it = this.items[i];
+      const h = it.hit.scale.y;
+      this.sparkles.burst(V3(it.x + this.offset, SHELF_Y + h * 0.55, ITEM_Z), V3(SLOT_W * 0.55, h * 0.45, SLOT_D * 0.5), Math.round(16 * strength), strength);
+    } else {
+      const b = this.books[i];
+      const x = this.booksGroup.position.x + b.group.position.x;
+      this.sparkles.burst(V3(x, BOOK_H * 0.55, b.group.position.z + BOOK_D), V3(BOOK_W * 0.55, BOOK_H * 0.45, 0.1), Math.round(22 * strength), strength * 1.2);
+    }
+    this.invalidate();
   }
 
   hoverItem(i: number | null) {
@@ -508,6 +568,7 @@ export class HomeScene {
         b.lift = v;
         b.mesh.position.y = BOOK_H / 2 + v * 0.05;
         b.mesh.rotation.x = -v * 0.05;
+        applyGlow(b.glow, v * 0.5);
       }, ease.out);
     });
     this.invalidate();
@@ -557,6 +618,7 @@ export class HomeScene {
     const dt = this.last ? Math.min(50, now - this.last) : 16;
     this.tweens.update(now);
     let moving = this.tweens.active;
+    if (this.sparkles.update(dt)) moving = true;
     if (this.vel !== 0) {
       const before = this.offset;
       this.setOffset(this.offset + this.vel * dt);

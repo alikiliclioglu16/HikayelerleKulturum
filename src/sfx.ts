@@ -49,6 +49,23 @@ export const sfx = {
     const a = audio();
     if (a) tone(a, 'triangle', 340, 190, a.currentTime, 0.2, 0.05);
   },
+  /** Soft music-box note when the pointer finds a shelf item; each item has its own note. */
+  twinkle(n = 0) {
+    const a = audio();
+    if (!a) return;
+    const scale = [784, 880, 988, 1175, 1319, 1568, 1760, 1976];
+    const f = scale[n % scale.length];
+    const t = a.currentTime;
+    tone(a, 'sine', f, f, t, 0.35, 0.05);
+    tone(a, 'triangle', f * 2, f * 2, t + 0.05, 0.25, 0.018);
+  },
+  /** A short glissando when the pointer finds a book. */
+  shimmer() {
+    const a = audio();
+    if (!a) return;
+    const t = a.currentTime;
+    [1046, 1318, 1568].forEach((f, i) => tone(a, 'sine', f, f, t + i * 0.045, 0.28, 0.03));
+  },
   tap() {
     const a = audio();
     if (a) tone(a, 'sine', 300, 240, a.currentTime, 0.08, 0.06);

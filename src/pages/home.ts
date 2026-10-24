@@ -200,6 +200,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     const c = culture[i];
     scene.ensureItemVisible(i);
     scene.hopItem(i);
+    scene.sparkle('item', i, 1.8);
     const isNew = store.discover(c.id);
     store.addWord({ lemma: c.name, en: c.en, icon: c.icon, book: 'kultur-rafi', at: Date.now() });
     if (isNew) sfx.chime();
@@ -216,6 +217,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   let focused: number | null = null;
   function focusItem(i: number | null) {
     focused = i;
+    if (i !== null) scene.sparkle('item', i, 0.8);
     scene.hoverItem(i);
     if (i !== null) scene.ensureItemVisible(i);
     syncDom();
@@ -228,6 +230,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     closePop();
     scene.setPage(scene.pageOfBook(i));
     scene.pullBook(i);
+    scene.sparkle('book', i, 1.4);
     sfx.slide();
     sheetClose?.();
     const soon = b.status === 'soon';
@@ -378,6 +381,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   /* ---------- pointer input ---------- */
   type Drag = { id: number; x0: number; y0: number; zone: 'shelf' | 'books' | 'none'; off0: number; moved: boolean; lx: number; lt: number; v: number };
   let drag: Drag | null = null;
+  let hovered = '';
   const canvasEl = sceneHost;
 
   canvasEl.addEventListener('pointerdown', (e) => {
@@ -395,6 +399,15 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
         scene.hoverItem(hit?.kind === 'item' ? hit.index : focused);
         scene.hoverBook(hit?.kind === 'book' ? hit.index : null);
         canvasEl.classList.toggle('pickable', !!hit);
+        const key = hit ? `${hit.kind}:${hit.index}` : '';
+        if (key !== hovered) {
+          hovered = key;
+          if (hit) {
+            scene.sparkle(hit.kind, hit.index);
+            if (hit.kind === 'item') sfx.twinkle(hit.index);
+            else sfx.shimmer();
+          }
+        }
       }
       return;
     }
@@ -429,6 +442,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   canvasEl.addEventListener('pointerup', endDrag);
   canvasEl.addEventListener('pointercancel', endDrag);
   canvasEl.addEventListener('pointerleave', () => {
+    hovered = '';
     if (!drag) {
       scene.hoverItem(focused);
       scene.hoverBook(null);
