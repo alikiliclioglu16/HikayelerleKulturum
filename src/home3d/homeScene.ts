@@ -27,7 +27,7 @@ export interface ShelfBook {
   spine: string;
 }
 
-const SHELF_Y = 2.05;
+const SHELF_Y = 1.84;
 const SHELF_DEPTH = 0.46;
 const ITEM_Z = 0.22;
 export const ITEM_GAP = 0.53;
@@ -40,10 +40,9 @@ const BOOK_D = 0.13;
 const BOOK_Z = 0.48;
 export const BOOK_SP = 1.45;
 const SIDE_DEPTH = 0.95;
-const BAND_Y0 = 1.47;
-const BAND_H = 0.24;
-const FRAME_Y0 = -0.04;
-const FRAME_Y1 = 2.05 + 0.74;
+// İznik tile backsplash just above the sideboard, peeking out between the books
+const BAND_Y0 = 0.02;
+const BAND_H = 0.26;
 
 interface ItemObj {
   def: CultureDef;
@@ -376,12 +375,18 @@ export class HomeScene {
     const rw = W;
     const rh = Math.max(80, H - top - bottom);
     const cam = this.camera;
-    // phones show one book, wider screens at least two
-    const hw = (W >= 700 ? 3.4 : 1.45) / 2;
-    const corners: THREE.Vector3[] = [];
-    for (const x of [-hw, hw]) for (const y of [FRAME_Y0, FRAME_Y1]) for (const z of [0.2, 0.92]) corners.push(V3(x, y, z));
-    const center = V3(0, (FRAME_Y0 + FRAME_Y1) / 2, 0.45);
-    const elev = THREE.MathUtils.degToRad(4);
+    // Close-up framing like a real bookcase: the culture items at the top edge, the books filling the middle.
+    // Height decides the zoom; a minimum width keeps one book (phones) or two books (larger screens) in view.
+    const hw = (W >= 700 ? 2.5 : 1.25) / 2;
+    const itemTop = SHELF_Y + 0.72;
+    const corners: THREE.Vector3[] = [
+      V3(-hw, itemTop, ITEM_Z),
+      V3(hw, itemTop, ITEM_Z),
+      V3(-hw, 0, BOOK_Z + BOOK_D / 2),
+      V3(hw, 0, BOOK_Z + BOOK_D / 2),
+    ];
+    const center = V3(0, itemTop * 0.5, 0.45);
+    const elev = THREE.MathUtils.degToRad(9);
     const dir = V3(0, Math.sin(elev), Math.cos(elev));
     cam.aspect = rw / rh;
     cam.clearViewOffset();
@@ -397,7 +402,7 @@ export class HomeScene {
       let ok = true;
       for (const c of corners) {
         v.copy(c).project(cam);
-        if (Math.abs(v.x) > 0.97 || Math.abs(v.y) > 0.97) {
+        if (Math.abs(v.x) > 0.98 || Math.abs(v.y) > 0.99) {
           ok = false;
           break;
         }
@@ -421,11 +426,11 @@ export class HomeScene {
     this.booksGroup.position.x = this.pageX(this.page);
 
     const spare = visW - this.perPage * BOOK_SP;
-    this.lamp.visible = spare >= 1.55 && H >= 520;
+    this.lamp.visible = spare >= 1.2 && H >= 520;
     this.lamp.position.x = -visW / 2 + 0.62;
 
     const visWs = W / this.ppuShelf;
-    const content = (this.items.length - 1) * ITEM_GAP + SLOT_W + 0.9;
+    const content = (this.items.length - 1) * ITEM_GAP + SLOT_W + 1.5;
     this.maxOff = Math.max(0, (content - visWs) / 2);
     // start with the first items in view
     if (!this.laidOut) this.offset = this.maxOff;
@@ -448,7 +453,7 @@ export class HomeScene {
 
   /** Screen bands: [top, bottom] in pixels. */
   shelfBand() {
-    return [this.toScreen(V3(0, SHELF_Y + 0.74, ITEM_Z)).y, this.toScreen(V3(0, SHELF_Y - 0.12, SHELF_DEPTH)).y];
+    return [this.toScreen(V3(0, SHELF_Y + 0.68, ITEM_Z)).y, this.toScreen(V3(0, SHELF_Y - 0.12, SHELF_DEPTH)).y];
   }
   bookBand() {
     return [this.toScreen(V3(0, BOOK_H + 0.06, BOOK_Z)).y, this.toScreen(V3(0, -0.02, SIDE_DEPTH)).y];
@@ -469,7 +474,7 @@ export class HomeScene {
   /** Where a book's card goes: the front edge of the sideboard, under the book. */
   bookAnchor(i: number) {
     const b = this.books[i];
-    return this.toScreen(V3(this.booksGroup.position.x + b.group.position.x, -0.02, SIDE_DEPTH));
+    return this.toScreen(V3(this.booksGroup.position.x + b.group.position.x, 0, BOOK_Z + BOOK_D / 2));
   }
 
   /* ---------------- shelf scrolling ---------------- */

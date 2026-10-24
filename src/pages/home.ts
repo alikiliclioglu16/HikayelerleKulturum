@@ -327,10 +327,11 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     shell.classList.toggle('compact', compact);
     shell.classList.toggle('narrow', W < 640);
     cardH = compact ? 44 : 118;
-    const top = compact ? 62 : W < 640 ? 118 : 100;
-    const bottom = cardH + (compact ? 34 : 62);
+    // the interface floats over the room, like a toy shelf seen up close
+    const top = compact ? 50 : W < 640 ? 104 : 40;
+    const bottom = cardH + (compact ? 22 : 40);
     scene.layout(top, bottom);
-    cardW = Math.round(Math.max(90, Math.min(290, scene.ppu * 1.45 - 22)));
+    cardW = Math.round(Math.max(90, Math.min(270, scene.ppu * 1.2)));
     cards.forEach(({ card }) => {
       card.style.width = `${cardW}px`;
       card.style.height = `${cardH}px`;
@@ -347,15 +348,15 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     cards.forEach(({ card }, i) => {
       const a = scene.bookAnchor(i);
       const onPage = i >= firstOnPage && i < firstOnPage + scene.perPage;
-      card.style.transform = `translate(${Math.round(a.x - cardW / 2)}px, ${Math.round(a.y + 12)}px)`;
+      card.style.transform = `translate(${Math.round(a.x - cardW / 2)}px, ${Math.round(a.y - 6)}px)`;
       card.setAttribute('aria-hidden', String(!onPage));
       card.tabIndex = onPage ? 0 : -1;
-      cardTop = a.y + 12;
+      cardTop = a.y - 6;
     });
     const mid = cardTop + cardH / 2;
     carPrev.style.top = `${mid - 28}px`;
     carNext.style.top = `${mid - 28}px`;
-    dots.style.top = `${cardTop + cardH + (compact ? 8 : 16)}px`;
+    dots.style.top = `${cardTop + cardH + (compact ? 6 : 12)}px`;
     const [sTop, sBottom] = scene.shelfBand();
     const sMid = (sTop + sBottom) / 2;
     shelfPrev.style.top = `${sMid - 22}px`;
@@ -404,7 +405,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
           hovered = key;
           if (hit) {
             scene.sparkle(hit.kind, hit.index);
-            if (hit.kind === 'item') sfx.twinkle(hit.index);
+            if (hit.kind === 'item') sfx.item(culture[hit.index].id, hit.index);
             else sfx.shimmer();
           }
         }
