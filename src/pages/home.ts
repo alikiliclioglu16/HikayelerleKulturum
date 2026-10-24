@@ -27,6 +27,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   const statCulture = h('span', null);
   const stats = h('a', { class: 'home-stats', href: '#/sandik' }, statPages, statChest, statCulture);
   const soundBtn = h('button', { class: 'round-btn', type: 'button' });
+  const musicBtn = h('button', { class: 'round-btn', type: 'button' });
   const chestBadge = h('span', { class: 'badge' }, '0');
   const hud = h(
     'header',
@@ -40,6 +41,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     h(
       'nav',
       { class: 'home-actions', 'aria-label': 'Menü' },
+      musicBtn,
       soundBtn,
       h('a', { class: 'round-btn', href: '#/sandik', 'aria-label': 'Kelime Sandığım', title: 'Kelime Sandığım' }, icon.chest(), chestBadge),
       h('a', { class: 'round-btn', href: '#/ebeveyn', 'aria-label': 'Ebeveynler için', title: 'Ebeveynler için' }, icon.parents()),
@@ -131,16 +133,35 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   function updateSound() {
     const on = store.settings.sound;
     soundBtn.replaceChildren(on ? icon.speaker() : icon.mute());
-    soundBtn.setAttribute('aria-label', on ? 'Sesi kapat' : 'Sesi aç');
+    soundBtn.setAttribute('aria-label', on ? 'Sesleri kapat' : 'Sesleri aç');
     soundBtn.setAttribute('aria-pressed', String(on));
-    soundBtn.title = on ? 'Ses açık' : 'Ses kapalı';
+    soundBtn.title = on ? 'Sesler açık' : 'Sesler kapalı';
+    const m = store.settings.music && on;
+    musicBtn.replaceChildren(icon.music());
+    musicBtn.setAttribute('aria-label', m ? 'Müziği kapat' : 'Müziği aç');
+    musicBtn.setAttribute('aria-pressed', String(m));
+    musicBtn.title = m ? 'Arka plan müziği açık' : 'Arka plan müziği kapalı';
+    musicBtn.toggleAttribute('disabled', !on);
   }
   soundBtn.addEventListener('click', () => {
     store.setSettings({ sound: !store.settings.sound });
-    if (!store.settings.sound) narrator.stop();
+    if (!store.settings.sound) {
+      narrator.stop();
+      sfx.stopMusic(0.3);
+    } else {
+      sfx.tap();
+      sfx.startMusic();
+    }
     updateSound();
-    sfx.tap();
   });
+  musicBtn.addEventListener('click', () => {
+    store.setSettings({ music: !store.settings.music });
+    if (store.settings.music) sfx.startMusic();
+    else sfx.stopMusic();
+    updateSound();
+  });
+  // starts now, or right after the first tap or key press (browsers require one)
+  sfx.startMusic();
 
   /* ---------- culture bubble ---------- */
   let popIndex: number | null = null;
@@ -191,8 +212,12 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     popEl.style.setProperty('--ax', `${Math.max(22, Math.min(bw - 22, a.x - left))}px`);
   }
 
+  let duckTimer = 0;
   function speak(text: string, force = false) {
     if (!store.settings.sound && !force) return;
+    sfx.duck(true);
+    window.clearTimeout(duckTimer);
+    duckTimer = window.setTimeout(() => sfx.duck(false), 2600);
     narrator.say(text);
   }
 
@@ -203,8 +228,8 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     scene.sparkle('item', i, 1.8);
     const isNew = store.discover(c.id);
     store.addWord({ lemma: c.name, en: c.en, icon: c.icon, book: 'kultur-rafi', at: Date.now() });
+    sfx.item(c.id, i);
     if (isNew) sfx.chime();
-    else sfx.pop();
     speak(c.name);
     showPop(i, isNew);
     updateStats();
@@ -482,6 +507,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
 
   return () => {
     window.removeEventListener('keydown', onKey);
+    sfx.stopMusic(0.6);
     ro.disconnect();
     narrator.stop();
     closePop();

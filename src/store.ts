@@ -10,6 +10,7 @@ export interface Settings {
   showEn: boolean;
   calm: boolean;
   sound: boolean;
+  music: boolean;
 }
 
 export interface ChestWord {
@@ -39,7 +40,7 @@ interface Data {
 }
 
 const defaults: Data = {
-  settings: { level: '2', rate: 0.9, big: false, showEn: false, calm: false, sound: true },
+  settings: { level: '2', rate: 0.9, big: false, showEn: false, calm: false, sound: true, music: true },
   chest: {},
   progress: {},
   culture: [],

@@ -50,6 +50,7 @@ export const icon = {
     ),
   lang: () => svg(S('<path d="M4 6h8M8 4v2M5.5 6c.8 3 3 5.5 6 7M10.5 6c-.8 3-3.3 6-6.5 7.5"/><path d="M13 20l3.5-9 3.5 9M14.2 17h4.6"/>')),
   home: () => svg(S('<path d="M4 11l8-6.5 8 6.5"/><path d="M6 10v9.5h12V10"/>')),
+  music: () => svg(S('<path d="M9 17.5V6l10-2v11.5"/><circle cx="6.5" cy="17.5" r="2.5" fill="currentColor"/><circle cx="16.5" cy="15.5" r="2.5" fill="currentColor"/>')),
   mute: () => svg(S('<path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z" fill="currentColor"/><path d="M16 9.5l5 5M21 9.5l-5 5"/>')),
   parents: () =>
     svg(
