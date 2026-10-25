@@ -1,7 +1,9 @@
 import * as THREE from 'three';
+import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import { Tweens, ease } from './tween';
-import { loadActor, type Actor } from '../home3d/actors';
-import type { PageModel } from '../types';
+import { loadActor, loadGltf, play, type Actor } from '../home3d/actors';
+import type { PageModel, TableModel } from '../types';
+import { ReaderCinema } from './readerCinema';
 import type { BuiltLayer } from '../art/scenes';
 import { iznikTile, tulip } from '../art/kit';
 import { Pen, rng } from '../art/pen';
@@ -28,6 +30,17 @@ interface LayerObj {
   upright: number;
   width: number;
   height: number;
+}
+
+interface ModelObj {
+  actor: Actor;
+  fx: THREE.Group;
+  spec: PageModel;
+  word?: string;
+  animated: boolean;
+  phase: number;
+  walk: { to: THREE.Vector3; from: THREE.Vector3; speed: number; patrol: boolean } | null;
+  visible: boolean;
 }
 
 interface PropObj {
@@ -129,7 +142,13 @@ export class BookScene {
   private raf = 0;
   private layers: LayerObj[] = [];
   private props: PropObj[] = [];
-  private models: { actor: Actor; word?: string; animated: boolean }[] = [];
+  private models: ModelObj[] = [];
+  private tableObjs: THREE.Object3D[] = [];
+  private tableSession = 0;
+  private cinema!: ReaderCinema;
+  private clock = 0;
+  /** Called after every rendered frame (for example to keep text in place while the camera drifts). */
+  onFrame: (() => void) | null = null;
   private modelSession = 0;
   private lastTick = 0;
   private leftGroup = new THREE.Group();
@@ -162,6 +181,10 @@ export class BookScene {
 
     this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    const pmrem = new THREE.PMREMGenerator(this.renderer);
+    this.scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    this.scene.environmentIntensity = 0.5;
+    pmrem.dispose();
     const bg = new THREE.Color('#C9DCE8');
     this.scene.background = bg;
     this.scene.fog = new THREE.Fog(bg, 5.5, 11);
@@ -257,96 +280,65 @@ export class BookScene {
     this.turnGroup.visible = false;
     this.scene.add(this.turnGroup);
 
-    this.buildProps();
+    this.cinema = new ReaderCinema(this.camera, light, hemi, this.scene);
+    this.cinema.enabled = !this.reducedMotion;
+    this.scene.add(this.cinema.group);
   }
 
-  private buildProps() {
+  /** Culture objects on the table around the book (GLB models from the shelf). */
+  async setTable(list: TableModel[]) {
+    const session = ++this.tableSession;
+    for (const o of this.tableObjs) this.scene.remove(o);
+    this.tableObjs = [];
+    this.props = [];
+    this.cinema.clearSteam();
     const r = this.renderer;
-    // Turkish tea glass on a saucer, standing on an İznik tile coaster
-    const tea = new THREE.Group();
-    const coaster = new THREE.Mesh(
-      new THREE.BoxGeometry(0.36, 0.02, 0.36),
-      [null, null, new THREE.MeshLambertMaterial({ map: canvasTexture(tileCanvas(), r) }), null, null, null].map(
-        (m) => m ?? new THREE.MeshLambertMaterial({ color: '#E8EEF4' }),
-      ),
+    await Promise.all(
+      list.map(async (spec) => {
+        try {
+          const actor = await loadActor(spec.src, spec.h, spec.w);
+          if (session !== this.tableSession || this.disposed) return;
+          const g = new THREE.Group();
+          g.position.set(spec.x, 0, spec.z);
+          actor.root.rotation.y = THREE.MathUtils.degToRad(spec.rotY ?? 0);
+          let lift = 0;
+          if (spec.steam) {
+            // a hot drink stands on an İznik tile coaster and steams
+            const coaster = new THREE.Mesh(
+              new THREE.BoxGeometry(spec.h * 1.5, 0.02, spec.h * 1.5),
+              [0, 0, 1, 0, 0, 0].map((k) => (k ? new THREE.MeshLambertMaterial({ map: canvasTexture(tileCanvas(), r) }) : new THREE.MeshLambertMaterial({ color: '#E8EEF4' }))),
+            );
+            coaster.position.y = 0.01;
+            coaster.castShadow = coaster.receiveShadow = true;
+            g.add(coaster);
+            lift = 0.02;
+            this.cinema.addSteam(new THREE.Vector3(spec.x, spec.h * 0.92 + lift, spec.z));
+          }
+          actor.root.position.y = lift;
+          g.add(actor.root);
+          this.scene.add(g);
+          this.tableObjs.push(g);
+          if (spec.word) this.props.push({ object: g, word: spec.word, anchor: new THREE.Vector3(spec.x, spec.h + lift + 0.04, spec.z) });
+          this.invalidate();
+        } catch (e) {
+          console.warn('Masa modeli yüklenemedi', spec.src, e);
+        }
+      }),
     );
-    coaster.position.y = 0.01;
-    coaster.receiveShadow = true;
-    coaster.castShadow = true;
-    const saucer = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.1, 0.018, 32), new THREE.MeshLambertMaterial({ color: '#D2372C' }));
-    saucer.position.y = 0.03;
-    saucer.castShadow = true;
-    const profile: THREE.Vector2[] = [];
-    const pts = [
-      [0.0, 0],
-      [0.042, 0],
-      [0.05, 0.02],
-      [0.04, 0.07],
-      [0.034, 0.1],
-      [0.04, 0.13],
-      [0.055, 0.17],
-      [0.06, 0.185],
-    ];
-    pts.forEach(([x, y]) => profile.push(new THREE.Vector2(x, y)));
-    const glass = new THREE.Mesh(
-      new THREE.LatheGeometry(profile, 32),
-      new THREE.MeshLambertMaterial({ color: '#E8F4FA', transparent: true, opacity: 0.45, side: THREE.DoubleSide, depthWrite: false }),
-    );
-    glass.position.y = 0.04;
-    const teaProfile = pts.slice(0, 7).map(([x, y]) => new THREE.Vector2(Math.max(0, x - 0.006), y * 0.82 + 0.004));
-    const rim = new THREE.Mesh(new THREE.TorusGeometry(0.06, 0.004, 8, 40), new THREE.MeshLambertMaterial({ color: '#F2B33D' }));
-    rim.rotation.x = Math.PI / 2;
-    rim.position.y = 0.04 + 0.185;
-    const teaBody = new THREE.Mesh(new THREE.LatheGeometry(teaProfile, 32), new THREE.MeshLambertMaterial({ color: '#8E2A10' }));
-    teaBody.position.y = 0.04;
-    teaBody.castShadow = true;
-    tea.add(coaster, saucer, teaBody, glass, rim);
-    tea.position.set(-1.38, 0, 0.55);
-    this.scene.add(tea);
-    this.props.push({ object: tea, word: 'çay', anchor: new THREE.Vector3(-1.38, 0.22, 0.55) });
+  }
 
-    // a tulip in a slim vase
-    const tulipG = new THREE.Group();
-    const vase = new THREE.Mesh(
-      new THREE.LatheGeometry(
-        [
-          [0, 0],
-          [0.07, 0],
-          [0.09, 0.06],
-          [0.06, 0.16],
-          [0.035, 0.24],
-          [0.045, 0.27],
-        ].map(([x, y]) => new THREE.Vector2(x, y)),
-        24,
-      ),
-      new THREE.MeshLambertMaterial({ color: '#1FA4A0' }),
-    );
-    vase.castShadow = true;
-    const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.28, 8), new THREE.MeshLambertMaterial({ color: '#3E8E4E' }));
-    stem.position.y = 0.38;
-    const leaf = new THREE.Mesh(new THREE.SphereGeometry(0.05, 12, 8), new THREE.MeshLambertMaterial({ color: '#3E8E4E' }));
-    leaf.scale.set(0.35, 1.7, 0.6);
-    leaf.position.set(0.025, 0.34, 0);
-    leaf.rotation.z = -0.4;
-    const head = new THREE.Mesh(
-      new THREE.LatheGeometry(
-        [
-          [0, 0],
-          [0.035, 0.01],
-          [0.05, 0.05],
-          [0.045, 0.1],
-          [0.03, 0.125],
-        ].map(([x, y]) => new THREE.Vector2(x, y)),
-        16,
-      ),
-      new THREE.MeshLambertMaterial({ color: '#D2372C', side: THREE.DoubleSide }),
-    );
-    head.position.y = 0.51;
-    head.castShadow = true;
-    tulipG.add(vase, stem, leaf, head);
-    tulipG.position.set(1.42, 0, -0.45);
-    this.scene.add(tulipG);
-    this.props.push({ object: tulipG, word: 'lale', anchor: new THREE.Vector3(1.42, 0.62, -0.45) });
+  /** Calm mode: no camera drift or idle animation, shorter page animations. */
+  setCalm(on: boolean) {
+    this.reducedMotion = on || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.cinema.enabled = !this.reducedMotion;
+    if (!this.cinema.enabled) this.cinema.reset();
+    this.invalidate();
+  }
+
+  /** Start the opening camera move (the camera settles onto the book). */
+  introCamera() {
+    if (!this.reducedMotion) this.cinema.startIntro();
+    this.invalidate();
   }
 
   /* ---------------- layout + camera ---------------- */
@@ -415,6 +407,8 @@ export class BookScene {
     cam.setViewOffset(rw, rh, -reg.x, -reg.y, W, H);
     cam.updateProjectionMatrix();
     cam.updateMatrixWorld();
+    const pxScale = (rh / (2 * Math.tan(THREE.MathUtils.degToRad(cam.fov / 2)))) * this.renderer.getPixelRatio();
+    this.cinema.setBase(cam.position, center, pxScale);
   }
 
   /** Screen rectangle (CSS px) of the flat left page, for placing the text on it. */
@@ -451,15 +445,83 @@ export class BookScene {
     this.tweens.update(now);
     const dt = this.lastTick ? Math.min(0.05, (now - this.lastTick) / 1000) : 0.016;
     this.lastTick = now;
-    const animating = !this.reducedMotion && this.models.some((m) => m.animated);
-    if (animating) for (const m of this.models) m.actor.mixer.update(dt);
+    this.clock += dt;
+    let alive = false;
+    if (!document.hidden && this.cinema.update(dt)) alive = true;
+    if (!this.reducedMotion && this.models.length) {
+      this.updateModels(dt);
+      alive = true;
+    }
     this.renderer.render(this.scene, this.camera);
-    if (this.tweens.active || animating) {
+    this.onFrame?.();
+    if (this.tweens.active || alive) {
       if (this.lastFrame) this.trackPerf(now - this.lastFrame);
       this.lastFrame = now;
       this.invalidate();
     } else {
       this.lastFrame = 0;
+      this.lastTick = 0;
+    }
+  }
+
+  /** Idle life for the 3D models on the page: clips, walking, swaying trees, a wobbling pot. */
+  private updateModels(dt: number) {
+    const t = this.clock;
+    for (const m of this.models) {
+      if (!m.visible) continue;
+      if (m.animated) m.actor.mixer.update(dt);
+      const r = m.actor.root;
+      if (m.walk) {
+        const d = m.walk.to.clone().sub(r.position);
+        d.y = 0;
+        const len = d.length();
+        const step = m.walk.speed * dt;
+        if (len <= step && m.walk.patrol) {
+          // turn round and walk back
+          const w = m.walk;
+          [w.to, w.from] = [w.from, w.to];
+        } else if (len <= step) {
+          r.position.x = m.walk.to.x;
+          r.position.z = m.walk.to.z;
+          m.walk = null;
+          const end = THREE.MathUtils.degToRad(m.spec.endRotY ?? m.spec.rotY ?? 0);
+          const from = r.rotation.y;
+          this.tweens.add(500, 0, 1, (k) => (r.rotation.y = from + (end - from) * k), ease.inOut);
+          play(m.actor, m.spec.anim && m.spec.anim !== 'none' ? m.spec.anim : 'idle', 0.4);
+        } else {
+          r.position.addScaledVector(d.normalize(), step);
+          r.rotation.y = Math.atan2(d.x, d.z);
+        }
+      }
+      const ph = m.phase;
+      const g = m.fx;
+      switch (m.spec.fx) {
+        case 'sway':
+          g.rotation.z = Math.sin(t * 1.1 + ph) * 0.035 + Math.sin(t * 2.3 + ph) * 0.01;
+          g.rotation.x = Math.sin(t * 0.9 + ph * 2) * 0.02;
+          break;
+        case 'swing':
+          g.rotation.z = Math.sin(t * 1.6 + ph) * 0.08;
+          break;
+        case 'wobble': {
+          // every few seconds a little shake, as if something inside moved
+          const k = (t + ph) % 3.2;
+          const amp = k < 0.7 ? Math.sin((k / 0.7) * Math.PI) : 0;
+          g.rotation.z = Math.sin(t * 28) * 0.06 * amp;
+          g.position.y = Math.abs(Math.sin(t * 14)) * 0.012 * amp;
+          break;
+        }
+        case 'breathe':
+          g.scale.set(1, 1 + Math.sin(t * 1.4 + ph) * 0.03, 1);
+          break;
+        case 'bob':
+          g.position.y = (Math.sin(t * 1.5 + ph) * 0.5 + 0.5) * 0.03;
+          g.rotation.z = Math.sin(t * 1.1 + ph) * 0.05;
+          break;
+        case 'spin':
+          g.rotation.y += dt * 0.6;
+          break;
+      }
     }
   }
 
@@ -592,7 +654,12 @@ export class BookScene {
     await Promise.all(pops);
   }
 
-  /** Animated 3D models (GLB) standing on the right page, for example a cat or a dog. */
+  private pagePoint(x: number, z: number) {
+    const depth = PAGE_D - 0.14;
+    return new THREE.Vector3(PAGE_W / 2 + x * PAGE_W, PAGE_TOP + 0.003, -PAGE_D / 2 + 0.06 + z * depth);
+  }
+
+  /** 3D models (GLB) standing on the right page: characters, animals, trees, pots… */
   async setModels(list: PageModel[]) {
     const session = ++this.modelSession;
     const old = this.models;
@@ -603,38 +670,91 @@ export class BookScene {
       ),
     );
     this.invalidate();
-    for (const spec of list) {
-      try {
-        const actor = await loadActor(spec.src, spec.h);
-        if (session !== this.modelSession || this.disposed) return;
-        const depth = PAGE_D - 0.14;
-        actor.root.position.set(PAGE_W / 2 + spec.x * PAGE_W, PAGE_TOP + 0.003, -PAGE_D / 2 + 0.06 + spec.z * depth);
-        actor.root.rotation.y = THREE.MathUtils.degToRad(spec.rotY ?? 0);
-        const animated = Object.keys(actor.actions).length > 0 && spec.anim !== 'none';
-        if (spec.anim && actor.actions[spec.anim]) {
-          Object.values(actor.actions).forEach((a) => a.stop());
-          actor.actions[spec.anim].play();
-          actor.current = spec.anim;
+    // every model pops up as soon as it has loaded, front ones a little later
+    const rank = list.map((_, i) => i).sort((a, b) => list[a].z - list[b].z);
+    const t0 = performance.now();
+    await Promise.all(
+      list.map(async (spec, i) => {
+        let actor: Actor;
+        try {
+          actor = await loadActor(spec.src, spec.h, spec.w);
+        } catch (e) {
+          console.warn('Model yüklenemedi', spec.src, e);
+          return;
         }
-        actor.mixer.update(Math.random() * 2);
-        this.scene.add(actor.root);
-        this.models.push({ actor, word: spec.word, animated });
-        this.tweens.add(this.dur(520), 0.001, 1, (v) => actor.root.scale.setScalar(v), ease.back);
-        this.invalidate();
-      } catch (e) {
-        console.warn('Model yüklenemedi', spec.src, e);
+        if (session !== this.modelSession || this.disposed) return;
+        const wait = Math.max(0, rank.indexOf(i) * 90 + (spec.delay ?? 0) * 1000 - (performance.now() - t0));
+        this.placeModel(actor, spec, this.dur(wait));
+      }),
+    );
+  }
+
+  /** Start downloading models for a page that will be shown soon. */
+  prefetch(list: PageModel[]) {
+    for (const spec of list) void loadGltf(spec.src).catch(() => undefined);
+  }
+
+  private placeModel(actor: Actor, spec: PageModel, delay: number) {
+    {
+      // put the model inside an extra group so idle effects pivot around its feet
+      const fx = new THREE.Group();
+      const wrap = actor.root.children.filter((c) => c !== actor.hit);
+      wrap.forEach((c) => fx.add(c));
+      actor.root.add(fx);
+      actor.root.position.copy(this.pagePoint(spec.x, spec.z));
+      actor.root.position.y += spec.y ?? 0;
+      actor.root.rotation.y = THREE.MathUtils.degToRad(spec.rotY ?? 0);
+      if (spec.tint) {
+        const tint = new THREE.Color(spec.tint);
+        actor.root.traverse((n) => {
+          const mesh = n as THREE.Mesh;
+          if (!mesh.isMesh || mesh === actor.hit) return;
+          const mats = (Array.isArray(mesh.material) ? mesh.material : [mesh.material]).map((m) => {
+            const c = (m as THREE.MeshStandardMaterial).clone();
+            c.color.copy(tint);
+            if ('metalness' in c) {
+              c.metalness = 0.25;
+              c.roughness = 0.45;
+            }
+            return c;
+          });
+          mesh.material = Array.isArray(mesh.material) ? mats : mats[0];
+        });
       }
+      const hasClips = Object.keys(actor.actions).length > 0;
+      let walk: ModelObj['walk'] = null;
+      if (hasClips && spec.walkTo && !this.reducedMotion) {
+        walk = { to: this.pagePoint(spec.walkTo[0], spec.walkTo[1]), from: actor.root.position.clone(), speed: spec.speed ?? 0.11, patrol: !!spec.patrol };
+        play(actor, 'walk', 0);
+      } else if (spec.walkTo && this.reducedMotion) {
+        actor.root.position.copy(this.pagePoint(spec.walkTo[0], spec.walkTo[1]));
+        actor.root.rotation.y = THREE.MathUtils.degToRad(spec.endRotY ?? spec.rotY ?? 0);
+      }
+      if (!walk && hasClips) {
+        if (spec.anim === 'none') Object.values(actor.actions).forEach((a) => a.stop());
+        else if (spec.anim) play(actor, spec.anim, 0);
+      }
+      actor.mixer.update(Math.random() * 2);
+      actor.root.scale.setScalar(0.001);
+      const obj: ModelObj = { actor, fx, spec, word: spec.word, animated: hasClips && spec.anim !== 'none', phase: Math.random() * 10, walk, visible: false };
+      this.models.push(obj);
+      this.scene.add(actor.root);
+      this.tweens.add(this.dur(520), 0.001, 1, (v) => {
+        actor.root.scale.setScalar(v);
+        obj.visible = true;
+      }, ease.back, delay);
     }
+    this.invalidate();
   }
 
   private pickModel(hit: Pick<THREE.Intersection, "object">) {
     const m = this.models.find((x) => x.actor.hit === hit.object);
     if (!m || !m.word) return null;
     const r = m.actor.root;
-    if (!this.reducedMotion) this.tweens.add(480, 0, 1, (k) => (r.position.y = PAGE_TOP + 0.003 + ease.hop(k) * 0.08), ease.linear);
+    if (!this.reducedMotion) this.tweens.add(480, 0, 1, (k) => (m.fx.position.y = ease.hop(k) * 0.08), ease.linear);
     this.invalidate();
     const top = r.position.clone();
-    top.y += m.actor.hit.scale.y + 0.02;
+    top.y += m.actor.hit.scale.y * r.scale.y + 0.02;
     return { word: m.word, ...this.toScreen(top) };
   }
 
@@ -756,7 +876,9 @@ export class BookScene {
     this.disposed = true;
     cancelAnimationFrame(this.raf);
     this.ro.disconnect();
+    this.cinema.clearSteam();
     this.layers.forEach((l) => this.disposeLayer(l));
+    this.scene.environment?.dispose();
     this.renderer.dispose();
     this.renderer.domElement.remove();
   }

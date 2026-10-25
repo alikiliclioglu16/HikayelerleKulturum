@@ -6,7 +6,15 @@ import { tokenize, type Token } from '../text';
 import { Narrator } from '../narrator';
 import { BookScene } from '../three/bookScene';
 import { sceneLayers, buildProcLayer, buildImageLayer, type BuiltLayer } from '../art/scenes';
-import type { Book, LevelId, PageData } from '../types';
+import type { Book, LevelId, PageData, TableModel } from '../types';
+import { sfx } from '../sfx';
+
+/** Culture objects on the reading table when a book does not choose its own. */
+const DEFAULT_TABLE: TableModel[] = [
+  { src: '/models/culture/caydanlik.glb', word: 'çaydanlık', x: -1.52, z: 0.08, h: 0.36, rotY: 20 },
+  { src: '/models/culture/cay.glb', word: 'çay', x: -1.3, z: 0.56, h: 0.2, steam: true },
+  { src: '/models/culture/simit.glb', word: 'simit', x: 1.5, z: -0.42, h: 0.08, rotY: 10 },
+];
 
 const nextFrame = () => new Promise((r) => requestAnimationFrame(() => r(null)));
 
@@ -62,7 +70,10 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
 
   /* ---------- 3D ---------- */
   const scene = new BookScene(sceneHost);
-  if (store.settings.calm) scene.reducedMotion = true;
+  scene.setCalm(store.settings.calm);
+  void scene.setTable(book.table ?? DEFAULT_TABLE);
+  // the calm background music keeps playing while reading
+  sfx.startMusic();
   const cover = await coverCanvas(listingItem, 900);
   scene.setCover(cover);
 
@@ -73,7 +84,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
         (async () => {
           if (p.layers?.length) return Promise.all(p.layers.map((l) => buildImageLayer(l, `/books/${book.id}/`)));
           const out: BuiltLayer[] = [];
-          for (const l of sceneLayers(p.scene)) {
+          for (const l of sceneLayers(p.scene).filter((x) => !x.thumbOnly)) {
             out.push(buildProcLayer(l));
             await nextFrame();
           }
@@ -169,7 +180,26 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     shell.classList.toggle('layout-portrait', m === 'portrait');
   }
 
+  // in the landscape layout the text sits on the book's left page and follows the slow camera drift
+  let onPage: { x: number; y: number; w: number } | null = null;
+  let lastT = '';
+  scene.onFrame = () => {
+    let t = '';
+    if (onPage) {
+      const r = scene.leftPageRect();
+      const s = r.w / onPage.w;
+      const dx = r.x + r.w / 2 - (onPage.x + onPage.w / 2);
+      const dy = r.y - onPage.y;
+      t = `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px) scale(${s.toFixed(4)})`;
+    }
+    if (t !== lastT) {
+      textEl.style.transform = t;
+      lastT = t;
+    }
+  };
+
   function layout() {
+    onPage = null;
     const W = shell.clientWidth;
     const H = shell.clientHeight;
     const big = store.settings.big;
@@ -185,7 +215,11 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
         const padY = r.h * 0.06;
         setMode('landscape');
         Object.assign(textEl.style, reset, { left: `${r.x + padX}px`, top: `${r.y + padY}px`, width: `${r.w - padX * 2}px`, height: `${r.h - padY * 2}px` });
-        if (fit(big ? 21 : 19, Math.min(big ? 40 : 34, r.w / 11))) return;
+        if (fit(big ? 21 : 19, Math.min(big ? 40 : 34, r.w / 11))) {
+          onPage = { x: r.x, y: r.y, w: r.w };
+          textEl.style.transformOrigin = `${r.w / 2 - padX}px 0px`;
+          return;
+        }
       }
       // side layout
       const cardW = Math.round(Math.min(480, Math.max(320, W * 0.34)));
@@ -250,9 +284,17 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     });
   }
 
+  let duckTimer = 0;
+  function say(text: string) {
+    sfx.duck(true);
+    window.clearTimeout(duckTimer);
+    duckTimer = window.setTimeout(() => !playing && sfx.duck(false), 1800 + text.length * 60);
+    narrator.say(text);
+  }
+
   function onWord(tok: Token, span: HTMLElement) {
     if (playing) pause();
-    narrator.say(tok.text);
+    say(tok.text);
     span.classList.remove('flash');
     void span.offsetWidth;
     span.classList.add('flash');
@@ -279,7 +321,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     const res = scene.pick(e.clientX, e.clientY);
     if (!res) return;
     if (playing) pause();
-    narrator.say(res.word);
+    say(res.word);
     const isNew = collect(res.word);
     bubble('tag3d', res.x, res.y, res.word, isNew);
     flashWords(res.word);
@@ -312,6 +354,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
 
   function startReading() {
     playing = true;
+    sfx.duck(true);
     setPlayUI();
     const p = page();
     narrator.play(
@@ -321,6 +364,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
         onWord: highlight,
         onEnd: () => {
           highlight(-1);
+          if (index >= book.pages.length - 1 || !playing) sfx.duck(false);
           store.markRead(bookId, p.id);
           renderDots();
           if (!playing) return;
@@ -339,6 +383,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
 
   function pause() {
     playing = false;
+    sfx.duck(false);
     narrator.stop();
     highlight(-1);
     setPlayUI();
@@ -384,7 +429,10 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     await shown;
     busy = false;
     if (autoplay && playing) startReading();
-    if (index + 1 < book.pages.length) getLayers(book.pages[index + 1]);
+    if (index + 1 < book.pages.length) {
+      getLayers(book.pages[index + 1]);
+      scene.prefetch(book.pages[index + 1].models ?? []);
+    }
   }
 
   prevBtn.addEventListener('click', () => goTo(index - 1));
@@ -430,7 +478,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     if (!p.culture) return;
     pause();
     const listen = h('button', { class: 'btn turq small', type: 'button' }, icon.speaker(), 'Dinle');
-    listen.addEventListener('click', () => narrator.say(p.culture!.tr));
+    listen.addEventListener('click', () => say(p.culture!.tr));
     sheet('Biliyor musun?', h('p', { lang: 'tr' }, p.culture.tr), h('p', { class: 'en', lang: 'en' }, p.culture.en), narrator.voice ? listen : h('span'));
   }
 
@@ -496,7 +544,14 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     const calm = h('input', { type: 'checkbox', class: 'switch', checked: s.calm, 'aria-label': 'Sakin hareket' });
     calm.addEventListener('change', () => {
       store.setSettings({ calm: (calm as HTMLInputElement).checked });
-      scene.reducedMotion = (calm as HTMLInputElement).checked || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      scene.setCalm((calm as HTMLInputElement).checked);
+    });
+    const music = h('input', { type: 'checkbox', class: 'switch', checked: s.music && s.sound, 'aria-label': 'Arka plan müziği' });
+    music.addEventListener('change', () => {
+      const on = (music as HTMLInputElement).checked;
+      store.setSettings(on ? { music: true, sound: true } : { music: false });
+      if (on) sfx.startMusic();
+      else sfx.stopMusic();
     });
     const voiceBtn = h('button', { class: 'btn light small', type: 'button' }, narrator.voice ? 'Ses bilgisi' : 'Türkçe ses yok');
     voiceBtn.addEventListener('click', () => {
@@ -507,7 +562,8 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
       'Ayarlar',
       h('div', { class: 'row' }, h('label', null, 'Okuma hızı', h('small', null, 'Yavaştan hızlıya')), rate),
       h('div', { class: 'row' }, h('label', null, 'Yazı boyutu'), size),
-      h('div', { class: 'row' }, h('label', null, 'Sakin hareket', h('small', null, 'Sayfa ve kitap animasyonları kısalır')), calm),
+      h('div', { class: 'row' }, h('label', null, 'Arka plan müziği', h('small', null, 'Okurken sakin müzik')), music),
+      h('div', { class: 'row' }, h('label', null, 'Sakin hareket', h('small', null, 'Kamera ve ışık hareketleri durur, animasyonlar kısalır')), calm),
       h('div', { class: 'row' }, h('label', null, 'Anlatıcı sesi', h('small', null, narrator.voice ? narrator.voice.name : 'Cihazda Türkçe ses bulunamadı')), voiceBtn),
     );
   });
@@ -542,6 +598,8 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   layout();
   textEl.style.opacity = '0';
   const firstLayers = getLayers(page());
+  scene.prefetch(page().models ?? []);
+  scene.introCamera();
   await scene.open(true);
   await scene.showPage(await firstLayers, 0);
   void scene.setModels(page().models ?? []);
@@ -549,9 +607,13 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   textEl.style.opacity = '1';
   store.setProgress(bookId, { page: index });
   if (index + 1 < book.pages.length) getLayers(book.pages[index + 1]);
+  // download the 3D models of the whole book in the background
+  window.setTimeout(() => book.pages.forEach((p) => scene.prefetch(p.models ?? [])), 1500);
 
   return () => {
     window.removeEventListener('keydown', onKey);
+    window.clearTimeout(duckTimer);
+    sfx.duck(false);
     narrator.stop();
     scene.dispose();
   };

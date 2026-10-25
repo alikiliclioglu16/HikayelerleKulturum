@@ -4,7 +4,7 @@ import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeom
 import { Tweens, ease } from '../three/tween';
 import { CULTURE_BUILDERS, placeholder } from './culture';
 import { woodTexture, tileBandTexture, mosaicLamp } from './room';
-import { MOTIFS, kilimCanvas } from './kilim';
+import { MOTIFS, carpetCanvas, FRINGE } from './kilim';
 import { fitToSlot, disposeObject, std, mesh, tex, canvas, V3 } from './kit3d';
 import { Sparkles } from './sparkles';
 import { Cinema } from './cinema';
@@ -56,6 +56,10 @@ const SIDE_DEPTH = 0.95;
 // İznik tile backsplash just above the sideboard, peeking out between the books
 const BAND_Y0 = 0.02;
 const BAND_H = 0.26;
+// the carpet hanging on the wall behind the shelf and the books
+const CARPET_W = 4.4;
+const CARPET_RATIO = 3.4;
+const CARPET_TOP = 1.72;
 
 interface ItemObj {
   def: CultureDef;
@@ -153,8 +157,9 @@ export class HomeScene {
   private sparkles = new Sparkles(220);
   private laidOut = false;
   private shelfLen = 0;
-  private walls: THREE.Mesh[] = [];
+  private carpet!: { geo: THREE.PlaneGeometry; base: Float32Array; meshes: THREE.Mesh[]; h: number };
   private motifTex = new Map<number, THREE.Texture>();
+  private swayFrame = 0;
   motif = 0;
   private hemi!: THREE.HemisphereLight;
   private cinema!: Cinema;
@@ -245,16 +250,60 @@ export class HomeScene {
     fill.position.set(5, 2.5, 5);
     this.scene.add(fill);
 
-    // Wall covered with kilim motifs: two layers so one motif can fade into the next
-    const tile = 1.35;
-    for (let i = 0; i < 2; i++) {
-      const t = tex(kilimCanvas(MOTIFS[i]), [44 / tile, 18 / tile]);
-      this.motifTex.set(i, t);
-      const mat = std('#ffffff', { roughness: 0.96, map: t, transparent: i === 1, opacity: i === 1 ? 0 : 1, depthWrite: i === 0 });
-      const wall = mesh(new THREE.PlaneGeometry(44, 18), mat, [0, 5, i * 0.001]);
-      wall.castShadow = false;
-      this.walls.push(wall);
-      this.scene.add(wall);
+    // a lime-washed turquoise wall
+    const plaster = tex(
+      canvas(512, 512, (g, w, h) => {
+        g.fillStyle = '#2F6E70';
+        g.fillRect(0, 0, w, h);
+        for (let i = 0; i < 900; i++) {
+          const x = Math.random() * w;
+          const y = Math.random() * h;
+          const r = 6 + Math.random() * 40;
+          const grd = g.createRadialGradient(x, y, 0, x, y, r);
+          const light = Math.random() > 0.5;
+          grd.addColorStop(0, light ? 'rgba(255,255,255,0.035)' : 'rgba(0,30,30,0.05)');
+          grd.addColorStop(1, 'rgba(0,0,0,0)');
+          g.fillStyle = grd;
+          // draw wrapped so the texture tiles
+          for (const dx of [-w, 0, w]) for (const dy of [-h, 0, h]) g.fillRect(x + dx - r, y + dy - r, r * 2, r * 2);
+        }
+      }),
+      [44 / 2.2, 18 / 2.2],
+    );
+    const wall = mesh(new THREE.PlaneGeometry(44, 18), std('#ffffff', { roughness: 0.95, map: plaster }), [0, 5, 0]);
+    wall.castShadow = false;
+    this.scene.add(wall);
+
+    // a hand-knotted carpet hung from a wooden rod; two layers so one design can fade into the next
+    const rugH = CARPET_W / CARPET_RATIO;
+    const CH = rugH / (1 - FRINGE);
+    const geo = new THREE.PlaneGeometry(CARPET_W, CH, 40, 10);
+    geo.translate(0, -CH / 2, 0);
+    const meshes = [0, 1].map((i) => {
+      const t = this.carpetTexture(0);
+      const mat = std('#ffffff', { roughness: 0.97, map: t, alphaTest: i ? 0.02 : 0.5, transparent: i === 1, opacity: i ? 0 : 1, depthWrite: i === 0 });
+      const m = new THREE.Mesh(geo, mat);
+      m.position.set(0, CARPET_TOP, 0.03 + i * 0.002);
+      m.castShadow = i === 0;
+      m.receiveShadow = true;
+      m.customDepthMaterial = new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking, map: t, alphaTest: 0.5 });
+      this.scene.add(m);
+      return m;
+    });
+    this.carpet = { geo, base: Float32Array.from(geo.attributes.position.array as Float32Array), meshes, h: CH };
+    const brass = std('#C99A42', { metalness: 0.8, roughness: 0.32 });
+    const rodWood = std('#6E4024', { roughness: 0.45 });
+    const y = CARPET_TOP + 0.035;
+    const pole = mesh(new THREE.CylinderGeometry(0.02, 0.02, CARPET_W + 0.34, 16), rodWood, [0, y, 0.06], [0, 0, Math.PI / 2]);
+    this.scene.add(pole);
+    for (const sx of [-1, 1]) {
+      this.scene.add(mesh(new THREE.SphereGeometry(0.036, 16, 12), brass, [sx * (CARPET_W / 2 + 0.2), y, 0.06]));
+      this.scene.add(mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.06, 8), brass, [sx * (CARPET_W / 2 + 0.12), y - 0.04, 0.03]));
+    }
+    const tabMat = std('#7E2622', { roughness: 0.9 });
+    for (let i = 0; i <= 10; i++) {
+      const x = -CARPET_W / 2 + 0.1 + (i * (CARPET_W - 0.2)) / 10;
+      this.scene.add(mesh(new THREE.BoxGeometry(0.07, 0.07, 0.012), tabMat, [x, CARPET_TOP + 0.02, 0.05]));
     }
 
     const band = mesh(new THREE.PlaneGeometry(44, BAND_H), std('#ffffff', { roughness: 0.3, map: tileBandTexture(44 / (BAND_H * 4)) }), [0, BAND_Y0 + BAND_H / 2, 0.003]);
@@ -762,31 +811,49 @@ export class HomeScene {
     this.invalidate();
   }
 
-  private motifTexture(i: number) {
+  private carpetTexture(i: number) {
     let t = this.motifTex.get(i);
     if (!t) {
-      t = tex(kilimCanvas(MOTIFS[i]), [44 / 1.35, 18 / 1.35]);
+      t = tex(carpetCanvas(MOTIFS[i], 2048, CARPET_RATIO));
       this.motifTex.set(i, t);
     }
     return t;
   }
 
-  /** Fade the wall to another kilim motif. */
+  /** Fade the carpet to another design (each one shows a different kilim motif in its medallions). */
   setMotif(i: number) {
     if (i === this.motif) return;
-    const [back, front] = this.walls.map((w) => w.material as THREE.MeshStandardMaterial);
-    front.map = this.motifTexture(i);
-    front.needsUpdate = true;
-    front.opacity = 0;
+    const [back, front] = this.carpet.meshes;
+    const fm = front.material as THREE.MeshStandardMaterial;
+    const bm = back.material as THREE.MeshStandardMaterial;
+    fm.map = this.carpetTexture(i);
+    fm.needsUpdate = true;
+    fm.opacity = 0;
     this.motif = i;
-    this.tweens.add(1400, 0, 1, (v) => (front.opacity = v), ease.inOut).then(() => {
+    this.tweens.add(1400, 0, 1, (v) => (fm.opacity = v), ease.inOut).then(() => {
       if (this.disposed || this.motif !== i) return;
-      back.map = front.map;
-      back.needsUpdate = true;
-      front.opacity = 0;
+      bm.map = fm.map;
+      bm.needsUpdate = true;
+      (back.customDepthMaterial as THREE.MeshDepthMaterial).map = fm.map;
+      fm.opacity = 0;
       this.invalidate();
     });
     this.invalidate();
+  }
+
+  /** The carpet breathes a little, as if a draught moved it. */
+  private swayCarpet() {
+    const c = this.carpet;
+    const t = this.clock / 1000;
+    const pos = c.geo.attributes.position as THREE.BufferAttribute;
+    const arr = pos.array as Float32Array;
+    for (let i = 0; i < arr.length; i += 3) {
+      const x = c.base[i];
+      const k = Math.min(1, -c.base[i + 1] / c.h);
+      arr[i + 2] = c.base[i + 2] + (Math.sin(x * 1.3 + t * 0.7) * 0.012 + Math.sin(x * 3.2 - t * 1.05) * 0.004) * k * k;
+    }
+    pos.needsUpdate = true;
+    if (++this.swayFrame % 4 === 0) c.geo.computeVertexNormals();
   }
 
   /** One orchestrated entrance: the culture items drop onto the shelf, books slide in. */
@@ -818,7 +885,10 @@ export class HomeScene {
     let moving = this.tweens.active;
     if (this.sparkles.update(dt)) moving = true;
     this.clock += dt;
-    if (!document.hidden && this.cinema.update(dt)) moving = true;
+    if (!document.hidden && this.cinema.update(dt)) {
+      moving = true;
+      this.swayCarpet();
+    }
     if (!this.reducedMotion && (this.heroes.length || this.cat)) {
       this.updateCharacters(dt);
       moving = true;

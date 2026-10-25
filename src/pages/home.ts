@@ -580,7 +580,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
 
   return () => {
     window.removeEventListener('keydown', onKey);
-    sfx.stopMusic(0.6);
+    // the music keeps playing into the book
     window.clearInterval(motifTimer);
     ro.disconnect();
     narrator.stop();

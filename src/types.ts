@@ -27,6 +27,8 @@ export interface LayerSpec {
   /** Horizontal offset from the page centre, in page widths. */
   x?: number;
   hotspots?: Hotspot[];
+  /** Only used for the small pictures in the activities (the 3D models play this part in the book). */
+  thumbOnly?: boolean;
 }
 
 /** A 3D model (GLB) standing on the pop-up page. */
@@ -40,10 +42,41 @@ export interface PageModel {
   z: number;
   /** Height in page widths. */
   h: number;
+  /** Optional largest width/depth in page widths (for flat things like a rug). */
+  w?: number;
+  /** Height above the page, e.g. a teapot standing on a table model. */
+  y?: number;
   /** Turn, in degrees (0 faces the reader). */
   rotY?: number;
-  /** Animation clip name, or "none" to stand still. */
+  /** Animation clip name (or part of it, e.g. "talk"), or "none" to stand still. */
   anim?: string;
+  /** Walk from (x, z) to this point, playing the walk clip, then switch to `anim` (or idle). */
+  walkTo?: [number, number];
+  /** Keep walking back and forth between the start and `walkTo` (for animals). */
+  patrol?: boolean;
+  /** Walking speed in page widths per second (default 0.11). */
+  speed?: number;
+  /** Turn to face this angle (degrees) after walking. */
+  endRotY?: number;
+  /** Seconds to wait before appearing. */
+  delay?: number;
+  /** Colour the model, e.g. "#D07A45" turns a grey pot into a copper cauldron. */
+  tint?: string;
+  /** Gentle life for still objects: trees sway, a pot wobbles, a lantern swings, a plant breathes. */
+  fx?: 'sway' | 'wobble' | 'swing' | 'breathe' | 'bob' | 'spin';
+}
+
+/** A 3D object on the reading table, around the book (world units, the book is 2 wide). */
+export interface TableModel {
+  src: string;
+  word?: string;
+  x: number;
+  z: number;
+  h: number;
+  w?: number;
+  rotY?: number;
+  /** Steam rising from a hot drink. */
+  steam?: boolean;
 }
 
 export interface PageAudio {
@@ -92,6 +125,10 @@ export interface Book {
   quiz: QuizItem[];
   valueHunt: ValueHuntItem[];
   family: { task: Bi; talk: Bi[] };
+  /** Culture objects on the reading table (defaults to a tea set and simit). */
+  table?: TableModel[];
+  /** Book cover colour in the reader. */
+  coverColor?: string;
 }
 
 export interface BookListing {

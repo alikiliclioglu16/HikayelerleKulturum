@@ -292,3 +292,237 @@ export function kilimCanvas(m: Motif, px = 512) {
   }
   return c;
 }
+
+/* ------------------------------------------------------------------ */
+/* a whole hand-knotted carpet                                         */
+/* ------------------------------------------------------------------ */
+
+function hexToRgb(h: string) {
+  const n = parseInt(h.slice(1), 16);
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+}
+function mix(a: string, b: string, k: number) {
+  const x = hexToRgb(a);
+  const y = hexToRgb(b);
+  return `rgb(${x.map((v, i) => Math.round(v + (y[i] - v) * k)).join(',')})`;
+}
+
+/** Height of the fringe strip at the bottom of the carpet canvas, as a fraction of the canvas height. */
+export const FRINGE = 0.075;
+
+/**
+ * A Turkish village carpet: guard stripes, a main border, a field with three medallions (göbek) showing the
+ * motif, corner pieces (köşelik), little filler motifs, wool texture and a fringe at the bottom.
+ */
+export function carpetCanvas(m: Motif, W = 2048, ratio = 3.4) {
+  const c = document.createElement('canvas');
+  const rugH = Math.round(W / ratio);
+  const H = Math.round(rugH / (1 - FRINGE));
+  c.width = W;
+  c.height = H;
+  const g = c.getContext('2d')!;
+  const p = m.palette;
+  const redField = /^#[5-9A-F]/i.test(p.bg) && hexToRgb(p.bg)[0] > hexToRgb(p.bg)[2];
+  const field = mix(p.bg, '#000000', 0.05);
+  const borderBg = redField ? '#1F2C4C' : '#7E2622';
+  const ivory = '#EADCB8';
+  const gold = '#C9953E';
+  const r = rng(m.id.length * 97 + 3);
+
+  // fringe: knotted ivory strands
+  const fy = rugH;
+  for (let x = 6; x < W - 6; x += 7) {
+    const len = H - fy - 6 - r() * 10;
+    g.strokeStyle = r() > 0.5 ? '#F2E8D2' : '#E2D5B8';
+    g.lineWidth = 3.2;
+    g.beginPath();
+    g.moveTo(x, fy - 2);
+    g.quadraticCurveTo(x + (r() - 0.5) * 6, fy + len * 0.6, x + (r() - 0.5) * 8, fy + len);
+    g.stroke();
+  }
+  for (let x = 10; x < W - 10; x += 28) {
+    g.fillStyle = '#E6D8BA';
+    g.fillRect(x, fy, 20, 9);
+  }
+
+  // rug body
+  g.fillStyle = borderBg;
+  g.fillRect(0, 0, W, rugH);
+  const u = rugH / 100; // design unit
+  const band = (inset: number, w: number, color: string) => {
+    g.fillStyle = color;
+    g.fillRect(inset * u, inset * u, W - inset * 2 * u, w * u);
+    g.fillRect(inset * u, rugH - (inset + w) * u, W - inset * 2 * u, w * u);
+    g.fillRect(inset * u, inset * u, w * u, rugH - inset * 2 * u);
+    g.fillRect(W - (inset + w) * u, inset * u, w * u, rugH - inset * 2 * u);
+  };
+  // outer guard with little reciprocal diamonds
+  band(0, 4, ivory);
+  band(1.2, 1.6, field);
+  // main border: stepped diamonds (göz) alternating colours, all the way round
+  const bIn = 4;
+  const bW = 12;
+  const bc = bIn + bW / 2;
+  const step = bW * 1.15;
+  const along = (len: number, fn: (t: number, i: number) => void) => {
+    const n = Math.max(2, Math.round(len / (step * u)));
+    for (let i = 0; i < n; i++) fn((i + 0.5) / n, i);
+  };
+  const diamondAt = (x: number, y: number, s: number, i: number) => {
+    const cols = [gold, ivory, p.b, p.d];
+    const col = cols[i % cols.length];
+    g.save();
+    g.translate(x, y);
+    g.fillStyle = col;
+    g.beginPath();
+    g.moveTo(0, -s);
+    g.lineTo(s, 0);
+    g.lineTo(0, s);
+    g.lineTo(-s, 0);
+    g.closePath();
+    g.fill();
+    g.fillStyle = borderBg;
+    g.fillRect(-s * 0.3, -s * 0.3, s * 0.6, s * 0.6);
+    g.fillStyle = i % 2 ? p.c : gold;
+    g.fillRect(-s * 0.14, -s * 0.14, s * 0.28, s * 0.28);
+    // hooks between diamonds
+    g.strokeStyle = ivory;
+    g.lineWidth = s * 0.12;
+    g.beginPath();
+    g.moveTo(s * 1.05, -s * 0.35);
+    g.lineTo(s * 1.05, s * 0.35);
+    g.stroke();
+    g.restore();
+  };
+  const s = bW * 0.36 * u;
+  along(W - 2 * bc * u, (t, i) => {
+    diamondAt(bc * u + t * (W - 2 * bc * u), bc * u, s, i);
+    diamondAt(bc * u + t * (W - 2 * bc * u), rugH - bc * u, s, i + 1);
+  });
+  along(rugH - 2 * bc * u, (t, i) => {
+    diamondAt(bc * u, bc * u + t * (rugH - 2 * bc * u), s, i + 2);
+    diamondAt(W - bc * u, bc * u + t * (rugH - 2 * bc * u), s, i + 3);
+  });
+  band(bIn + bW, 1.4, ivory);
+  band(bIn + bW + 1.4, 1.2, gold);
+
+  // field
+  const fx0 = (bIn + bW + 2.6) * u;
+  const fy0 = fx0;
+  const fw = W - fx0 * 2;
+  const fh = rugH - fy0 * 2;
+  g.fillStyle = field;
+  g.fillRect(fx0, fy0, fw, fh);
+  // abrash: soft bands where the wool came from a different dye batch
+  for (let i = 0; i < 9; i++) {
+    const x = fx0 + r() * fw;
+    const w = 40 + r() * 160;
+    g.fillStyle = r() > 0.5 ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.06)';
+    g.fillRect(x, fy0, w, fh);
+  }
+  // small filler motifs in a lattice
+  g.save();
+  g.beginPath();
+  g.rect(fx0, fy0, fw, fh);
+  g.clip();
+  const cell = fh / 3.2;
+  for (let yy = fy0 + cell * 0.5; yy < fy0 + fh; yy += cell) {
+    for (let xx = fx0 + cell * 0.5 + ((Math.round((yy - fy0) / cell) % 2) * cell) / 2; xx < fx0 + fw; xx += cell) {
+      g.save();
+      g.translate(xx, yy);
+      g.scale(cell / 60, cell / 60);
+      if (m.filler) m.filler(g, p);
+      else {
+        g.fillStyle = p.d;
+        g.fillRect(-3, -3, 6, 6);
+      }
+      g.restore();
+    }
+  }
+  g.restore();
+
+  // three medallions (göbek), the middle one biggest, with the motif inside
+  const medallion = (cx: number, cy: number, rx: number, ry: number) => {
+    const layers: [number, string][] = [
+      [1, ivory],
+      [0.93, borderBg],
+      [0.86, gold],
+      [0.8, mix(p.bg, '#ffffff', 0.12)],
+    ];
+    for (const [k, col] of layers) {
+      g.fillStyle = col;
+      g.beginPath();
+      // stepped hexagon, the classic Anatolian göbek
+      const a = rx * k;
+      const b = ry * k;
+      g.moveTo(cx - a, cy);
+      g.lineTo(cx - a * 0.55, cy - b);
+      g.lineTo(cx + a * 0.55, cy - b);
+      g.lineTo(cx + a, cy);
+      g.lineTo(cx + a * 0.55, cy + b);
+      g.lineTo(cx - a * 0.55, cy + b);
+      g.closePath();
+      g.fill();
+    }
+    // hooks at the tips
+    for (const sx of [-1, 1]) {
+      g.fillStyle = gold;
+      g.beginPath();
+      g.moveTo(cx + sx * rx, cy - ry * 0.18);
+      g.lineTo(cx + sx * rx * 1.18, cy);
+      g.lineTo(cx + sx * rx, cy + ry * 0.18);
+      g.fill();
+    }
+    g.save();
+    const size = ry * 1.45;
+    g.translate(cx - size / 2, cy - size / 2);
+    g.scale(size / 100, size / 100);
+    m.draw(g, p);
+    g.restore();
+  };
+  const cy = fy0 + fh / 2;
+  medallion(W / 2, cy, fh * 0.62, fh * 0.44);
+  medallion(W / 2 - fw * 0.31, cy, fh * 0.44, fh * 0.32);
+  medallion(W / 2 + fw * 0.31, cy, fh * 0.44, fh * 0.32);
+  // corner pieces (köşelik)
+  for (const [x, y, sx, sy] of [[fx0, fy0, 1, 1], [fx0 + fw, fy0, -1, 1], [fx0, fy0 + fh, 1, -1], [fx0 + fw, fy0 + fh, -1, -1]] as number[][]) {
+    g.fillStyle = borderBg;
+    g.beginPath();
+    g.moveTo(x, y);
+    g.lineTo(x + sx * fh * 0.42, y);
+    g.lineTo(x + sx * fh * 0.3, y + sy * fh * 0.12);
+    g.lineTo(x + sx * fh * 0.12, y + sy * fh * 0.3);
+    g.lineTo(x, y + sy * fh * 0.42);
+    g.closePath();
+    g.fill();
+    g.fillStyle = gold;
+    g.beginPath();
+    g.moveTo(x + sx * fh * 0.04, y + sy * fh * 0.04);
+    g.lineTo(x + sx * fh * 0.24, y + sy * fh * 0.04);
+    g.lineTo(x + sx * fh * 0.04, y + sy * fh * 0.24);
+    g.closePath();
+    g.fill();
+  }
+
+  // wool: knots, a soft sheen and a little wear
+  const img = g.getImageData(0, 0, W, rugH);
+  const d = img.data;
+  for (let y = 0; y < rugH; y++) {
+    for (let x = 0; x < W; x++) {
+      const i = (y * W + x) * 4;
+      const knot = ((x >> 1) + (y >> 1)) % 2 ? 6 : -6;
+      const n = (Math.random() - 0.5) * 22 + knot;
+      d[i] = Math.max(0, Math.min(255, d[i] + n));
+      d[i + 1] = Math.max(0, Math.min(255, d[i + 1] + n));
+      d[i + 2] = Math.max(0, Math.min(255, d[i + 2] + n));
+    }
+  }
+  g.putImageData(img, 0, 0);
+  const sheen = g.createLinearGradient(0, 0, 0, rugH);
+  sheen.addColorStop(0, 'rgba(255,240,220,0.10)');
+  sheen.addColorStop(0.5, 'rgba(255,240,220,0)');
+  sheen.addColorStop(1, 'rgba(0,0,0,0.10)');
+  g.fillStyle = sheen;
+  g.fillRect(0, 0, W, rugH);
+  return c;
+}

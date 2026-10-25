@@ -29,7 +29,8 @@ export async function loadGltf(url: string): Promise<GLTF> {
 
 const invisible = new THREE.MeshBasicMaterial({ visible: false });
 
-export async function loadActor(url: string, height: number): Promise<Actor> {
+/** Load a GLB and scale it to `height` (and, if given, at most `width` wide and deep). */
+export async function loadActor(url: string, height: number, width?: number): Promise<Actor> {
   const gltf = await loadGltf(url);
   const { clone } = await import('three/examples/jsm/utils/SkeletonUtils.js');
   const model = clone(gltf.scene) as THREE.Group;
@@ -39,6 +40,14 @@ export async function loadActor(url: string, height: number): Promise<Actor> {
       m.castShadow = true;
       m.receiveShadow = true;
       m.frustumCulled = false;
+      // some kits use unlit materials; give them light and shadow like everything else
+      const mats = Array.isArray(m.material) ? m.material : [m.material];
+      const lit = mats.map((mat) => {
+        const b = mat as THREE.MeshBasicMaterial;
+        if (!b.isMeshBasicMaterial) return mat;
+        return new THREE.MeshStandardMaterial({ color: b.color, map: b.map, roughness: 0.75, transparent: b.transparent, opacity: b.opacity, side: b.side });
+      });
+      m.material = Array.isArray(m.material) ? lit : lit[0];
     }
   });
   const mixer = new THREE.AnimationMixer(model);
@@ -52,7 +61,7 @@ export async function loadActor(url: string, height: number): Promise<Actor> {
   }
   const wrap = new THREE.Group();
   wrap.add(model);
-  fitToSlot(wrap, height, height * 3, height * 3);
+  fitToSlot(wrap, height, width ?? height * 3, width ?? height * 3);
   const root = new THREE.Group();
   root.add(wrap);
   const box = new THREE.Box3().setFromObject(wrap);
