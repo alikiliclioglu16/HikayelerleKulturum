@@ -4,6 +4,7 @@ import {
   baklavaTray, lokumBox, candy, CANDY_COLORS, windowFrame, curtain, crescent, star, plant, clockTower, turkishFlag,
 } from './kit';
 import type { Hotspot, LayerSpec } from '../types';
+import { KAZAN_SCENES, drawKazanCover } from './scenesKazan';
 
 export interface ProcLayer extends LayerSpec {
   draw: (p: Pen) => void;
@@ -629,7 +630,7 @@ const SCENES: Record<string, ProcLayer[]> = {
 };
 
 export function sceneLayers(sceneId: string): ProcLayer[] {
-  return SCENES[sceneId] ?? [];
+  return SCENES[sceneId] ?? KAZAN_SCENES[sceneId] ?? [];
 }
 
 /** Draw one procedural layer and turn it into a paper cut-out. */
@@ -757,6 +758,10 @@ export function drawCover(art: string, title: string, opts: { color?: string; mo
     for (let i = 0; i < 7; i++) tulip(p, inner.x + 30 + i * (inner.w / 6.5), inner.y + inner.h + 10, 120, i % 2 ? C.saffron : C.red);
     p.restore();
     titleText(p, title, p.W / 2, inner.y + 150, inner.w - 40, 150);
+  } else if (art === 'cover-kazan') {
+    const inner = tileBorder(p, '#1F5FA8');
+    drawKazanCover(p, inner);
+    titleText(p, title, p.W / 2, inner.y + 140, inner.w - 30, 128);
   } else {
     const color = opts.color ?? C.turq;
     const inner = tileBorder(p, color);

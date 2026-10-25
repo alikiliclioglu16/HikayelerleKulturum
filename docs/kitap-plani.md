@@ -39,13 +39,14 @@ Model adları gönderilen pakettekilerdir (`GLB'ler/…`). "Kenney" kitleri CC0 
 ### 1. Bayram Sabahı (hazır)
 - **Kültür:** Ramazan Bayramı, bayramlık, el öpme, harçlık, bayram şekeri.
 - **Değerler:** saygı, aile bütünlüğü, adalet, dostluk.
-- **3D:** sokak kedisi (`props/kit_street_cat_static`), köpek (`props/kit_street_dog_tan`). Rafta çay, baklava, lokum.
+- **3D:** her sayfada: halı, saksı, hediye kutusu, yastık, sofra üstünde baklava, çaydanlık ve çay, simit, kâse, sallanan ağaç; kapıda oturan kedi, odada gezinen kedi, bahçede koşturan köpek. Masada çaydanlık, çay, baklava, dondurma.
 
-### 2. Nasreddin Hoca ve Kazan
+### 2. Nasreddin Hoca ve Kazan (hazır)
 - **Kültür:** Nasreddin Hoca fıkraları, Akşehir, mizahla düşünmek.
 - **Konu:** Hoca komşusundan kazan ödünç alır, içine küçük bir tencere koyup "Kazanınız doğurdu" der. Bir dahaki sefere "Kazanınız öldü" deyince komşu itiraz eder. Elif ile Can, dedeleriyle bu fıkrayı konuşup adaletin iki yönlü olduğunu fark eder.
 - **Değerler:** adalet, dürüstlük.
-- **3D:** `heroes/Nasreddin_hoca` (yürüme ve bekleme animasyonu), komşu için `npc/npc_featured_craftsman_male` (konuşma animasyonu var), kazan için Kenney Food `pot-stew`, `pot`; köy için Fantasy Town `stall`, `fountain-round`, `cart`, `tree`.
+- **3D (kullanıldı):** Nasreddin Hoca (yürür, bekler), komşu `npc_featured_craftsman_male` (konuşur, şaşırır), pazardaki yolcu `npc_featured_traveler` (konuşur), bakır renge boyanmış Kenney `pot` (kazan ve yavru tencere, titrer), Fantasy Town `tree-high-round` (sallanır), `fountain-round`, `stall-red`, `stall-green`, `cart`, `fence`, `lantern`; Food `watermelon`, `grapes`, `eggplant`, `tomato`; Furniture `rugRound`, `tableCoffee`, `pottedPlant`, `books`; yürüyen sokak kedisi, köpek; masada çaydanlık, çay, kahve, simit.
+- **Sahne yapısı:** Arkada kodla çizilmiş Akşehir (Sultan Dağları, Akşehir Gölü, minareler), önde 3D oyuncular. Çerçeve hikâyede (1. ve 8. sayfa) Dede, Elif ve Can sedirde.
 
 ### 3. Keloğlan ve Üç Tohum
 - **Kültür:** Keloğlan masalları, Anadolu köyü, toprak ve hasat.

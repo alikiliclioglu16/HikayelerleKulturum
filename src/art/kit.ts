@@ -624,3 +624,65 @@ export function turkishFlag(p: Pen, x: number, y: number, w: number) {
   p.circle(x + h * 0.59375, cy, h * 0.2, '#E30A17');
   star(p, x + h * 0.8542, cy, h * 0.125, '#ffffff', Math.PI);
 }
+
+/* ---------- Nasreddin Hoca book ---------- */
+
+/** Nasreddin Hoca: a big white turban (kavuk), a white beard and a turquoise robe. */
+export function hoca(p: Pen, x: number, y: number, h: number, extra: Partial<PersonOpts> = {}) {
+  const pt = person(p, {
+    x, y, h, skin: '#E6B48E', hair: '#F4F1EA', style: 'grandpa', mustache: '#F4F1EA', top: '#2F8F83', dress: true, ...extra,
+  });
+  const { headX: hx, headY: hy, headR: r } = pt;
+  // sash
+  p.rect(x - h * 0.13, pt.bodyTop + (pt.bodyBottom - pt.bodyTop) * 0.36, h * 0.26, h * 0.035, '#C9472F', 6);
+  // beard
+  p.shape('#F4F1EA', (c) => {
+    c.moveTo(hx - r * 0.9, hy + r * 0.3);
+    c.quadraticCurveTo(hx - r * 0.85, hy + r * 1.5, hx, hy + r * 1.85);
+    c.quadraticCurveTo(hx + r * 0.85, hy + r * 1.5, hx + r * 0.9, hy + r * 0.3);
+    c.quadraticCurveTo(hx + r * 0.5, hy + r * 0.85, hx, hy + r * 0.82);
+    c.quadraticCurveTo(hx - r * 0.5, hy + r * 0.85, hx - r * 0.9, hy + r * 0.3);
+  });
+  const c = p.c;
+  c.beginPath();
+  c.arc(hx, hy + r * 0.42, r * 0.2, 0.15 * Math.PI, 0.85 * Math.PI);
+  c.strokeStyle = '#7a2e2e';
+  c.lineWidth = r * 0.07;
+  c.stroke();
+  p.ellipse(hx - r * 0.22, hy + r * 0.4, r * 0.26, r * 0.11, '#F4F1EA', 0.25);
+  p.ellipse(hx + r * 0.22, hy + r * 0.4, r * 0.26, r * 0.11, '#F4F1EA', -0.25);
+  // turban: a big white wrap with a green top
+  p.shape('#2E7D5B', (cc) => {
+    cc.moveTo(hx - r * 0.6, hy - r * 1.3);
+    cc.quadraticCurveTo(hx, hy - r * 2.55, hx + r * 0.6, hy - r * 1.3);
+    cc.closePath();
+  });
+  p.ellipse(hx, hy - r * 0.92, r * 1.42, r * 0.78, '#FFFFFF');
+  for (let i = 0; i < 4; i++) {
+    c.beginPath();
+    c.ellipse(hx, hy - r * (0.75 + i * 0.16), r * (1.28 - i * 0.12), r * 0.32, -0.12 + i * 0.08, 0.1 * Math.PI, 0.9 * Math.PI);
+    c.strokeStyle = '#DAD3C6';
+    c.lineWidth = r * 0.07;
+    c.stroke();
+  }
+  return pt;
+}
+
+/** A copper cauldron (kazan) with two handles. */
+export function kazan(p: Pen, x: number, y: number, w: number, color = '#C8743F') {
+  const h = w * 0.62;
+  p.circle(x - w * 0.52, y - h * 0.62, w * 0.09, '#8A4A26');
+  p.circle(x + w * 0.52, y - h * 0.62, w * 0.09, '#8A4A26');
+  p.circle(x - w * 0.52, y - h * 0.62, w * 0.05, C.paper);
+  p.circle(x + w * 0.52, y - h * 0.62, w * 0.05, C.paper);
+  p.shape(color, (c) => {
+    c.moveTo(x - w * 0.5, y - h * 0.82);
+    c.quadraticCurveTo(x - w * 0.55, y, x - w * 0.18, y);
+    c.lineTo(x + w * 0.18, y);
+    c.quadraticCurveTo(x + w * 0.55, y, x + w * 0.5, y - h * 0.82);
+    c.closePath();
+  });
+  p.ellipse(x, y - h * 0.82, w * 0.52, w * 0.09, '#A85A2E');
+  p.ellipse(x, y - h * 0.82, w * 0.44, w * 0.06, '#3A2418');
+  p.ellipse(x - w * 0.22, y - h * 0.45, w * 0.06, h * 0.22, 'rgba(255,255,255,0.28)', 0.2);
+}

@@ -2,12 +2,14 @@
 
 Amerika'da büyüyen 4–11 yaş arası çift dilli Türk çocukları için etkileşimli, açılır sayfalı (pop-up) resimli kitaplar. Her kitap bir Türk kültürü ögesini ve Türkiye Yüzyılı Maarif Modeli'nin değerlerini işler.
 
-Bu sürüm bir prototiptir: ilk kitap **Bayram Sabahı** hazır, dört kitap "Yakında" olarak listelenir.
+Bu sürümde **Bayram Sabahı** ve **Nasreddin Hoca ve Kazan** hazır; 15 kitaplık planın diğer 13 kitabı "Yakında" olarak listelenir (plan: `docs/kitap-plani.md`).
 
 ## Neler var?
 
 - 3D ana sayfa: üst rafta 20 Türk kültürü ögesi (dokununca Türkçe adı okunur, İngilizcesi ve kısa bir bilgi çıkar, Kelime Sandığı'na eklenir), alt rafta kitaplar. Raf parmakla kaydırılır, kitaplar oklarla değişir.
-- Masanın üstünde açılan 3D kitap; her sayfada kâğıttan kesilmiş katmanlar ayağa kalkar (Three.js).
+- Masanın üstünde açılan 3D kitap; her sayfada kâğıttan kesilmiş arka planlar ayağa kalkar, önlerinde 3D karakterler, hayvanlar ve nesneler durur (yürüyen, konuşan, sallanan modeller). Masada kültür rafındaki 3D nesneler (çaydanlık, buharı tüten çay, kahve, simit…) durur.
+- Ana sayfada ve okurken sinematik kamera ve ışık hareketleri ile sakin arka plan müziği; "Sakin hareket" ayarı bunları durdurur.
+- Ana sayfanın duvarında asılı bir Türk halısı; ortasındaki göbek motifi 5 saniyede bir değişir.
 - Türkçe metin, üç okuma seviyesi: Tomurcuk (4–6), Lale (7–9), Çınar (10–11).
 - Sesli okuma ve kelime kelime vurgulama (cihazın Türkçe sesiyle; ses yoksa kelimeler okuma hızında parlar).
 - Altı noktalı kelimeye dokununca kelime okunur, İngilizcesi çıkar ve resimdeki nesne zıplar. Resimdeki nesneye dokununca da metindeki kelime parlar.
@@ -84,15 +86,34 @@ Bir sayfaya `layers` eklenirse kodla çizilen geçici sahne yerine sizin resimle
 
 Meshy'den gelen GLB dosyalarını `public/models/culture/` klasörüne koyup `public/culture/items.json` içinde ögeye `"model": "/models/culture/<id>.glb"` ekleyin. Gerekirse `"rotY"` (derece), `"height"` (yükseklik) ve `"width"` (raftaki yer genişliği, varsayılan 0.46) ile yön ve boyut ayarlanır. Meshy dosyaları çok büyük gelirse (20 MB gibi) önce küçültülmeli; bunu Claude ile yapabilirsiniz. İstemler `docs/gorsel-promptlari.md` dosyasında.
 
-## Sayfaya 3D karakter eklemek
+## Sayfaya 3D model eklemek
 
 Bir sayfaya `models` eklenirse GLB modeller açılır sayfanın üstünde durur ve dokununca kelimesi okunur:
 
 ```json
-"models": [{ "src": "/models/animals/kopek.glb", "word": "köpek", "x": -0.3, "z": 0.97, "h": 0.24, "rotY": 30 }]
+"models": [
+  { "src": "/models/characters/nasreddin-hoca.glb", "word": "Nasreddin Hoca", "x": -0.36, "z": 0.66, "h": 0.42, "walkTo": [0.06, 0.6], "rotY": 90, "endRotY": 60 },
+  { "src": "/models/characters/komsu.glb", "word": "komşu", "x": 0.3, "z": 0.5, "h": 0.41, "rotY": -40, "anim": "talk" },
+  { "src": "/models/kenney/pot.glb", "word": "kazan", "x": 0.02, "z": 0.76, "h": 0.1, "w": 0.2, "tint": "#F0A060", "fx": "wobble" },
+  { "src": "/models/kenney/tree-high-round.glb", "word": "ağaç", "x": -0.44, "z": 0.4, "h": 0.42, "fx": "sway" },
+  { "src": "/models/animals/kedi-yuruyen.glb", "word": "kedi", "x": -0.4, "z": 0.95, "h": 0.12, "walkTo": [0.25, 0.95], "patrol": true, "speed": 0.06 }
+]
 ```
 
-`x`: sayfa ortasına göre yatay konum (-0.5 … 0.5), `z`: arkadan (0) öne (1), `h`: yükseklik, `rotY`: dönüş (derece), `anim`: animasyon adı ya da duruk için `"none"`.
+- `x`: sayfa ortasına göre yatay konum (-0.5 … 0.5), `z`: arkadan (0) öne (1), `h`: yükseklik, `w`: en fazla genişlik (halı gibi yassı şeyler için), `y`: sayfadan yükseklik (masanın üstündeki çaydanlık gibi), `rotY`: dönüş (derece).
+- `anim`: animasyon adı ya da bir parçası (`idle`, `talk`, `look`, `walk`), duruk için `"none"`.
+- `walkTo`: model oraya yürür, sonra `anim` oynar ve `endRotY` yönüne döner. `patrol: true` ile iki nokta arasında gidip gelir.
+- `fx`: duruk nesnelere hayat: `sway` (ağaç), `wobble` (titreyen kazan), `breathe` (saksı), `bob`, `swing`, `spin`.
+- `tint`: modeli renklendirir (gri tencereyi bakır kazan yapmak gibi).
+- `public/models/kenney/` içindeki hazır modeller Kenney kitlerinden (CC0) seçildi; yenileri eklenebilir.
+
+Masadaki nesneler için `book.json` içine `table` eklenir (dünya birimi; kitap 2 birim genişliğinde):
+
+```json
+"table": [{ "src": "/models/culture/cay.glb", "word": "çay", "x": -1.3, "z": 0.56, "h": 0.2, "steam": true }]
+```
+
+Kod ile çizilen sahne katmanlarında `thumbOnly: true` olan katmanlar yalnızca etkinliklerdeki küçük resimlerde görünür (kitapta o rolü 3D modeller oynar).
 
 ## Gerçek anlatıcı sesi eklemek
 
@@ -114,5 +135,5 @@ Okuyucu kayıtlı sesi destekler. Bir sayfaya şunu ekleyin:
 
 - Resimlemeleri ChatGPT/Gemini ile üretip `layers` ile eklemek.
 - Her seviye için gerçek anlatıcı kaydı.
-- Yeni kitaplar: Nasreddin Hoca ve Kazan, Keloğlan ve Üç Tohum, 23 Nisan Şenliği, Ebru'nun Renkleri.
+- Yeni kitaplar: sırada Keloğlan ve Üç Tohum, 23 Nisan Şenliği, Ebru'nun Renkleri (`docs/kitap-plani.md`).
 - Ebeveyn hesabı ve ödeme (Supabase + Stripe).
