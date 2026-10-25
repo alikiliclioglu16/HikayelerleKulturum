@@ -18,6 +18,10 @@
       },
       "cover": {
         "art": "cover-bayram"
+      },
+      "carpet": {
+        "motif": "elibelinde",
+        "field": "#8E2B24"
       }
     },
     {
@@ -39,11 +43,16 @@
         "color": "#1F5FA8",
         "motif": "kazan"
       },
-      "pages": 8
+      "pages": 8,
+      "carpet": {
+        "motif": "kocboynuzu",
+        "field": "#22406E",
+        "border": "#8E2B24"
+      }
     },
     {
       "id": "keloglan-tohum",
-      "status": "soon",
+      "status": "ready",
       "title": "Keloğlan ve Üç Tohum",
       "titleEn": "Keloğlan and the Three Seeds",
       "values": [
@@ -53,14 +62,20 @@
       ],
       "hero": "keloglan",
       "blurb": {
-        "tr": "Keloğlan, annesinin verdiği üç tohumla bütün köye bereket getirebilir mi?",
-        "en": "Can Keloğlan bring a good harvest to the whole village with three seeds?"
+        "tr": "Kuraklıkta üç tohumu sabırla büyüten, suyunu komşusuyla paylaşan Keloğlan'ın masalı; bahçede ilk filizini bekleyen Can.",
+        "en": ""
       },
       "cover": {
-        "art": "cover-soon",
+        "art": "cover-keloglan",
         "color": "#2E8B57",
         "motif": "tohum"
-      }
+      },
+      "carpet": {
+        "motif": "hayat-agaci",
+        "field": "#2F6B45",
+        "border": "#7E2622"
+      },
+      "pages": 8
     },
     {
       "id": "23-nisan",
@@ -80,6 +95,11 @@
         "art": "cover-soon",
         "color": "#D2372C",
         "motif": "bayrak"
+      },
+      "carpet": {
+        "motif": "yildiz",
+        "field": "#A3262A",
+        "border": "#1F2C4C"
       }
     },
     {
@@ -99,6 +119,10 @@
         "art": "cover-soon",
         "color": "#1FA4A0",
         "motif": "ebru"
+      },
+      "carpet": {
+        "motif": "su-yolu",
+        "field": "#2E5C7A"
       }
     },
     {
@@ -118,6 +142,10 @@
         "art": "cover-soon",
         "color": "#B8652B",
         "motif": "simit"
+      },
+      "carpet": {
+        "motif": "pitrak",
+        "field": "#8A4A26"
       }
     },
     {
@@ -137,6 +165,11 @@
         "art": "cover-soon",
         "color": "#C9773A",
         "motif": "balon"
+      },
+      "carpet": {
+        "motif": "muska",
+        "field": "#B0663A",
+        "border": "#2A3A5C"
       }
     },
     {
@@ -156,6 +189,10 @@
         "art": "cover-soon",
         "color": "#2F7FC1",
         "motif": "marti"
+      },
+      "carpet": {
+        "motif": "su-yolu",
+        "field": "#1F4E6E"
       }
     },
     {
@@ -175,6 +212,11 @@
         "art": "cover-soon",
         "color": "#2B2F5A",
         "motif": "davul"
+      },
+      "carpet": {
+        "motif": "yildiz",
+        "field": "#3A2E5A",
+        "border": "#8E2B24"
       }
     },
     {
@@ -194,6 +236,10 @@
         "art": "cover-soon",
         "color": "#7B4FA0",
         "motif": "karagoz"
+      },
+      "carpet": {
+        "motif": "goz",
+        "field": "#5A2E2E"
       }
     },
     {
@@ -214,6 +260,10 @@
         "art": "cover-soon",
         "color": "#8A5530",
         "motif": "mangala"
+      },
+      "carpet": {
+        "motif": "pitrak",
+        "field": "#3E4A2C"
       }
     },
     {
@@ -234,6 +284,11 @@
         "art": "cover-soon",
         "color": "#5C8F3E",
         "motif": "imece"
+      },
+      "carpet": {
+        "motif": "hayat-agaci",
+        "field": "#7A5A24",
+        "border": "#2F3F5C"
       }
     },
     {
@@ -254,6 +309,10 @@
         "art": "cover-soon",
         "color": "#7A4F35",
         "motif": "misafir"
+      },
+      "carpet": {
+        "motif": "elibelinde",
+        "field": "#4A2638"
       }
     },
     {
@@ -274,6 +333,11 @@
         "art": "cover-soon",
         "color": "#3B5C99",
         "motif": "tren"
+      },
+      "carpet": {
+        "motif": "yildiz",
+        "field": "#2E4A6E",
+        "border": "#7E2622"
       }
     },
     {
@@ -294,6 +358,10 @@
         "art": "cover-soon",
         "color": "#1C7A5A",
         "motif": "market"
+      },
+      "carpet": {
+        "motif": "kocboynuzu",
+        "field": "#7E2622"
       }
     }
   ]

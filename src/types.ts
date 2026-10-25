@@ -54,6 +54,8 @@ export interface PageModel {
   walkTo?: [number, number];
   /** Keep walking back and forth between the start and `walkTo` (for animals). */
   patrol?: boolean;
+  /** Clip used while walking (default "walk"; "run" makes a character run). */
+  walkAnim?: string;
   /** Walking speed in page widths per second (default 0.11). */
   speed?: number;
   /** Turn to face this angle (degrees) after walking. */
@@ -63,12 +65,15 @@ export interface PageModel {
   /** Colour the model, e.g. "#D07A45" turns a grey pot into a copper cauldron. */
   tint?: string;
   /** Gentle life for still objects: trees sway, a pot wobbles, a lantern swings, a plant breathes. */
-  fx?: 'sway' | 'wobble' | 'swing' | 'breathe' | 'bob' | 'spin';
+  fx?: 'sway' | 'wobble' | 'swing' | 'breathe' | 'bob' | 'spin' | 'grow';
 }
 
 /** A 3D object on the reading table, around the book (world units, the book is 2 wide). */
 export interface TableModel {
-  src: string;
+  /** A GLB model … */
+  src?: string;
+  /** … or one of the culture objects drawn in code (e.g. "lale", "nazar", "lokum", "lamba" for the mosaic lamp). */
+  proc?: string;
   word?: string;
   x: number;
   z: number;
@@ -139,6 +144,8 @@ export interface BookListing {
   pages?: number;
   values: string[];
   blurb: Bi;
+  /** The wall carpet shown while this book is chosen: a kilim motif and colours, or a picture (`src`). */
+  carpet?: { motif: string; field?: string; border?: string; src?: string };
   /** An animated 3D character that stands next to the book on the home shelf. */
   hero?: string;
   cover: { art: string; color?: string; motif?: string; src?: string };

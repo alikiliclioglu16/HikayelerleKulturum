@@ -16,6 +16,24 @@ const SKY = [
   { key: '#FFE6D2', keyI: 1.85, sky: '#F6ECFF', ground: '#937066', hemiI: 2.05, sun: '#D6AEFF', bg: '#D6D4EA' },
 ];
 
+export interface Region {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+}
+
+/** A camera shot: where the camera stands, what it looks at, and which part of the screen it fills. */
+export interface Pose {
+  pos: THREE.Vector3;
+  target: THREE.Vector3;
+  region: Region;
+}
+
+function clonePose(p: Pose): Pose {
+  return { pos: p.pos.clone(), target: p.target.clone(), region: { ...p.region } };
+}
+
 function smoothstep(t: number) {
   return t * t * (3 - 2 * t);
 }
@@ -97,11 +115,14 @@ function motes(n: number, box: THREE.Box3, size: number, rise: number, color: st
 
 export class ReaderCinema {
   readonly group = new THREE.Group();
-  private basePos = new THREE.Vector3();
-  private baseTarget = new THREE.Vector3();
-  private dist = 4;
   private t = 0;
-  private introT = 0;
+  private from: Pose | null = null;
+  private to: Pose | null = null;
+  private k = 1;
+  private dur = 0;
+  private arc = 0;
+  private view = { W: 1, H: 1, pr: 1 };
+  private now: Pose | null = null;
   private sun: THREE.SpotLight;
   private dust: THREE.Points;
   private steams: THREE.Points[] = [];
@@ -140,50 +161,70 @@ export class ReaderCinema {
     this.steams = [];
   }
 
-  setBase(pos: THREE.Vector3, target: THREE.Vector3, pxScale: number) {
-    this.basePos.copy(pos);
-    this.baseTarget.copy(target);
-    this.dist = pos.distanceTo(target);
+  /** Canvas size in CSS pixels and the device pixel ratio. */
+  setView(W: number, H: number, pr: number) {
+    this.view = { W, H, pr };
+  }
+
+  /**
+   * Move to a new camera shot. `dur` in seconds (0 cuts straight to it); `arc` lifts the camera on the way,
+   * like a crane, as a fraction of the distance travelled.
+   */
+  setShot(pose: Pose, dur: number, arc = 0) {
+    this.from = this.now ? clonePose(this.now) : clonePose(pose);
+    this.to = clonePose(pose);
+    this.dur = dur;
+    this.k = dur > 0 ? 0 : 1;
+    this.arc = arc;
+    if (dur <= 0) this.apply(false);
+  }
+
+  /** True while the camera is travelling from one shot to the next. */
+  get moving() {
+    return this.k < 1;
+  }
+
+  private apply(drift: boolean) {
+    if (!this.from || !this.to) return;
+    const e = this.k >= 1 ? 1 : this.k * this.k * this.k * (this.k * (this.k * 6 - 15) + 10);
+    const pos = this.from.pos.clone().lerp(this.to.pos, e);
+    const target = this.from.target.clone().lerp(this.to.target, e);
+    const fr = this.from.region;
+    const tr = this.to.region;
+    const region = { x: fr.x + (tr.x - fr.x) * e, y: fr.y + (tr.y - fr.y) * e, w: fr.w + (tr.w - fr.w) * e, h: fr.h + (tr.h - fr.h) * e };
+    if (this.arc && this.k < 1) pos.y += Math.sin(Math.PI * e) * this.arc * this.from.pos.distanceTo(this.to.pos);
+    this.now = { pos: pos.clone(), target: target.clone(), region };
+    const D = pos.distanceTo(target);
+    if (drift) {
+      const t = this.t;
+      // hand-held drift: slow layered sines, a slow "breath" towards the subject and a tiny roll
+      pos.x += (Math.sin(t * 0.21) * 0.007 + Math.sin(t * 0.083 + 1.3) * 0.006) * D;
+      pos.y += (Math.sin(t * 0.17 + 0.6) * 0.005 + Math.sin(t * 0.39) * 0.0015) * D;
+      target.x += Math.sin(t * 0.15 + 0.4) * 0.004 * D;
+      target.y += Math.sin(t * 0.12) * 0.003 * D;
+      pos.lerp(target, (0.5 - 0.5 * Math.cos(t * 0.09)) * 0.03);
+    }
+    const cam = this.camera;
+    const { W, H, pr } = this.view;
+    cam.aspect = Math.max(10, region.w) / Math.max(10, region.h);
+    cam.setViewOffset(Math.max(10, region.w), Math.max(10, region.h), -region.x, -region.y, W, H);
+    cam.position.copy(pos);
+    cam.up.set(drift ? Math.sin(this.t * 0.13) * 0.006 : 0, 1, 0);
+    cam.lookAt(target);
+    cam.updateProjectionMatrix();
+    cam.updateMatrixWorld();
+    const pxScale = (region.h / (2 * Math.tan(THREE.MathUtils.degToRad(cam.fov / 2)))) * pr;
     for (const p of [this.dust, ...this.steams]) (p.material as THREE.ShaderMaterial).uniforms.scale.value = pxScale;
   }
 
-  /** Start with the camera a little higher and further away, then settle on the book. */
-  startIntro() {
-    this.introT = 0.0001;
-  }
-
-  /** Where the camera is now relative to its framed pose, as a screen-space shift for text that sits on the page. */
   update(dt: number): boolean {
-    const s = dt;
-    this.t += s;
+    this.t += dt;
     const t = this.t;
-
-    // particles always animate (cheap); the rest only when cinematic motion is on
     for (const p of [this.dust, ...this.steams]) (p.material as THREE.ShaderMaterial).uniforms.time.value = t;
-    if (!this.enabled) return this.steams.length > 0;
-
-    const cam = this.camera;
-    const D = this.dist;
-    const pos = this.basePos.clone();
-    const target = this.baseTarget.clone();
-    pos.x += (Math.sin(t * 0.13) * 0.006 + Math.sin(t * 0.047 + 1.3) * 0.005) * D;
-    pos.y += (Math.sin(t * 0.091 + 0.6) * 0.004 + Math.sin(t * 0.23) * 0.001) * D;
-    target.x += Math.sin(t * 0.11 + 0.4) * 0.003 * D;
-    // slow breathing push-in
-    const breathe = (0.5 - 0.5 * Math.cos(t * 0.07)) * 0.025;
-    pos.lerp(target, breathe);
-    if (this.introT > 0) {
-      this.introT += s / 2.6;
-      const k = Math.min(1, this.introT);
-      const e = 1 - Math.pow(1 - k, 3);
-      const away = pos.clone().sub(target).normalize();
-      pos.addScaledVector(away, 0.22 * D * (1 - e));
-      pos.y += 0.1 * D * (1 - e);
-      if (k >= 1) this.introT = 0;
-    }
-    cam.position.copy(pos);
-    cam.lookAt(target);
-    cam.updateMatrixWorld();
+    const travelling = this.k < 1;
+    if (travelling) this.k = Math.min(1, this.k + dt / Math.max(0.01, this.dur));
+    if (travelling || this.enabled) this.apply(this.enabled);
+    if (!this.enabled) return travelling || this.steams.length > 0;
 
     // day-light cycle
     const f = ((t / 60) % 1) * SKY.length;
@@ -210,9 +251,9 @@ export class ReaderCinema {
     return true;
   }
 
+  /** Stop drifting: put the camera exactly on the current shot. */
   reset() {
-    this.camera.position.copy(this.basePos);
-    this.camera.lookAt(this.baseTarget);
-    this.camera.updateMatrixWorld();
+    this.k = 1;
+    this.apply(false);
   }
 }

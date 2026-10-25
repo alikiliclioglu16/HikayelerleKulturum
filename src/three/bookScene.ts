@@ -3,7 +3,11 @@ import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment
 import { Tweens, ease } from './tween';
 import { loadActor, loadGltf, play, type Actor } from '../home3d/actors';
 import type { PageModel, TableModel } from '../types';
-import { ReaderCinema } from './readerCinema';
+import { ReaderCinema, type Pose } from './readerCinema';
+import { CULTURE_BUILDERS } from '../home3d/culture';
+import { mosaicLamp } from '../home3d/room';
+import { fitToSlot } from '../home3d/kit3d';
+import { WallCarpet, type CarpetDesign } from '../home3d/carpet';
 import type { BuiltLayer } from '../art/scenes';
 import { iznikTile, tulip } from '../art/kit';
 import { Pen, rng } from '../art/pen';
@@ -14,7 +18,19 @@ const COVER_T = 0.022;
 const PAGE_T = 0.045;
 const PAGE_TOP = COVER_T + PAGE_T;
 
-export type LayoutMode = 'landscape' | 'portrait';
+/** Camera shots: from high above, the closed book, the whole open book, and close on the pop-up. */
+export type ShotKind = 'overhead' | 'cover' | 'wide' | 'close';
+
+/** Things that always stand on the reading table, around the book (a little Turkish living room). */
+const DESK_DECOR: TableModel[] = [
+  { proc: 'lamba', word: 'lamba', x: -1.78, z: -0.95, h: 0.62 },
+  { proc: 'nazar', word: 'nazar boncuğu', x: -1.22, z: 1.02, h: 0.2, rotY: 25 },
+  { proc: 'lokum', word: 'lokum', x: -0.55, z: 1.16, h: 0.13, rotY: -10 },
+  { proc: 'cini', word: 'çini', x: -0.9, z: -1.2, h: 0.24, rotY: 8 },
+  { proc: 'lale', word: 'lale', x: 1.28, z: -1.12, h: 0.36 },
+  { proc: 'mangala', word: 'mangala', x: 0.25, z: -1.25, h: 0.1, w: 0.42, rotY: -6 },
+  { src: '/models/kenney/books.glb', word: 'kitap', x: 1.82, z: -0.75, h: 0.12, w: 0.3, rotY: 35 },
+];
 
 export interface Region {
   x: number;
@@ -39,6 +55,7 @@ interface ModelObj {
   word?: string;
   animated: boolean;
   phase: number;
+  born: number;
   walk: { to: THREE.Vector3; from: THREE.Vector3; speed: number; patrol: boolean } | null;
   visible: boolean;
 }
@@ -158,8 +175,13 @@ export class BookScene {
   private leftTex!: THREE.CanvasTexture;
   private raycaster = new THREE.Raycaster();
   private ro: ResizeObserver;
-  private mode: LayoutMode = 'landscape';
-  private region: Region = { x: 0, y: 0, w: 1, h: 1 };
+  private regions: { close: Region; wide: Region } = { close: { x: 0, y: 0, w: 1, h: 1 }, wide: { x: 0, y: 0, w: 1, h: 1 } };
+  private shotKind: ShotKind = 'close';
+  private shotAz = 0;
+  private shotCam = new THREE.PerspectiveCamera(32, 1, 0.05, 60);
+  private wall!: WallCarpet;
+  private turnMesh!: THREE.Mesh;
+  private turnBase!: Float32Array;
   private frameTimes: number[] = [];
   private lastFrame = 0;
   private quality = 2;
@@ -172,7 +194,8 @@ export class BookScene {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'default' });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
-    this.renderer.toneMapping = THREE.NoToneMapping;
+    this.renderer.toneMapping = THREE.NeutralToneMapping;
+    this.renderer.toneMappingExposure = 1.04;
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.renderer.domElement.className = 'scene-canvas';
@@ -187,7 +210,7 @@ export class BookScene {
     pmrem.dispose();
     const bg = new THREE.Color('#C9DCE8');
     this.scene.background = bg;
-    this.scene.fog = new THREE.Fog(bg, 5.5, 11);
+    this.scene.fog = new THREE.Fog(bg, 6, 14);
 
     this.buildWorld();
 
@@ -219,14 +242,32 @@ export class BookScene {
     this.light = light;
     this.scene.add(light, light.target);
 
-    // desk
+    // a lacquered wooden table that catches the light
     const woodTex = canvasTexture(woodCanvas(), r);
     woodTex.wrapS = woodTex.wrapT = THREE.RepeatWrapping;
-    woodTex.repeat.set(4, 3);
-    const desk = new THREE.Mesh(new THREE.PlaneGeometry(16, 12), new THREE.MeshLambertMaterial({ map: woodTex }));
+    woodTex.repeat.set(4, 2.2);
+    const desk = new THREE.Mesh(
+      new THREE.PlaneGeometry(16, 8),
+      new THREE.MeshPhysicalMaterial({ map: woodTex, roughness: 0.4, clearcoat: 0.8, clearcoatRoughness: 0.22 }),
+    );
     desk.rotation.x = -Math.PI / 2;
+    desk.position.z = 1.4;
     desk.receiveShadow = true;
     this.scene.add(desk);
+    // the table edge and the room's wall behind it, with a carpet like the one on the home page
+    const edgeMat = new THREE.MeshStandardMaterial({ color: '#5C351C', roughness: 0.5 });
+    const tableEdge = new THREE.Mesh(new THREE.BoxGeometry(16, 0.08, 0.06), edgeMat);
+    tableEdge.position.set(0, -0.04, -2.6);
+    this.scene.add(tableEdge);
+    const plaster = new THREE.Mesh(
+      new THREE.PlaneGeometry(30, 12),
+      new THREE.MeshStandardMaterial({ color: '#2F6E70', roughness: 0.95 }),
+    );
+    plaster.position.set(0, 5.5, -3.4);
+    this.scene.add(plaster);
+    this.wall = new WallCarpet(-3.36, this.tweens, () => this.invalidate());
+    this.wall.resize(-3.6, 3.6, 0.2, 3.4);
+    this.scene.add(this.wall.group);
 
     // book
     const coverColor = new THREE.MeshLambertMaterial({ color: '#1C3F8C' });
@@ -270,22 +311,56 @@ export class BookScene {
     this.scene.add(spine);
 
     // the page that turns
-    const turnGeo = new THREE.PlaneGeometry(PAGE_W, PAGE_D);
+    const turnGeo = new THREE.PlaneGeometry(PAGE_W, PAGE_D, 28, 1);
     turnGeo.rotateX(-Math.PI / 2);
     turnGeo.translate(PAGE_W / 2, 0, 0);
     const turnMesh = new THREE.Mesh(turnGeo, new THREE.MeshLambertMaterial({ color: '#FFFBF2', side: THREE.DoubleSide }));
     turnMesh.castShadow = true;
+    this.turnMesh = turnMesh;
+    this.turnBase = Float32Array.from(turnGeo.attributes.position.array as Float32Array);
     this.turnGroup.add(turnMesh);
     this.turnGroup.position.set(0, PAGE_TOP + 0.003, 0);
     this.turnGroup.visible = false;
     this.scene.add(this.turnGroup);
+
+    // warm light pool under the mosaic lamp on the table
+    const spot = new THREE.SpotLight('#FFB872', 7, 5, 0.75, 0.85, 1.4);
+    spot.position.set(-1.7, 1.2, -0.8);
+    spot.target.position.set(-0.6, 0, 0.1);
+    this.scene.add(spot, spot.target);
 
     this.cinema = new ReaderCinema(this.camera, light, hemi, this.scene);
     this.cinema.enabled = !this.reducedMotion;
     this.scene.add(this.cinema.group);
   }
 
-  /** Culture objects on the table around the book (GLB models from the shelf). */
+  /** The carpet on the wall behind the table shows the book's design. */
+  setWall(key: string, design: CarpetDesign) {
+    this.wall.show(key, design, true);
+  }
+
+  private async loadDecor(spec: TableModel): Promise<THREE.Object3D | null> {
+    if (spec.proc === 'lamba') {
+      const lamp = mosaicLamp();
+      return fitToSlot(lamp, spec.h, spec.h, spec.h);
+    }
+    if (spec.proc) {
+      const b = CULTURE_BUILDERS[spec.proc];
+      if (!b) return null;
+      const o = b.build();
+      o.traverse((n) => {
+        const m = n as THREE.Mesh;
+        if (m.isMesh) m.castShadow = m.receiveShadow = true;
+      });
+      const wrap = new THREE.Group();
+      wrap.add(o);
+      return fitToSlot(wrap, spec.h, spec.w ?? spec.h * 1.6, spec.w ?? spec.h * 1.6);
+    }
+    if (!spec.src) return null;
+    return (await loadActor(spec.src, spec.h, spec.w)).root;
+  }
+
+  /** Objects on the table around the book: the room's own things plus the book's choice (`book.table`). */
   async setTable(list: TableModel[]) {
     const session = ++this.tableSession;
     for (const o of this.tableObjs) this.scene.remove(o);
@@ -293,14 +368,17 @@ export class BookScene {
     this.props = [];
     this.cinema.clearSteam();
     const r = this.renderer;
+    const all = [...DESK_DECOR.filter((d) => !list.some((l) => l.word === d.word)), ...list];
     await Promise.all(
-      list.map(async (spec) => {
+      all.map(async (spec) => {
         try {
-          const actor = await loadActor(spec.src, spec.h, spec.w);
-          if (session !== this.tableSession || this.disposed) return;
+          const obj = await this.loadDecor(spec);
+          if (!obj || session !== this.tableSession || this.disposed) return;
           const g = new THREE.Group();
           g.position.set(spec.x, 0, spec.z);
-          actor.root.rotation.y = THREE.MathUtils.degToRad(spec.rotY ?? 0);
+          const inner = new THREE.Group();
+          inner.add(obj);
+          inner.rotation.y = THREE.MathUtils.degToRad(spec.rotY ?? 0);
           let lift = 0;
           if (spec.steam) {
             // a hot drink stands on an İznik tile coaster and steams
@@ -314,14 +392,14 @@ export class BookScene {
             lift = 0.02;
             this.cinema.addSteam(new THREE.Vector3(spec.x, spec.h * 0.92 + lift, spec.z));
           }
-          actor.root.position.y = lift;
-          g.add(actor.root);
+          inner.position.y = lift;
+          g.add(inner);
           this.scene.add(g);
           this.tableObjs.push(g);
           if (spec.word) this.props.push({ object: g, word: spec.word, anchor: new THREE.Vector3(spec.x, spec.h + lift + 0.04, spec.z) });
           this.invalidate();
         } catch (e) {
-          console.warn('Masa modeli yüklenemedi', spec.src, e);
+          console.warn('Masa nesnesi yüklenemedi', spec.src ?? spec.proc, e);
         }
       }),
     );
@@ -335,18 +413,16 @@ export class BookScene {
     this.invalidate();
   }
 
-  /** Start the opening camera move (the camera settles onto the book). */
-  introCamera() {
-    if (!this.reducedMotion) this.cinema.startIntro();
-    this.invalidate();
-  }
+  /* ---------------- layout + camera shots ---------------- */
 
-  /* ---------------- layout + camera ---------------- */
-
-  setLayout(mode: LayoutMode, region: Region) {
-    this.mode = mode;
-    this.region = region;
-    this.frameCamera();
+  /**
+   * Screen areas for the shots (CSS pixels): `close` is where the pop-up should sit (beside the text card),
+   * `wide` is the whole space between the top bar and the controls.
+   */
+  setLayout(close: Region, wide: Region) {
+    this.regions = { close, wide };
+    this.cinema.setView(this.size.w, this.size.h, this.renderer.getPixelRatio());
+    this.cinema.setShot(this.computeShot(this.shotKind), 0);
     this.invalidate();
   }
 
@@ -355,8 +431,8 @@ export class BookScene {
     const h = this.container.clientHeight;
     if (!w || !h) return;
     this.renderer.setSize(w, h, false);
+    this.cinema.setView(w, h, this.renderer.getPixelRatio());
     this.onResize?.();
-    this.frameCamera();
     this.invalidate();
   }
 
@@ -364,37 +440,45 @@ export class BookScene {
     return { w: this.container.clientWidth, h: this.container.clientHeight };
   }
 
-  private frameCamera() {
-    const { w: W, h: H } = this.size;
-    if (!W || !H) return;
-    const reg = this.region;
-    const rw = Math.max(50, reg.w);
-    const rh = Math.max(50, reg.h);
-    const landscape = this.mode === 'landscape';
-    const min = landscape ? new THREE.Vector3(-1.06, 0, -0.74) : new THREE.Vector3(-0.02, 0, -0.74);
-    const max = landscape ? new THREE.Vector3(1.06, 0.84, 0.74) : new THREE.Vector3(1.04, 0.86, 0.72);
-    const center = min.clone().add(max).multiplyScalar(0.5);
-    center.y = landscape ? 0.2 : 0.3;
-    const elev = THREE.MathUtils.degToRad(landscape ? 40 : 30);
-    const dir = new THREE.Vector3(0, Math.sin(elev), Math.cos(elev));
-    const corners: THREE.Vector3[] = [];
-    for (const x of [min.x, max.x]) for (const y of [min.y, max.y]) for (const z of [min.z, max.z]) corners.push(new THREE.Vector3(x, y, z));
+  /** Move the camera to a shot. `az` turns the camera around the book (degrees), so pages are seen from different sides. */
+  shot(kind: ShotKind, ms = 1400, az?: number, arc = 0) {
+    this.shotKind = kind;
+    if (az !== undefined) this.shotAz = az;
+    this.cinema.setShot(this.computeShot(kind), this.reducedMotion ? 0 : ms / 1000, arc);
+    this.invalidate();
+  }
 
-    const cam = this.camera;
-    cam.aspect = rw / rh;
-    cam.clearViewOffset();
+  private computeShot(kind: ShotKind): Pose {
+    const V = (x: number, y: number, z: number) => new THREE.Vector3(x, y, z);
+    const cfg = {
+      overhead: { min: V(-2.1, 0, -1.4), max: V(2.2, 0.3, 1.5), cy: 0, el: 82, az: -28, reg: this.regions.wide, lim: 0.98 },
+      cover: { min: V(-0.05, 0, -0.75), max: V(1.1, 0.12, 0.75), cy: 0.05, el: 50, az: 18, reg: this.regions.wide, lim: 0.5 },
+      wide: { min: V(-1.12, 0, -0.8), max: V(1.12, 0.4, 0.8), cy: 0.12, el: 52, az: this.shotAz * 0.5, reg: this.regions.wide, lim: 0.9 },
+      close: { min: V(0.02, 0, -0.66), max: V(1.0, 0.86, 0.46), cy: 0.34, el: 21, az: this.shotAz, reg: this.regions.close, lim: 1.02 },
+    }[kind];
+    const center = cfg.min.clone().add(cfg.max).multiplyScalar(0.5);
+    center.y = cfg.cy;
+    const el = THREE.MathUtils.degToRad(cfg.el);
+    const az = THREE.MathUtils.degToRad(cfg.az);
+    const dir = V(Math.sin(az) * Math.cos(el), Math.sin(el), Math.cos(az) * Math.cos(el));
+    const corners: THREE.Vector3[] = [];
+    for (const x of [cfg.min.x, cfg.max.x]) for (const y of [cfg.min.y, cfg.max.y]) for (const z of [cfg.min.z, cfg.max.z]) corners.push(V(x, y, z));
+    const cam = this.shotCam;
+    cam.fov = this.camera.fov;
+    cam.aspect = Math.max(10, cfg.reg.w) / Math.max(10, cfg.reg.h);
     cam.updateProjectionMatrix();
-    let lo = 0.5;
-    let hi = 30;
-    for (let i = 0; i < 24; i++) {
+    let lo = 0.3;
+    let hi = 40;
+    const v = V(0, 0, 0);
+    for (let i = 0; i < 26; i++) {
       const d = (lo + hi) / 2;
       cam.position.copy(center).addScaledVector(dir, d);
       cam.lookAt(center);
       cam.updateMatrixWorld();
       let ok = true;
       for (const c of corners) {
-        const v = c.clone().project(cam);
-        if (Math.abs(v.x) > 0.96 || Math.abs(v.y) > 0.94 || v.z > 1) {
+        v.copy(c).project(cam);
+        if (Math.abs(v.x) > cfg.lim || Math.abs(v.y) > cfg.lim * 0.97 || v.z > 1) {
           ok = false;
           break;
         }
@@ -402,29 +486,7 @@ export class BookScene {
       if (ok) hi = d;
       else lo = d;
     }
-    cam.position.copy(center).addScaledVector(dir, hi);
-    cam.lookAt(center);
-    cam.setViewOffset(rw, rh, -reg.x, -reg.y, W, H);
-    cam.updateProjectionMatrix();
-    cam.updateMatrixWorld();
-    const pxScale = (rh / (2 * Math.tan(THREE.MathUtils.degToRad(cam.fov / 2)))) * this.renderer.getPixelRatio();
-    this.cinema.setBase(cam.position, center, pxScale);
-  }
-
-  /** Screen rectangle (CSS px) of the flat left page, for placing the text on it. */
-  leftPageRect(): Region {
-    const y = PAGE_TOP;
-    const pts = [
-      new THREE.Vector3(-PAGE_W + 0.06, y, -PAGE_D / 2 + 0.07),
-      new THREE.Vector3(-0.08, y, -PAGE_D / 2 + 0.07),
-      new THREE.Vector3(-PAGE_W + 0.06, y, PAGE_D / 2 - 0.07),
-      new THREE.Vector3(-0.08, y, PAGE_D / 2 - 0.07),
-    ].map((p) => this.toScreen(p));
-    const left = Math.max(pts[0].x, pts[2].x);
-    const right = Math.min(pts[1].x, pts[3].x);
-    const top = Math.max(pts[0].y, pts[1].y);
-    const bottom = Math.min(pts[2].y, pts[3].y);
-    return { x: left, y: top, w: right - left, h: bottom - top };
+    return { pos: center.clone().addScaledVector(dir, hi), target: center, region: { ...cfg.reg } };
   }
 
   toScreen(p: THREE.Vector3) {
@@ -443,11 +505,13 @@ export class BookScene {
   private frame(now: number) {
     this.raf = 0;
     this.tweens.update(now);
-    const dt = this.lastTick ? Math.min(0.05, (now - this.lastTick) / 1000) : 0.016;
+    const raw = this.lastTick ? Math.min(0.25, (now - this.lastTick) / 1000) : 0.016;
+    const dt = Math.min(0.05, raw);
     this.lastTick = now;
     this.clock += dt;
     let alive = false;
-    if (!document.hidden && this.cinema.update(dt)) alive = true;
+    // camera moves keep real time, so they end on time even when frames are slow
+    if (!document.hidden && this.cinema.update(raw)) alive = true;
     if (!this.reducedMotion && this.models.length) {
       this.updateModels(dt);
       alive = true;
@@ -521,6 +585,14 @@ export class BookScene {
         case 'spin':
           g.rotation.y += dt * 0.6;
           break;
+        case 'grow': {
+          // a plant grows up out of the soil, then sways a little
+          const k = Math.min(1, Math.max(0, (t - m.born - 0.4) / 3.5));
+          const e = 1 - Math.pow(1 - k, 3);
+          g.scale.set(0.35 + 0.65 * e, 0.08 + 0.92 * e, 0.35 + 0.65 * e);
+          g.rotation.z = Math.sin(t * 1.3 + ph) * 0.03 * e;
+          break;
+        }
       }
     }
   }
@@ -570,6 +642,12 @@ export class BookScene {
     this.coverMat.map = tex;
     this.coverMat.color.set('#ffffff');
     this.coverMat.needsUpdate = true;
+  }
+
+  /** Close the book at once (before the opening shot). */
+  closeNow() {
+    this.leftGroup.rotation.z = -Math.PI;
+    this.invalidate();
   }
 
   async open(fromClosed: boolean) {
@@ -636,12 +714,9 @@ export class BookScene {
       this.turnGroup.visible = true;
       const from = direction > 0 ? 0 : Math.PI;
       const to = direction > 0 ? Math.PI : 0;
-      this.tweens.add(this.dur(620), from, to, (v) => {
-        this.turnGroup.rotation.z = v;
-        this.turnGroup.position.y = PAGE_TOP + 0.003 + Math.sin(v) * 0.02;
-      }, ease.inOut);
+      this.tweens.add(this.dur(900), from, to, (v) => this.curl(v, direction), ease.inOut);
       this.invalidate();
-      await this.wait(this.dur(620));
+      await this.wait(this.dur(900));
       this.turnGroup.visible = false;
     }
 
@@ -657,6 +732,36 @@ export class BookScene {
   private pagePoint(x: number, z: number) {
     const depth = PAGE_D - 0.14;
     return new THREE.Vector3(PAGE_W / 2 + x * PAGE_W, PAGE_TOP + 0.003, -PAGE_D / 2 + 0.06 + z * depth);
+  }
+
+  /**
+   * Bend the turning page: the spine side leads, the free edge lags behind and curls,
+   * like a real paper page. `theta` goes 0 → π (forwards) or π → 0 (backwards).
+   */
+  private curl(theta: number, direction: 1 | -1) {
+    const pos = this.turnMesh.geometry.attributes.position as THREE.BufferAttribute;
+    const arr = pos.array as Float32Array;
+    const base = this.turnBase;
+    const lag = Math.sin(theta) * 1.1 * direction;
+    for (let i = 0; i < arr.length; i += 3) {
+      const u = base[i] / PAGE_W;
+      // integrate the bent page from the spine: the angle grows less towards the free edge
+      const n = 12;
+      let x = 0;
+      let y = 0;
+      for (let k = 0; k < n; k++) {
+        const uu = ((k + 0.5) / n) * u;
+        const a = theta - lag * uu * uu;
+        x += Math.cos(a) * (u / n) * PAGE_W;
+        y += Math.sin(a) * (u / n) * PAGE_W;
+      }
+      arr[i] = x;
+      arr[i + 1] = y;
+    }
+    pos.needsUpdate = true;
+    this.turnMesh.geometry.computeVertexNormals();
+    this.turnGroup.rotation.z = 0;
+    this.turnGroup.position.y = PAGE_TOP + 0.004;
   }
 
   /** 3D models (GLB) standing on the right page: characters, animals, trees, pots… */
@@ -725,7 +830,7 @@ export class BookScene {
       let walk: ModelObj['walk'] = null;
       if (hasClips && spec.walkTo && !this.reducedMotion) {
         walk = { to: this.pagePoint(spec.walkTo[0], spec.walkTo[1]), from: actor.root.position.clone(), speed: spec.speed ?? 0.11, patrol: !!spec.patrol };
-        play(actor, 'walk', 0);
+        play(actor, spec.walkAnim ?? 'walk', 0);
       } else if (spec.walkTo && this.reducedMotion) {
         actor.root.position.copy(this.pagePoint(spec.walkTo[0], spec.walkTo[1]));
         actor.root.rotation.y = THREE.MathUtils.degToRad(spec.endRotY ?? spec.rotY ?? 0);
@@ -736,7 +841,7 @@ export class BookScene {
       }
       actor.mixer.update(Math.random() * 2);
       actor.root.scale.setScalar(0.001);
-      const obj: ModelObj = { actor, fx, spec, word: spec.word, animated: hasClips && spec.anim !== 'none', phase: Math.random() * 10, walk, visible: false };
+      const obj: ModelObj = { actor, fx, spec, word: spec.word, animated: hasClips && spec.anim !== 'none', phase: Math.random() * 10, born: this.clock + delay / 1000, walk, visible: false };
       this.models.push(obj);
       this.scene.add(actor.root);
       this.tweens.add(this.dur(520), 0.001, 1, (v) => {

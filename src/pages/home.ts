@@ -69,7 +69,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
       { class: `book-card${soon ? ' soon' : ''}`, type: 'button', 'aria-label': `${b.title}${soon ? ', yakında' : ''}` },
       h('span', { class: 't' }, b.title),
       h('span', { class: 'bar' }, bar),
-      h('span', { class: 'meta' }, meta, soon ? h('span', { class: 'soon-badge' }, 'Yakında') : h('span', { class: 'en' }, b.titleEn)),
+      h('span', { class: 'meta' }, meta, soon ? h('span', { class: 'soon-badge' }, 'Yakında') : null),
     );
     card.addEventListener('click', () => openBook(i));
     return { card, bar, meta, book: b };
@@ -80,7 +80,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     'ul',
     { class: 'sr-only', 'aria-label': 'Kültür rafı' },
     ...culture.map((c, i) => {
-      const b = h('button', { type: 'button' }, `${c.name} (${c.en})`);
+      const b = h('button', { type: 'button' }, c.name);
       b.addEventListener('focus', () => focusItem(i));
       b.addEventListener('blur', () => focusItem(null));
       b.addEventListener('click', () => activateItem(i));
@@ -112,7 +112,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     scene.setCinematic(false);
   }
   scene.setItems(culture);
-  scene.setBooks(list.map((b, i) => ({ id: b.id, cover: covers[i], spine: b.cover.color ?? '#1C3F8C', hero: b.hero })));
+  scene.setBooks(list.map((b, i) => ({ id: b.id, cover: covers[i], spine: b.cover.color ?? '#1C3F8C', hero: b.hero, carpet: b.carpet })));
 
   /* ---------- stats & sound ---------- */
   function updateStats() {
@@ -193,9 +193,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
       { class: 'culture-pop', role: 'status' },
       say,
       h('div', { class: 'cp-head' }, c.icon ? h('span', { class: 'cp-ico', 'aria-hidden': 'true' }, c.icon) : null, h('span', { class: 'cp-name', lang: 'tr' }, c.name)),
-      h('div', { class: 'cp-en', lang: 'en' }, c.en),
       h('p', { class: 'cp-fact', lang: 'tr' }, c.fact.tr),
-      h('p', { class: 'cp-fact-en', lang: 'en' }, c.fact.en),
       isNew ? h('span', { class: 'cp-new' }, 'Yeni keşif! Sandığına eklendi') : null,
     );
     shell.append(popEl);
@@ -275,7 +273,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     window.setTimeout(() => speak('kedi'), 500);
     const a = scene.catAnchor();
     if (a) {
-      const tag = h('div', { class: 'tag3d', style: `left:${a.x}px;top:${a.y}px`, role: 'status' }, h('div', { class: 'bubble' }, h('span', { class: 'ico', 'aria-hidden': 'true' }, '🐈'), h('div', null, h('div', { class: 't', lang: 'tr' }, 'kedi'), h('div', { class: 'e', lang: 'en' }, 'cat'))));
+      const tag = h('div', { class: 'tag3d', style: `left:${a.x}px;top:${a.y}px`, role: 'status' }, h('div', { class: 'bubble' }, h('span', { class: 'ico', 'aria-hidden': 'true' }, '🐈'), h('div', null, h('div', { class: 't', lang: 'tr' }, 'kedi'))));
       shell.append(tag);
       window.setTimeout(() => tag.remove(), 2600);
     }
@@ -287,6 +285,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     const b = list[i];
     closePop();
     scene.setPage(scene.pageOfBook(i));
+    scene.showCarpet(i);
     scene.pullBook(i);
     scene.sparkle('book', i, 1.4);
     sfx.slide();
@@ -303,10 +302,8 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     closeBtn.addEventListener('click', close);
     const body: Node[] = [
       h('h2', { class: 'bs-title' }, b.title),
-      h('p', { class: 'bs-en' }, b.titleEn),
       h('div', { class: 'bs-chips' }, ...b.values.map((v) => chip(valueById(v).name, valueById(v).group))),
       h('p', { class: 'bs-sum', lang: 'tr' }, b.blurb.tr),
-      h('p', { class: 'bs-sum-en', lang: 'en' }, b.blurb.en),
     ];
     if (soon) {
       body.push(h('p', { class: 'bs-soon' }, 'Bu kitap yakında rafta olacak. Şimdilik Bayram Sabahı’nı okuyabilirsin.'));
@@ -365,6 +362,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     if (p < 0 || p >= scene.pageCount || p === scene.page) return;
     closePop();
     scene.setPage(p);
+    scene.showCarpet(p * scene.perPage);
     sfx.slide();
     renderDots();
   }
@@ -537,26 +535,20 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   };
   window.addEventListener('keydown', onKey);
 
-  /* ---------- kilim motifs on the wall, a new one every 5 seconds ---------- */
+  /* ---------- the motif of the carpet on the wall ---------- */
   function showMotif(i: number) {
     const m = MOTIFS[i];
     motifCap.classList.remove('show');
     window.setTimeout(() => {
       motifName.textContent = `${m.name} motifi`;
       motifText.textContent = m.meaning;
-      motifCap.title = m.en;
       (motifCap.querySelector('.mc-dot') as HTMLElement).style.background = m.palette.b;
       motifCap.classList.add('show');
     }, 350);
   }
-  let motifTimer = 0;
-  showMotif(0);
-  motifTimer = window.setInterval(() => {
-    if (document.hidden) return;
-    const next = (scene.motif + 1) % MOTIFS.length;
-    scene.setMotif(next);
-    showMotif(next);
-  }, 5000);
+  // the wall carpet follows the book under the mouse (or the first book on the shelf page)
+  scene.onCarpet = (i) => showMotif(i);
+  showMotif(scene.carpetMotif);
 
   /* ---------- start ---------- */
   updateStats();
@@ -581,7 +573,6 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   return () => {
     window.removeEventListener('keydown', onKey);
     // the music keeps playing into the book
-    window.clearInterval(motifTimer);
     ro.disconnect();
     narrator.stop();
     closePop();
