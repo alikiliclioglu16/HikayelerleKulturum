@@ -4,7 +4,7 @@ import { store } from '../store';
 import { LEVELS, valueById } from '../values';
 import { Narrator } from '../narrator';
 import { sfx } from '../sfx';
-import { HomeScene, ITEM_GAP, type CultureDef } from '../home3d/homeScene';
+import { HomeScene, HEROES, ITEM_GAP, type CultureDef } from '../home3d/homeScene';
 import { MOTIFS } from '../home3d/kilim';
 import type { BookListing, LevelId } from '../types';
 
@@ -107,9 +107,12 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
 
   /* ---------- 3D ---------- */
   const scene = new HomeScene(sceneHost);
-  if (store.settings.calm) scene.reducedMotion = true;
+  if (store.settings.calm) {
+    scene.reducedMotion = true;
+    scene.setCinematic(false);
+  }
   scene.setItems(culture);
-  scene.setBooks(list.map((b, i) => ({ id: b.id, cover: covers[i], spine: b.cover.color ?? '#1C3F8C' })));
+  scene.setBooks(list.map((b, i) => ({ id: b.id, cover: covers[i], spine: b.cover.color ?? '#1C3F8C', hero: b.hero })));
 
   /* ---------- stats & sound ---------- */
   function updateStats() {
@@ -251,6 +254,31 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     scene.hoverItem(i);
     if (i !== null) scene.ensureItemVisible(i);
     syncDom();
+  }
+
+  /* ---------- characters ---------- */
+  function greetHero(i: number) {
+    const bi = scene.heroBook(i);
+    const b = list[bi];
+    const hero = b?.hero ? HEROES[b.hero] : null;
+    if (!hero) return;
+    scene.cheerHero(i);
+    sfx.chime();
+    speak(`Merhaba! Ben ${hero.name}.`);
+    window.setTimeout(() => openBook(bi), 900);
+  }
+  function petCat() {
+    scene.poke();
+    sfx.meow();
+    store.addWord({ lemma: 'kedi', en: 'cat', icon: '🐈', book: 'kultur-rafi', at: Date.now() });
+    updateStats();
+    window.setTimeout(() => speak('kedi'), 500);
+    const a = scene.catAnchor();
+    if (a) {
+      const tag = h('div', { class: 'tag3d', style: `left:${a.x}px;top:${a.y}px`, role: 'status' }, h('div', { class: 'bubble' }, h('span', { class: 'ico', 'aria-hidden': 'true' }, '🐈'), h('div', null, h('div', { class: 't', lang: 'tr' }, 'kedi'), h('div', { class: 'e', lang: 'en' }, 'cat'))));
+      shell.append(tag);
+      window.setTimeout(() => tag.remove(), 2600);
+    }
   }
 
   /* ---------- book sheet ---------- */
@@ -433,14 +461,19 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
         scene.hoverItem(hit?.kind === 'item' ? hit.index : focused);
         scene.hoverBook(hit?.kind === 'book' ? hit.index : null);
         canvasEl.classList.toggle('pickable', !!hit);
-        const key = hit ? `${hit.kind}:${hit.index}` : '';
+        const key = hit ? `${hit.kind}:${'index' in hit ? hit.index : 0}` : '';
         if (key !== hovered) {
           hovered = key;
-          if (hit) {
-            scene.sparkle(hit.kind, hit.index);
-            if (hit.kind === 'item') sfx.item(culture[hit.index].id, hit.index);
-            else sfx.shimmer();
-          }
+          if (hit?.kind === 'item') {
+            scene.sparkle('item', hit.index);
+            sfx.item(culture[hit.index].id, hit.index);
+          } else if (hit?.kind === 'book') {
+            scene.sparkle('book', hit.index);
+            sfx.shimmer();
+          } else if (hit?.kind === 'hero') {
+            scene.sparkle('book', scene.heroBook(hit.index), 0.6);
+            sfx.twinkle(hit.index + 3);
+          } else if (hit?.kind === 'cat') sfx.meow();
         }
       }
       return;
@@ -471,6 +504,8 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     const hit = scene.pick(e.clientX, e.clientY);
     if (hit?.kind === 'item') activateItem(hit.index);
     else if (hit?.kind === 'book') openBook(hit.index);
+    else if (hit?.kind === 'hero') greetHero(hit.index);
+    else if (hit?.kind === 'cat') petCat();
     else closePop();
   };
   canvasEl.addEventListener('pointerup', endDrag);
@@ -528,6 +563,15 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   updateSound();
   layout();
   scene.intro();
+  // the cards and dots appear once the opening camera move has settled
+  if (!scene.reducedMotion) {
+    cardLayer.classList.add('intro');
+    dots.classList.add('intro');
+    window.setTimeout(() => {
+      cardLayer.classList.remove('intro');
+      dots.classList.remove('intro');
+    }, 2900);
+  }
   if (!store.seenHint('shelf') && store.culture.length === 0) {
     window.setTimeout(() => {
       if (store.culture.length === 0) hint.hidden = false;

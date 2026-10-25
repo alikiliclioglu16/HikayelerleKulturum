@@ -19,6 +19,7 @@
       "title": "Nasreddin Hoca ve Kazan",
       "titleEn": "Nasreddin Hodja and the Pot",
       "values": ["adalet", "durustluk"],
+      "hero": "hoca",
       "blurb": {
         "tr": "Ödünç alınan kazan bir gün 'doğurursa', başka bir gün 'ölebilir' mi?",
         "en": "If a borrowed pot can 'give birth', can it also 'die'?"
@@ -30,7 +31,8 @@
       "status": "soon",
       "title": "Keloğlan ve Üç Tohum",
       "titleEn": "Keloğlan and the Three Seeds",
-      "values": ["caliskanlik", "sabir"],
+      "values": ["caliskanlik", "sabir", "saglikli-yasam"],
+      "hero": "keloglan",
       "blurb": {
         "tr": "Keloğlan, annesinin verdiği üç tohumla bütün köye bereket getirebilir mi?",
         "en": "Can Keloğlan bring a good harvest to the whole village with three seeds?"
@@ -42,7 +44,7 @@
       "status": "soon",
       "title": "23 Nisan Şenliği",
       "titleEn": "The April 23 Festival",
-      "values": ["sevgi", "vatanseverlik"],
+      "values": ["sevgi", "vatanseverlik", "ozgurluk"],
       "blurb": {
         "tr": "Dünyanın çocuklara armağan edilen ilk bayramında Elif'in sınıfı bir şenlik hazırlıyor.",
         "en": "Elif's class prepares for the first holiday in the world dedicated to children."
@@ -60,6 +62,126 @@
         "en": "Tulips that bloom on water: Can makes his first marbled painting with Grandpa."
       },
       "cover": { "art": "cover-soon", "color": "#1FA4A0", "motif": "ebru" }
+    },
+    {
+      "id": "mahalle-firini",
+      "status": "soon",
+      "title": "Mahalle Fırını",
+      "titleEn": "The Neighborhood Bakery",
+      "values": ["tasarruf", "yardimseverlik"],
+      "blurb": {
+        "tr": "Fırıncı Ali Amca'nın sıcak simitleri ve bayat ekmekten yapılan sürpriz bir tatlı.",
+        "en": "Baker Ali's warm simits, and a surprise dessert made from yesterday's bread."
+      },
+      "cover": { "art": "cover-soon", "color": "#B8652B", "motif": "simit" }
+    },
+    {
+      "id": "kapadokya",
+      "status": "soon",
+      "title": "Kapadokya'nın Güzel Atları",
+      "titleEn": "The Beautiful Horses of Cappadocia",
+      "values": ["duyarlilik", "merhamet"],
+      "blurb": {
+        "tr": "Peri bacaları arasında yaralı bir tay bulan Zeynep, balonlar doğarken ona yardım ediyor.",
+        "en": "Among the fairy chimneys, Zeynep finds a hurt foal and helps it as the balloons rise."
+      },
+      "cover": { "art": "cover-soon", "color": "#C9773A", "motif": "balon" }
+    },
+    {
+      "id": "marti-simit",
+      "status": "soon",
+      "title": "Martı ile Simit",
+      "titleEn": "The Seagull and the Simit",
+      "values": ["temizlik", "merhamet"],
+      "blurb": {
+        "tr": "İstanbul vapurunda simit isteyen bir martı ve denizi temiz tutmaya söz veren iki kardeş.",
+        "en": "A seagull begging for simit on an Istanbul ferry, and two siblings who promise to keep the sea clean."
+      },
+      "cover": { "art": "cover-soon", "color": "#2F7FC1", "motif": "marti" }
+    },
+    {
+      "id": "davulcu-dede",
+      "status": "soon",
+      "title": "Davulcu Dede",
+      "titleEn": "The Ramadan Drummer",
+      "values": ["sorumluluk", "sabir"],
+      "blurb": {
+        "tr": "Ramazan gecelerinde sahura kaldıran davulcu dede, bu yıl yardımcısını arıyor.",
+        "en": "The drummer who wakes everyone for the pre-dawn meal is looking for a helper this Ramadan."
+      },
+      "cover": { "art": "cover-soon", "color": "#2B2F5A", "motif": "davul" }
+    },
+    {
+      "id": "karagoz-hacivat",
+      "status": "soon",
+      "title": "Karagöz ile Hacivat'ın Gölgesi",
+      "titleEn": "The Shadows of Karagöz and Hacivat",
+      "values": ["dostluk", "mutevazilik"],
+      "blurb": {
+        "tr": "Perde arkasında iki eski dost: Biri çok bilmiş, öteki hep şaşkın. Hangisi haklı?",
+        "en": "Two old friends behind the screen: one knows it all, the other is always puzzled. Who is right?"
+      },
+      "cover": { "art": "cover-soon", "color": "#7B4FA0", "motif": "karagoz" }
+    },
+    {
+      "id": "mangala",
+      "status": "soon",
+      "title": "Mangala Turnuvası",
+      "titleEn": "The Mangala Tournament",
+      "values": ["adalet", "saygi", "sabir"],
+      "blurb": {
+        "tr": "Can ilk turnuvasında kaybetmeyi ve rakibini kutlamayı öğreniyor.",
+        "en": "In his first tournament, Can learns how to lose well and congratulate his rival."
+      },
+      "cover": { "art": "cover-soon", "color": "#8A5530", "motif": "mangala" }
+    },
+    {
+      "id": "koyde-imece",
+      "status": "soon",
+      "title": "Dedemin Köyünde İmece",
+      "titleEn": "Working Together in Grandpa's Village",
+      "values": ["yardimseverlik", "caliskanlik", "aile-butunlugu"],
+      "blurb": {
+        "tr": "Bütün köy bir olup komşunun ekinini topluyor. Elif de değirmende un taşıyor.",
+        "en": "The whole village helps bring in a neighbor's harvest, and Elif carries flour at the mill."
+      },
+      "cover": { "art": "cover-soon", "color": "#5C8F3E", "motif": "imece" }
+    },
+    {
+      "id": "yolcu-misafir",
+      "status": "soon",
+      "title": "Kapıdaki Yolcu",
+      "titleEn": "The Traveler at the Door",
+      "values": ["mahremiyet", "yardimseverlik", "saygi"],
+      "blurb": {
+        "tr": "Kapıyı çalan yorgun bir yolcu: Misafir nasıl ağırlanır, eve izinle nasıl girilir?",
+        "en": "A tired traveler knocks at the door: how do we welcome a guest, and why do we ask before we enter?"
+      },
+      "cover": { "art": "cover-soon", "color": "#7A4F35", "motif": "misafir" }
+    },
+    {
+      "id": "dogu-ekspresi",
+      "status": "soon",
+      "title": "Doğu Ekspresi ile Kars'a",
+      "titleEn": "The Eastern Express to Kars",
+      "values": ["saglikli-yasam", "sabir", "dostluk"],
+      "blurb": {
+        "tr": "Karlı dağların arasından giden trende sahlep, kızak ve yeni bir arkadaş.",
+        "en": "A train through snowy mountains: hot salep, a sled ride and a new friend."
+      },
+      "cover": { "art": "cover-soon", "color": "#3B5C99", "motif": "tren" }
+    },
+    {
+      "id": "turk-marketi",
+      "status": "soon",
+      "title": "Türk Marketinde Bir Gün",
+      "titleEn": "A Day at the Turkish Market",
+      "values": ["tasarruf", "durustluk", "vatanseverlik"],
+      "blurb": {
+        "tr": "New Jersey'deki Türk marketinde alışveriş listesi, fazla verilen para üstü ve bir paket lokum.",
+        "en": "A shopping list at a Turkish market in New Jersey, too much change at the register and a box of lokum."
+      },
+      "cover": { "art": "cover-soon", "color": "#1C7A5A", "motif": "market" }
     }
   ]
 }

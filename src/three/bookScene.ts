@@ -1,5 +1,7 @@
 import * as THREE from 'three';
 import { Tweens, ease } from './tween';
+import { loadActor, type Actor } from '../home3d/actors';
+import type { PageModel } from '../types';
 import type { BuiltLayer } from '../art/scenes';
 import { iznikTile, tulip } from '../art/kit';
 import { Pen, rng } from '../art/pen';
@@ -127,6 +129,9 @@ export class BookScene {
   private raf = 0;
   private layers: LayerObj[] = [];
   private props: PropObj[] = [];
+  private models: { actor: Actor; word?: string; animated: boolean }[] = [];
+  private modelSession = 0;
+  private lastTick = 0;
   private leftGroup = new THREE.Group();
   private turnGroup = new THREE.Group();
   private coverMat!: THREE.MeshLambertMaterial;
@@ -444,8 +449,12 @@ export class BookScene {
   private frame(now: number) {
     this.raf = 0;
     this.tweens.update(now);
+    const dt = this.lastTick ? Math.min(0.05, (now - this.lastTick) / 1000) : 0.016;
+    this.lastTick = now;
+    const animating = !this.reducedMotion && this.models.some((m) => m.animated);
+    if (animating) for (const m of this.models) m.actor.mixer.update(dt);
     this.renderer.render(this.scene, this.camera);
-    if (this.tweens.active) {
+    if (this.tweens.active || animating) {
       if (this.lastFrame) this.trackPerf(now - this.lastFrame);
       this.lastFrame = now;
       this.invalidate();
@@ -583,15 +592,63 @@ export class BookScene {
     await Promise.all(pops);
   }
 
+  /** Animated 3D models (GLB) standing on the right page, for example a cat or a dog. */
+  async setModels(list: PageModel[]) {
+    const session = ++this.modelSession;
+    const old = this.models;
+    this.models = [];
+    await Promise.all(
+      old.map((m) =>
+        this.tweens.add(this.dur(220), 1, 0.001, (v) => m.actor.root.scale.setScalar(v), ease.in).then(() => this.scene.remove(m.actor.root)),
+      ),
+    );
+    this.invalidate();
+    for (const spec of list) {
+      try {
+        const actor = await loadActor(spec.src, spec.h);
+        if (session !== this.modelSession || this.disposed) return;
+        const depth = PAGE_D - 0.14;
+        actor.root.position.set(PAGE_W / 2 + spec.x * PAGE_W, PAGE_TOP + 0.003, -PAGE_D / 2 + 0.06 + spec.z * depth);
+        actor.root.rotation.y = THREE.MathUtils.degToRad(spec.rotY ?? 0);
+        const animated = Object.keys(actor.actions).length > 0 && spec.anim !== 'none';
+        if (spec.anim && actor.actions[spec.anim]) {
+          Object.values(actor.actions).forEach((a) => a.stop());
+          actor.actions[spec.anim].play();
+          actor.current = spec.anim;
+        }
+        actor.mixer.update(Math.random() * 2);
+        this.scene.add(actor.root);
+        this.models.push({ actor, word: spec.word, animated });
+        this.tweens.add(this.dur(520), 0.001, 1, (v) => actor.root.scale.setScalar(v), ease.back);
+        this.invalidate();
+      } catch (e) {
+        console.warn('Model yüklenemedi', spec.src, e);
+      }
+    }
+  }
+
+  private pickModel(hit: Pick<THREE.Intersection, "object">) {
+    const m = this.models.find((x) => x.actor.hit === hit.object);
+    if (!m || !m.word) return null;
+    const r = m.actor.root;
+    if (!this.reducedMotion) this.tweens.add(480, 0, 1, (k) => (r.position.y = PAGE_TOP + 0.003 + ease.hop(k) * 0.08), ease.linear);
+    this.invalidate();
+    const top = r.position.clone();
+    top.y += m.actor.hit.scale.y + 0.02;
+    return { word: m.word, ...this.toScreen(top) };
+  }
+
   /* ---------------- picking ---------------- */
 
   pick(clientX: number, clientY: number): PickResult | null {
     const rect = this.renderer.domElement.getBoundingClientRect();
     const ndc = new THREE.Vector2(((clientX - rect.left) / rect.width) * 2 - 1, -((clientY - rect.top) / rect.height) * 2 + 1);
     this.raycaster.setFromCamera(ndc, this.camera);
-    const targets: THREE.Object3D[] = [...this.layers.map((l) => l.mesh), ...this.props.map((p) => p.object)];
+    const targets: THREE.Object3D[] = [...this.layers.map((l) => l.mesh), ...this.props.map((p) => p.object), ...this.models.map((m) => m.actor.hit)];
     const hits = this.raycaster.intersectObjects(targets, true);
     for (const hit of hits) {
+      const mp = this.pickModel(hit);
+      if (mp) return mp;
       const layer = this.layers.find((l) => l.mesh === hit.object);
       if (layer && hit.uv) {
         const b = layer.built;
@@ -631,8 +688,9 @@ export class BookScene {
     const rect = this.renderer.domElement.getBoundingClientRect();
     const ndc = new THREE.Vector2(((clientX - rect.left) / rect.width) * 2 - 1, -((clientY - rect.top) / rect.height) * 2 + 1);
     this.raycaster.setFromCamera(ndc, this.camera);
-    const hits = this.raycaster.intersectObjects([...this.layers.map((l) => l.mesh), ...this.props.map((p) => p.object)], true);
+    const hits = this.raycaster.intersectObjects([...this.layers.map((l) => l.mesh), ...this.props.map((p) => p.object), ...this.models.map((m) => m.actor.hit)], true);
     for (const hit of hits) {
+      if (this.models.some((m) => m.actor.hit === hit.object && m.word)) return true;
       const layer = this.layers.find((l) => l.mesh === hit.object);
       if (layer && hit.uv) {
         const b = layer.built;
@@ -658,6 +716,8 @@ export class BookScene {
 
   /** Find the object for a glossary word on the current page, make it hop and return where it is. */
   focusWord(lemma: string): { x: number; y: number } | null {
+    const mm = this.models.find((m) => m.word === lemma);
+    if (mm) return this.pickModel({ object: mm.actor.hit } as unknown as THREE.Intersection);
     for (const l of this.layers) {
       const spot = l.built.hotspots.find((h) => h.word === lemma);
       if (spot) {
@@ -674,6 +734,7 @@ export class BookScene {
   }
 
   hasWord(lemma: string): boolean {
+    if (this.models.some((m) => m.word === lemma)) return true;
     return this.layers.some((l) => l.built.hotspots.some((h) => h.word === lemma)) || this.props.some((p) => p.word === lemma);
   }
 

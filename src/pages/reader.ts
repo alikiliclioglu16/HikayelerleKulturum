@@ -375,7 +375,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     textEl.style.opacity = '0';
     shell.querySelectorAll('.word-pop, .tag3d').forEach((e) => e.remove());
     const layers = await getLayers(page());
-    const shown = scene.showPage(layers, dir);
+    const shown = scene.showPage(layers, dir).then(() => scene.setModels(page().models ?? []));
     window.setTimeout(() => {
       renderText();
       layout();
@@ -544,6 +544,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   const firstLayers = getLayers(page());
   await scene.open(true);
   await scene.showPage(await firstLayers, 0);
+  void scene.setModels(page().models ?? []);
   textEl.style.transition = 'opacity .4s';
   textEl.style.opacity = '1';
   store.setProgress(bookId, { page: index });

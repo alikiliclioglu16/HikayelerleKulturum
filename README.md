@@ -43,6 +43,8 @@ src/three/bookScene.ts             3D masa, kitap, sayfa çevirme ve dokunma
 src/pages/                         Ana sayfa, okuyucu, etkinlikler, sandık, ebeveyn sayfası
 src/values.ts                      Maarif Modeli'nin 20 değeri
 docs/gorsel-promptlari.md          ChatGPT/Gemini ve Meshy için hazır istemler
+docs/kitap-plani.md                15 kitabın planı, değer dağılımı, kullanılacak 3D modeller ve lisans notları
+public/models/characters, animals  Ana sayfadaki ve kitaplardaki animasyonlu karakterler
 ```
 
 ## Yeni kitap eklemek
@@ -81,6 +83,16 @@ Bir sayfaya `layers` eklenirse kodla çizilen geçici sahne yerine sizin resimle
 ## Kültür rafına 3D model eklemek
 
 Meshy'den gelen GLB dosyalarını `public/models/culture/` klasörüne koyup `public/culture/items.json` içinde ögeye `"model": "/models/culture/<id>.glb"` ekleyin. Gerekirse `"rotY"` (derece), `"height"` (yükseklik) ve `"width"` (raftaki yer genişliği, varsayılan 0.46) ile yön ve boyut ayarlanır. Meshy dosyaları çok büyük gelirse (20 MB gibi) önce küçültülmeli; bunu Claude ile yapabilirsiniz. İstemler `docs/gorsel-promptlari.md` dosyasında.
+
+## Sayfaya 3D karakter eklemek
+
+Bir sayfaya `models` eklenirse GLB modeller açılır sayfanın üstünde durur ve dokununca kelimesi okunur:
+
+```json
+"models": [{ "src": "/models/animals/kopek.glb", "word": "köpek", "x": -0.3, "z": 0.97, "h": 0.24, "rotY": 30 }]
+```
+
+`x`: sayfa ortasına göre yatay konum (-0.5 … 0.5), `z`: arkadan (0) öne (1), `h`: yükseklik, `rotY`: dönüş (derece), `anim`: animasyon adı ya da duruk için `"none"`.
 
 ## Gerçek anlatıcı sesi eklemek
 

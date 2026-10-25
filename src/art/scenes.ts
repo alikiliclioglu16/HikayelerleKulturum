@@ -793,6 +793,183 @@ export function drawCover(art: string, title: string, opts: { color?: string; mo
         tulip(p, cx, cy + 150, 300, C.red);
         break;
       }
+      case 'simit': {
+        // a stack of simits on a baker's tray
+        p.rect(cx - 300, cy + 170, 600, 40, '#7A4526', 14);
+        const ring = (x: number, y: number, r: number) => {
+          p.c.save();
+          p.c.beginPath();
+          p.c.ellipse(x, y, r, r * 0.62, 0, 0, Math.PI * 2);
+          p.c.ellipse(x, y, r * 0.48, r * 0.26, 0, 0, Math.PI * 2, true);
+          p.c.fillStyle = '#C9773A';
+          p.c.fill('evenodd');
+          p.c.restore();
+          const rr = rng(Math.round(x + y));
+          for (let i = 0; i < 40; i++) {
+            const a = rr() * Math.PI * 2;
+            const d = 0.55 + rr() * 0.38;
+            p.ellipse(x + Math.cos(a) * r * d, y + Math.sin(a) * r * 0.62 * d, 5, 2.6, '#F5E3B5', a);
+          }
+        };
+        ring(cx - 150, cy + 120, 140);
+        ring(cx + 150, cy + 120, 140);
+        ring(cx, cy + 20, 150);
+        break;
+      }
+      case 'balon': {
+        // fairy chimneys and balloons
+        for (const [x, h] of [[cx - 220, 300], [cx - 60, 380], [cx + 150, 260], [cx + 280, 330]] as [number, number][]) {
+          p.shape('#EAD5B2', (c) => {
+            c.moveTo(x - 70, cy + 230);
+            c.quadraticCurveTo(x - 40, cy + 230 - h * 0.6, x - 26, cy + 230 - h);
+            c.lineTo(x + 26, cy + 230 - h);
+            c.quadraticCurveTo(x + 40, cy + 230 - h * 0.6, x + 70, cy + 230);
+            c.closePath();
+          });
+          p.ellipse(x, cy + 230 - h, 52, 28, '#6E5444');
+        }
+        const balloon = (x: number, y: number, r: number, a: string, b: string) => {
+          p.ellipse(x, y, r, r * 1.1, a);
+          p.ellipse(x, y, r * 0.35, r * 1.08, b);
+          p.rect(x - r * 0.18, y + r * 1.25, r * 0.36, r * 0.28, '#8A5A2E', 4);
+          p.line([x - r * 0.5, y + r * 0.8, x - r * 0.15, y + r * 1.25], '#5B3A1E', 3);
+          p.line([x + r * 0.5, y + r * 0.8, x + r * 0.15, y + r * 1.25], '#5B3A1E', 3);
+        };
+        balloon(cx - 160, cy - 220, 70, C.red, C.saffron);
+        balloon(cx + 170, cy - 160, 56, C.cobalt, C.turq);
+        balloon(cx + 20, cy - 300, 40, C.saffron, C.red);
+        break;
+      }
+      case 'marti': {
+        // sea, the Maiden's Tower and a seagull
+        p.rect(inner.x, cy + 80, inner.w, inner.h - (cy + 80 - inner.y), '#1F5E99');
+        for (let i = 0; i < 6; i++) p.line([inner.x + 40 + i * 110, cy + 140 + (i % 2) * 40, inner.x + 100 + i * 110, cy + 140 + (i % 2) * 40], 'rgba(255,255,255,0.5)', 6);
+        p.rect(cx + 120, cy - 20, 150, 100, '#F4EFE6', 6);
+        p.rect(cx + 220, cy - 140, 46, 220, '#F4EFE6', 6);
+        p.poly([cx + 212, cy - 140, cx + 274, cy - 140, cx + 243, cy - 200], '#566170');
+        p.poly([cx + 110, cy - 20, cx + 280, cy - 20, cx + 195, cy - 60], '#B5533C');
+        const gull = (x: number, y: number, s: number) => {
+          p.ellipse(x, y, 60 * s, 22 * s, '#ffffff');
+          p.shape('#ffffff', (c) => {
+            c.moveTo(x - 20 * s, y - 6 * s);
+            c.quadraticCurveTo(x - 90 * s, y - 90 * s, x - 160 * s, y - 50 * s);
+            c.quadraticCurveTo(x - 80 * s, y - 40 * s, x + 10 * s, y);
+            c.closePath();
+            c.moveTo(x + 10 * s, y - 6 * s);
+            c.quadraticCurveTo(x + 60 * s, y - 100 * s, x + 140 * s, y - 70 * s);
+            c.quadraticCurveTo(x + 60 * s, y - 40 * s, x + 20 * s, y);
+            c.closePath();
+          });
+          p.circle(x + 55 * s, y - 6 * s, 16 * s, '#ffffff');
+          p.poly([x + 68 * s, y - 6 * s, x + 96 * s, y, x + 68 * s, y + 4 * s], C.saffron);
+          p.circle(x + 60 * s, y - 10 * s, 3.5 * s, C.ink);
+        };
+        gull(cx - 120, cy - 120, 1.4);
+        break;
+      }
+      case 'davul': {
+        // night street, crescent and a big davul
+        crescent(p, cx + 230, cy - 280, 54, '#FFE7A3', opts.color ?? C.ink);
+        star(p, cx - 220, cy - 300, 22, '#FFE7A3');
+        star(p, cx + 40, cy - 330, 16, '#FFE7A3');
+        p.ellipse(cx, cy + 40, 230, 200, '#C2352A');
+        p.ellipse(cx, cy + 40, 175, 200, '#EFE1C6');
+        p.ellipse(cx, cy + 40, 160, 186, '#F7EFDC');
+        for (let i = 0; i < 9; i++) {
+          const a = (i / 9) * Math.PI * 2;
+          p.line([cx + Math.cos(a) * 200, cy + 40 + Math.sin(a) * 175, cx + Math.cos(a + 0.35) * 225, cy + 40 + Math.sin(a + 0.35) * 195], '#F2E3C4', 6);
+        }
+        p.line([cx + 160, cy - 160, cx + 330, cy - 300], '#8A5530', 18);
+        p.circle(cx + 160, cy - 160, 36, '#5C3A22');
+        break;
+      }
+      case 'karagoz': {
+        // the lit shadow-play screen with two silhouettes
+        p.rect(cx - 280, cy - 260, 560, 480, '#5A3018', 20);
+        p.rect(cx - 250, cy - 230, 500, 420, '#FFE9B8', 10);
+        const sil = (x: number, f: number, tall: boolean) => {
+          p.ellipse(x, cy - 40, 46, 50, '#3A1E10');
+          if (tall) p.poly([x - 40, cy - 70, x + 40, cy - 70, x + f * 10, cy - 170], '#3A1E10');
+          else p.ellipse(x, cy - 90, 52, 36, '#3A1E10');
+          p.poly([x - 60, cy + 180, x - 40, cy + 10, x + 40, cy + 10, x + 60, cy + 180], '#3A1E10');
+          p.line([x + f * 30, cy + 40, x + f * 110, cy - 10], '#3A1E10', 18);
+        };
+        sil(cx - 110, 1, false);
+        sil(cx + 110, -1, true);
+        break;
+      }
+      case 'mangala': {
+        p.rect(cx - 300, cy - 80, 600, 260, '#B07A45', 30);
+        for (let i = 0; i < 6; i++)
+          for (const y of [cy - 20, cy + 120]) {
+            p.circle(cx - 200 + i * 80, y, 30, '#5A341A');
+            const rr = rng(i * 7 + y);
+            for (let k = 0; k < 3; k++) p.circle(cx - 210 + i * 80 + rr() * 20, y - 6 + rr() * 14, 9, [C.red, C.cobalt, C.saffron, C.turq][Math.floor(rr() * 4)]);
+          }
+        p.ellipse(cx - 268, cy + 50, 22, 100, '#5A341A');
+        p.ellipse(cx + 268, cy + 50, 22, 100, '#5A341A');
+        break;
+      }
+      case 'imece': {
+        // golden wheat field and a watermill
+        p.rect(inner.x, cy + 60, inner.w, inner.h - (cy + 60 - inner.y), '#E2B04A');
+        for (let i = 0; i < 18; i++) {
+          const x = inner.x + 20 + i * ((inner.w - 40) / 17);
+          p.line([x, cy + 230, x, cy + 70], '#C08A2B', 5);
+          p.ellipse(x, cy + 60, 9, 26, '#F2C960');
+        }
+        p.rect(cx - 40, cy - 220, 260, 240, '#F1E4C6', 8);
+        p.poly([cx - 60, cy - 220, cx + 240, cy - 220, cx + 90, cy - 330], '#B5533C');
+        p.circle(cx - 90, cy - 80, 110, '#8A5530');
+        p.circle(cx - 90, cy - 80, 84, '#B07A45');
+        for (let i = 0; i < 8; i++) {
+          const a = (i / 8) * Math.PI * 2;
+          p.line([cx - 90, cy - 80, cx - 90 + Math.cos(a) * 108, cy - 80 + Math.sin(a) * 108], '#6B3D1F', 10);
+        }
+        break;
+      }
+      case 'misafir': {
+        // an open door with warm light, a pair of shoes and a tea glass
+        p.rect(cx - 170, cy - 300, 340, 470, '#FFD58A', 10);
+        p.rect(cx - 190, cy - 320, 20, 510, '#5A3018');
+        p.rect(cx + 170, cy - 320, 20, 510, '#5A3018');
+        p.rect(cx - 190, cy - 330, 380, 24, '#5A3018');
+        p.poly([cx + 170, cy - 306, cx + 300, cy - 260, cx + 300, cy + 210, cx + 170, cy + 170], '#8A5530');
+        p.ellipse(cx - 60, cy + 210, 44, 18, '#3A2A22');
+        p.ellipse(cx + 10, cy + 210, 44, 18, '#3A2A22');
+        teaGlass(p, cx + 120, cy + 220, 90);
+        break;
+      }
+      case 'tren': {
+        // snowy mountains and a steam train
+        p.poly([inner.x, cy + 40, cx - 160, cy - 260, cx + 40, cy + 40], '#DCE6F0');
+        p.poly([cx - 60, cy + 40, cx + 140, cy - 200, inner.x + inner.w, cy + 40], '#C8D6E6');
+        p.poly([cx - 220, cy - 180, cx - 160, cy - 260, cx - 100, cy - 180], '#ffffff');
+        p.rect(inner.x, cy + 40, inner.w, inner.h - (cy + 40 - inner.y), '#F4F7FB');
+        p.rect(cx - 280, cy + 20, 200, 120, '#D2372C', 12);
+        p.rect(cx - 250, cy - 40, 110, 70, '#B32C23', 8);
+        p.rect(cx - 70, cy + 30, 170, 110, '#3B5C99', 10);
+        p.rect(cx + 110, cy + 30, 170, 110, '#3B5C99', 10);
+        for (const x of [cx - 50, cx + 130]) for (let i = 0; i < 3; i++) p.rect(x + i * 50, cy + 50, 34, 34, '#FFE7A3', 4);
+        for (const x of [cx - 250, cx - 150, cx - 40, cx + 70, cx + 140, cx + 250]) p.circle(x, cy + 150, 24, '#2B2F3A');
+        for (let i = 0; i < 4; i++) p.circle(cx - 120 - i * 30, cy - 70 - i * 40, 26 + i * 8, 'rgba(255,255,255,0.9)');
+        break;
+      }
+      case 'market': {
+        // a shop window with Turkish goods
+        p.rect(cx - 300, cy - 290, 600, 70, '#D2372C', 10);
+        for (let i = 0; i < 8; i++) p.rect(cx - 300 + i * 75, cy - 220, 37, 30, '#ffffff');
+        p.rect(cx - 280, cy - 190, 560, 400, '#F7F2E6', 10);
+        for (const y of [cy - 70, cy + 70, cy + 200]) p.rect(cx - 280, y, 560, 14, '#8A5530');
+        teaGlass(p, cx - 200, cy - 72, 80);
+        teaGlass(p, cx - 130, cy - 72, 80);
+        lokumBox(p, cx + 40, cy - 74, 150, true);
+        p.rect(cx + 160, cy - 160, 90, 88, C.cobalt, 6);
+        p.rect(cx + 170, cy - 140, 70, 30, '#ffffff', 4);
+        for (let i = 0; i < 5; i++) p.circle(cx - 220 + i * 60, cy + 30, 30, ['#E2B04A', C.red, '#7FC46A', C.saffron, '#C9773A'][i]);
+        baklavaTray(p, cx + 150, cy + 50, 200);
+        break;
+      }
     }
     titleText(p, title, p.W / 2, inner.y + 170, inner.w - 40, 120);
   }

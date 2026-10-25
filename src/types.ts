@@ -29,6 +29,23 @@ export interface LayerSpec {
   hotspots?: Hotspot[];
 }
 
+/** A 3D model (GLB) standing on the pop-up page. */
+export interface PageModel {
+  src: string;
+  /** Glossary word said when the model is tapped. */
+  word?: string;
+  /** Horizontal position from the page centre (-0.5 left edge … 0.5 right edge). */
+  x: number;
+  /** Depth from the back of the page (0) to the front (1). */
+  z: number;
+  /** Height in page widths. */
+  h: number;
+  /** Turn, in degrees (0 faces the reader). */
+  rotY?: number;
+  /** Animation clip name, or "none" to stand still. */
+  anim?: string;
+}
+
 export interface PageAudio {
   src: string;
   /** Start time in seconds of every word token, in reading order. */
@@ -43,6 +60,8 @@ export interface PageData {
   culture?: Bi;
   /** Optional image-based layers; when missing the procedural scene is used. */
   layers?: LayerSpec[];
+  /** Optional 3D models (GLB) on the pop-up, e.g. animals or characters. */
+  models?: PageModel[];
   /** Optional recorded narration per level. */
   audio?: Partial<Record<LevelId, PageAudio>>;
 }
@@ -83,5 +102,7 @@ export interface BookListing {
   pages?: number;
   values: string[];
   blurb: Bi;
+  /** An animated 3D character that stands next to the book on the home shelf. */
+  hero?: string;
   cover: { art: string; color?: string; motif?: string; src?: string };
 }

@@ -1939,3 +1939,12 @@ input[type='checkbox'].switch:checked::after {
 .home3d.compact .motif-cap {
   display: none;
 }
+
+.card-layer,
+.car-dots {
+  transition: opacity 0.7s ease-out;
+}
+.card-layer.intro,
+.car-dots.intro {
+  opacity: 0;
+}

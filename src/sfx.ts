@@ -434,6 +434,26 @@ export const sfx = {
     for (let i = 0; i < 6; i++) hiss(a, 'bandpass', 3200, 2000, t + i * 0.035, 0.05, 0.22, 1, 0.002);
     [N(15), N(19), N(22)].forEach((f, i) => bell(a, f, t + 0.2 + i * 0.06, 0.7, 0.1, [1, 2.4]));
   },
+  /** A short, friendly meow. */
+  meow() {
+    const a = audio();
+    if (!a) return;
+    const t = a.currentTime;
+    const o = a.createOscillator();
+    o.type = 'sawtooth';
+    o.frequency.setValueAtTime(520, t);
+    o.frequency.linearRampToValueAtTime(820, t + 0.12);
+    o.frequency.exponentialRampToValueAtTime(420, t + 0.5);
+    const f = a.createBiquadFilter();
+    f.type = 'bandpass';
+    f.Q.value = 5;
+    f.frequency.setValueAtTime(900, t);
+    f.frequency.linearRampToValueAtTime(1800, t + 0.15);
+    f.frequency.linearRampToValueAtTime(1000, t + 0.5);
+    o.connect(f).connect(env(a, t, 0.35, 0.05, 0.55, out()));
+    o.start(t);
+    o.stop(t + 0.6);
+  },
   tap() {
     const a = audio();
     if (a) tone(a, 'sine', 420, 300, a.currentTime, 0.1, 0.2);

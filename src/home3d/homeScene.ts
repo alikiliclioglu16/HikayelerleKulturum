@@ -7,6 +7,8 @@ import { woodTexture, tileBandTexture, mosaicLamp } from './room';
 import { MOTIFS, kilimCanvas } from './kilim';
 import { fitToSlot, disposeObject, std, mesh, tex, canvas, V3 } from './kit3d';
 import { Sparkles } from './sparkles';
+import { Cinema } from './cinema';
+import { loadActor, play, type Actor } from './actors';
 
 export interface CultureDef {
   id: string;
@@ -28,7 +30,15 @@ export interface ShelfBook {
   id: string;
   cover: HTMLCanvasElement;
   spine: string;
+  /** A 3D character that stands next to this book (see HEROES). */
+  hero?: string;
 }
+
+/** Animated characters that can stand beside their books. */
+export const HEROES: Record<string, { url: string; height: number; name: string }> = {
+  hoca: { url: '/models/characters/nasreddin-hoca.glb', height: 0.66, name: 'Nasreddin Hoca' },
+  keloglan: { url: '/models/characters/keloglan.glb', height: 0.6, name: 'Keloğlan' },
+};
 
 const SHELF_Y = 1.84;
 const SHELF_DEPTH = 0.46;
@@ -107,7 +117,7 @@ interface BookObj {
   glow: GlowMat[];
 }
 
-export type Hit = { kind: 'item'; index: number } | { kind: 'book'; index: number };
+export type Hit = { kind: 'item'; index: number } | { kind: 'book'; index: number } | { kind: 'hero'; index: number } | { kind: 'cat' };
 
 const invisible = new THREE.MeshBasicMaterial({ visible: false });
 
@@ -146,10 +156,15 @@ export class HomeScene {
   private walls: THREE.Mesh[] = [];
   private motifTex = new Map<number, THREE.Texture>();
   motif = 0;
+  private hemi!: THREE.HemisphereLight;
+  private cinema!: Cinema;
+  private heroes: { actor: Actor; book: number }[] = [];
+  private cat: { actor: Actor; x: number; dir: 1 | -1; wait: number } | null = null;
+  private clock = 0;
 
   constructor(readonly host: HTMLElement) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'default' });
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.NeutralToneMapping;
     this.renderer.toneMappingExposure = 1.02;
@@ -171,12 +186,43 @@ export class HomeScene {
     this.lamp = mosaicLamp();
     this.lamp.position.set(-4, 0, 0.74);
     this.scene.add(this.lamp);
+    let lampLight: THREE.PointLight | null = null;
+    this.lamp.traverse((o) => {
+      if ((o as THREE.PointLight).isPointLight) lampLight = o as THREE.PointLight;
+    });
+    this.cinema = new Cinema(
+      { camera: this.camera, key: this.key, hemi: this.hemi, lampLight, focus: () => this.focusPoints() },
+      1.4,
+    );
+    this.cinema.enabled = !this.reducedMotion;
+    this.scene.add(this.cinema.group);
+  }
+
+  /** Points the camera may softly push towards: visible shelf items and the books on this page. */
+  private focusPoints() {
+    const pts: THREE.Vector3[] = [];
+    this.items.forEach((it, i) => {
+      if (this.itemVisible(i)) pts.push(V3(it.x + this.offset, SHELF_Y + 0.25, ITEM_Z));
+    });
+    const first = this.page * this.perPage;
+    for (let i = first; i < Math.min(this.books.length, first + this.perPage); i++) {
+      pts.push(V3(this.booksGroup.position.x + this.books[i].group.position.x, BOOK_H * 0.55, BOOK_Z));
+    }
+    return pts;
+  }
+
+  /** Turn the slow camera and light movement on or off. */
+  setCinematic(on: boolean) {
+    this.cinema.enabled = on && !this.reducedMotion;
+    if (!this.cinema.enabled) this.cinema.reset();
+    this.invalidate();
   }
 
   /* ---------------- room ---------------- */
 
   private buildRoom() {
     const hemi = new THREE.HemisphereLight('#FFF4E2', '#4A3020', 0.85);
+    this.hemi = hemi;
     this.scene.add(hemi);
     const key = new THREE.DirectionalLight('#FFE6C2', 2.5);
     key.position.set(-2.6, 5.6, 6.2);
@@ -356,6 +402,100 @@ export class HomeScene {
       this.booksGroup.add(group);
       this.books.push({ id: b.id, group, mesh: m, baseRotY, lift: 0, pulled: false, glow: glowMats(m) });
     });
+    this.loadCharacters(list);
+  }
+
+  /** Heroes stand beside their books; a cat strolls along the front of the sideboard. */
+  private async loadCharacters(list: ShelfBook[]) {
+    const jobs = list.map(async (b, i) => {
+      const h = b.hero ? HEROES[b.hero] : null;
+      if (!h) return;
+      try {
+        const actor = await loadActor(h.url, h.height);
+        if (this.disposed) return;
+        actor.root.position.set(i * BOOK_SP + BOOK_W / 2 + 0.24, 0, BOOK_Z + 0.16);
+        actor.root.rotation.y = -0.35;
+        // start each idle at a different moment so they do not move in sync
+        actor.mixer.update(Math.random() * 3);
+        this.booksGroup.add(actor.root);
+        this.heroes.push({ actor, book: i });
+        this.invalidate();
+      } catch (e) {
+        console.warn('Karakter yüklenemedi', h.url, e);
+      }
+    });
+    const cat = (async () => {
+      try {
+        const actor = await loadActor('/models/animals/kedi-yuruyen.glb', 0.3);
+        if (this.disposed) return;
+        actor.root.position.set(-8, 0, SIDE_DEPTH - 0.14);
+        this.scene.add(actor.root);
+        this.cat = { actor, x: -8, dir: 1, wait: 6 };
+        play(actor, 'walk', 0);
+      } catch (e) {
+        console.warn('Kedi yüklenemedi', e);
+      }
+    })();
+    await Promise.all([...jobs, cat]);
+  }
+
+  /** Make a hero react: a short run on the spot, then back to idle. */
+  cheerHero(i: number) {
+    const h = this.heroes[i];
+    if (!h) return;
+    play(h.actor, 'walk', 0.25);
+    const base = h.actor.root.rotation.y;
+    this.tweens.add(this.reducedMotion ? 0 : 1600, 0, 1, (k) => {
+      h.actor.root.rotation.y = base + Math.sin(k * Math.PI * 2) * 0.6;
+      h.actor.root.position.y = Math.abs(Math.sin(k * Math.PI * 4)) * 0.03;
+    }, ease.linear).then(() => {
+      h.actor.root.rotation.y = base;
+      h.actor.root.position.y = 0;
+      play(h.actor, 'idle', 0.4);
+    });
+    this.invalidate();
+  }
+
+  heroBook(i: number) {
+    return this.heroes[i]?.book ?? -1;
+  }
+
+  /** The cat stops, looks at you and then hurries on. */
+  poke() {
+    if (!this.cat) return;
+    const c = this.cat;
+    c.wait = 0;
+    play(c.actor, 'walk', 0.2);
+    c.actor.mixer.timeScale = 2.2;
+    window.setTimeout(() => c.actor && (c.actor.mixer.timeScale = 1), 1400);
+  }
+
+  catAnchor() {
+    if (!this.cat) return null;
+    return this.toScreen(this.cat.actor.root.position.clone().add(V3(0, 0.36, 0)));
+  }
+
+  private updateCharacters(dt: number) {
+    const s = dt / 1000;
+    for (const h of this.heroes) h.actor.mixer.update(s);
+    const c = this.cat;
+    if (!c) return;
+    const half = this.size.W / this.ppu / 2 + 0.6;
+    if (c.wait > 0) {
+      c.wait -= s;
+      return;
+    }
+    c.actor.mixer.update(s);
+    const speed = 0.28 * c.actor.mixer.timeScale;
+    c.x += c.dir * speed * s;
+    c.actor.root.position.x = c.x;
+    c.actor.root.rotation.y = c.dir > 0 ? Math.PI / 2 : -Math.PI / 2;
+    if (Math.abs(c.x) > half) {
+      // off screen: wait a while, then walk back the other way
+      c.dir = c.dir > 0 ? -1 : 1;
+      c.x = -c.dir * half;
+      c.wait = 14 + Math.random() * 12;
+    }
   }
 
   get pageCount() {
@@ -435,7 +575,9 @@ export class HomeScene {
     cam.updateProjectionMatrix();
     cam.updateMatrixWorld();
 
-    this.sparkles.setScale((rh / (2 * Math.tan(THREE.MathUtils.degToRad(cam.fov / 2)))) * this.renderer.getPixelRatio());
+    const pxScale = (rh / (2 * Math.tan(THREE.MathUtils.degToRad(cam.fov / 2)))) * this.renderer.getPixelRatio();
+    this.sparkles.setScale(pxScale);
+    this.cinema.setBase(cam.position, center, pxScale);
     this.ppu = this.unitPx(BOOK_Z, 0.6);
     this.ppuShelf = this.unitPx(ITEM_Z, SHELF_Y);
     const visW = W / this.ppu;
@@ -529,9 +671,13 @@ export class HomeScene {
     const rect = this.renderer.domElement.getBoundingClientRect();
     const ndc = new THREE.Vector2(((clientX - rect.left) / rect.width) * 2 - 1, -((clientY - rect.top) / rect.height) * 2 + 1);
     this.raycaster.setFromCamera(ndc, this.camera);
-    const targets: THREE.Object3D[] = [...this.items.map((i) => i.hit), ...this.books.map((b) => b.mesh)];
+    const targets: THREE.Object3D[] = [...this.items.map((i) => i.hit), ...this.books.map((b) => b.mesh), ...this.heroes.map((h) => h.actor.hit)];
+    if (this.cat && this.cat.wait <= 0) targets.push(this.cat.actor.hit);
     const hit = this.raycaster.intersectObjects(targets, false)[0];
     if (!hit) return null;
+    const hi = this.heroes.findIndex((h) => h.actor.hit === hit.object);
+    if (hi >= 0) return { kind: 'hero', index: hi };
+    if (this.cat && hit.object === this.cat.actor.hit) return { kind: 'cat' };
     const ii = this.items.findIndex((i) => i.hit === hit.object);
     if (ii >= 0) return { kind: 'item', index: ii };
     const bi = this.books.findIndex((b) => b.mesh === hit.object);
@@ -646,6 +792,7 @@ export class HomeScene {
   /** One orchestrated entrance: the culture items drop onto the shelf, books slide in. */
   intro() {
     if (this.reducedMotion) return;
+    this.cinema.startIntro();
     const order = this.items.map((_, i) => i).sort((a, b) => Math.abs(this.items[a].x + this.offset) - Math.abs(this.items[b].x + this.offset));
     order.forEach((idx, n) => {
       const it = this.items[idx];
@@ -670,6 +817,12 @@ export class HomeScene {
     this.tweens.update(now);
     let moving = this.tweens.active;
     if (this.sparkles.update(dt)) moving = true;
+    this.clock += dt;
+    if (!document.hidden && this.cinema.update(dt)) moving = true;
+    if (!this.reducedMotion && (this.heroes.length || this.cat)) {
+      this.updateCharacters(dt);
+      moving = true;
+    }
     if (this.vel !== 0) {
       const before = this.offset;
       this.setOffset(this.offset + this.vel * dt);
