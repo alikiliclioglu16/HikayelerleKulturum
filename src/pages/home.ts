@@ -1,4 +1,4 @@
-import { h, icon, chip, tulipLogo } from '../ui/dom';
+import { h, icon, chip, tulipLogo, levelIcon } from '../ui/dom';
 import { loadListing, loadCulture, coverCanvas, cloneCanvas, fonts } from '../content';
 import { store } from '../store';
 import { LEVELS, valueById } from '../values';
@@ -30,6 +30,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   const soundBtn = h('button', { class: 'round-btn', type: 'button' });
   const musicBtn = h('button', { class: 'round-btn', type: 'button' });
   const chestBadge = h('span', { class: 'badge' }, '0');
+  const levelBtn = h('button', { class: 'round-btn level-chip', type: 'button', 'aria-haspopup': 'dialog' });
   const hud = h(
     'header',
     { class: 'home-hud' },
@@ -42,6 +43,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     h(
       'nav',
       { class: 'home-actions', 'aria-label': 'Menü' },
+      levelBtn,
       musicBtn,
       soundBtn,
       h('a', { class: 'round-btn', href: '#/sandik', 'aria-label': 'Kelime Sandığım', title: 'Kelime Sandığım' }, icon.chest(), chestBadge),
@@ -69,7 +71,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
       { class: `book-card${soon ? ' soon' : ''}`, type: 'button', 'aria-label': `${b.title}${soon ? ', yakında' : ''}` },
       h('span', { class: 't' }, b.title),
       h('span', { class: 'bar' }, bar),
-      h('span', { class: 'meta' }, meta, soon ? h('span', { class: 'soon-badge' }, 'Yakında') : h('span', { class: 'en' }, b.titleEn)),
+      h('span', { class: 'meta' }, meta, soon ? h('span', { class: 'soon-badge' }, 'Yakında') : null),
     );
     card.addEventListener('click', () => openBook(i));
     return { card, bar, meta, book: b };
@@ -80,7 +82,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     'ul',
     { class: 'sr-only', 'aria-label': 'Kültür rafı' },
     ...culture.map((c, i) => {
-      const b = h('button', { type: 'button' }, `${c.name} (${c.en})`);
+      const b = h('button', { type: 'button' }, c.name);
       b.addEventListener('focus', () => focusItem(i));
       b.addEventListener('blur', () => focusItem(null));
       b.addEventListener('click', () => activateItem(i));
@@ -112,7 +114,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     scene.setCinematic(false);
   }
   scene.setItems(culture);
-  scene.setBooks(list.map((b, i) => ({ id: b.id, cover: covers[i], spine: b.cover.color ?? '#1C3F8C', hero: b.hero })));
+  scene.setBooks(list.map((b, i) => ({ id: b.id, cover: covers[i], spine: b.cover.color ?? '#1C3F8C', hero: b.hero, carpet: b.carpet })));
 
   /* ---------- stats & sound ---------- */
   function updateStats() {
@@ -193,9 +195,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
       { class: 'culture-pop', role: 'status' },
       say,
       h('div', { class: 'cp-head' }, c.icon ? h('span', { class: 'cp-ico', 'aria-hidden': 'true' }, c.icon) : null, h('span', { class: 'cp-name', lang: 'tr' }, c.name)),
-      h('div', { class: 'cp-en', lang: 'en' }, c.en),
       h('p', { class: 'cp-fact', lang: 'tr' }, c.fact.tr),
-      h('p', { class: 'cp-fact-en', lang: 'en' }, c.fact.en),
       isNew ? h('span', { class: 'cp-new' }, 'Yeni keşif! Sandığına eklendi') : null,
     );
     shell.append(popEl);
@@ -275,7 +275,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     window.setTimeout(() => speak('kedi'), 500);
     const a = scene.catAnchor();
     if (a) {
-      const tag = h('div', { class: 'tag3d', style: `left:${a.x}px;top:${a.y}px`, role: 'status' }, h('div', { class: 'bubble' }, h('span', { class: 'ico', 'aria-hidden': 'true' }, '🐈'), h('div', null, h('div', { class: 't', lang: 'tr' }, 'kedi'), h('div', { class: 'e', lang: 'en' }, 'cat'))));
+      const tag = h('div', { class: 'tag3d', style: `left:${a.x}px;top:${a.y}px`, role: 'status' }, h('div', { class: 'bubble' }, h('span', { class: 'ico', 'aria-hidden': 'true' }, '🐈'), h('div', null, h('div', { class: 't', lang: 'tr' }, 'kedi'))));
       shell.append(tag);
       window.setTimeout(() => tag.remove(), 2600);
     }
@@ -287,6 +287,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     const b = list[i];
     closePop();
     scene.setPage(scene.pageOfBook(i));
+    scene.showCarpet(i);
     scene.pullBook(i);
     scene.sparkle('book', i, 1.4);
     sfx.slide();
@@ -303,26 +304,25 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     closeBtn.addEventListener('click', close);
     const body: Node[] = [
       h('h2', { class: 'bs-title' }, b.title),
-      h('p', { class: 'bs-en' }, b.titleEn),
       h('div', { class: 'bs-chips' }, ...b.values.map((v) => chip(valueById(v).name, valueById(v).group))),
       h('p', { class: 'bs-sum', lang: 'tr' }, b.blurb.tr),
-      h('p', { class: 'bs-sum-en', lang: 'en' }, b.blurb.en),
     ];
     if (soon) {
       body.push(h('p', { class: 'bs-soon' }, 'Bu kitap yakında rafta olacak. Şimdilik Bayram Sabahı’nı okuyabilirsin.'));
       body.push(h('div', { class: 'bs-actions' }, h('button', { class: 'btn light', type: 'button', onclick: close }, 'Kapat')));
     } else {
       const prog = store.progress(b.id);
-      const level = store.settings.level;
-      const radios = LEVELS.map((lv) => {
-        const id = `bs-lv-${lv.id}`;
-        const input = h('input', { type: 'radio', name: 'bs-level', id, value: lv.id, checked: lv.id === level });
-        input.addEventListener('change', () => store.setSettings({ level: lv.id as LevelId }));
-        return h('div', { class: 'level' }, input, h('label', { for: id }, h('span', { class: 'lv-name' }, lv.name), h('span', { class: 'lv-ages' }, lv.ages)));
-      });
       const started = prog.page > 0 && prog.page < (b.pages ?? 0);
+      const lvLine = h('p', { class: 'bs-level' });
+      const showLevel = () => {
+        const lv = LEVELS.find((l) => l.id === store.settings.level)!;
+        const change = h('button', { class: 'link-btn', type: 'button' }, 'Değiştir');
+        change.addEventListener('click', () => levelGate(false, showLevel));
+        lvLine.replaceChildren(levelIcon(lv.id), h('span', null, 'Okuma seviyesi: ', h('strong', null, lv.name), ` (${lv.ages})`), change);
+      };
+      showLevel();
       body.push(
-        h('fieldset', { class: 'level-picker' }, h('legend', null, 'Okuma seviyesi'), h('div', { class: 'levels' }, ...radios)),
+        lvLine,
         h(
           'div',
           { class: 'bs-actions' },
@@ -345,6 +345,64 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     (sheet.querySelector('a.btn, button.btn:not(.sheet-x)') as HTMLElement | null)?.focus({ preventScroll: true });
   }
 
+  /* ---------- reading level ---------- */
+  function updateLevelBtn() {
+    const lv = LEVELS.find((l) => l.id === store.settings.level)!;
+    levelBtn.replaceChildren(levelIcon(lv.id), h('span', { class: 'lc-name' }, lv.name));
+    levelBtn.setAttribute('aria-label', `Okuma seviyesi: ${lv.name}, ${lv.ages}. Değiştirmek için dokun`);
+    levelBtn.title = `Okuma seviyesi: ${lv.name} (${lv.ages})`;
+  }
+
+  /** The reader picks a level once (Tomurcuk, Lale, Çınar); all books are read at it. */
+  let gate: { el: HTMLElement; close: () => void } | null = null;
+  function levelGate(first: boolean, after?: () => void) {
+    gate?.close();
+    const back = h('div', { class: 'level-gate' });
+    const opener = document.activeElement as HTMLElement | null;
+    const close = () => {
+      back.remove();
+      gate = null;
+      opener?.focus?.({ preventScroll: true });
+    };
+    const choose = (id: LevelId) => {
+      store.setSettings({ level: id, levelChosen: true });
+      sfx.chime();
+      updateLevelBtn();
+      close();
+      after?.();
+    };
+    const current = store.settings.level;
+    const choices = LEVELS.map((lv) => {
+      const b = h(
+        'button',
+        { class: `lg-card lv${lv.id}`, type: 'button', 'aria-pressed': first ? undefined : String(lv.id === current) },
+        h('span', { class: 'lg-art' }, levelIcon(lv.id)),
+        h('span', { class: 'lg-name' }, lv.name),
+        h('span', { class: 'lg-ages' }, lv.ages),
+        h('span', { class: 'lg-note' }, lv.note),
+      );
+      b.addEventListener('click', () => choose(lv.id as LevelId));
+      return b;
+    });
+    const x = first ? null : h('button', { class: 'btn light small icon-only sheet-x', type: 'button', 'aria-label': 'Kapat' }, icon.close());
+    x?.addEventListener('click', close);
+    const box = h(
+      'div',
+      { class: 'level-gate-box', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'lg-title' },
+      x,
+      h('div', { class: 'lg-logo', 'aria-hidden': 'true' }, tulipLogo()),
+      h('h2', { id: 'lg-title' }, first ? 'Hoş geldin! Okuma seviyeni seç' : 'Okuma seviyesi'),
+      h('p', { class: 'lg-lead' }, first ? 'Bütün kitaplar seçtiğin seviyede okunacak. İstediğin zaman sağ üstten değiştirebilirsin.' : 'Bütün kitaplar bu seviyede okunur.'),
+      h('div', { class: 'lg-cards' }, ...choices),
+    );
+    back.append(box);
+    if (!first) back.addEventListener('click', (e) => e.target === back && close());
+    shell.append(back);
+    gate = { el: back, close };
+    const focus = choices.find((c) => c.getAttribute('aria-pressed') === 'true') ?? choices[1];
+    focus.focus({ preventScroll: true });
+  }
+
   /* ---------- carousel ---------- */
   function renderDots() {
     const n = scene.pageCount;
@@ -365,6 +423,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     if (p < 0 || p >= scene.pageCount || p === scene.page) return;
     closePop();
     scene.setPage(p);
+    scene.showCarpet(p * scene.perPage);
     sfx.slide();
     renderDots();
   }
@@ -532,31 +591,29 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
 
   const onKey = (e: KeyboardEvent) => {
     if (e.key !== 'Escape') return;
+    if (gate) {
+      if (store.settings.levelChosen) gate.close();
+      return;
+    }
     if (sheetClose) sheetClose();
     else closePop();
   };
   window.addEventListener('keydown', onKey);
 
-  /* ---------- kilim motifs on the wall, a new one every 5 seconds ---------- */
+  /* ---------- the motif of the carpet on the wall ---------- */
   function showMotif(i: number) {
     const m = MOTIFS[i];
     motifCap.classList.remove('show');
     window.setTimeout(() => {
       motifName.textContent = `${m.name} motifi`;
       motifText.textContent = m.meaning;
-      motifCap.title = m.en;
       (motifCap.querySelector('.mc-dot') as HTMLElement).style.background = m.palette.b;
       motifCap.classList.add('show');
     }, 350);
   }
-  let motifTimer = 0;
-  showMotif(0);
-  motifTimer = window.setInterval(() => {
-    if (document.hidden) return;
-    const next = (scene.motif + 1) % MOTIFS.length;
-    scene.setMotif(next);
-    showMotif(next);
-  }, 5000);
+  // the wall carpet follows the book under the mouse (or the first book on the shelf page)
+  scene.onCarpet = (i) => showMotif(i);
+  showMotif(scene.carpetMotif);
 
   /* ---------- start ---------- */
   updateStats();
@@ -572,16 +629,22 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
       dots.classList.remove('intro');
     }, 2900);
   }
-  if (!store.seenHint('shelf') && store.culture.length === 0) {
-    window.setTimeout(() => {
-      if (store.culture.length === 0) hint.hidden = false;
-    }, 1600);
-  }
+  const shelfHint = () => {
+    if (!store.seenHint('shelf') && store.culture.length === 0) {
+      window.setTimeout(() => {
+        if (store.culture.length === 0) hint.hidden = false;
+      }, 1600);
+    }
+  };
+  updateLevelBtn();
+  levelBtn.addEventListener('click', () => levelGate(false));
+  // the reading level is asked once, on the first visit; every book is then read at that level
+  if (!store.settings.levelChosen) window.setTimeout(() => levelGate(true, shelfHint), scene.reducedMotion ? 0 : 1200);
+  else shelfHint();
 
   return () => {
     window.removeEventListener('keydown', onKey);
     // the music keeps playing into the book
-    window.clearInterval(motifTimer);
     ro.disconnect();
     narrator.stop();
     closePop();

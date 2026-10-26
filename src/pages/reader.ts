@@ -2,7 +2,7 @@ import { h, icon } from '../ui/dom';
 import { loadBook, loadListing, coverCanvas, fonts } from '../content';
 import { store } from '../store';
 import { LEVELS } from '../values';
-import { tokenize, type Token } from '../text';
+import { tokenize, estimateMarks, type Token } from '../text';
 import { Narrator } from '../narrator';
 import { BookScene } from '../three/bookScene';
 import { sceneLayers, buildProcLayer, buildImageLayer, type BuiltLayer } from '../art/scenes';
@@ -44,7 +44,6 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   const titleEl = h('strong', null, book.title);
   const pageNoEl = h('span', null, '');
   const dots = h('div', { class: 'dots', role: 'group', 'aria-label': 'Sayfalar' });
-  const levelBtn = h('button', { class: 'btn light small level-btn', type: 'button', 'aria-haspopup': 'dialog' });
   const chestCount = h('span', { class: 'count' }, String(Object.keys(store.chest).length));
   const chestLink = h('a', { class: 'btn light small chest-link', href: '#/sandik', 'aria-label': 'Kelime Sandığım' }, icon.chest(), chestCount);
   const settingsBtn = h('button', { class: 'btn light small icon-only', type: 'button', 'aria-label': 'Ayarlar' }, icon.gear());
@@ -54,7 +53,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     h('a', { class: 'btn light small', href: '#/', 'aria-label': 'Kitaplara dön' }, icon.home()),
     h('div', { class: 'reader-title' }, titleEl, pageNoEl),
     dots,
-    h('div', { class: 'bar-actions' }, levelBtn, chestLink, settingsBtn),
+    h('div', { class: 'bar-actions' }, chestLink, settingsBtn),
   );
 
   const textEl = h('section', { class: 'page-text', 'aria-live': 'polite' });
@@ -62,16 +61,22 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   const playLbl = h('span', { class: 'lbl' }, 'Bana oku');
   const playIcon = h('span', { style: 'display:contents' }, icon.play());
   const playBtn = h('button', { class: 'btn play', type: 'button' }, playIcon, playLbl);
-  const enBtn = h('button', { class: 'btn light icon-only', type: 'button', 'aria-label': 'İngilizcesini göster', 'aria-pressed': 'false' }, icon.lang());
   const nextBtn = h('button', { class: 'btn turq icon-only', type: 'button', 'aria-label': 'Sonraki sayfa' }, icon.next());
-  const controls = h('nav', { class: 'reader-controls', 'aria-label': 'Okuma kontrolleri' }, prevBtn, playBtn, enBtn, nextBtn);
+  const replayBtn = h('button', { class: 'btn light icon-only', type: 'button', 'aria-label': 'Sahneyi tekrar oynat', title: 'Tekrar oynat' }, icon.replay());
+  const controls = h('nav', { class: 'reader-controls', 'aria-label': 'Okuma kontrolleri' }, prevBtn, playBtn, replayBtn, nextBtn);
+  const castWait = h('div', { class: 'cast-wait', role: 'status', hidden: true }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), h('span', { class: 'cw-text' }, 'Karakterler sahneye geliyor…'));
 
-  shell.replaceChildren(sceneHost, bar, textEl, controls);
+  shell.replaceChildren(sceneHost, bar, textEl, controls, castWait);
 
   /* ---------- 3D ---------- */
   const scene = new BookScene(sceneHost);
   scene.setCalm(store.settings.calm);
+  scene.onCastProgress = (n, total) => {
+    castWait.hidden = total === 0 || n >= total;
+    castWait.querySelector('.cw-text')!.textContent = `Karakterler sahneye geliyor… ${n}/${total}`;
+  };
   void scene.setTable(book.table ?? DEFAULT_TABLE);
+  scene.setWall(book.id, listingItem.carpet ?? { motif: 'elibelinde' });
   // the calm background music keeps playing while reading
   sfx.startMusic();
   const cover = await coverCanvas(listingItem, 900);
@@ -116,18 +121,13 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
         tr.append(span);
       } else tr.append(tok.text);
     }
-    const en = h('p', { class: 'en', lang: 'en', hidden: !store.settings.showEn }, t.en);
     const actions = h('div', { class: 'text-actions' });
     if (p.culture) {
       actions.append(h('button', { class: 'btn light small', type: 'button', onclick: () => cultureSheet(p) }, icon.light(), 'Biliyor musun?'));
     }
-    textEl.replaceChildren(h('div', { class: 'pg-title', lang: 'tr' }, p.title.tr), tr, en, actions);
-    enBtn.setAttribute('aria-pressed', String(store.settings.showEn));
+    textEl.replaceChildren(h('div', { class: 'pg-title', lang: 'tr' }, p.title.tr), tr, actions);
     pageNoEl.replaceChildren(h('span', { class: 'pg-word' }, 'Sayfa '), `${index + 1} / ${book.pages.length}`);
     titleEl.hidden = false;
-    const lv = LEVELS.find((l) => l.id === level)!;
-    levelBtn.replaceChildren(lv.name, h('span', { class: 'ages' }, lv.ages));
-    levelBtn.setAttribute('aria-label', `Okuma seviyesi: ${lv.name}, ${lv.ages}`);
     prevBtn.disabled = index === 0;
     const last = index === book.pages.length - 1;
     nextBtn.setAttribute('aria-label', last ? 'Kitabı bitir' : 'Sonraki sayfa');
@@ -156,89 +156,51 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   }
 
   /* ---------- layout ---------- */
-  function fit(min: number, max: number): boolean {
-    let size = max;
-    textEl.style.fontSize = `${size}px`;
-    while (size > min && textEl.scrollHeight > textEl.clientHeight + 1) {
-      size -= 1;
-      textEl.style.fontSize = `${size}px`;
-    }
-    return textEl.scrollHeight <= textEl.clientHeight + 1;
-  }
+
 
   /**
-   * Three layouts:
-   *  - landscape: big screens, the text sits on the book's left page
-   *  - side: wide screens, a text card on the left and the pop-up on the right
+   * Two layouts, like a film set seen through a camera:
+   *  - side: wide screens, a text card on the left and the camera close on the pop-up to its right
    *  - portrait: tall screens, the pop-up on top and a text card below
+   * Between pages the camera pulls back to a wide shot of the whole table.
    */
-  function setMode(m: 'landscape' | 'side' | 'portrait') {
+  function setMode(m: 'side' | 'portrait') {
     const p = page();
-    scene.setLeftPage(m === 'landscape' ? null : { title: p.title.tr, sub: `Sayfa ${index + 1}` });
-    shell.classList.toggle('layout-landscape', m === 'landscape');
+    scene.setLeftPage({ title: p.title.tr, sub: `Sayfa ${index + 1}` });
     shell.classList.toggle('layout-side', m === 'side');
     shell.classList.toggle('layout-portrait', m === 'portrait');
   }
 
-  // in the landscape layout the text sits on the book's left page and follows the slow camera drift
-  let onPage: { x: number; y: number; w: number } | null = null;
-  let lastT = '';
-  scene.onFrame = () => {
-    let t = '';
-    if (onPage) {
-      const r = scene.leftPageRect();
-      const s = r.w / onPage.w;
-      const dx = r.x + r.w / 2 - (onPage.x + onPage.w / 2);
-      const dy = r.y - onPage.y;
-      t = `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px) scale(${s.toFixed(4)})`;
-    }
-    if (t !== lastT) {
-      textEl.style.transform = t;
-      lastT = t;
-    }
-  };
-
   function layout() {
-    onPage = null;
     const W = shell.clientWidth;
     const H = shell.clientHeight;
     const big = store.settings.big;
     const ctrlH = controls.offsetHeight + 24;
     const barH = 64;
-    const reset = { left: '', right: '', top: '', bottom: '', width: '', height: '', maxHeight: '' };
+    const reset = { left: '', right: '', top: '', bottom: '', width: '', height: '', maxHeight: '', transform: '' };
+    const wide = { x: 0, y: barH, w: W, h: H - barH - ctrlH };
 
     if (W / H >= 1.15 && W >= 720) {
-      scene.setLayout('landscape', { x: 0, y: barH, w: W, h: H - barH - ctrlH });
-      const r = scene.leftPageRect();
-      if (r.w >= 330 && r.h >= 260) {
-        const padX = r.w * 0.07;
-        const padY = r.h * 0.06;
-        setMode('landscape');
-        Object.assign(textEl.style, reset, { left: `${r.x + padX}px`, top: `${r.y + padY}px`, width: `${r.w - padX * 2}px`, height: `${r.h - padY * 2}px` });
-        if (fit(big ? 21 : 19, Math.min(big ? 40 : 34, r.w / 11))) {
-          onPage = { x: r.x, y: r.y, w: r.w };
-          textEl.style.transformOrigin = `${r.w / 2 - padX}px 0px`;
-          return;
-        }
-      }
-      // side layout
-      const cardW = Math.round(Math.min(480, Math.max(320, W * 0.34)));
+      const cardW = Math.round(Math.min(460, Math.max(320, W * 0.32)));
       setMode('side');
       const avail = H - barH - ctrlH - 16;
-      Object.assign(textEl.style, reset, { left: '16px', top: `${barH + 8}px`, width: `${cardW}px`, maxHeight: `${avail}px` });
-      textEl.style.fontSize = `${big ? 28 : 24}px`;
+      Object.assign(textEl.style, reset, { left: '20px', top: `${barH + 10}px`, width: `${cardW}px`, maxHeight: `${avail}px` });
       let size = big ? 28 : 24;
+      textEl.style.fontSize = `${size}px`;
       while (size > 17 && textEl.scrollHeight > avail) {
         size -= 1;
         textEl.style.fontSize = `${size}px`;
       }
-      scene.setLayout('portrait', { x: cardW + 24, y: barH, w: W - cardW - 32, h: H - barH - ctrlH });
+      // centre the card in the space between the bars when it is short
+      const free = avail - textEl.offsetHeight;
+      if (free > 40) textEl.style.top = `${barH + 10 + Math.round(free * 0.35)}px`;
+      scene.setLayout({ x: cardW + 28, y: barH, w: W - cardW - 36, h: H - barH - ctrlH }, wide);
       return;
     }
     setMode('portrait');
     Object.assign(textEl.style, reset, { left: '12px', right: '12px', bottom: `${ctrlH}px`, maxHeight: `${Math.round(H * 0.46)}px`, fontSize: `${big ? 26 : W < 400 ? 20 : 22}px` });
     const top = H - ctrlH - textEl.offsetHeight;
-    scene.setLayout('portrait', { x: 0, y: 56, w: W, h: Math.max(120, top - 56 - 8) });
+    scene.setLayout({ x: 0, y: 56, w: W, h: Math.max(120, top - 56 - 8) }, { x: 0, y: 56, w: W, h: H - 56 - ctrlH });
   }
   scene.onResize = () => requestAnimationFrame(layout);
 
@@ -254,7 +216,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
         'div',
         { class: 'bubble' },
         g?.icon ? h('span', { class: 'ico', 'aria-hidden': 'true' }, g.icon) : null,
-        h('div', null, h('div', { class: 't', lang: 'tr' }, lemma, isNew ? h('span', { class: 'new' }, 'Sandığa eklendi') : null), g ? h('div', { class: 'e', lang: 'en' }, g.en) : null),
+        h('div', null, h('div', { class: 't', lang: 'tr' }, lemma, isNew ? h('span', { class: 'new' }, 'Sandığa eklendi') : null)),
       ),
     );
     // keep the bubble on screen
@@ -335,6 +297,11 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     sceneHost.classList.toggle('pickable', scene.isPickable(e.clientX, e.clientY));
   });
 
+  /** Every page is filmed from a slightly different side. */
+  function angleFor(i: number) {
+    return [-9, 8, -4, 11, -12, 5, -7, 10][i % 8];
+  }
+
   /* ---------- narration ---------- */
   function setPlayUI() {
     playIcon.replaceChildren(playing ? icon.pause() : icon.play());
@@ -352,8 +319,20 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     nowEl?.classList.add('now');
   }
 
+  /** Match the page's play to the words of the current level and start it from the beginning. */
+  function prepareStage(withNarration: boolean) {
+    const st = scene.stage;
+    if (!st) return;
+    scene.freeze(false);
+    scene.resetStage();
+    st.setText(tokens, estimateMarks(tokens, narrator.rate));
+    if (withNarration) st.playWithNarration();
+    else st.playAuto();
+  }
+
   function startReading() {
     playing = true;
+    prepareStage(true);
     sfx.duck(true);
     setPlayUI();
     const p = page();
@@ -361,7 +340,10 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
       tokens,
       plain,
       {
-        onWord: highlight,
+        onWord: (wi) => {
+          highlight(wi);
+          scene.stage?.word(wi);
+        },
         onEnd: () => {
           highlight(-1);
           if (index >= book.pages.length - 1 || !playing) sfx.duck(false);
@@ -382,12 +364,23 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   }
 
   function pause() {
+    const was = playing;
     playing = false;
     sfx.duck(false);
     narrator.stop();
     highlight(-1);
     setPlayUI();
+    // the characters stop together with the narration
+    if (was) scene.freeze(true);
   }
+
+  replayBtn.addEventListener('click', () => {
+    if (playing) {
+      startReading();
+      return;
+    }
+    prepareStage(false);
+  });
 
   playBtn.addEventListener('click', async () => {
     if (playing) return pause();
@@ -411,6 +404,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     }
     if (!autoplay) pause();
     else narrator.stop();
+    scene.freeze(false);
     busy = true;
     const dir = i > index ? 1 : -1;
     index = i;
@@ -420,7 +414,13 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     textEl.style.opacity = '0';
     shell.querySelectorAll('.word-pop, .tag3d').forEach((e) => e.remove());
     const layers = await getLayers(page());
-    const shown = scene.showPage(layers, dir).then(() => scene.setModels(page().models ?? []));
+    // pull back to see the whole table while the page turns, then move in on the new pop-up from another side
+    scene.shot('wide', 1000, angleFor(index));
+    const shown = scene.showPage(layers, dir).then(() => {
+      scene.shot('close', 1700, angleFor(index));
+      void scene.setModels(page().models ?? []);
+      return scene.setCast(page());
+    });
     window.setTimeout(() => {
       renderText();
       layout();
@@ -428,6 +428,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     }, scene.reducedMotion ? 0 : 520);
     await shown;
     busy = false;
+    if (!(autoplay && playing)) prepareStage(false);
     if (autoplay && playing) startReading();
     if (index + 1 < book.pages.length) {
       getLayers(book.pages[index + 1]);
@@ -444,12 +445,6 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
       store.markRead(bookId, page().id);
       goTo(index + 1);
     }
-  });
-  enBtn.addEventListener('click', () => {
-    store.setSettings({ showEn: !store.settings.showEn });
-    textEl.querySelector<HTMLElement>('.en')!.hidden = !store.settings.showEn;
-    enBtn.setAttribute('aria-pressed', String(store.settings.showEn));
-    layout();
   });
 
   /* ---------- sheets ---------- */
@@ -479,7 +474,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     pause();
     const listen = h('button', { class: 'btn turq small', type: 'button' }, icon.speaker(), 'Dinle');
     listen.addEventListener('click', () => say(p.culture!.tr));
-    sheet('Biliyor musun?', h('p', { lang: 'tr' }, p.culture.tr), h('p', { class: 'en', lang: 'en' }, p.culture.en), narrator.voice ? listen : h('span'));
+    sheet('Biliyor musun?', h('p', { lang: 'tr' }, p.culture.tr), narrator.voice ? listen : h('span'));
   }
 
   function voiceSheet(fromPlay = false, onClose: (() => void) | null = null) {
@@ -491,27 +486,9 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
         ? h('p', null, `Kitap, cihazınızdaki “${v.name}” sesiyle okunuyor.`)
         : h('p', null, 'Kelimeler okuma hızında sırayla parlayacak; çocuğunuzla birlikte sesli okuyabilirsiniz.'),
       v ? h('span') : h('p', null, 'Türkçe sesli okuma için Safari (iPhone, iPad, Mac), Microsoft Edge ya da Android’de Chrome kullanın. Windows’ta Ayarlar > Saat ve dil > Konuşma bölümünden Türkçe ses de ekleyebilirsiniz.'),
-      h('p', { class: 'en' }, v ? 'Reading with your device’s Turkish voice.' : 'No Turkish voice on this device. Words will light up at reading pace so you can read along. For Turkish narration use Safari, Edge or Chrome on Android.'),
       fromPlay ? h('p', null, 'İleride kitaplara gerçek bir anlatıcının sesi de eklenecek.') : h('span'),
     );
   }
-
-  levelBtn.addEventListener('click', () => {
-    pause();
-    let close = () => {};
-    const opts = LEVELS.map((lv) => {
-      const b = h('button', { type: 'button', 'aria-pressed': String(lv.id === level) }, h('span', { class: 'n' }, lv.name), h('span', null, `${lv.ages}, ${lv.note.toLowerCase()}`));
-      b.addEventListener('click', () => {
-        level = lv.id as LevelId;
-        store.setSettings({ level });
-        renderText();
-        layout();
-        close();
-      });
-      return b;
-    });
-    close = sheet('Okuma seviyesi', h('div', { class: 'level-menu' }, ...opts));
-  });
 
   settingsBtn.addEventListener('click', () => {
     pause();
@@ -541,6 +518,20 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
         layout();
       }),
     );
+    // the level was chosen on the welcome screen; a grown-up can still change it here
+    const levels = h(
+      'div',
+      { class: 'seg', role: 'group', 'aria-label': 'Okuma seviyesi' },
+      ...LEVELS.map((lv) =>
+        seg(lv.id === level, lv.name, () => {
+          level = lv.id as LevelId;
+          store.setSettings({ level, levelChosen: true });
+          renderText();
+          layout();
+          prepareStage(false);
+        }),
+      ),
+    );
     const calm = h('input', { type: 'checkbox', class: 'switch', checked: s.calm, 'aria-label': 'Sakin hareket' });
     calm.addEventListener('change', () => {
       store.setSettings({ calm: (calm as HTMLInputElement).checked });
@@ -560,6 +551,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     });
     sheet(
       'Ayarlar',
+      h('div', { class: 'row' }, h('label', null, 'Okuma seviyesi', h('small', null, LEVELS.map((l) => `${l.name} ${l.ages}`).join(' · '))), levels),
       h('div', { class: 'row' }, h('label', null, 'Okuma hızı', h('small', null, 'Yavaştan hızlıya')), rate),
       h('div', { class: 'row' }, h('label', null, 'Yazı boyutu'), size),
       h('div', { class: 'row' }, h('label', null, 'Arka plan müziği', h('small', null, 'Okurken sakin müzik')), music),
@@ -599,12 +591,19 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   textEl.style.opacity = '0';
   const firstLayers = getLayers(page());
   scene.prefetch(page().models ?? []);
-  scene.introCamera();
+  // opening sequence: from high above the table, down to the closed book, it opens, then close on the pop-up
+  scene.closeNow();
+  scene.shot('overhead', 0);
+  scene.shot('cover', 2200, undefined, 0.15);
+  await new Promise((r) => window.setTimeout(r, scene.reducedMotion ? 0 : 1700));
+  scene.shot('wide', 1600, angleFor(index));
   await scene.open(true);
+  scene.shot('close', 1800, angleFor(index));
   await scene.showPage(await firstLayers, 0);
   void scene.setModels(page().models ?? []);
   textEl.style.transition = 'opacity .4s';
   textEl.style.opacity = '1';
+  void scene.setCast(page()).then(() => prepareStage(false));
   store.setProgress(bookId, { page: index });
   if (index + 1 < book.pages.length) getLayers(book.pages[index + 1]);
   // download the 3D models of the whole book in the background

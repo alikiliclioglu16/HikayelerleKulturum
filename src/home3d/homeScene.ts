@@ -4,7 +4,8 @@ import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeom
 import { Tweens, ease } from '../three/tween';
 import { CULTURE_BUILDERS, placeholder } from './culture';
 import { woodTexture, tileBandTexture, mosaicLamp } from './room';
-import { MOTIFS, carpetCanvas, FRINGE } from './kilim';
+import { motifIndex } from './kilim';
+import { WallCarpet, type CarpetDesign } from './carpet';
 import { fitToSlot, disposeObject, std, mesh, tex, canvas, V3 } from './kit3d';
 import { Sparkles } from './sparkles';
 import { Cinema } from './cinema';
@@ -32,6 +33,8 @@ export interface ShelfBook {
   spine: string;
   /** A 3D character that stands next to this book (see HEROES). */
   hero?: string;
+  /** The carpet design shown on the wall while this book is chosen. */
+  carpet?: CarpetDesign;
 }
 
 /** Animated characters that can stand beside their books. */
@@ -56,10 +59,8 @@ const SIDE_DEPTH = 0.95;
 // İznik tile backsplash just above the sideboard, peeking out between the books
 const BAND_Y0 = 0.02;
 const BAND_H = 0.26;
-// the carpet hanging on the wall behind the shelf and the books
-const CARPET_W = 4.4;
-const CARPET_RATIO = 3.4;
-const CARPET_TOP = 1.72;
+// the carpet covering the wall stops just above the tile band
+const CARPET_BOTTOM = 0.34;
 
 interface ItemObj {
   def: CultureDef;
@@ -119,6 +120,7 @@ interface BookObj {
   lift: number;
   pulled: boolean;
   glow: GlowMat[];
+  carpet?: CarpetDesign;
 }
 
 export type Hit = { kind: 'item'; index: number } | { kind: 'book'; index: number } | { kind: 'hero'; index: number } | { kind: 'cat' };
@@ -157,9 +159,10 @@ export class HomeScene {
   private sparkles = new Sparkles(220);
   private laidOut = false;
   private shelfLen = 0;
-  private carpet!: { geo: THREE.PlaneGeometry; base: Float32Array; meshes: THREE.Mesh[]; h: number };
-  private motifTex = new Map<number, THREE.Texture>();
-  private swayFrame = 0;
+  private carpet: WallCarpet;
+  private carpetBook = -1;
+  /** Called when the carpet changes to another book's design (with the kilim motif index). */
+  onCarpet: ((motif: number) => void) | null = null;
   motif = 0;
   private hemi!: THREE.HemisphereLight;
   private cinema!: Cinema;
@@ -186,6 +189,8 @@ export class HomeScene {
     this.scene.environmentIntensity = 0.42;
     pmrem.dispose();
 
+    this.carpet = new WallCarpet(0.03, this.tweens, () => this.invalidate());
+    this.scene.add(this.carpet.group);
     this.buildRoom();
     this.scene.add(this.shelf, this.booksGroup, this.sparkles.points);
     this.lamp = mosaicLamp();
@@ -273,38 +278,6 @@ export class HomeScene {
     const wall = mesh(new THREE.PlaneGeometry(44, 18), std('#ffffff', { roughness: 0.95, map: plaster }), [0, 5, 0]);
     wall.castShadow = false;
     this.scene.add(wall);
-
-    // a hand-knotted carpet hung from a wooden rod; two layers so one design can fade into the next
-    const rugH = CARPET_W / CARPET_RATIO;
-    const CH = rugH / (1 - FRINGE);
-    const geo = new THREE.PlaneGeometry(CARPET_W, CH, 40, 10);
-    geo.translate(0, -CH / 2, 0);
-    const meshes = [0, 1].map((i) => {
-      const t = this.carpetTexture(0);
-      const mat = std('#ffffff', { roughness: 0.97, map: t, alphaTest: i ? 0.02 : 0.5, transparent: i === 1, opacity: i ? 0 : 1, depthWrite: i === 0 });
-      const m = new THREE.Mesh(geo, mat);
-      m.position.set(0, CARPET_TOP, 0.03 + i * 0.002);
-      m.castShadow = i === 0;
-      m.receiveShadow = true;
-      m.customDepthMaterial = new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking, map: t, alphaTest: 0.5 });
-      this.scene.add(m);
-      return m;
-    });
-    this.carpet = { geo, base: Float32Array.from(geo.attributes.position.array as Float32Array), meshes, h: CH };
-    const brass = std('#C99A42', { metalness: 0.8, roughness: 0.32 });
-    const rodWood = std('#6E4024', { roughness: 0.45 });
-    const y = CARPET_TOP + 0.035;
-    const pole = mesh(new THREE.CylinderGeometry(0.02, 0.02, CARPET_W + 0.34, 16), rodWood, [0, y, 0.06], [0, 0, Math.PI / 2]);
-    this.scene.add(pole);
-    for (const sx of [-1, 1]) {
-      this.scene.add(mesh(new THREE.SphereGeometry(0.036, 16, 12), brass, [sx * (CARPET_W / 2 + 0.2), y, 0.06]));
-      this.scene.add(mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.06, 8), brass, [sx * (CARPET_W / 2 + 0.12), y - 0.04, 0.03]));
-    }
-    const tabMat = std('#7E2622', { roughness: 0.9 });
-    for (let i = 0; i <= 10; i++) {
-      const x = -CARPET_W / 2 + 0.1 + (i * (CARPET_W - 0.2)) / 10;
-      this.scene.add(mesh(new THREE.BoxGeometry(0.07, 0.07, 0.012), tabMat, [x, CARPET_TOP + 0.02, 0.05]));
-    }
 
     const band = mesh(new THREE.PlaneGeometry(44, BAND_H), std('#ffffff', { roughness: 0.3, map: tileBandTexture(44 / (BAND_H * 4)) }), [0, BAND_Y0 + BAND_H / 2, 0.003]);
     band.castShadow = false;
@@ -449,9 +422,10 @@ export class HomeScene {
       group.rotation.y = baseRotY;
       group.add(m);
       this.booksGroup.add(group);
-      this.books.push({ id: b.id, group, mesh: m, baseRotY, lift: 0, pulled: false, glow: glowMats(m) });
+      this.books.push({ id: b.id, group, mesh: m, baseRotY, lift: 0, pulled: false, glow: glowMats(m), carpet: b.carpet });
     });
     this.loadCharacters(list);
+    this.showCarpet(0, true);
   }
 
   /** Heroes stand beside their books; a cat strolls along the front of the sideboard. */
@@ -624,6 +598,7 @@ export class HomeScene {
     cam.updateProjectionMatrix();
     cam.updateMatrixWorld();
 
+    this.fitCarpet();
     const pxScale = (rh / (2 * Math.tan(THREE.MathUtils.degToRad(cam.fov / 2)))) * this.renderer.getPixelRatio();
     this.sparkles.setScale(pxScale);
     this.cinema.setBase(cam.position, center, pxScale);
@@ -780,6 +755,7 @@ export class HomeScene {
   }
 
   hoverBook(i: number | null) {
+    if (i !== null) this.showCarpet(i);
     this.books.forEach((b, n) => {
       const target = n === i ? 1 : 0;
       if (b.lift === target || b.pulled) return;
@@ -811,49 +787,32 @@ export class HomeScene {
     this.invalidate();
   }
 
-  private carpetTexture(i: number) {
-    let t = this.motifTex.get(i);
-    if (!t) {
-      t = tex(carpetCanvas(MOTIFS[i], 2048, CARPET_RATIO));
-      this.motifTex.set(i, t);
-    }
-    return t;
+  get carpetMotif() {
+    return motifIndex(this.books[Math.max(0, this.carpetBook)]?.carpet?.motif ?? 'elibelinde');
   }
 
-  /** Fade the carpet to another design (each one shows a different kilim motif in its medallions). */
-  setMotif(i: number) {
-    if (i === this.motif) return;
-    const [back, front] = this.carpet.meshes;
-    const fm = front.material as THREE.MeshStandardMaterial;
-    const bm = back.material as THREE.MeshStandardMaterial;
-    fm.map = this.carpetTexture(i);
-    fm.needsUpdate = true;
-    fm.opacity = 0;
-    this.motif = i;
-    this.tweens.add(1400, 0, 1, (v) => (fm.opacity = v), ease.inOut).then(() => {
-      if (this.disposed || this.motif !== i) return;
-      bm.map = fm.map;
-      bm.needsUpdate = true;
-      (back.customDepthMaterial as THREE.MeshDepthMaterial).map = fm.map;
-      fm.opacity = 0;
-      this.invalidate();
-    });
-    this.invalidate();
+  /** Show the carpet design of a book on the wall. */
+  showCarpet(i: number, instant = false) {
+    const b = this.books[i];
+    if (!b || i === this.carpetBook) return;
+    this.carpetBook = i;
+    const d = b.carpet ?? { motif: 'elibelinde' };
+    this.carpet.show(b.id, d, instant);
+    this.onCarpet?.(motifIndex(d.motif));
   }
 
-  /** The carpet breathes a little, as if a draught moved it. */
-  private swayCarpet() {
-    const c = this.carpet;
-    const t = this.clock / 1000;
-    const pos = c.geo.attributes.position as THREE.BufferAttribute;
-    const arr = pos.array as Float32Array;
-    for (let i = 0; i < arr.length; i += 3) {
-      const x = c.base[i];
-      const k = Math.min(1, -c.base[i + 1] / c.h);
-      arr[i + 2] = c.base[i + 2] + (Math.sin(x * 1.3 + t * 0.7) * 0.012 + Math.sin(x * 3.2 - t * 1.05) * 0.004) * k * k;
-    }
-    pos.needsUpdate = true;
-    if (++this.swayFrame % 4 === 0) c.geo.computeVertexNormals();
+  /** Make the carpet cover the visible wall. */
+  private fitCarpet() {
+    const ray = new THREE.Raycaster();
+    const plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), -0.03);
+    const hit = (x: number, y: number) => {
+      ray.setFromCamera(new THREE.Vector2(x, y), this.camera);
+      return ray.ray.intersectPlane(plane, new THREE.Vector3()) ?? new THREE.Vector3();
+    };
+    const tl = hit(-1, 1);
+    const br = hit(1, -1);
+    const margin = this.size.W >= 700 ? 0.08 : 0.03;
+    this.carpet.resize(tl.x + margin, br.x - margin, CARPET_BOTTOM - 0.06, Math.max(tl.y + 0.3, SHELF_Y + 1));
   }
 
   /** One orchestrated entrance: the culture items drop onto the shelf, books slide in. */
@@ -887,7 +846,7 @@ export class HomeScene {
     this.clock += dt;
     if (!document.hidden && this.cinema.update(dt)) {
       moving = true;
-      this.swayCarpet();
+      this.carpet.sway(this.clock / 1000);
     }
     if (!this.reducedMotion && (this.heroes.length || this.cat)) {
       this.updateCharacters(dt);
@@ -931,7 +890,7 @@ export class HomeScene {
 
   dispose() {
     this.disposed = true;
-    this.motifTex.forEach((t) => t.dispose());
+    this.carpet.dispose();
     cancelAnimationFrame(this.raf);
     disposeObject(this.scene);
     this.scene.environment?.dispose();

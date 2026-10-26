@@ -308,47 +308,83 @@ function mix(a: string, b: string, k: number) {
 }
 
 /** Height of the fringe strip at the bottom of the carpet canvas, as a fraction of the canvas height. */
-export const FRINGE = 0.075;
+export const FRINGE = 0.06;
+
+/** Carpet colours for a book (see `carpet` in books/index.json). */
+export interface CarpetStyle {
+  /** Kilim motif id shown in the medallions, e.g. "kocboynuzu". */
+  motif: string;
+  /** Field colour. */
+  field?: string;
+  /** Main border colour. */
+  border?: string;
+}
+
+export function motifIndex(id: string) {
+  return Math.max(0, MOTIFS.findIndex((m) => m.id === id));
+}
+
+let woolTile: HTMLCanvasElement | null = null;
+/** A small tile of knotted-wool noise, laid over the whole carpet with a soft-light blend. */
+function wool() {
+  if (woolTile) return woolTile;
+  const c = document.createElement('canvas');
+  c.width = c.height = 128;
+  const g = c.getContext('2d')!;
+  const img = g.createImageData(128, 128);
+  const d = img.data;
+  for (let y = 0; y < 128; y++)
+    for (let x = 0; x < 128; x++) {
+      const i = (y * 128 + x) * 4;
+      const knot = ((x >> 1) + (y >> 1)) % 2 ? 14 : -14;
+      const v = 128 + knot + (Math.random() - 0.5) * 50;
+      d[i] = d[i + 1] = d[i + 2] = v;
+      d[i + 3] = 255;
+    }
+  g.putImageData(img, 0, 0);
+  woolTile = c;
+  return c;
+}
 
 /**
- * A Turkish village carpet: guard stripes, a main border, a field with three medallions (göbek) showing the
- * motif, corner pieces (köşelik), little filler motifs, wool texture and a fringe at the bottom.
+ * A Turkish village carpet of any size: guard stripes, a main border of stepped diamonds, a field with
+ * small filler motifs, medallions (göbek) with the kilim motif inside, corner pieces and a fringe at the bottom.
+ * Wide carpets get three medallions side by side, tall ones three stacked, square ones one big medallion.
  */
-export function carpetCanvas(m: Motif, W = 2048, ratio = 3.4) {
+export function carpetCanvas(style: CarpetStyle, W: number, H: number) {
+  const m = MOTIFS[motifIndex(style.motif)];
+  const p = m.palette;
   const c = document.createElement('canvas');
-  const rugH = Math.round(W / ratio);
-  const H = Math.round(rugH / (1 - FRINGE));
   c.width = W;
   c.height = H;
   const g = c.getContext('2d')!;
-  const p = m.palette;
-  const redField = /^#[5-9A-F]/i.test(p.bg) && hexToRgb(p.bg)[0] > hexToRgb(p.bg)[2];
-  const field = mix(p.bg, '#000000', 0.05);
-  const borderBg = redField ? '#1F2C4C' : '#7E2622';
+  const rugH = Math.round(H * (1 - FRINGE));
+  const field = style.field ?? mix(p.bg, '#000000', 0.05);
+  const redField = hexToRgb(field.startsWith('#') ? field : p.bg)[0] > hexToRgb(field.startsWith('#') ? field : p.bg)[2];
+  const borderBg = style.border ?? (redField ? '#1F2C4C' : '#7E2622');
   const ivory = '#EADCB8';
   const gold = '#C9953E';
-  const r = rng(m.id.length * 97 + 3);
+  const r = rng(m.id.length * 97 + W);
 
   // fringe: knotted ivory strands
-  const fy = rugH;
   for (let x = 6; x < W - 6; x += 7) {
-    const len = H - fy - 6 - r() * 10;
+    const len = H - rugH - 6 - r() * 10;
     g.strokeStyle = r() > 0.5 ? '#F2E8D2' : '#E2D5B8';
     g.lineWidth = 3.2;
     g.beginPath();
-    g.moveTo(x, fy - 2);
-    g.quadraticCurveTo(x + (r() - 0.5) * 6, fy + len * 0.6, x + (r() - 0.5) * 8, fy + len);
+    g.moveTo(x, rugH - 2);
+    g.quadraticCurveTo(x + (r() - 0.5) * 6, rugH + len * 0.6, x + (r() - 0.5) * 8, rugH + len);
     g.stroke();
   }
   for (let x = 10; x < W - 10; x += 28) {
     g.fillStyle = '#E6D8BA';
-    g.fillRect(x, fy, 20, 9);
+    g.fillRect(x, rugH, 20, 9);
   }
 
-  // rug body
+  // rug body; sizes are in units of the shorter side
   g.fillStyle = borderBg;
   g.fillRect(0, 0, W, rugH);
-  const u = rugH / 100; // design unit
+  const u = Math.min(W, rugH) / 100;
   const band = (inset: number, w: number, color: string) => {
     g.fillStyle = color;
     g.fillRect(inset * u, inset * u, W - inset * 2 * u, w * u);
@@ -356,24 +392,18 @@ export function carpetCanvas(m: Motif, W = 2048, ratio = 3.4) {
     g.fillRect(inset * u, inset * u, w * u, rugH - inset * 2 * u);
     g.fillRect(W - (inset + w) * u, inset * u, w * u, rugH - inset * 2 * u);
   };
-  // outer guard with little reciprocal diamonds
-  band(0, 4, ivory);
-  band(1.2, 1.6, field);
-  // main border: stepped diamonds (göz) alternating colours, all the way round
-  const bIn = 4;
-  const bW = 12;
+  band(0, 2.6, ivory);
+  band(0.9, 1, mix(p.bg, '#000000', 0.1));
+  const bIn = 2.6;
+  const bW = 9;
   const bc = bIn + bW / 2;
-  const step = bW * 1.15;
-  const along = (len: number, fn: (t: number, i: number) => void) => {
-    const n = Math.max(2, Math.round(len / (step * u)));
-    for (let i = 0; i < n; i++) fn((i + 0.5) / n, i);
-  };
-  const diamondAt = (x: number, y: number, s: number, i: number) => {
+  const s = bW * 0.36 * u;
+  const step = Math.max(4, bW * 1.15 * u);
+  const diamondAt = (x: number, y: number, i: number) => {
     const cols = [gold, ivory, p.b, p.d];
-    const col = cols[i % cols.length];
     g.save();
     g.translate(x, y);
-    g.fillStyle = col;
+    g.fillStyle = cols[i % cols.length];
     g.beginPath();
     g.moveTo(0, -s);
     g.lineTo(s, 0);
@@ -385,49 +415,45 @@ export function carpetCanvas(m: Motif, W = 2048, ratio = 3.4) {
     g.fillRect(-s * 0.3, -s * 0.3, s * 0.6, s * 0.6);
     g.fillStyle = i % 2 ? p.c : gold;
     g.fillRect(-s * 0.14, -s * 0.14, s * 0.28, s * 0.28);
-    // hooks between diamonds
-    g.strokeStyle = ivory;
-    g.lineWidth = s * 0.12;
-    g.beginPath();
-    g.moveTo(s * 1.05, -s * 0.35);
-    g.lineTo(s * 1.05, s * 0.35);
-    g.stroke();
     g.restore();
   };
-  const s = bW * 0.36 * u;
+  const along = (len: number, fn: (t: number, i: number) => void) => {
+    const n = Math.max(2, Math.round(len / step));
+    for (let i = 0; i < n; i++) fn((i + 0.5) / n, i);
+  };
   along(W - 2 * bc * u, (t, i) => {
-    diamondAt(bc * u + t * (W - 2 * bc * u), bc * u, s, i);
-    diamondAt(bc * u + t * (W - 2 * bc * u), rugH - bc * u, s, i + 1);
+    diamondAt(bc * u + t * (W - 2 * bc * u), bc * u, i);
+    diamondAt(bc * u + t * (W - 2 * bc * u), rugH - bc * u, i + 1);
   });
   along(rugH - 2 * bc * u, (t, i) => {
-    diamondAt(bc * u, bc * u + t * (rugH - 2 * bc * u), s, i + 2);
-    diamondAt(W - bc * u, bc * u + t * (rugH - 2 * bc * u), s, i + 3);
+    diamondAt(bc * u, bc * u + t * (rugH - 2 * bc * u), i + 2);
+    diamondAt(W - bc * u, bc * u + t * (rugH - 2 * bc * u), i + 3);
   });
-  band(bIn + bW, 1.4, ivory);
-  band(bIn + bW + 1.4, 1.2, gold);
+  band(bIn + bW, 1.1, ivory);
+  band(bIn + bW + 1.1, 0.9, gold);
 
   // field
-  const fx0 = (bIn + bW + 2.6) * u;
-  const fy0 = fx0;
+  const fx0 = (bIn + bW + 2) * u;
   const fw = W - fx0 * 2;
-  const fh = rugH - fy0 * 2;
+  const fh = rugH - fx0 * 2;
   g.fillStyle = field;
-  g.fillRect(fx0, fy0, fw, fh);
+  g.fillRect(fx0, fx0, fw, fh);
   // abrash: soft bands where the wool came from a different dye batch
-  for (let i = 0; i < 9; i++) {
-    const x = fx0 + r() * fw;
-    const w = 40 + r() * 160;
+  for (let i = 0; i < 10; i++) {
+    const horizontal = fw < fh;
     g.fillStyle = r() > 0.5 ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.06)';
-    g.fillRect(x, fy0, w, fh);
+    if (horizontal) g.fillRect(fx0, fx0 + r() * fh, fw, 30 + r() * 120);
+    else g.fillRect(fx0 + r() * fw, fx0, 30 + r() * 120, fh);
   }
-  // small filler motifs in a lattice
+  // filler motifs in a lattice
   g.save();
   g.beginPath();
-  g.rect(fx0, fy0, fw, fh);
+  g.rect(fx0, fx0, fw, fh);
   g.clip();
-  const cell = fh / 3.2;
-  for (let yy = fy0 + cell * 0.5; yy < fy0 + fh; yy += cell) {
-    for (let xx = fx0 + cell * 0.5 + ((Math.round((yy - fy0) / cell) % 2) * cell) / 2; xx < fx0 + fw; xx += cell) {
+  const cell = Math.max(8, Math.min(fw, fh) / 3.2);
+  let row = 0;
+  for (let yy = fx0 + cell * 0.5; yy < fx0 + fh; yy += cell, row++) {
+    for (let xx = fx0 + cell * 0.5 + ((row % 2) * cell) / 2; xx < fx0 + fw; xx += cell) {
       g.save();
       g.translate(xx, yy);
       g.scale(cell / 60, cell / 60);
@@ -441,83 +467,89 @@ export function carpetCanvas(m: Motif, W = 2048, ratio = 3.4) {
   }
   g.restore();
 
-  // three medallions (göbek), the middle one biggest, with the motif inside
-  const medallion = (cx: number, cy: number, rx: number, ry: number) => {
+  const medallion = (cx: number, cy: number, rx: number, ry: number, vertical: boolean) => {
     const layers: [number, string][] = [
       [1, ivory],
       [0.93, borderBg],
       [0.86, gold],
-      [0.8, mix(p.bg, '#ffffff', 0.12)],
+      [0.8, mix(field.startsWith('#') ? field : p.bg, '#ffffff', 0.14)],
     ];
     for (const [k, col] of layers) {
       g.fillStyle = col;
       g.beginPath();
-      // stepped hexagon, the classic Anatolian göbek
       const a = rx * k;
       const b = ry * k;
-      g.moveTo(cx - a, cy);
-      g.lineTo(cx - a * 0.55, cy - b);
-      g.lineTo(cx + a * 0.55, cy - b);
-      g.lineTo(cx + a, cy);
-      g.lineTo(cx + a * 0.55, cy + b);
-      g.lineTo(cx - a * 0.55, cy + b);
+      if (vertical) {
+        g.moveTo(cx, cy - b);
+        g.lineTo(cx + a, cy - b * 0.55);
+        g.lineTo(cx + a, cy + b * 0.55);
+        g.lineTo(cx, cy + b);
+        g.lineTo(cx - a, cy + b * 0.55);
+        g.lineTo(cx - a, cy - b * 0.55);
+      } else {
+        g.moveTo(cx - a, cy);
+        g.lineTo(cx - a * 0.55, cy - b);
+        g.lineTo(cx + a * 0.55, cy - b);
+        g.lineTo(cx + a, cy);
+        g.lineTo(cx + a * 0.55, cy + b);
+        g.lineTo(cx - a * 0.55, cy + b);
+      }
       g.closePath();
       g.fill();
     }
-    // hooks at the tips
-    for (const sx of [-1, 1]) {
-      g.fillStyle = gold;
-      g.beginPath();
-      g.moveTo(cx + sx * rx, cy - ry * 0.18);
-      g.lineTo(cx + sx * rx * 1.18, cy);
-      g.lineTo(cx + sx * rx, cy + ry * 0.18);
-      g.fill();
-    }
     g.save();
-    const size = ry * 1.45;
+    const size = Math.min(rx, ry) * 1.45;
     g.translate(cx - size / 2, cy - size / 2);
     g.scale(size / 100, size / 100);
     m.draw(g, p);
     g.restore();
   };
-  const cy = fy0 + fh / 2;
-  medallion(W / 2, cy, fh * 0.62, fh * 0.44);
-  medallion(W / 2 - fw * 0.31, cy, fh * 0.44, fh * 0.32);
-  medallion(W / 2 + fw * 0.31, cy, fh * 0.44, fh * 0.32);
+  const cx = W / 2;
+  const cy = fx0 + fh / 2;
+  const ratio = fw / fh;
+  if (ratio > 1.5) {
+    const k = Math.min(fh * 0.44, fw * 0.16);
+    const spread = Math.min(fw * 0.32, k * 3.1);
+    medallion(cx, cy, k * 1.4, k, false);
+    medallion(cx - spread, cy, k, k * 0.72, false);
+    medallion(cx + spread, cy, k, k * 0.72, false);
+  } else if (ratio < 0.67) {
+    const k = Math.min(fw * 0.44, fh * 0.16);
+    const spread = Math.min(fh * 0.32, k * 3.1);
+    medallion(cx, cy, k, k * 1.4, true);
+    medallion(cx, cy - spread, k * 0.72, k, true);
+    medallion(cx, cy + spread, k * 0.72, k, true);
+  } else {
+    medallion(cx, cy, fw * 0.4, fh * 0.4, fw < fh);
+  }
   // corner pieces (köşelik)
-  for (const [x, y, sx, sy] of [[fx0, fy0, 1, 1], [fx0 + fw, fy0, -1, 1], [fx0, fy0 + fh, 1, -1], [fx0 + fw, fy0 + fh, -1, -1]] as number[][]) {
+  const q = Math.min(fw, fh) * 0.36;
+  for (const [x, y, sx, sy] of [[fx0, fx0, 1, 1], [fx0 + fw, fx0, -1, 1], [fx0, fx0 + fh, 1, -1], [fx0 + fw, fx0 + fh, -1, -1]] as number[][]) {
     g.fillStyle = borderBg;
     g.beginPath();
     g.moveTo(x, y);
-    g.lineTo(x + sx * fh * 0.42, y);
-    g.lineTo(x + sx * fh * 0.3, y + sy * fh * 0.12);
-    g.lineTo(x + sx * fh * 0.12, y + sy * fh * 0.3);
-    g.lineTo(x, y + sy * fh * 0.42);
+    g.lineTo(x + sx * q, y);
+    g.lineTo(x + sx * q * 0.7, y + sy * q * 0.3);
+    g.lineTo(x + sx * q * 0.3, y + sy * q * 0.7);
+    g.lineTo(x, y + sy * q);
     g.closePath();
     g.fill();
     g.fillStyle = gold;
     g.beginPath();
-    g.moveTo(x + sx * fh * 0.04, y + sy * fh * 0.04);
-    g.lineTo(x + sx * fh * 0.24, y + sy * fh * 0.04);
-    g.lineTo(x + sx * fh * 0.04, y + sy * fh * 0.24);
+    g.moveTo(x + sx * q * 0.1, y + sy * q * 0.1);
+    g.lineTo(x + sx * q * 0.56, y + sy * q * 0.1);
+    g.lineTo(x + sx * q * 0.1, y + sy * q * 0.56);
     g.closePath();
     g.fill();
   }
 
-  // wool: knots, a soft sheen and a little wear
-  const img = g.getImageData(0, 0, W, rugH);
-  const d = img.data;
-  for (let y = 0; y < rugH; y++) {
-    for (let x = 0; x < W; x++) {
-      const i = (y * W + x) * 4;
-      const knot = ((x >> 1) + (y >> 1)) % 2 ? 6 : -6;
-      const n = (Math.random() - 0.5) * 22 + knot;
-      d[i] = Math.max(0, Math.min(255, d[i] + n));
-      d[i + 1] = Math.max(0, Math.min(255, d[i + 1] + n));
-      d[i + 2] = Math.max(0, Math.min(255, d[i + 2] + n));
-    }
-  }
-  g.putImageData(img, 0, 0);
+  // wool texture and a soft sheen
+  g.save();
+  g.globalCompositeOperation = 'soft-light';
+  g.globalAlpha = 0.9;
+  g.fillStyle = g.createPattern(wool(), 'repeat')!;
+  g.fillRect(0, 0, W, rugH);
+  g.restore();
   const sheen = g.createLinearGradient(0, 0, 0, rugH);
   sheen.addColorStop(0, 'rgba(255,240,220,0.10)');
   sheen.addColorStop(0.5, 'rgba(255,240,220,0)');
@@ -525,4 +557,10 @@ export function carpetCanvas(m: Motif, W = 2048, ratio = 3.4) {
   g.fillStyle = sheen;
   g.fillRect(0, 0, W, rugH);
   return c;
+}
+
+/** Canvas size for a carpet of the given world size: the long side 2048 px. */
+export function carpetPixels(w: number, h: number): [number, number] {
+  const long = 2048;
+  return w >= h ? [long, Math.max(256, Math.round((long * h) / w))] : [Math.max(256, Math.round((long * w) / h)), long];
 }

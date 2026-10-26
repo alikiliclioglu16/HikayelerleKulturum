@@ -33,7 +33,10 @@ export interface LayerSpec {
 
 /** A 3D model (GLB) standing on the pop-up page. */
 export interface PageModel {
-  src: string;
+  /** A GLB model … */
+  src?: string;
+  /** … or a piece of the set drawn in code: "bed", "blanket", "nightstand". */
+  proc?: string;
   /** Glossary word said when the model is tapped. */
   word?: string;
   /** Horizontal position from the page centre (-0.5 left edge … 0.5 right edge). */
@@ -54,6 +57,8 @@ export interface PageModel {
   walkTo?: [number, number];
   /** Keep walking back and forth between the start and `walkTo` (for animals). */
   patrol?: boolean;
+  /** Clip used while walking (default "walk"; "run" makes a character run). */
+  walkAnim?: string;
   /** Walking speed in page widths per second (default 0.11). */
   speed?: number;
   /** Turn to face this angle (degrees) after walking. */
@@ -63,12 +68,15 @@ export interface PageModel {
   /** Colour the model, e.g. "#D07A45" turns a grey pot into a copper cauldron. */
   tint?: string;
   /** Gentle life for still objects: trees sway, a pot wobbles, a lantern swings, a plant breathes. */
-  fx?: 'sway' | 'wobble' | 'swing' | 'breathe' | 'bob' | 'spin';
+  fx?: 'sway' | 'wobble' | 'swing' | 'breathe' | 'bob' | 'spin' | 'grow';
 }
 
 /** A 3D object on the reading table, around the book (world units, the book is 2 wide). */
 export interface TableModel {
-  src: string;
+  /** A GLB model … */
+  src?: string;
+  /** … or one of the culture objects drawn in code (e.g. "lale", "nazar", "lokum", "lamba" for the mosaic lamp). */
+  proc?: string;
   word?: string;
   x: number;
   z: number;
@@ -77,6 +85,26 @@ export interface TableModel {
   rotY?: number;
   /** Steam rising from a hot drink. */
   steam?: boolean;
+}
+
+/** A character on a page and how it starts. */
+export interface CastMember {
+  id: string;
+  x: number;
+  z: number;
+  /** Height above the page (e.g. lying on a bed). */
+  y?: number;
+  rotY?: number;
+  /** Starting pose: "stand", "lying", "sitBed" … (see POSES in three/acts.ts). */
+  pose?: string;
+  /** 0 = standing, 1 = lying on its back. */
+  lie?: number;
+  eyes?: number;
+  look?: string | null;
+  /** Something in the hands from the start (see HELD in three/props.ts). */
+  hold?: string;
+  /** Acts inside the tablet screen (a video call) instead of on the page. */
+  screen?: boolean;
 }
 
 export interface PageAudio {
@@ -95,6 +123,12 @@ export interface PageData {
   layers?: LayerSpec[];
   /** Optional 3D models (GLB) on the pop-up, e.g. animals or characters. */
   models?: PageModel[];
+  /** Story characters (rigged 3D models) acting on this page. */
+  cast?: CastMember[];
+  /** What the characters do, in story order; each beat starts at its cue word. */
+  beats?: import('./three/acts').Beat[];
+  /** Named spots the characters can look at or walk to: [x, y, z] in page coordinates (like models). */
+  spots?: Record<string, [number, number, number]>;
   /** Optional recorded narration per level. */
   audio?: Partial<Record<LevelId, PageAudio>>;
 }
@@ -139,6 +173,8 @@ export interface BookListing {
   pages?: number;
   values: string[];
   blurb: Bi;
+  /** The wall carpet shown while this book is chosen: a kilim motif and colours, or a picture (`src`). */
+  carpet?: { motif: string; field?: string; border?: string; src?: string };
   /** An animated 3D character that stands next to the book on the home shelf. */
   hero?: string;
   cover: { art: string; color?: string; motif?: string; src?: string };

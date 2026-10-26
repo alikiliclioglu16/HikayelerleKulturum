@@ -24,7 +24,6 @@ export function footer() {
     'footer',
     { class: 'site-footer' },
     h('p', null, 'Hesap yok, çerez yok, reklam yok. Okuma ilerlemesi ve Kelime Sandığı yalnızca bu cihazda saklanır.'),
-    h('p', null, 'No accounts, cookies or ads. Reading progress stays on this device only.'),
     h('p', null, 'Bu bir prototiptir; resimler ve anlatıcı sesi geçicidir.'),
   );
 }

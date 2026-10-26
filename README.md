@@ -2,18 +2,20 @@
 
 Amerika'da büyüyen 4–11 yaş arası çift dilli Türk çocukları için etkileşimli, açılır sayfalı (pop-up) resimli kitaplar. Her kitap bir Türk kültürü ögesini ve Türkiye Yüzyılı Maarif Modeli'nin değerlerini işler.
 
-Bu sürümde **Bayram Sabahı** ve **Nasreddin Hoca ve Kazan** hazır; 15 kitaplık planın diğer 13 kitabı "Yakında" olarak listelenir (plan: `docs/kitap-plani.md`).
+Bu sürümde **Bayram Sabahı**, **Nasreddin Hoca ve Kazan** ve **Keloğlan ve Üç Tohum** hazır; 15 kitaplık planın diğer 12 kitabı "Yakında" olarak listelenir (plan: `docs/kitap-plani.md`).
 
 ## Neler var?
 
 - 3D ana sayfa: üst rafta 20 Türk kültürü ögesi (dokununca Türkçe adı okunur, İngilizcesi ve kısa bir bilgi çıkar, Kelime Sandığı'na eklenir), alt rafta kitaplar. Raf parmakla kaydırılır, kitaplar oklarla değişir.
 - Masanın üstünde açılan 3D kitap; her sayfada kâğıttan kesilmiş arka planlar ayağa kalkar, önlerinde 3D karakterler, hayvanlar ve nesneler durur (yürüyen, konuşan, sallanan modeller). Masada kültür rafındaki 3D nesneler (çaydanlık, buharı tüten çay, kahve, simit…) durur.
 - Ana sayfada ve okurken sinematik kamera ve ışık hareketleri ile sakin arka plan müziği; "Sakin hareket" ayarı bunları durdurur.
-- Ana sayfanın duvarında asılı bir Türk halısı; ortasındaki göbek motifi 5 saniyede bir değişir.
+- Ana sayfanın bütün duvarını kaplayan bir Türk halısı; fare hangi kitabın üstüne gelirse halı o kitabın desenine geçer.
+- Okuyucu bir film çekimi gibi: kamera önce masanın üstünden iner, kitap açılırken geri çekilir, sonra açılır sahneye yaklaşır; her sayfa başka bir açıdan görünür. Sayfa çevrilirken kâğıt kıvrılır. Masada mozaik lamba, nazar boncuğu, lokum, çini, lale, mangala ve kitaplar durur.
+- Site tamamen Türkçedir (İngilizce düğme ve açıklama yok).
 - Türkçe metin, üç okuma seviyesi: Tomurcuk (4–6), Lale (7–9), Çınar (10–11).
 - Sesli okuma ve kelime kelime vurgulama (cihazın Türkçe sesiyle; ses yoksa kelimeler okuma hızında parlar).
-- Altı noktalı kelimeye dokununca kelime okunur, İngilizcesi çıkar ve resimdeki nesne zıplar. Resimdeki nesneye dokununca da metindeki kelime parlar.
-- Sayfanın İngilizce çevirisi, "Biliyor musun?" kültür notları.
+- Altı noktalı kelimeye dokununca kelime okunur ve resimdeki nesne zıplar. Resimdeki nesneye dokununca da metindeki kelime parlar.
+- "Biliyor musun?" kültür notları.
 - Kelime Sandığı, bilgi yarışması, değer avı ve ebeveynler için aile köşesi.
 - Hesap, çerez, reklam ve analitik yok. İlerleme yalnızca tarayıcıda (localStorage) saklanır.
 
@@ -61,6 +63,16 @@ Metin işaretleme kuralı:
 - Birden fazla kelime de olur: `{Ellerinizden öperim|ellerinizden öperim}`.
 
 Her sayfada `text` altında `"1"`, `"2"`, `"3"` seviyeleri vardır; her biri `tr` ve `en` içerir.
+
+## Halı desenleri
+
+Her kitabın halısı `public/books/index.json` içinde `carpet` ile seçilir:
+
+```json
+"carpet": { "motif": "kocboynuzu", "field": "#22406E", "border": "#8E2B24" }
+```
+
+Motifler: `elibelinde`, `kocboynuzu`, `hayat-agaci`, `yildiz`, `goz`, `su-yolu`, `muska`, `pitrak`. Hazır bir halı resmi kullanmak için `"carpet": { "motif": "elibelinde", "src": "/books/<kitap>/hali.webp" }` yazılır; resim ekranı dolduracak şekilde kırpılır, bu yüzden önemli desen ortada olmalı (önerilen boyut 3000 × 1600 px, WebP).
 
 ## Kendi resimlerinizi kullanmak
 

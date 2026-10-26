@@ -82,7 +82,7 @@ export async function renderQuiz(root: HTMLElement, id: string) {
         'button',
         { class: 'option', type: 'button' },
         h('span', { class: 'letter' }, 'ABC'[oi]),
-        h('span', null, h('span', { lang: 'tr' }, o.tr), o.en !== o.tr ? h('small', { lang: 'en' }, o.en) : null),
+        h('span', null, h('span', { lang: 'tr' }, o.tr)),
       );
       b.addEventListener('click', () => {
         if (answered) return;
@@ -107,7 +107,6 @@ export async function renderQuiz(root: HTMLElement, id: string) {
     host.replaceChildren(
       h('div', { class: 'section-head', style: 'margin:0' }, h('span', { class: 'quiz-step' }, `Soru ${i + 1} / ${book.quiz.length}`), listen),
       h('p', { class: 'quiz-q', lang: 'tr' }, q.q.tr),
-      h('p', { class: 'quiz-en', lang: 'en' }, q.q.en),
       h('div', { class: 'options' }, ...opts),
       feedback,
       h('div', { class: 'quiz-nav' }, h('span'), next),
@@ -163,9 +162,8 @@ export async function renderHunt(root: HTMLElement, id: string) {
             choices.forEach((c) => c.setAttribute('disabled', ''));
             found++;
             result.replaceChildren(
-              h('div', { class: 'stamp' }, icon.check(), `${valueById(v).name} (${valueById(v).en})`),
+              h('div', { class: 'stamp' }, icon.check(), valueById(v).name),
               h('p', { lang: 'tr' }, item.why.tr),
-              h('p', { class: 'quiz-en', lang: 'en', style: 'margin:0' }, item.why.en),
             );
             if (found === book.valueHunt.length) {
               store.setProgress(id, { hunt: true });
@@ -235,17 +233,16 @@ export async function renderFamily(root: HTMLElement, id: string) {
           'section',
           { class: 'panel' },
           h('h2', null, 'Konuşalım'),
-          h('ol', null, ...book.family.talk.map((t) => h('li', null, h('span', { lang: 'tr' }, t.tr), h('div', { class: 'en', lang: 'en' }, t.en)))),
+          h('ol', null, ...book.family.talk.map((t) => h('li', null, h('span', { lang: 'tr' }, t.tr)))),
           h('h2', { style: 'margin-top:24px' }, 'Bu haftanın aile görevi'),
           h('p', { lang: 'tr' }, book.family.task.tr),
-          h('p', { class: 'en', lang: 'en' }, book.family.task.en),
         ),
         h(
           'section',
           { class: 'panel' },
           h('h2', null, 'Kitaptaki değerler'),
           h('p', { class: 'en' }, 'Türkiye Yüzyılı Maarif Modeli, Erdem-Değer-Eylem Çerçevesi'),
-          h('div', { class: 'chips', style: 'display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px' }, ...vals.map((v) => chip(`${v.name} (${v.en})`, v.group))),
+          h('div', { class: 'chips', style: 'display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px' }, ...vals.map((v) => chip(v.name, v.group))),
           ...vals.map((v) => h('p', { style: 'margin:4px 0;font-size:15px;color:var(--ink-soft)' }, `${v.name}: ${VALUE_GROUPS[v.group].name}`)),
           h('h2', { style: 'margin-top:24px' }, 'Kültür notları'),
           ...book.pages.filter((p) => p.culture).map((p) => h('p', { style: 'font-size:16px' }, h('strong', null, /[.!?]$/.test(p.title.tr) ? `${p.title.tr} ` : `${p.title.tr}. `), p.culture!.tr)),
@@ -254,8 +251,8 @@ export async function renderFamily(root: HTMLElement, id: string) {
       h(
         'section',
         { class: 'section' },
-        h('div', { class: 'section-head' }, h('h2', null, 'Kitaptaki kelimeler'), h('p', null, `${words.length} kelime ve kalıp, İngilizce karşılıklarıyla.`)),
-        h('div', { class: 'word-grid' }, ...words.map(([lemma, g]) => h('div', { class: 'word-card' }, h('span', { class: 'ico', 'aria-hidden': 'true' }, g.icon ?? ''), h('span', { class: 'tr', lang: 'tr' }, lemma), h('span', { class: 'en', lang: 'en' }, g.en)))),
+        h('div', { class: 'section-head' }, h('h2', null, 'Kitaptaki kelimeler'), h('p', null, `${words.length} kelime ve kalıp.`)),
+        h('div', { class: 'word-grid' }, ...words.map(([lemma, g]) => h('div', { class: 'word-card' }, h('span', { class: 'ico', 'aria-hidden': 'true' }, g.icon ?? ''), h('span', { class: 'tr', lang: 'tr' }, lemma)))),
       ),
     ),
   );

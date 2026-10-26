@@ -48,11 +48,12 @@ Model adları gönderilen pakettekilerdir (`GLB'ler/…`). "Kenney" kitleri CC0 
 - **3D (kullanıldı):** Nasreddin Hoca (yürür, bekler), komşu `npc_featured_craftsman_male` (konuşur, şaşırır), pazardaki yolcu `npc_featured_traveler` (konuşur), bakır renge boyanmış Kenney `pot` (kazan ve yavru tencere, titrer), Fantasy Town `tree-high-round` (sallanır), `fountain-round`, `stall-red`, `stall-green`, `cart`, `fence`, `lantern`; Food `watermelon`, `grapes`, `eggplant`, `tomato`; Furniture `rugRound`, `tableCoffee`, `pottedPlant`, `books`; yürüyen sokak kedisi, köpek; masada çaydanlık, çay, kahve, simit.
 - **Sahne yapısı:** Arkada kodla çizilmiş Akşehir (Sultan Dağları, Akşehir Gölü, minareler), önde 3D oyuncular. Çerçeve hikâyede (1. ve 8. sayfa) Dede, Elif ve Can sedirde.
 
-### 3. Keloğlan ve Üç Tohum
+### 3. Keloğlan ve Üç Tohum (hazır)
 - **Kültür:** Keloğlan masalları, Anadolu köyü, toprak ve hasat.
 - **Konu:** Annesinin verdiği üç tohumu sabırla eken Keloğlan, kuraklıkta suyu paylaşır ve bütün köye bereket getirir.
 - **Değerler:** çalışkanlık, sabır, sağlıklı yaşam.
-- **3D:** `heroes/Keloglan` (yürüme, koşma), Survival `tool-hoe`, `tool-shovel`, `bucket`, `tree`, `patch-grass`; Mini Forest `plant`, `fence`; Food `carrot`, `cabbage`, `corn`.
+- **Çerçeve:** Elif ile Can Amerika'daki bahçelerine tohum eker; Anne masalı anlatır; sonda filizler çıkar ve çoban salatası yapılır.
+- **3D (kullanıldı):** Keloğlan (su taşırken yürür, yağmurda koşar), Hasan Amca ve köylü (konuşur, üzülür), büyüyen filizler, mısır, lahana, havuç, kabak, domates; çapa, kürek, kova, kaya, çit, kuru ve yeşil ağaçlar, sebze arabası, tezgâh; bahçede gezen kedi ve köpek.
 
 ### 4. 23 Nisan Şenliği
 - **Kültür:** Ulusal Egemenlik ve Çocuk Bayramı, dünyanın dört bir yanından çocuklar, bayrak, şiir.

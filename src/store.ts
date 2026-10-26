@@ -5,9 +5,10 @@ import type { LevelId } from './types';
  */
 export interface Settings {
   level: LevelId;
+  /** The reader has picked a reading level on the welcome screen (asked once, on the first visit). */
+  levelChosen: boolean;
   rate: number;
   big: boolean;
-  showEn: boolean;
   calm: boolean;
   sound: boolean;
   music: boolean;
@@ -40,7 +41,7 @@ interface Data {
 }
 
 const defaults: Data = {
-  settings: { level: '2', rate: 0.9, big: false, showEn: false, calm: false, sound: true, music: true },
+  settings: { level: '2', levelChosen: false, rate: 0.9, big: false, calm: false, sound: true, music: true },
   chest: {},
   progress: {},
   culture: [],
@@ -52,8 +53,10 @@ function load(): Data {
     const raw = localStorage.getItem(KEY);
     if (!raw) return structuredClone(defaults);
     const d = JSON.parse(raw) as Partial<Data>;
+    const settings = { ...defaults.settings, ...(d.settings ?? {}) };
+    delete (settings as Partial<Settings> & { showEn?: boolean }).showEn; // an old setting (English was removed)
     return {
-      settings: { ...defaults.settings, ...(d.settings ?? {}) },
+      settings,
       chest: d.chest ?? {},
       progress: d.progress ?? {},
       culture: d.culture ?? [],

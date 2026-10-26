@@ -15,14 +15,14 @@ const BACK = { z: 0.04, w: 0.96, h: 0.86 };
 const HOUSES = { z: 0.26, w: 0.94, h: 0.46 };
 const SOFA = { z: 0.4, w: 0.9, h: 0.6 };
 
-function grad(p: Pen, y0: number, y1: number, stops: [number, string][]) {
+export function grad(p: Pen, y0: number, y1: number, stops: [number, string][]) {
   const g = p.c.createLinearGradient(0, y0, 0, y1);
   for (const [o, c] of stops) g.addColorStop(o, c);
   return g as unknown as string;
 }
 
 /** Clip to the arched back panel and fill it. */
-function archPanel(p: Pen, fill: string) {
+export function archPanel(p: Pen, fill: string) {
   const c = p.c;
   const x = 14;
   const y = 14;
@@ -41,20 +41,20 @@ function archPanel(p: Pen, fill: string) {
   c.clip();
 }
 
-function cloud(p: Pen, x: number, y: number, s: number, color = '#ffffff') {
+export function cloud(p: Pen, x: number, y: number, s: number, color = '#ffffff') {
   p.circle(x, y, s, color);
   p.circle(x + s * 0.9, y + s * 0.15, s * 0.75, color);
   p.circle(x - s * 0.9, y + s * 0.2, s * 0.7, color);
   p.rect(x - s * 1.5, y + s * 0.1, s * 3.1, s * 0.75, color, s * 0.37);
 }
 
-function poplar(p: Pen, x: number, base: number, h: number, color = '#3F7F4A') {
+export function poplar(p: Pen, x: number, base: number, h: number, color = '#3F7F4A') {
   p.rect(x - 4, base - h * 0.2, 8, h * 0.2, '#6B4A2E', 3);
   p.ellipse(x, base - h * 0.58, h * 0.11, h * 0.45, color);
   p.ellipse(x - h * 0.03, base - h * 0.62, h * 0.05, h * 0.32, 'rgba(255,255,255,0.12)');
 }
 
-function minaret(p: Pen, x: number, base: number, h: number, wall = '#F2E6D2') {
+export function minaret(p: Pen, x: number, base: number, h: number, wall = '#F2E6D2') {
   const w = h * 0.07;
   p.rect(x - w / 2, base - h, w, h, wall, 3);
   p.rect(x - w * 0.85, base - h * 0.72, w * 1.7, h * 0.035, wall, 2);
@@ -132,7 +132,7 @@ function aksehir(p: Pen, mood: Mood) {
 }
 
 /** One village house front: earth walls, wooden beams or a tiled roof, a wooden door and geraniums. */
-function house(p: Pen, x: number, w: number, h: number, o: { wall: string; tiled?: boolean; door: string; shutter: string; vine?: boolean; word?: string }) {
+export function house(p: Pen, x: number, w: number, h: number, o: { wall: string; tiled?: boolean; door: string; shutter: string; vine?: boolean; word?: string }) {
   const base = p.H - 4;
   const top = base - h;
   p.rect(x, top, w, h, o.wall, 8);
