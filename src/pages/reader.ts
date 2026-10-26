@@ -2,7 +2,7 @@ import { h, icon } from '../ui/dom';
 import { loadBook, loadListing, coverCanvas, fonts } from '../content';
 import { store } from '../store';
 import { LEVELS } from '../values';
-import { tokenize, type Token } from '../text';
+import { tokenize, estimateMarks, type Token } from '../text';
 import { Narrator } from '../narrator';
 import { BookScene } from '../three/bookScene';
 import { sceneLayers, buildProcLayer, buildImageLayer, type BuiltLayer } from '../art/scenes';
@@ -63,13 +63,19 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   const playIcon = h('span', { style: 'display:contents' }, icon.play());
   const playBtn = h('button', { class: 'btn play', type: 'button' }, playIcon, playLbl);
   const nextBtn = h('button', { class: 'btn turq icon-only', type: 'button', 'aria-label': 'Sonraki sayfa' }, icon.next());
-  const controls = h('nav', { class: 'reader-controls', 'aria-label': 'Okuma kontrolleri' }, prevBtn, playBtn, nextBtn);
+  const replayBtn = h('button', { class: 'btn light icon-only', type: 'button', 'aria-label': 'Sahneyi tekrar oynat', title: 'Tekrar oynat' }, icon.replay());
+  const controls = h('nav', { class: 'reader-controls', 'aria-label': 'Okuma kontrolleri' }, prevBtn, playBtn, replayBtn, nextBtn);
+  const castWait = h('div', { class: 'cast-wait', role: 'status', hidden: true }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), h('span', { class: 'cw-text' }, 'Karakterler sahneye geliyor…'));
 
-  shell.replaceChildren(sceneHost, bar, textEl, controls);
+  shell.replaceChildren(sceneHost, bar, textEl, controls, castWait);
 
   /* ---------- 3D ---------- */
   const scene = new BookScene(sceneHost);
   scene.setCalm(store.settings.calm);
+  scene.onCastProgress = (n, total) => {
+    castWait.hidden = total === 0 || n >= total;
+    castWait.querySelector('.cw-text')!.textContent = `Karakterler sahneye geliyor… ${n}/${total}`;
+  };
   void scene.setTable(book.table ?? DEFAULT_TABLE);
   scene.setWall(book.id, listingItem.carpet ?? { motif: 'elibelinde' });
   // the calm background music keeps playing while reading
@@ -317,8 +323,20 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     nowEl?.classList.add('now');
   }
 
+  /** Match the page's play to the words of the current level and start it from the beginning. */
+  function prepareStage(withNarration: boolean) {
+    const st = scene.stage;
+    if (!st) return;
+    scene.freeze(false);
+    scene.resetStage();
+    st.setText(tokens, estimateMarks(tokens, narrator.rate));
+    if (withNarration) st.playWithNarration();
+    else st.playAuto();
+  }
+
   function startReading() {
     playing = true;
+    prepareStage(true);
     sfx.duck(true);
     setPlayUI();
     const p = page();
@@ -326,7 +344,10 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
       tokens,
       plain,
       {
-        onWord: highlight,
+        onWord: (wi) => {
+          highlight(wi);
+          scene.stage?.word(wi);
+        },
         onEnd: () => {
           highlight(-1);
           if (index >= book.pages.length - 1 || !playing) sfx.duck(false);
@@ -347,12 +368,23 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   }
 
   function pause() {
+    const was = playing;
     playing = false;
     sfx.duck(false);
     narrator.stop();
     highlight(-1);
     setPlayUI();
+    // the characters stop together with the narration
+    if (was) scene.freeze(true);
   }
+
+  replayBtn.addEventListener('click', () => {
+    if (playing) {
+      startReading();
+      return;
+    }
+    prepareStage(false);
+  });
 
   playBtn.addEventListener('click', async () => {
     if (playing) return pause();
@@ -376,6 +408,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     }
     if (!autoplay) pause();
     else narrator.stop();
+    scene.freeze(false);
     busy = true;
     const dir = i > index ? 1 : -1;
     index = i;
@@ -389,7 +422,8 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     scene.shot('wide', 1000, angleFor(index));
     const shown = scene.showPage(layers, dir).then(() => {
       scene.shot('close', 1700, angleFor(index));
-      return scene.setModels(page().models ?? []);
+      void scene.setModels(page().models ?? []);
+      return scene.setCast(page());
     });
     window.setTimeout(() => {
       renderText();
@@ -398,6 +432,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     }, scene.reducedMotion ? 0 : 520);
     await shown;
     busy = false;
+    if (!(autoplay && playing)) prepareStage(false);
     if (autoplay && playing) startReading();
     if (index + 1 < book.pages.length) {
       getLayers(book.pages[index + 1]);
@@ -469,6 +504,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
         store.setSettings({ level });
         renderText();
         layout();
+        prepareStage(false);
         close();
       });
       return b;
@@ -574,6 +610,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   void scene.setModels(page().models ?? []);
   textEl.style.transition = 'opacity .4s';
   textEl.style.opacity = '1';
+  void scene.setCast(page()).then(() => prepareStage(false));
   store.setProgress(bookId, { page: index });
   if (index + 1 < book.pages.length) getLayers(book.pages[index + 1]);
   // download the 3D models of the whole book in the background

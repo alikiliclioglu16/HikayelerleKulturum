@@ -1948,3 +1948,43 @@ input[type='checkbox'].switch:checked::after {
 .car-dots.intro {
   opacity: 0;
 }
+
+/* waiting for the page's characters */
+.cast-wait {
+  position: absolute;
+  left: 50%;
+  top: 76px;
+  transform: translateX(-50%);
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255, 251, 242, 0.94);
+  box-shadow: 0 6px 20px rgba(26, 35, 64, 0.18);
+  font-weight: 700;
+  color: #1c3f8c;
+  pointer-events: none;
+}
+.cast-wait[hidden] {
+  display: none !important;
+}
+.cast-wait .spinner {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid #f2b33d;
+  border-right-color: transparent;
+  animation: castspin 0.9s linear infinite;
+}
+@keyframes castspin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cast-wait .spinner {
+    animation: none;
+  }
+}

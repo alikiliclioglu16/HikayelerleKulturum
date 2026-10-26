@@ -4,6 +4,12 @@ import { Tweens, ease } from './tween';
 import { loadActor, loadGltf, play, type Actor } from '../home3d/actors';
 import type { PageModel, TableModel } from '../types';
 import { ReaderCinema, type Pose } from './readerCinema';
+import { PROPS, HELD } from './props';
+import { clockTower } from '../art/kit';
+import { Performer, type State } from './performer';
+import { POSES } from './acts';
+import { Stage } from './stage';
+import type { PageData } from '../types';
 import { CULTURE_BUILDERS } from '../home3d/culture';
 import { mosaicLamp } from '../home3d/room';
 import { fitToSlot } from '../home3d/kit3d';
@@ -151,6 +157,23 @@ function tileCanvas(): HTMLCanvasElement {
   return pen.canvas;
 }
 
+/** A set piece built in code, wrapped like a loaded model. */
+function procActor(name: string): Actor {
+  return procActorFrom((PROPS[name] ?? (() => new THREE.Group()))());
+}
+
+function procActorFrom(obj: THREE.Object3D): Actor {
+  const root = new THREE.Group();
+  root.add(obj);
+  const box = new THREE.Box3().setFromObject(obj);
+  const size = box.getSize(new THREE.Vector3());
+  const hit = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshBasicMaterial({ visible: false }));
+  hit.scale.set(Math.max(0.02, size.x), Math.max(0.02, size.y), Math.max(0.02, size.z));
+  hit.position.y = size.y / 2;
+  root.add(hit);
+  return { root, mixer: new THREE.AnimationMixer(root), actions: {}, current: null, hit, height: size.y };
+}
+
 export class BookScene {
   readonly renderer: THREE.WebGLRenderer;
   readonly scene = new THREE.Scene();
@@ -177,6 +200,18 @@ export class BookScene {
   private ro: ResizeObserver;
   private regions: { close: Region; wide: Region } = { close: { x: 0, y: 0, w: 1, h: 1 }, wide: { x: 0, y: 0, w: 1, h: 1 } };
   private shotKind: ShotKind = 'close';
+  private performers = new Map<string, Performer>();
+  private castBase = new Map<string, THREE.Vector3>();
+  private castSession = 0;
+  private spots: Record<string, [number, number, number]> = {};
+  private focusWho: string | null = null;
+  private frozen = false;
+  /** A little scene shown on the tablet screen during a video call. */
+  private screen: { scene: THREE.Scene; cam: THREE.PerspectiveCamera; rt: THREE.WebGLRenderTarget; used: boolean } | null = null;
+  /** The page's play: characters acting in step with the narration. */
+  stage: Stage | null = null;
+  /** Loading progress of the page's characters (for a waiting message). */
+  onCastProgress: ((loaded: number, total: number) => void) | null = null;
   private shotAz = 0;
   private shotCam = new THREE.PerspectiveCamera(32, 1, 0.05, 60);
   private wall!: WallCarpet;
@@ -410,6 +445,7 @@ export class BookScene {
     this.reducedMotion = on || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.cinema.enabled = !this.reducedMotion;
     if (!this.cinema.enabled) this.cinema.reset();
+    for (const p of this.performers.values()) p.calm = this.reducedMotion;
     this.invalidate();
   }
 
@@ -458,6 +494,16 @@ export class BookScene {
     }[kind];
     const center = cfg.min.clone().add(cfg.max).multiplyScalar(0.5);
     center.y = cfg.cy;
+    let tighten = 1;
+    const who = kind === 'close' && this.focusWho ? this.performers.get(this.focusWho) : null;
+    if (who) {
+      // lean towards the character who acts or speaks, keeping the others in the picture
+      const hp = who.headPosition();
+      center.x += (hp.x - center.x) * 0.45;
+      center.z += (hp.z - center.z) * 0.35;
+      center.y += (hp.y * 0.85 - center.y) * 0.4;
+      tighten = 0.8;
+    }
     const el = THREE.MathUtils.degToRad(cfg.el);
     const az = THREE.MathUtils.degToRad(cfg.az);
     const dir = V(Math.sin(az) * Math.cos(el), Math.sin(el), Math.cos(az) * Math.cos(el));
@@ -486,7 +532,7 @@ export class BookScene {
       if (ok) hi = d;
       else lo = d;
     }
-    return { pos: center.clone().addScaledVector(dir, hi), target: center, region: { ...cfg.reg } };
+    return { pos: center.clone().addScaledVector(dir, hi * tighten), target: center, region: { ...cfg.reg } };
   }
 
   toScreen(p: THREE.Vector3) {
@@ -511,10 +557,16 @@ export class BookScene {
     this.clock += dt;
     let alive = false;
     // camera moves keep real time, so they end on time even when frames are slow
-    if (!document.hidden && this.cinema.update(raw)) alive = true;
-    if (!this.reducedMotion && this.models.length) {
+    if (!document.hidden && this.cinema.update(this.frozen ? 0 : raw)) alive = true;
+    if (this.stage && this.stage.tick(this.frozen ? 0 : raw)) alive = true;
+    if (!this.reducedMotion && this.models.length && !this.frozen) {
       this.updateModels(dt);
       alive = true;
+    }
+    if (this.screen?.used) {
+      this.renderer.setRenderTarget(this.screen.rt);
+      this.renderer.render(this.screen.scene, this.screen.cam);
+      this.renderer.setRenderTarget(null);
     }
     this.renderer.render(this.scene, this.camera);
     this.onFrame?.();
@@ -764,6 +816,181 @@ export class BookScene {
     this.turnGroup.position.y = PAGE_TOP + 0.004;
   }
 
+  /** Freeze the scene (narration paused): characters, animals and the camera stop where they are. */
+  freeze(on: boolean) {
+    this.frozen = on;
+    if (on) this.stage?.pause();
+    this.invalidate();
+  }
+
+  /** The camera leans towards a character (or back to the whole pop-up). */
+  focus(who: string | null) {
+    if (who === this.focusWho) return;
+    this.focusWho = who;
+    if (this.shotKind === 'close') this.shot('close', 1600);
+  }
+
+  private target(self: Performer, name: string): THREE.Vector3 | null {
+    const head = self.headPosition();
+    const side = (s: number) => head.clone().add(new THREE.Vector3(s * 0.45, 0.02, 0.15).applyQuaternion(self.root.quaternion));
+    switch (name) {
+      case 'reader':
+        return this.camera.position.clone();
+      case 'up':
+        return head.clone().add(new THREE.Vector3(0, 0.6, 0.12));
+      case 'left':
+        return side(1);
+      case 'right':
+        return side(-1);
+      case 'down':
+        return head.clone().add(new THREE.Vector3(0, -0.4, 0.2).applyQuaternion(self.root.quaternion));
+    }
+    const other = this.performers.get(name);
+    if (other) return other.headPosition();
+    const spot = this.spots[name];
+    if (spot) return this.pagePoint(spot[0], spot[2]).setY(PAGE_TOP + spot[1]);
+    const m = this.models.find((x) => x.word === name);
+    if (m) return m.actor.root.position.clone().add(new THREE.Vector3(0, m.actor.height * 0.6, 0));
+    return null;
+  }
+
+  /** The video-call screen: İzmir behind the grandparents, filmed by its own little camera. */
+  private ensureScreen() {
+    if (this.screen) return this.screen;
+    const scene = new THREE.Scene();
+    const pen = new Pen(1024, 0.75);
+    const g = pen.c.createLinearGradient(0, 0, 0, pen.H);
+    g.addColorStop(0, '#7EC4EE');
+    g.addColorStop(1, '#D6EEF9');
+    pen.rect(0, 0, 1000, pen.H, g as unknown as string);
+    pen.rect(0, pen.H * 0.62, 1000, pen.H * 0.38, '#3D7FC1');
+    for (let i = 0; i < 6; i++) pen.line([80 + i * 160, pen.H * 0.7 + (i % 2) * 30, 150 + i * 160, pen.H * 0.7 + (i % 2) * 30], 'rgba(255,255,255,0.6)', 6);
+    clockTower(pen, 820, pen.H * 0.66, 420);
+    const tex = new THREE.CanvasTexture(pen.canvas);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    const back = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 1.05), new THREE.MeshBasicMaterial({ map: tex }));
+    back.position.set(0, 0.4, -0.5);
+    scene.add(back);
+    scene.add(new THREE.HemisphereLight('#FFF7EC', '#9C7A5E', 2.4));
+    const sun = new THREE.DirectionalLight('#FFF1DC', 1.6);
+    sun.position.set(1, 2, 2);
+    scene.add(sun);
+    const cam = new THREE.PerspectiveCamera(30, 4 / 3, 0.05, 10);
+    cam.position.set(0, 0.36, 1.45);
+    cam.lookAt(0, 0.3, 0);
+    const rt = new THREE.WebGLRenderTarget(640, 480);
+    rt.texture.colorSpace = THREE.SRGBColorSpace;
+    this.screen = { scene, cam, rt, used: false };
+    return this.screen;
+  }
+
+  /** A tablet on a stand whose screen shows the video call. */
+  private tablet() {
+    const s = this.ensureScreen();
+    const g = new THREE.Group();
+    const w = 0.42;
+    const h = 0.315;
+    const body = new THREE.Mesh(new THREE.BoxGeometry(w + 0.03, h + 0.03, 0.014), new THREE.MeshStandardMaterial({ color: '#2B2F3A', roughness: 0.4 }));
+    const glass = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ map: s.rt.texture, toneMapped: false }));
+    glass.position.z = 0.0075;
+    const panel = new THREE.Group();
+    panel.add(body, glass);
+    panel.position.y = 0.2 + h / 2;
+    panel.rotation.x = -0.12;
+    const stand = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.05, 0.2, 16), new THREE.MeshStandardMaterial({ color: '#5A6070', roughness: 0.5 }));
+    stand.position.y = 0.1;
+    g.add(panel, stand);
+    g.traverse((o) => ((o as THREE.Mesh).castShadow = true));
+    s.used = true;
+    return g;
+  }
+
+  /** Load the page's characters, put them in their start places and prepare the page's play. */
+  async setCast(page: PageData) {
+    const session = ++this.castSession;
+    this.stage = null;
+    this.focusWho = null;
+    for (const p of this.performers.values()) p.root.parent?.remove(p.root);
+    this.performers.clear();
+    if (this.screen) this.screen.used = (page.models ?? []).some((m) => m.proc === 'tablet');
+    this.castBase.clear();
+    this.spots = page.spots ?? {};
+    const cast = page.cast ?? [];
+    if (!cast.length) {
+      this.onCastProgress?.(0, 0);
+      return;
+    }
+    let loaded = 0;
+    this.onCastProgress?.(0, cast.length);
+    const list = await Promise.all(
+      cast.map((c) =>
+        Performer.load(c.id).then(
+          (p) => {
+            this.onCastProgress?.(++loaded, cast.length);
+            return p;
+          },
+          (e) => {
+            console.warn('Karakter yüklenemedi', c.id, e);
+            this.onCastProgress?.(++loaded, cast.length);
+            return null;
+          },
+        ),
+      ),
+    );
+    if (session !== this.castSession || this.disposed) return;
+    const starts = new Map<string, State>();
+    cast.forEach((c, i) => {
+      const p = list[i];
+      if (!p) return;
+      const base = c.screen ? new THREE.Vector3(c.x, c.y ?? 0, c.z) : this.pagePoint(c.x, c.z);
+      if (!c.screen) base.y += c.y ?? 0;
+      this.castBase.set(c.id, base);
+      starts.set(c.id, {
+        pose: { ...(POSES[c.pose ?? 'stand'] ?? POSES.stand) },
+        root: { x: 0, y: 0, z: 0, rotY: c.rotY ?? 0, lie: c.lie ?? 0 },
+        eyes: c.eyes ?? 1,
+        look: c.look ?? null,
+        hold: c.hold ?? null,
+      });
+      p.targets = (name) => (c.screen && name === 'reader' ? this.ensureScreen().cam.position.clone() : this.target(p, name));
+      p.makeProp = (name) => (HELD[name] ? HELD[name]() : null);
+      p.calm = this.reducedMotion;
+      this.performers.set(c.id, p);
+      (c.screen ? this.ensureScreen().scene : this.scene).add(p.root);
+    });
+    this.stage = new Stage(this.performers, starts, page.beats ?? []);
+    this.stage.onFocus = (who) => this.focus(who);
+    this.stage.reset(this.castBase);
+    // appear with a soft pop, like the paper layers
+    for (const p of this.performers.values()) {
+      p.root.scale.setScalar(0.001);
+      this.tweens.add(this.dur(500), 0.001, 1, (v) => p.root.scale.setScalar(v), ease.back);
+    }
+    this.invalidate();
+  }
+
+  /** Show the page's play frozen at `t` seconds (testing aid: ?sahne=3.5 in the address). */
+  seekStage(t: number) {
+    this.stage?.seek(t, this.castBase);
+    this.frozen = true;
+    this.invalidate();
+  }
+
+  /** Back to the page's first moment (when the page is shown again or "play again" is pressed). */
+  resetStage() {
+    if (!this.stage) return;
+    this.stage.reset(this.castBase);
+    this.focusWho = null;
+    if (this.shotKind === 'close') this.shot('close', 900);
+    this.invalidate();
+  }
+
+  /** Names of the page's characters, for tapping them. */
+  private pickPerformer(obj: THREE.Object3D) {
+    for (const p of this.performers.values()) if (p.hit === obj) return p;
+    return null;
+  }
+
   /** 3D models (GLB) standing on the right page: characters, animals, trees, pots… */
   async setModels(list: PageModel[]) {
     const session = ++this.modelSession;
@@ -782,7 +1009,7 @@ export class BookScene {
       list.map(async (spec, i) => {
         let actor: Actor;
         try {
-          actor = await loadActor(spec.src, spec.h, spec.w);
+          actor = spec.proc === 'tablet' ? procActorFrom(this.tablet()) : spec.proc ? procActor(spec.proc) : await loadActor(spec.src!, spec.h, spec.w);
         } catch (e) {
           console.warn('Model yüklenemedi', spec.src, e);
           return;
@@ -796,7 +1023,7 @@ export class BookScene {
 
   /** Start downloading models for a page that will be shown soon. */
   prefetch(list: PageModel[]) {
-    for (const spec of list) void loadGltf(spec.src).catch(() => undefined);
+    for (const spec of list) if (spec.src) void loadGltf(spec.src).catch(() => undefined);
   }
 
   private placeModel(actor: Actor, spec: PageModel, delay: number) {
@@ -869,9 +1096,25 @@ export class BookScene {
     const rect = this.renderer.domElement.getBoundingClientRect();
     const ndc = new THREE.Vector2(((clientX - rect.left) / rect.width) * 2 - 1, -((clientY - rect.top) / rect.height) * 2 + 1);
     this.raycaster.setFromCamera(ndc, this.camera);
-    const targets: THREE.Object3D[] = [...this.layers.map((l) => l.mesh), ...this.props.map((p) => p.object), ...this.models.map((m) => m.actor.hit)];
+    const targets: THREE.Object3D[] = [
+      ...this.layers.map((l) => l.mesh),
+      ...this.props.map((p) => p.object),
+      ...this.models.map((m) => m.actor.hit),
+      ...[...this.performers.values()].flatMap((p) => (p.heldObject ? [p.hit, p.heldObject] : [p.hit])),
+    ];
     const hits = this.raycaster.intersectObjects(targets, true);
     for (const hit of hits) {
+      const holder = [...this.performers.values()].find((p) => {
+        let o: THREE.Object3D | null = hit.object;
+        while (o) {
+          if (o === p.heldObject) return true;
+          o = o.parent;
+        }
+        return false;
+      });
+      if (holder?.heldWord) return { word: holder.heldWord, ...this.toScreen(hit.point) };
+      const who = this.pickPerformer(hit.object);
+      if (who) return { word: who.def.name, ...this.toScreen(who.headPosition().add(new THREE.Vector3(0, 0.05, 0))) };
       const mp = this.pickModel(hit);
       if (mp) return mp;
       const layer = this.layers.find((l) => l.mesh === hit.object);
@@ -913,8 +1156,9 @@ export class BookScene {
     const rect = this.renderer.domElement.getBoundingClientRect();
     const ndc = new THREE.Vector2(((clientX - rect.left) / rect.width) * 2 - 1, -((clientY - rect.top) / rect.height) * 2 + 1);
     this.raycaster.setFromCamera(ndc, this.camera);
-    const hits = this.raycaster.intersectObjects([...this.layers.map((l) => l.mesh), ...this.props.map((p) => p.object), ...this.models.map((m) => m.actor.hit)], true);
+    const hits = this.raycaster.intersectObjects([...this.layers.map((l) => l.mesh), ...this.props.map((p) => p.object), ...this.models.map((m) => m.actor.hit), ...[...this.performers.values()].map((p) => p.hit)], true);
     for (const hit of hits) {
+      if (this.pickPerformer(hit.object)) return true;
       if (this.models.some((m) => m.actor.hit === hit.object && m.word)) return true;
       const layer = this.layers.find((l) => l.mesh === hit.object);
       if (layer && hit.uv) {
@@ -984,6 +1228,7 @@ export class BookScene {
     this.cinema.clearSteam();
     this.layers.forEach((l) => this.disposeLayer(l));
     this.scene.environment?.dispose();
+    this.screen?.rt.dispose();
     this.renderer.dispose();
     this.renderer.domElement.remove();
   }

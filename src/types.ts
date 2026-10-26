@@ -33,7 +33,10 @@ export interface LayerSpec {
 
 /** A 3D model (GLB) standing on the pop-up page. */
 export interface PageModel {
-  src: string;
+  /** A GLB model … */
+  src?: string;
+  /** … or a piece of the set drawn in code: "bed", "blanket", "nightstand". */
+  proc?: string;
   /** Glossary word said when the model is tapped. */
   word?: string;
   /** Horizontal position from the page centre (-0.5 left edge … 0.5 right edge). */
@@ -84,6 +87,26 @@ export interface TableModel {
   steam?: boolean;
 }
 
+/** A character on a page and how it starts. */
+export interface CastMember {
+  id: string;
+  x: number;
+  z: number;
+  /** Height above the page (e.g. lying on a bed). */
+  y?: number;
+  rotY?: number;
+  /** Starting pose: "stand", "lying", "sitBed" … (see POSES in three/acts.ts). */
+  pose?: string;
+  /** 0 = standing, 1 = lying on its back. */
+  lie?: number;
+  eyes?: number;
+  look?: string | null;
+  /** Something in the hands from the start (see HELD in three/props.ts). */
+  hold?: string;
+  /** Acts inside the tablet screen (a video call) instead of on the page. */
+  screen?: boolean;
+}
+
 export interface PageAudio {
   src: string;
   /** Start time in seconds of every word token, in reading order. */
@@ -100,6 +123,12 @@ export interface PageData {
   layers?: LayerSpec[];
   /** Optional 3D models (GLB) on the pop-up, e.g. animals or characters. */
   models?: PageModel[];
+  /** Story characters (rigged 3D models) acting on this page. */
+  cast?: CastMember[];
+  /** What the characters do, in story order; each beat starts at its cue word. */
+  beats?: import('./three/acts').Beat[];
+  /** Named spots the characters can look at or walk to: [x, y, z] in page coordinates (like models). */
+  spots?: Record<string, [number, number, number]>;
   /** Optional recorded narration per level. */
   audio?: Partial<Record<LevelId, PageAudio>>;
 }

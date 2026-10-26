@@ -1,827 +1,1704 @@
 {
- "id": "bayram-sabahi",
- "title": "Bayram Sabahı",
- "titleEn": "Bayram Morning",
- "culture": {
-  "tr": "Ramazan Bayramı",
-  "en": "Ramadan Bayram (Eid al-Fitr)"
- },
- "summary": {
-  "tr": "Elif ile kardeşi Can, Amerika'daki evlerinde ilk bayram sabahını karşılıyor: bayramlıklar, baklava, babaanneyle görüntülü arama, el öpme, adil paylaşım ve bayramı ilk kez duyan bir arkadaş.",
-  "en": "Elif and her little brother Can celebrate Bayram at their home in America: new clothes, baklava, a video call with Grandma, kissing an elder's hand, sharing fairly and a friend who hears about Bayram for the first time."
- },
- "values": [
-  "saygi",
-  "aile-butunlugu",
-  "adalet",
-  "dostluk"
- ],
- "pages": [
-  {
-   "id": "p1",
-   "scene": "p1",
-   "title": {
-    "tr": "Bugün bayram!",
-    "en": "Today is Bayram!"
-   },
-   "text": {
-    "1": {
-     "tr": "Günaydın! Bugün {bayram}. Elif çok {mutlu}.",
-     "en": "Good morning! Today is Bayram. Elif is very happy."
-    },
-    "2": {
-     "tr": "Elif {erken} uyandı. Pencereden {güneş} gülümsüyordu. Bugün Ramazan {Bayramı|bayram}! Elif {yatağından|yatak} fırladı.",
-     "en": "Elif woke up early. The sun was smiling through the window. Today is Ramadan Bayram! Elif jumped out of bed."
-    },
-    "3": {
-     "tr": "Elif o sabah herkesten {erken} uyandı. {Pencereden|pencere} süzülen {güneş}, odasını altın rengine boyamıştı. Mutfaktan tatlı bir {baklava} kokusu geliyordu. 'Bugün Ramazan {Bayramı|bayram}!' diye fısıldadı ve heyecanla {yatağından|yatak} fırladı.",
-     "en": "That morning Elif woke up before everyone else. Sunlight streaming through the window had painted her room gold. A sweet smell of baklava came from the kitchen. \"Today is Ramadan Bayram!\" she whispered, and jumped out of bed with excitement."
-    }
-   },
-   "culture": {
-    "tr": "Ramazan Bayramı, oruç tutulan Ramazan ayının ardından gelir ve üç gün sürer. Tatlılar ve şekerler ikram edildiği için ona Şeker Bayramı da denir.",
-    "en": "Ramadan Bayram comes after the month of Ramadan fasting and lasts three days. Because sweets are offered to everyone, it is also called the Sugar Bayram (Şeker Bayramı)."
-   },
-   "models": [
-    {
-     "src": "/models/kenney/rugRounded.glb",
-     "x": 0.1,
-     "z": 0.9,
-     "h": 0.02,
-     "w": 0.42,
-     "word": "halı",
-     "tint": "#C0392B"
-    },
-    {
-     "src": "/models/kenney/pottedPlant.glb",
-     "x": 0.42,
-     "z": 0.62,
-     "h": 0.16,
-     "word": "saksı",
-     "fx": "breathe"
-    }
-   ]
+  "id": "bayram-sabahi",
+  "title": "Bayram Sabahı",
+  "titleEn": "Bayram Morning",
+  "culture": {
+    "tr": "Ramazan Bayramı",
+    "en": "Ramadan Bayram (Eid al-Fitr)"
   },
-  {
-   "id": "p2",
-   "scene": "p2",
-   "title": {
-    "tr": "Bayramlıklar",
-    "en": "Bayram clothes"
-   },
-   "text": {
-    "1": {
-     "tr": "Elif yeni {bayramlığını|bayramlık} giydi. Can'ın {papyonu|papyon} yamuk. Elif ona yardım etti.",
-     "en": "Elif put on her new Bayram clothes. Can's bow tie is crooked. Elif helped him."
-    },
-    "2": {
-     "tr": "Bayram için yeni kıyafetler alınmıştı. Bunlara {bayramlık} denir. Elif mavi {elbisesini|elbise} giydi. Küçük kardeşi Can'ın {papyonu|papyon} yamuktu. Elif onu düzeltti.",
-     "en": "New clothes had been bought for Bayram. They are called bayramlık. Elif put on her blue dress. Her little brother Can's bow tie was crooked. Elif fixed it."
-    },
-    "3": {
-     "tr": "Annesi bayramdan önce iki kardeşe yeni kıyafetler almıştı. Bayram için alınan bu giysilere {bayramlık} denir. Elif mavi {elbisesini|elbise} giydi ve {aynada|ayna} kendine gülümsedi. Kardeşi Can ise {papyonunu|papyon} bir türlü bağlayamıyordu. Elif sabırla yardım etti: 'Bak, böyle daha yakışıklı oldun!'",
-     "en": "Before Bayram, their mother had bought the two siblings new clothes. Clothes bought for Bayram are called bayramlık. Elif put on her blue dress and smiled at herself in the mirror. Her brother Can just couldn't tie his bow tie. Elif patiently helped: \"Look, now you're even more handsome!\""
-    }
-   },
-   "culture": {
-    "tr": "Bayram sabahı giyilen yeni kıyafetlere bayramlık denir. Pek çok çocuk, bayramlığını bir gece önceden başucuna koyar ve sabahı sabırsızlıkla bekler.",
-    "en": "New clothes worn on Bayram morning are called bayramlık. Many children lay theirs out next to the bed the night before and can hardly wait for morning."
-   },
-   "models": [
-    {
-     "src": "/models/kenney/h-present-a-round.glb",
-     "x": 0.36,
-     "z": 0.9,
-     "h": 0.1,
-     "word": "hediye",
-     "fx": "wobble"
-    },
-    {
-     "src": "/models/kenney/pillowBlue.glb",
-     "x": -0.38,
-     "z": 0.92,
-     "h": 0.06,
-     "w": 0.16,
-     "word": "yastık",
-     "rotY": 20
-    }
-   ]
+  "summary": {
+    "tr": "Elif ile kardeşi Can, Amerika'daki evlerinde ilk bayram sabahını karşılıyor: bayramlıklar, baklava, babaanneyle görüntülü arama, el öpme, adil paylaşım ve bayramı ilk kez duyan bir arkadaş.",
+    "en": "Elif and her little brother Can celebrate Bayram at their home in America: new clothes, baklava, a video call with Grandma, kissing an elder's hand, sharing fairly and a friend who hears about Bayram for the first time."
   },
-  {
-   "id": "p3",
-   "scene": "p3",
-   "title": {
-    "tr": "Bayram sofrası",
-    "en": "The Bayram table"
-   },
-   "text": {
-    "1": {
-     "tr": "Annem {baklava} yaptı. Babam {çay} koydu. Elif {sofrayı|sofra} kurdu.",
-     "en": "Mom made baklava. Dad poured tea. Elif set the table."
-    },
-    "2": {
-     "tr": "Babası {bayram namazından|bayram namazı} döndü. Annesi fırından {baklava} çıkardı. Elif tabakları dizdi, Can da {lokum} kutusunu taşıdı. Herkesin bir görevi vardı.",
-     "en": "Dad came back from the Bayram prayer. Mom took the baklava out of the oven. Elif set out the plates, and Can carried the box of Turkish delight. Everyone had a job."
-    },
-    "3": {
-     "tr": "Babası {bayram namazından|bayram namazı} döndüğünde {sofra} neredeyse hazırdı. Annesi fırından altın renkli {baklava} tepsisini çıkardı. İnce belli bardaklarda {çay} buğulanıyordu. Elif tabakları dizdi, Can da {lokum} kutusunu iki eliyle dikkatle taşıdı. Bayram sofrası, herkes görevini yapınca kuruluyordu.",
-     "en": "By the time Dad came back from the Bayram prayer, the table was almost ready. Mom took the golden tray of baklava out of the oven. Tea steamed in tulip-shaped glasses. Elif set out the plates, and Can carefully carried the box of Turkish delight with both hands. A Bayram table comes together when everyone does their part."
-    }
-   },
-   "culture": {
-    "tr": "Türkiye'de çay, ince belli bardaklarda içilir ve iki katlı bir çaydanlıkta demlenir. Misafire çay ikram etmek, 'Hoş geldin' demenin bir yoludur.",
-    "en": "In Türkiye, tea is served in slim, tulip-shaped glasses and brewed in a two-level teapot called a çaydanlık. Offering tea to a guest is a way of saying \"Welcome.\""
-   },
-   "models": [
-    {
-     "src": "/models/kenney/tableRound.glb",
-     "x": 0.3,
-     "z": 0.93,
-     "h": 0.1,
-     "w": 0.3,
-     "word": "sofra",
-     "tint": "#A0643A"
-    },
-    {
-     "src": "/models/culture/baklava.glb",
-     "x": 0.3,
-     "z": 0.93,
-     "h": 0.07,
-     "w": 0.26,
-     "y": 0.1,
-     "word": "baklava"
-    },
-    {
-     "src": "/models/culture/caydanlik.glb",
-     "x": -0.36,
-     "z": 0.93,
-     "h": 0.16,
-     "word": "çaydanlık"
-    },
-    {
-     "src": "/models/culture/cay.glb",
-     "x": -0.18,
-     "z": 0.95,
-     "h": 0.07,
-     "word": "çay"
-    }
-   ]
-  },
-  {
-   "id": "p4",
-   "scene": "p4",
-   "title": {
-    "tr": "Uzaktan bayramlaşma",
-    "en": "A Bayram call from far away"
-   },
-   "text": {
-    "1": {
-     "tr": "{Babaanne} ve {dede} İzmir'de yaşıyor. Elif onları aradı: '{İyi bayramlar|iyi bayramlar}!'",
-     "en": "Grandma and Grandpa live in İzmir. Elif called them: \"Happy Bayram!\""
-    },
-    "2": {
-     "tr": "Elif'in {babaannesi|babaanne} ve {dedesi|dede} Türkiye'de, İzmir'de yaşıyor. Elif onları görüntülü aradı. '{Bayramınız kutlu olsun|bayramınız kutlu olsun}! {Ellerinizden öperim|ellerinizden öperim}!' dedi. Babaannesi çok sevindi.",
-     "en": "Elif's grandma and grandpa live in İzmir, Türkiye. Elif video-called them. \"Happy Bayram! I kiss your hands!\" she said. Grandma was so happy."
-    },
-    "3": {
-     "tr": "Elif'in {babaannesi|babaanne} ile {dedesi|dede} Türkiye'de, İzmir'de yaşıyordu. Aralarında koca bir okyanus vardı. Saatler bile farklıydı ama bayram sevgisi uzakları yakın ediyordu. Elif görüntülü aramada '{Bayramınız kutlu olsun|bayramınız kutlu olsun}, {ellerinizden öperim|ellerinizden öperim}!' dedi. Dedesi arkasındaki {Saat Kulesi'ni|Saat Kulesi} gösterip güldü: 'Burada öğleden sonra oldu bile!'",
-     "en": "Elif's grandma and grandpa lived in İzmir, Türkiye. A whole ocean lay between them. Even their clocks showed different times, but Bayram love brought faraway people close. On the video call Elif said, \"Happy Bayram, I kiss your hands!\" Grandpa pointed to the Clock Tower behind him and laughed: \"It's already afternoon here!\""
-    }
-   },
-   "culture": {
-    "tr": "Bayramda uzaktaki büyükler telefonla ya da görüntülü aranır. 'Ellerinizden öperim' demek, uzaktan el öpmek gibidir.",
-    "en": "During Bayram, family elders who live far away get a phone or video call. Saying \"Ellerinizden öperim\" (I kiss your hands) is like kissing their hand from afar."
-   },
-   "models": [
-    {
-     "src": "/models/culture/cay.glb",
-     "x": 0.32,
-     "z": 0.93,
-     "h": 0.08,
-     "word": "çay"
-    },
-    {
-     "src": "/models/culture/simit.glb",
-     "x": 0.42,
-     "z": 0.84,
-     "h": 0.035,
-     "w": 0.12,
-     "word": "simit"
-    }
-   ]
-  },
-  {
-   "id": "p5",
-   "scene": "p5",
-   "title": {
-    "tr": "El öpme",
-    "en": "Kissing an elder's hand"
-   },
-   "text": {
-    "1": {
-     "tr": "Ayşe {Teyze|teyze} geldi. Elif onun {elini öptü|el öpmek}, {alnına|alın} koydu. Teyze ona {harçlık} verdi.",
-     "en": "Aunt Ayşe came. Elif kissed her hand and touched it to her forehead. Auntie gave her pocket money."
-    },
-    "2": {
-     "tr": "Komşuları Ayşe {Teyze|teyze} bayramlaşmaya geldi. Elif onun {elini öptü|el öpmek} ve {alnına|alın} koydu. Bu, büyüklere {saygı} göstermenin güzel bir yoludur. Ayşe Teyze ona {harçlık} verdi. Kapının önünde bir sokak {kedisi|kedi} de bayramı izliyordu.",
-     "en": "Their neighbor Aunt Ayşe came to celebrate Bayram. Elif kissed her hand and touched it to her forehead. This is a lovely way to show respect to elders. Aunt Ayşe gave her some pocket money. A street cat at the door was watching the Bayram fun too."
-    },
-    "3": {
-     "tr": "Kapı çaldı. Gelen, yan evde oturan Ayşe {Teyze'ydi|teyze}. Elif hemen onun {elini öptü|el öpmek} ve eli saygıyla {alnına|alın} değdirdi. Babası, el öpmenin büyüklere {saygı} ve sevgi göstermenin eski bir geleneği olduğunu anlatmıştı. Ayşe Teyze gülümseyerek Elif'in avucuna {harçlık} sıkıştırdı: '{Nice bayramlara|nice bayramlara}, güzel kızım!' Kapının önündeki sokak {kedisi|kedi} bile bu güzel anı izliyordu.",
-     "en": "The doorbell rang. It was Aunt Ayşe from next door. Elif quickly kissed her hand and gently touched it to her forehead. Dad had explained that kissing an elder's hand is an old tradition of showing respect and love. Smiling, Aunt Ayşe pressed some pocket money into Elif's palm: \"To many more Bayrams, my dear girl!\" Even the street cat by the door was watching this lovely moment."
-    }
-   },
-   "culture": {
-    "tr": "El öpülürken büyüğün eli önce öpülür, sonra alına değdirilir. Büyükler de çocuklara şeker ya da harçlık verir. Eve girerken ayakkabılar kapının önünde çıkarılır. Türkiye'de, özellikle İstanbul'da, sokak kedileri mahallenin bir parçasıdır; komşular onlara su ve mama bırakır.",
-    "en": "To kiss an elder's hand, you kiss it and then touch it to your forehead. Elders give children candy or pocket money in return. Shoes are taken off at the door before entering the home. In Türkiye, especially Istanbul, street cats are part of the neighborhood; neighbors leave them water and food."
-   },
-   "models": [
-    {
-     "src": "/models/animals/kedi.glb",
-     "word": "kedi",
-     "x": 0.33,
-     "z": 0.97,
-     "h": 0.2,
-     "rotY": -35,
-     "anim": "none"
-    }
-   ]
-  },
-  {
-   "id": "p6",
-   "scene": "p6",
-   "title": {
-    "tr": "Adil paylaşım",
-    "en": "Sharing fairly"
-   },
-   "text": {
-    "1": {
-     "tr": "Can bütün şekerleri aldı. Elif, '{Paylaşalım|paylaşmak}' dedi. Herkese {eşit} şeker!",
-     "en": "Can took all the candy. Elif said, \"Let's share.\" Equal candy for everyone!"
-    },
-    "2": {
-     "tr": "Can, {bayram şekeri|bayram şekeri} dolu {kâseyi|kâse} kucakladı. 'Hepsi benim!' dedi. Elif güldü: 'Gel, {paylaşalım|paylaşmak}.' Şekerleri {eşit} olarak ayırdılar. Birkaçını da misafirler için sakladılar.",
-     "en": "Can hugged the bowl full of Bayram candy. \"They're all mine!\" he said. Elif laughed: \"Come on, let's share.\" They split the candy equally. They also saved a few for guests."
-    },
-    "3": {
-     "tr": "Can, {bayram şekeri|bayram şekeri} dolu {kâseyi|kâse} kucaklayıp 'Hepsi benim!' diye bağırdı. Elif kızmadı. Şekerleri masaya döküp tek tek saydı: 'Gel, {paylaşalım|paylaşmak}. Bir tane sana, bir tane bana.' Şekerler iki {eşit} yığına ayrıldı. En güzel ambalajlılar da kapıya gelecek misafirler için kenara kondu. Can, adil paylaşmanın hepsini almaktan daha güzel olduğunu fark etti.",
-     "en": "Can hugged the bowl full of Bayram candy and shouted, \"They're all mine!\" Elif didn't get angry. She poured the candy onto the table and counted it piece by piece: \"Come on, let's share. One for you, one for me.\" The candy was split into two equal piles. The prettiest-wrapped ones were set aside for guests who would come to the door. Can realized that sharing fairly felt better than taking it all."
-    }
-   },
-   "culture": {
-    "tr": "Bayramda kapı kapı dolaşan çocuklara şeker ikram edilir. Bu yüzden evlerde bayram şekeri hep hazır bekler.",
-    "en": "During Bayram, children go from door to door and are offered candy. That's why every home keeps a bowl of Bayram candy ready."
-   },
-   "models": [
-    {
-     "src": "/models/animals/kedi-yuruyen.glb",
-     "x": -0.42,
-     "z": 0.95,
-     "h": 0.12,
-     "word": "kedi",
-     "walkTo": [
-      0.38,
-      0.95
-     ],
-     "patrol": true,
-     "speed": 0.05
-    },
-    {
-     "src": "/models/kenney/bowl-soup.glb",
-     "x": 0.34,
-     "z": 0.86,
-     "h": 0.05,
-     "w": 0.14,
-     "word": "kâse",
-     "tint": "#4FA3D1"
-    }
-   ]
-  },
-  {
-   "id": "p7",
-   "scene": "p7",
-   "title": {
-    "tr": "Maya ile bayram",
-    "en": "Bayram with Maya"
-   },
-   "text": {
-    "1": {
-     "tr": "Elif'in {arkadaşı|arkadaş} Maya geldi. Elif ona {lokum} verdi. Maya, '{İyi bayramlar|iyi bayramlar}!' dedi.",
-     "en": "Elif's friend Maya came over. Elif gave her Turkish delight. Maya said, \"Happy Bayram!\""
-    },
-    "2": {
-     "tr": "Okuldan {arkadaşı|arkadaş} Maya, Elif'i görmeye geldi. Maya bayramı hiç bilmiyordu. Elif ona {lokum} {ikram etti|ikram etmek} ve bayramı anlattı. Maya ilk Türkçe sözünü söyledi: '{İyi bayramlar|iyi bayramlar}!' Maya'nın {köpeği|köpek} Pamuk da kuyruğunu salladı.",
-     "en": "Her school friend Maya came to see Elif. Maya didn't know anything about Bayram. Elif offered her Turkish delight and told her about Bayram. Maya said her very first Turkish words: \"Happy Bayram!\" Maya's dog Pamuk wagged her tail, too."
-    },
-    "3": {
-     "tr": "Öğleden sonra okuldan {arkadaşı|arkadaş} Maya kapıda belirdi. Maya bayramı ilk kez duyuyordu. Elif ona bayramın ne olduğunu iki dilde, hem İngilizce hem Türkçe anlattı. Sonra pudra şekerli {lokum} {ikram etti|ikram etmek}. Maya lokumun tadına bayıldı ve Elif'in öğrettiği ilk Türkçe sözü gururla söyledi: '{İyi bayramlar|iyi bayramlar}!' Maya'nın {köpeği|köpek} Pamuk ise sevinçle kuyruğunu sallayıp etrafta koşturdu.",
-     "en": "In the afternoon her school friend Maya appeared at the door. Maya was hearing about Bayram for the first time. Elif explained it in two languages, English and Turkish. Then she offered her powdered Turkish delight. Maya loved the taste and proudly said the first Turkish words Elif had taught her: \"Happy Bayram!\" Maya's dog Pamuk happily wagged her tail and ran around."
-    }
-   },
-   "culture": {
-    "tr": "Bayramda komşular ve arkadaşlar birbirini ziyaret eder, küsler barışır. Kapısını herkese açmak bayramın en güzel yanlarındandır.",
-    "en": "During Bayram, neighbors and friends visit each other, and people who have quarreled make up. Opening your door to everyone is one of the most beautiful parts of Bayram."
-   },
-   "models": [
-    {
-     "src": "/models/animals/kopek.glb",
-     "word": "köpek",
-     "x": -0.38,
-     "z": 0.96,
-     "h": 0.24,
-     "rotY": 30,
-     "walkTo": [
-      0.3,
-      0.96
-     ],
-     "patrol": true,
-     "speed": 0.07
-    },
-    {
-     "src": "/models/kenney/tree-high-round.glb",
-     "x": 0.42,
-     "z": 0.42,
-     "h": 0.4,
-     "word": "ağaç",
-     "fx": "sway"
-    }
-   ]
-  },
-  {
-   "id": "p8",
-   "scene": "p8",
-   "title": {
-    "tr": "Bayramın anlamı",
-    "en": "What Bayram means"
-   },
-   "text": {
-    "1": {
-     "tr": "Akşam oldu. Gökte {hilal} var. Bayram, {sevgi} demek.",
-     "en": "Evening came. There is a crescent moon in the sky. Bayram means love."
-    },
-    "2": {
-     "tr": "Akşam olunca {aile} pencerenin önünde toplandı. Gökyüzünde ince bir {hilal} parlıyordu. Elif, 'Bayram, büyüklere {saygı}, herkese {sevgi} demek' dedi. Annesi ona sarıldı.",
-     "en": "When evening came, the family gathered by the window. A thin crescent moon shone in the sky. Elif said, \"Bayram means respect for elders and love for everyone.\" Mom gave her a hug."
-    },
-    "3": {
-     "tr": "Akşam olunca bütün {aile} pencerenin önünde toplandı. Gökyüzünde incecik bir {hilal} parlıyordu. Elif günü düşündü: Ayşe Teyze'nin eli, babaannesinin sesi, Maya'nın ilk Türkçe sözü... 'Bayram,' dedi, 'büyüklere {saygı}, küçüklere {sevgi} ve herkesle paylaşmak demek.' Annesi onu alnından öptü: 'Yarın bayramın ikinci günü. Yeni günde yeni sevinçler!'",
-     "en": "When evening came, the whole family gathered by the window. A slender crescent moon shone in the sky. Elif thought about the day: Aunt Ayşe's hand, Grandma's voice, Maya's first Turkish words... \"Bayram,\" she said, \"means respect for elders, love for little ones, and sharing with everyone.\" Mom kissed her on the forehead: \"Tomorrow is the second day of Bayram. A new day, new joys!\""
-    }
-   },
-   "culture": {
-    "tr": "Bayramların tarihi her yıl yaklaşık on bir gün öne gelir, çünkü Ay takvimine göre belirlenir. Hilal, yeni bir ayın başladığını gösterir.",
-    "en": "Bayram dates move about eleven days earlier each year because they follow the lunar calendar. The crescent moon marks the start of a new month."
-   },
-   "models": [
-    {
-     "src": "/models/animals/kedi.glb",
-     "x": -0.36,
-     "z": 0.92,
-     "h": 0.12,
-     "word": "kedi",
-     "rotY": 40,
-     "anim": "none"
-    },
-    {
-     "src": "/models/culture/cay.glb",
-     "x": 0.3,
-     "z": 0.93,
-     "h": 0.07,
-     "word": "çay"
-    },
-    {
-     "src": "/models/culture/cay.glb",
-     "x": 0.4,
-     "z": 0.88,
-     "h": 0.07,
-     "word": "çay"
-    }
-   ]
-  }
- ],
- "glossary": {
-  "bayram": {
-   "en": "holiday, festival",
-   "icon": "🎉"
-  },
-  "mutlu": {
-   "en": "happy",
-   "icon": "😊"
-  },
-  "erken": {
-   "en": "early",
-   "icon": "⏰"
-  },
-  "saat": {
-   "en": "clock; hour",
-   "icon": "⏰"
-  },
-  "güneş": {
-   "en": "sun",
-   "icon": "☀️"
-  },
-  "pencere": {
-   "en": "window",
-   "icon": "🪟"
-  },
-  "yatak": {
-   "en": "bed",
-   "icon": "🛏️"
-  },
-  "baklava": {
-   "en": "baklava, a pastry with nuts and syrup",
-   "icon": "🥮"
-  },
-  "bayramlık": {
-   "en": "new clothes for Bayram",
-   "icon": "👗"
-  },
-  "elbise": {
-   "en": "dress",
-   "icon": "👗"
-  },
-  "papyon": {
-   "en": "bow tie",
-   "icon": "🎀"
-  },
-  "ayna": {
-   "en": "mirror",
-   "icon": "🪞"
-  },
-  "çay": {
-   "en": "tea",
-   "icon": "🍵"
-  },
-  "çaydanlık": {
-   "en": "two-level Turkish teapot",
-   "icon": "🫖"
-  },
-  "sofra": {
-   "en": "the table set for a meal",
-   "icon": "🍽️"
-  },
-  "lokum": {
-   "en": "Turkish delight",
-   "icon": "🍬"
-  },
-  "bayram namazı": {
-   "en": "the special Bayram morning prayer",
-   "icon": "🕌"
-  },
-  "babaanne": {
-   "en": "grandma (dad's mother)",
-   "icon": "👵"
-  },
-  "dede": {
-   "en": "grandpa",
-   "icon": "👴"
-  },
-  "iyi bayramlar": {
-   "en": "Happy Bayram!",
-   "icon": "🎉"
-  },
-  "bayramınız kutlu olsun": {
-   "en": "Happy Bayram to you! (polite)",
-   "icon": "💐"
-  },
-  "ellerinizden öperim": {
-   "en": "I kiss your hands (a loving greeting to elders)",
-   "icon": "🤲"
-  },
-  "Saat Kulesi": {
-   "en": "the Clock Tower, a famous landmark in İzmir",
-   "icon": "🕰️"
-  },
-  "tablet": {
-   "en": "tablet",
-   "icon": "📱"
-  },
-  "teyze": {
-   "en": "aunt; a kind way to call an older woman",
-   "icon": "👵"
-  },
-  "el öpmek": {
-   "en": "to kiss an elder's hand to show respect",
-   "icon": "🤲"
-  },
-  "alın": {
-   "en": "forehead",
-   "icon": "🙂"
-  },
-  "saygı": {
-   "en": "respect",
-   "icon": "🤝"
-  },
-  "harçlık": {
-   "en": "pocket money given to children",
-   "icon": "💵"
-  },
-  "nice bayramlara": {
-   "en": "to many more Bayrams!",
-   "icon": "✨"
-  },
-  "ayakkabı": {
-   "en": "shoe",
-   "icon": "👟"
-  },
-  "bayram şekeri": {
-   "en": "Bayram candy",
-   "icon": "🍬"
-  },
-  "kâse": {
-   "en": "bowl",
-   "icon": "🥣"
-  },
-  "paylaşmak": {
-   "en": "to share",
-   "icon": "🤲"
-  },
-  "eşit": {
-   "en": "equal",
-   "icon": "⚖️"
-  },
-  "arkadaş": {
-   "en": "friend",
-   "icon": "🧒"
-  },
-  "ikram etmek": {
-   "en": "to offer food or drink to a guest",
-   "icon": "🍬"
-  },
-  "lale": {
-   "en": "tulip",
-   "icon": "🌷"
-  },
-  "hilal": {
-   "en": "crescent moon",
-   "icon": "🌙"
-  },
-  "yıldız": {
-   "en": "star",
-   "icon": "⭐"
-  },
-  "aile": {
-   "en": "family",
-   "icon": "👨‍👩‍👧‍👦"
-  },
-  "sevgi": {
-   "en": "love",
-   "icon": "❤️"
-  },
-  "kedi": {
-   "en": "cat",
-   "icon": "🐈"
-  },
-  "köpek": {
-   "en": "dog",
-   "icon": "🐕"
-  },
-  "halı": {
-   "en": "carpet, rug",
-   "icon": "🟥"
-  },
-  "saksı": {
-   "en": "flowerpot",
-   "icon": "🪴"
-  },
-  "hediye": {
-   "en": "present, gift",
-   "icon": "🎁"
-  },
-  "yastık": {
-   "en": "pillow",
-   "icon": "🛏️"
-  },
-  "simit": {
-   "en": "simit, a sesame bread ring",
-   "icon": "🥯"
-  },
-  "ağaç": {
-   "en": "tree",
-   "icon": "🌳"
-  },
-  "dondurma": {
-   "en": "Turkish ice cream",
-   "icon": "🍦"
-  }
- },
- "quiz": [
-  {
-   "q": {
-    "tr": "Bayram için alınan yeni kıyafetlere ne denir?",
-    "en": "What do we call the new clothes bought for Bayram?"
-   },
-   "options": [
-    {
-     "tr": "Bayramlık",
-     "en": "Bayramlık"
-    },
-    {
-     "tr": "Harçlık",
-     "en": "Harçlık (pocket money)"
-    },
-    {
-     "tr": "Lokum",
-     "en": "Lokum (Turkish delight)"
-    }
-   ],
-   "answer": 0,
-   "page": "p2"
-  },
-  {
-   "q": {
-    "tr": "Elif, Ayşe Teyze'ye nasıl saygı gösterdi?",
-    "en": "How did Elif show respect to Aunt Ayşe?"
-   },
-   "options": [
-    {
-     "tr": "Ona el salladı",
-     "en": "She waved at her"
-    },
-    {
-     "tr": "Elini öpüp alnına koydu",
-     "en": "She kissed her hand and touched it to her forehead"
-    },
-    {
-     "tr": "Ona lokum verdi",
-     "en": "She gave her Turkish delight"
-    }
-   ],
-   "answer": 1,
-   "page": "p5"
-  },
-  {
-   "q": {
-    "tr": "Elif'in babaannesi ve dedesi hangi şehirde yaşıyor?",
-    "en": "Which city do Elif's grandparents live in?"
-   },
-   "options": [
-    {
-     "tr": "Ankara",
-     "en": "Ankara"
-    },
-    {
-     "tr": "New York",
-     "en": "New York"
-    },
-    {
-     "tr": "İzmir",
-     "en": "İzmir"
-    }
-   ],
-   "answer": 2,
-   "page": "p4"
-  },
-  {
-   "q": {
-    "tr": "Can şekerlerin hepsini almak istedi. Elif ne yaptı?",
-    "en": "Can wanted all the candy. What did Elif do?"
-   },
-   "options": [
-    {
-     "tr": "Şekerleri eşit paylaştırdı",
-     "en": "She shared the candy equally"
-    },
-    {
-     "tr": "Şekerleri sakladı",
-     "en": "She hid the candy"
-    },
-    {
-     "tr": "Annesine şikâyet etti",
-     "en": "She told on him to Mom"
-    }
-   ],
-   "answer": 0,
-   "page": "p6"
-  },
-  {
-   "q": {
-    "tr": "Maya hangi Türkçe sözü söyledi?",
-    "en": "Which Turkish words did Maya say?"
-   },
-   "options": [
-    {
-     "tr": "Teşekkür ederim!",
-     "en": "Thank you!"
-    },
-    {
-     "tr": "İyi bayramlar!",
-     "en": "Happy Bayram!"
-    },
-    {
-     "tr": "Günaydın!",
-     "en": "Good morning!"
-    }
-   ],
-   "answer": 1,
-   "page": "p7"
-  }
- ],
- "valueHunt": [
-  {
-   "page": "p5",
-   "answer": "saygi",
-   "options": [
-    "tasarruf",
+  "values": [
     "saygi",
-    "temizlik"
-   ],
-   "why": {
-    "tr": "Elif, Ayşe Teyze'nin elini öpüp alnına koyarak büyüğüne saygı gösterdi.",
-    "en": "Elif showed respect to an elder by kissing Aunt Ayşe's hand and touching it to her forehead."
-   }
-  },
-  {
-   "page": "p6",
-   "answer": "adalet",
-   "options": [
+    "aile-butunlugu",
     "adalet",
-    "estetik",
-    "sabir"
-   ],
-   "why": {
-    "tr": "Elif şekerleri iki eşit yığına ayırdı. Herkese hakkını vermek adalettir.",
-    "en": "Elif split the candy into two equal piles. Giving everyone their fair share is fairness."
-   }
+    "dostluk"
+  ],
+  "pages": [
+    {
+      "id": "p1",
+      "scene": "p1b",
+      "title": {
+        "tr": "Bugün bayram!",
+        "en": "Today is Bayram!"
+      },
+      "text": {
+        "1": {
+          "tr": "Günaydın! Bugün {bayram}. Elif çok {mutlu}.",
+          "en": "Good morning! Today is Bayram. Elif is very happy."
+        },
+        "2": {
+          "tr": "Elif {erken} uyandı. Pencereden {güneş} gülümsüyordu. Bugün Ramazan {Bayramı|bayram}! Elif {yatağından|yatak} fırladı.",
+          "en": "Elif woke up early. The sun was smiling through the window. Today is Ramadan Bayram! Elif jumped out of bed."
+        },
+        "3": {
+          "tr": "Elif o sabah herkesten {erken} uyandı. {Pencereden|pencere} süzülen {güneş}, odasını altın rengine boyamıştı. Mutfaktan tatlı bir {baklava} kokusu geliyordu. 'Bugün Ramazan {Bayramı|bayram}!' diye fısıldadı ve heyecanla {yatağından|yatak} fırladı.",
+          "en": "That morning Elif woke up before everyone else. Sunlight streaming through the window had painted her room gold. A sweet smell of baklava came from the kitchen. \"Today is Ramadan Bayram!\" she whispered, and jumped out of bed with excitement."
+        }
+      },
+      "culture": {
+        "tr": "Ramazan Bayramı, oruç tutulan Ramazan ayının ardından gelir ve üç gün sürer. Tatlılar ve şekerler ikram edildiği için ona Şeker Bayramı da denir.",
+        "en": "Ramadan Bayram comes after the month of Ramadan fasting and lasts three days. Because sweets are offered to everyone, it is also called the Sugar Bayram (Şeker Bayramı)."
+      },
+      "models": [
+        {
+          "proc": "bed",
+          "word": "yatak",
+          "x": 0.0,
+          "z": 0.55,
+          "h": 0.2,
+          "rotY": -60
+        },
+        {
+          "proc": "blanket",
+          "word": "yorgan",
+          "x": 0.03,
+          "z": 0.593,
+          "h": 0.05,
+          "y": 0.165,
+          "rotY": -60
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": 0.068,
+          "z": 0.646,
+          "y": 0.14,
+          "rotY": -60,
+          "pose": "lying",
+          "lie": 1,
+          "eyes": 0
+        }
+      ],
+      "spots": {
+        "pencere": [
+          0,
+          0.5,
+          0.04
+        ],
+        "saat": [
+          -0.4,
+          0.16,
+          0.22
+        ]
+      },
+      "beats": [
+        {
+          "cue": [
+            "günaydın",
+            "uyand"
+          ],
+          "who": "elif",
+          "do": "wake",
+          "focus": true,
+          "look": "up"
+        },
+        {
+          "cue": [
+            "pencere",
+            "güneş"
+          ],
+          "who": "elif",
+          "do": "lookAround",
+          "target": "pencere",
+          "focus": true
+        },
+        {
+          "cue": [
+            "mutfak",
+            "baklava"
+          ],
+          "optional": true,
+          "who": "elif",
+          "do": "lookAt",
+          "target": "right",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "bayram"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "fırladı",
+            "mutlu"
+          ],
+          "who": "elif",
+          "do": "hopOut",
+          "to": [
+            -0.284,
+            -0.14,
+            0.008
+          ],
+          "face": 0,
+          "look": "reader",
+          "focus": true
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "scene": "p2b",
+      "title": {
+        "tr": "Bayramlıklar",
+        "en": "Bayram clothes"
+      },
+      "text": {
+        "1": {
+          "tr": "Elif yeni {bayramlığını|bayramlık} giydi. Can'ın {papyonu|papyon} yamuk. Elif ona yardım etti.",
+          "en": "Elif put on her new Bayram clothes. Can's bow tie is crooked. Elif helped him."
+        },
+        "2": {
+          "tr": "Bayram için yeni kıyafetler alınmıştı. Bunlara {bayramlık} denir. Elif mavi {elbisesini|elbise} giydi. Küçük kardeşi Can'ın {papyonu|papyon} yamuktu. Elif onu düzeltti.",
+          "en": "New clothes had been bought for Bayram. They are called bayramlık. Elif put on her blue dress. Her little brother Can's bow tie was crooked. Elif fixed it."
+        },
+        "3": {
+          "tr": "Annesi bayramdan önce iki kardeşe yeni kıyafetler almıştı. Bayram için alınan bu giysilere {bayramlık} denir. Elif mavi {elbisesini|elbise} giydi ve {aynada|ayna} kendine gülümsedi. Kardeşi Can ise {papyonunu|papyon} bir türlü bağlayamıyordu. Elif sabırla yardım etti: 'Bak, böyle daha yakışıklı oldun!'",
+          "en": "Before Bayram, their mother had bought the two siblings new clothes. Clothes bought for Bayram are called bayramlık. Elif put on her blue dress and smiled at herself in the mirror. Her brother Can just couldn't tie his bow tie. Elif patiently helped: \"Look, now you're even more handsome!\""
+        }
+      },
+      "culture": {
+        "tr": "Bayram sabahı giyilen yeni kıyafetlere bayramlık denir. Pek çok çocuk, bayramlığını bir gece önceden başucuna koyar ve sabahı sabırsızlıkla bekler.",
+        "en": "New clothes worn on Bayram morning are called bayramlık. Many children lay theirs out next to the bed the night before and can hardly wait for morning."
+      },
+      "models": [
+        {
+          "src": "/models/kenney/h-present-a-round.glb",
+          "x": 0.36,
+          "z": 0.9,
+          "h": 0.1,
+          "word": "hediye",
+          "fx": "wobble"
+        },
+        {
+          "src": "/models/kenney/pillowBlue.glb",
+          "x": -0.38,
+          "z": 0.92,
+          "h": 0.06,
+          "w": 0.16,
+          "word": "yastık",
+          "rotY": 20
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.16,
+          "z": 0.58,
+          "rotY": 15
+        },
+        {
+          "id": "can",
+          "x": 0.17,
+          "z": 0.6,
+          "rotY": -15
+        }
+      ],
+      "spots": {
+        "ayna": [
+          -0.26,
+          0.41,
+          0.04
+        ]
+      },
+      "beats": [
+        {
+          "cue": [
+            "bayramlı",
+            "yeni",
+            "annesi"
+          ],
+          "who": "elif",
+          "do": "twirl",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elbise",
+            "ayna"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "ayna",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "can'",
+            "kardeş"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -60,
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "papyon"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.17,
+            0,
+            0.0
+          ],
+          "face": 70,
+          "look": "can"
+        },
+        {
+          "cue": [
+            "düzelt",
+            "yardım"
+          ],
+          "who": "elif",
+          "do": "fixBow",
+          "target": "can",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yakışıklı",
+            "düzelt",
+            "yardım"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "reader"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "scene": "p3b",
+      "title": {
+        "tr": "Bayram sofrası",
+        "en": "The Bayram table"
+      },
+      "text": {
+        "1": {
+          "tr": "Annem {baklava} yaptı. Babam {çay} koydu. Elif {sofrayı|sofra} kurdu.",
+          "en": "Mom made baklava. Dad poured tea. Elif set the table."
+        },
+        "2": {
+          "tr": "Babası {bayram namazından|bayram namazı} döndü. Annesi fırından {baklava} çıkardı. Elif tabakları dizdi, Can da {lokum} kutusunu taşıdı. Herkesin bir görevi vardı.",
+          "en": "Dad came back from the Bayram prayer. Mom took the baklava out of the oven. Elif set out the plates, and Can carried the box of Turkish delight. Everyone had a job."
+        },
+        "3": {
+          "tr": "Babası {bayram namazından|bayram namazı} döndüğünde {sofra} neredeyse hazırdı. Annesi fırından altın renkli {baklava} tepsisini çıkardı. İnce belli bardaklarda {çay} buğulanıyordu. Elif tabakları dizdi, Can da {lokum} kutusunu iki eliyle dikkatle taşıdı. Bayram sofrası, herkes görevini yapınca kuruluyordu.",
+          "en": "By the time Dad came back from the Bayram prayer, the table was almost ready. Mom took the golden tray of baklava out of the oven. Tea steamed in tulip-shaped glasses. Elif set out the plates, and Can carefully carried the box of Turkish delight with both hands. A Bayram table comes together when everyone does their part."
+        }
+      },
+      "culture": {
+        "tr": "Türkiye'de çay, ince belli bardaklarda içilir ve iki katlı bir çaydanlıkta demlenir. Misafire çay ikram etmek, 'Hoş geldin' demenin bir yoludur.",
+        "en": "In Türkiye, tea is served in slim, tulip-shaped glasses and brewed in a two-level teapot called a çaydanlık. Offering tea to a guest is a way of saying \"Welcome.\""
+      },
+      "models": [
+        {
+          "src": "/models/culture/caydanlik.glb",
+          "x": -0.36,
+          "z": 0.93,
+          "h": 0.16,
+          "word": "çaydanlık"
+        },
+        {
+          "src": "/models/culture/cay.glb",
+          "x": -0.18,
+          "z": 0.95,
+          "h": 0.07,
+          "word": "çay"
+        }
+      ],
+      "cast": [
+        {
+          "id": "anne",
+          "x": -0.33,
+          "z": 0.5,
+          "rotY": 12,
+          "hold": "baklavaTepsisi",
+          "pose": "hold"
+        },
+        {
+          "id": "baba",
+          "x": 0.45,
+          "z": 0.3,
+          "rotY": -60
+        },
+        {
+          "id": "elif",
+          "x": 0.16,
+          "z": 0.52,
+          "rotY": -8,
+          "hold": "tabaklar",
+          "pose": "hold"
+        },
+        {
+          "id": "can",
+          "x": 0.36,
+          "z": 0.56,
+          "rotY": -15,
+          "hold": "lokumKutusu",
+          "pose": "hold"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "babası",
+            "babam",
+            "bayram namaz"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            -0.5,
+            0,
+            0.244
+          ],
+          "face": 0,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "döndü",
+            "döndüğünde"
+          ],
+          "optional": true,
+          "who": "baba",
+          "do": "talk",
+          "look": "anne",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "annes",
+            "annem",
+            "baklava"
+          ],
+          "who": "anne",
+          "do": "offer",
+          "look": "reader",
+          "focus": true,
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "baklava",
+            "çıkardı",
+            "yaptı"
+          ],
+          "who": "anne",
+          "do": "put",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "çay"
+          ],
+          "who": "baba",
+          "do": "receive",
+          "target": "cayTepsisi",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "koydu",
+            "buğu",
+            "elif",
+            "tabak"
+          ],
+          "who": "baba",
+          "do": "put"
+        },
+        {
+          "cue": [
+            "elif",
+            "tabak",
+            "sofra"
+          ],
+          "who": "elif",
+          "do": "put",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can",
+            "lokum"
+          ],
+          "who": "can",
+          "do": "offer",
+          "look": "reader",
+          "focus": true,
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "taşıdı",
+            "kutu",
+            "lokum"
+          ],
+          "who": "can",
+          "do": "put"
+        },
+        {
+          "cue": [
+            "görev",
+            "herkes"
+          ],
+          "who": "anne",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "görev",
+            "herkes",
+            "kuruluyor"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "reader"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "scene": "p4b",
+      "title": {
+        "tr": "Uzaktan bayramlaşma",
+        "en": "A Bayram call from far away"
+      },
+      "text": {
+        "1": {
+          "tr": "{Babaanne} ve {dede} İzmir'de yaşıyor. Elif onları aradı: '{İyi bayramlar|iyi bayramlar}!'",
+          "en": "Grandma and Grandpa live in İzmir. Elif called them: \"Happy Bayram!\""
+        },
+        "2": {
+          "tr": "Elif'in {babaannesi|babaanne} ve {dedesi|dede} Türkiye'de, İzmir'de yaşıyor. Elif onları görüntülü aradı. '{Bayramınız kutlu olsun|bayramınız kutlu olsun}! {Ellerinizden öperim|ellerinizden öperim}!' dedi. Babaannesi çok sevindi.",
+          "en": "Elif's grandma and grandpa live in İzmir, Türkiye. Elif video-called them. \"Happy Bayram! I kiss your hands!\" she said. Grandma was so happy."
+        },
+        "3": {
+          "tr": "Elif'in {babaannesi|babaanne} ile {dedesi|dede} Türkiye'de, İzmir'de yaşıyordu. Aralarında koca bir okyanus vardı. Saatler bile farklıydı ama bayram sevgisi uzakları yakın ediyordu. Elif görüntülü aramada '{Bayramınız kutlu olsun|bayramınız kutlu olsun}, {ellerinizden öperim|ellerinizden öperim}!' dedi. Dedesi arkasındaki {Saat Kulesi'ni|Saat Kulesi} gösterip güldü: 'Burada öğleden sonra oldu bile!'",
+          "en": "Elif's grandma and grandpa lived in İzmir, Türkiye. A whole ocean lay between them. Even their clocks showed different times, but Bayram love brought faraway people close. On the video call Elif said, \"Happy Bayram, I kiss your hands!\" Grandpa pointed to the Clock Tower behind him and laughed: \"It's already afternoon here!\""
+        }
+      },
+      "culture": {
+        "tr": "Bayramda uzaktaki büyükler telefonla ya da görüntülü aranır. 'Ellerinizden öperim' demek, uzaktan el öpmek gibidir.",
+        "en": "During Bayram, family elders who live far away get a phone or video call. Saying \"Ellerinizden öperim\" (I kiss your hands) is like kissing their hand from afar."
+      },
+      "models": [
+        {
+          "proc": "tablet",
+          "word": "tablet",
+          "x": 0.3,
+          "z": 0.42,
+          "h": 0.5,
+          "rotY": -55
+        },
+        {
+          "src": "/models/culture/simit.glb",
+          "x": 0.42,
+          "z": 0.84,
+          "h": 0.035,
+          "w": 0.12,
+          "word": "simit"
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.2,
+          "z": 0.62,
+          "rotY": 55,
+          "look": "tablet"
+        },
+        {
+          "id": "can",
+          "x": -0.03,
+          "z": 0.7,
+          "rotY": 50,
+          "look": "tablet"
+        },
+        {
+          "id": "babaanne",
+          "x": -0.18,
+          "z": 0,
+          "screen": true,
+          "look": "reader"
+        },
+        {
+          "id": "dede",
+          "x": 0.18,
+          "z": 0,
+          "screen": true,
+          "look": "reader"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "babaanne",
+            "elif"
+          ],
+          "who": "babaanne",
+          "do": "wave",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "aradı",
+            "görüntülü",
+            "aramada"
+          ],
+          "who": "elif",
+          "do": "wave",
+          "look": "tablet",
+          "focus": true
+        },
+        {
+          "cue": [
+            "iyi bayram",
+            "bayramınız",
+            "iyi"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "tablet",
+          "len": 2.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "iyi",
+            "bayramınız"
+          ],
+          "who": "can",
+          "do": "wave",
+          "look": "tablet"
+        },
+        {
+          "cue": [
+            "ellerinizden",
+            "öperim"
+          ],
+          "who": "elif",
+          "do": "blowKiss",
+          "look": "tablet"
+        },
+        {
+          "cue": [
+            "sevindi",
+            "öperim",
+            "dedi"
+          ],
+          "who": "babaanne",
+          "do": "blowKiss",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "dedesi",
+            "saat",
+            "gösterip",
+            "yaşıyor"
+          ],
+          "who": "dede",
+          "do": "point",
+          "target": "right",
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "burada",
+            "güldü",
+            "öğleden"
+          ],
+          "optional": true,
+          "who": "dede",
+          "do": "talk",
+          "look": "reader",
+          "len": 2.4
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "scene": "p5b",
+      "title": {
+        "tr": "El öpme",
+        "en": "Kissing an elder's hand"
+      },
+      "text": {
+        "1": {
+          "tr": "Ayşe {Teyze|teyze} geldi. Elif onun {elini öptü|el öpmek}, {alnına|alın} koydu. Teyze ona {harçlık} verdi.",
+          "en": "Aunt Ayşe came. Elif kissed her hand and touched it to her forehead. Auntie gave her pocket money."
+        },
+        "2": {
+          "tr": "Komşuları Ayşe {Teyze|teyze} bayramlaşmaya geldi. Elif onun {elini öptü|el öpmek} ve {alnına|alın} koydu. Bu, büyüklere {saygı} göstermenin güzel bir yoludur. Ayşe Teyze ona {harçlık} verdi. Kapının önünde bir sokak {kedisi|kedi} de bayramı izliyordu.",
+          "en": "Their neighbor Aunt Ayşe came to celebrate Bayram. Elif kissed her hand and touched it to her forehead. This is a lovely way to show respect to elders. Aunt Ayşe gave her some pocket money. A street cat at the door was watching the Bayram fun too."
+        },
+        "3": {
+          "tr": "Kapı çaldı. Gelen, yan evde oturan Ayşe {Teyze'ydi|teyze}. Elif hemen onun {elini öptü|el öpmek} ve eli saygıyla {alnına|alın} değdirdi. Babası, el öpmenin büyüklere {saygı} ve sevgi göstermenin eski bir geleneği olduğunu anlatmıştı. Ayşe Teyze gülümseyerek Elif'in avucuna {harçlık} sıkıştırdı: '{Nice bayramlara|nice bayramlara}, güzel kızım!' Kapının önündeki sokak {kedisi|kedi} bile bu güzel anı izliyordu.",
+          "en": "The doorbell rang. It was Aunt Ayşe from next door. Elif quickly kissed her hand and gently touched it to her forehead. Dad had explained that kissing an elder's hand is an old tradition of showing respect and love. Smiling, Aunt Ayşe pressed some pocket money into Elif's palm: \"To many more Bayrams, my dear girl!\" Even the street cat by the door was watching this lovely moment."
+        }
+      },
+      "culture": {
+        "tr": "El öpülürken büyüğün eli önce öpülür, sonra alına değdirilir. Büyükler de çocuklara şeker ya da harçlık verir. Eve girerken ayakkabılar kapının önünde çıkarılır. Türkiye'de, özellikle İstanbul'da, sokak kedileri mahallenin bir parçasıdır; komşular onlara su ve mama bırakır.",
+        "en": "To kiss an elder's hand, you kiss it and then touch it to your forehead. Elders give children candy or pocket money in return. Shoes are taken off at the door before entering the home. In Türkiye, especially Istanbul, street cats are part of the neighborhood; neighbors leave them water and food."
+      },
+      "models": [
+        {
+          "src": "/models/animals/kedi.glb",
+          "word": "kedi",
+          "x": 0.33,
+          "z": 0.97,
+          "h": 0.2,
+          "rotY": -35,
+          "anim": "none"
+        }
+      ],
+      "cast": [
+        {
+          "id": "ayse",
+          "x": -0.36,
+          "z": 0.34,
+          "rotY": 30
+        },
+        {
+          "id": "elif",
+          "x": 0.18,
+          "z": 0.6,
+          "rotY": -30
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "kapı",
+            "ayşe",
+            "komşu"
+          ],
+          "who": "ayse",
+          "do": "walkTo",
+          "to": [
+            0.26,
+            0,
+            0.285
+          ],
+          "face": 90,
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "geldi",
+            "teyze",
+            "bayramlaş"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            -0.035,
+            0,
+            -0.032
+          ],
+          "face": -90,
+          "look": "ayse"
+        },
+        {
+          "cue": [
+            "elini",
+            "öptü",
+            "hemen"
+          ],
+          "who": "ayse",
+          "do": "offerHand",
+          "look": "elif",
+          "len": 3.4
+        },
+        {
+          "cue": [
+            "elini",
+            "öptü"
+          ],
+          "who": "elif",
+          "do": "kissHand",
+          "target": "ayse",
+          "focus": true
+        },
+        {
+          "cue": [
+            "saygı",
+            "gelenek"
+          ],
+          "optional": true,
+          "who": "ayse",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "harçlık",
+            "avucuna"
+          ],
+          "who": "ayse",
+          "do": "give",
+          "look": "elif",
+          "target": "harclik"
+        },
+        {
+          "cue": [
+            "harçlık",
+            "avucuna"
+          ],
+          "who": "elif",
+          "do": "receive",
+          "target": "harclik",
+          "look": "ayse",
+          "focus": true
+        },
+        {
+          "cue": [
+            "nice"
+          ],
+          "optional": true,
+          "who": "ayse",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "kedi"
+          ],
+          "optional": true,
+          "who": "elif",
+          "do": "lookAt",
+          "target": "kedi",
+          "len": 1.6
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "scene": "p6b",
+      "title": {
+        "tr": "Adil paylaşım",
+        "en": "Sharing fairly"
+      },
+      "text": {
+        "1": {
+          "tr": "Can bütün şekerleri aldı. Elif, '{Paylaşalım|paylaşmak}' dedi. Herkese {eşit} şeker!",
+          "en": "Can took all the candy. Elif said, \"Let's share.\" Equal candy for everyone!"
+        },
+        "2": {
+          "tr": "Can, {bayram şekeri|bayram şekeri} dolu {kâseyi|kâse} kucakladı. 'Hepsi benim!' dedi. Elif güldü: 'Gel, {paylaşalım|paylaşmak}.' Şekerleri {eşit} olarak ayırdılar. Birkaçını da misafirler için sakladılar.",
+          "en": "Can hugged the bowl full of Bayram candy. \"They're all mine!\" he said. Elif laughed: \"Come on, let's share.\" They split the candy equally. They also saved a few for guests."
+        },
+        "3": {
+          "tr": "Can, {bayram şekeri|bayram şekeri} dolu {kâseyi|kâse} kucaklayıp 'Hepsi benim!' diye bağırdı. Elif kızmadı. Şekerleri masaya döküp tek tek saydı: 'Gel, {paylaşalım|paylaşmak}. Bir tane sana, bir tane bana.' Şekerler iki {eşit} yığına ayrıldı. En güzel ambalajlılar da kapıya gelecek misafirler için kenara kondu. Can, adil paylaşmanın hepsini almaktan daha güzel olduğunu fark etti.",
+          "en": "Can hugged the bowl full of Bayram candy and shouted, \"They're all mine!\" Elif didn't get angry. She poured the candy onto the table and counted it piece by piece: \"Come on, let's share. One for you, one for me.\" The candy was split into two equal piles. The prettiest-wrapped ones were set aside for guests who would come to the door. Can realized that sharing fairly felt better than taking it all."
+        }
+      },
+      "culture": {
+        "tr": "Bayramda kapı kapı dolaşan çocuklara şeker ikram edilir. Bu yüzden evlerde bayram şekeri hep hazır bekler.",
+        "en": "During Bayram, children go from door to door and are offered candy. That's why every home keeps a bowl of Bayram candy ready."
+      },
+      "models": [
+        {
+          "src": "/models/animals/kedi-yuruyen.glb",
+          "x": -0.42,
+          "z": 0.95,
+          "h": 0.12,
+          "word": "kedi",
+          "walkTo": [
+            0.38,
+            0.95
+          ],
+          "patrol": true,
+          "speed": 0.05
+        }
+      ],
+      "cast": [
+        {
+          "id": "can",
+          "x": -0.16,
+          "z": 0.6,
+          "rotY": 20,
+          "hold": "sekerKasesi",
+          "pose": "hold"
+        },
+        {
+          "id": "elif",
+          "x": 0.16,
+          "z": 0.6,
+          "rotY": -25
+        }
+      ],
+      "spots": {
+        "masa": [
+          0,
+          0.16,
+          0.84
+        ]
+      },
+      "beats": [
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "pose",
+          "target": "hug",
+          "look": "reader",
+          "focus": true,
+          "len": 1.0
+        },
+        {
+          "cue": [
+            "hepsi",
+            "aldı",
+            "kucakla"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "elif",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "elif",
+            "güldü",
+            "kızmadı",
+            "paylaş"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "can",
+          "len": 2.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "paylaş",
+            "masaya"
+          ],
+          "who": "can",
+          "do": "put",
+          "look": "masa"
+        },
+        {
+          "cue": [
+            "eşit",
+            "ayır",
+            "sayd",
+            "tane"
+          ],
+          "who": "elif",
+          "do": "point",
+          "target": "masa",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "misafir",
+            "kenar",
+            "sakla"
+          ],
+          "optional": true,
+          "who": "elif",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "fark",
+            "adil",
+            "eşit",
+            "şeker"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "reader",
+          "focus": true
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "scene": "p7b",
+      "title": {
+        "tr": "Maya ile bayram",
+        "en": "Bayram with Maya"
+      },
+      "text": {
+        "1": {
+          "tr": "Elif'in {arkadaşı|arkadaş} Maya geldi. Elif ona {lokum} verdi. Maya, '{İyi bayramlar|iyi bayramlar}!' dedi.",
+          "en": "Elif's friend Maya came over. Elif gave her Turkish delight. Maya said, \"Happy Bayram!\""
+        },
+        "2": {
+          "tr": "Okuldan {arkadaşı|arkadaş} Maya, Elif'i görmeye geldi. Maya bayramı hiç bilmiyordu. Elif ona {lokum} {ikram etti|ikram etmek} ve bayramı anlattı. Maya ilk Türkçe sözünü söyledi: '{İyi bayramlar|iyi bayramlar}!' Maya'nın {köpeği|köpek} Pamuk da kuyruğunu salladı.",
+          "en": "Her school friend Maya came to see Elif. Maya didn't know anything about Bayram. Elif offered her Turkish delight and told her about Bayram. Maya said her very first Turkish words: \"Happy Bayram!\" Maya's dog Pamuk wagged her tail, too."
+        },
+        "3": {
+          "tr": "Öğleden sonra okuldan {arkadaşı|arkadaş} Maya kapıda belirdi. Maya bayramı ilk kez duyuyordu. Elif ona bayramın ne olduğunu iki dilde, hem İngilizce hem Türkçe anlattı. Sonra pudra şekerli {lokum} {ikram etti|ikram etmek}. Maya lokumun tadına bayıldı ve Elif'in öğrettiği ilk Türkçe sözü gururla söyledi: '{İyi bayramlar|iyi bayramlar}!' Maya'nın {köpeği|köpek} Pamuk ise sevinçle kuyruğunu sallayıp etrafta koşturdu.",
+          "en": "In the afternoon her school friend Maya appeared at the door. Maya was hearing about Bayram for the first time. Elif explained it in two languages, English and Turkish. Then she offered her powdered Turkish delight. Maya loved the taste and proudly said the first Turkish words Elif had taught her: \"Happy Bayram!\" Maya's dog Pamuk happily wagged her tail and ran around."
+        }
+      },
+      "culture": {
+        "tr": "Bayramda komşular ve arkadaşlar birbirini ziyaret eder, küsler barışır. Kapısını herkese açmak bayramın en güzel yanlarındandır.",
+        "en": "During Bayram, neighbors and friends visit each other, and people who have quarreled make up. Opening your door to everyone is one of the most beautiful parts of Bayram."
+      },
+      "models": [
+        {
+          "src": "/models/animals/kopek.glb",
+          "word": "köpek",
+          "x": -0.38,
+          "z": 0.96,
+          "h": 0.24,
+          "rotY": 30,
+          "walkTo": [
+            0.3,
+            0.96
+          ],
+          "patrol": true,
+          "speed": 0.07
+        },
+        {
+          "src": "/models/kenney/tree-high-round.glb",
+          "x": 0.42,
+          "z": 0.42,
+          "h": 0.4,
+          "word": "ağaç",
+          "fx": "sway"
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": 0.15,
+          "z": 0.56,
+          "rotY": -60,
+          "hold": "lokumTabagi",
+          "pose": "hold"
+        },
+        {
+          "id": "maya",
+          "x": -0.46,
+          "z": 0.5,
+          "rotY": 70
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "arkadaş",
+            "maya"
+          ],
+          "who": "maya",
+          "do": "walkTo",
+          "to": [
+            0.37,
+            0,
+            0.07
+          ],
+          "face": 75,
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "anlattı",
+            "bilmiyordu",
+            "duyuyordu",
+            "bayramı"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "maya",
+          "len": 2.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "lokum",
+            "verdi"
+          ],
+          "who": "elif",
+          "do": "offer",
+          "look": "maya",
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "ikram",
+            "lokum",
+            "tadına"
+          ],
+          "who": "maya",
+          "do": "receive",
+          "look": "elif",
+          "target": "lokum"
+        },
+        {
+          "cue": [
+            "iyi bayram",
+            "iyi",
+            "söyledi"
+          ],
+          "who": "maya",
+          "do": "talk",
+          "look": "reader",
+          "len": 2.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "iyi bayram",
+            "bayramlar"
+          ],
+          "who": "maya",
+          "do": "cheer",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "köpe",
+            "pamuk"
+          ],
+          "optional": true,
+          "who": "elif",
+          "do": "lookAt",
+          "target": "köpek",
+          "len": 1.6
+        }
+      ]
+    },
+    {
+      "id": "p8",
+      "scene": "p8b",
+      "title": {
+        "tr": "Bayramın anlamı",
+        "en": "What Bayram means"
+      },
+      "text": {
+        "1": {
+          "tr": "Akşam oldu. Gökte {hilal} var. Bayram, {sevgi} demek.",
+          "en": "Evening came. There is a crescent moon in the sky. Bayram means love."
+        },
+        "2": {
+          "tr": "Akşam olunca {aile} pencerenin önünde toplandı. Gökyüzünde ince bir {hilal} parlıyordu. Elif, 'Bayram, büyüklere {saygı}, herkese {sevgi} demek' dedi. Annesi ona sarıldı.",
+          "en": "When evening came, the family gathered by the window. A thin crescent moon shone in the sky. Elif said, \"Bayram means respect for elders and love for everyone.\" Mom gave her a hug."
+        },
+        "3": {
+          "tr": "Akşam olunca bütün {aile} pencerenin önünde toplandı. Gökyüzünde incecik bir {hilal} parlıyordu. Elif günü düşündü: Ayşe Teyze'nin eli, babaannesinin sesi, Maya'nın ilk Türkçe sözü... 'Bayram,' dedi, 'büyüklere {saygı}, küçüklere {sevgi} ve herkesle paylaşmak demek.' Annesi onu alnından öptü: 'Yarın bayramın ikinci günü. Yeni günde yeni sevinçler!'",
+          "en": "When evening came, the whole family gathered by the window. A slender crescent moon shone in the sky. Elif thought about the day: Aunt Ayşe's hand, Grandma's voice, Maya's first Turkish words... \"Bayram,\" she said, \"means respect for elders, love for little ones, and sharing with everyone.\" Mom kissed her on the forehead: \"Tomorrow is the second day of Bayram. A new day, new joys!\""
+        }
+      },
+      "culture": {
+        "tr": "Bayramların tarihi her yıl yaklaşık on bir gün öne gelir, çünkü Ay takvimine göre belirlenir. Hilal, yeni bir ayın başladığını gösterir.",
+        "en": "Bayram dates move about eleven days earlier each year because they follow the lunar calendar. The crescent moon marks the start of a new month."
+      },
+      "models": [
+        {
+          "src": "/models/animals/kedi.glb",
+          "x": -0.36,
+          "z": 0.92,
+          "h": 0.12,
+          "word": "kedi",
+          "rotY": 40,
+          "anim": "none"
+        }
+      ],
+      "cast": [
+        {
+          "id": "baba",
+          "x": -0.3,
+          "z": 0.6,
+          "rotY": 180,
+          "look": "hilal"
+        },
+        {
+          "id": "anne",
+          "x": -0.1,
+          "z": 0.62,
+          "rotY": 175,
+          "look": "hilal"
+        },
+        {
+          "id": "elif",
+          "x": 0.11,
+          "z": 0.64,
+          "rotY": 180,
+          "look": "hilal"
+        },
+        {
+          "id": "can",
+          "x": 0.28,
+          "z": 0.66,
+          "rotY": 185,
+          "look": "hilal"
+        }
+      ],
+      "spots": {
+        "hilal": [
+          0.134,
+          0.64,
+          0.04
+        ]
+      },
+      "beats": [
+        {
+          "cue": [
+            "hilal",
+            "gök"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "hilal",
+          "len": 2.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif",
+            "günü",
+            "bayram"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": -15,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "bayram",
+            "dedi",
+            "saygı"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "reader",
+          "len": 3.0
+        },
+        {
+          "cue": [
+            "sevgi",
+            "annes",
+            "sarıldı"
+          ],
+          "who": "anne",
+          "do": "walkTo",
+          "to": [
+            0.09,
+            0,
+            0.03
+          ],
+          "face": 80,
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "sarıldı",
+            "öptü",
+            "annes",
+            "sevgi"
+          ],
+          "who": "anne",
+          "do": "kissForehead",
+          "target": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yarın",
+            "sevinç"
+          ],
+          "optional": true,
+          "who": "can",
+          "do": "cheer",
+          "look": "reader"
+        }
+      ]
+    }
+  ],
+  "glossary": {
+    "bayram": {
+      "en": "holiday, festival",
+      "icon": "🎉"
+    },
+    "mutlu": {
+      "en": "happy",
+      "icon": "😊"
+    },
+    "erken": {
+      "en": "early",
+      "icon": "⏰"
+    },
+    "saat": {
+      "en": "clock; hour",
+      "icon": "⏰"
+    },
+    "güneş": {
+      "en": "sun",
+      "icon": "☀️"
+    },
+    "pencere": {
+      "en": "window",
+      "icon": "🪟"
+    },
+    "yatak": {
+      "en": "bed",
+      "icon": "🛏️"
+    },
+    "baklava": {
+      "en": "baklava, a pastry with nuts and syrup",
+      "icon": "🥮"
+    },
+    "bayramlık": {
+      "en": "new clothes for Bayram",
+      "icon": "👗"
+    },
+    "elbise": {
+      "en": "dress",
+      "icon": "👗"
+    },
+    "papyon": {
+      "en": "bow tie",
+      "icon": "🎀"
+    },
+    "ayna": {
+      "en": "mirror",
+      "icon": "🪞"
+    },
+    "çay": {
+      "en": "tea",
+      "icon": "🍵"
+    },
+    "çaydanlık": {
+      "en": "two-level Turkish teapot",
+      "icon": "🫖"
+    },
+    "sofra": {
+      "en": "the table set for a meal",
+      "icon": "🍽️"
+    },
+    "lokum": {
+      "en": "Turkish delight",
+      "icon": "🍬"
+    },
+    "bayram namazı": {
+      "en": "the special Bayram morning prayer",
+      "icon": "🕌"
+    },
+    "babaanne": {
+      "en": "grandma (dad's mother)",
+      "icon": "👵"
+    },
+    "dede": {
+      "en": "grandpa",
+      "icon": "👴"
+    },
+    "iyi bayramlar": {
+      "en": "Happy Bayram!",
+      "icon": "🎉"
+    },
+    "bayramınız kutlu olsun": {
+      "en": "Happy Bayram to you! (polite)",
+      "icon": "💐"
+    },
+    "ellerinizden öperim": {
+      "en": "I kiss your hands (a loving greeting to elders)",
+      "icon": "🤲"
+    },
+    "Saat Kulesi": {
+      "en": "the Clock Tower, a famous landmark in İzmir",
+      "icon": "🕰️"
+    },
+    "tablet": {
+      "en": "tablet",
+      "icon": "📱"
+    },
+    "teyze": {
+      "en": "aunt; a kind way to call an older woman",
+      "icon": "👵"
+    },
+    "el öpmek": {
+      "en": "to kiss an elder's hand to show respect",
+      "icon": "🤲"
+    },
+    "alın": {
+      "en": "forehead",
+      "icon": "🙂"
+    },
+    "saygı": {
+      "en": "respect",
+      "icon": "🤝"
+    },
+    "harçlık": {
+      "en": "pocket money given to children",
+      "icon": "💵"
+    },
+    "nice bayramlara": {
+      "en": "to many more Bayrams!",
+      "icon": "✨"
+    },
+    "ayakkabı": {
+      "en": "shoe",
+      "icon": "👟"
+    },
+    "bayram şekeri": {
+      "en": "Bayram candy",
+      "icon": "🍬"
+    },
+    "kâse": {
+      "en": "bowl",
+      "icon": "🥣"
+    },
+    "paylaşmak": {
+      "en": "to share",
+      "icon": "🤲"
+    },
+    "eşit": {
+      "en": "equal",
+      "icon": "⚖️"
+    },
+    "arkadaş": {
+      "en": "friend",
+      "icon": "🧒"
+    },
+    "ikram etmek": {
+      "en": "to offer food or drink to a guest",
+      "icon": "🍬"
+    },
+    "lale": {
+      "en": "tulip",
+      "icon": "🌷"
+    },
+    "hilal": {
+      "en": "crescent moon",
+      "icon": "🌙"
+    },
+    "yıldız": {
+      "en": "star",
+      "icon": "⭐"
+    },
+    "aile": {
+      "en": "family",
+      "icon": "👨‍👩‍👧‍👦"
+    },
+    "sevgi": {
+      "en": "love",
+      "icon": "❤️"
+    },
+    "kedi": {
+      "en": "cat",
+      "icon": "🐈"
+    },
+    "köpek": {
+      "en": "dog",
+      "icon": "🐕"
+    },
+    "halı": {
+      "en": "carpet, rug",
+      "icon": "🟥"
+    },
+    "saksı": {
+      "en": "flowerpot",
+      "icon": "🪴"
+    },
+    "hediye": {
+      "en": "present, gift",
+      "icon": "🎁"
+    },
+    "yastık": {
+      "en": "pillow",
+      "icon": "🛏️"
+    },
+    "simit": {
+      "en": "simit, a sesame bread ring",
+      "icon": "🥯"
+    },
+    "ağaç": {
+      "en": "tree",
+      "icon": "🌳"
+    },
+    "dondurma": {
+      "en": "Turkish ice cream",
+      "icon": "🍦"
+    },
+    "yorgan": {
+      "en": "quilt",
+      "icon": "🛏️"
+    },
+    "Elif": {
+      "en": "Elif",
+      "icon": "👧"
+    },
+    "kanepe": {
+      "en": "sofa",
+      "icon": "🛋️"
+    },
+    "tabak": {
+      "en": "plate",
+      "icon": "🍽️"
+    },
+    "Anne": {
+      "en": "Mom",
+      "icon": "👩"
+    },
+    "Baba": {
+      "en": "Dad",
+      "icon": "👨"
+    },
+    "Can": {
+      "en": "Can",
+      "icon": "👦"
+    },
+    "Maya": {
+      "en": "Maya",
+      "icon": "👧"
+    },
+    "Babaanne": {
+      "en": "Grandma",
+      "icon": "👵"
+    },
+    "Dede": {
+      "en": "Grandpa",
+      "icon": "👴"
+    },
+    "Ayşe Teyze": {
+      "en": "Aunt Ayşe",
+      "icon": "👵"
+    }
   },
-  {
-   "page": "p4",
-   "answer": "aile-butunlugu",
-   "options": [
-    "caliskanlik",
-    "mahremiyet",
-    "aile-butunlugu"
-   ],
-   "why": {
-    "tr": "Aralarında okyanus olsa da aile bayramda bir araya geldi.",
-    "en": "Even with an ocean between them, the family came together for Bayram."
-   }
+  "quiz": [
+    {
+      "q": {
+        "tr": "Bayram için alınan yeni kıyafetlere ne denir?",
+        "en": "What do we call the new clothes bought for Bayram?"
+      },
+      "options": [
+        {
+          "tr": "Bayramlık",
+          "en": "Bayramlık"
+        },
+        {
+          "tr": "Harçlık",
+          "en": "Harçlık (pocket money)"
+        },
+        {
+          "tr": "Lokum",
+          "en": "Lokum (Turkish delight)"
+        }
+      ],
+      "answer": 0,
+      "page": "p2"
+    },
+    {
+      "q": {
+        "tr": "Elif, Ayşe Teyze'ye nasıl saygı gösterdi?",
+        "en": "How did Elif show respect to Aunt Ayşe?"
+      },
+      "options": [
+        {
+          "tr": "Ona el salladı",
+          "en": "She waved at her"
+        },
+        {
+          "tr": "Elini öpüp alnına koydu",
+          "en": "She kissed her hand and touched it to her forehead"
+        },
+        {
+          "tr": "Ona lokum verdi",
+          "en": "She gave her Turkish delight"
+        }
+      ],
+      "answer": 1,
+      "page": "p5"
+    },
+    {
+      "q": {
+        "tr": "Elif'in babaannesi ve dedesi hangi şehirde yaşıyor?",
+        "en": "Which city do Elif's grandparents live in?"
+      },
+      "options": [
+        {
+          "tr": "Ankara",
+          "en": "Ankara"
+        },
+        {
+          "tr": "New York",
+          "en": "New York"
+        },
+        {
+          "tr": "İzmir",
+          "en": "İzmir"
+        }
+      ],
+      "answer": 2,
+      "page": "p4"
+    },
+    {
+      "q": {
+        "tr": "Can şekerlerin hepsini almak istedi. Elif ne yaptı?",
+        "en": "Can wanted all the candy. What did Elif do?"
+      },
+      "options": [
+        {
+          "tr": "Şekerleri eşit paylaştırdı",
+          "en": "She shared the candy equally"
+        },
+        {
+          "tr": "Şekerleri sakladı",
+          "en": "She hid the candy"
+        },
+        {
+          "tr": "Annesine şikâyet etti",
+          "en": "She told on him to Mom"
+        }
+      ],
+      "answer": 0,
+      "page": "p6"
+    },
+    {
+      "q": {
+        "tr": "Maya hangi Türkçe sözü söyledi?",
+        "en": "Which Turkish words did Maya say?"
+      },
+      "options": [
+        {
+          "tr": "Teşekkür ederim!",
+          "en": "Thank you!"
+        },
+        {
+          "tr": "İyi bayramlar!",
+          "en": "Happy Bayram!"
+        },
+        {
+          "tr": "Günaydın!",
+          "en": "Good morning!"
+        }
+      ],
+      "answer": 1,
+      "page": "p7"
+    }
+  ],
+  "valueHunt": [
+    {
+      "page": "p5",
+      "answer": "saygi",
+      "options": [
+        "tasarruf",
+        "saygi",
+        "temizlik"
+      ],
+      "why": {
+        "tr": "Elif, Ayşe Teyze'nin elini öpüp alnına koyarak büyüğüne saygı gösterdi.",
+        "en": "Elif showed respect to an elder by kissing Aunt Ayşe's hand and touching it to her forehead."
+      }
+    },
+    {
+      "page": "p6",
+      "answer": "adalet",
+      "options": [
+        "adalet",
+        "estetik",
+        "sabir"
+      ],
+      "why": {
+        "tr": "Elif şekerleri iki eşit yığına ayırdı. Herkese hakkını vermek adalettir.",
+        "en": "Elif split the candy into two equal piles. Giving everyone their fair share is fairness."
+      }
+    },
+    {
+      "page": "p4",
+      "answer": "aile-butunlugu",
+      "options": [
+        "caliskanlik",
+        "mahremiyet",
+        "aile-butunlugu"
+      ],
+      "why": {
+        "tr": "Aralarında okyanus olsa da aile bayramda bir araya geldi.",
+        "en": "Even with an ocean between them, the family came together for Bayram."
+      }
+    },
+    {
+      "page": "p7",
+      "answer": "dostluk",
+      "options": [
+        "dostluk",
+        "tasarruf",
+        "saglikli-yasam"
+      ],
+      "why": {
+        "tr": "Elif, arkadaşı Maya'yı evinde ağırladı ve bayramı onunla paylaştı.",
+        "en": "Elif welcomed her friend Maya and shared Bayram with her."
+      }
+    }
+  ],
+  "family": {
+    "task": {
+      "tr": "Bu hafta ailece uzakta yaşayan bir büyüğünüzü arayın. Çocuğunuz 'Ellerinizden öperim' desin ve bayramdan bir anısını sorsun.",
+      "en": "This week, call an elder who lives far away. Let your child say \"Ellerinizden öperim\" and ask them about a Bayram memory."
+    },
+    "talk": [
+      {
+        "tr": "Sen bir büyüğüne saygını nasıl gösterirsin?",
+        "en": "How do you show respect to an elder?"
+      },
+      {
+        "tr": "Bir şeyi kardeşinle ya da arkadaşınla nasıl adil paylaşırsın?",
+        "en": "How do you share something fairly with a sibling or friend?"
+      },
+      {
+        "tr": "Arkadaşına hangi Türkçe sözü öğretmek isterdin?",
+        "en": "Which Turkish words would you like to teach a friend?"
+      }
+    ]
   },
-  {
-   "page": "p7",
-   "answer": "dostluk",
-   "options": [
-    "dostluk",
-    "tasarruf",
-    "saglikli-yasam"
-   ],
-   "why": {
-    "tr": "Elif, arkadaşı Maya'yı evinde ağırladı ve bayramı onunla paylaştı.",
-    "en": "Elif welcomed her friend Maya and shared Bayram with her."
-   }
-  }
- ],
- "family": {
-  "task": {
-   "tr": "Bu hafta ailece uzakta yaşayan bir büyüğünüzü arayın. Çocuğunuz 'Ellerinizden öperim' desin ve bayramdan bir anısını sorsun.",
-   "en": "This week, call an elder who lives far away. Let your child say \"Ellerinizden öperim\" and ask them about a Bayram memory."
-  },
-  "talk": [
-   {
-    "tr": "Sen bir büyüğüne saygını nasıl gösterirsin?",
-    "en": "How do you show respect to an elder?"
-   },
-   {
-    "tr": "Bir şeyi kardeşinle ya da arkadaşınla nasıl adil paylaşırsın?",
-    "en": "How do you share something fairly with a sibling or friend?"
-   },
-   {
-    "tr": "Arkadaşına hangi Türkçe sözü öğretmek isterdin?",
-    "en": "Which Turkish words would you like to teach a friend?"
-   }
+  "table": [
+    {
+      "src": "/models/culture/caydanlik.glb",
+      "word": "çaydanlık",
+      "x": -1.52,
+      "z": 0.06,
+      "h": 0.36,
+      "rotY": 20
+    },
+    {
+      "src": "/models/culture/cay.glb",
+      "word": "çay",
+      "x": -1.3,
+      "z": 0.56,
+      "h": 0.2,
+      "steam": true
+    },
+    {
+      "src": "/models/culture/baklava.glb",
+      "word": "baklava",
+      "x": 1.42,
+      "z": 0.42,
+      "h": 0.1,
+      "w": 0.42
+    },
+    {
+      "src": "/models/culture/dondurma.glb",
+      "word": "dondurma",
+      "x": 1.5,
+      "z": -0.38,
+      "h": 0.3
+    }
   ]
- },
- "table": [
-  {
-   "src": "/models/culture/caydanlik.glb",
-   "word": "çaydanlık",
-   "x": -1.52,
-   "z": 0.06,
-   "h": 0.36,
-   "rotY": 20
-  },
-  {
-   "src": "/models/culture/cay.glb",
-   "word": "çay",
-   "x": -1.3,
-   "z": 0.56,
-   "h": 0.2,
-   "steam": true
-  },
-  {
-   "src": "/models/culture/baklava.glb",
-   "word": "baklava",
-   "x": 1.42,
-   "z": 0.42,
-   "h": 0.1,
-   "w": 0.42
-  },
-  {
-   "src": "/models/culture/dondurma.glb",
-   "word": "dondurma",
-   "x": 1.5,
-   "z": -0.38,
-   "h": 0.3
-  }
- ]
 }

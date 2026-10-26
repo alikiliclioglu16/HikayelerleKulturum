@@ -630,6 +630,133 @@ const SCENES: Record<string, ProcLayer[]> = {
   ],
 };
 
+/* 1b. The bedroom for the 3D Elif: the back wall stays, the bed and Elif are 3D,
+   a bedside table on the left and the chair with the Bayram dress on the right. */
+SCENES.p1b = [
+  SCENES.p1[0],
+  {
+    z: 0.22,
+    w: 0.22,
+    h: 0.2,
+    x: -0.4,
+    draw: (p) => {
+      // bedside table with the alarm clock
+      p.rect(80, p.H - 380, 840, 380, C.wood, 30);
+      p.rect(140, p.H - 300, 720, 110, C.woodDark, 16);
+      p.circle(500, p.H - 245, 18, C.saffron);
+      const cx = 500;
+      const cy = p.H - 560;
+      p.circle(cx - 90, cy - 110, 46, C.saffron);
+      p.circle(cx + 90, cy - 110, 46, C.saffron);
+      p.circle(cx, cy, 150, C.red);
+      p.circle(cx, cy, 112, '#ffffff');
+      p.line([cx, cy, cx, cy - 80], C.ink, 14);
+      p.line([cx, cy, cx + 60, cy + 18], C.ink, 14);
+      p.line([cx - 110, cy + 130, cx - 140, cy + 175], C.red, 20);
+      p.line([cx + 110, cy + 130, cx + 140, cy + 175], C.red, 20);
+      p.hot('saat', cx - 160, cy - 170, 320, 330);
+    },
+  },
+  {
+    z: 0.86,
+    w: 0.94,
+    h: 0.3,
+    draw: (p) => {
+      // chair with the Bayram dress, slippers and a plant, all on the right so Elif stays in view
+      p.rect(640, 40, 22, 270, C.woodDark, 8);
+      p.rect(820, 40, 22, 270, C.woodDark, 8);
+      p.rect(640, 40, 202, 30, C.wood, 10);
+      p.rect(640, 200, 202, 24, C.wood, 10);
+      p.shape('#3F6FD1', (c) => {
+        c.moveTo(675, 60);
+        c.lineTo(805, 60);
+        c.lineTo(840, 250);
+        c.quadraticCurveTo(740, 270, 640, 250);
+        c.closePath();
+      });
+      p.rect(690, 120, 100, 14, 'rgba(255,255,255,0.6)', 7);
+      p.hot('bayramlık', 630, 30, 225, 285);
+      p.ellipse(470, 292, 50, 18, '#F28DB2');
+      p.ellipse(560, 292, 50, 18, '#F28DB2');
+      plant(p, 940, 300, 190, C.cobalt);
+    },
+  },
+];
+
+/* The same rooms without the drawn people: the family acts in 3D (see book.json → cast). */
+SCENES.p2b = [SCENES.p2[0], SCENES.p2[2]];
+SCENES.p3b = [SCENES.p3[0], SCENES.p3[2]];
+SCENES.p4b = [
+  SCENES.p4[0],
+  {
+    ...MID,
+    draw: (p) => {
+      // the sofa, empty: the children stand in front of it for the video call
+      p.rect(40, 300, 640, 230, C.turq, 50);
+      p.rect(20, 380, 90, 220, '#178C88', 40);
+      p.rect(610, 380, 90, 220, '#178C88', 40);
+      p.rect(60, 520, 600, 110, '#1A9894', 30);
+      p.rect(80, 600, 30, 40, C.woodDark, 6);
+      p.rect(610, 600, 30, 40, C.woodDark, 6);
+      p.hot('kanepe', 20, 300, 680, 340);
+    },
+  },
+];
+SCENES.p5b = [SCENES.p5[0], SCENES.p5[2]];
+SCENES.p6b = [SCENES.p6[0], SCENES.p6[2]];
+SCENES.p7b = [SCENES.p7[0], SCENES.p7[2]];
+SCENES.p8b = [
+  {
+    ...BACK,
+    draw: (p) => {
+      // the living room at night, a big window with the crescent moon over the rooftops
+      p.arch(14, 14, 972, p.H - 28, '#F1DDBE');
+      const wx = 150;
+      const wy = 110;
+      const ww = 700;
+      const wh = 540;
+      p.rect(wx - 22, wy - 22, ww + 44, wh + 44, '#FFFFFF', 18);
+      p.save();
+      p.c.beginPath();
+      p.c.rect(wx, wy, ww, wh);
+      p.c.clip();
+      p.rect(wx, wy, ww, wh, grad(p, wy, wy + wh, [[0, '#0E1C46'], [1, '#2B3F7E']]) as unknown as string);
+      const r = rng(8);
+      for (let i = 0; i < 45; i++) p.circle(wx + 10 + r() * (ww - 20), wy + 10 + r() * (wh * 0.6), 2 + r() * 3, 'rgba(255,255,255,0.85)');
+      crescent(p, 640, 230, 66, '#FFE7A3', '#16275A');
+      p.hot('hilal', 560, 150, 160, 160);
+      star(p, 330, 220, 34, '#FFE7A3');
+      p.hot('yıldız', 290, 180, 80, 80);
+      p.shape('#15214D', (c) => {
+        c.moveTo(wx, wy + wh);
+        c.lineTo(wx, 520);
+        c.lineTo(260, 470);
+        c.lineTo(360, 520);
+        c.lineTo(360, 450);
+        c.lineTo(470, 400);
+        c.lineTo(570, 450);
+        c.lineTo(570, 510);
+        c.lineTo(690, 460);
+        c.lineTo(790, 500);
+        c.lineTo(wx + ww, 470);
+        c.lineTo(wx + ww, wy + wh);
+        c.closePath();
+      });
+      [[200, 540], [400, 470], [450, 470], [620, 530], [730, 520]].forEach(([x, y]) => p.rect(x, y, 22, 26, '#FFD58A', 3));
+      p.restore();
+      p.line([wx + ww / 2, wy, wx + ww / 2, wy + wh], '#FFFFFF', 14);
+      p.hot('pencere', wx - 22, wy - 22, ww + 44, wh + 44);
+      // window sill with tulips and a lantern
+      p.rect(wx - 40, wy + wh + 20, ww + 80, 28, '#C9A27A', 8);
+      [230, 330, 670, 770].forEach((x, i) => tulip(p, x, wy + wh + 24, 120, i % 2 ? C.saffron : C.red));
+      p.rect(470, wy + wh - 60, 60, 80, '#FFD58A', 10);
+      p.rect(462, wy + wh - 68, 76, 14, '#5C3A26', 6);
+      p.hot('lale', 200, wy + wh - 100, 600, 130);
+      p.rect(14, p.H - 120, 972, 106, '#C9A27A');
+    },
+  },
+];
+
 export function sceneLayers(sceneId: string): ProcLayer[] {
   return SCENES[sceneId] ?? KAZAN_SCENES[sceneId] ?? KELOGLAN_SCENES[sceneId] ?? [];
 }

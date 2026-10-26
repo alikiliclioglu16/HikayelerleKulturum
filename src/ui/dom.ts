@@ -32,6 +32,7 @@ export const icon = {
   back: () => svg(S('<path d="M15 5l-7 7 7 7"/>')),
   next: () => svg(S('<path d="M9 5l7 7-7 7"/>')),
   play: () => svg(S('<path d="M8 5.5v13l11-6.5z" fill="currentColor"/>')),
+  replay: () => svg(S('<path d="M4.5 12a7.5 7.5 0 102.2-5.3"/><path d="M4 4.5v4h4"/>')),
   pause: () => svg(S('<rect x="6.5" y="5" width="4" height="14" rx="1.2" fill="currentColor"/><rect x="13.5" y="5" width="4" height="14" rx="1.2" fill="currentColor"/>')),
   speaker: () => svg(S('<path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z" fill="currentColor"/><path d="M15.5 9a4 4 0 010 6M18 6.5a7.5 7.5 0 010 11"/>')),
   gear: () =>
