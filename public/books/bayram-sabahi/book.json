@@ -19,7 +19,7 @@
   "pages": [
     {
       "id": "p1",
-      "scene": "p1b",
+      "scene": "p1",
       "title": {
         "tr": "Bugün bayram!",
         "en": "Today is Bayram!"
@@ -145,7 +145,7 @@
     },
     {
       "id": "p2",
-      "scene": "p2b",
+      "scene": "p2",
       "title": {
         "tr": "Bayramlıklar",
         "en": "Bayram clothes"
@@ -278,7 +278,7 @@
     },
     {
       "id": "p3",
-      "scene": "p3b",
+      "scene": "p3",
       "title": {
         "tr": "Bayram sofrası",
         "en": "The Bayram table"
@@ -472,7 +472,7 @@
     },
     {
       "id": "p4",
-      "scene": "p4b",
+      "scene": "p4",
       "title": {
         "tr": "Uzaktan bayramlaşma",
         "en": "A Bayram call from far away"
@@ -632,7 +632,7 @@
     },
     {
       "id": "p5",
-      "scene": "p5b",
+      "scene": "p5",
       "title": {
         "tr": "El öpme",
         "en": "Kissing an elder's hand"
@@ -790,7 +790,7 @@
     },
     {
       "id": "p6",
-      "scene": "p6b",
+      "scene": "p6",
       "title": {
         "tr": "Adil paylaşım",
         "en": "Sharing fairly"
@@ -935,7 +935,7 @@
     },
     {
       "id": "p7",
-      "scene": "p7b",
+      "scene": "p7",
       "title": {
         "tr": "Maya ile bayram",
         "en": "Bayram with Maya"
@@ -1085,7 +1085,7 @@
     },
     {
       "id": "p8",
-      "scene": "p8b",
+      "scene": "p8",
       "title": {
         "tr": "Bayramın anlamı",
         "en": "What Bayram means"

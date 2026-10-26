@@ -44,7 +44,6 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   const titleEl = h('strong', null, book.title);
   const pageNoEl = h('span', null, '');
   const dots = h('div', { class: 'dots', role: 'group', 'aria-label': 'Sayfalar' });
-  const levelBtn = h('button', { class: 'btn light small level-btn', type: 'button', 'aria-haspopup': 'dialog' });
   const chestCount = h('span', { class: 'count' }, String(Object.keys(store.chest).length));
   const chestLink = h('a', { class: 'btn light small chest-link', href: '#/sandik', 'aria-label': 'Kelime Sandığım' }, icon.chest(), chestCount);
   const settingsBtn = h('button', { class: 'btn light small icon-only', type: 'button', 'aria-label': 'Ayarlar' }, icon.gear());
@@ -54,7 +53,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     h('a', { class: 'btn light small', href: '#/', 'aria-label': 'Kitaplara dön' }, icon.home()),
     h('div', { class: 'reader-title' }, titleEl, pageNoEl),
     dots,
-    h('div', { class: 'bar-actions' }, levelBtn, chestLink, settingsBtn),
+    h('div', { class: 'bar-actions' }, chestLink, settingsBtn),
   );
 
   const textEl = h('section', { class: 'page-text', 'aria-live': 'polite' });
@@ -129,9 +128,6 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     textEl.replaceChildren(h('div', { class: 'pg-title', lang: 'tr' }, p.title.tr), tr, actions);
     pageNoEl.replaceChildren(h('span', { class: 'pg-word' }, 'Sayfa '), `${index + 1} / ${book.pages.length}`);
     titleEl.hidden = false;
-    const lv = LEVELS.find((l) => l.id === level)!;
-    levelBtn.replaceChildren(lv.name, h('span', { class: 'ages' }, lv.ages));
-    levelBtn.setAttribute('aria-label', `Okuma seviyesi: ${lv.name}, ${lv.ages}`);
     prevBtn.disabled = index === 0;
     const last = index === book.pages.length - 1;
     nextBtn.setAttribute('aria-label', last ? 'Kitabı bitir' : 'Sonraki sayfa');
@@ -494,24 +490,6 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     );
   }
 
-  levelBtn.addEventListener('click', () => {
-    pause();
-    let close = () => {};
-    const opts = LEVELS.map((lv) => {
-      const b = h('button', { type: 'button', 'aria-pressed': String(lv.id === level) }, h('span', { class: 'n' }, lv.name), h('span', null, `${lv.ages}, ${lv.note.toLowerCase()}`));
-      b.addEventListener('click', () => {
-        level = lv.id as LevelId;
-        store.setSettings({ level });
-        renderText();
-        layout();
-        prepareStage(false);
-        close();
-      });
-      return b;
-    });
-    close = sheet('Okuma seviyesi', h('div', { class: 'level-menu' }, ...opts));
-  });
-
   settingsBtn.addEventListener('click', () => {
     pause();
     const s = store.settings;
@@ -540,6 +518,20 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
         layout();
       }),
     );
+    // the level was chosen on the welcome screen; a grown-up can still change it here
+    const levels = h(
+      'div',
+      { class: 'seg', role: 'group', 'aria-label': 'Okuma seviyesi' },
+      ...LEVELS.map((lv) =>
+        seg(lv.id === level, lv.name, () => {
+          level = lv.id as LevelId;
+          store.setSettings({ level, levelChosen: true });
+          renderText();
+          layout();
+          prepareStage(false);
+        }),
+      ),
+    );
     const calm = h('input', { type: 'checkbox', class: 'switch', checked: s.calm, 'aria-label': 'Sakin hareket' });
     calm.addEventListener('change', () => {
       store.setSettings({ calm: (calm as HTMLInputElement).checked });
@@ -559,6 +551,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     });
     sheet(
       'Ayarlar',
+      h('div', { class: 'row' }, h('label', null, 'Okuma seviyesi', h('small', null, LEVELS.map((l) => `${l.name} ${l.ages}`).join(' · '))), levels),
       h('div', { class: 'row' }, h('label', null, 'Okuma hızı', h('small', null, 'Yavaştan hızlıya')), rate),
       h('div', { class: 'row' }, h('label', null, 'Yazı boyutu'), size),
       h('div', { class: 'row' }, h('label', null, 'Arka plan müziği', h('small', null, 'Okurken sakin müzik')), music),

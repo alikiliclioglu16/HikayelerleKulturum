@@ -362,29 +362,9 @@ export function anne(p: Pen, x: number, y: number, h: number, extra: Partial<Per
     x, y, h, skin: '#EFC09C', hair: '#3B2418', style: 'shoulder', top: '#3E8E4E', dress: true, ...extra,
   });
 }
-export function baba(p: Pen, x: number, y: number, h: number, extra: Partial<PersonOpts> = {}) {
-  return person(p, {
-    x, y, h, skin: '#D9A47F', hair: '#2B1D14', style: 'short', top: '#8DB7E8', bottom: '#4A4F5C', mustache: '#2B1D14', ...extra,
-  });
-}
-export function babaanne(p: Pen, x: number, y: number, h: number, extra: Partial<PersonOpts> = {}) {
-  return person(p, {
-    x, y, h, skin: '#EBC1A0', hair: '#7B4FA0', style: 'scarf', scarfDots: '#ffffff', top: '#C0504D', dress: true, glasses: true, ...extra,
-  });
-}
 export function dede(p: Pen, x: number, y: number, h: number, extra: Partial<PersonOpts> = {}) {
   return person(p, {
     x, y, h, skin: '#E2AE8A', hair: '#E9E6E1', style: 'grandpa', cap: '#6B6B6B', mustache: '#F2F0EC', top: '#8A6A4C', bottom: '#4A4F5C', ...extra,
-  });
-}
-export function ayse(p: Pen, x: number, y: number, h: number, extra: Partial<PersonOpts> = {}) {
-  return person(p, {
-    x, y, h, skin: '#F0C8A8', hair: '#B9B6B0', style: 'bun', glasses: true, top: '#8E5BB5', dress: true, ...extra,
-  });
-}
-export function maya(p: Pen, x: number, y: number, h: number, extra: Partial<PersonOpts> = {}) {
-  return person(p, {
-    x, y, h, child: true, skin: '#8D5A3B', hair: '#1C1410', style: 'curly', top: '#F2B33D', bottom: '#3B5C99', ...extra,
   });
 }
 
@@ -667,6 +647,7 @@ export function hoca(p: Pen, x: number, y: number, h: number, extra: Partial<Per
   }
   return pt;
 }
+
 
 /** A copper cauldron (kazan) with two handles. */
 export function kazan(p: Pen, x: number, y: number, w: number, color = '#C8743F') {

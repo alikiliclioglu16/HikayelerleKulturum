@@ -1,6 +1,6 @@
 import { Pen, rng, cutout } from './pen';
 import {
-  C, elif, can, anne, baba, babaanne, dede, ayse, maya, bunting, iznikTile, tulip, teaGlass, caydanlik,
+  C, elif, can, bunting, iznikTile, tulip, teaGlass, caydanlik,
   baklavaTray, lokumBox, candy, CANDY_COLORS, windowFrame, curtain, crescent, star, plant, clockTower, turkishFlag,
 } from './kit';
 import type { Hotspot, LayerSpec } from '../types';
@@ -69,6 +69,8 @@ function books(p: Pen, x: number, y: number) {
 /* Scenes                                                              */
 /* ------------------------------------------------------------------ */
 
+/* The rooms behind the 3D characters: a back wall and a few things in front. The family itself acts in 3D
+   (see book.json → cast), so no people are drawn here. */
 const SCENES: Record<string, ProcLayer[]> = {
   /* 1. Bedroom, Bayram morning */
   p1: [
@@ -107,68 +109,52 @@ const SCENES: Record<string, ProcLayer[]> = {
       },
     },
     {
-      ...MID,
-      draw: (p) => {
-        // headboard
-        p.shape(C.wood, (c) => {
-          c.moveTo(150, 470);
-          c.lineTo(150, 270);
-          c.quadraticCurveTo(500, 150, 850, 270);
-          c.lineTo(850, 470);
-          c.closePath();
-        });
-        p.shape(C.woodDark, (c) => {
-          c.moveTo(190, 470);
-          c.lineTo(190, 290);
-          c.quadraticCurveTo(500, 200, 810, 290);
-          c.lineTo(810, 470);
-          c.closePath();
-        });
-        p.ellipse(300, 425, 120, 55, '#ffffff');
-        elif(p, 470, 610, 400, { top: '#9ED9D4', dress: false, bottom: '#9ED9D4', arms: 'up', mouth: 'open', noLegs: true });
-        // blanket
-        p.rect(110, 470, 780, 170, C.cobalt, 26);
-        p.rect(110, 470, 780, 34, '#ffffff', 16);
-        for (let i = 0; i < 6; i++) tulip(p, 200 + i * 125, 625, 90, i % 2 ? C.saffron : '#ffffff');
-        p.hot('yatak', 110, 170, 780, 470);
-      },
+    z: 0.22,
+    w: 0.22,
+    h: 0.2,
+    x: -0.4,
+    draw: (p) => {
+      // bedside table with the alarm clock
+      p.rect(80, p.H - 380, 840, 380, C.wood, 30);
+      p.rect(140, p.H - 300, 720, 110, C.woodDark, 16);
+      p.circle(500, p.H - 245, 18, C.saffron);
+      const cx = 500;
+      const cy = p.H - 560;
+      p.circle(cx - 90, cy - 110, 46, C.saffron);
+      p.circle(cx + 90, cy - 110, 46, C.saffron);
+      p.circle(cx, cy, 150, C.red);
+      p.circle(cx, cy, 112, '#ffffff');
+      p.line([cx, cy, cx, cy - 80], C.ink, 14);
+      p.line([cx, cy, cx + 60, cy + 18], C.ink, 14);
+      p.line([cx - 110, cy + 130, cx - 140, cy + 175], C.red, 20);
+      p.line([cx + 110, cy + 130, cx + 140, cy + 175], C.red, 20);
+      p.hot('saat', cx - 160, cy - 170, 320, 330);
     },
+  },
     {
-      ...FRONT,
-      draw: (p) => {
-        // nightstand + alarm clock
-        p.rect(60, 140, 230, 170, C.wood, 14);
-        p.rect(80, 170, 190, 50, C.woodDark, 8);
-        p.circle(175, 195, 9, C.saffron);
-        p.circle(140, 40, 22, C.saffron);
-        p.circle(210, 40, 22, C.saffron);
-        p.circle(175, 85, 56, C.red);
-        p.circle(175, 85, 42, '#ffffff');
-        p.line([175, 85, 175, 55], C.ink, 6);
-        p.line([175, 85, 198, 92], C.ink, 6);
-        p.line([135, 137, 125, 150], C.red, 8);
-        p.line([215, 137, 225, 150], C.red, 8);
-        p.hot('saat', 110, 15, 130, 135);
-        // chair with the Bayram dress
-        p.rect(420, 40, 22, 270, C.woodDark, 8);
-        p.rect(600, 40, 22, 270, C.woodDark, 8);
-        p.rect(420, 40, 202, 30, C.wood, 10);
-        p.rect(420, 200, 202, 24, C.wood, 10);
-        p.shape('#3F6FD1', (c) => {
-          c.moveTo(455, 60);
-          c.lineTo(585, 60);
-          c.lineTo(620, 250);
-          c.quadraticCurveTo(520, 270, 420, 250);
-          c.closePath();
-        });
-        p.rect(470, 120, 100, 14, 'rgba(255,255,255,0.6)', 7);
-        p.hot('bayramlık', 410, 30, 225, 285);
-        // slippers
-        p.ellipse(745, 290, 55, 20, '#F28DB2');
-        p.ellipse(830, 290, 55, 20, '#F28DB2');
-        plant(p, 900, 300, 210, C.cobalt);
-      },
+    z: 0.86,
+    w: 0.94,
+    h: 0.3,
+    draw: (p) => {
+      // chair with the Bayram dress, slippers and a plant, all on the right so Elif stays in view
+      p.rect(640, 40, 22, 270, C.woodDark, 8);
+      p.rect(820, 40, 22, 270, C.woodDark, 8);
+      p.rect(640, 40, 202, 30, C.wood, 10);
+      p.rect(640, 200, 202, 24, C.wood, 10);
+      p.shape('#3F6FD1', (c) => {
+        c.moveTo(675, 60);
+        c.lineTo(805, 60);
+        c.lineTo(840, 250);
+        c.quadraticCurveTo(740, 270, 640, 250);
+        c.closePath();
+      });
+      p.rect(690, 120, 100, 14, 'rgba(255,255,255,0.6)', 7);
+      p.hot('bayramlık', 630, 30, 225, 285);
+      p.ellipse(470, 292, 50, 18, '#F28DB2');
+      p.ellipse(560, 292, 50, 18, '#F28DB2');
+      plant(p, 940, 300, 190, C.cobalt);
     },
+  },
   ],
 
   /* 2. Getting dressed */
@@ -191,25 +177,6 @@ const SCENES: Record<string, ProcLayer[]> = {
         p.circle(750, 540, 10, C.saffron);
         p.circle(790, 540, 10, C.saffron);
         p.rect(14, p.H - 60, 972, 46, '#9FCFC9');
-      },
-    },
-    {
-      ...MID,
-      draw: (p) => {
-        const e = elif(p, 360, 640, 450, { arms: 'forward', mouth: 'smile' });
-        p.hot('elbise', 270, e.bodyTop - 10, 190, 640 - e.bodyTop - 70);
-        const k = can(p, 640, 640, 360, { bow: undefined, mouth: 'grin' });
-        p.hot('bayramlık', 640 - 70, k.bodyTop, 140, 640 - k.bodyTop - 20);
-        // crooked bow tie
-        const by = k.bodyTop + k.headR * 0.15;
-        p.save();
-        p.translate(640, by);
-        p.rotate(0.45);
-        p.poly([0, 0, -26, -13, -26, 15], C.red);
-        p.poly([0, 0, 26, -15, 26, 13], C.red);
-        p.circle(0, 0, 7, C.red);
-        p.restore();
-        p.hot('papyon', 600, by - 35, 80, 70);
       },
     },
     {
@@ -266,30 +233,6 @@ const SCENES: Record<string, ProcLayer[]> = {
       },
     },
     {
-      ...MID,
-      draw: (p) => {
-        const a = anne(p, 170, 640, 540, { arms: 'hold', apron: '#F7F2E6', mouth: 'smile' });
-        const ty = (a.handL[1] + a.handR[1]) / 2;
-        baklavaTray(p, 170, ty, 230);
-        p.hot('baklava', 45, ty - 70, 250, 130);
-        const b = baba(p, 420, 640, 570, { arms: 'hold' });
-        const by = (b.handL[1] + b.handR[1]) / 2;
-        p.ellipse(420, by + 6, 120, 22, '#C9CED6');
-        teaGlass(p, 370, by, 62);
-        teaGlass(p, 420, by - 4, 62);
-        teaGlass(p, 470, by, 62);
-        p.hot('çay', 300, by - 80, 240, 110);
-        const e = elif(p, 650, 640, 400, { arms: 'hold' });
-        const ey = (e.handL[1] + e.handR[1]) / 2;
-        for (let i = 0; i < 3; i++) p.ellipse(650, ey - i * 10, 70, 16, i === 2 ? '#ffffff' : '#E6EEF5');
-        p.ellipse(650, ey - 20, 48, 9, C.cobalt);
-        const k = can(p, 860, 640, 340, { arms: 'hold', mouth: 'grin' });
-        const ky = (k.handL[1] + k.handR[1]) / 2 + 30;
-        lokumBox(p, 860, ky, 120, false);
-        p.hot('lokum', 790, ky - 70, 140, 80);
-      },
-    },
-    {
       ...FRONT,
       draw: (p) => {
         p.rect(20, 110, 960, 200, '#ffffff', 16);
@@ -336,48 +279,18 @@ const SCENES: Record<string, ProcLayer[]> = {
       },
     },
     {
-      ...MID,
-      draw: (p) => {
-        // sofa back
-        p.rect(40, 300, 640, 230, C.turq, 50);
-        p.rect(20, 380, 90, 220, '#178C88', 40);
-        p.rect(610, 380, 90, 220, '#178C88', 40);
-        elif(p, 250, 600, 400, { arms: 'wave', mouth: 'open', sitting: true });
-        can(p, 470, 600, 340, { arms: 'wave', mouth: 'grin', sitting: true });
-        p.rect(60, 520, 600, 110, '#1A9894', 30);
-        p.rect(80, 600, 30, 40, C.woodDark, 6);
-        p.rect(610, 600, 30, 40, C.woodDark, 6);
-      },
+    ...MID,
+    draw: (p) => {
+      // the sofa, empty: the children stand in front of it for the video call
+      p.rect(40, 300, 640, 230, C.turq, 50);
+      p.rect(20, 380, 90, 220, '#178C88', 40);
+      p.rect(610, 380, 90, 220, '#178C88', 40);
+      p.rect(60, 520, 600, 110, '#1A9894', 30);
+      p.rect(80, 600, 30, 40, C.woodDark, 6);
+      p.rect(610, 600, 30, 40, C.woodDark, 6);
+      p.hot('kanepe', 20, 300, 680, 340);
     },
-    {
-      z: 0.8,
-      w: 0.56,
-      h: 0.5,
-      x: 0.2,
-      draw: (p) => {
-        // stand
-        p.poly([430, 760, 570, 760, 620, p.H - 16, 380, p.H - 16], '#5A6070');
-        // tablet
-        p.rect(30, 40, 940, 720, '#2B2F3A', 56);
-        p.save();
-        p.c.beginPath();
-        p.c.roundRect(70, 80, 860, 640, 26);
-        p.c.clip();
-        sky(p, '#7EC4EE', '#D6EEF9', 70, 80, 860, 640);
-        p.rect(70, 470, 860, 250, '#3D7FC1');
-        for (let i = 0; i < 6; i++) p.line([120 + i * 140, 520 + (i % 2) * 30, 180 + i * 140, 520 + (i % 2) * 30], 'rgba(255,255,255,0.6)', 6);
-        clockTower(p, 760, 540, 380);
-        p.hot('Saat Kulesi', 680, 140, 165, 410);
-        babaanne(p, 270, 860, 560, { arms: 'wave', mouth: 'open' });
-        p.hot('babaanne', 160, 300, 220, 420);
-        dede(p, 500, 860, 600, { arms: 'down', mouth: 'grin' });
-        p.hot('dede', 400, 260, 200, 460);
-        p.restore();
-        p.circle(500, 680, 30, '#E0443A');
-        p.rect(486, 676, 28, 8, '#ffffff', 4);
-        p.hot('tablet', 30, 40, 940, 720);
-      },
-    },
+  },
   ],
 
   /* 5. Kissing Aunt Ayşe's hand at the door */
@@ -420,21 +333,6 @@ const SCENES: Record<string, ProcLayer[]> = {
       },
     },
     {
-      ...MID,
-      draw: (p) => {
-        const a = ayse(p, 330, 640, 560, { arms: 'offer', mouth: 'smile' });
-        // envelope with pocket money in the other hand
-        p.rect(a.handL[0] - 34, a.handL[1] - 18, 70, 46, '#F2F7EF', 6);
-        p.poly([a.handL[0] - 34, a.handL[1] - 18, a.handL[0] + 36, a.handL[1] - 18, a.handL[0] + 1, a.handL[1] + 8], '#D9EAD3');
-        p.rect(a.handL[0] - 10, a.handL[1] - 32, 34, 22, '#7FC46A', 3);
-        p.hot('harçlık', a.handL[0] - 50, a.handL[1] - 50, 100, 90);
-        p.hot('teyze', 230, 90, 200, 540);
-        const e = elif(p, 610, 640, 400, { arms: 'kiss', lean: -0.18, mouth: 'smile' });
-        p.circle(a.handR[0] + 6, a.handR[1] - 4, 18, '#F0C8A8');
-        p.hot('el öpmek', Math.min(a.handR[0], e.headX) - 70, e.headY - 70, 190, 170);
-      },
-    },
-    {
       ...FRONT,
       draw: (p) => {
         p.rect(60, 250, 520, 50, '#B85C3C', 12);
@@ -467,23 +365,6 @@ const SCENES: Record<string, ProcLayer[]> = {
         p.rect(158, 278, 164, 194, '#FFF6EE');
         tulip(p, 240, 455, 160);
         p.rect(14, p.H - 60, 972, 46, '#F0C9C4');
-      },
-    },
-    {
-      ...MID,
-      draw: (p) => {
-        const k = can(p, 330, 640, 380, { arms: 'hug', mouth: 'open' });
-        const by = k.chestY + 40;
-        for (let i = 0; i < 9; i++) candy(p, 270 + (i % 5) * 30, by - 30 - Math.floor(i / 5) * 18, 15, CANDY_COLORS[i % 6], i);
-        p.shape('#ffffff', (c) => {
-          c.moveTo(240, by - 30);
-          c.lineTo(420, by - 30);
-          c.quadraticCurveTo(410, by + 50, 330, by + 52);
-          c.quadraticCurveTo(250, by + 50, 240, by - 30);
-        });
-        for (let i = 0; i < 5; i++) p.circle(262 + i * 34, by + 2, 8, C.cobalt);
-        p.hot('kâse', 225, by - 65, 210, 125);
-        elif(p, 650, 640, 420, { arms: 'offer', mouth: 'grin' });
       },
     },
     {
@@ -539,16 +420,6 @@ const SCENES: Record<string, ProcLayer[]> = {
       },
     },
     {
-      ...MID,
-      draw: (p) => {
-        maya(p, 320, 640, 400, { arms: 'wave', mouth: 'open' });
-        p.hot('arkadaş', 220, 210, 200, 430);
-        const e = elif(p, 620, 640, 410, { arms: 'offer', mouth: 'smile' });
-        lokumBox(p, e.handR[0] + 30, e.handR[1] + 10, 130, true);
-        p.hot('lokum', e.handR[0] - 50, e.handR[1] - 60, 170, 85);
-      },
-    },
-    {
       ...FRONT,
       draw: (p) => {
         p.rect(30, 230, 940, 80, '#7A4F35', 20);
@@ -562,151 +433,6 @@ const SCENES: Record<string, ProcLayer[]> = {
   /* 8. Evening, crescent moon */
   p8: [
     {
-      ...BACK,
-      draw: (p) => {
-        p.arch(14, 14, 972, p.H - 28, grad(p, 14, p.H, [[0, '#0E1C46'], [1, '#2B3F7E']]) as unknown as string);
-        const r = rng(8);
-        for (let i = 0; i < 60; i++) p.circle(60 + r() * 880, 80 + r() * 520, 2 + r() * 3, 'rgba(255,255,255,0.85)');
-        crescent(p, 700, 220, 75, '#FFE7A3', '#16275A');
-        p.hot('hilal', 610, 130, 170, 180);
-        star(p, 290, 210, 40, '#FFE7A3');
-        p.hot('yıldız', 240, 160, 100, 100);
-        // rooftops
-        p.shape('#15214D', (c) => {
-          c.moveTo(14, p.H - 14);
-          c.lineTo(14, 700);
-          c.lineTo(120, 640);
-          c.lineTo(230, 700);
-          c.lineTo(230, 620);
-          c.lineTo(330, 560);
-          c.lineTo(430, 620);
-          c.lineTo(430, 690);
-          c.lineTo(560, 630);
-          c.lineTo(690, 690);
-          c.lineTo(690, 600);
-          c.lineTo(800, 540);
-          c.lineTo(910, 600);
-          c.lineTo(986, 640);
-          c.lineTo(986, p.H - 14);
-          c.closePath();
-        });
-        [[90, 720], [300, 650], [360, 650], [520, 700], [760, 620], [840, 620], [620, 730]].forEach(([x, y]) => p.rect(x, y, 26, 30, '#FFD58A', 3));
-      },
-    },
-    {
-      ...MID,
-      draw: (p) => {
-        p.rect(60, 120, 880, p.H - 130, '#3B4F86', 20);
-        p.rect(170, 170, 660, 440, '#ffffff', 14);
-        p.rect(190, 190, 620, 400, grad(p, 190, 590, [[0, '#FFE3A6'], [1, '#FFC46B']]) as unknown as string, 6);
-        const sil = '#8A4E2B';
-        p.save();
-        p.c.beginPath();
-        p.c.rect(190, 190, 620, 400);
-        p.c.clip();
-        baba(p, 300, 760, 640, { skin: sil, hair: sil, top: sil, bottom: sil, mustache: sil });
-        anne(p, 480, 760, 600, { skin: sil, hair: sil, top: sil, arms: 'hug' });
-        elif(p, 630, 760, 470, { skin: sil, hair: sil, top: sil, ribbon: sil });
-        can(p, 740, 760, 400, { skin: sil, hair: sil, top: sil, bottom: sil, bow: sil });
-        p.restore();
-        p.rect(490, 190, 20, 400, '#ffffff');
-        p.hot('aile', 190, 190, 620, 400);
-      },
-    },
-    {
-      ...FRONT,
-      draw: (p) => {
-        p.rect(150, 200, 700, 100, '#7A4F35', 16);
-        p.rect(130, 190, 740, 24, '#5C3A26', 10);
-        [220, 320, 420, 580, 680, 780].forEach((x, i) => tulip(p, x, 205, 170, i % 2 ? C.saffron : C.red));
-        p.hot('lale', 150, 20, 700, 200);
-        // lantern
-        p.rect(470, 90, 60, 100, '#FFD58A', 10);
-        p.rect(462, 80, 76, 16, '#5C3A26', 6);
-        p.rect(462, 186, 76, 14, '#5C3A26', 6);
-        p.line([500, 80, 500, 50], '#5C3A26', 6);
-      },
-    },
-  ],
-};
-
-/* 1b. The bedroom for the 3D Elif: the back wall stays, the bed and Elif are 3D,
-   a bedside table on the left and the chair with the Bayram dress on the right. */
-SCENES.p1b = [
-  SCENES.p1[0],
-  {
-    z: 0.22,
-    w: 0.22,
-    h: 0.2,
-    x: -0.4,
-    draw: (p) => {
-      // bedside table with the alarm clock
-      p.rect(80, p.H - 380, 840, 380, C.wood, 30);
-      p.rect(140, p.H - 300, 720, 110, C.woodDark, 16);
-      p.circle(500, p.H - 245, 18, C.saffron);
-      const cx = 500;
-      const cy = p.H - 560;
-      p.circle(cx - 90, cy - 110, 46, C.saffron);
-      p.circle(cx + 90, cy - 110, 46, C.saffron);
-      p.circle(cx, cy, 150, C.red);
-      p.circle(cx, cy, 112, '#ffffff');
-      p.line([cx, cy, cx, cy - 80], C.ink, 14);
-      p.line([cx, cy, cx + 60, cy + 18], C.ink, 14);
-      p.line([cx - 110, cy + 130, cx - 140, cy + 175], C.red, 20);
-      p.line([cx + 110, cy + 130, cx + 140, cy + 175], C.red, 20);
-      p.hot('saat', cx - 160, cy - 170, 320, 330);
-    },
-  },
-  {
-    z: 0.86,
-    w: 0.94,
-    h: 0.3,
-    draw: (p) => {
-      // chair with the Bayram dress, slippers and a plant, all on the right so Elif stays in view
-      p.rect(640, 40, 22, 270, C.woodDark, 8);
-      p.rect(820, 40, 22, 270, C.woodDark, 8);
-      p.rect(640, 40, 202, 30, C.wood, 10);
-      p.rect(640, 200, 202, 24, C.wood, 10);
-      p.shape('#3F6FD1', (c) => {
-        c.moveTo(675, 60);
-        c.lineTo(805, 60);
-        c.lineTo(840, 250);
-        c.quadraticCurveTo(740, 270, 640, 250);
-        c.closePath();
-      });
-      p.rect(690, 120, 100, 14, 'rgba(255,255,255,0.6)', 7);
-      p.hot('bayramlık', 630, 30, 225, 285);
-      p.ellipse(470, 292, 50, 18, '#F28DB2');
-      p.ellipse(560, 292, 50, 18, '#F28DB2');
-      plant(p, 940, 300, 190, C.cobalt);
-    },
-  },
-];
-
-/* The same rooms without the drawn people: the family acts in 3D (see book.json → cast). */
-SCENES.p2b = [SCENES.p2[0], SCENES.p2[2]];
-SCENES.p3b = [SCENES.p3[0], SCENES.p3[2]];
-SCENES.p4b = [
-  SCENES.p4[0],
-  {
-    ...MID,
-    draw: (p) => {
-      // the sofa, empty: the children stand in front of it for the video call
-      p.rect(40, 300, 640, 230, C.turq, 50);
-      p.rect(20, 380, 90, 220, '#178C88', 40);
-      p.rect(610, 380, 90, 220, '#178C88', 40);
-      p.rect(60, 520, 600, 110, '#1A9894', 30);
-      p.rect(80, 600, 30, 40, C.woodDark, 6);
-      p.rect(610, 600, 30, 40, C.woodDark, 6);
-      p.hot('kanepe', 20, 300, 680, 340);
-    },
-  },
-];
-SCENES.p5b = [SCENES.p5[0], SCENES.p5[2]];
-SCENES.p6b = [SCENES.p6[0], SCENES.p6[2]];
-SCENES.p7b = [SCENES.p7[0], SCENES.p7[2]];
-SCENES.p8b = [
-  {
     ...BACK,
     draw: (p) => {
       // the living room at night, a big window with the crescent moon over the rooftops
@@ -755,7 +481,8 @@ SCENES.p8b = [
       p.rect(14, p.H - 120, 972, 106, '#C9A27A');
     },
   },
-];
+  ],
+};
 
 export function sceneLayers(sceneId: string): ProcLayer[] {
   return SCENES[sceneId] ?? KAZAN_SCENES[sceneId] ?? KELOGLAN_SCENES[sceneId] ?? [];
