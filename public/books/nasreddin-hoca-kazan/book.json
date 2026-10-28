@@ -14,6 +14,11 @@
     "adalet",
     "durustluk"
   ],
+  "kazanim": "İşine gelene de gelmeyene de aynı ölçüyle bakmanın adalet olduğunu fark eder; hatasını dürüstçe söyleyip özür diler.",
+  "music": {
+    "src": "/books/nasreddin-hoca-kazan/muzik.mp3",
+    "loop": 46.17
+  },
   "pages": [
     {
       "id": "p1",
@@ -23,18 +28,8 @@
         "en": "Grandpa's funny story"
       },
       "text": {
-        "1": {
-          "tr": "Akşam oldu. {Dede|dede} bir {fıkra} anlatıyor. Elif ile Can dinliyor.",
-          "en": "It is evening. Grandpa is telling a funny story. Elif and Can are listening."
-        },
-        "2": {
-          "tr": "{Dede|dede} yaz için İzmir'den gelmişti. Akşam {çaylar|çay} demlendi. Dede, 'Size bir {Nasreddin Hoca} {fıkrası|fıkra} anlatayım mı?' dedi. Elif ile Can hemen {sedire|sedir} oturdu.",
-          "en": "Grandpa had come from İzmir for the summer. In the evening the tea was brewed. \"Shall I tell you a Nasreddin Hodja story?\" Grandpa asked. Elif and Can sat down on the divan right away."
-        },
-        "3": {
-          "tr": "{Dede|dede} bu yaz İzmir'den, Amerika'daki torunlarını görmeye gelmişti. Akşam {çaydanlık} fokurdarken Dede eski kitabını açtı: 'Size bir {Nasreddin Hoca} {fıkrası|fıkra} anlatayım. Hem güleceksiniz hem düşüneceksiniz.' Elif ile Can {sedire|sedir} kurulup dinlemeye başladı.",
-          "en": "This summer Grandpa had come from İzmir to visit his grandchildren in America. While the teapot bubbled in the evening, Grandpa opened his old book: \"Let me tell you a Nasreddin Hodja story. You will laugh, and you will think.\" Elif and Can settled on the divan and began to listen."
-        }
+        "tr": "{Dede|dede} bu yaz İzmir'den, Amerika'daki torunlarını görmeye gelmişti. Akşam {çaydanlık} fokurdarken Dede eski kitabını açtı: 'Size bir {Nasreddin Hoca} {fıkrası|fıkra} anlatayım. Hem güleceksiniz hem düşüneceksiniz.' Elif ile Can {sedire|sedir} kurulup dinlemeye başladı.",
+        "en": "This summer Grandpa had come from İzmir to visit his grandchildren in America. While the teapot bubbled in the evening, Grandpa opened his old book: \"Let me tell you a Nasreddin Hodja story. You will laugh, and you will think.\" Elif and Can settled on the divan and began to listen."
       },
       "culture": {
         "tr": "Nasreddin Hoca, yedi yüz yıldan uzun zaman önce Anadolu'da yaşamış, bilge ve şakacı bir halk kahramanıdır. Onun hem güldüren hem düşündüren kısa hikâyelerine fıkra denir. 2022'de UNESCO, Nasreddin Hoca fıkralarını anlatma geleneğini insanlığın somut olmayan kültürel mirası listesine aldı.",
@@ -228,7 +223,8 @@
           "do": "nod",
           "look": "dede"
         }
-      ]
+      ],
+      "ambience": "crickets"
     },
     {
       "id": "p2",
@@ -238,18 +234,8 @@
         "en": "A big pot is needed"
       },
       "text": {
-        "1": {
-          "tr": "Hoca'nın evine {misafir} gelecek. Hoca'nın büyük bir {kazanı|kazan} yok.",
-          "en": "Guests are coming to the Hodja's house. The Hodja does not have a big pot."
-        },
-        "2": {
-          "tr": "Çok eskiden {Akşehir}'de Nasreddin Hoca yaşarmış. Bir gün evine çok {misafir} gelecekmiş. Pilav pişirmek için büyük bir {kazan} lazımmış. Hoca da {komşusunun|komşu} {kapısını|kapı} çalmış.",
-          "en": "Long ago, Nasreddin Hodja lived in Akşehir. One day many guests were coming to his house. He needed a big pot to cook rice. So the Hodja knocked on his neighbour's door."
-        },
-        "3": {
-          "tr": "Çok eskiden {Akşehir} diye bir kasabada Nasreddin Hoca yaşarmış. Bir gün Hoca'nın evine uzak köylerden {misafirler|misafir} gelecekmiş. Herkese yetecek kadar pilav pişirmek için kocaman bir {kazan} gerekiyormuş. Hoca'nın kazanı ise küçükmüş. Hoca sarığını düzeltmiş ve {komşusunun|komşu} {kapısını|kapı} çalmış.",
-          "en": "Long ago, in a town called Akşehir, there lived Nasreddin Hodja. One day guests from faraway villages were coming to his house. To cook enough rice for everyone he needed a huge pot, but his own pot was small. The Hodja straightened his turban and knocked on his neighbour's door."
-        }
+        "tr": "Çok eskiden {Akşehir} diye bir kasabada Nasreddin Hoca yaşarmış. Bir gün Hoca'nın evine uzak köylerden {misafirler|misafir} gelecekmiş. Herkese yetecek kadar pilav pişirmek için kocaman bir {kazan} gerekiyormuş. Hoca'nın kazanı ise küçükmüş. Hoca sarığını düzeltmiş ve {komşusunun|komşu} {kapısını|kapı} çalmış.",
+        "en": "Long ago, in a town called Akşehir, there lived Nasreddin Hodja. One day guests from faraway villages were coming to his house. To cook enough rice for everyone he needed a huge pot, but his own pot was small. The Hodja straightened his turban and knocked on his neighbour's door."
       },
       "culture": {
         "tr": "Akşehir, Konya'da, Sultan Dağları'nın eteğinde bir ilçedir. Nasreddin Hoca hayatının büyük bölümünü burada geçirmiştir. Hoca'nın türbesi de Akşehir'dedir ve şehirde her yaz Nasreddin Hoca Şenliği yapılır.",
@@ -430,7 +416,8 @@
           "target": "kapi",
           "focus": true
         }
-      ]
+      ],
+      "ambience": "birds"
     },
     {
       "id": "p3",
@@ -440,18 +427,8 @@
         "en": "Here you are, Hodja!"
       },
       "text": {
-        "1": {
-          "tr": "{Komşu|komşu} kazanı verdi. 'Al Hocam!' dedi.",
-          "en": "The neighbour gave him the pot. \"Here you are, Hodja!\" he said."
-        },
-        "2": {
-          "tr": "{Komşusu|komşu} kapıyı açmış. 'Hoş geldin Hocam!' demiş. Hoca {kazanı|kazan} {ödünç} istemiş. Komşusu, 'Al, güle güle kullan,' diyerek kazanı vermiş.",
-          "en": "His neighbour opened the door. \"Welcome, Hodja!\" he said. The Hodja asked to borrow the pot. \"Here, use it in good health,\" said the neighbour, and gave him the pot."
-        },
-        "3": {
-          "tr": "{Komşusu|komşu} kapıyı açıp, 'Hoş geldin Hocam, buyur!' demiş. Hoca, 'Komşu, bana birkaç günlüğüne büyük {kazanını|kazan} {ödünç} verir misin?' diye sormuş. Komşusu hiç düşünmeden kazanı getirmiş: 'Al Hocam, güle güle kullan. Komşu komşunun külüne muhtaçtır!'",
-          "en": "His neighbour opened the door: \"Welcome, Hodja, come in!\" The Hodja asked, \"Neighbour, would you lend me your big pot for a few days?\" Without a second thought the neighbour brought the pot: \"Here you are, Hodja, use it in good health. Neighbours need each other, even for a handful of ashes!\""
-        }
+        "tr": "{Komşusu|komşu} kapıyı açıp, 'Hoş geldin Hocam, buyur!' demiş. Hoca, 'Komşu, bana birkaç günlüğüne büyük {kazanını|kazan} {ödünç} verir misin?' diye sormuş. Komşusu hiç düşünmeden kazanı getirmiş: 'Al Hocam, güle güle kullan. Komşu komşunun külüne muhtaçtır!'",
+        "en": "His neighbour opened the door: \"Welcome, Hodja, come in!\" The Hodja asked, \"Neighbour, would you lend me your big pot for a few days?\" Without a second thought the neighbour brought the pot: \"Here you are, Hodja, use it in good health. Neighbours need each other, even for a handful of ashes!\""
       },
       "culture": {
         "tr": "Türkçede 'Komşu komşunun külüne muhtaçtır' diye bir atasözü vardır: Komşular en küçük işte bile birbirine yardım eder. Bir de güzel bir gelenek vardır: Ödünç alınan kap boş geri verilmez, içine biraz yemek ya da tatlı konur.",
@@ -567,7 +544,8 @@
           "do": "bow",
           "look": "komsu"
         }
-      ]
+      ],
+      "ambience": "birds"
     },
     {
       "id": "p4",
@@ -577,18 +555,8 @@
         "en": "Your pot had a baby!"
       },
       "text": {
-        "1": {
-          "tr": "Hoca kazanı geri getirdi. İçinde küçük bir {tencere} var. 'Kazanınız {doğurdu|doğurmak}!' dedi.",
-          "en": "The Hodja brought the pot back. There is a little saucepan inside. \"Your pot had a baby!\" he said."
-        },
-        "2": {
-          "tr": "Birkaç gün sonra Hoca {kazanı|kazan} geri getirmiş. Kazanın içinde küçük bir {tencere} varmış. 'Müjde komşu, kazanın {doğurdu|doğurmak}!' demiş. Komşusu çok şaşırmış ama sevinçle tencereyi de almış.",
-          "en": "A few days later the Hodja brought the pot back. Inside it was a little saucepan. \"Good news, neighbour, your pot had a baby!\" he said. The neighbour was very surprised, but he happily took the saucepan too."
-        },
-        "3": {
-          "tr": "Birkaç gün sonra Hoca {kazanı|kazan} geri götürmüş. Komşu bakmış ki kazanın içinde minicik bir {tencere}! Hoca gülümseyerek, 'Müjde komşu, senin kazan bizde bir yavru {doğurdu|doğurmak}!' demiş. Komşu, 'Kazan doğurur mu hiç?' diyecekmiş ama tencereyi görünce sesini çıkarmamış. 'Hayırlı olsun Hocam!' diyerek ikisini de almış.",
-          "en": "A few days later the Hodja took the pot back. The neighbour looked, and inside the pot was a tiny saucepan! Smiling, the Hodja said, \"Good news, neighbour, your pot gave birth to a baby at our house!\" The neighbour was about to say, \"Can a pot have a baby?\" but when he saw the saucepan he kept quiet. \"May it bring luck, Hodja!\" he said, and took them both."
-        }
+        "tr": "Birkaç gün sonra Hoca {kazanı|kazan} geri götürmüş. Komşu bakmış ki kazanın içinde minicik bir {tencere}! Hoca gülümseyerek, 'Müjde komşu, senin kazan bizde bir yavru {doğurdu|doğurmak}!' demiş. Komşu, 'Kazan doğurur mu hiç?' diyecekmiş ama tencereyi görünce sesini çıkarmamış. 'Hayırlı olsun Hocam!' diyerek ikisini de almış.",
+        "en": "A few days later the Hodja took the pot back. The neighbour looked, and inside the pot was a tiny saucepan! Smiling, the Hodja said, \"Good news, neighbour, your pot gave birth to a baby at our house!\" The neighbour was about to say, \"Can a pot have a baby?\" but when he saw the saucepan he kept quiet. \"May it bring luck, Hodja!\" he said, and took them both."
       },
       "culture": {
         "tr": "'Müjde!' iyi bir haber verirken söylenir. Müjdeli haberi getirene küçük bir hediye vermek eski bir Türk geleneğidir; bu hediyeye 'müjdelik' ya da 'müjde parası' denir.",
@@ -741,7 +709,8 @@
           "look": "reader",
           "focus": true
         }
-      ]
+      ],
+      "ambience": "birds"
     },
     {
       "id": "p5",
@@ -751,18 +720,8 @@
         "en": "Maybe it will have another baby"
       },
       "text": {
-        "1": {
-          "tr": "Hoca yine {kazan} istedi. {Komşu|komşu} hemen verdi.",
-          "en": "The Hodja asked for the pot again. The neighbour gave it right away."
-        },
-        "2": {
-          "tr": "Bir hafta sonra Hoca yine {kazanı|kazan} istemiş. {Komşusu|komşu} bu kez hiç düşünmemiş. 'Belki yine doğurur,' diye sevinmiş ve kazanı hemen vermiş.",
-          "en": "A week later the Hodja asked for the pot again. This time the neighbour did not think at all. \"Maybe it will have another baby,\" he thought happily, and gave the pot at once."
-        },
-        "3": {
-          "tr": "Aradan bir hafta geçmiş. Hoca yine {komşusunun|komşu} kapısını çalmış: 'Komşu, {kazanı|kazan} bir daha verir misin?' Komşusu sevinçle koşmuş, kazanı getirmiş. İçinden, 'Ne güzel! Belki bu sefer de bir yavru getirir,' diye geçirmiş. Kazanın yavrusu, yani küçük {tencere}, kapının önünde duruyormuş.",
-          "en": "A week went by. The Hodja knocked on his neighbour's door again: \"Neighbour, would you lend me the pot once more?\" The neighbour ran happily and brought the pot. \"How nice!\" he thought. \"Maybe this time it will bring another baby.\" The pot's baby, the little saucepan, was standing by the door."
-        }
+        "tr": "Aradan bir hafta geçmiş. Hoca yine {komşusunun|komşu} kapısını çalmış: 'Komşu, {kazanı|kazan} bir daha verir misin?' Komşusu sevinçle koşmuş, kazanı getirmiş. İçinden, 'Ne güzel! Belki bu sefer de bir yavru getirir,' diye geçirmiş. Kazanın yavrusu, yani küçük {tencere}, kapının önünde duruyormuş.",
+        "en": "A week went by. The Hodja knocked on his neighbour's door again: \"Neighbour, would you lend me the pot once more?\" The neighbour ran happily and brought the pot. \"How nice!\" he thought. \"Maybe this time it will bring another baby.\" The pot's baby, the little saucepan, was standing by the door."
       },
       "models": [
         {
@@ -909,7 +868,8 @@
           "len": 1.8,
           "optional": true
         }
-      ]
+      ],
+      "ambience": "birds"
     },
     {
       "id": "p6",
@@ -919,18 +879,8 @@
         "en": "Your pot has died"
       },
       "text": {
-        "1": {
-          "tr": "Kazan geri gelmedi. {Komşu|komşu} Hoca'ya gitti. Hoca, 'Kazanınız {öldü|ölmek},' dedi.",
-          "en": "The pot did not come back. The neighbour went to the Hodja. \"Your pot has died,\" said the Hodja."
-        },
-        "2": {
-          "tr": "Günler geçmiş, {kazan} geri gelmemiş. {Komşu|komşu} dayanamamış, Hoca'nın {kapısını|kapı} çalmış. Hoca üzgün bir yüzle, 'Başın sağ olsun komşu, kazanın {öldü|ölmek},' demiş. Komşu, 'Kazan ölür mü hiç?' diye bağırmış.",
-          "en": "Days went by and the pot did not come back. The neighbour could not wait any longer and knocked on the Hodja's door. With a sad face the Hodja said, \"I am so sorry, neighbour, your pot has died.\" \"Can a pot die?\" the neighbour shouted."
-        },
-        "3": {
-          "tr": "Günler, haftalar geçmiş ama {kazandan|kazan} ses çıkmamış. {Komşu|komşu} sonunda Hoca'nın {kapısına|kapı} gitmiş: 'Hocam, kazanım nerede?' Hoca başını eğip üzgün üzgün, 'Ah komşu, başın sağ olsun. Senin kazan dün gece {öldü|ölmek},' demiş. Komşu öfkeyle, 'Ne diyorsun Hocam? Hiç kazan ölür mü?' diye bağırmış.",
-          "en": "Days and weeks went by, but there was no sign of the pot. At last the neighbour went to the Hodja's door: \"Hodja, where is my pot?\" The Hodja lowered his head and said sadly, \"Oh neighbour, I am so sorry. Your pot died last night.\" The neighbour shouted angrily, \"What are you saying, Hodja? Can a pot ever die?\""
-        }
+        "tr": "Günler, haftalar geçmiş ama {kazandan|kazan} ses çıkmamış. {Komşu|komşu} sonunda Hoca'nın {kapısına|kapı} gitmiş: 'Hocam, kazanım nerede?' Hoca başını eğip üzgün üzgün, 'Ah komşu, başın sağ olsun. Senin kazan dün gece {öldü|ölmek},' demiş. Komşu öfkeyle, 'Ne diyorsun Hocam? Hiç kazan ölür mü?' diye bağırmış.",
+        "en": "Days and weeks went by, but there was no sign of the pot. At last the neighbour went to the Hodja's door: \"Hodja, where is my pot?\" The Hodja lowered his head and said sadly, \"Oh neighbour, I am so sorry. Your pot died last night.\" The neighbour shouted angrily, \"What are you saying, Hodja? Can a pot ever die?\""
       },
       "culture": {
         "tr": "'Başın sağ olsun' sözü, birini kaybeden kişiye üzüntümüzü göstermek için söylenir. Hoca bu sözü bir kazan için söyleyince fıkra daha da komik olur.",
@@ -1087,7 +1037,8 @@
           "focus": true,
           "len": 1.6
         }
-      ]
+      ],
+      "ambience": "crickets"
     },
     {
       "id": "p7",
@@ -1097,18 +1048,8 @@
         "en": "You believed it had a baby…"
       },
       "text": {
-        "1": {
-          "tr": "Hoca güldü: 'Doğurduğuna {inandın|inanmak}, öldüğüne neden inanmıyorsun?' Herkes güldü.",
-          "en": "The Hodja laughed: \"You believed it had a baby, so why don't you believe it died?\" Everyone laughed."
-        },
-        "2": {
-          "tr": "Hoca gülümsemiş: 'Komşu, kazanın doğurduğuna {inandın|inanmak} da öldüğüne neden inanmıyorsun?' Komşu bir an susmuş. Sonra o da gülmüş. {Pazardaki|pazar} herkes kahkahalarla gülmüş.",
-          "en": "The Hodja smiled: \"Neighbour, you believed your pot had a baby, so why don't you believe it died?\" The neighbour was silent for a moment. Then he laughed too. Everyone at the market burst out laughing."
-        },
-        "3": {
-          "tr": "Hoca sakalını sıvazlayıp gülümsemiş: 'Komşu, kazanının doğurduğuna {inandın|inanmak} da öldüğüne neden inanmıyorsun?' Komşu ağzını açmış ama söyleyecek söz bulamamış. İşine gelen habere hemen inandığını, işine gelmeyene ise karşı çıktığını anlamış. {Pazar|pazar} yerindeki herkes kahkahalarla gülmüş; en sonunda komşu da gülmeye başlamış.",
-          "en": "The Hodja stroked his beard and smiled: \"Neighbour, you believed your pot had a baby, so why don't you believe it died?\" The neighbour opened his mouth but could not find a word to say. He understood that he had believed the news that suited him at once, and argued against the news that did not. Everyone at the market burst out laughing, and in the end the neighbour began to laugh too."
-        }
+        "tr": "Hoca sakalını sıvazlayıp gülümsemiş: 'Komşu, kazanının doğurduğuna {inandın|inanmak} da öldüğüne neden inanmıyorsun?' Komşu ağzını açmış ama söyleyecek söz bulamamış. İşine gelen habere hemen inandığını, işine gelmeyene ise karşı çıktığını anlamış. {Pazar|pazar} yerindeki herkes kahkahalarla gülmüş; en sonunda komşu da gülmeye başlamış.",
+        "en": "The Hodja stroked his beard and smiled: \"Neighbour, you believed your pot had a baby, so why don't you believe it died?\" The neighbour opened his mouth but could not find a word to say. He understood that he had believed the news that suited him at once, and argued against the news that did not. Everyone at the market burst out laughing, and in the end the neighbour began to laugh too."
       },
       "culture": {
         "tr": "Fıkradaki 'Doğurduğuna inandın da öldüğüne neden inanmıyorsun?' sözü bugün de kullanılır. İşine geleni kabul edip gelmeyeni reddeden birine güler yüzle hatırlatma yapmak için söylenir.",
@@ -1345,7 +1286,8 @@
           "do": "nod",
           "look": "reader"
         }
-      ]
+      ],
+      "ambience": "birds"
     },
     {
       "id": "p8",
@@ -1355,18 +1297,8 @@
         "en": "Both sides of the scale"
       },
       "text": {
-        "1": {
-          "tr": "Can, Elif'in {boya kalemini|boya kalemi} kırmıştı. '{Özür dilerim|özür dilemek},' dedi. Can {dürüst} davrandı.",
-          "en": "Can had broken Elif's crayon. \"I'm sorry,\" he said. Can was honest."
-        },
-        "2": {
-          "tr": "Fıkra bitince Elif, 'Komşu işine geleni kabul etti, gelmeyeni etmedi,' dedi. Can kıpkırmızı oldu: 'Abla, dün senin {boya kalemini|boya kalemi} ben kırdım. {Özür dilerim|özür dilemek}.' Dede gülümsedi: 'Doğruyu söylemek cesaret ister. Aferin sana, çok {dürüst} davrandın!'",
-          "en": "When the story ended, Elif said, \"The neighbour accepted what suited him and refused what didn't.\" Can turned bright red: \"Sis, I broke your crayon yesterday. I'm sorry.\" Grandpa smiled: \"Telling the truth takes courage. Well done, you were very honest!\""
-        },
-        "3": {
-          "tr": "Fıkra bitince Elif düşündü: 'Komşu, işine gelen habere inandı, gelmeyene inanmadı. Bu hiç {adil} değil.' Dede başını salladı: '{Adalet|adalet}, terazinin iki kefesini eşit tutmaktır.' Can birden kıpkırmızı oldu: 'Abla, dün senin mavi {boya kalemini|boya kalemi} ben kırdım. Saklamak istedim ama… {Özür dilerim|özür dilemek}.' Elif kardeşine sarıldı. Dede, 'Doğruyu söylemek cesaret ister,' dedi. O akşam Can, {dürüst} olmanın insanın içini ne kadar rahatlattığını öğrendi.",
-          "en": "When the story ended, Elif thought: \"The neighbour believed the news that suited him and not the news that didn't. That's not fair at all.\" Grandpa nodded: \"Fairness means keeping both sides of the scale equal.\" Suddenly Can turned bright red: \"Sis, I broke your blue crayon yesterday. I wanted to hide it, but… I'm sorry.\" Elif hugged her little brother. \"Telling the truth takes courage,\" said Grandpa. That evening Can learned how much lighter you feel when you are honest."
-        }
+        "tr": "Fıkra bitince Elif düşündü: 'Komşu, işine gelen habere inandı, gelmeyene inanmadı. Bu hiç {adil} değil.' Dede başını salladı: '{Adalet|adalet}, terazinin iki kefesini eşit tutmaktır.' Can birden kıpkırmızı oldu: 'Abla, dün senin mavi {boya kalemini|boya kalemi} ben kırdım. Saklamak istedim ama… {Özür dilerim|özür dilemek}.' Elif kardeşine sarıldı. Dede, 'Doğruyu söylemek cesaret ister,' dedi. O akşam Can, {dürüst} olmanın insanın içini ne kadar rahatlattığını öğrendi.",
+        "en": "When the story ended, Elif thought: \"The neighbour believed the news that suited him and not the news that didn't. That's not fair at all.\" Grandpa nodded: \"Fairness means keeping both sides of the scale equal.\" Suddenly Can turned bright red: \"Sis, I broke your blue crayon yesterday. I wanted to hide it, but… I'm sorry.\" Elif hugged her little brother. \"Telling the truth takes courage,\" said Grandpa. That evening Can learned how much lighter you feel when you are honest."
       },
       "culture": {
         "tr": "Nasreddin Hoca fıkralarında Hoca'nın amacı çoğu zaman bir şey kazanmak değil, insanları güldürerek düşündürmektir. Bu fıkranın sonunda kazana ne oldu, bilinmez. Siz olsaydınız fıkrayı nasıl bitirirdiniz?",
@@ -1570,7 +1502,8 @@
           "do": "cheer",
           "look": "reader"
         }
-      ]
+      ],
+      "ambience": "crickets"
     }
   ],
   "glossary": {

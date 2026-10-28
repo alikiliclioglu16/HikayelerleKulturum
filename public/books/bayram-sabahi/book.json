@@ -16,6 +16,11 @@
     "adalet",
     "dostluk"
   ],
+  "kazanim": "Bayram geleneklerini tanır; büyüklerine saygıyla el öper, sevincini ailesi ve arkadaşlarıyla adil biçimde paylaşır.",
+  "music": {
+    "src": "/books/bayram-sabahi/muzik.mp3",
+    "loop": 62.4
+  },
   "pages": [
     {
       "id": "p1",
@@ -25,18 +30,8 @@
         "en": "Today is Bayram!"
       },
       "text": {
-        "1": {
-          "tr": "Günaydın! Bugün {bayram}. Elif çok {mutlu}.",
-          "en": "Good morning! Today is Bayram. Elif is very happy."
-        },
-        "2": {
-          "tr": "Elif {erken} uyandı. Pencereden {güneş} gülümsüyordu. Bugün Ramazan {Bayramı|bayram}! Elif {yatağından|yatak} fırladı.",
-          "en": "Elif woke up early. The sun was smiling through the window. Today is Ramadan Bayram! Elif jumped out of bed."
-        },
-        "3": {
-          "tr": "Elif o sabah herkesten {erken} uyandı. {Pencereden|pencere} süzülen {güneş}, odasını altın rengine boyamıştı. Mutfaktan tatlı bir {baklava} kokusu geliyordu. 'Bugün Ramazan {Bayramı|bayram}!' diye fısıldadı ve heyecanla {yatağından|yatak} fırladı.",
-          "en": "That morning Elif woke up before everyone else. Sunlight streaming through the window had painted her room gold. A sweet smell of baklava came from the kitchen. \"Today is Ramadan Bayram!\" she whispered, and jumped out of bed with excitement."
-        }
+        "tr": "Elif o sabah herkesten {erken} uyandı. {Pencereden|pencere} süzülen {güneş}, odasını altın rengine boyamıştı. Mutfaktan tatlı bir {baklava} kokusu geliyordu. 'Bugün Ramazan {Bayramı|bayram}!' diye fısıldadı ve heyecanla {yatağından|yatak} fırladı.",
+        "en": "That morning Elif woke up before everyone else. Sunlight streaming through the window had painted her room gold. A sweet smell of baklava came from the kitchen. \"Today is Ramadan Bayram!\" she whispered, and jumped out of bed with excitement."
       },
       "culture": {
         "tr": "Ramazan Bayramı, oruç tutulan Ramazan ayının ardından gelir ve üç gün sürer. Tatlılar ve şekerler ikram edildiği için ona Şeker Bayramı da denir.",
@@ -232,7 +227,8 @@
             }
           ]
         }
-      ]
+      ],
+      "ambience": "birds"
     },
     {
       "id": "p2",
@@ -242,18 +238,8 @@
         "en": "Bayram clothes"
       },
       "text": {
-        "1": {
-          "tr": "Elif yeni {bayramlığını|bayramlık} giydi. Can'ın {papyonu|papyon} yamuk. Elif ona yardım etti.",
-          "en": "Elif put on her new Bayram clothes. Can's bow tie is crooked. Elif helped him."
-        },
-        "2": {
-          "tr": "Bayram için yeni kıyafetler alınmıştı. Bunlara {bayramlık} denir. Elif mavi {elbisesini|elbise} giydi. Küçük kardeşi Can'ın {papyonu|papyon} yamuktu. Elif onu düzeltti.",
-          "en": "New clothes had been bought for Bayram. They are called bayramlık. Elif put on her blue dress. Her little brother Can's bow tie was crooked. Elif fixed it."
-        },
-        "3": {
-          "tr": "Annesi bayramdan önce iki kardeşe yeni kıyafetler almıştı. Bayram için alınan bu giysilere {bayramlık} denir. Elif mavi {elbisesini|elbise} giydi ve {aynada|ayna} kendine gülümsedi. Kardeşi Can ise {papyonunu|papyon} bir türlü bağlayamıyordu. Elif sabırla yardım etti: 'Bak, böyle daha yakışıklı oldun!'",
-          "en": "Before Bayram, their mother had bought the two siblings new clothes. Clothes bought for Bayram are called bayramlık. Elif put on her blue dress and smiled at herself in the mirror. Her brother Can just couldn't tie his bow tie. Elif patiently helped: \"Look, now you're even more handsome!\""
-        }
+        "tr": "Annesi bayramdan önce iki kardeşe yeni kıyafetler almıştı. Bayram için alınan bu giysilere {bayramlık} denir. Elif mavi {elbisesini|elbise} giydi ve {aynada|ayna} kendine gülümsedi. Kardeşi Can ise {papyonunu|papyon} bir türlü bağlayamıyordu. Elif sabırla yardım etti: 'Bak, böyle daha yakışıklı oldun!'",
+        "en": "Before Bayram, their mother had bought the two siblings new clothes. Clothes bought for Bayram are called bayramlık. Elif put on her blue dress and smiled at herself in the mirror. Her brother Can just couldn't tie his bow tie. Elif patiently helped: \"Look, now you're even more handsome!\""
       },
       "culture": {
         "tr": "Bayram sabahı giyilen yeni kıyafetlere bayramlık denir. Pek çok çocuk, bayramlığını bir gece önceden başucuna koyar ve sabahı sabırsızlıkla bekler.",
@@ -390,18 +376,8 @@
         "en": "The Bayram table"
       },
       "text": {
-        "1": {
-          "tr": "Anne {baklava} yaptı. Baba {çay} koydu. Elif {sofrayı|sofra} kurdu.",
-          "en": "Mom made baklava. Dad poured tea. Elif set the table."
-        },
-        "2": {
-          "tr": "Babası {bayram namazından|bayram namazı} döndü. Annesi fırından {baklava} çıkardı. Elif tabakları dizdi, Can da {lokum} kutusunu taşıdı. Herkesin bir görevi vardı.",
-          "en": "Dad came back from the Bayram prayer. Mom took the baklava out of the oven. Elif set out the plates, and Can carried the box of Turkish delight. Everyone had a job."
-        },
-        "3": {
-          "tr": "Babası {bayram namazından|bayram namazı} döndüğünde {sofra} neredeyse hazırdı. Annesi fırından altın renkli {baklava} tepsisini çıkardı. İnce belli bardaklarda {çay} buğulanıyordu. Elif tabakları dizdi, Can da {lokum} kutusunu iki eliyle dikkatle taşıdı. Bayram sofrası, herkes görevini yapınca kuruluyordu.",
-          "en": "By the time Dad came back from the Bayram prayer, the table was almost ready. Mom took the golden tray of baklava out of the oven. Tea steamed in tulip-shaped glasses. Elif set out the plates, and Can carefully carried the box of Turkish delight with both hands. A Bayram table comes together when everyone does their part."
-        }
+        "tr": "Babası {bayram namazından|bayram namazı} döndüğünde {sofra} neredeyse hazırdı. Annesi fırından altın renkli {baklava} tepsisini çıkardı. İnce belli bardaklarda {çay} buğulanıyordu. Elif tabakları dizdi, Can da {lokum} kutusunu iki eliyle dikkatle taşıdı. Bayram sofrası, herkes görevini yapınca kuruluyordu.",
+        "en": "By the time Dad came back from the Bayram prayer, the table was almost ready. Mom took the golden tray of baklava out of the oven. Tea steamed in tulip-shaped glasses. Elif set out the plates, and Can carefully carried the box of Turkish delight with both hands. A Bayram table comes together when everyone does their part."
       },
       "culture": {
         "tr": "Türkiye'de çay, ince belli bardaklarda içilir ve iki katlı bir çaydanlıkta demlenir. Misafire çay ikram etmek, 'Hoş geldin' demenin bir yoludur.",
@@ -585,18 +561,8 @@
         "en": "A Bayram call from far away"
       },
       "text": {
-        "1": {
-          "tr": "Elif'in {babaannesi|babaanne} ve {dedesi|dede} İzmir'de yaşıyor. Elif onları aradı: '{İyi bayramlar|iyi bayramlar}!'",
-          "en": "Grandma and Grandpa live in İzmir. Elif called them: \"Happy Bayram!\""
-        },
-        "2": {
-          "tr": "Elif'in {babaannesi|babaanne} ve {dedesi|dede} Türkiye'de, İzmir'de yaşıyor. Elif onları görüntülü aradı. '{Bayramınız kutlu olsun|bayramınız kutlu olsun}! {Ellerinizden öperim|ellerinizden öperim}!' dedi. Babaannesi çok sevindi.",
-          "en": "Elif's grandma and grandpa live in İzmir, Türkiye. Elif video-called them. \"Happy Bayram! I kiss your hands!\" she said. Grandma was so happy."
-        },
-        "3": {
-          "tr": "Elif'in {babaannesi|babaanne} ile {dedesi|dede} Türkiye'de, İzmir'de yaşıyordu. Aralarında koca bir okyanus vardı. Saatler bile farklıydı ama bayram sevgisi uzakları yakın ediyordu. Elif görüntülü aramada '{Bayramınız kutlu olsun|bayramınız kutlu olsun}, {ellerinizden öperim|ellerinizden öperim}!' dedi. Dedesi arkasındaki {Saat Kulesi'ni|Saat Kulesi} gösterip güldü: 'Burada öğleden sonra oldu bile!'",
-          "en": "Elif's grandma and grandpa lived in İzmir, Türkiye. A whole ocean lay between them. Even their clocks showed different times, but Bayram love brought faraway people close. On the video call Elif said, \"Happy Bayram, I kiss your hands!\" Grandpa pointed to the Clock Tower behind him and laughed: \"It's already afternoon here!\""
-        }
+        "tr": "Elif'in {babaannesi|babaanne} ile {dedesi|dede} Türkiye'de, İzmir'de yaşıyordu. Aralarında koca bir okyanus vardı. Saatler bile farklıydı ama bayram sevgisi uzakları yakın ediyordu. Elif görüntülü aramada '{Bayramınız kutlu olsun|bayramınız kutlu olsun}, {ellerinizden öperim|ellerinizden öperim}!' dedi. Dedesi arkasındaki {Saat Kulesi'ni|Saat Kulesi} gösterip güldü: 'Burada öğleden sonra oldu bile!'",
+        "en": "Elif's grandma and grandpa lived in İzmir, Türkiye. A whole ocean lay between them. Even their clocks showed different times, but Bayram love brought faraway people close. On the video call Elif said, \"Happy Bayram, I kiss your hands!\" Grandpa pointed to the Clock Tower behind him and laughed: \"It's already afternoon here!\""
       },
       "culture": {
         "tr": "Bayramda uzaktaki büyükler telefonla ya da görüntülü aranır. 'Ellerinizden öperim' demek, uzaktan el öpmek gibidir.",
@@ -781,18 +747,8 @@
         "en": "Kissing an elder's hand"
       },
       "text": {
-        "1": {
-          "tr": "Ayşe {Teyze|teyze} geldi. Elif onun {elini öptü|el öpmek}, {alnına|alın} koydu. Teyze ona {harçlık} verdi.",
-          "en": "Aunt Ayşe came. Elif kissed her hand and touched it to her forehead. Auntie gave her pocket money."
-        },
-        "2": {
-          "tr": "Komşuları Ayşe {Teyze|teyze} bayramlaşmaya geldi. Elif onun {elini öptü|el öpmek} ve {alnına|alın} koydu. Bu, büyüklere {saygı} göstermenin güzel bir yoludur. Ayşe Teyze ona {harçlık} verdi. Kapının önünde bir sokak {kedisi|kedi} de bayramı izliyordu.",
-          "en": "Their neighbor Aunt Ayşe came to celebrate Bayram. Elif kissed her hand and touched it to her forehead. This is a lovely way to show respect to elders. Aunt Ayşe gave her some pocket money. A street cat at the door was watching the Bayram fun too."
-        },
-        "3": {
-          "tr": "Kapı çaldı. Gelen, yan evde oturan Ayşe {Teyze'ydi|teyze}. Elif hemen onun {elini öptü|el öpmek} ve eli saygıyla {alnına|alın} değdirdi. Babası, el öpmenin büyüklere {saygı} ve sevgi göstermenin eski bir geleneği olduğunu anlatmıştı. Ayşe Teyze gülümseyerek Elif'in avucuna {harçlık} sıkıştırdı: '{Nice bayramlara|nice bayramlara}, güzel kızım!' Kapının önündeki sokak {kedisi|kedi} bile bu güzel anı izliyordu.",
-          "en": "The doorbell rang. It was Aunt Ayşe from next door. Elif quickly kissed her hand and gently touched it to her forehead. Dad had explained that kissing an elder's hand is an old tradition of showing respect and love. Smiling, Aunt Ayşe pressed some pocket money into Elif's palm: \"To many more Bayrams, my dear girl!\" Even the street cat by the door was watching this lovely moment."
-        }
+        "tr": "Kapı çaldı. Gelen, yan evde oturan Ayşe {Teyze'ydi|teyze}. Elif hemen onun {elini öptü|el öpmek} ve eli saygıyla {alnına|alın} değdirdi. Babası, el öpmenin büyüklere {saygı} ve sevgi göstermenin eski bir geleneği olduğunu anlatmıştı. Ayşe Teyze gülümseyerek Elif'in avucuna {harçlık} sıkıştırdı: '{Nice bayramlara|nice bayramlara}, güzel kızım!' Kapının önündeki sokak {kedisi|kedi} bile bu güzel anı izliyordu.",
+        "en": "The doorbell rang. It was Aunt Ayşe from next door. Elif quickly kissed her hand and gently touched it to her forehead. Dad had explained that kissing an elder's hand is an old tradition of showing respect and love. Smiling, Aunt Ayşe pressed some pocket money into Elif's palm: \"To many more Bayrams, my dear girl!\" Even the street cat by the door was watching this lovely moment."
       },
       "culture": {
         "tr": "El öpülürken büyüğün eli önce öpülür, sonra alına değdirilir. Büyükler de çocuklara şeker ya da harçlık verir. Eve girerken ayakkabılar kapının önünde çıkarılır. Türkiye'de, özellikle İstanbul'da, sokak kedileri mahallenin bir parçasıdır; komşular onlara su ve mama bırakır.",
@@ -955,18 +911,8 @@
         "en": "Sharing fairly"
       },
       "text": {
-        "1": {
-          "tr": "Can bütün şekerleri aldı. Elif, '{Paylaşalım|paylaşmak}' dedi. Herkese {eşit} şeker!",
-          "en": "Can took all the candy. Elif said, \"Let's share.\" Equal candy for everyone!"
-        },
-        "2": {
-          "tr": "Can, {bayram şekeri|bayram şekeri} dolu {kâseyi|kâse} kucakladı. 'Hepsi benim!' dedi. Elif güldü: 'Gel, {paylaşalım|paylaşmak}.' Şekerleri {eşit} olarak ayırdılar. Birkaçını da misafirler için sakladılar.",
-          "en": "Can hugged the bowl full of Bayram candy. \"They're all mine!\" he said. Elif laughed: \"Come on, let's share.\" They split the candy equally. They also saved a few for guests."
-        },
-        "3": {
-          "tr": "Can, {bayram şekeri|bayram şekeri} dolu {kâseyi|kâse} kucaklayıp 'Hepsi benim!' diye bağırdı. Elif kızmadı. Şekerleri masaya döküp tek tek saydı: 'Gel, {paylaşalım|paylaşmak}. Bir tane sana, bir tane bana.' Şekerler iki {eşit} yığına ayrıldı. En güzel ambalajlılar da kapıya gelecek misafirler için kenara kondu. Can, adil paylaşmanın hepsini almaktan daha güzel olduğunu fark etti.",
-          "en": "Can hugged the bowl full of Bayram candy and shouted, \"They're all mine!\" Elif didn't get angry. She poured the candy onto the table and counted it piece by piece: \"Come on, let's share. One for you, one for me.\" The candy was split into two equal piles. The prettiest-wrapped ones were set aside for guests who would come to the door. Can realized that sharing fairly felt better than taking it all."
-        }
+        "tr": "Can, {bayram şekeri|bayram şekeri} dolu {kâseyi|kâse} kucaklayıp 'Hepsi benim!' diye bağırdı. Elif kızmadı. Şekerleri masaya döküp tek tek saydı: 'Gel, {paylaşalım|paylaşmak}. Bir tane sana, bir tane bana.' Şekerler iki {eşit} yığına ayrıldı. En güzel ambalajlılar da kapıya gelecek misafirler için kenara kondu. Can, adil paylaşmanın hepsini almaktan daha güzel olduğunu fark etti.",
+        "en": "Can hugged the bowl full of Bayram candy and shouted, \"They're all mine!\" Elif didn't get angry. She poured the candy onto the table and counted it piece by piece: \"Come on, let's share. One for you, one for me.\" The candy was split into two equal piles. The prettiest-wrapped ones were set aside for guests who would come to the door. Can realized that sharing fairly felt better than taking it all."
       },
       "culture": {
         "tr": "Bayramda kapı kapı dolaşan çocuklara şeker ikram edilir. Bu yüzden evlerde bayram şekeri hep hazır bekler.",
@@ -1117,18 +1063,8 @@
         "en": "Bayram with Maya"
       },
       "text": {
-        "1": {
-          "tr": "Elif'in {arkadaşı|arkadaş} Maya geldi. Elif ona {lokum} verdi. Maya, '{İyi bayramlar|iyi bayramlar}!' dedi.",
-          "en": "Elif's friend Maya came over. Elif gave her Turkish delight. Maya said, \"Happy Bayram!\""
-        },
-        "2": {
-          "tr": "Okuldan {arkadaşı|arkadaş} Maya, Elif'i görmeye geldi. Maya bayramı hiç bilmiyordu. Elif ona {lokum} {ikram etti|ikram etmek} ve bayramı anlattı. Maya ilk Türkçe sözünü söyledi: '{İyi bayramlar|iyi bayramlar}!' Maya'nın {köpeği|köpek} Pamuk da kuyruğunu salladı.",
-          "en": "Her school friend Maya came to see Elif. Maya didn't know anything about Bayram. Elif offered her Turkish delight and told her about Bayram. Maya said her very first Turkish words: \"Happy Bayram!\" Maya's dog Pamuk wagged her tail, too."
-        },
-        "3": {
-          "tr": "Öğleden sonra okuldan {arkadaşı|arkadaş} Maya kapıda belirdi. Maya bayramı ilk kez duyuyordu. Elif ona bayramın ne olduğunu iki dilde, hem İngilizce hem Türkçe anlattı. Sonra pudra şekerli {lokum} {ikram etti|ikram etmek}. Maya lokumun tadına bayıldı ve Elif'in öğrettiği ilk Türkçe sözü gururla söyledi: '{İyi bayramlar|iyi bayramlar}!' Maya'nın {köpeği|köpek} Pamuk ise sevinçle kuyruğunu sallayıp etrafta koşturdu.",
-          "en": "In the afternoon her school friend Maya appeared at the door. Maya was hearing about Bayram for the first time. Elif explained it in two languages, English and Turkish. Then she offered her powdered Turkish delight. Maya loved the taste and proudly said the first Turkish words Elif had taught her: \"Happy Bayram!\" Maya's dog Pamuk happily wagged her tail and ran around."
-        }
+        "tr": "Öğleden sonra okuldan {arkadaşı|arkadaş} Maya kapıda belirdi. Maya bayramı ilk kez duyuyordu. Elif ona bayramın ne olduğunu iki dilde, hem İngilizce hem Türkçe anlattı. Sonra pudra şekerli {lokum} {ikram etti|ikram etmek}. Maya lokumun tadına bayıldı ve Elif'in öğrettiği ilk Türkçe sözü gururla söyledi: '{İyi bayramlar|iyi bayramlar}!' Maya'nın {köpeği|köpek} Pamuk ise sevinçle kuyruğunu sallayıp etrafta koşturdu.",
+        "en": "In the afternoon her school friend Maya appeared at the door. Maya was hearing about Bayram for the first time. Elif explained it in two languages, English and Turkish. Then she offered her powdered Turkish delight. Maya loved the taste and proudly said the first Turkish words Elif had taught her: \"Happy Bayram!\" Maya's dog Pamuk happily wagged her tail and ran around."
       },
       "culture": {
         "tr": "Bayramda komşular ve arkadaşlar birbirini ziyaret eder, küsler barışır. Kapısını herkese açmak bayramın en güzel yanlarındandır.",
@@ -1275,18 +1211,8 @@
         "en": "What Bayram means"
       },
       "text": {
-        "1": {
-          "tr": "Akşam oldu. Gökte {hilal} var. Bayram, {sevgi} demek.",
-          "en": "Evening came. There is a crescent moon in the sky. Bayram means love."
-        },
-        "2": {
-          "tr": "Akşam olunca {aile} pencerenin önünde toplandı. Gökyüzünde ince bir {hilal} parlıyordu. Elif, 'Bayram, büyüklere {saygı}, herkese {sevgi} demek' dedi. Annesi ona sarıldı.",
-          "en": "When evening came, the family gathered by the window. A thin crescent moon shone in the sky. Elif said, \"Bayram means respect for elders and love for everyone.\" Mom gave her a hug."
-        },
-        "3": {
-          "tr": "Akşam olunca bütün {aile} pencerenin önünde toplandı. Gökyüzünde incecik bir {hilal} parlıyordu. Elif günü düşündü: Ayşe Teyze'nin eli, babaannesinin sesi, Maya'nın ilk Türkçe sözü... 'Bayram,' dedi, 'büyüklere {saygı}, küçüklere {sevgi} ve herkesle paylaşmak demek.' Annesi onu alnından öptü: 'Yarın bayramın ikinci günü. Yeni günde yeni sevinçler!'",
-          "en": "When evening came, the whole family gathered by the window. A slender crescent moon shone in the sky. Elif thought about the day: Aunt Ayşe's hand, Grandma's voice, Maya's first Turkish words... \"Bayram,\" she said, \"means respect for elders, love for little ones, and sharing with everyone.\" Mom kissed her on the forehead: \"Tomorrow is the second day of Bayram. A new day, new joys!\""
-        }
+        "tr": "Akşam olunca bütün {aile} pencerenin önünde toplandı. Gökyüzünde incecik bir {hilal} parlıyordu. Elif günü düşündü: Ayşe Teyze'nin eli, babaannesinin sesi, Maya'nın ilk Türkçe sözü... 'Bayram,' dedi, 'büyüklere {saygı}, küçüklere {sevgi} ve herkesle paylaşmak demek.' Annesi onu alnından öptü: 'Yarın bayramın ikinci günü. Yeni günde yeni sevinçler!'",
+        "en": "When evening came, the whole family gathered by the window. A slender crescent moon shone in the sky. Elif thought about the day: Aunt Ayşe's hand, Grandma's voice, Maya's first Turkish words... \"Bayram,\" she said, \"means respect for elders, love for little ones, and sharing with everyone.\" Mom kissed her on the forehead: \"Tomorrow is the second day of Bayram. A new day, new joys!\""
       },
       "culture": {
         "tr": "Bayramların tarihi her yıl yaklaşık on bir gün öne gelir, çünkü Ay takvimine göre belirlenir. Hilal, yeni bir ayın başladığını gösterir.",
@@ -1487,7 +1413,8 @@
             }
           ]
         }
-      ]
+      ],
+      "ambience": "crickets"
     }
   ],
   "glossary": {

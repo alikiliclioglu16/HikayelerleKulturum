@@ -15,6 +15,11 @@
     "sabir",
     "saglikli-yasam"
   ],
+  "kazanim": "Emek vermenin ve sabırla beklemenin değerini kavrar; elindekini paylaşır, kendi yetiştirdiği sebzelerle sağlıklı beslenmeyi sever.",
+  "music": {
+    "src": "/books/keloglan-tohum/muzik.mp3",
+    "loop": 57.6
+  },
   "pages": [
     {
       "id": "p1",
@@ -24,18 +29,8 @@
         "en": "Three seeds in the garden"
       },
       "text": {
-        "1": {
-          "tr": "Elif ile Can bahçeye {tohum} ekiyor. Can, 'Ne zaman büyüyecek?' diyor.",
-          "en": "Elif and Can are planting seeds in the garden. \"When will they grow?\" asks Can."
-        },
-        "2": {
-          "tr": "Bahar gelmişti. Anne, Elif ve Can {bahçeye|bahçe} {tohum} ektiler. Can beş dakikada bir toprağa baktı: 'Hâlâ çıkmadı!' Anne güldü: 'Gel, sana bir {Keloğlan} {masalı|masal} anlatayım.'",
-          "en": "Spring had come. Mom, Elif and Can planted seeds in the garden. Every five minutes Can looked at the soil: \"They still haven't come up!\" Mom laughed: \"Come, let me tell you a Keloğlan tale.\""
-        },
-        "3": {
-          "tr": "Bahar gelmiş, Amerika'daki evlerinin {bahçesi|bahçe} ısınmıştı. Anne, Elif ve Can küçük bir köşeye {tohum} ektiler. Can sulama kabını bırakır bırakmaz toprağa eğildi: 'Neden hâlâ çıkmadı?' Anne gülümsedi: 'Tohumlar acele etmez Can. Sana sabırlı bir çocuğun, {Keloğlan}'ın {masalını|masal} anlatayım.'",
-          "en": "Spring had come and the garden of their house in America was warm. Mom, Elif and Can planted seeds in a little corner. As soon as Can put down the watering can, he bent over the soil: \"Why haven't they come up yet?\" Mom smiled: \"Seeds are never in a hurry, Can. Let me tell you the tale of a patient boy, Keloğlan.\""
-        }
+        "tr": "Bahar gelmiş, Amerika'daki evlerinin {bahçesi|bahçe} ısınmıştı. Anne, Elif ve Can küçük bir köşeye {tohum} ektiler. Can sulama kabını bırakır bırakmaz toprağa eğildi: 'Neden hâlâ çıkmadı?' Anne gülümsedi: 'Tohumlar acele etmez Can. Sana sabırlı bir çocuğun, {Keloğlan}'ın {masalını|masal} anlatayım.'",
+        "en": "Spring had come and the garden of their house in America was warm. Mom, Elif and Can planted seeds in a little corner. As soon as Can put down the watering can, he bent over the soil: \"Why haven't they come up yet?\" Mom smiled: \"Seeds are never in a hurry, Can. Let me tell you the tale of a patient boy, Keloğlan.\""
       },
       "culture": {
         "tr": "Keloğlan, Türk masallarının en sevilen kahramanıdır. Saçı olmayan, yoksul ama akıllı, iyi kalpli ve çalışkan bir gençtir. Türk masalları çoğu zaman 'Bir varmış, bir yokmuş' diye başlar.",
@@ -207,7 +202,8 @@
           "do": "spin",
           "wait": 0.6
         }
-      ]
+      ],
+      "ambience": "birds"
     },
     {
       "id": "p2",
@@ -217,18 +213,8 @@
         "en": "Once upon a time"
       },
       "text": {
-        "1": {
-          "tr": "Bir varmış, bir yokmuş. {Keloğlan} ile {anası|ana} bir {köyde|köy} yaşarmış. Anası ona üç {tohum} vermiş.",
-          "en": "Once upon a time, Keloğlan lived in a village with his mother. His mother gave him three seeds."
-        },
-        "2": {
-          "tr": "Bir varmış, bir yokmuş. Evvel zaman içinde, kalbur saman içinde, {Keloğlan} {anasıyla|ana} küçük bir {köyde|köy} yaşarmış. O yaz hiç yağmur yağmamış. {Tarlalar|tarla} kupkuru kalmış. Anası ona üç {tohum} vermiş.",
-          "en": "Once upon a time, long long ago, Keloğlan lived with his mother in a little village. That summer it did not rain at all. The fields were bone dry. His mother gave him three seeds."
-        },
-        "3": {
-          "tr": "Bir varmış, bir yokmuş. Evvel zaman içinde, kalbur saman içinde, {Keloğlan} {anasıyla|ana} küçük bir {köyde|köy} yaşarmış. O yaz gökten tek damla yağmur düşmemiş, {tarlalar|tarla} kupkuru kalmış. Anası çıkınını açıp oğlunun avucuna üç {tohum} koymuş: 'Oğlum, bunlar sihirli değil. Ama emek verir, {sabırla|sabır} beklersen bereket getirir.'",
-          "en": "Once upon a time, long long ago, Keloğlan lived with his mother in a little village. That summer not a single drop of rain fell, and the fields were bone dry. His mother opened her little bundle and put three seeds in her son's hand: \"My son, these are not magic. But if you work hard and wait patiently, they will bring plenty.\""
-        }
+        "tr": "Bir varmış, bir yokmuş. Evvel zaman içinde, kalbur saman içinde, {Keloğlan} {anasıyla|ana} küçük bir {köyde|köy} yaşarmış. O yaz gökten tek damla yağmur düşmemiş, {tarlalar|tarla} kupkuru kalmış. Anası çıkınını açıp oğlunun avucuna üç {tohum} koymuş: 'Oğlum, bunlar sihirli değil. Ama emek verir, {sabırla|sabır} beklersen bereket getirir.'",
+        "en": "Once upon a time, long long ago, Keloğlan lived with his mother in a little village. That summer not a single drop of rain fell, and the fields were bone dry. His mother opened her little bundle and put three seeds in her son's hand: \"My son, these are not magic. But if you work hard and wait patiently, they will bring plenty.\""
       },
       "culture": {
         "tr": "'Evvel zaman içinde, kalbur saman içinde' bir masal tekerlemesidir. Masalcı bu sözlerle dinleyenleri hayal dünyasına davet eder. Masallar eskiden kış gecelerinde, ocak başında anlatılırdı.",
@@ -362,7 +348,8 @@
           "do": "nod",
           "look": "keloglan-anasi"
         }
-      ]
+      ],
+      "ambience": "birds"
     },
     {
       "id": "p3",
@@ -372,18 +359,8 @@
         "en": "No work, no food"
       },
       "text": {
-        "1": {
-          "tr": "Keloğlan toprağı kazmış. Tohumları ekmiş. Her gün {kuyudan|kuyu} {su} taşımış.",
-          "en": "Keloğlan dug the soil. He planted the seeds. Every day he carried water from the well."
-        },
-        "2": {
-          "tr": "Keloğlan sabah erkenden kalkmış. {Çapayla|çapa} toprağı kazmış, üç tohumu ekmiş. Sonra her gün {kuyudan|kuyu} {kovayla|kova} {su} taşımış. Hiç üşenmemiş.",
-          "en": "Keloğlan got up early in the morning. He dug the soil with a hoe and planted the three seeds. Then every day he carried water from the well in a bucket. He never grew lazy."
-        },
-        "3": {
-          "tr": "Keloğlan güneş doğmadan kalkmış. {Çapayla|çapa} sert toprağı yumuşatmış, üç tohumu yan yana ekmiş. Köyün {kuyusu|kuyu} uzakmış ama Keloğlan her gün {kovasını|kova} doldurup tarlasına {su} taşımış. Ayakları yorulsa da 'Emek olmadan yemek olmaz' deyip yoluna devam etmiş.",
-          "en": "Keloğlan got up before sunrise. With a hoe he softened the hard soil and planted the three seeds side by side. The village well was far away, but every day Keloğlan filled his bucket and carried water to his field. Even when his feet were tired he said, \"No work, no food,\" and kept going."
-        }
+        "tr": "Keloğlan güneş doğmadan kalkmış. {Çapayla|çapa} sert toprağı yumuşatmış, üç tohumu yan yana ekmiş. Köyün {kuyusu|kuyu} uzakmış ama Keloğlan her gün {kovasını|kova} doldurup tarlasına {su} taşımış. Ayakları yorulsa da 'Emek olmadan yemek olmaz' deyip yoluna devam etmiş.",
+        "en": "Keloğlan got up before sunrise. With a hoe he softened the hard soil and planted the three seeds side by side. The village well was far away, but every day Keloğlan filled his bucket and carried water to his field. Even when his feet were tired he said, \"No work, no food,\" and kept going."
       },
       "culture": {
         "tr": "'Emek olmadan yemek olmaz' bir Türk atasözüdür: Çalışmadan hiçbir şey kazanılmaz. Anadolu köylerinde eskiden suyu kuyulardan ve çeşmelerden kovalarla taşırlardı.",
@@ -592,7 +569,8 @@
           "look": "reader",
           "focus": true
         }
-      ]
+      ],
+      "ambience": "birds"
     },
     {
       "id": "p4",
@@ -602,18 +580,8 @@
         "en": "Patience pays"
       },
       "text": {
-        "1": {
-          "tr": "Üç küçük {filiz} çıkmış. Köylüler gülmüş. Keloğlan {sabırla|sabır} beklemiş.",
-          "en": "Three little sprouts came up. The villagers laughed. Keloğlan waited patiently."
-        },
-        "2": {
-          "tr": "Günler sonra topraktan üç küçük {filiz} çıkmış. {Köylüler|köylü} gülmüş: 'Üç tohumla karın mı doyar?' Keloğlan kızmamış. 'Sabreden derviş muradına ermiş,' demiş ve filizleri sulamaya devam etmiş.",
-          "en": "Days later three little sprouts came out of the soil. The villagers laughed: \"Can three seeds fill a stomach?\" Keloğlan did not get angry. \"Whoever is patient gets their wish,\" he said, and kept watering the sprouts."
-        },
-        "3": {
-          "tr": "Günler sonra topraktan üç minik {filiz} başını uzatmış. Yoldan geçen {köylüler|köylü} kahkahayla gülmüş: 'Bu kuraklıkta üç tohumla mı karnını doyuracaksın Keloğlan?' Keloğlan hiç kızmamış. 'Sabreden derviş muradına ermiş,' demiş. Her sabah filizlerine {gölge} yapmış, her akşam onları sulamış.",
-          "en": "Days later three tiny sprouts poked their heads out of the soil. Villagers passing by burst out laughing: \"Are you going to fill your stomach with three seeds in this drought, Keloğlan?\" Keloğlan did not get angry at all. \"Whoever is patient gets their wish,\" he said. Every morning he made shade for his sprouts and every evening he watered them."
-        }
+        "tr": "Günler sonra topraktan üç minik {filiz} başını uzatmış. Yoldan geçen {köylüler|köylü} kahkahayla gülmüş: 'Bu kuraklıkta üç tohumla mı karnını doyuracaksın Keloğlan?' Keloğlan hiç kızmamış. 'Sabreden derviş muradına ermiş,' demiş. Her sabah filizlerine {gölge} yapmış, her akşam onları sulamış.",
+        "en": "Days later three tiny sprouts poked their heads out of the soil. Villagers passing by burst out laughing: \"Are you going to fill your stomach with three seeds in this drought, Keloğlan?\" Keloğlan did not get angry at all. \"Whoever is patient gets their wish,\" he said. Every morning he made shade for his sprouts and every evening he watered them."
       },
       "culture": {
         "tr": "'Sabreden derviş muradına ermiş' atasözü, sabırla bekleyenin sonunda isteğine kavuşacağını anlatır.",
@@ -803,7 +771,8 @@
           "look": "filiz2",
           "optional": true
         }
-      ]
+      ],
+      "ambience": "birds"
     },
     {
       "id": "p5",
@@ -813,18 +782,8 @@
         "en": "The last water in the well"
       },
       "text": {
-        "1": {
-          "tr": "Kuyuda az {su} kalmış. Keloğlan suyunu {komşusuyla|komşu} {paylaşmış|paylaşmak}.",
-          "en": "Little water was left in the well. Keloğlan shared his water with his neighbour."
-        },
-        "2": {
-          "tr": "Kuraklık uzamış, {kuyuda|kuyu} çok az {su} kalmış. {Komşusu|komşu} Hasan Amca'nın tarlası kurumak üzereymiş. Keloğlan kendi {kovasındaki|kova} suyun yarısını ona vermiş: 'Al Hasan Amca, birlikte büyütelim.'",
-          "en": "The drought went on and very little water was left in the well. His neighbour Uncle Hasan's field was about to dry up. Keloğlan gave him half of the water in his own bucket: \"Here, Uncle Hasan, let's grow them together.\""
-        },
-        "3": {
-          "tr": "Kuraklık uzadıkça {kuyunun|kuyu} dibinde birkaç kova {su} kalmış. {Komşusu|komşu} Hasan Amca'nın tarlası sararmış, yaşlı adam üzgün üzgün oturuyormuş. Keloğlan bir kendi filizlerine, bir Hasan Amca'ya bakmış. Sonra {kovasındaki|kova} suyun yarısını onun tarlasına dökmüş: 'Bir elin nesi var, iki elin sesi var Hasan Amca. Birlikte büyütelim.' Hasan Amca'nın gözleri dolmuş.",
-          "en": "As the drought went on, only a few buckets of water were left at the bottom of the well. Uncle Hasan's field had turned yellow and the old man sat there sadly. Keloğlan looked at his own sprouts, then at Uncle Hasan. Then he poured half of his bucket onto Uncle Hasan's field: \"One hand alone makes no sound, two hands clap, Uncle Hasan. Let's grow them together.\" Uncle Hasan's eyes filled with tears."
-        }
+        "tr": "Kuraklık uzadıkça {kuyunun|kuyu} dibinde birkaç kova {su} kalmış. {Komşusu|komşu} Hasan Amca'nın tarlası sararmış, yaşlı adam üzgün üzgün oturuyormuş. Keloğlan bir kendi filizlerine, bir Hasan Amca'ya bakmış. Sonra {kovasındaki|kova} suyun yarısını onun tarlasına dökmüş: 'Bir elin nesi var, iki elin sesi var Hasan Amca. Birlikte büyütelim.' Hasan Amca'nın gözleri dolmuş.",
+        "en": "As the drought went on, only a few buckets of water were left at the bottom of the well. Uncle Hasan's field had turned yellow and the old man sat there sadly. Keloğlan looked at his own sprouts, then at Uncle Hasan. Then he poured half of his bucket onto Uncle Hasan's field: \"One hand alone makes no sound, two hands clap, Uncle Hasan. Let's grow them together.\" Uncle Hasan's eyes filled with tears."
       },
       "culture": {
         "tr": "'Bir elin nesi var, iki elin sesi var' atasözü, birlikte çalışınca işlerin kolaylaştığını anlatır. Anadolu köylerinde komşular zor günlerde birbirine yardım eder; birlikte iş yapmaya imece denir.",
@@ -1015,7 +974,8 @@
           "do": "nod",
           "look": "keloglan"
         }
-      ]
+      ],
+      "ambience": "birds"
     },
     {
       "id": "p6",
@@ -1025,18 +985,8 @@
         "en": "The rain came!"
       },
       "text": {
-        "1": {
-          "tr": "Sonunda {yağmur} yağmış. {Sebzeler|sebze} kocaman olmuş!",
-          "en": "At last it rained. The vegetables grew big!"
-        },
-        "2": {
-          "tr": "Bir sabah gökyüzü kararmış ve şakır şakır {yağmur} yağmış. Keloğlan sevinçle koşmuş. Üç tohumdan kocaman {mısırlar|mısır}, {lahanalar|lahana}, {havuçlar|havuç} çıkmış. Hasan Amca'nın tarlası da yeşermiş.",
-          "en": "One morning the sky grew dark and rain poured down. Keloğlan ran around with joy. From the three seeds came big corn, cabbages and carrots. Uncle Hasan's field turned green too."
-        },
-        "3": {
-          "tr": "Bir sabah gök gürlemiş, bulutlar toplanmış ve günlerce şakır şakır {yağmur} yağmış. Keloğlan yağmurun altında sevinçle koşmuş. Sabırla büyüttüğü üç tohumdan boy boy {mısırlar|mısır}, iri {lahanalar|lahana}, turuncu {havuçlar|havuç} ve {kabaklar|kabak} çıkmış. Suyunu paylaştığı Hasan Amca'nın tarlası da yemyeşil olmuş.",
-          "en": "One morning thunder rolled, clouds gathered and it rained for days. Keloğlan ran happily in the rain. From the three seeds he had grown so patiently came tall corn, big cabbages, orange carrots and pumpkins. Uncle Hasan's field, which he had shared his water with, turned bright green too."
-        }
+        "tr": "Bir sabah gök gürlemiş, bulutlar toplanmış ve günlerce şakır şakır {yağmur} yağmış. Keloğlan yağmurun altında sevinçle koşmuş. Sabırla büyüttüğü üç tohumdan boy boy {mısırlar|mısır}, iri {lahanalar|lahana}, turuncu {havuçlar|havuç} ve {kabaklar|kabak} çıkmış. Suyunu paylaştığı Hasan Amca'nın tarlası da yemyeşil olmuş.",
+        "en": "One morning thunder rolled, clouds gathered and it rained for days. Keloğlan ran happily in the rain. From the three seeds he had grown so patiently came tall corn, big cabbages, orange carrots and pumpkins. Uncle Hasan's field, which he had shared his water with, turned bright green too."
       },
       "culture": {
         "tr": "Anadolu'da yağmur bereket demektir. Kuraklık zamanlarında köylerde birlikte yağmur duasına çıkılır, ardından yağmur yağınca herkes sevinir.",
@@ -1281,18 +1231,8 @@
         "en": "Three apples fell from the sky"
       },
       "text": {
-        "1": {
-          "tr": "Bütün köy birlikte yemiş. Keloğlan herkese {tohum} vermiş. Masal da burada bitmiş.",
-          "en": "The whole village ate together. Keloğlan gave seeds to everyone. And here the tale ends."
-        },
-        "2": {
-          "tr": "Hasat zamanı bütün {köy} bir araya gelmiş. Keloğlan yeni tohumlarını bütün komşularına dağıtmış. Ertesi yıl köyün bütün tarlaları {bereketli|bereket} olmuş. Gökten üç elma düşmüş: biri anlatana, biri dinleyene, biri de okuyana!",
-          "en": "At harvest time the whole village came together. Keloğlan gave his new seeds to all his neighbours. The next year every field in the village was full of plenty. Three apples fell from the sky: one for the teller, one for the listener and one for the reader!"
-        },
-        "3": {
-          "tr": "Hasat zamanı bütün {köy} bir araya gelmiş; Keloğlan'ın anası kocaman bir sofra kurmuş. Keloğlan, sebzelerinden çıkan yeni tohumları torba torba komşularına dağıtmış. Ertesi yıl köyün bütün tarlaları {bereketli|bereket} olmuş, kimse aç kalmamış. Onlar ermiş muradına, biz çıkalım kerevetine. Gökten üç elma düşmüş: biri anlatana, biri dinleyene, biri de okuyana!",
-          "en": "At harvest time the whole village came together and Keloğlan's mother laid a huge table. Keloğlan gave sacks of new seeds from his vegetables to his neighbours. The next year every field in the village was full of plenty and nobody went hungry. They got their wish, and we climb up to our seat. Three apples fell from the sky: one for the teller, one for the listener and one for the reader!"
-        }
+        "tr": "Hasat zamanı bütün {köy} bir araya gelmiş; Keloğlan'ın anası kocaman bir sofra kurmuş. Keloğlan, sebzelerinden çıkan yeni tohumları torba torba komşularına dağıtmış. Ertesi yıl köyün bütün tarlaları {bereketli|bereket} olmuş, kimse aç kalmamış. Onlar ermiş muradına, biz çıkalım kerevetine. Gökten üç elma düşmüş: biri anlatana, biri dinleyene, biri de okuyana!",
+        "en": "At harvest time the whole village came together and Keloğlan's mother laid a huge table. Keloğlan gave sacks of new seeds from his vegetables to his neighbours. The next year every field in the village was full of plenty and nobody went hungry. They got their wish, and we climb up to our seat. Three apples fell from the sky: one for the teller, one for the listener and one for the reader!"
       },
       "culture": {
         "tr": "Türk masalları çoğu zaman 'Gökten üç elma düşmüş' diye biter. 'Onlar ermiş muradına, biz çıkalım kerevetine' de bilinen bir masal sonu tekerlemesidir.",
@@ -1548,7 +1488,8 @@
           "look": "reader",
           "focus": true
         }
-      ]
+      ],
+      "ambience": "birds"
     },
     {
       "id": "p8",
@@ -1558,18 +1499,8 @@
         "en": "The fruit of patience"
       },
       "text": {
-        "1": {
-          "tr": "Bahçede {filizler|filiz} çıktı. Can çok {mutlu}. Annesi {salata} yaptı. Taze {sebze} bizi güçlü yapar.",
-          "en": "Sprouts came up in the garden. Can is very happy. Mom made a salad. Fresh vegetables make us strong."
-        },
-        "2": {
-          "tr": "Haftalar geçti. Bir sabah Can bağırdı: '{Filizler|filiz} çıkmış!' Can her gün onları suladı. Yaz gelince Anne bahçedeki domateslerle {salata} yaptı. Can ilk kez havucu severek yedi: 'Kendi yetiştirdiğim {sebze} daha lezzetli!'",
-          "en": "Weeks went by. One morning Can shouted: \"The sprouts are up!\" Can watered them every day. When summer came, Mom made a salad with the tomatoes from the garden. For the first time Can loved eating carrots: \"Vegetables I grow myself taste better!\""
-        },
-        "3": {
-          "tr": "Haftalar geçti. Bir sabah Can pencereden bağırdı: '{Filizler|filiz} çıkmış!' O günden sonra her akşam onları suladı, hiç acele etmedi. Yaz gelince Anne bahçedeki domates ve salatalıklarla bir çoban {salatası|salata} yaptı. Can, bir zamanlar sevmediği havucu bile keyifle yedi: 'Kendi yetiştirdiğim {sebze} daha lezzetli!' Anne gülümsedi: 'Hem lezzetli hem sağlıklı. Sabrın meyvesi tatlıdır.'",
-          "en": "Weeks went by. One morning Can shouted from the window: \"The sprouts are up!\" From that day on he watered them every evening and never hurried them. When summer came, Mom made a shepherd's salad with tomatoes and cucumbers from the garden. Can even enjoyed the carrots he used to dislike: \"Vegetables I grow myself taste better!\" Mom smiled: \"Tasty and healthy too. The fruit of patience is sweet.\""
-        }
+        "tr": "Haftalar geçti. Bir sabah Can pencereden bağırdı: '{Filizler|filiz} çıkmış!' O günden sonra her akşam onları suladı, hiç acele etmedi. Yaz gelince Anne bahçedeki domates ve salatalıklarla bir çoban {salatası|salata} yaptı. Can, bir zamanlar sevmediği havucu bile keyifle yedi: 'Kendi yetiştirdiğim {sebze} daha lezzetli!' Anne gülümsedi: 'Hem lezzetli hem sağlıklı. Sabrın meyvesi tatlıdır.'",
+        "en": "Weeks went by. One morning Can shouted from the window: \"The sprouts are up!\" From that day on he watered them every evening and never hurried them. When summer came, Mom made a shepherd's salad with tomatoes and cucumbers from the garden. Can even enjoyed the carrots he used to dislike: \"Vegetables I grow myself taste better!\" Mom smiled: \"Tasty and healthy too. The fruit of patience is sweet.\""
       },
       "culture": {
         "tr": "Çoban salatası domates, salatalık, biber ve soğanla yapılan, Türk sofralarının en sevilen salatasıdır. 'Sabrın sonu selamettir' atasözü de sabırla bekleyenin sonunda iyiliğe ulaşacağını anlatır.",
@@ -1740,7 +1671,8 @@
           "do": "cheer",
           "look": "can"
         }
-      ]
+      ],
+      "ambience": "birds"
     }
   ],
   "glossary": {

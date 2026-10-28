@@ -9,17 +9,15 @@ import { clockTower } from '../art/kit';
 import { Performer, type State } from './performer';
 import { POSES } from './acts';
 import { Stage, type StageActor } from './stage';
+import type { ActResult, Beat } from './acts';
 import { PropActor } from './propActor';
 import { ToyPerformer } from './toy';
 import { Rain } from './rain';
 import { Sparkles } from '../home3d/sparkles';
 import type { PageData } from '../types';
-import { CULTURE_BUILDERS } from '../home3d/culture';
-import { mosaicLamp } from '../home3d/room';
-import { fitToSlot } from '../home3d/kit3d';
 import { WallCarpet, type CarpetDesign } from '../home3d/carpet';
 import type { BuiltLayer } from '../art/scenes';
-import { iznikTile, tulip } from '../art/kit';
+import { iznikTile } from '../art/kit';
 import { Pen, rng } from '../art/pen';
 
 const PAGE_W = 1;
@@ -31,15 +29,16 @@ const PAGE_TOP = COVER_T + PAGE_T;
 /** Camera shots: from high above, the closed book, the whole open book, and close on the pop-up. */
 export type ShotKind = 'overhead' | 'cover' | 'wide' | 'close';
 
-/** Things that always stand on the reading table, around the book (a little Turkish living room). */
+/** Things that always stand on the reading table, around the book: culture objects from the home shelf. */
+const C = (id: string) => `/models/culture/${id}.glb`;
 const DESK_DECOR: TableModel[] = [
-  { proc: 'lamba', word: 'lamba', x: -1.78, z: -0.95, h: 0.62 },
-  { proc: 'nazar', word: 'nazar boncuğu', x: -1.22, z: 1.02, h: 0.2, rotY: 25 },
-  { proc: 'lokum', word: 'lokum', x: -0.55, z: 1.16, h: 0.13, rotY: -10 },
-  { proc: 'cini', word: 'çini', x: -0.9, z: -1.2, h: 0.24, rotY: 8 },
-  { proc: 'lale', word: 'lale', x: 1.28, z: -1.12, h: 0.36 },
-  { proc: 'mangala', word: 'mangala', x: 0.25, z: -1.25, h: 0.1, w: 0.42, rotY: -6 },
-  { src: '/models/kenney/books.glb', word: 'kitap', x: 1.82, z: -0.75, h: 0.12, w: 0.3, rotY: 35 },
+  { src: C('ebru'), word: 'ebru', x: -1.78, z: -0.95, h: 0.36, rotY: 25 },
+  { src: C('nazar'), word: 'nazar boncuğu', x: -1.22, z: 1.02, h: 0.28, rotY: 25 },
+  { src: C('lokum'), word: 'lokum', x: -0.55, z: 1.16, h: 0.17, rotY: -10 },
+  { src: C('cini'), word: 'çini', x: -0.9, z: -1.2, h: 0.34, rotY: 8 },
+  { src: C('lale'), word: 'lale', x: 1.28, z: -1.12, h: 0.4 },
+  { src: C('mangala'), word: 'mangala', x: 0.25, z: -1.25, h: 0.12, w: 0.5, rotY: -6 },
+  { src: C('baglama'), word: 'bağlama', x: 1.82, z: -0.75, h: 0.5, rotY: -30 },
 ];
 
 export interface Region {
@@ -118,39 +117,119 @@ function woodCanvas(): HTMLCanvasElement {
   return c;
 }
 
-function pageCanvas(side: 'left' | 'right', target?: HTMLCanvasElement, deco?: { title: string; sub: string }): HTMLCanvasElement {
+/** What is printed on the left page: the page title, the book's Maarif Model learning outcome and the page number. */
+export interface LeftPageDeco {
+  title: string;
+  sub: string;
+  /** Türkiye Yüzyılı Maarif Modeli: the book's values and its learning outcome (kazanım). */
+  kazanim?: { values: string[]; text: string };
+}
+
+/** The Houston Education Attaché's logo, printed in the corner of the left page. */
+const LOGO_SRC = '/logo/houston-egitim-atasesi.webp';
+let logoImg: HTMLImageElement | null = null;
+function logo() {
+  if (!logoImg) {
+    logoImg = new Image();
+    logoImg.src = LOGO_SRC;
+  }
+  return logoImg;
+}
+
+/** Words of `text` broken into lines no wider than `width`. */
+function wrap(g: CanvasRenderingContext2D, text: string, width: number) {
+  const lines: string[] = [];
+  let line = '';
+  for (const w of text.split(/\s+/)) {
+    const next = line ? `${line} ${w}` : w;
+    if (line && g.measureText(next).width > width) {
+      lines.push(line);
+      line = w;
+    } else line = next;
+  }
+  if (line) lines.push(line);
+  return lines;
+}
+
+function pageCanvas(side: 'left' | 'right', target?: HTMLCanvasElement, deco?: LeftPageDeco): HTMLCanvasElement {
   const c = target ?? document.createElement('canvas');
-  c.width = 512;
-  c.height = Math.round(512 * PAGE_D);
+  // drawn at twice the size so the small print stays sharp; the layout below is in 512-wide units
+  const W = 512;
+  const H = Math.round(512 * PAGE_D);
+  c.width = W * 2;
+  c.height = H * 2;
   const g = c.getContext('2d')!;
+  g.setTransform(2, 0, 0, 2, 0, 0);
   g.fillStyle = '#FFFBF2';
-  g.fillRect(0, 0, c.width, c.height);
+  g.fillRect(0, 0, W, H);
   // gutter shadow near the spine
-  const grad = side === 'left' ? g.createLinearGradient(c.width, 0, c.width - 90, 0) : g.createLinearGradient(0, 0, 90, 0);
+  const grad = side === 'left' ? g.createLinearGradient(W, 0, W - 90, 0) : g.createLinearGradient(0, 0, 90, 0);
   grad.addColorStop(0, 'rgba(120,90,60,0.28)');
   grad.addColorStop(1, 'rgba(120,90,60,0)');
   g.fillStyle = grad;
-  g.fillRect(0, 0, c.width, c.height);
-  // thin border with corner rosettes
+  g.fillRect(0, 0, W, H);
+  // thin border
   g.strokeStyle = 'rgba(28,63,140,0.35)';
   g.lineWidth = 3;
-  g.strokeRect(26, 26, c.width - 52, c.height - 52);
+  g.strokeRect(26, 26, W - 52, H - 52);
   if (deco) {
+    // the page is seen at a low angle, so the print is large: it has to read well in the close shot
+    const cx = W / 2 - 8;
     g.textAlign = 'center';
+    g.textBaseline = 'alphabetic';
     g.fillStyle = '#D2372C';
-    let size = 46;
+    let size = 38;
     g.font = `600 ${size}px "DynaPuff", system-ui`;
-    while (g.measureText(deco.title).width > c.width - 110 && size > 26) {
+    while (g.measureText(deco.title).width > W - 110 && size > 24) {
       size -= 2;
       g.font = `600 ${size}px "DynaPuff", system-ui`;
     }
-    g.fillText(deco.title, c.width / 2 - 8, 250);
-    const pen = new Pen(200, 1);
-    tulip(pen, 500, 960, 860);
-    g.drawImage(pen.canvas, c.width / 2 - 8 - 60, 290, 120, 120);
+    g.fillText(deco.title, cx, 96);
     g.fillStyle = '#4A5675';
-    g.font = '24px "Andika", system-ui';
-    g.fillText(deco.sub, c.width / 2 - 8, c.height - 60);
+    g.font = '22px "Andika", system-ui';
+    g.fillText(deco.sub, cx, 134);
+    // the Houston Education Attaché's logo in the bottom right corner
+    const img = logo();
+    const lh = 120;
+    const lw = img.naturalWidth ? (img.naturalWidth / img.naturalHeight) * lh : 93;
+    const ly = H - 26 - 16 - lh;
+    if (img.complete && img.naturalWidth) g.drawImage(img, W - 26 - 22 - lw, ly, lw, lh);
+    if (deco.kazanim) {
+      // above it, in the half of the page next to the spine (the reading card covers the other half), a framed
+      // panel: Türkiye Yüzyılı Maarif Modeli, Kazanım, the book's values and its learning outcome
+      const bw = 262;
+      const bx = W - 26 - 18 - bw;
+      const pcx = bx + bw / 2;
+      g.font = '700 18px "Andika", system-ui';
+      const vals = wrap(g, deco.kazanim.values.join(' · '), bw - 22);
+      g.font = '21px "Andika", system-ui';
+      const lines = wrap(g, deco.kazanim.text, bw - 22).slice(0, 10);
+      const bh = 118 + vals.length * 23 + lines.length * 26 + 8;
+      const top = Math.max(150, ly - 14 - bh);
+      g.fillStyle = 'rgba(28,63,140,0.06)';
+      g.strokeStyle = 'rgba(28,63,140,0.45)';
+      g.lineWidth = 2.5;
+      g.beginPath();
+      g.roundRect(bx, top, bw, bh, 18);
+      g.fill();
+      g.stroke();
+      g.fillStyle = '#1C3F8C';
+      g.font = '700 15px "Andika", system-ui';
+      g.letterSpacing = '1px';
+      g.fillText('TÜRKİYE YÜZYILI', pcx, top + 28);
+      g.fillText('MAARİF MODELİ', pcx, top + 48);
+      g.letterSpacing = '0px';
+      g.fillStyle = '#D2372C';
+      g.font = '600 28px "DynaPuff", system-ui';
+      g.fillText('Kazanım', pcx, top + 86);
+      g.fillStyle = '#2F8A4A';
+      g.font = '700 18px "Andika", system-ui';
+      vals.forEach((l, i) => g.fillText(l, pcx, top + 116 + i * 23));
+      g.fillStyle = '#2B3654';
+      g.font = '21px "Andika", system-ui';
+      const ty = top + 116 + vals.length * 23 + 6;
+      lines.forEach((l, i) => g.fillText(l, pcx, ty + i * 26));
+    }
   }
   return c;
 }
@@ -216,6 +295,8 @@ export class BookScene {
   private regions: { close: Region; wide: Region } = { close: { x: 0, y: 0, w: 1, h: 1 }, wide: { x: 0, y: 0, w: 1, h: 1 } };
   private shotKind: ShotKind = 'close';
   private performers = new Map<string, Performer | ToyPerformer>();
+  /** A story sound to play in `delay` seconds (see sfx.scene); `seconds` is how long rain lasts. */
+  onSound: ((kind: string, delay: number, seconds?: number) => void) | null = null;
   /** The book's characters move as whole toys (hop, turn, lean) instead of bending (book.json → toyCast). */
   toyCast = false;
   private castBase = new Map<string, THREE.Vector3>();
@@ -392,23 +473,6 @@ export class BookScene {
   }
 
   private async loadDecor(spec: TableModel): Promise<THREE.Object3D | null> {
-    if (spec.proc === 'lamba') {
-      const lamp = mosaicLamp();
-      return fitToSlot(lamp, spec.h, spec.h, spec.h);
-    }
-    if (spec.proc) {
-      const b = CULTURE_BUILDERS[spec.proc];
-      if (!b) return null;
-      const o = b.build();
-      o.traverse((n) => {
-        const m = n as THREE.Mesh;
-        if (m.isMesh) m.castShadow = m.receiveShadow = true;
-      });
-      const wrap = new THREE.Group();
-      wrap.add(o);
-      return fitToSlot(wrap, spec.h, spec.w ?? spec.h * 1.6, spec.w ?? spec.h * 1.6);
-    }
-    if (!spec.src) return null;
     return (await loadActor(spec.src, spec.h, spec.w)).root;
   }
 
@@ -451,7 +515,7 @@ export class BookScene {
           if (spec.word) this.props.push({ object: g, word: spec.word, anchor: new THREE.Vector3(spec.x, spec.h + lift + 0.04, spec.z) });
           this.invalidate();
         } catch (e) {
-          console.warn('Masa nesnesi yüklenemedi', spec.src ?? spec.proc, e);
+          console.warn('Masa nesnesi yüklenemedi', spec.src, e);
         }
       }),
     );
@@ -718,11 +782,14 @@ export class BookScene {
 
   /* ---------------- book animation ---------------- */
 
-  /** Print the page title on the left page (visible when the text is shown in a card). */
-  setLeftPage(deco: { title: string; sub: string } | null) {
+  /** Print the page title, the Maarif Model learning outcome and the logo on the left page. */
+  setLeftPage(deco: LeftPageDeco | null) {
     pageCanvas('left', this.leftCanvas, deco ?? undefined);
     this.leftTex.needsUpdate = true;
     this.invalidate();
+    // the logo may still be loading: print the page again once it is there
+    const img = logo();
+    if (deco && !img.complete) img.addEventListener('load', () => this.setLeftPage(deco), { once: true });
   }
 
   setCover(canvas: HTMLCanvasElement) {
@@ -881,6 +948,30 @@ export class BookScene {
   }
 
   /**
+   * The sounds of a beat: a tap each time a toy lands from a hop, a knock, a cheer; for magic things a sparkle,
+   * a pot's clink, the alarm clock, rain. A beat can name its own `sound` (or null for silence).
+   */
+  private beatSound(b: Beat, t: number, res: ActResult, now: number) {
+    const play = this.onSound;
+    if (this.seeking || !play) return;
+    const d = t - now;
+    if (b.sound !== undefined) {
+      if (b.sound) play(b.sound, d);
+      return;
+    }
+    if (this.things.has(b.who)) {
+      if (b.do === 'ring') play(b.who === 'saat' ? 'alarm' : 'clink', d);
+      else if (b.do === 'rain') play('rain', d + 0.2, b.len ?? 4);
+      else if (['appear', 'vanish', 'rise', 'sink', 'shine', 'grow', 'spin'].includes(b.do)) play(b.do, d);
+      return;
+    }
+    for (const k of res.keys) if (k.root?.sq === 0.9) play('hop', k.t - now);
+    if (['cheer', 'knock', 'angry', 'put'].includes(b.do)) play(b.do, d);
+    else if (b.do === 'twirl' || b.do === 'spin') play('spin', d);
+    else if (b.do === 'hopOut') play('hop', d + 0.7);
+  }
+
+  /**
    * Something (`word`) left a character's hands, or a magic thing vanished: a character who takes the same
    * thing gets it from there.
    */
@@ -936,6 +1027,7 @@ export class BookScene {
     const lift = 0.1 + from.distanceTo(home) * 0.35;
     let last = 0;
     obj.position.copy(from);
+    this.onSound?.('fly', 0);
     void this.tweens
       .add(this.dur(760), 0, 1, (k) => {
         obj.position.lerpVectors(from, home, k);
@@ -958,6 +1050,7 @@ export class BookScene {
     if (!obj.parent) return;
     obj.visible = true;
     const size = this.sizeOf(obj);
+    this.onSound?.('pop', 0);
     const s0 = obj.scale.clone();
     obj.scale.setScalar(0.001);
     void this.tweens.add(this.dur(520), 0.001, 1, (k) => obj.scale.copy(s0).multiplyScalar(Math.max(0.001, k)), ease.back);
@@ -1119,6 +1212,7 @@ export class BookScene {
     this.pendingTake = null;
     this.stage = new Stage(actors, starts, page.beats ?? []);
     this.stage.onFocus = (who) => this.focus(who);
+    this.stage.onBeat = (b, t, res, now) => this.beatSound(b, t, res, now);
     this.seeking = true;
     this.stage.reset(this.castBase);
     this.seeking = false;

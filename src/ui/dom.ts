@@ -62,20 +62,7 @@ export const icon = {
       `<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 21v-8" stroke="#5BC07A" stroke-width="2.2" stroke-linecap="round"/><path d="M12 17c-2.2-.3-4-2-4.6-4 2.4 0 4 1.5 4.6 4z" fill="#5BC07A"/><path d="M6.5 4c-.4 3.8 1.2 7.3 5.5 8 4.3-.7 5.9-4.2 5.5-8l-2.6 2.2L12 3 9.1 6.2z" fill="#F0614F"/></svg>`,
     ),
   book: () => svg(S('<path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5c-3.5-.5-6.5 0-8.5 1.5z"/><path d="M12 6.5v13"/>')),
-  /** Tomurcuk (4–6): a sprout. */
-  sprout: () =>
-    svg(
-      `<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 21v-9" stroke="#3E8E4E" stroke-width="2.2" stroke-linecap="round"/><path d="M12 13c-.4-3.6-3-6-7-6 .2 3.9 3 6.2 7 6z" fill="#5BC07A"/><path d="M12 11c.3-3.3 2.6-5.6 6.5-5.8-.1 3.7-2.6 5.8-6.5 5.8z" fill="#7FD394"/><path d="M7 21h10" stroke="#B0663A" stroke-width="2.2" stroke-linecap="round"/></svg>`,
-    ),
-  /** Çınar (10–11): a big plane tree. */
-  tree: () =>
-    svg(
-      `<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 22v-8M12 17l-3-2.5M12 15.5l3-2" stroke="#8A4A26" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="8.5" r="5.5" fill="#3E8E4E"/><circle cx="7" cy="11" r="3.6" fill="#4FA35F"/><circle cx="17" cy="11" r="3.6" fill="#4FA35F"/><circle cx="10" cy="6.5" r="1.3" fill="#7FD394"/></svg>`,
-    ),
 };
-
-/** The picture for a reading level: Tomurcuk a sprout, Lale a tulip, Çınar a plane tree. */
-export const levelIcon = (id: string) => (id === '1' ? icon.sprout() : id === '3' ? icon.tree() : icon.tulip());
 
 export const tulipLogo = () =>
   svg(`<svg viewBox="0 0 64 64" width="40" height="40" aria-hidden="true">

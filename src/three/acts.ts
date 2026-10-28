@@ -9,7 +9,7 @@ import { PUT_DOWN, RELAXED, clonePose, type Key, type Pose, type RootState, type
 export interface Beat {
   /** Word stems (lower case) that start this beat when the narration reaches them, e.g. ["uyand", "günaydın"]. */
   cue?: string[];
-  /** Skip the beat when none of its cue words is in the text of the chosen reading level. */
+  /** Skip the beat when none of its cue words is in the page text. */
   optional?: boolean;
   who: string;
   do: string;
@@ -27,6 +27,8 @@ export interface Beat {
   len?: number;
   /** Seconds to wait after the cue before starting (e.g. sprouts coming up one after another). */
   wait?: number;
+  /** A story sound instead of the act's own (see sfx.ts → SCENE_SOUNDS), or null for none. */
+  sound?: string | null;
 }
 
 export interface ActResult {

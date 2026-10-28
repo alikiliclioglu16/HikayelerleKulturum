@@ -1,7 +1,8 @@
 import { store } from './store';
 
 /**
- * Synthesized sound effects and calm background music (no audio files to download).
+ * Synthesized sound effects, story sounds and the home page lullaby (made here, nothing to download), and each
+ * book's own music (an MP3 rendered from real instrument samples, see book.json → music).
  * Everything goes through one master bus with a soft room reverb and a limiter,
  * so the effects are clear and full but never harsh.
  */
@@ -310,18 +311,36 @@ const ITEM_SOUNDS: Record<string, Recipe> = {
 };
 
 /* ------------------------------------------------------------------ */
-/* calm background music                                               */
+/* background music                                                    */
 /* ------------------------------------------------------------------ */
 
 /**
- * A slow, endless lullaby: warm pad chords, a soft music-box melody and a few far-away chimes.
- * Notes come from a gentle Uşşak-like scale on A, so it sounds a little Turkish without being busy.
+ * Two kinds of music: on the home page a slow, endless lullaby made here (warm pad chords, a soft music-box
+ * melody in a gentle Uşşak-like scale, a few far-away chimes); in a book that book's own tune, an MP3 that
+ * repeats (book.json → music). Each piece plays through its own gain (a "session"), so one can fade out while
+ * the next fades in.
  */
+interface Track {
+  src: string;
+  loop: number;
+}
+interface Session {
+  gain: GainNode;
+  track: Track | null;
+  sources: AudioBufferSourceNode[];
+  next: number;
+  bar: number;
+  started: boolean;
+}
+
+/** Book music is mixed at about the level of the lullaby. */
+const TRACK_LEVEL = 0.3;
+
 const music = {
   on: false,
   timer: 0,
-  nextBar: 0,
-  bar: 0,
+  track: null as Track | null,
+  session: null as Session | null,
   chords: [
     [-12, -5, 0, 3], // A minor
     [-14, -7, -2, 2], // G
@@ -331,8 +350,23 @@ const music = {
   scale: [0, 2, 3, 5, 7, 8, 10, 12, 14, 15],
 };
 
-function padChord(a: AudioContext, notes: number[], start: number, dur: number) {
-  const bus = musicBus!;
+const buffers = new Map<string, Promise<AudioBuffer | null>>();
+function trackBuffer(a: AudioContext, src: string) {
+  let p = buffers.get(src);
+  if (!p) {
+    p = fetch(src)
+      .then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(new Error(String(r.status)))))
+      .then((d) => new Promise<AudioBuffer>((res, rej) => a.decodeAudioData(d, res, rej)))
+      .catch((e) => {
+        console.warn('Müzik yüklenemedi', src, e);
+        return null;
+      });
+    buffers.set(src, p);
+  }
+  return p;
+}
+
+function padChord(a: AudioContext, notes: number[], start: number, dur: number, bus: AudioNode) {
   const lp = a.createBiquadFilter();
   lp.type = 'lowpass';
   lp.frequency.value = 900;
@@ -354,31 +388,198 @@ function padChord(a: AudioContext, notes: number[], start: number, dur: number) 
   }
 }
 
-function musicBox(a: AudioContext, s: number, start: number, vol: number) {
+function musicBox(a: AudioContext, s: number, start: number, vol: number, bus: AudioNode) {
   const f = N(s, 880);
-  tone(a, 'sine', f, f, start, 1.6, vol, 0.004, musicBus!);
-  tone(a, 'sine', f * 3, f * 3, start, 0.5, vol * 0.18, 0.002, musicBus!);
+  tone(a, 'sine', f, f, start, 1.6, vol, 0.004, bus);
+  tone(a, 'sine', f * 3, f * 3, start, 0.5, vol * 0.18, 0.002, bus);
 }
 
+/** Keep a little of the music scheduled ahead. */
 function scheduleMusic() {
   const a = ctx;
-  if (!a || !music.on) return;
+  const ses = music.session;
+  if (!a || !music.on || !ses) return;
+  if (ses.track) {
+    const track = ses.track;
+    void trackBuffer(a, track.src).then((buf) => {
+      if (!buf || music.session !== ses || !music.on) return;
+      // the first round starts from the beginning once the file is there
+      if (!ses.started) ses.next = Math.max(ses.next, a.currentTime + 0.05);
+      ses.started = true;
+      // a new round starts exactly `loop` seconds after the last one; its tail rings into the next
+      while (ses.next < a.currentTime + 1.5) {
+        const src = a.createBufferSource();
+        src.buffer = buf;
+        src.connect(ses.gain);
+        const at = Math.max(ses.next, a.currentTime + 0.05);
+        src.start(at, at - ses.next);
+        ses.sources.push(src);
+        src.onended = () => ses.sources.splice(ses.sources.indexOf(src), 1);
+        ses.next += track.loop;
+      }
+    });
+    return;
+  }
   const barLen = 4.8;
-  while (music.nextBar < a.currentTime + 1.2) {
-    const t0 = music.nextBar;
-    const chord = music.chords[music.bar % music.chords.length];
-    padChord(a, chord, t0, barLen + 0.6);
+  while (ses.next < a.currentTime + 1.2) {
+    const t0 = ses.next;
+    padChord(a, music.chords[ses.bar % music.chords.length], t0, barLen + 0.6, ses.gain);
     // 4–6 melody notes per bar, moving step by step
     let idx = 2 + Math.floor(Math.random() * 4);
-    const beats = [0, 1.2, 1.8, 2.4, 3.6, 4.2];
-    for (const b of beats) {
+    for (const b of [0, 1.2, 1.8, 2.4, 3.6, 4.2]) {
       if (Math.random() < 0.25) continue;
       idx = Math.max(0, Math.min(music.scale.length - 1, idx + (Math.random() < 0.5 ? -1 : 1) * (Math.random() < 0.8 ? 1 : 2)));
-      musicBox(a, music.scale[idx] - 12, t0 + b, 0.045);
+      musicBox(a, music.scale[idx] - 12, t0 + b, 0.045, ses.gain);
     }
-    if (music.bar % 2 === 1) bell(a, N(24, 440), t0 + 3.0 + Math.random(), 2.5, 0.012, [1, 2.76], musicBus!);
-    music.nextBar += barLen;
-    music.bar++;
+    if (ses.bar % 2 === 1) bell(a, N(24, 440), t0 + 3.0 + Math.random(), 2.5, 0.012, [1, 2.76], ses.gain);
+    ses.next += barLen;
+    ses.bar++;
+  }
+}
+
+function endSession(a: AudioContext, ses: Session, fade: number) {
+  const t = a.currentTime;
+  ses.gain.gain.cancelScheduledValues(t);
+  ses.gain.gain.setValueAtTime(ses.gain.gain.value, t);
+  ses.gain.gain.linearRampToValueAtTime(0, t + fade);
+  for (const s of ses.sources) s.stop(t + fade + 0.05);
+  window.setTimeout(() => ses.gain.disconnect(), (fade + 0.3) * 1000);
+}
+
+/* ------------------------------------------------------------------ */
+/* story sounds                                                        */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Sounds for what happens on a page: toy hops, knocks, magic things appearing, rain, a pot clinking.
+ * `at` is the AudioContext time; each recipe is short and soft so it never covers the narration.
+ */
+const SCENE_SOUNDS: Record<string, (a: AudioContext, t: number) => void> = {
+  // a wooden toy landing on paper
+  hop: (a, t) => {
+    tone(a, 'sine', 330, 180, t, 0.09, 0.22, 0.002);
+    hiss(a, 'bandpass', 1500, 900, t, 0.05, 0.09, 1.2, 0.001);
+  },
+  // a springy little jump of joy
+  cheer: (a, t) => {
+    tone(a, 'triangle', 380, 760, t, 0.16, 0.12, 0.01);
+    [N(7), N(11), N(14), N(19)].forEach((f, i) => bell(a, f, t + 0.08 + i * 0.07, 0.6, 0.07, [1, 2.4]));
+  },
+  // two knocks on a wooden door
+  knock: (a, t) => {
+    for (const d of [0.25, 0.5]) {
+      tone(a, 'sine', 210, 120, t + d, 0.12, 0.45, 0.001);
+      hiss(a, 'bandpass', 900, 500, t + d, 0.07, 0.3, 2, 0.001);
+    }
+  },
+  // stamping feet and a grumble
+  angry: (a, t) => {
+    for (let i = 0; i < 3; i++) drum(a, t + 0.15 + i * 0.22, 90, 0.18, 0.15);
+    warble(a, 140, 110, t + 0.1, 0.6, 0.05, 9, 12, 'sawtooth');
+  },
+  // something set down: a soft clunk
+  put: (a, t) => {
+    tone(a, 'sine', 240, 150, t + 0.45, 0.14, 0.3, 0.002);
+    bell(a, 720, t + 0.45, 0.25, 0.05, [1, 2.7]);
+  },
+  // a thing flying from hand to hand: a swish, then a chime as it lands
+  fly: (a, t) => {
+    hiss(a, 'bandpass', 700, 2600, t, 0.55, 0.16, 1.4, 0.15);
+    bell(a, N(19), t + 0.72, 0.8, 0.09, [1, 2.4]);
+  },
+  // something comes out of nowhere into the hands
+  pop: (a, t) => {
+    tone(a, 'sine', 420, 980, t, 0.14, 0.22, 0.004);
+    bell(a, N(24), t + 0.08, 0.5, 0.05, [1, 2.4]);
+  },
+  // a magic thing appears: a rising sparkle of little bells
+  appear: (a, t) => {
+    [0, 4, 7, 12, 16, 19].forEach((s, i) => bell(a, N(s + 7), t + i * 0.055, 1.0, 0.07, [1, 2.4, 4.1]));
+    hiss(a, 'highpass', 5000, 9000, t, 0.6, 0.05, 0.8, 0.1);
+  },
+  // and goes: a falling sparkle and a soft poof
+  vanish: (a, t) => {
+    [19, 16, 12, 7].forEach((s, i) => bell(a, N(s + 7), t + i * 0.06, 0.7, 0.05, [1, 2.4]));
+    hiss(a, 'lowpass', 1800, 300, t + 0.25, 0.4, 0.12, 0.7, 0.03);
+  },
+  // gliding through the air
+  rise: (a, t) => {
+    for (let i = 0; i < 10; i++) bell(a, N(10 + i * 1.5), t + i * 0.16, 0.9, 0.035, [1, 2.4]);
+    hiss(a, 'bandpass', 1200, 3000, t, 1.6, 0.05, 1.5, 0.4);
+  },
+  sink: (a, t) => {
+    for (let i = 0; i < 6; i++) bell(a, N(22 - i * 2), t + i * 0.12, 0.8, 0.04, [1, 2.4]);
+  },
+  // a little pot clinking as it wiggles
+  clink: (a, t) => {
+    for (let i = 0; i < 4; i++) bell(a, i % 2 ? 1960 : 1720, t + i * 0.18, 0.4, 0.09, [1, 2.6, 4.4]);
+  },
+  // the alarm clock ringing
+  alarm: (a, t) => {
+    for (let i = 0; i < 18; i++) bell(a, i % 2 ? 2650 : 2500, t + i * 0.06, 0.12, 0.08, [1, 2.2]);
+  },
+  // a glow: a warm swelling chord of bells
+  shine: (a, t) => {
+    [0, 4, 7, 11].forEach((s, i) => bell(a, N(s + 12), t + i * 0.04, 1.4, 0.05, [1, 2, 3]));
+  },
+  // a sprout popping up out of the soil
+  grow: (a, t) => {
+    tone(a, 'sine', 300, 900, t, 0.35, 0.16, 0.02);
+    [12, 16, 19].forEach((s, i) => pluck(a, N(s - 12), t + 0.25 + i * 0.07, 0.25, 1.2));
+  },
+  // a whoosh round
+  spin: (a, t) => {
+    hiss(a, 'bandpass', 600, 2400, t, 0.45, 0.14, 1.6, 0.12);
+    hiss(a, 'bandpass', 2400, 700, t + 0.45, 0.45, 0.1, 1.6, 0.05);
+  },
+};
+
+/** Rain: thunder far away, then a steady shower with drops plinking, for `seconds`. */
+function rainSound(a: AudioContext, t: number, seconds: number) {
+  hiss(a, 'lowpass', 220, 80, t, 2.2, 0.35, 0.8, 0.25);
+  tone(a, 'sine', 55, 40, t, 1.8, 0.2, 0.2);
+  const src = a.createBufferSource();
+  src.buffer = noise(a);
+  src.loop = true;
+  const f = a.createBiquadFilter();
+  f.type = 'bandpass';
+  f.frequency.value = 2600;
+  f.Q.value = 0.6;
+  const g = a.createGain();
+  g.gain.setValueAtTime(0.0001, t + 0.3);
+  g.gain.linearRampToValueAtTime(0.16, t + 1.2);
+  g.gain.setValueAtTime(0.16, t + seconds);
+  g.gain.linearRampToValueAtTime(0.0001, t + seconds + 1.5);
+  src.connect(f).connect(g).connect(out());
+  src.start(t + 0.3);
+  src.stop(t + seconds + 1.6);
+  for (let i = 0; i < seconds * 5; i++) {
+    const d = t + 0.6 + Math.random() * seconds;
+    tone(a, 'sine', 1800 + Math.random() * 1600, 900, d, 0.05, 0.03, 0.001);
+  }
+}
+
+/** Soft sounds of a place, under a page: birds in the morning or the village, crickets at night. */
+let ambience: { kind: string; timer: number } | null = null;
+function ambienceTick() {
+  const a = ctx;
+  if (!a || !ambience || document.hidden) return;
+  const t = a.currentTime + Math.random() * 0.5;
+  const g = a.createGain();
+  g.gain.value = 0.5;
+  g.connect(fxBus!);
+  target = g;
+  try {
+    if (ambience.kind === 'birds') {
+      // a little bird: two or three quick chirps
+      const f = 2600 + Math.random() * 1400;
+      const n = 2 + Math.floor(Math.random() * 3);
+      for (let i = 0; i < n; i++) warble(a, f, f * (1.15 + Math.random() * 0.2), t + i * 0.13, 0.09, 0.025, 30, 120, 'sine');
+    } else if (ambience.kind === 'crickets') {
+      for (let i = 0; i < 6; i++) tone(a, 'sine', 4300, 4300, t + i * 0.045, 0.03, 0.012, 0.004);
+    }
+  } finally {
+    target = null;
   }
 }
 
@@ -459,9 +660,40 @@ export const sfx = {
     if (a) tone(a, 'sine', 420, 300, a.currentTime, 0.1, 0.2);
   },
 
+  /* story sounds */
+  /** A sound of the page's play (see SCENE_SOUNDS) in `delay` seconds; `rain` takes the shower's length. */
+  scene(kind: string, delay = 0, seconds = 4) {
+    const a = audio();
+    if (!a) return;
+    const t = a.currentTime + Math.max(0, delay);
+    if (kind === 'rain') return rainSound(a, t, seconds);
+    SCENE_SOUNDS[kind]?.(a, t);
+  },
+  /** Birds or crickets under the page (null for none). */
+  setAmbience(kind: string | null) {
+    if (ambience?.kind === kind) return;
+    if (ambience) window.clearInterval(ambience.timer);
+    ambience = null;
+    if (!kind) return;
+    ambience = { kind, timer: window.setInterval(() => Math.random() < (kind === 'crickets' ? 0.55 : 0.35) && ambienceTick(), 1000) };
+  },
+
   /* background music */
   get musicOn() {
     return music.on;
+  },
+  /** The music to play: a book's own tune, or null for the home page lullaby. */
+  useMusic(track: Track | null) {
+    if (music.track?.src === track?.src) return;
+    music.track = track;
+    if (ctx && track) void trackBuffer(ctx, track.src);
+    if (music.on && ctx) {
+      // fade the old piece out while the new one comes in
+      endSession(ctx, music.session!, 1.2);
+      music.session = null;
+      music.on = false;
+      sfx.startMusic();
+    }
   },
   startMusic() {
     if (!unlocked) {
@@ -472,10 +704,13 @@ export const sfx = {
     const a = audio();
     if (!a) return;
     music.on = true;
-    music.nextBar = Math.max(music.nextBar, a.currentTime + 0.2);
+    const gain = a.createGain();
+    gain.connect(musicBus!);
+    gain.gain.setValueAtTime(0, a.currentTime);
+    gain.gain.linearRampToValueAtTime(music.track ? TRACK_LEVEL : 1, a.currentTime + 2.5);
+    music.session = { gain, track: music.track, sources: [], next: a.currentTime + 0.2, bar: 0, started: false };
     musicBus!.gain.cancelScheduledValues(a.currentTime);
-    musicBus!.gain.setValueAtTime(musicBus!.gain.value, a.currentTime);
-    musicBus!.gain.linearRampToValueAtTime(MUSIC_LEVEL, a.currentTime + 2.5);
+    musicBus!.gain.setValueAtTime(MUSIC_LEVEL, a.currentTime);
     scheduleMusic();
     window.clearInterval(music.timer);
     music.timer = window.setInterval(scheduleMusic, 400);
@@ -485,11 +720,8 @@ export const sfx = {
     if (!music.on || !ctx) return;
     music.on = false;
     window.clearInterval(music.timer);
-    const t = ctx.currentTime;
-    musicBus!.gain.cancelScheduledValues(t);
-    musicBus!.gain.setValueAtTime(musicBus!.gain.value, t);
-    musicBus!.gain.linearRampToValueAtTime(0, t + fade);
-    music.nextBar = t + fade + 0.3;
+    if (music.session) endSession(ctx, music.session, fade);
+    music.session = null;
   },
   /** Quieter music while a voice is speaking. */
   duck(on: boolean) {

@@ -30,6 +30,8 @@ export class Stage {
   private mode: 'auto' | 'narration' = 'auto';
   private busyUntil = new Map<string, number>();
   onFocus: ((who: string | null) => void) | null = null;
+  /** A beat has started (at stage time `t`, the clock being at `now`): for its sounds. */
+  onBeat: ((b: Beat, t: number, res: ActResult, now: number) => void) | null = null;
 
   constructor(
     private cast: Map<string, StageActor>,
@@ -37,7 +39,7 @@ export class Stage {
     private beats: Beat[],
   ) {}
 
-  /** Match the beats to the words of the current text (they differ between reading levels). */
+  /** Match the beats to the words of the page text. */
   setText(tokens: Token[], marks: number[]) {
     const words = tokens.filter((t) => t.kind === 'word');
     let from = 0;
@@ -140,6 +142,7 @@ export class Stage {
     const res = p.run ? p.run(p.endState(), b, t) : runAct(p.endState(), b, t);
     p.add(res.keys);
     this.busyUntil.set(b.who, Math.max(busy, t + res.dur));
+    this.onBeat?.(b, t, res, this.clock);
     if (b.focus) this.onFocus?.(b.who);
   }
 }

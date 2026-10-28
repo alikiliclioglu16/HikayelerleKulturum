@@ -78,7 +78,7 @@ Boylar her sayfada aynıdır; yüz ve kıyafet aynı modelden geldiği için sah
 
 - **cast**: sayfadaki karakterler ve başlangıç durumları (`pose`, yatıyorsa `lie: 1`, gözler kapalıysa `eyes: 0`, elinde bir şey varsa `hold`). `screen: true` olan karakterler tabletin ekranında görüntülü konuşmada görünür.
 - **spots**: bakılacak ya da gidilecek adlandırılmış yerler.
-- **beats**: hikâye sırasıyla hareketler. `cue` kelime köklerinden biri metinde geçince hareket başlar (üç okuma seviyesinin hepsinde çalışsın diye birden çok kök yazılır). `optional: true` olan hareket, o seviyenin metninde kelime yoksa atlanır.
+- **beats**: hikâye sırasıyla hareketler. `cue` kelime köklerinden biri metinde geçince hareket başlar (metin değişse de çalışsın diye birden çok kök yazılabilir). `optional: true` olan hareket, metinde kelime yoksa atlanır. `sound` ile hareketin sesi değiştirilir (`null` sessiz).
   - `look` / `target`: başka bir karakter (`"elif"`), bir yer (`"pencere"`), sayfadaki bir modelin kelimesi (`"kedi"`), `"reader"` (okuyucuya bakar), `"up"`, `"left"`, `"right"`, `"down"`.
   - `focus: true`: o karakter konuşuyor ya da anlatımda sözü ediliyor demektir; kamera ona yumuşakça yönelir, diğerleri görünür kalır.
   - `to`: yürüme veya inme için başlangıç yerine göre [x, y, z] farkı; `face`: sonunda bakılan yön (derece).
