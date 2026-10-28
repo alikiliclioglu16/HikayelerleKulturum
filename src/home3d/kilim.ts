@@ -310,6 +310,23 @@ function mix(a: string, b: string, k: number) {
 /** Height of the fringe strip at the bottom of the carpet canvas, as a fraction of the canvas height. */
 export const FRINGE = 0.06;
 
+/** The fringe below a carpet: knotted ivory strands hanging from the bottom edge (y = rugH). */
+export function drawFringe(g: CanvasRenderingContext2D, W: number, H: number, rugH: number, r: () => number = rng(W)) {
+  for (let x = 6; x < W - 6; x += 7) {
+    const len = H - rugH - 6 - r() * 10;
+    g.strokeStyle = r() > 0.5 ? '#F2E8D2' : '#E2D5B8';
+    g.lineWidth = 3.2;
+    g.beginPath();
+    g.moveTo(x, rugH - 2);
+    g.quadraticCurveTo(x + (r() - 0.5) * 6, rugH + len * 0.6, x + (r() - 0.5) * 8, rugH + len);
+    g.stroke();
+  }
+  for (let x = 10; x < W - 10; x += 28) {
+    g.fillStyle = '#E6D8BA';
+    g.fillRect(x, rugH, 20, 9);
+  }
+}
+
 /** Carpet colours for a book (see `carpet` in books/index.json). */
 export interface CarpetStyle {
   /** Kilim motif id shown in the medallions, e.g. "kocboynuzu". */
@@ -366,20 +383,7 @@ export function carpetCanvas(style: CarpetStyle, W: number, H: number) {
   const gold = '#C9953E';
   const r = rng(m.id.length * 97 + W);
 
-  // fringe: knotted ivory strands
-  for (let x = 6; x < W - 6; x += 7) {
-    const len = H - rugH - 6 - r() * 10;
-    g.strokeStyle = r() > 0.5 ? '#F2E8D2' : '#E2D5B8';
-    g.lineWidth = 3.2;
-    g.beginPath();
-    g.moveTo(x, rugH - 2);
-    g.quadraticCurveTo(x + (r() - 0.5) * 6, rugH + len * 0.6, x + (r() - 0.5) * 8, rugH + len);
-    g.stroke();
-  }
-  for (let x = 10; x < W - 10; x += 28) {
-    g.fillStyle = '#E6D8BA';
-    g.fillRect(x, rugH, 20, 9);
-  }
+  drawFringe(g, W, H, rugH, r);
 
   // rug body; sizes are in units of the shorter side
   g.fillStyle = borderBg;

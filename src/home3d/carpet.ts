@@ -1,10 +1,13 @@
 import * as THREE from 'three';
 import { carpetCanvas, carpetPixels, FRINGE, type CarpetStyle } from './kilim';
+import { composeCarpet, loadCarpetPicture } from './carpetPicture';
 import { Tweens, ease } from '../three/tween';
 
 /** A carpet design for a book: a generated kilim style, or a picture (`src`) made by an illustrator. */
 export interface CarpetDesign extends CarpetStyle {
   src?: string;
+  /** Where the woven border ends inside the picture: top, right, bottom, left (fractions); see carpetPicture.ts. */
+  inset?: [number, number, number, number];
 }
 
 /**
@@ -17,7 +20,8 @@ export class WallCarpet {
   private geo: THREE.PlaneGeometry | null = null;
   private base: Float32Array = new Float32Array();
   private meshes: THREE.Mesh[] = [];
-  private cache = new Map<string, THREE.Texture>();
+  private cache = new Map<string, Promise<THREE.Texture>>();
+  private shown = 0;
   private size = { w: 0, h: 0 };
   private current: { key: string; design: CarpetDesign } | null = null;
   private fading = 0;
@@ -64,9 +68,16 @@ export class WallCarpet {
     this.meshes.forEach((m) => (m.geometry = geo));
     this.group.position.set((left + right) / 2, top, 0);
     // designs are drawn for one size; draw them again for the new one
-    this.cache.forEach((t) => t.dispose());
+    this.cache.forEach((t) => t.then((x) => x.dispose()));
     this.cache.clear();
-    if (this.current) this.apply(this.meshes[0], this.texture(this.current.key, this.current.design));
+    if (this.current) {
+      const want = this.current.key;
+      this.texture(want, this.current.design).then((t) => {
+        if (this.current?.key !== want) return;
+        this.apply(this.meshes[0], t);
+        this.invalidate();
+      });
+    }
     this.invalidate();
   }
 
@@ -78,43 +89,47 @@ export class WallCarpet {
     (m.customDepthMaterial as THREE.MeshDepthMaterial).needsUpdate = true;
   }
 
-  private texture(key: string, d: CarpetDesign) {
+  /** The carpet texture for a design at the current size (pictures are re-woven to fit; see carpetPicture.ts). */
+  private texture(key: string, d: CarpetDesign): Promise<THREE.Texture> {
     let t = this.cache.get(key);
     if (t) return t;
     const { w, h } = this.size;
-    if (d.src) {
-      // a picture: cover the carpet with it, cropping what does not fit
-      t = new THREE.TextureLoader().load(d.src, (tx) => {
-        const img = tx.image as HTMLImageElement;
-        const ia = img.width / img.height;
-        const ca = w / h;
-        if (ia > ca) {
-          tx.repeat.set(ca / ia, 1);
-          tx.offset.set((1 - ca / ia) / 2, 0);
-        } else {
-          tx.repeat.set(1, ia / ca);
-          tx.offset.set(0, (1 - ia / ca) / 2);
-        }
-        this.invalidate();
-      });
-    } else {
-      const [pw, ph] = carpetPixels(w, h);
-      t = new THREE.CanvasTexture(carpetCanvas(d, pw, ph));
-    }
-    t.colorSpace = THREE.SRGBColorSpace;
-    t.anisotropy = 8;
+    const [pw, ph] = carpetPixels(w, h);
+    const make = (c: HTMLCanvasElement) => {
+      const tx = new THREE.CanvasTexture(c);
+      tx.colorSpace = THREE.SRGBColorSpace;
+      tx.anisotropy = 8;
+      return tx;
+    };
+    t = d.src
+      ? loadCarpetPicture(d.src, d.inset)
+          .then((src) => make(composeCarpet(src, pw, ph, d.inset, key.length)))
+          .catch(() => make(carpetCanvas(d, pw, ph)))
+      : Promise.resolve(make(carpetCanvas(d, pw, ph)));
     this.cache.set(key, t);
     return t;
   }
 
-  /** Show a design (cross-fades unless `instant`). */
+  /** Start loading carpet pictures that will probably be shown soon (the next books on the shelf). */
+  preload(designs: CarpetDesign[]) {
+    for (const d of designs) if (d.src) loadCarpetPicture(d.src, d.inset).catch(() => {});
+  }
+
+  /** Show a design (cross-fades unless `instant`; a picture fades in once it has loaded). */
   show(key: string, design: CarpetDesign, instant = false) {
     if (this.current?.key === key) return;
     this.current = { key, design };
     if (!this.geo) return;
+    const id = ++this.shown;
+    this.texture(key, design).then((t) => {
+      if (id !== this.shown) return;
+      this.fadeTo(t, instant);
+    });
+  }
+
+  private fadeTo(t: THREE.Texture, instant: boolean) {
     const [back, front] = this.meshes;
-    const t = this.texture(key, design);
-    if (instant) {
+    if (instant || !(back.material as THREE.MeshStandardMaterial).map) {
       this.apply(back, t);
       (front.material as THREE.MeshStandardMaterial).opacity = 0;
       this.invalidate();
@@ -123,7 +138,8 @@ export class WallCarpet {
     this.apply(front, t);
     const fm = front.material as THREE.MeshStandardMaterial;
     const id = ++this.fading;
-    this.tweens.add(900, fm.opacity, 1, (v) => (fm.opacity = v), ease.inOut).then(() => {
+    fm.opacity = 0;
+    this.tweens.add(900, 0, 1, (v) => (fm.opacity = v), ease.inOut).then(() => {
       if (id !== this.fading) return;
       this.apply(back, t);
       fm.opacity = 0;
@@ -153,7 +169,7 @@ export class WallCarpet {
   }
 
   dispose() {
-    this.cache.forEach((t) => t.dispose());
+    this.cache.forEach((t) => t.then((x) => x.dispose()));
     this.geo?.dispose();
   }
 }

@@ -10,6 +10,7 @@ import { fitToSlot, disposeObject, std, mesh, tex, canvas, V3 } from './kit3d';
 import { Sparkles } from './sparkles';
 import { Cinema } from './cinema';
 import { loadActor, play, type Actor } from './actors';
+import { LivingCover, type LiveCover } from './livingCover';
 
 export interface CultureDef {
   id: string;
@@ -35,13 +36,17 @@ export interface ShelfBook {
   hero?: string;
   /** The carpet design shown on the wall while this book is chosen. */
   carpet?: CarpetDesign;
+  /** A sculpted 3D book (GLB) used instead of the flat cover on the shelf, and how its cover comes alive. */
+  model?: string;
+  live?: LiveCover;
 }
 
-/** Animated characters that can stand beside their books. */
-export const HEROES: Record<string, { url: string; height: number; name: string }> = {
-  hoca: { url: '/models/characters/nasreddin-hoca.glb', height: 0.66, name: 'Nasreddin Hoca' },
-  keloglan: { url: '/models/characters/keloglan.glb', height: 0.6, name: 'Keloğlan' },
-};
+/**
+ * Animated characters that can stand beside their books (a book's `hero` in books/index.json), e.g.
+ * `hoca: { url: '/models/characters/nasreddin-hoca.glb', height: 0.66, name: 'Nasreddin Hoca' }`.
+ * Empty until the new character models arrive; the covers themselves come alive meanwhile (livingCover.ts).
+ */
+export const HEROES: Record<string, { url: string; height: number; name: string }> = {};
 
 const SHELF_Y = 1.84;
 const SHELF_DEPTH = 0.46;
@@ -50,6 +55,7 @@ export const ITEM_GAP = 0.53;
 const ITEM_SCALE = 1.22;
 const SLOT_W = 0.46;
 const SLOT_D = 0.4;
+const MODEL_D = 0.56;
 const BOOK_W = 0.95;
 const BOOK_H = 1.29;
 const BOOK_D = 0.13;
@@ -121,6 +127,10 @@ interface BookObj {
   pulled: boolean;
   glow: GlowMat[];
   carpet?: CarpetDesign;
+  /** The living 3D cover once it has loaded. */
+  cover?: LivingCover;
+  /** Seconds until the next little twinkle on the cover. */
+  twinkle: number;
 }
 
 export type Hit = { kind: 'item'; index: number } | { kind: 'book'; index: number } | { kind: 'hero'; index: number } | { kind: 'cat' };
@@ -381,7 +391,8 @@ export class HomeScene {
           if (it.def.rotY) obj.rotation.y = THREE.MathUtils.degToRad(it.def.rotY);
           const wrap = new THREE.Group();
           wrap.add(obj);
-          fitToSlot(wrap, (it.def.height ?? CULTURE_BUILDERS[it.def.id]?.h ?? 0.45) * ITEM_SCALE, it.w, SLOT_D);
+          // models may be a little deeper than the drawn placeholders (a saucer, an island): they may use the whole shelf
+          fitToSlot(wrap, (it.def.height ?? CULTURE_BUILDERS[it.def.id]?.h ?? 0.45) * ITEM_SCALE, it.w, MODEL_D);
           it.pivot.remove(it.inner);
           disposeObject(it.inner);
           it.inner = wrap;
@@ -422,10 +433,66 @@ export class HomeScene {
       group.rotation.y = baseRotY;
       group.add(m);
       this.booksGroup.add(group);
-      this.books.push({ id: b.id, group, mesh: m, baseRotY, lift: 0, pulled: false, glow: glowMats(m), carpet: b.carpet });
+      this.books.push({ id: b.id, group, mesh: m, baseRotY, lift: 0, pulled: false, glow: glowMats(m), carpet: b.carpet, twinkle: 1 + i * 1.3 });
     });
+    this.loadCovers(list);
     this.loadCharacters(list);
     this.showCarpet(0, true);
+  }
+
+  /** Sculpted books with living covers replace the flat placeholder books once they have loaded. */
+  private async loadCovers(list: ShelfBook[]) {
+    const withModels = list.map((b, i) => ({ b, i })).filter(({ b }) => b.model);
+    if (!withModels.length) return;
+    const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js');
+    const loader = new GLTFLoader();
+    await Promise.all(
+      withModels.map(async ({ b, i }) => {
+        try {
+          const gltf = await loader.loadAsync(b.model!);
+          if (this.disposed) return;
+          const cover = new LivingCover(gltf.scene, b.live ?? { regions: [] });
+          const box = cover.bounds;
+          const size = box.getSize(new THREE.Vector3());
+          const sc = BOOK_H / size.y;
+          const r = cover.root;
+          r.scale.setScalar(sc);
+          // centred like the flat book; the back cover where the flat book's back was, the relief stands out in front
+          r.position.set(-((box.min.x + box.max.x) / 2) * sc, -((box.min.y + box.max.y) / 2) * sc, -BOOK_D / 2 - box.min.z * sc);
+          const book = this.books[i];
+          book.mesh.material = invisible;
+          book.mesh.castShadow = false;
+          book.mesh.add(r);
+          book.cover = cover;
+          book.glow = glowMats(r);
+          cover.calm = this.reducedMotion;
+          this.invalidate();
+        } catch (e) {
+          console.warn('Kapak modeli yüklenemedi', b.model, e);
+        }
+      }),
+    );
+  }
+
+  /** Living covers move, shine and twinkle (unless calm). Returns true while something moves. */
+  private updateCovers(dt: number) {
+    let any = false;
+    const t = this.clock / 1000;
+    this.books.forEach((b, i) => {
+      if (!b.cover) return;
+      any = true;
+      b.cover.calm = this.reducedMotion;
+      b.cover.update(this.reducedMotion ? 0 : t + i * 1.7, b.pulled ? 1 : b.lift);
+      if (this.reducedMotion || !b.cover.live.twinkles?.length) return;
+      b.twinkle -= dt / 1000;
+      if (b.twinkle > 0) return;
+      b.twinkle = 2.2 + Math.random() * 2.5;
+      const tw = b.cover.live.twinkles[Math.floor(Math.random() * b.cover.live.twinkles.length)];
+      const p = b.cover.coverPoint(tw[0], tw[1]);
+      b.cover.root.localToWorld(p);
+      this.sparkles.burst(p, V3(0.06, 0.05, 0.03), 4 + Math.round(Math.random() * 3), 0.55);
+    });
+    return any && !this.reducedMotion;
   }
 
   /** Heroes stand beside their books; a cat strolls along the front of the sideboard. */
@@ -763,7 +830,8 @@ export class HomeScene {
         b.lift = v;
         b.mesh.position.y = BOOK_H / 2 + v * 0.05;
         b.mesh.rotation.x = -v * 0.05;
-        applyGlow(b.glow, v * 0.5);
+        // a living cover lights itself up (sheen, glows); only a touch of warm light on top
+        applyGlow(b.glow, v * (b.cover ? 0.12 : 0.5));
       }, ease.out);
     });
     this.invalidate();
@@ -852,6 +920,7 @@ export class HomeScene {
       this.updateCharacters(dt);
       moving = true;
     }
+    if (this.updateCovers(dt)) moving = true;
     if (this.vel !== 0) {
       const before = this.offset;
       this.setOffset(this.offset + this.vel * dt);

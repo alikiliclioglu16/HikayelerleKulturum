@@ -173,9 +173,13 @@ export interface BookListing {
   pages?: number;
   values: string[];
   blurb: Bi;
-  /** The wall carpet shown while this book is chosen: a kilim motif and colours, or a picture (`src`). */
-  carpet?: { motif: string; field?: string; border?: string; src?: string };
+  /** The wall carpet shown while this book is chosen: a kilim motif and colours, or a picture (`src`, see public/halilar). */
+  carpet?: { motif: string; field?: string; border?: string; src?: string; inset?: [number, number, number, number] };
   /** An animated 3D character that stands next to the book on the home shelf. */
   hero?: string;
-  cover: { art: string; color?: string; motif?: string; src?: string };
+  /**
+   * The cover: drawn in code (`art`), or a picture (`src`, in the book's folder). `model` is a sculpted 3D book
+   * (GLB) shown on the home shelf, and `live` says which parts of its cover move (see home3d/livingCover.ts).
+   */
+  cover: { art: string; color?: string; motif?: string; src?: string; model?: string; live?: import('./home3d/livingCover').LiveCover };
 }

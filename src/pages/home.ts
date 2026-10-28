@@ -114,7 +114,9 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     scene.setCinematic(false);
   }
   scene.setItems(culture);
-  scene.setBooks(list.map((b, i) => ({ id: b.id, cover: covers[i], spine: b.cover.color ?? '#1C3F8C', hero: b.hero, carpet: b.carpet })));
+  scene.setBooks(
+    list.map((b, i) => ({ id: b.id, cover: covers[i], spine: b.cover.color ?? '#1C3F8C', hero: b.hero, carpet: b.carpet, model: b.cover.model, live: b.cover.live })),
+  );
 
   /* ---------- stats & sound ---------- */
   function updateStats() {
@@ -281,6 +283,28 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     }
   }
 
+  /**
+   * The cover in the book sheet comes alive too: it floats, a golden sheen sweeps over it, little stars twinkle,
+   * and it tilts towards the pointer. All of it stops in calm mode.
+   */
+  function liveCover(cover: HTMLCanvasElement) {
+    const stars = Array.from({ length: 7 }, (_, k) =>
+      h('span', { class: 'bs-star', style: `left:${8 + ((k * 37) % 84)}%;top:${10 + ((k * 53) % 78)}%;animation-delay:${(k * 0.55).toFixed(2)}s` }),
+    );
+    const card = h('div', { class: 'bs-card' }, cover, h('span', { class: 'bs-shine', 'aria-hidden': 'true' }), ...stars);
+    const wrap = h('div', { class: `bs-cover${store.settings.calm || scene.reducedMotion ? ' calm' : ''}` }, card);
+    wrap.addEventListener('pointermove', (e) => {
+      const r = wrap.getBoundingClientRect();
+      wrap.style.setProperty('--ry', `${(((e.clientX - r.left) / r.width - 0.5) * 16).toFixed(1)}deg`);
+      wrap.style.setProperty('--rx', `${(-((e.clientY - r.top) / r.height - 0.5) * 12).toFixed(1)}deg`);
+    });
+    wrap.addEventListener('pointerleave', () => {
+      wrap.style.removeProperty('--ry');
+      wrap.style.removeProperty('--rx');
+    });
+    return wrap;
+  }
+
   /* ---------- book sheet ---------- */
   let sheetClose: (() => void) | null = null;
   function openBook(i: number) {
@@ -318,7 +342,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
         const lv = LEVELS.find((l) => l.id === store.settings.level)!;
         const change = h('button', { class: 'link-btn', type: 'button' }, 'Değiştir');
         change.addEventListener('click', () => levelGate(false, showLevel));
-        lvLine.replaceChildren(levelIcon(lv.id), h('span', null, 'Okuma seviyesi: ', h('strong', null, lv.name), ` (${lv.ages})`), change);
+        lvLine.replaceChildren(levelIcon(lv.id), h('span', null, 'Okuma seviyesi: ', h('strong', null, lv.name), ` (${lv.ages}) `, change));
       };
       showLevel();
       body.push(
@@ -335,7 +359,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
       'div',
       { class: 'book-sheet', role: 'dialog', 'aria-modal': 'true', 'aria-label': b.title },
       closeBtn,
-      h('div', { class: 'bs-cover' }, cover),
+      liveCover(cover),
       h('div', { class: 'bs-body' }, ...body),
     );
     const backdrop = h('div', { class: 'book-sheet-backdrop' }, sheet);

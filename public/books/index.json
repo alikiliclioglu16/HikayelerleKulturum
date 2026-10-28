@@ -17,11 +17,126 @@
         "en": "Elif and Can celebrate Bayram in America: new clothes, baklava, kissing an elder's hand and a video call with Grandma."
       },
       "cover": {
-        "art": "cover-bayram"
+        "art": "cover-bayram",
+        "src": "kapak.webp",
+        "model": "/models/kapak/bayram-sabahi.glb",
+        "color": "#0D3E86",
+        "live": {
+          "regions": [
+            {
+              "kind": "sway",
+              "at": [
+                0.33,
+                0.37
+              ],
+              "r": [
+                0.17,
+                0.29
+              ],
+              "amp": 0.05,
+              "speed": 1.6,
+              "pivot": [
+                0.33,
+                0.1
+              ]
+            },
+            {
+              "kind": "hop",
+              "at": [
+                0.6,
+                0.33
+              ],
+              "r": [
+                0.13,
+                0.25
+              ],
+              "amp": 0.018,
+              "speed": 2.6,
+              "phase": 1.0
+            },
+            {
+              "kind": "sway",
+              "at": [
+                0.725,
+                0.4
+              ],
+              "r": [
+                0.075,
+                0.065
+              ],
+              "amp": 0.28,
+              "speed": 5.0,
+              "pivot": [
+                0.665,
+                0.37
+              ]
+            },
+            {
+              "kind": "flutter",
+              "at": [
+                0.5,
+                0.655
+              ],
+              "r": [
+                0.4,
+                0.05
+              ],
+              "amp": 0.006,
+              "speed": 3.0
+            },
+            {
+              "kind": "bob",
+              "at": [
+                0.52,
+                0.8
+              ],
+              "r": [
+                0.32,
+                0.11
+              ],
+              "amp": 0.005,
+              "speed": 1.3,
+              "phase": 0.5
+            },
+            {
+              "kind": "glow",
+              "at": [
+                0.81,
+                0.6
+              ],
+              "r": [
+                0.05,
+                0.04
+              ],
+              "amp": 0.35,
+              "speed": 2.0,
+              "color": "#FFF2C2"
+            }
+          ],
+          "twinkles": [
+            [
+              0.33,
+              0.42
+            ],
+            [
+              0.75,
+              0.62
+            ],
+            [
+              0.5,
+              0.68
+            ],
+            [
+              0.2,
+              0.25
+            ]
+          ]
+        }
       },
       "carpet": {
         "motif": "elibelinde",
-        "field": "#8E2B24"
+        "field": "#8E2B24",
+        "src": "/halilar/bayram-sabahi.webp"
       }
     },
     {
@@ -33,21 +148,161 @@
         "adalet",
         "durustluk"
       ],
-      "hero": "hoca",
       "blurb": {
         "tr": "Ödünç alınan kazan bir gün 'doğurursa', başka bir gün 'ölebilir' mi? Akşehir'den ünlü bir fıkra ve dürüstlük üzerine bir akşam sohbeti.",
         "en": "If a borrowed pot can 'have a baby', can it also 'die'? A famous story from Akşehir and an evening talk about honesty."
       },
       "cover": {
         "art": "cover-kazan",
-        "color": "#1F5FA8",
-        "motif": "kazan"
+        "color": "#54122A",
+        "motif": "kazan",
+        "src": "kapak.webp",
+        "model": "/models/kapak/nasreddin-hoca-kazan.glb",
+        "live": {
+          "regions": [
+            {
+              "kind": "sway",
+              "at": [
+                0.44,
+                0.45
+              ],
+              "r": [
+                0.14,
+                0.2
+              ],
+              "amp": 0.03,
+              "speed": 1.3,
+              "pivot": [
+                0.44,
+                0.27
+              ]
+            },
+            {
+              "kind": "sway",
+              "at": [
+                0.44,
+                0.56
+              ],
+              "r": [
+                0.1,
+                0.08
+              ],
+              "amp": 0.06,
+              "speed": 1.9,
+              "phase": 0.7,
+              "pivot": [
+                0.44,
+                0.48
+              ]
+            },
+            {
+              "kind": "sway",
+              "at": [
+                0.21,
+                0.43
+              ],
+              "r": [
+                0.1,
+                0.2
+              ],
+              "amp": 0.035,
+              "speed": 1.5,
+              "phase": 2.0,
+              "pivot": [
+                0.21,
+                0.2
+              ]
+            },
+            {
+              "kind": "sway",
+              "at": [
+                0.72,
+                0.45
+              ],
+              "r": [
+                0.12,
+                0.2
+              ],
+              "amp": 0.03,
+              "speed": 1.4,
+              "phase": 4.0,
+              "pivot": [
+                0.72,
+                0.22
+              ]
+            },
+            {
+              "kind": "sway",
+              "at": [
+                0.38,
+                0.2
+              ],
+              "r": [
+                0.19,
+                0.13
+              ],
+              "amp": 0.02,
+              "speed": 2.2,
+              "pivot": [
+                0.38,
+                0.09
+              ]
+            },
+            {
+              "kind": "hop",
+              "at": [
+                0.68,
+                0.13
+              ],
+              "r": [
+                0.09,
+                0.08
+              ],
+              "amp": 0.02,
+              "speed": 3.2,
+              "phase": 1.5
+            },
+            {
+              "kind": "bob",
+              "at": [
+                0.5,
+                0.78
+              ],
+              "r": [
+                0.36,
+                0.14
+              ],
+              "amp": 0.005,
+              "speed": 1.3,
+              "phase": 0.5
+            }
+          ],
+          "twinkles": [
+            [
+              0.38,
+              0.33
+            ],
+            [
+              0.68,
+              0.2
+            ],
+            [
+              0.3,
+              0.3
+            ],
+            [
+              0.46,
+              0.3
+            ]
+          ]
+        }
       },
       "pages": 8,
       "carpet": {
         "motif": "kocboynuzu",
         "field": "#22406E",
-        "border": "#8E2B24"
+        "border": "#8E2B24",
+        "src": "/halilar/nasreddin-hoca-kazan.webp"
       }
     },
     {
@@ -60,20 +315,168 @@
         "sabir",
         "saglikli-yasam"
       ],
-      "hero": "keloglan",
       "blurb": {
         "tr": "Kuraklıkta üç tohumu sabırla büyüten, suyunu komşusuyla paylaşan Keloğlan'ın masalı; bahçede ilk filizini bekleyen Can.",
         "en": ""
       },
       "cover": {
         "art": "cover-keloglan",
-        "color": "#2E8B57",
-        "motif": "tohum"
+        "color": "#05492B",
+        "motif": "tohum",
+        "src": "kapak.webp",
+        "model": "/models/kapak/keloglan-tohum.glb",
+        "live": {
+          "regions": [
+            {
+              "kind": "sway",
+              "at": [
+                0.45,
+                0.33
+              ],
+              "r": [
+                0.22,
+                0.18
+              ],
+              "amp": 0.025,
+              "speed": 1.4,
+              "pivot": [
+                0.45,
+                0.18
+              ]
+            },
+            {
+              "kind": "sway",
+              "at": [
+                0.5,
+                0.48
+              ],
+              "r": [
+                0.1,
+                0.09
+              ],
+              "amp": 0.07,
+              "speed": 1.8,
+              "phase": 0.6,
+              "pivot": [
+                0.5,
+                0.41
+              ]
+            },
+            {
+              "kind": "sway",
+              "at": [
+                0.69,
+                0.19
+              ],
+              "r": [
+                0.05,
+                0.05
+              ],
+              "amp": 0.2,
+              "speed": 2.5,
+              "pivot": [
+                0.69,
+                0.15
+              ]
+            },
+            {
+              "kind": "glow",
+              "at": [
+                0.79,
+                0.585
+              ],
+              "r": [
+                0.065,
+                0.05
+              ],
+              "amp": 0.45,
+              "speed": 2.0,
+              "color": "#FFE58A"
+            },
+            {
+              "kind": "glow",
+              "at": [
+                0.33,
+                0.085
+              ],
+              "r": [
+                0.045,
+                0.03
+              ],
+              "amp": 0.6,
+              "speed": 3.0,
+              "color": "#FFD24D"
+            },
+            {
+              "kind": "glow",
+              "at": [
+                0.5,
+                0.085
+              ],
+              "r": [
+                0.045,
+                0.03
+              ],
+              "amp": 0.6,
+              "speed": 3.0,
+              "phase": 2.1,
+              "color": "#FFD24D"
+            },
+            {
+              "kind": "glow",
+              "at": [
+                0.7,
+                0.085
+              ],
+              "r": [
+                0.045,
+                0.03
+              ],
+              "amp": 0.6,
+              "speed": 3.0,
+              "phase": 4.2,
+              "color": "#FFD24D"
+            },
+            {
+              "kind": "bob",
+              "at": [
+                0.5,
+                0.76
+              ],
+              "r": [
+                0.34,
+                0.14
+              ],
+              "amp": 0.005,
+              "speed": 1.3,
+              "phase": 0.5
+            }
+          ],
+          "twinkles": [
+            [
+              0.33,
+              0.1
+            ],
+            [
+              0.5,
+              0.1
+            ],
+            [
+              0.7,
+              0.1
+            ],
+            [
+              0.69,
+              0.22
+            ]
+          ]
+        }
       },
       "carpet": {
         "motif": "hayat-agaci",
         "field": "#2F6B45",
-        "border": "#7E2622"
+        "border": "#7E2622",
+        "src": "/halilar/keloglan-tohum.webp"
       },
       "pages": 8
     },
@@ -99,7 +502,8 @@
       "carpet": {
         "motif": "yildiz",
         "field": "#A3262A",
-        "border": "#1F2C4C"
+        "border": "#1F2C4C",
+        "src": "/halilar/23-nisan.webp"
       }
     },
     {
@@ -122,7 +526,8 @@
       },
       "carpet": {
         "motif": "su-yolu",
-        "field": "#2E5C7A"
+        "field": "#2E5C7A",
+        "src": "/halilar/ebru.webp"
       }
     },
     {
@@ -145,7 +550,8 @@
       },
       "carpet": {
         "motif": "pitrak",
-        "field": "#8A4A26"
+        "field": "#8A4A26",
+        "src": "/halilar/mahalle-firini.webp"
       }
     },
     {
@@ -169,7 +575,8 @@
       "carpet": {
         "motif": "muska",
         "field": "#B0663A",
-        "border": "#2A3A5C"
+        "border": "#2A3A5C",
+        "src": "/halilar/kapadokya.webp"
       }
     },
     {
@@ -192,7 +599,8 @@
       },
       "carpet": {
         "motif": "su-yolu",
-        "field": "#1F4E6E"
+        "field": "#1F4E6E",
+        "src": "/halilar/marti-simit.webp"
       }
     },
     {
@@ -216,7 +624,8 @@
       "carpet": {
         "motif": "yildiz",
         "field": "#3A2E5A",
-        "border": "#8E2B24"
+        "border": "#8E2B24",
+        "src": "/halilar/davulcu-dede.webp"
       }
     },
     {
@@ -239,7 +648,8 @@
       },
       "carpet": {
         "motif": "goz",
-        "field": "#5A2E2E"
+        "field": "#5A2E2E",
+        "src": "/halilar/karagoz-hacivat.webp"
       }
     },
     {
@@ -263,7 +673,8 @@
       },
       "carpet": {
         "motif": "pitrak",
-        "field": "#3E4A2C"
+        "field": "#3E4A2C",
+        "src": "/halilar/mangala.webp"
       }
     },
     {
@@ -288,7 +699,8 @@
       "carpet": {
         "motif": "hayat-agaci",
         "field": "#7A5A24",
-        "border": "#2F3F5C"
+        "border": "#2F3F5C",
+        "src": "/halilar/koyde-imece.webp"
       }
     },
     {
@@ -312,7 +724,8 @@
       },
       "carpet": {
         "motif": "elibelinde",
-        "field": "#4A2638"
+        "field": "#4A2638",
+        "src": "/halilar/yolcu-misafir.webp"
       }
     },
     {
@@ -337,7 +750,8 @@
       "carpet": {
         "motif": "yildiz",
         "field": "#2E4A6E",
-        "border": "#7E2622"
+        "border": "#7E2622",
+        "src": "/halilar/dogu-ekspresi.webp"
       }
     },
     {
@@ -361,7 +775,8 @@
       },
       "carpet": {
         "motif": "kocboynuzu",
-        "field": "#7E2622"
+        "field": "#7E2622",
+        "src": "/halilar/turk-marketi.webp"
       }
     }
   ]

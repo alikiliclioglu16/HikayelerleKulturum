@@ -13,7 +13,7 @@ import { sfx } from '../sfx';
 const DEFAULT_TABLE: TableModel[] = [
   { src: '/models/culture/caydanlik.glb', word: 'çaydanlık', x: -1.52, z: 0.08, h: 0.36, rotY: 20 },
   { src: '/models/culture/cay.glb', word: 'çay', x: -1.3, z: 0.56, h: 0.2, steam: true },
-  { src: '/models/culture/simit.glb', word: 'simit', x: 1.5, z: -0.42, h: 0.08, rotY: 10 },
+  { src: '/models/culture/simit.glb', word: 'simit', x: 1.5, z: -0.42, h: 0.22, rotY: 10 },
 ];
 
 const nextFrame = () => new Promise((r) => requestAnimationFrame(() => r(null)));
@@ -89,7 +89,9 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
         (async () => {
           if (p.layers?.length) return Promise.all(p.layers.map((l) => buildImageLayer(l, `/books/${book.id}/`)));
           const out: BuiltLayer[] = [];
-          for (const l of sceneLayers(p.scene).filter((x) => !x.thumbOnly)) {
+          // paper-cut people (thumbOnly layers) stand in for the 3D characters while a page has none
+          const has3dPeople = !!p.cast?.length || (p.models ?? []).some((m) => m.src?.includes('/models/characters/'));
+          for (const l of sceneLayers(p.scene).filter((x) => !x.thumbOnly || !has3dPeople)) {
             out.push(buildProcLayer(l));
             await nextFrame();
           }
