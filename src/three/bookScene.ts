@@ -8,7 +8,9 @@ import { PROPS, HELD } from './props';
 import { clockTower } from '../art/kit';
 import { Performer, type State } from './performer';
 import { POSES } from './acts';
-import { Stage } from './stage';
+import { Stage, type StageActor } from './stage';
+import { PropActor } from './propActor';
+import { Sparkles } from '../home3d/sparkles';
 import type { PageData } from '../types';
 import { CULTURE_BUILDERS } from '../home3d/culture';
 import { mosaicLamp } from '../home3d/room';
@@ -183,6 +185,9 @@ export class BookScene {
   private layers: LayerObj[] = [];
   private props: PropObj[] = [];
   private models: ModelObj[] = [];
+  /** Magic things of the page that take part in the story (models with an `id`). */
+  private things = new Map<string, PropActor>();
+  private sparkles = new Sparkles(160);
   private tableObjs: THREE.Object3D[] = [];
   private tableSession = 0;
   private cinema!: ReaderCinema;
@@ -259,7 +264,7 @@ export class BookScene {
   private buildWorld() {
     const r = this.renderer;
     const hemi = new THREE.HemisphereLight('#FFF7EC', '#9C7A5E', 2.1);
-    this.scene.add(hemi);
+    this.scene.add(hemi, this.sparkles.points);
     const light = new THREE.DirectionalLight('#FFF1DC', 1.9);
     light.position.set(-2.2, 4.2, 2.6);
     light.target.position.set(0.3, 0, 0);
@@ -446,6 +451,7 @@ export class BookScene {
     this.cinema.enabled = !this.reducedMotion;
     if (!this.cinema.enabled) this.cinema.reset();
     for (const p of this.performers.values()) p.calm = this.reducedMotion;
+    for (const p of this.things.values()) p.calm = this.reducedMotion;
     this.invalidate();
   }
 
@@ -559,6 +565,11 @@ export class BookScene {
     // camera moves keep real time, so they end on time even when frames are slow
     if (!document.hidden && this.cinema.update(this.frozen ? 0 : raw)) alive = true;
     if (this.stage && this.stage.tick(this.frozen ? 0 : raw)) alive = true;
+    if (this.sparkles.update(this.frozen ? 0 : raw * 1000)) {
+      const cam = this.camera as THREE.PerspectiveCamera;
+      this.sparkles.setScale(this.renderer.domElement.height / (2 * Math.tan(THREE.MathUtils.degToRad(cam.fov / 2))));
+      alive = true;
+    }
     if (!this.reducedMotion && this.models.length && !this.frozen) {
       this.updateModels(dt);
       alive = true;
@@ -849,7 +860,7 @@ export class BookScene {
     if (other) return other.headPosition();
     const spot = this.spots[name];
     if (spot) return this.pagePoint(spot[0], spot[2]).setY(PAGE_TOP + spot[1]);
-    const m = this.models.find((x) => x.word === name);
+    const m = this.models.find((x) => x.spec.id === name) ?? this.models.find((x) => x.word === name);
     if (m) return m.actor.root.position.clone().add(new THREE.Vector3(0, m.actor.height * 0.6, 0));
     return null;
   }
@@ -916,12 +927,13 @@ export class BookScene {
     this.castBase.clear();
     this.spots = page.spots ?? {};
     const cast = page.cast ?? [];
-    if (!cast.length) {
+    if (!cast.length && !this.things.size) {
       this.onCastProgress?.(0, 0);
       return;
     }
     let loaded = 0;
-    this.onCastProgress?.(0, cast.length);
+    if (cast.length) this.onCastProgress?.(0, cast.length);
+    else this.onCastProgress?.(0, 0);
     const list = await Promise.all(
       cast.map((c) =>
         Performer.load(c.id).then(
@@ -954,11 +966,22 @@ export class BookScene {
       });
       p.targets = (name) => (c.screen && name === 'reader' ? this.ensureScreen().cam.position.clone() : this.target(p, name));
       p.makeProp = (name) => (HELD[name] ? HELD[name]() : null);
+      p.surfaceAt = (pt) => this.surfaceAt(pt);
       p.calm = this.reducedMotion;
       this.performers.set(c.id, p);
       (c.screen ? this.ensureScreen().scene : this.scene).add(p.root);
     });
-    this.stage = new Stage(this.performers, starts, page.beats ?? []);
+    const actors = new Map<string, StageActor>(this.performers);
+    for (const spec of page.models ?? []) {
+      const prop = spec.id ? this.things.get(spec.id) : undefined;
+      if (!prop || !spec.id) continue;
+      const f = spec.from ?? [0, 0, 0];
+      starts.set(spec.id, { pose: {}, root: { x: f[0], y: f[1], z: f[2], rotY: 0, lie: 0, show: spec.hidden ? 0 : 1, tilt: 0 }, eyes: 1, look: null });
+      prop.calm = this.reducedMotion;
+      prop.onBurst = (at, k) => this.sparkles.burst(at, new THREE.Vector3(prop.height * 0.5, prop.height * 0.45, 0.04), Math.round(12 * k), 0.6 * k);
+      actors.set(spec.id, prop);
+    }
+    this.stage = new Stage(actors, starts, page.beats ?? []);
     this.stage.onFocus = (who) => this.focus(who);
     this.stage.reset(this.castBase);
     // appear with a soft pop, like the paper layers
@@ -969,7 +992,35 @@ export class BookScene {
     this.invalidate();
   }
 
-  /** Show the page's play frozen at `t` seconds (testing aid: ?sahne=3.5 in the address). */
+  /**
+   * Where something put down near a table (a page model with `top`) lands: the nearest spot on the table top,
+   * a little in from its edges. Null when no table is within reach.
+   */
+  private surfaceAt(p: THREE.Vector3): THREE.Vector3 | null {
+    let best: THREE.Vector3 | null = null;
+    let bestD = 0.28;
+    for (const m of this.models) {
+      if (!m.spec.top) continue;
+      const box = new THREE.Box3();
+      m.actor.root.traverse((n) => {
+        const mesh = n as THREE.Mesh;
+        if (mesh.isMesh && mesh !== m.actor.hit) box.expandByObject(mesh);
+      });
+      if (box.isEmpty()) continue;
+      const mx = (box.max.x - box.min.x) * 0.22;
+      const mz = (box.max.z - box.min.z) * 0.25;
+      const x = THREE.MathUtils.clamp(p.x, box.min.x + mx, box.max.x - mx);
+      const z = THREE.MathUtils.clamp(p.z, box.min.z + mz, box.max.z - mz);
+      const d = Math.hypot(x - p.x, z - p.z);
+      if (d < bestD) {
+        bestD = d;
+        best = new THREE.Vector3(x, box.min.y + (box.max.y - box.min.y) * m.spec.top, z);
+      }
+    }
+    return best;
+  }
+
+  /** Show the page's play frozen at `t` seconds (testing aid). */
   seekStage(t: number) {
     this.stage?.seek(t, this.castBase);
     this.frozen = true;
@@ -994,6 +1045,8 @@ export class BookScene {
   /** 3D models (GLB) standing on the right page: characters, animals, trees, pots… */
   async setModels(list: PageModel[]) {
     const session = ++this.modelSession;
+    this.things.clear();
+    for (const spec of list) if (spec.id) this.things.set(spec.id, new PropActor());
     const old = this.models;
     this.models = [];
     await Promise.all(
@@ -1032,7 +1085,14 @@ export class BookScene {
       const fx = new THREE.Group();
       const wrap = actor.root.children.filter((c) => c !== actor.hit);
       wrap.forEach((c) => fx.add(c));
-      actor.root.add(fx);
+      // a magic thing in the story moves inside its own group (see PropActor), around its place on the page
+      const prop = spec.id ? this.things.get(spec.id) : undefined;
+      if (prop) {
+        prop.group.clear();
+        prop.group.add(fx);
+        prop.height = actor.height;
+        actor.root.add(prop.group);
+      } else actor.root.add(fx);
       actor.root.position.copy(this.pagePoint(spec.x, spec.z));
       actor.root.position.y += spec.y ?? 0;
       actor.root.rotation.y = THREE.MathUtils.degToRad(spec.rotY ?? 0);

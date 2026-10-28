@@ -368,8 +368,45 @@ const ACTS: Record<string, Act> = {
   }),
 };
 
+/* ---------------- acts for magic things (PropActor) ---------------- */
+
+const THING_ACTS: Record<string, Act> = {
+  /** Pops into view with a little overshoot and a burst of sparkles. */
+  appear: (_s, b, t) => ({
+    keys: [key(t, 0.4, { root: { show: 1.15 }, burst: b.len ?? 1 }), key(t + 0.4, 0.3, { root: { show: 1 } })],
+    dur: 0.7,
+  }),
+  /** Fades away (shrinks out of sight). */
+  vanish: (_s, _b, t) => ({ keys: [key(t, 0.6, { root: { show: 0 } })], dur: 0.6 }),
+  /** Rises slowly into its place (`to`, default where it stands) and shows itself: the sun coming up. */
+  rise: (_s, b, t) => {
+    const to = b.to ?? [0, 0, 0];
+    return { keys: [key(t, 1.8, { root: { x: to[0], y: to[1], z: to[2], show: 1 }, burst: 0.8 })], dur: 1.8 };
+  },
+  /** Sinks down by `to` (default a little) and disappears: the moon going to bed. */
+  sink: (s, b, t) => {
+    const to = b.to ?? [s.root.x, s.root.y - 0.07, s.root.z];
+    return { keys: [key(t, 1.5, { root: { x: to[0], y: to[1], z: to[2], show: 0 } })], dur: 1.5 };
+  },
+  /** Rings like an alarm clock: shakes from side to side with tiny hops. */
+  ring: (s, b, t) => {
+    const n = 12;
+    const keys: Key[] = [key(t, 0.08, { root: { tilt: 10 }, burst: 0.5 })];
+    for (let i = 1; i < n; i++) keys.push(key(t + i * 0.09, 0.09, { root: { tilt: i % 2 ? -10 : 10, y: s.root.y + (i % 2 ? 0.012 : 0) }, minor: true }));
+    keys.push(key(t + n * 0.09, 0.25, { root: { tilt: 0, y: s.root.y } }));
+    return { keys, dur: (b.len ?? 0) + n * 0.09 + 0.25 };
+  },
+  /** Shines: swells a little, sparkles, and settles. */
+  shine: (_s, b, t) => ({
+    keys: [key(t, 0.35, { root: { show: 1.12 }, burst: b.len ?? 1 }), key(t + 0.45, 0.5, { root: { show: 1 } })],
+    dur: 1,
+  }),
+  /** Turns once round. */
+  spin: (s, _b, t) => ({ keys: [key(t, 1.2, { root: { rotY: s.root.rotY + 360 }, burst: 0.6 })], dur: 1.2 }),
+};
+
 export function runAct(s: State, b: Beat, t: number): ActResult {
-  const a = ACTS[b.do];
+  const a = ACTS[b.do] ?? THING_ACTS[b.do];
   if (!a) {
     console.warn('Bilinmeyen hareket', b.do);
     return { keys: [], dur: 0 };

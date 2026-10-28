@@ -59,6 +59,49 @@
           "h": 0.05,
           "y": 0.165,
           "rotY": -60
+        },
+        {
+          "src": "/models/bayram/p1-on.glb",
+          "x": 0,
+          "z": 0.2,
+          "h": 0.275,
+          "w": 0.9
+        },
+        {
+          "src": "/models/bayram/saat.glb",
+          "x": -0.35,
+          "z": 0.2,
+          "h": 0.09,
+          "word": "saat",
+          "y": 0.105,
+          "id": "saat",
+          "rotY": 10
+        },
+        {
+          "src": "/models/bayram/hilal-kapali.glb",
+          "x": -0.25,
+          "z": 0.1,
+          "h": 0.12,
+          "word": "hilal",
+          "y": 0.64,
+          "id": "ay",
+          "fx": "bob"
+        },
+        {
+          "src": "/models/bayram/gunes.glb",
+          "x": -0.25,
+          "z": 0.1,
+          "h": 0.12,
+          "word": "güneş",
+          "y": 0.64,
+          "id": "gunes",
+          "hidden": true,
+          "from": [
+            0,
+            -0.05,
+            0
+          ],
+          "fx": "bob"
         }
       ],
       "cast": [
@@ -75,17 +118,26 @@
       ],
       "spots": {
         "pencere": [
-          0,
-          0.5,
-          0.04
+          -0.25,
+          0.7,
+          0.1
         ],
         "saat": [
-          -0.4,
-          0.16,
-          0.22
+          -0.35,
+          0.15,
+          0.2
         ]
       },
       "beats": [
+        {
+          "cue": [
+            "günaydın",
+            "erken",
+            "uyand"
+          ],
+          "who": "saat",
+          "do": "ring"
+        },
         {
           "cue": [
             "günaydın",
@@ -95,6 +147,24 @@
           "do": "wake",
           "focus": true,
           "look": "up"
+        },
+        {
+          "cue": [
+            "pencere",
+            "güneş",
+            "bugün"
+          ],
+          "who": "ay",
+          "do": "sink"
+        },
+        {
+          "cue": [
+            "pencere",
+            "güneş",
+            "bugün"
+          ],
+          "who": "gunes",
+          "do": "rise"
         },
         {
           "cue": [
@@ -141,6 +211,25 @@
           "look": "reader",
           "focus": true
         }
+      ],
+      "layers": [
+        {
+          "src": "art/p1.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.05,
+                0.02,
+                0.33,
+                0.42
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -170,21 +259,19 @@
       },
       "models": [
         {
-          "src": "/models/kenney/h-present-a-round.glb",
-          "x": 0.36,
-          "z": 0.9,
-          "h": 0.1,
-          "word": "hediye",
-          "fx": "wobble"
+          "src": "/models/bayram/p2-on.glb",
+          "x": 0,
+          "z": 0.94,
+          "h": 0.227,
+          "w": 0.68
         },
         {
-          "src": "/models/kenney/pillowBlue.glb",
-          "x": -0.38,
-          "z": 0.92,
-          "h": 0.06,
-          "w": 0.16,
-          "word": "yastık",
-          "rotY": 20
+          "src": "/models/bayram/ayna.glb",
+          "x": -0.36,
+          "z": 0.2,
+          "h": 0.38,
+          "word": "ayna",
+          "id": "ayna"
         }
       ],
       "cast": [
@@ -203,9 +290,9 @@
       ],
       "spots": {
         "ayna": [
-          -0.26,
-          0.41,
-          0.04
+          -0.36,
+          0.3,
+          0.2
         ]
       },
       "beats": [
@@ -228,6 +315,15 @@
           "do": "lookAt",
           "target": "ayna",
           "len": 1.6
+        },
+        {
+          "cue": [
+            "elbise",
+            "ayna"
+          ],
+          "who": "ayna",
+          "do": "shine",
+          "len": 1.2
         },
         {
           "cue": [
@@ -274,6 +370,14 @@
           "do": "cheer",
           "look": "reader"
         }
+      ],
+      "layers": [
+        {
+          "src": "art/p2.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86
+        }
       ]
     },
     {
@@ -303,24 +407,19 @@
       },
       "models": [
         {
-          "src": "/models/culture/caydanlik.glb",
-          "x": -0.36,
-          "z": 0.93,
-          "h": 0.16,
-          "word": "çaydanlık"
-        },
-        {
-          "src": "/models/culture/cay.glb",
-          "x": -0.18,
-          "z": 0.95,
-          "h": 0.07,
-          "word": "çay"
+          "src": "/models/bayram/p3-on.glb",
+          "x": 0,
+          "z": 0.74,
+          "h": 0.158,
+          "w": 0.62,
+          "word": "sofra",
+          "top": 0.67
         }
       ],
       "cast": [
         {
           "id": "anne",
-          "x": -0.33,
+          "x": -0.26,
           "z": 0.5,
           "rotY": 12,
           "hold": "baklavaTepsisi",
@@ -342,7 +441,7 @@
         },
         {
           "id": "can",
-          "x": 0.36,
+          "x": 0.28,
           "z": 0.56,
           "rotY": -15,
           "hold": "lokumKutusu",
@@ -465,6 +564,14 @@
           "who": "can",
           "do": "cheer",
           "look": "reader"
+        }
+      ],
+      "layers": [
+        {
+          "src": "art/p3.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86
         }
       ]
     },
@@ -625,6 +732,43 @@
           "look": "reader",
           "len": 2.4
         }
+      ],
+      "layers": [
+        {
+          "src": "art/p4.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": [
+            {
+              "word": "Saat Kulesi",
+              "rect": [
+                0.86,
+                0.03,
+                0.11,
+                0.35
+              ]
+            },
+            {
+              "word": "kanepe",
+              "rect": [
+                0.0,
+                0.38,
+                0.72,
+                0.28
+              ]
+            },
+            {
+              "word": "halı",
+              "rect": [
+                0.0,
+                0.67,
+                0.98,
+                0.22
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -654,10 +798,18 @@
       },
       "models": [
         {
+          "src": "/models/bayram/p5-on.glb",
+          "x": 0.12,
+          "z": 0.93,
+          "h": 0.156,
+          "w": 0.55,
+          "word": "ayakkabı"
+        },
+        {
           "src": "/models/animals/kedi.glb",
           "word": "kedi",
-          "x": 0.33,
-          "z": 0.97,
+          "x": -0.38,
+          "z": 0.95,
           "h": 0.2,
           "rotY": -35,
           "anim": "none"
@@ -783,6 +935,14 @@
           "target": "kedi",
           "len": 1.6
         }
+      ],
+      "layers": [
+        {
+          "src": "art/p5.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86
+        }
       ]
     },
     {
@@ -811,6 +971,15 @@
         "en": "During Bayram, children go from door to door and are offered candy. That's why every home keeps a bowl of Bayram candy ready."
       },
       "models": [
+        {
+          "src": "/models/bayram/p6-on.glb",
+          "x": 0,
+          "z": 0.74,
+          "h": 0.134,
+          "w": 0.5,
+          "word": "bayram şekeri",
+          "top": 0.6
+        },
         {
           "src": "/models/animals/kedi-yuruyen.glb",
           "x": -0.42,
@@ -844,8 +1013,8 @@
       "spots": {
         "masa": [
           0,
-          0.16,
-          0.84
+          0.1,
+          0.74
         ]
       },
       "beats": [
@@ -928,6 +1097,14 @@
           "look": "reader",
           "focus": true
         }
+      ],
+      "layers": [
+        {
+          "src": "art/p6.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86
+        }
       ]
     },
     {
@@ -957,10 +1134,18 @@
       },
       "models": [
         {
+          "src": "/models/bayram/p7-on.glb",
+          "x": 0,
+          "z": 0.97,
+          "h": 0.2,
+          "w": 0.9,
+          "word": "lale"
+        },
+        {
           "src": "/models/animals/kopek.glb",
           "word": "köpek",
-          "x": -0.38,
-          "z": 0.96,
+          "x": -0.3,
+          "z": 0.78,
           "h": 0.24,
           "rotY": 30,
           "walkTo": [
@@ -969,14 +1154,6 @@
           ],
           "patrol": true,
           "speed": 0.07
-        },
-        {
-          "src": "/models/kenney/tree-high-round.glb",
-          "x": 0.42,
-          "z": 0.42,
-          "h": 0.4,
-          "word": "ağaç",
-          "fx": "sway"
         }
       ],
       "cast": [
@@ -1078,6 +1255,14 @@
           "target": "köpek",
           "len": 1.6
         }
+      ],
+      "layers": [
+        {
+          "src": "art/p7.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86
+        }
       ]
     },
     {
@@ -1114,6 +1299,28 @@
           "word": "kedi",
           "rotY": 40,
           "anim": "none"
+        },
+        {
+          "src": "/models/bayram/hilal-acik.glb",
+          "x": 0.326,
+          "z": 0.1,
+          "h": 0.2,
+          "word": "hilal",
+          "y": 0.58,
+          "id": "hilal",
+          "hidden": true,
+          "fx": "bob"
+        },
+        {
+          "src": "/models/bayram/hilal-kapali.glb",
+          "x": 0.326,
+          "z": 0.1,
+          "h": 0.2,
+          "word": "hilal",
+          "y": 0.58,
+          "id": "hilalUyku",
+          "hidden": true,
+          "fx": "bob"
         }
       ],
       "cast": [
@@ -1148,12 +1355,22 @@
       ],
       "spots": {
         "hilal": [
-          0.134,
-          0.64,
-          0.04
+          0.326,
+          0.68,
+          0.1
         ]
       },
       "beats": [
+        {
+          "cue": [
+            "hilal",
+            "gök",
+            "akşam"
+          ],
+          "who": "hilal",
+          "do": "appear",
+          "len": 1.4
+        },
         {
           "cue": [
             "hilal",
@@ -1218,6 +1435,27 @@
         },
         {
           "cue": [
+            "sarıldı",
+            "öptü",
+            "sevgi",
+            "yarın"
+          ],
+          "who": "hilal",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "sarıldı",
+            "öptü",
+            "sevgi",
+            "yarın"
+          ],
+          "who": "hilalUyku",
+          "do": "appear",
+          "len": 0.8
+        },
+        {
+          "cue": [
             "yarın",
             "sevinç"
           ],
@@ -1225,6 +1463,25 @@
           "who": "can",
           "do": "cheer",
           "look": "reader"
+        }
+      ],
+      "layers": [
+        {
+          "src": "art/p8.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": [
+            {
+              "word": "yıldız",
+              "rect": [
+                0.71,
+                0.12,
+                0.08,
+                0.09
+              ]
+            }
+          ]
         }
       ]
     }

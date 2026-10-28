@@ -1,6 +1,14 @@
-import type * as THREE from 'three';
+import * as THREE from 'three';
 import { runAct, type Beat } from './acts';
-import type { Performer, State } from './performer';
+import type { Key, State } from './performer';
+
+/** Anything the stage can direct: a character (Performer) or a magic thing (PropActor). */
+export interface StageActor {
+  reset(start: State, base: THREE.Vector3): void;
+  add(keys: Key[]): void;
+  endState(): State;
+  update(t: number, dt: number): void;
+}
 import { trLower, type Token } from '../text';
 
 /**
@@ -22,7 +30,7 @@ export class Stage {
   onFocus: ((who: string | null) => void) | null = null;
 
   constructor(
-    private cast: Map<string, Performer>,
+    private cast: Map<string, StageActor>,
     private starts: Map<string, State>,
     private beats: Beat[],
   ) {}
@@ -52,7 +60,7 @@ export class Stage {
     this.next = 0;
     this.reached = -1;
     this.busyUntil.clear();
-    for (const [id, p] of this.cast) p.reset(this.starts.get(id)!, base.get(id)!);
+    for (const [id, p] of this.cast) p.reset(this.starts.get(id)!, base.get(id) ?? new THREE.Vector3());
     this.onFocus?.(null);
   }
 

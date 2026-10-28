@@ -67,6 +67,14 @@ export interface PageModel {
   delay?: number;
   /** Colour the model, e.g. "#D07A45" turns a grey pot into a copper cauldron. */
   tint?: string;
+  /** A name for beats: a magic thing that takes part in the story (appear, rise, ring, shine … in three/acts.ts). */
+  id?: string;
+  /** With `id`: not there until a beat makes it appear or rise. */
+  hidden?: boolean;
+  /** With `id`: starts this far from its place ([x, y, z] in page widths) until a beat moves it (e.g. the sun rising). */
+  from?: [number, number, number];
+  /** A table: things put down above it land on its top, this far up its height (0..1). */
+  top?: number;
   /** Gentle life for still objects: trees sway, a pot wobbles, a lantern swings, a plant breathes. */
   fx?: 'sway' | 'wobble' | 'swing' | 'breathe' | 'bob' | 'spin' | 'grow';
 }

@@ -44,6 +44,9 @@ export interface RootState {
   z: number;
   rotY: number;
   lie: number;
+  /** Things only (see PropActor): how much it is there (0 gone … 1 shown) and a tilt to the side (degrees). */
+  show?: number;
+  tilt?: number;
 }
 
 export interface State {
@@ -68,11 +71,13 @@ export interface Key {
   hold?: string | null;
   /** A small in-between movement (a step, a nod, a bounce): left out in calm mode. */
   minor?: boolean;
+  /** A burst of sparkles when this key starts (strength), for magic things. */
+  burst?: number;
 }
 
 const D2R = Math.PI / 180;
 const qFromEuler = (e: Euler3) => new THREE.Quaternion().setFromEuler(new THREE.Euler(e[0] * D2R, e[1] * D2R, e[2] * D2R, 'YXZ'));
-const smooth = (k: number) => (k <= 0 ? 0 : k >= 1 ? 1 : k * k * (3 - 2 * k));
+export const smooth = (k: number) => (k <= 0 ? 0 : k >= 1 ? 1 : k * k * (3 - 2 * k));
 
 /** `hold` value that puts the held thing down where it is instead of letting it disappear. */
 export const PUT_DOWN = '@put';
@@ -121,6 +126,8 @@ export class Performer {
   get heldObject() {
     return this.held?.obj ?? null;
   }
+  /** The spot on a nearby table top where something put down at `p` lands (world units), or null for the page. */
+  surfaceAt: (p: THREE.Vector3) => THREE.Vector3 | null = () => null;
   /** World position of named things the character can look at. */
   targets: (name: string) => THREE.Vector3 | null = () => null;
   current!: State;
@@ -315,7 +322,11 @@ export class Performer {
       const host = this.root.parent;
       if (host) {
         host.attach(o);
-        o.position.y = this.base.y + 0.004;
+        // onto a table near the hands (the nearest spot on its top), else on the page
+        const p = o.getWorldPosition(new THREE.Vector3());
+        const onto = this.surfaceAt(p);
+        if (onto) o.position.set(onto.x, onto.y + 0.004, onto.z);
+        else o.position.y = this.base.y + 0.004;
         o.quaternion.copy(this.root.quaternion);
         this.dropped.push(o);
       } else o.parent?.remove(o);
@@ -373,7 +384,7 @@ export class Performer {
   }
 }
 
-function mergeKey(s: State, k: Key) {
+export function mergeKey(s: State, k: Key) {
   if (k.pose) for (const b in k.pose) s.pose[b] = [...k.pose[b]] as Euler3;
   if (k.root) Object.assign(s.root, k.root);
   if (k.eyes !== undefined) s.eyes = k.eyes;
@@ -381,7 +392,7 @@ function mergeKey(s: State, k: Key) {
   if (k.hold !== undefined) s.hold = k.hold;
 }
 
-function blendKey(s: State, k: Key, f: number) {
+export function blendKey(s: State, k: Key, f: number) {
   if (k.pose) {
     for (const b in k.pose) {
       const from = s.pose[b] ?? [0, 0, 0];
@@ -392,7 +403,8 @@ function blendKey(s: State, k: Key, f: number) {
   if (k.root) {
     for (const key of Object.keys(k.root) as (keyof RootState)[]) {
       const to = k.root[key]!;
-      s.root[key] = s.root[key] + (to - s.root[key]) * f;
+      const from = s.root[key] ?? 0;
+      s.root[key] = from + (to - from) * f;
     }
   }
   if (k.eyes !== undefined) s.eyes = s.eyes + (k.eyes - s.eyes) * f;
