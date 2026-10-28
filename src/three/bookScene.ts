@@ -1104,6 +1104,8 @@ export class BookScene {
           const mats = (Array.isArray(mesh.material) ? mesh.material : [mesh.material]).map((m) => {
             const c = (m as THREE.MeshStandardMaterial).clone();
             c.color.copy(tint);
+            // a texture atlas times the tint turns muddy: a tinted model is one flat colour
+            (c as THREE.MeshStandardMaterial).map = null;
             if ('metalness' in c) {
               c.metalness = 0.25;
               c.roughness = 0.45;

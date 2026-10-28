@@ -185,6 +185,22 @@ const ACTS: Record<string, Act> = {
     };
   },
 
+  /** Knocks on a door: the right hand up in front, two knocks, hand down again. */
+  knock: (s, b, t) => {
+    const up = merge(s.pose, { upper_arm_R: [-72, 0, 16], forearm_R: [-70, 0, 0] });
+    return {
+      keys: [
+        key(t, 0.4, { pose: up, look: b.target ?? b.look }),
+        key(t + 0.45, 0.14, { pose: merge(up, { forearm_R: [-40, 0, 0] }), minor: true }),
+        key(t + 0.6, 0.14, { pose: up, minor: true }),
+        key(t + 0.78, 0.14, { pose: merge(up, { forearm_R: [-40, 0, 0] }), minor: true }),
+        key(t + 0.93, 0.14, { pose: up, minor: true }),
+        key(t + 1.2, 0.5, { pose: merge(s.pose) }),
+      ],
+      dur: 1.7,
+    };
+  },
+
   /** Turns to face a direction (degrees). */
   turn: (s, b, t) => ({ keys: [key(t, 0.7, { root: { rotY: b.face ?? 0 }, look: b.look ?? s.look })], dur: 0.7 }),
 

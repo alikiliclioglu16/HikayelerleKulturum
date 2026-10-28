@@ -18,6 +18,11 @@ export interface CharacterDef {
   /** Eyes for eyelids, in fractions of the model height: x, y (from the feet), z, radius. */
   eyes?: [number, number, number, number][];
   skin?: string;
+  /**
+   * How far the arms hang down in the relaxed pose (degrees from the model's A-pose, default 30). Models made
+   * with the arms already close to the body use less, so the hands do not sink into the clothes.
+   */
+  armDown?: number;
 }
 
 export const CHARACTERS: Record<string, CharacterDef> = {
@@ -32,6 +37,17 @@ export const CHARACTERS: Record<string, CharacterDef> = {
   babaanne: { src: '/models/aile/babaanne.glb', height: 0.49, name: 'Babaanne' },
   dede: { src: '/models/aile/dede.glb', height: 0.525, name: 'Dede' },
   ayse: { src: '/models/aile/ayse.glb', height: 0.49, name: 'Ayşe Teyze' },
+  // Nasreddin Hoca ve Kazan
+  hoca: { src: '/models/masal/hoca.glb', height: 0.53, name: 'Nasreddin Hoca', armDown: 22 },
+  komsu: { src: '/models/masal/komsu.glb', height: 0.52, name: 'Komşu' },
+  'aksehirli-teyze': { src: '/models/masal/aksehirli-teyze.glb', height: 0.47, name: 'Akşehirli Teyze' },
+  pazarci: { src: '/models/masal/pazarci.glb', height: 0.53, name: 'Pazarcı Amca', armDown: 14 },
+  // Keloğlan ve Üç Tohum
+  keloglan: { src: '/models/masal/keloglan.glb', height: 0.45, name: 'Keloğlan', armDown: 20 },
+  'keloglan-anasi': { src: '/models/masal/keloglan-anasi.glb', height: 0.47, name: 'Keloğlan’ın anası' },
+  'hasan-amca': { src: '/models/masal/hasan-amca.glb', height: 0.49, name: 'Hasan Amca', armDown: 14 },
+  'koylu-cocuk': { src: '/models/masal/koylu-cocuk.glb', height: 0.34, name: 'Köylü çocuk' },
+  'koylu-kadin': { src: '/models/masal/koylu-kadin.glb', height: 0.47, name: 'Köylü kadın', armDown: 18 },
 };
 
 export type Euler3 = [number, number, number];
@@ -235,6 +251,11 @@ export class Performer {
     return s;
   }
 
+  /** Correction of the arm angle for this model (see CharacterDef.armDown). */
+  private get armFix() {
+    return 30 - (this.def.armDown ?? 30);
+  }
+
   /** Calm mode (reduce motion): small in-between movements are left out and changes are short fades. */
   calm = false;
 
@@ -256,7 +277,8 @@ export class Performer {
     // bones
     for (const [k, b] of Object.entries(this.bones)) {
       const R = this.rest[k];
-      const e = s.pose[k];
+      let e = s.pose[k];
+      if (e && this.armFix && (k === 'upper_arm_L' || k === 'upper_arm_R')) e = [e[0], e[1], e[2] + (k === 'upper_arm_L' ? this.armFix : -this.armFix)];
       if (!e) {
         b.quaternion.copy(R.ql);
         continue;

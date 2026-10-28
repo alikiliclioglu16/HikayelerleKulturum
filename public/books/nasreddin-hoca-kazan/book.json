@@ -92,13 +92,116 @@
           "fx": "breathe"
         },
         {
-          "src": "/models/animals/kedi.glb",
+          "src": "/models/masal/masal-kapisi.glb",
+          "x": 0.34,
+          "z": 0.3,
+          "h": 0.58,
+          "word": "masal kapısı",
+          "id": "masal",
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "dede",
+          "x": -0.06,
+          "z": 0.55,
+          "rotY": 0
+        },
+        {
+          "id": "elif",
           "x": -0.3,
-          "z": 0.92,
-          "h": 0.13,
-          "word": "kedi",
-          "rotY": 30,
-          "anim": "none"
+          "z": 0.62,
+          "rotY": 35
+        },
+        {
+          "id": "can",
+          "x": 0.27,
+          "z": 0.64,
+          "rotY": -35
+        }
+      ],
+      "spots": {},
+      "beats": [
+        {
+          "cue": [
+            "dede",
+            "akşam"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "reader",
+          "focus": true,
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "dede",
+            "elif"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "dede",
+          "len": 2
+        },
+        {
+          "cue": [
+            "dede",
+            "elif"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "dede",
+          "len": 2
+        },
+        {
+          "cue": [
+            "fıkra"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "elif",
+          "focus": true,
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "fıkra"
+          ],
+          "who": "masal",
+          "do": "appear",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "fıkra"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "masal",
+          "len": 2
+        },
+        {
+          "cue": [
+            "dinli",
+            "sedir",
+            "oturdu",
+            "kurul"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "dede"
+        },
+        {
+          "cue": [
+            "dinli",
+            "sedir",
+            "oturdu",
+            "kurul"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "dede"
         }
       ]
     },
@@ -145,17 +248,141 @@
           "word": "çeşme"
         },
         {
-          "src": "/models/animals/kedi-yuruyen.glb",
-          "x": -0.4,
-          "z": 0.95,
-          "h": 0.12,
-          "word": "kedi",
-          "walkTo": [
-            0.25,
-            0.95
+          "src": "/models/masal/masal-kapisi.glb",
+          "x": 0.0,
+          "z": 0.3,
+          "h": 0.58,
+          "word": "masal kapısı",
+          "id": "masal"
+        },
+        {
+          "src": "/models/masal/aksehir-kapisi.glb",
+          "x": 0.2,
+          "z": 0.32,
+          "h": 0.5,
+          "word": "kapı",
+          "id": "kapi"
+        },
+        {
+          "src": "/models/masal/esek.glb",
+          "x": -0.34,
+          "z": 0.8,
+          "h": 0.3,
+          "word": "eşek",
+          "rotY": 35,
+          "fx": "breathe"
+        },
+        {
+          "src": "/models/masal/pilav.glb",
+          "x": -0.02,
+          "z": 0.86,
+          "h": 0.05,
+          "word": "pilav",
+          "id": "pilav",
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "hoca",
+          "x": -0.42,
+          "z": 0.58,
+          "rotY": 90
+        }
+      ],
+      "beats": [
+        {
+          "cue": [],
+          "who": "masal",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "hoca",
+            "nasreddin",
+            "eskiden"
           ],
-          "patrol": true,
-          "speed": 0.06
+          "who": "hoca",
+          "do": "walkTo",
+          "to": [
+            0.3,
+            0,
+            -0.02
+          ],
+          "face": 20,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "misafir"
+          ],
+          "who": "hoca",
+          "do": "lookAt",
+          "target": "reader",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "pilav",
+            "misafir"
+          ],
+          "who": "pilav",
+          "do": "appear",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "pilav",
+            "kazan"
+          ],
+          "who": "hoca",
+          "do": "lookAt",
+          "target": "pilav",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "kazan"
+          ],
+          "who": "hoca",
+          "do": "talk",
+          "look": "reader",
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "kapı",
+            "yok",
+            "küçük"
+          ],
+          "who": "pilav",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "kapı",
+            "yok"
+          ],
+          "who": "hoca",
+          "do": "walkTo",
+          "to": [
+            0.44,
+            0,
+            -0.12
+          ],
+          "face": 40,
+          "look": "kapi"
+        },
+        {
+          "cue": [
+            "kapı",
+            "yok"
+          ],
+          "who": "hoca",
+          "do": "knock",
+          "target": "kapi",
+          "focus": true
         }
       ]
     },
@@ -186,15 +413,6 @@
       },
       "models": [
         {
-          "src": "/models/kenney/pot.glb",
-          "x": 0.02,
-          "z": 0.76,
-          "h": 0.1,
-          "w": 0.2,
-          "word": "kazan",
-          "tint": "#F0A060"
-        },
-        {
           "src": "/models/kenney/tree-high-round.glb",
           "x": -0.45,
           "z": 0.4,
@@ -209,6 +427,99 @@
           "h": 0.16,
           "word": "saksı",
           "fx": "breathe"
+        },
+        {
+          "src": "/models/masal/aksehir-kapisi.glb",
+          "x": 0.3,
+          "z": 0.28,
+          "h": 0.5,
+          "word": "kapı",
+          "id": "kapi"
+        }
+      ],
+      "cast": [
+        {
+          "id": "komsu",
+          "x": 0.2,
+          "z": 0.48,
+          "rotY": -40,
+          "hold": "kazan",
+          "pose": "hold"
+        },
+        {
+          "id": "hoca",
+          "x": -0.2,
+          "z": 0.56,
+          "rotY": 40
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "komşu"
+          ],
+          "who": "komsu",
+          "do": "talk",
+          "look": "hoca",
+          "focus": true,
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "hoca",
+            "ödünç",
+            "kazan"
+          ],
+          "who": "hoca",
+          "do": "talk",
+          "look": "komsu",
+          "focus": true,
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "verdi",
+            "getirmiş",
+            "vermiş",
+            "al"
+          ],
+          "who": "komsu",
+          "do": "give",
+          "look": "hoca"
+        },
+        {
+          "cue": [
+            "verdi",
+            "getirmiş",
+            "vermiş",
+            "al"
+          ],
+          "who": "hoca",
+          "do": "receive",
+          "target": "kazan",
+          "look": "komsu"
+        },
+        {
+          "cue": [
+            "güle",
+            "al",
+            "muhtaç"
+          ],
+          "who": "komsu",
+          "do": "talk",
+          "look": "hoca",
+          "len": 2.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "dedi",
+            "muhtaç",
+            "vermiş"
+          ],
+          "who": "hoca",
+          "do": "bow",
+          "look": "komsu"
         }
       ]
     },
@@ -239,27 +550,6 @@
       },
       "models": [
         {
-          "src": "/models/kenney/pot.glb",
-          "x": 0.02,
-          "z": 0.76,
-          "h": 0.1,
-          "w": 0.2,
-          "word": "kazan",
-          "tint": "#F0A060",
-          "fx": "wobble"
-        },
-        {
-          "src": "/models/kenney/pot.glb",
-          "x": 0.03,
-          "z": 0.76,
-          "h": 0.055,
-          "w": 0.11,
-          "y": 0.088,
-          "word": "tencere",
-          "tint": "#FFC08A",
-          "fx": "wobble"
-        },
-        {
           "src": "/models/kenney/tree-high-round.glb",
           "x": 0.45,
           "z": 0.42,
@@ -275,6 +565,132 @@
           "w": 0.2,
           "word": "çit",
           "rotY": 90
+        },
+        {
+          "src": "/models/masal/aksehir-kapisi.glb",
+          "x": 0.32,
+          "z": 0.28,
+          "h": 0.5,
+          "word": "kapı",
+          "id": "kapi"
+        },
+        {
+          "src": "/models/masal/tencere.glb",
+          "x": 0.04,
+          "z": 0.74,
+          "h": 0.045,
+          "word": "tencere",
+          "id": "tencere",
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "hoca",
+          "x": -0.46,
+          "z": 0.6,
+          "rotY": 90,
+          "hold": "kazan",
+          "pose": "hold"
+        },
+        {
+          "id": "komsu",
+          "x": 0.24,
+          "z": 0.46,
+          "rotY": -35
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "hoca",
+            "birkaç"
+          ],
+          "who": "hoca",
+          "do": "walkTo",
+          "to": [
+            0.3,
+            0,
+            0.02
+          ],
+          "face": 35,
+          "look": "komsu",
+          "focus": true
+        },
+        {
+          "cue": [
+            "içinde"
+          ],
+          "who": "hoca",
+          "do": "put",
+          "look": "down"
+        },
+        {
+          "cue": [
+            "tencere"
+          ],
+          "who": "tencere",
+          "do": "appear",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "tencere"
+          ],
+          "who": "komsu",
+          "do": "lookAt",
+          "target": "tencere",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "müjde",
+            "kazanınız"
+          ],
+          "who": "hoca",
+          "do": "talk",
+          "look": "komsu",
+          "focus": true,
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "doğurdu"
+          ],
+          "who": "tencere",
+          "do": "ring"
+        },
+        {
+          "cue": [
+            "şaşır",
+            "hayırlı",
+            "dedi",
+            "doğurur"
+          ],
+          "who": "komsu",
+          "do": "cheer",
+          "look": "hoca"
+        },
+        {
+          "cue": [
+            "sevinç",
+            "ikisini",
+            "dedi"
+          ],
+          "who": "tencere",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "sevinç",
+            "ikisini",
+            "dedi"
+          ],
+          "who": "komsu",
+          "do": "receive",
+          "target": "tencere",
+          "look": "reader",
+          "focus": true
         }
       ]
     },
@@ -301,24 +717,6 @@
       },
       "models": [
         {
-          "src": "/models/kenney/pot.glb",
-          "x": 0.1,
-          "z": 0.74,
-          "h": 0.1,
-          "w": 0.2,
-          "word": "kazan",
-          "tint": "#F0A060"
-        },
-        {
-          "src": "/models/kenney/pot.glb",
-          "x": 0.42,
-          "z": 0.66,
-          "h": 0.05,
-          "w": 0.1,
-          "word": "tencere",
-          "tint": "#FFC08A"
-        },
-        {
           "src": "/models/kenney/tree-high-round.glb",
           "x": -0.45,
           "z": 0.36,
@@ -327,13 +725,114 @@
           "fx": "sway"
         },
         {
-          "src": "/models/kenney/cart.glb",
-          "x": 0.4,
-          "z": 0.9,
-          "h": 0.1,
-          "w": 0.22,
-          "word": "araba",
-          "rotY": -20
+          "src": "/models/masal/aksehir-kapisi.glb",
+          "x": 0.32,
+          "z": 0.28,
+          "h": 0.5,
+          "word": "kapı",
+          "id": "kapi"
+        },
+        {
+          "src": "/models/masal/tencere.glb",
+          "x": 0.42,
+          "z": 0.62,
+          "h": 0.045,
+          "word": "tencere",
+          "fx": "wobble"
+        }
+      ],
+      "cast": [
+        {
+          "id": "hoca",
+          "x": -0.2,
+          "z": 0.56,
+          "rotY": 40
+        },
+        {
+          "id": "komsu",
+          "x": 0.18,
+          "z": 0.46,
+          "rotY": -40,
+          "hold": "kazan",
+          "pose": "hold"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "hoca",
+            "aradan"
+          ],
+          "who": "hoca",
+          "do": "knock",
+          "target": "kapi"
+        },
+        {
+          "cue": [
+            "kazan",
+            "istedi",
+            "istemiş",
+            "verir"
+          ],
+          "who": "hoca",
+          "do": "talk",
+          "look": "komsu",
+          "focus": true,
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "komşu",
+            "sevin",
+            "hemen"
+          ],
+          "who": "komsu",
+          "do": "cheer",
+          "look": "hoca",
+          "focus": true
+        },
+        {
+          "cue": [
+            "verdi",
+            "getirmiş",
+            "vermiş"
+          ],
+          "who": "komsu",
+          "do": "give",
+          "look": "hoca"
+        },
+        {
+          "cue": [
+            "verdi",
+            "getirmiş",
+            "vermiş"
+          ],
+          "who": "hoca",
+          "do": "receive",
+          "target": "kazan",
+          "look": "komsu"
+        },
+        {
+          "cue": [
+            "belki",
+            "içinden"
+          ],
+          "who": "komsu",
+          "do": "talk",
+          "look": "reader",
+          "len": 2.2,
+          "optional": true
+        },
+        {
+          "cue": [
+            "yavru",
+            "tencere"
+          ],
+          "who": "komsu",
+          "do": "lookAt",
+          "target": "tencere",
+          "len": 1.8,
+          "optional": true
         }
       ]
     },
@@ -386,6 +885,92 @@
           "word": "kedi",
           "rotY": 40,
           "anim": "none"
+        },
+        {
+          "src": "/models/masal/aksehir-kapisi.glb",
+          "x": -0.12,
+          "z": 0.28,
+          "h": 0.5,
+          "word": "kapı",
+          "id": "kapi"
+        }
+      ],
+      "cast": [
+        {
+          "id": "hoca",
+          "x": -0.16,
+          "z": 0.5,
+          "rotY": 25
+        },
+        {
+          "id": "komsu",
+          "x": 0.46,
+          "z": 0.62,
+          "rotY": -90
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "komşu",
+            "günler"
+          ],
+          "who": "komsu",
+          "do": "walkTo",
+          "to": [
+            -0.24,
+            0,
+            -0.04
+          ],
+          "face": -55,
+          "look": "hoca",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kazanım",
+            "gitti",
+            "dayanama",
+            "kapısına"
+          ],
+          "who": "komsu",
+          "do": "talk",
+          "look": "hoca",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "üzgün",
+            "başın",
+            "öldü"
+          ],
+          "who": "hoca",
+          "do": "bow",
+          "look": "komsu"
+        },
+        {
+          "cue": [
+            "öldü",
+            "sağ"
+          ],
+          "who": "hoca",
+          "do": "talk",
+          "look": "komsu",
+          "focus": true,
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "ölür",
+            "bağır",
+            "öfke"
+          ],
+          "who": "komsu",
+          "do": "point",
+          "target": "hoca",
+          "focus": true,
+          "len": 2.0,
+          "optional": true
         }
       ]
     },
@@ -475,12 +1060,113 @@
           "word": "çeşme"
         },
         {
-          "src": "/models/animals/kopek.glb",
-          "x": -0.3,
-          "z": 0.9,
-          "h": 0.13,
-          "word": "köpek",
-          "rotY": 50
+          "src": "/models/masal/esek.glb",
+          "x": -0.36,
+          "z": 0.8,
+          "h": 0.3,
+          "word": "eşek",
+          "rotY": 50,
+          "fx": "breathe"
+        }
+      ],
+      "cast": [
+        {
+          "id": "hoca",
+          "x": -0.16,
+          "z": 0.62,
+          "rotY": 20
+        },
+        {
+          "id": "komsu",
+          "x": 0.14,
+          "z": 0.66,
+          "rotY": -30
+        },
+        {
+          "id": "pazarci",
+          "x": 0.4,
+          "z": 0.5,
+          "rotY": -40
+        },
+        {
+          "id": "aksehirli-teyze",
+          "x": -0.42,
+          "z": 0.62,
+          "rotY": 35
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "hoca"
+          ],
+          "who": "hoca",
+          "do": "talk",
+          "look": "komsu",
+          "focus": true,
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "inandın",
+            "komşu"
+          ],
+          "who": "komsu",
+          "do": "lookAt",
+          "target": "hoca",
+          "len": 1.5
+        },
+        {
+          "cue": [
+            "susmuş",
+            "söz",
+            "ağzını",
+            "inanmıyorsun"
+          ],
+          "who": "komsu",
+          "do": "bow",
+          "look": "hoca"
+        },
+        {
+          "cue": [
+            "herkes",
+            "pazar",
+            "anlamış"
+          ],
+          "who": "aksehirli-teyze",
+          "do": "cheer",
+          "look": "hoca"
+        },
+        {
+          "cue": [
+            "herkes",
+            "pazar",
+            "anlamış"
+          ],
+          "who": "pazarci",
+          "do": "cheer",
+          "look": "hoca"
+        },
+        {
+          "cue": [
+            "gülmüş",
+            "güldü",
+            "gülmeye"
+          ],
+          "who": "komsu",
+          "do": "cheer",
+          "look": "hoca",
+          "focus": true
+        },
+        {
+          "cue": [
+            "gülmüş",
+            "güldü",
+            "gülmeye"
+          ],
+          "who": "hoca",
+          "do": "nod",
+          "look": "reader"
         }
       ]
     },
@@ -568,6 +1254,118 @@
           "w": 0.12,
           "word": "kitap",
           "rotY": 20
+        }
+      ],
+      "cast": [
+        {
+          "id": "dede",
+          "x": -0.06,
+          "z": 0.55,
+          "rotY": 0
+        },
+        {
+          "id": "elif",
+          "x": -0.3,
+          "z": 0.62,
+          "rotY": 35
+        },
+        {
+          "id": "can",
+          "x": 0.27,
+          "z": 0.64,
+          "rotY": -35
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "fıkra",
+            "elif"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "dede",
+          "focus": true,
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "kıpkırmızı",
+            "özür"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -70,
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "abla",
+            "özür"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "elif",
+          "focus": true,
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "özür"
+          ],
+          "who": "can",
+          "do": "bow",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "sarıldı",
+            "dürüst",
+            "aferin"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.36,
+            0,
+            0.0
+          ],
+          "face": 90,
+          "look": "can"
+        },
+        {
+          "cue": [
+            "sarıldı",
+            "dürüst",
+            "aferin"
+          ],
+          "who": "elif",
+          "do": "hug",
+          "target": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "dede",
+            "doğruyu",
+            "aferin",
+            "dürüst"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "can",
+          "len": 2.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "rahatlat",
+            "davrandın",
+            "dürüst"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "reader"
         }
       ]
     }
@@ -768,6 +1566,27 @@
     "simit": {
       "en": "simit, a sesame bread ring",
       "icon": "🥯"
+    },
+    "eşek": {
+      "en": "donkey",
+      "icon": "🫏"
+    },
+    "pilav": {
+      "en": "rice pilaf",
+      "icon": "🍚"
+    },
+    "masal kapısı": {
+      "en": "story gate",
+      "icon": "✨"
+    },
+    "Komşu": {
+      "en": "the neighbour"
+    },
+    "Pazarcı Amca": {
+      "en": "the market seller"
+    },
+    "Akşehirli Teyze": {
+      "en": "a lady from Akşehir"
     }
   },
   "quiz": [

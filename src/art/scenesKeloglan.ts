@@ -202,16 +202,16 @@ function cast(p: Pen, o: { kel: [number, Arms]; villager?: [number, Arms]; sprou
 export const KELOGLAN_SCENES: Record<string, Layer[]> = {
   e1: [
     { ...BACK, draw: (p) => backyard(p, false) },
-    { ...FAMILY, draw: (p) => gardeners(p, false) },
+    { ...FAMILY, thumbOnly: true, draw: (p) => gardeners(p, false) },
   ],
   e2: [
     { ...BACK, draw: (p) => village(p, 'dry') },
-    { ...MIDDLE, draw: (p) => home(p, true, false) },
+    { ...MIDDLE, thumbOnly: true, draw: (p) => home(p, true, false) },
     { ...CAST, draw: (p) => cast(p, { kel: [560, 'forward'] }) },
   ],
   e3: [
     { ...BACK, draw: (p) => village(p, 'dry') },
-    { ...MIDDLE, draw: (p) => home(p, false, true) },
+    { ...MIDDLE, thumbOnly: true, draw: (p) => home(p, false, true) },
     { ...CAST, draw: (p) => cast(p, { kel: [420, 'hold'], sprouts: 640 }) },
   ],
   e4: [
@@ -220,7 +220,7 @@ export const KELOGLAN_SCENES: Record<string, Layer[]> = {
   ],
   e5: [
     { ...BACK, draw: (p) => village(p, 'dry') },
-    { ...MIDDLE, draw: (p) => home(p, false, true) },
+    { ...MIDDLE, thumbOnly: true, draw: (p) => home(p, false, true) },
     { ...CAST, draw: (p) => cast(p, { kel: [380, 'hold'], villager: [700, 'down'] }) },
   ],
   e6: [
@@ -233,7 +233,7 @@ export const KELOGLAN_SCENES: Record<string, Layer[]> = {
   ],
   e8: [
     { ...BACK, draw: (p) => backyard(p, true) },
-    { ...FAMILY, draw: (p) => gardeners(p, true) },
+    { ...FAMILY, thumbOnly: true, draw: (p) => gardeners(p, true) },
   ],
 };
 

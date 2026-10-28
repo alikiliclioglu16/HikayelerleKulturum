@@ -101,3 +101,21 @@ Aynı karakterin hareketleri sırayla oynar; yalnızca bakma hareketleri (`lookA
 - **İskelet otomatik kuruldu.** Elle yapılmış bir iskelet kadar temiz değildir: çok uç pozlarda (kolları başın arkasına götürmek gibi) dirsek ve omuzda hafif ezilme görülebilir. Hareketler bu yüzden sakin ve orta açılarda tutuldu. Daha temiz sonuç için modeller Mixamo veya Meshy'nin "rig" özelliğiyle iskeletlendirilip aynı kemik adlarıyla verilebilir; kod değişmeden çalışır (kemik adları bölüm 2'de).
 - **Parmaklar tek parça.** Eller açılıp kapanmaz; tutma ve el öpme kol ve bilekle gösterilir.
 - **Karagöz** bu kitapta kullanılmadı.
+
+## 7. Masal karakterleri (2. ve 3. kitap)
+
+Ekim 2026'da gelen dokuz masal karakteri aynı yolla (19 kemikli iskelet, otomatik ağırlık, 1024 px WebP doku) hazırlandı ve `public/models/masal/` klasörüne kondu. Eşek, kapılar, kazan, tencere, pilav, tohum, bulut, elma, sebzeler, kuyu, kerpiç ev, saman ve hasat arabası iskeletsiz nesnelerdir; bazıları hikâyeye "masalsı nesne" olarak katılır (`id` + beat).
+
+| Kitap | Karakter | id | Boy (sayfa birimi) |
+|---|---|---|---|
+| Nasreddin Hoca ve Kazan | Nasreddin Hoca | `hoca` | 0,53 |
+| | Komşu | `komsu` | 0,52 |
+| | Akşehirli Teyze | `aksehirli-teyze` | 0,47 |
+| | Pazarcı Amca | `pazarci` | 0,53 |
+| Keloğlan ve Üç Tohum | Keloğlan | `keloglan` | 0,45 |
+| | Keloğlan'ın anası | `keloglan-anasi` | 0,47 |
+| | Hasan Amca | `hasan-amca` | 0,49 |
+| | Köylü çocuk | `koylu-cocuk` | 0,34 |
+| | Köylü kadın | `koylu-kadin` | 0,47 |
+
+Bazı modellerde kollar gövdeye daha yakın çizildiği için `armDown` ile rahat duruşta kolların açısı küçültüldü (eller kıyafete girmesin). Elde tutulan yeni eşyalar: `kazan`, `tencere`, `tohum`, `kova`, `sebze` (three/props.ts → HELD). Yeni hareket: `knock` (kapıyı çalmak).

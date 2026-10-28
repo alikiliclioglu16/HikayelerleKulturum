@@ -1,6 +1,29 @@
 import * as THREE from 'three';
 import { tulip } from '../art/kit';
 import { Pen } from '../art/pen';
+import { loadGltf } from '../home3d/actors';
+
+/**
+ * A thing from a GLB file to hold in the hands. The group is returned at once and the model drops in when it
+ * has loaded; it is scaled to height `h` (page widths). `hang`: the top of the model at the origin, so it
+ * hangs below the hand (a bucket); otherwise the model stands on the origin.
+ */
+function glbHeld(url: string, h: number, data: Record<string, unknown>, hang = false, rotY = 0) {
+  const g = new THREE.Group();
+  Object.assign(g.userData, data);
+  loadGltf(url).then((gltf) => {
+    const m = gltf.scene.clone(true);
+    m.rotation.y = rotY;
+    const box = new THREE.Box3().setFromObject(m);
+    const s = h / Math.max(1e-6, box.max.y - box.min.y);
+    m.scale.setScalar(s);
+    const c = box.getCenter(new THREE.Vector3());
+    m.position.set(-c.x * s, hang ? -box.max.y * s : -box.min.y * s, -c.z * s);
+    m.traverse((n) => ((n as THREE.Mesh).castShadow = true));
+    g.add(m);
+  });
+  return g;
+}
 
 /**
  * Pieces of the set built in code, so they fit the characters exactly (sizes in page widths).
@@ -117,6 +140,13 @@ function tray(w: number, color = '#C9CED6') {
 
 /** Each returns a group sized for a character about 0.4–0.55 tall; userData: word, hand ('R' for one hand), atHeight, ahead. */
 export const HELD: Record<string, () => THREE.Object3D> = {
+  // Nasreddin Hoca ve Kazan
+  kazan: () => glbHeld('/models/masal/kazan.glb', 0.085, { word: 'kazan', atHeight: 0.4, ahead: 0.22 }),
+  tencere: () => glbHeld('/models/masal/tencere.glb', 0.045, { word: 'tencere', atHeight: 0.45, ahead: 0.2 }),
+  // Keloğlan ve Üç Tohum
+  tohum: () => glbHeld('/models/masal/tohum.glb', 0.022, { word: 'tohum', hand: 'R' }),
+  kova: () => glbHeld('/models/kenney/bucket.glb', 0.06, { word: 'kova', hand: 'R' }, true),
+  sebze: () => glbHeld('/models/masal/lahana.glb', 0.06, { word: 'lahana', atHeight: 0.45, ahead: 0.2 }),
   baklavaTepsisi: () => {
     const g = new THREE.Group();
     const t = tray(0.13, '#B9773E');

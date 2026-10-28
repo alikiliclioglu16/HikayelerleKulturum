@@ -298,7 +298,7 @@ function cast(p: Pen, o: { hoca: [number, Arms, ('smile' | 'open' | 'grin')?]; k
 export const KAZAN_SCENES: Record<string, Layer[]> = {
   k1: [
     { ...BACK, draw: (p) => livingRoom(p) },
-    { ...SOFA, draw: (p) => family(p, false) },
+    { ...SOFA, thumbOnly: true, draw: (p) => family(p, false) },
   ],
   k2: [
     { ...BACK, draw: (p) => aksehir(p, 'morning') },
@@ -346,7 +346,7 @@ export const KAZAN_SCENES: Record<string, Layer[]> = {
   ],
   k8: [
     { ...BACK, draw: (p) => livingRoom(p) },
-    { ...SOFA, draw: (p) => family(p, true) },
+    { ...SOFA, thumbOnly: true, draw: (p) => family(p, true) },
   ],
 };
 
