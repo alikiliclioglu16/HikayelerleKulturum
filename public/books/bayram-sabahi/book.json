@@ -85,7 +85,8 @@
           "word": "hilal",
           "y": 0.64,
           "id": "ay",
-          "fx": "bob"
+          "fx": "bob",
+          "magic": true
         },
         {
           "src": "/models/bayram/gunes.glb",
@@ -101,7 +102,8 @@
             -0.05,
             0
           ],
-          "fx": "bob"
+          "fx": "bob",
+          "magic": true
         }
       ],
       "cast": [
@@ -1309,7 +1311,8 @@
           "y": 0.58,
           "id": "hilal",
           "hidden": true,
-          "fx": "bob"
+          "fx": "bob",
+          "magic": true
         },
         {
           "src": "/models/bayram/hilal-kapali.glb",
@@ -1320,7 +1323,8 @@
           "y": 0.58,
           "id": "hilalUyku",
           "hidden": true,
-          "fx": "bob"
+          "fx": "bob",
+          "magic": true
         }
       ],
       "cast": [

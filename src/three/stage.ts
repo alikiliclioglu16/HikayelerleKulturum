@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { runAct, type Beat } from './acts';
+import { runAct, type Beat, type ActResult } from './acts';
 import type { Key, State } from './performer';
 
 /** Anything the stage can direct: a character (Performer) or a magic thing (PropActor). */
@@ -8,6 +8,8 @@ export interface StageActor {
   add(keys: Key[]): void;
   endState(): State;
   update(t: number, dt: number): void;
+  /** Its own acts (a toy character hops instead of bending); otherwise the acts in acts.ts. */
+  run?(s: State, b: Beat, t: number): ActResult;
 }
 import { trLower, type Token } from '../text';
 
@@ -134,8 +136,8 @@ export class Stage {
     // one act after another for the same character; only looking can happen while the body is busy
     const lookOnly = b.do === 'lookAt' || b.do === 'lookAround';
     const busy = this.busyUntil.get(b.who) ?? 0;
-    const t = lookOnly ? this.clock : Math.max(this.clock, busy - 0.25);
-    const res = runAct(p.endState(), b, t);
+    const t = (lookOnly ? this.clock : Math.max(this.clock, busy - 0.25)) + (b.wait ?? 0);
+    const res = p.run ? p.run(p.endState(), b, t) : runAct(p.endState(), b, t);
     p.add(res.keys);
     this.busyUntil.set(b.who, Math.max(busy, t + res.dur));
     if (b.focus) this.onFocus?.(b.who);

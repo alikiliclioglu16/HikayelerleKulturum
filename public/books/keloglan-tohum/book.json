@@ -81,13 +81,16 @@
           "speed": 0.05
         },
         {
-          "src": "/models/masal/masal-kapisi.glb",
-          "x": 0.36,
-          "z": 0.3,
-          "h": 0.58,
-          "word": "masal kapısı",
-          "id": "masal",
-          "hidden": true
+          "src": "/models/masal/tohum.glb",
+          "x": 0.13,
+          "z": 0.66,
+          "h": 0.07,
+          "y": 0.46,
+          "word": "tohum",
+          "id": "tohum",
+          "magic": true,
+          "hidden": true,
+          "fx": "bob"
         }
       ],
       "cast": [
@@ -158,29 +161,51 @@
           "who": "anne",
           "do": "talk",
           "look": "can",
-          "focus": true,
           "len": 2.4,
           "optional": true
         },
         {
           "cue": [
             "masal",
-            "keloğlan"
+            "keloğlan",
+            "büyüyecek"
           ],
-          "who": "masal",
+          "who": "tohum",
           "do": "appear",
-          "len": 1.4,
-          "optional": true
+          "len": 1.8,
+          "focus": true
         },
         {
           "cue": [
             "masal",
-            "keloğlan"
+            "keloğlan",
+            "büyüyecek"
           ],
           "who": "can",
           "do": "cheer",
-          "look": "masal",
-          "optional": true
+          "look": "tohum",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "masal",
+            "keloğlan",
+            "büyüyecek"
+          ],
+          "who": "elif",
+          "do": "hop",
+          "look": "tohum",
+          "wait": 0.7
+        },
+        {
+          "cue": [
+            "masal",
+            "keloğlan",
+            "büyüyecek"
+          ],
+          "who": "tohum",
+          "do": "spin",
+          "wait": 0.6
         }
       ]
     },
@@ -228,14 +253,6 @@
           "rotY": 10
         },
         {
-          "src": "/models/masal/masal-kapisi.glb",
-          "x": 0.0,
-          "z": 0.3,
-          "h": 0.58,
-          "word": "masal kapısı",
-          "id": "masal"
-        },
-        {
           "src": "/models/masal/kerpic-ev.glb",
           "x": -0.28,
           "z": 0.24,
@@ -247,10 +264,13 @@
           "src": "/models/masal/saman.glb",
           "x": 0.34,
           "z": 0.72,
-          "h": 0.09,
+          "h": 0.12,
           "word": "saman",
           "id": "saman",
-          "hidden": true
+          "hidden": true,
+          "y": 0.18,
+          "magic": true,
+          "fx": "bob"
         }
       ],
       "cast": [
@@ -269,9 +289,25 @@
       ],
       "beats": [
         {
-          "cue": [],
-          "who": "masal",
-          "do": "vanish"
+          "cue": [
+            "saman",
+            "kalbur"
+          ],
+          "who": "saman",
+          "do": "appear",
+          "len": 1.4,
+          "optional": true,
+          "focus": true
+        },
+        {
+          "cue": [
+            "saman",
+            "kalbur"
+          ],
+          "who": "saman",
+          "do": "spin",
+          "optional": true,
+          "wait": 0.2
         },
         {
           "cue": [
@@ -281,16 +317,6 @@
           "do": "wave",
           "look": "reader",
           "focus": true
-        },
-        {
-          "cue": [
-            "saman",
-            "kalbur"
-          ],
-          "who": "saman",
-          "do": "appear",
-          "len": 1.2,
-          "optional": true
         },
         {
           "cue": [
@@ -410,31 +436,34 @@
           "src": "/models/masal/tohum.glb",
           "x": 0.12,
           "z": 0.84,
-          "h": 0.025,
+          "h": 0.04,
           "word": "tohum",
           "id": "tohum1",
           "hidden": true,
-          "y": 0.02
+          "y": 0.03,
+          "magic": true
         },
         {
           "src": "/models/masal/tohum.glb",
           "x": 0.21,
           "z": 0.84,
-          "h": 0.025,
+          "h": 0.04,
           "word": "tohum",
           "id": "tohum2",
           "hidden": true,
-          "y": 0.02
+          "y": 0.03,
+          "magic": true
         },
         {
           "src": "/models/masal/tohum.glb",
           "x": 0.3,
           "z": 0.84,
-          "h": 0.025,
+          "h": 0.04,
           "word": "tohum",
           "id": "tohum3",
           "hidden": true,
-          "y": 0.02
+          "y": 0.03,
+          "magic": true
         }
       ],
       "cast": [
@@ -462,7 +491,8 @@
           ],
           "who": "tohum1",
           "do": "appear",
-          "len": 0.8
+          "len": 0.9,
+          "focus": true
         },
         {
           "cue": [
@@ -471,7 +501,8 @@
           ],
           "who": "tohum2",
           "do": "appear",
-          "len": 0.8
+          "len": 0.9,
+          "wait": 0.3
         },
         {
           "cue": [
@@ -480,7 +511,8 @@
           ],
           "who": "tohum3",
           "do": "appear",
-          "len": 0.8
+          "len": 0.9,
+          "wait": 0.6
         },
         {
           "cue": [
@@ -506,7 +538,8 @@
             "su"
           ],
           "who": "tohum2",
-          "do": "sink"
+          "do": "sink",
+          "wait": 0.2
         },
         {
           "cue": [
@@ -514,7 +547,8 @@
             "su"
           ],
           "who": "tohum3",
-          "do": "sink"
+          "do": "sink",
+          "wait": 0.4
         },
         {
           "cue": [
@@ -599,25 +633,31 @@
           "src": "/models/kenney/mf-plant.glb",
           "x": 0.02,
           "z": 0.72,
-          "h": 0.08,
+          "h": 0.1,
           "word": "filiz",
-          "fx": "grow"
+          "id": "filiz1",
+          "hidden": true,
+          "magic": true
         },
         {
           "src": "/models/kenney/mf-plant.glb",
           "x": 0.14,
           "z": 0.74,
-          "h": 0.08,
+          "h": 0.1,
           "word": "filiz",
-          "fx": "grow"
+          "id": "filiz2",
+          "hidden": true,
+          "magic": true
         },
         {
           "src": "/models/kenney/mf-plant.glb",
           "x": 0.26,
           "z": 0.72,
-          "h": 0.08,
+          "h": 0.1,
           "word": "filiz",
-          "fx": "grow"
+          "id": "filiz3",
+          "hidden": true,
+          "magic": true
         },
         {
           "src": "/models/kenney/tree-autumn.glb",
@@ -654,11 +694,49 @@
             "filiz",
             "günler"
           ],
+          "who": "filiz1",
+          "do": "grow",
+          "len": 1,
+          "focus": true
+        },
+        {
+          "cue": [
+            "filiz",
+            "günler"
+          ],
+          "who": "filiz2",
+          "do": "grow",
+          "len": 1,
+          "wait": 0.45
+        },
+        {
+          "cue": [
+            "filiz",
+            "günler"
+          ],
+          "who": "filiz3",
+          "do": "grow",
+          "len": 1,
+          "wait": 0.9
+        },
+        {
+          "cue": [
+            "filiz",
+            "günler"
+          ],
           "who": "keloglan",
           "do": "lookAt",
-          "target": "filiz",
-          "len": 1.6,
-          "focus": true
+          "target": "filiz2",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "filiz",
+            "günler"
+          ],
+          "who": "keloglan",
+          "do": "hop",
+          "look": "filiz2"
         },
         {
           "cue": [
@@ -705,13 +783,24 @@
         },
         {
           "cue": [
+            "sabreden",
+            "kızmamış",
+            "sabır"
+          ],
+          "who": "filiz2",
+          "do": "shine",
+          "len": 0.8,
+          "wait": 0.8
+        },
+        {
+          "cue": [
             "sulamaya",
             "sulamış",
             "gölge"
           ],
           "who": "keloglan",
           "do": "bow",
-          "look": "filiz",
+          "look": "filiz2",
           "optional": true
         }
       ]
@@ -765,6 +854,26 @@
           "h": 0.3,
           "word": "kuyu",
           "rotY": 20
+        },
+        {
+          "src": "/models/kenney/mf-plant.glb",
+          "x": 0.22,
+          "z": 0.72,
+          "h": 0.09,
+          "word": "filiz",
+          "id": "filiz1",
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "src": "/models/kenney/mf-plant.glb",
+          "x": 0.36,
+          "z": 0.76,
+          "h": 0.09,
+          "word": "filiz",
+          "id": "filiz2",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -784,6 +893,13 @@
         }
       ],
       "beats": [
+        {
+          "cue": [],
+          "who": "hasan-amca",
+          "do": "bow",
+          "look": "down",
+          "len": 3
+        },
         {
           "cue": [
             "kuyu",
@@ -851,7 +967,32 @@
           "do": "receive",
           "target": "kova",
           "look": "keloglan",
+          "focus": true,
+          "wait": 1.25
+        },
+        {
+          "cue": [
+            "birlikte",
+            "elin",
+            "gözleri",
+            "paylaş"
+          ],
+          "who": "filiz1",
+          "do": "grow",
+          "len": 1,
           "focus": true
+        },
+        {
+          "cue": [
+            "birlikte",
+            "elin",
+            "gözleri",
+            "paylaş"
+          ],
+          "who": "filiz2",
+          "do": "grow",
+          "len": 1,
+          "wait": 0.4
         },
         {
           "cue": [
@@ -908,7 +1049,9 @@
           "z": 0.7,
           "h": 0.09,
           "word": "kabak",
-          "fx": "grow"
+          "id": "kabak1",
+          "hidden": true,
+          "magic": true
         },
         {
           "src": "/models/kenney/tree-tall.glb",
@@ -924,7 +1067,9 @@
           "z": 0.52,
           "h": 0.2,
           "word": "mısır",
-          "fx": "grow"
+          "id": "misir1",
+          "hidden": true,
+          "magic": true
         },
         {
           "src": "/models/masal/misir.glb",
@@ -932,7 +1077,9 @@
           "z": 0.48,
           "h": 0.22,
           "word": "mısır",
-          "fx": "grow"
+          "id": "misir2",
+          "hidden": true,
+          "magic": true
         },
         {
           "src": "/models/masal/misir.glb",
@@ -940,7 +1087,9 @@
           "z": 0.52,
           "h": 0.2,
           "word": "mısır",
-          "fx": "grow"
+          "id": "misir3",
+          "hidden": true,
+          "magic": true
         },
         {
           "src": "/models/masal/lahana.glb",
@@ -948,7 +1097,9 @@
           "z": 0.66,
           "h": 0.08,
           "word": "lahana",
-          "fx": "grow"
+          "id": "lahana1",
+          "hidden": true,
+          "magic": true
         },
         {
           "src": "/models/masal/havuc.glb",
@@ -956,18 +1107,21 @@
           "z": 0.7,
           "h": 0.1,
           "word": "havuç",
-          "fx": "grow"
+          "id": "havuc1",
+          "hidden": true,
+          "magic": true
         },
         {
           "src": "/models/masal/bulut.glb",
-          "x": 0.02,
-          "z": 0.2,
-          "h": 0.16,
+          "x": 0.08,
+          "z": 0.42,
+          "h": 0.26,
           "word": "bulut",
           "id": "bulut",
           "hidden": true,
           "y": 0.5,
-          "fx": "bob"
+          "fx": "bob",
+          "magic": true
         }
       ],
       "cast": [
@@ -993,7 +1147,8 @@
           ],
           "who": "bulut",
           "do": "appear",
-          "len": 1.6
+          "len": 1.6,
+          "focus": true
         },
         {
           "cue": [
@@ -1003,12 +1158,13 @@
             "yağmur"
           ],
           "who": "bulut",
-          "do": "shine",
-          "len": 1.5
+          "do": "rain",
+          "len": 4.5
         },
         {
           "cue": [
-            "yağmur"
+            "yağmur",
+            "yağmış"
           ],
           "who": "keloglan",
           "do": "lookAt",
@@ -1028,19 +1184,88 @@
         },
         {
           "cue": [
+            "mısır",
+            "sebze",
+            "kocaman"
+          ],
+          "who": "misir1",
+          "do": "grow",
+          "len": 0.8,
+          "wait": 0.0
+        },
+        {
+          "cue": [
+            "mısır",
+            "sebze",
+            "kocaman"
+          ],
+          "who": "misir2",
+          "do": "grow",
+          "len": 0.8,
+          "wait": 0.35
+        },
+        {
+          "cue": [
+            "mısır",
+            "sebze",
+            "kocaman"
+          ],
+          "who": "misir3",
+          "do": "grow",
+          "len": 0.8,
+          "wait": 0.7
+        },
+        {
+          "cue": [
+            "lahana",
+            "sebze",
+            "kocaman"
+          ],
+          "who": "lahana1",
+          "do": "grow",
+          "len": 0.8,
+          "wait": 1.05
+        },
+        {
+          "cue": [
+            "havuç",
+            "sebze",
+            "kocaman"
+          ],
+          "who": "havuc1",
+          "do": "grow",
+          "len": 0.8,
+          "wait": 1.4
+        },
+        {
+          "cue": [
+            "kabak",
+            "sebze",
+            "kocaman",
+            "yeşer"
+          ],
+          "who": "kabak1",
+          "do": "grow",
+          "len": 0.8,
+          "wait": 1.75
+        },
+        {
+          "cue": [
             "kocaman",
             "boy",
-            "mısır"
+            "mısır",
+            "sebze"
           ],
           "who": "keloglan",
           "do": "lookAt",
-          "target": "mısır",
+          "target": "misir2",
           "len": 1.6
         },
         {
           "cue": [
             "hasan",
-            "kocaman"
+            "kocaman",
+            "yeşer"
           ],
           "who": "hasan-amca",
           "do": "cheer",
@@ -1121,43 +1346,46 @@
           "src": "/models/masal/elma.glb",
           "x": -0.12,
           "z": 0.88,
-          "h": 0.05,
+          "h": 0.08,
           "word": "elma",
           "id": "elma1",
           "hidden": true,
           "from": [
             0,
-            0.45,
+            0.5,
             0
-          ]
+          ],
+          "magic": true
         },
         {
           "src": "/models/masal/elma.glb",
           "x": 0.0,
           "z": 0.88,
-          "h": 0.05,
+          "h": 0.08,
           "word": "elma",
           "id": "elma2",
           "hidden": true,
           "from": [
             0,
-            0.45,
+            0.5,
             0
-          ]
+          ],
+          "magic": true
         },
         {
           "src": "/models/masal/elma.glb",
           "x": 0.12,
           "z": 0.88,
-          "h": 0.05,
+          "h": 0.08,
           "word": "elma",
           "id": "elma3",
           "hidden": true,
           "from": [
             0,
-            0.45,
+            0.5,
             0
-          ]
+          ],
+          "magic": true
         }
       ],
       "cast": [
@@ -1249,16 +1477,18 @@
             "elma",
             "bitmiş"
           ],
-          "who": "elma1",
-          "do": "rise"
+          "who": "elma2",
+          "do": "rise",
+          "focus": true
         },
         {
           "cue": [
             "elma",
             "bitmiş"
           ],
-          "who": "elma2",
-          "do": "rise"
+          "who": "elma1",
+          "do": "rise",
+          "wait": 0.4
         },
         {
           "cue": [
@@ -1266,7 +1496,8 @@
             "bitmiş"
           ],
           "who": "elma3",
-          "do": "rise"
+          "do": "rise",
+          "wait": 0.8
         },
         {
           "cue": [
@@ -1277,6 +1508,35 @@
           "do": "lookAt",
           "target": "up",
           "len": 1.5
+        },
+        {
+          "cue": [
+            "okuyana",
+            "bitmiş"
+          ],
+          "who": "elma1",
+          "do": "shine",
+          "len": 0.7
+        },
+        {
+          "cue": [
+            "okuyana",
+            "bitmiş"
+          ],
+          "who": "elma2",
+          "do": "shine",
+          "len": 0.7,
+          "wait": 0.25
+        },
+        {
+          "cue": [
+            "okuyana",
+            "bitmiş"
+          ],
+          "who": "elma3",
+          "do": "shine",
+          "len": 0.7,
+          "wait": 0.5
         },
         {
           "cue": [
@@ -1339,7 +1599,9 @@
           "z": 0.84,
           "h": 0.1,
           "word": "filiz",
-          "fx": "grow"
+          "id": "filiz1",
+          "hidden": true,
+          "magic": true
         },
         {
           "src": "/models/kenney/carrot.glb",
@@ -1355,7 +1617,9 @@
           "z": 0.84,
           "h": 0.1,
           "word": "filiz",
-          "fx": "grow"
+          "id": "filiz2",
+          "hidden": true,
+          "magic": true
         },
         {
           "src": "/models/kenney/bucket.glb",
@@ -1399,10 +1663,30 @@
             "bağırdı",
             "filiz"
           ],
+          "who": "filiz1",
+          "do": "grow",
+          "len": 1,
+          "focus": true
+        },
+        {
+          "cue": [
+            "bağırdı",
+            "filiz"
+          ],
+          "who": "filiz2",
+          "do": "grow",
+          "len": 1,
+          "wait": 0.45
+        },
+        {
+          "cue": [
+            "bağırdı",
+            "filiz"
+          ],
           "who": "can",
           "do": "cheer",
           "look": "reader",
-          "focus": true
+          "wait": 0.3
         },
         {
           "cue": [
@@ -1411,7 +1695,7 @@
           ],
           "who": "can",
           "do": "bow",
-          "look": "filiz"
+          "look": "filiz1"
         },
         {
           "cue": [
@@ -1644,10 +1928,6 @@
       "en": "baklava",
       "icon": "🥮"
     },
-    "masal kapısı": {
-      "en": "story gate",
-      "icon": "✨"
-    },
     "saman": {
       "en": "straw",
       "icon": "🌾"
@@ -1870,5 +2150,6 @@
       "h": 0.26,
       "w": 0.3
     }
-  ]
+  ],
+  "toyCast": true
 }

@@ -10,6 +10,8 @@ import { Performer, type State } from './performer';
 import { POSES } from './acts';
 import { Stage, type StageActor } from './stage';
 import { PropActor } from './propActor';
+import { ToyPerformer } from './toy';
+import { Rain } from './rain';
 import { Sparkles } from '../home3d/sparkles';
 import type { PageData } from '../types';
 import { CULTURE_BUILDERS } from '../home3d/culture';
@@ -187,7 +189,15 @@ export class BookScene {
   private models: ModelObj[] = [];
   /** Magic things of the page that take part in the story (models with an `id`). */
   private things = new Map<string, PropActor>();
-  private sparkles = new Sparkles(160);
+  private sparkles = new Sparkles(480);
+  /** Rain from a magic cloud. */
+  private rain = new Rain();
+  /** Where the last thing left a character's hands (or a magic thing vanished), so the next one taken flies from there. */
+  private lastRelease: { at: THREE.Vector3; time: number; word: string } | null = null;
+  /** Something a character has just taken, waiting (hidden) for the other one to let go of it. */
+  private pendingTake: { obj: THREE.Object3D; until: number; word: string } | null = null;
+  /** True while the play is jumped to a moment (no flights then). */
+  private seeking = false;
   private tableObjs: THREE.Object3D[] = [];
   private tableSession = 0;
   private cinema!: ReaderCinema;
@@ -205,7 +215,9 @@ export class BookScene {
   private ro: ResizeObserver;
   private regions: { close: Region; wide: Region } = { close: { x: 0, y: 0, w: 1, h: 1 }, wide: { x: 0, y: 0, w: 1, h: 1 } };
   private shotKind: ShotKind = 'close';
-  private performers = new Map<string, Performer>();
+  private performers = new Map<string, Performer | ToyPerformer>();
+  /** The book's characters move as whole toys (hop, turn, lean) instead of bending (book.json → toyCast). */
+  toyCast = false;
   private castBase = new Map<string, THREE.Vector3>();
   private castSession = 0;
   private spots: Record<string, [number, number, number]> = {};
@@ -264,7 +276,7 @@ export class BookScene {
   private buildWorld() {
     const r = this.renderer;
     const hemi = new THREE.HemisphereLight('#FFF7EC', '#9C7A5E', 2.1);
-    this.scene.add(hemi, this.sparkles.points);
+    this.scene.add(hemi, this.sparkles.points, this.rain.points);
     const light = new THREE.DirectionalLight('#FFF1DC', 1.9);
     light.position.set(-2.2, 4.2, 2.6);
     light.target.position.set(0.3, 0, 0);
@@ -501,10 +513,9 @@ export class BookScene {
     const center = cfg.min.clone().add(cfg.max).multiplyScalar(0.5);
     center.y = cfg.cy;
     let tighten = 1;
-    const who = kind === 'close' && this.focusWho ? this.performers.get(this.focusWho) : null;
-    if (who) {
-      // lean towards the character who acts or speaks, keeping the others in the picture
-      const hp = who.headPosition();
+    const hp = kind === 'close' ? this.focusPoint() : null;
+    if (hp) {
+      // lean towards the character who acts or speaks (or the magic thing), keeping the others in the picture
       center.x += (hp.x - center.x) * 0.45;
       center.z += (hp.z - center.z) * 0.35;
       center.y += (hp.y * 0.85 - center.y) * 0.4;
@@ -541,6 +552,12 @@ export class BookScene {
     return { pos: center.clone().addScaledVector(dir, hi * tighten), target: center, region: { ...cfg.reg } };
   }
 
+  /** Pixels per world unit at distance 1 (for particles sized in world units). */
+  private pxScale() {
+    const cam = this.camera as THREE.PerspectiveCamera;
+    return this.renderer.domElement.height / (2 * Math.tan(THREE.MathUtils.degToRad(cam.fov / 2)));
+  }
+
   toScreen(p: THREE.Vector3) {
     const { w, h } = this.size;
     const v = p.clone().project(this.camera);
@@ -565,6 +582,16 @@ export class BookScene {
     // camera moves keep real time, so they end on time even when frames are slow
     if (!document.hidden && this.cinema.update(this.frozen ? 0 : raw)) alive = true;
     if (this.stage && this.stage.tick(this.frozen ? 0 : raw)) alive = true;
+    if (!this.frozen && this.rain.update(dt)) {
+      this.rain.setScale(this.pxScale());
+      alive = true;
+    }
+    if (this.pendingTake && this.clock > this.pendingTake.until) {
+      // nobody handed it over: it pops in by itself
+      const o = this.pendingTake.obj;
+      this.pendingTake = null;
+      this.popIn(o);
+    }
     if (this.sparkles.update(this.frozen ? 0 : raw * 1000)) {
       const cam = this.camera as THREE.PerspectiveCamera;
       this.sparkles.setScale(this.renderer.domElement.height / (2 * Math.tan(THREE.MathUtils.degToRad(cam.fov / 2))));
@@ -841,7 +868,104 @@ export class BookScene {
     if (this.shotKind === 'close') this.shot('close', 1600);
   }
 
-  private target(self: Performer, name: string): THREE.Vector3 | null {
+  /** Where the camera leans in the close shot: the head of the character in focus, or the magic thing. */
+  private focusPoint(): THREE.Vector3 | null {
+    if (!this.focusWho) return null;
+    const who = this.performers.get(this.focusWho);
+    if (who) return who.headPosition();
+    const thing = this.things.get(this.focusWho);
+    if (!thing) return null;
+    const at = thing.group.getWorldPosition(new THREE.Vector3());
+    at.y += thing.height * 0.6;
+    return at;
+  }
+
+  /**
+   * Something (`word`) left a character's hands, or a magic thing vanished: a character who takes the same
+   * thing gets it from there.
+   */
+  private released(at: THREE.Vector3, word: string, obj?: THREE.Object3D) {
+    const wait = this.pendingTake;
+    if (wait && wait.word === word && wait.obj !== obj && !this.seeking) {
+      this.pendingTake = null;
+      this.fly(wait.obj, at);
+      return;
+    }
+    this.lastRelease = { at, time: this.clock, word };
+  }
+
+  /** Someone other than `taker` still has this thing in hand, or it is still on the page as a magic thing. */
+  private stillElsewhere(word: string, taker: Performer | ToyPerformer) {
+    for (const p of this.performers.values()) if (p !== taker && p.heldWord === word) return true;
+    return this.models.some((m) => m.word === word && m.spec.id && this.things.get(m.spec.id)?.group.visible);
+  }
+
+  /**
+   * Something has just come into a toy character's hands. Handed over by another (or a magic thing that just
+   * vanished), it flies from there in a little arc with a trail of sparkles; when the other one has not let go
+   * yet, it waits hidden until they do. Taken out of nowhere, it pops in with a burst.
+   */
+  private arrive(obj: THREE.Object3D, taker: Performer | ToyPerformer) {
+    if (this.seeking || this.reducedMotion || !obj.parent) return;
+    const word = (obj.userData.word as string | undefined) ?? '';
+    const r = this.lastRelease;
+    if (r && r.word === word && this.clock - r.time < 1.2) {
+      this.lastRelease = null;
+      this.fly(obj, r.at);
+    } else if (word && this.stillElsewhere(word, taker)) {
+      obj.visible = false;
+      this.pendingTake = { obj, until: this.clock + 2.5, word };
+      this.invalidate();
+    } else this.popIn(obj);
+  }
+
+  private sizeOf(obj: THREE.Object3D) {
+    return new THREE.Box3().setFromObject(obj).getSize(new THREE.Vector3()).length() * 0.5 || 0.04;
+  }
+
+  private fly(obj: THREE.Object3D, at: THREE.Vector3) {
+    const host = obj.parent;
+    if (!host) return;
+    obj.visible = true;
+    const home = obj.position.clone();
+    const spin = obj.rotation.y;
+    const v = new THREE.Vector3();
+    const size = this.sizeOf(obj);
+    host.updateMatrixWorld(true);
+    const from = host.worldToLocal(at.clone());
+    const lift = 0.1 + from.distanceTo(home) * 0.35;
+    let last = 0;
+    obj.position.copy(from);
+    void this.tweens
+      .add(this.dur(760), 0, 1, (k) => {
+        obj.position.lerpVectors(from, home, k);
+        obj.position.y += Math.sin(Math.PI * k) * lift;
+        obj.rotation.y = spin + k * Math.PI * 2;
+        if (k - last > 0.05) {
+          last = k;
+          this.sparkles.burst(obj.getWorldPosition(v), new THREE.Vector3(size * 0.5, size * 0.5, 0.02), 5, 0.45);
+        }
+      })
+      .then(() => {
+        obj.position.copy(home);
+        obj.rotation.y = spin;
+        this.sparkles.burst(obj.getWorldPosition(v), new THREE.Vector3(size, size, 0.04), 18, 0.9);
+      });
+    this.invalidate();
+  }
+
+  private popIn(obj: THREE.Object3D) {
+    if (!obj.parent) return;
+    obj.visible = true;
+    const size = this.sizeOf(obj);
+    const s0 = obj.scale.clone();
+    obj.scale.setScalar(0.001);
+    void this.tweens.add(this.dur(520), 0.001, 1, (k) => obj.scale.copy(s0).multiplyScalar(Math.max(0.001, k)), ease.back);
+    this.sparkles.burst(obj.getWorldPosition(new THREE.Vector3()), new THREE.Vector3(size, size, 0.04), 22, 1);
+    this.invalidate();
+  }
+
+  private target(self: Performer | ToyPerformer, name: string): THREE.Vector3 | null {
     const head = self.headPosition();
     const side = (s: number) => head.clone().add(new THREE.Vector3(s * 0.45, 0.02, 0.15).applyQuaternion(self.root.quaternion));
     switch (name) {
@@ -921,7 +1045,10 @@ export class BookScene {
     const session = ++this.castSession;
     this.stage = null;
     this.focusWho = null;
-    for (const p of this.performers.values()) p.root.parent?.remove(p.root);
+    for (const p of this.performers.values()) {
+      p.leave();
+      p.root.parent?.remove(p.root);
+    }
     this.performers.clear();
     if (this.screen) this.screen.used = (page.models ?? []).some((m) => m.proc === 'tablet');
     this.castBase.clear();
@@ -936,7 +1063,7 @@ export class BookScene {
     else this.onCastProgress?.(0, 0);
     const list = await Promise.all(
       cast.map((c) =>
-        Performer.load(c.id).then(
+        (this.toyCast ? ToyPerformer.load(c.id) : Performer.load(c.id)).then(
           (p) => {
             this.onCastProgress?.(++loaded, cast.length);
             return p;
@@ -968,6 +1095,10 @@ export class BookScene {
       p.makeProp = (name) => (HELD[name] ? HELD[name]() : null);
       p.surfaceAt = (pt) => this.surfaceAt(pt);
       p.calm = this.reducedMotion;
+      if (p instanceof ToyPerformer) {
+        p.onRelease = (at, obj) => this.released(at, (obj.userData.word as string | undefined) ?? '', obj);
+        p.onTake = (obj) => this.arrive(obj, p);
+      }
       this.performers.set(c.id, p);
       (c.screen ? this.ensureScreen().scene : this.scene).add(p.root);
     });
@@ -976,14 +1107,21 @@ export class BookScene {
       const prop = spec.id ? this.things.get(spec.id) : undefined;
       if (!prop || !spec.id) continue;
       const f = spec.from ?? [0, 0, 0];
-      starts.set(spec.id, { pose: {}, root: { x: f[0], y: f[1], z: f[2], rotY: 0, lie: 0, show: spec.hidden ? 0 : 1, tilt: 0 }, eyes: 1, look: null });
+      starts.set(spec.id, { pose: {}, root: { x: f[0], y: f[1], z: f[2], rotY: 0, lie: 0, show: spec.hidden ? 0 : 1, tilt: 0, glow: 0.45 }, eyes: 1, look: null });
       prop.calm = this.reducedMotion;
-      prop.onBurst = (at, k) => this.sparkles.burst(at, new THREE.Vector3(prop.height * 0.5, prop.height * 0.45, 0.04), Math.round(12 * k), 0.6 * k);
+      prop.onBurst = (at, half, k) => this.sparkles.burst(at, half, Math.max(3, Math.round(30 * k)), 1.1 * Math.max(0.4, k));
+      prop.onRain = (at, width, seconds) => this.rain.start(at, Math.max(0.22, width), seconds, PAGE_TOP + 0.005);
+      prop.onGone = (at) => this.released(at, spec.word ?? '');
       actors.set(spec.id, prop);
     }
+    this.rain.stop();
+    this.lastRelease = null;
+    this.pendingTake = null;
     this.stage = new Stage(actors, starts, page.beats ?? []);
     this.stage.onFocus = (who) => this.focus(who);
+    this.seeking = true;
     this.stage.reset(this.castBase);
+    this.seeking = false;
     // appear with a soft pop, like the paper layers
     for (const p of this.performers.values()) {
       p.root.scale.setScalar(0.001);
@@ -1022,7 +1160,14 @@ export class BookScene {
 
   /** Show the page's play frozen at `t` seconds (testing aid). */
   seekStage(t: number) {
+    this.seeking = true;
+    this.rain.stop();
     this.stage?.seek(t, this.castBase);
+    this.seeking = false;
+    this.rain.update(0.5);
+    this.rain.setScale(this.pxScale());
+    // a still frame is shown in the close shot, already leaning towards what is in focus
+    this.shot('close', 0);
     this.frozen = true;
     this.invalidate();
   }
@@ -1030,7 +1175,10 @@ export class BookScene {
   /** Back to the page's first moment (when the page is shown again or "play again" is pressed). */
   resetStage() {
     if (!this.stage) return;
+    this.rain.stop();
+    this.seeking = true;
     this.stage.reset(this.castBase);
+    this.seeking = false;
     this.focusWho = null;
     if (this.shotKind === 'close') this.shot('close', 900);
     this.invalidate();
@@ -1046,7 +1194,13 @@ export class BookScene {
   async setModels(list: PageModel[]) {
     const session = ++this.modelSession;
     this.things.clear();
-    for (const spec of list) if (spec.id) this.things.set(spec.id, new PropActor());
+    for (const spec of list) {
+      if (!spec.id) continue;
+      const prop = new PropActor(!!spec.magic);
+      // a hidden thing stays out of sight until the page's play starts and a beat brings it in
+      prop.group.visible = !spec.hidden;
+      this.things.set(spec.id, prop);
+    }
     const old = this.models;
     this.models = [];
     await Promise.all(
@@ -1090,7 +1244,7 @@ export class BookScene {
       if (prop) {
         prop.group.clear();
         prop.group.add(fx);
-        prop.height = actor.height;
+        prop.fit(actor.height, fx);
         actor.root.add(prop.group);
       } else actor.root.add(fx);
       actor.root.position.copy(this.pagePoint(spec.x, spec.z));

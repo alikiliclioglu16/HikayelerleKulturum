@@ -92,13 +92,16 @@
           "fx": "breathe"
         },
         {
-          "src": "/models/masal/masal-kapisi.glb",
-          "x": 0.34,
-          "z": 0.3,
-          "h": 0.58,
-          "word": "masal kapısı",
-          "id": "masal",
-          "hidden": true
+          "src": "/models/masal/kazan.glb",
+          "x": 0.12,
+          "z": 0.78,
+          "h": 0.1,
+          "y": 0.36,
+          "word": "kazan",
+          "id": "kazan",
+          "magic": true,
+          "hidden": true,
+          "fx": "bob"
         }
       ],
       "cast": [
@@ -161,25 +164,47 @@
           "who": "dede",
           "do": "talk",
           "look": "elif",
-          "focus": true,
           "len": 2.2
         },
         {
           "cue": [
-            "fıkra"
+            "fıkra",
+            "nasreddin"
           ],
-          "who": "masal",
+          "who": "kazan",
           "do": "appear",
-          "len": 1.4
+          "len": 1.6,
+          "focus": true
         },
         {
           "cue": [
-            "fıkra"
+            "fıkra",
+            "nasreddin"
           ],
           "who": "elif",
           "do": "lookAt",
-          "target": "masal",
+          "target": "kazan",
           "len": 2
+        },
+        {
+          "cue": [
+            "fıkra",
+            "nasreddin"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "kazan",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "dinli",
+            "sedir",
+            "oturdu",
+            "kurul"
+          ],
+          "who": "kazan",
+          "do": "spin"
         },
         {
           "cue": [
@@ -190,7 +215,7 @@
           ],
           "who": "can",
           "do": "cheer",
-          "look": "dede"
+          "look": "kazan"
         },
         {
           "cue": [
@@ -248,14 +273,6 @@
           "word": "çeşme"
         },
         {
-          "src": "/models/masal/masal-kapisi.glb",
-          "x": 0.0,
-          "z": 0.3,
-          "h": 0.58,
-          "word": "masal kapısı",
-          "id": "masal"
-        },
-        {
           "src": "/models/masal/aksehir-kapisi.glb",
           "x": 0.2,
           "z": 0.32,
@@ -274,12 +291,27 @@
         },
         {
           "src": "/models/masal/pilav.glb",
-          "x": -0.02,
-          "z": 0.86,
-          "h": 0.05,
+          "x": -0.26,
+          "z": 0.6,
+          "h": 0.1,
+          "y": 0.64,
           "word": "pilav",
           "id": "pilav",
-          "hidden": true
+          "magic": true,
+          "hidden": true,
+          "fx": "bob"
+        },
+        {
+          "src": "/models/masal/kazan.glb",
+          "x": 0.0,
+          "z": 0.6,
+          "h": 0.11,
+          "y": 0.62,
+          "word": "kazan",
+          "id": "kazan",
+          "magic": true,
+          "hidden": true,
+          "fx": "bob"
         }
       ],
       "cast": [
@@ -291,11 +323,6 @@
         }
       ],
       "beats": [
-        {
-          "cue": [],
-          "who": "masal",
-          "do": "vanish"
-        },
         {
           "cue": [
             "hoca",
@@ -315,30 +342,30 @@
         },
         {
           "cue": [
-            "misafir"
-          ],
-          "who": "hoca",
-          "do": "lookAt",
-          "target": "reader",
-          "len": 1.2
-        },
-        {
-          "cue": [
-            "pilav",
-            "misafir"
+            "misafir",
+            "pilav"
           ],
           "who": "pilav",
           "do": "appear",
-          "len": 1.2
+          "len": 1.6,
+          "focus": true
         },
         {
           "cue": [
-            "pilav",
-            "kazan"
+            "misafir",
+            "pilav"
           ],
           "who": "hoca",
           "do": "lookAt",
           "target": "pilav",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "kazan"
+          ],
+          "who": "kazan",
+          "do": "appear",
           "len": 1.6
         },
         {
@@ -347,7 +374,7 @@
           ],
           "who": "hoca",
           "do": "talk",
-          "look": "reader",
+          "look": "kazan",
           "len": 2.2
         },
         {
@@ -356,8 +383,27 @@
             "yok",
             "küçük"
           ],
+          "who": "kazan",
+          "do": "ring"
+        },
+        {
+          "cue": [
+            "kapı",
+            "yok",
+            "küçük"
+          ],
           "who": "pilav",
-          "do": "vanish"
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "kapı",
+            "yok"
+          ],
+          "who": "kazan",
+          "do": "vanish",
+          "wait": 0.3
         },
         {
           "cue": [
@@ -497,7 +543,8 @@
           "who": "hoca",
           "do": "receive",
           "target": "kazan",
-          "look": "komsu"
+          "look": "komsu",
+          "focus": true
         },
         {
           "cue": [
@@ -508,8 +555,7 @@
           "who": "komsu",
           "do": "talk",
           "look": "hoca",
-          "len": 2.0,
-          "focus": true
+          "len": 2.0
         },
         {
           "cue": [
@@ -576,11 +622,13 @@
         },
         {
           "src": "/models/masal/tencere.glb",
-          "x": 0.04,
-          "z": 0.74,
-          "h": 0.045,
+          "x": -0.04,
+          "z": 0.75,
+          "h": 0.07,
+          "y": 0.1,
           "word": "tencere",
           "id": "tencere",
+          "magic": true,
           "hidden": true
         }
       ],
@@ -631,7 +679,8 @@
           ],
           "who": "tencere",
           "do": "appear",
-          "len": 1.4
+          "len": 1.8,
+          "focus": true
         },
         {
           "cue": [
@@ -669,7 +718,7 @@
           ],
           "who": "komsu",
           "do": "cheer",
-          "look": "hoca"
+          "look": "tencere"
         },
         {
           "cue": [
@@ -736,9 +785,11 @@
           "src": "/models/masal/tencere.glb",
           "x": 0.42,
           "z": 0.62,
-          "h": 0.045,
+          "h": 0.07,
           "word": "tencere",
-          "fx": "wobble"
+          "fx": "wobble",
+          "id": "tencere",
+          "magic": true
         }
       ],
       "cast": [
@@ -793,9 +844,33 @@
         },
         {
           "cue": [
+            "belki",
+            "yavru",
+            "doğurur",
+            "tencere"
+          ],
+          "who": "tencere",
+          "do": "shine",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "belki",
+            "içinden"
+          ],
+          "who": "komsu",
+          "do": "talk",
+          "look": "tencere",
+          "len": 2.2,
+          "optional": true
+        },
+        {
+          "cue": [
             "verdi",
             "getirmiş",
-            "vermiş"
+            "vermiş",
+            "getirir"
           ],
           "who": "komsu",
           "do": "give",
@@ -805,22 +880,22 @@
           "cue": [
             "verdi",
             "getirmiş",
-            "vermiş"
+            "vermiş",
+            "getirir"
           ],
           "who": "hoca",
           "do": "receive",
           "target": "kazan",
-          "look": "komsu"
+          "look": "komsu",
+          "focus": true
         },
         {
           "cue": [
-            "belki",
-            "içinden"
+            "yavru",
+            "tencere"
           ],
-          "who": "komsu",
-          "do": "talk",
-          "look": "reader",
-          "len": 2.2,
+          "who": "tencere",
+          "do": "ring",
           "optional": true
         },
         {
@@ -893,6 +968,17 @@
           "h": 0.5,
           "word": "kapı",
           "id": "kapi"
+        },
+        {
+          "src": "/models/masal/kazan.glb",
+          "x": 0.06,
+          "z": 0.6,
+          "h": 0.1,
+          "y": 0.22,
+          "word": "kazan",
+          "id": "kazan",
+          "magic": true,
+          "hidden": true
         }
       ],
       "cast": [
@@ -950,27 +1036,56 @@
         },
         {
           "cue": [
+            "öldü"
+          ],
+          "who": "kazan",
+          "do": "appear",
+          "len": 1.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "öldü"
+          ],
+          "who": "kazan",
+          "do": "rise",
+          "to": [
+            0,
+            0.32,
+            0
+          ],
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "öldü"
+          ],
+          "who": "kazan",
+          "do": "vanish",
+          "wait": 0.1
+        },
+        {
+          "cue": [
             "öldü",
             "sağ"
           ],
           "who": "hoca",
           "do": "talk",
           "look": "komsu",
-          "focus": true,
           "len": 2.2
         },
         {
           "cue": [
             "ölür",
             "bağır",
-            "öfke"
+            "öfke",
+            "dedi"
           ],
           "who": "komsu",
-          "do": "point",
+          "do": "angry",
           "target": "hoca",
           "focus": true,
-          "len": 2.0,
-          "optional": true
+          "len": 1.6
         }
       ]
     },
@@ -1067,6 +1182,30 @@
           "word": "eşek",
           "rotY": 50,
           "fx": "breathe"
+        },
+        {
+          "src": "/models/masal/kazan.glb",
+          "x": -0.07,
+          "z": 0.42,
+          "h": 0.11,
+          "y": 0.34,
+          "word": "kazan",
+          "id": "kazan",
+          "magic": true,
+          "hidden": true,
+          "fx": "bob"
+        },
+        {
+          "src": "/models/masal/tencere.glb",
+          "x": 0.08,
+          "z": 0.42,
+          "h": 0.07,
+          "y": 0.36,
+          "word": "tencere",
+          "id": "tencere",
+          "magic": true,
+          "hidden": true,
+          "fx": "bob"
         }
       ],
       "cast": [
@@ -1111,6 +1250,25 @@
             "inandın",
             "komşu"
           ],
+          "who": "kazan",
+          "do": "appear",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "inandın",
+            "komşu"
+          ],
+          "who": "tencere",
+          "do": "appear",
+          "len": 1.4,
+          "wait": 0.35
+        },
+        {
+          "cue": [
+            "inandın",
+            "komşu"
+          ],
           "who": "komsu",
           "do": "lookAt",
           "target": "hoca",
@@ -1146,6 +1304,25 @@
           "who": "pazarci",
           "do": "cheer",
           "look": "hoca"
+        },
+        {
+          "cue": [
+            "gülmüş",
+            "güldü",
+            "gülmeye"
+          ],
+          "who": "kazan",
+          "do": "spin"
+        },
+        {
+          "cue": [
+            "gülmüş",
+            "güldü",
+            "gülmeye"
+          ],
+          "who": "tencere",
+          "do": "spin",
+          "wait": 0.2
         },
         {
           "cue": [
@@ -1254,6 +1431,17 @@
           "w": 0.12,
           "word": "kitap",
           "rotY": 20
+        },
+        {
+          "src": "/models/masal/kazan.glb",
+          "x": 0.12,
+          "z": 0.78,
+          "h": 0.1,
+          "y": 0.36,
+          "word": "kazan",
+          "id": "kazan",
+          "magic": true,
+          "fx": "bob"
         }
       ],
       "cast": [
@@ -1278,6 +1466,12 @@
       ],
       "beats": [
         {
+          "cue": [],
+          "who": "kazan",
+          "do": "shine",
+          "len": 1
+        },
+        {
           "cue": [
             "fıkra",
             "elif"
@@ -1287,6 +1481,15 @@
           "look": "dede",
           "focus": true,
           "len": 2.4
+        },
+        {
+          "cue": [
+            "fıkra",
+            "elif"
+          ],
+          "who": "kazan",
+          "do": "vanish",
+          "wait": 1.2
         },
         {
           "cue": [
@@ -1575,10 +1778,6 @@
       "en": "rice pilaf",
       "icon": "🍚"
     },
-    "masal kapısı": {
-      "en": "story gate",
-      "icon": "✨"
-    },
     "Komşu": {
       "en": "the neighbour"
     },
@@ -1796,5 +1995,6 @@
       "h": 0.22,
       "rotY": 10
     }
-  ]
+  ],
+  "toyCast": true
 }

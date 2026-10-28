@@ -102,9 +102,11 @@ Aynı karakterin hareketleri sırayla oynar; yalnızca bakma hareketleri (`lookA
 - **Parmaklar tek parça.** Eller açılıp kapanmaz; tutma ve el öpme kol ve bilekle gösterilir.
 - **Karagöz** bu kitapta kullanılmadı.
 
-## 7. Masal karakterleri (2. ve 3. kitap)
+## 7. Masal karakterleri (2. ve 3. kitap): oyuncak gibi oynayanlar
 
-Ekim 2026'da gelen dokuz masal karakteri aynı yolla (19 kemikli iskelet, otomatik ağırlık, 1024 px WebP doku) hazırlandı ve `public/models/masal/` klasörüne kondu. Eşek, kapılar, kazan, tencere, pilav, tohum, bulut, elma, sebzeler, kuyu, kerpiç ev, saman ve hasat arabası iskeletsiz nesnelerdir; bazıları hikâyeye "masalsı nesne" olarak katılır (`id` + beat).
+Ekim 2026'da gelen dokuz masal karakteri **iskeletsiz** kullanılır: modelin kendisi hiç bükülmez, bir çocuğun elindeki oyuncak figür gibi bütün hâlinde zıplar, döner, öne eğilir, yana sallanır, basılıp esner (squash & stretch). Otomatik iskeletle kollar ve kıyafetler eğri büküldüğü için bu yol seçildi; sonuç daha temiz ve "pop-up kitap" hissine daha uygun. Dosyalar `public/models/masal/` klasöründe, gelen hâliyle (yalnızca doku küçültüldü).
+
+Bir kitabı bu kipe almak için `book.json` içine `"toyCast": true` yazılır. O kitapta aile karakterleri de (Dede, Anne, Elif, Can) aynı şekilde oynar: kemikli modelleri bir kez rahat duruşa (kollar aşağıda) getirilir, sonra yalnızca bütün olarak hareket eder. 1. kitap (Bayram Sabahı) eskisi gibi kemikli oynar.
 
 | Kitap | Karakter | id | Boy (sayfa birimi) |
 |---|---|---|---|
@@ -118,4 +120,28 @@ Ekim 2026'da gelen dokuz masal karakteri aynı yolla (19 kemikli iskelet, otomat
 | | Köylü çocuk | `koylu-cocuk` | 0,34 |
 | | Köylü kadın | `koylu-kadin` | 0,47 |
 
-Bazı modellerde kollar gövdeye daha yakın çizildiği için `armDown` ile rahat duruşta kolların açısı küçültüldü (eller kıyafete girmesin). Elde tutulan yeni eşyalar: `kazan`, `tencere`, `tohum`, `kova`, `sebze` (three/props.ts → HELD). Yeni hareket: `knock` (kapıyı çalmak).
+**Oyuncak hareketleri** (`src/three/toy.ts` → TOY_ACTS; beat'lerde `do` ile yazılır):
+
+| do | Ne yapar |
+|---|---|
+| `hop` | Yerinde küçük, sevinçli bir zıplama |
+| `walkTo` | `to` noktasına küçük zıplamalarla gider, sonra `face` yönüne döner |
+| `talk` | Dinleyene eğilir, konuşur gibi hafifçe sallanır |
+| `nod` / `bow` | Başını sallar / öne eğilir (üzgün, teşekkür, saygı) |
+| `cheer` | İki büyük zıplama, ikincisinde tam tur |
+| `wave` | Sağa sola sallanıp zıplayarak selam verir |
+| `point` / `angry` | Bir şeye doğru eğilir / öfkeyle tepinir |
+| `knock` | Kapıya doğru iki kez eğilir |
+| `turn` / `spin` | Zıplayarak döner / tam tur atar |
+| `give` / `receive` | Elindekini verir / alır: eşya bir yay çizerek, yıldız izi bırakarak öbürüne uçar |
+| `offer` / `put` / `hug` / `rest` | Uzatır / yere bırakır / sarılır / dik durur |
+
+Elde tutulan eşyalar (`kazan`, `tencere`, `tohum`, `kova`, `sebze`; three/props.ts → HELD) büyükse göğsün önünde, küçükse sağ elin yanında süzülür. Kimse vermeden alınan bir eşya ışıltıyla belirir.
+
+Beat'e `wait` (saniye) eklenirse hareket ipucu kelimesinden o kadar sonra başlar; filizlerin sırayla çıkması böyle yapılır.
+
+### Masalsı nesneler
+
+Sayfa modellerinden `id` verilenler hikâyeye katılır; `"magic": true` olanların arkasında altın bir hale parlar, ara ara pırıldar, hareket ederken yıldız izi bırakır. Kullanılan hareketler (`src/three/acts.ts` → THING_ACTS): `appear` (büyüyerek, parlayarak belirir), `vanish`, `rise` (`to` noktasına süzülür; `from` ile gökten iner), `sink` (toprağa gömülür), `ring` (titrer), `shine` (parlar), `grow` (topraktan büyüyerek çıkar), `rain` (bulut `len` saniye yağmur yağdırır), `spin`. `focus: true` kamerayı o nesneye yaklaştırır.
+
+2. kitapta: hikâye başlarken çay masasının üstünde beliren küçük kazan, Hoca'nın aklındaki pilav ve kazan, kazandan "doğan" tencere, "ölünce" göğe süzülen kazan, pazarda dönen kazan ile yavrusu. 3. kitapta: Anne masala başlarken topraktan yükselen ışıklı tohum, saman, toprağa gömülen tohumlar, sırayla çıkan filizler, Hasan Amca'nın tarlasında paylaşınca çıkan filizler, yağmur yağdıran bulut ve ardından büyüyen sebzeler, gökten düşen üç elma.

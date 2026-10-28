@@ -25,6 +25,8 @@ export interface Beat {
   focus?: boolean;
   /** Seconds the act lasts (for talk and hold). */
   len?: number;
+  /** Seconds to wait after the cue before starting (e.g. sprouts coming up one after another). */
+  wait?: number;
 }
 
 export interface ActResult {
@@ -386,39 +388,81 @@ const ACTS: Record<string, Act> = {
 
 /* ---------------- acts for magic things (PropActor) ---------------- */
 
-const THING_ACTS: Record<string, Act> = {
-  /** Pops into view with a little overshoot and a burst of sparkles. */
-  appear: (_s, b, t) => ({
-    keys: [key(t, 0.4, { root: { show: 1.15 }, burst: b.len ?? 1 }), key(t + 0.4, 0.3, { root: { show: 1 } })],
-    dur: 0.7,
-  }),
-  /** Fades away (shrinks out of sight). */
-  vanish: (_s, _b, t) => ({ keys: [key(t, 0.6, { root: { show: 0 } })], dur: 0.6 }),
-  /** Rises slowly into its place (`to`, default where it stands) and shows itself: the sun coming up. */
+export const THING_ACTS: Record<string, Act> = {
+  /** Pops into view: swells past its size, glows brightly, sparkles, settles and keeps a soft glow. */
+  appear: (_s, b, t) => {
+    const k = b.len ?? 1;
+    return {
+      keys: [
+        key(t, 0.45, { root: { show: 1.3, glow: 1.4 }, burst: k }),
+        key(t + 0.45, 0.35, { root: { show: 0.92 } }),
+        key(t + 0.8, 0.3, { root: { show: 1 } }),
+        key(t + 1.1, 1.2, { root: { glow: 0.45 } }),
+      ],
+      dur: 1.1,
+    };
+  },
+  /** Fades away (shrinks out of sight) with a last sparkle. */
+  vanish: (_s, _b, t) => ({ keys: [key(t, 0.25, { root: { show: 1.12, glow: 1.2 }, burst: 0.6 }), key(t + 0.25, 0.5, { root: { show: 0, glow: 0 } })], dur: 0.75 }),
+  /** Rises (or comes down) into its place (`to`, default where it stands), glowing, with a sparkle trail. */
   rise: (_s, b, t) => {
     const to = b.to ?? [0, 0, 0];
-    return { keys: [key(t, 1.8, { root: { x: to[0], y: to[1], z: to[2], show: 1 }, burst: 0.8 })], dur: 1.8 };
+    return {
+      keys: [
+        key(t, 0.3, { root: { show: 1, glow: 1.3 }, burst: 0.6 }),
+        key(t, 1.8, { root: { x: to[0], y: to[1], z: to[2] } }),
+        key(t + 1.8, 0.3, { root: { show: 1.15 }, burst: 0.9 }),
+        key(t + 2.1, 0.3, { root: { show: 1 } }),
+        key(t + 2.4, 1, { root: { glow: 0.45 } }),
+      ],
+      dur: 2.4,
+    };
   },
-  /** Sinks down by `to` (default a little) and disappears: the moon going to bed. */
+  /** Sinks down by `to` (default a little), glowing, and disappears: the moon going to bed, seeds into the soil. */
   sink: (s, b, t) => {
     const to = b.to ?? [s.root.x, s.root.y - 0.07, s.root.z];
-    return { keys: [key(t, 1.5, { root: { x: to[0], y: to[1], z: to[2], show: 0 } })], dur: 1.5 };
+    return {
+      keys: [key(t, 0.4, { root: { glow: 1.3 }, burst: 0.6 }), key(t + 0.2, 1.4, { root: { x: to[0], y: to[1], z: to[2], show: 0 } }), key(t + 1.6, 0.2, { root: { glow: 0 } })],
+      dur: 1.6,
+    };
   },
   /** Rings like an alarm clock: shakes from side to side with tiny hops. */
   ring: (s, b, t) => {
     const n = 12;
-    const keys: Key[] = [key(t, 0.08, { root: { tilt: 10 }, burst: 0.5 })];
+    const keys: Key[] = [key(t, 0.08, { root: { tilt: 10, glow: 1 }, burst: 0.7 })];
     for (let i = 1; i < n; i++) keys.push(key(t + i * 0.09, 0.09, { root: { tilt: i % 2 ? -10 : 10, y: s.root.y + (i % 2 ? 0.012 : 0) }, minor: true }));
-    keys.push(key(t + n * 0.09, 0.25, { root: { tilt: 0, y: s.root.y } }));
+    keys.push(key(t + n * 0.09, 0.25, { root: { tilt: 0, y: s.root.y } }), key(t + n * 0.09 + 0.2, 0.8, { root: { glow: s.root.glow ?? 0.45 } }));
     return { keys, dur: (b.len ?? 0) + n * 0.09 + 0.25 };
   },
-  /** Shines: swells a little, sparkles, and settles. */
-  shine: (_s, b, t) => ({
-    keys: [key(t, 0.35, { root: { show: 1.12 }, burst: b.len ?? 1 }), key(t + 0.45, 0.5, { root: { show: 1 } })],
-    dur: 1,
+  /** Shines: swells, flares up, sparkles, and settles. */
+  shine: (s, b, t) => ({
+    keys: [
+      key(t, 0.35, { root: { show: 1.2, glow: 1.6 }, burst: b.len ?? 1 }),
+      key(t + 0.45, 0.5, { root: { show: 1 } }),
+      key(t + 0.9, 1, { root: { glow: s.root.glow ?? 0.45 } }),
+    ],
+    dur: 1.2,
   }),
+  /** Grows up out of the ground (a sprout, a vegetable): from a speck to a little more than its size and back. */
+  grow: (_s, b, t) => ({
+    keys: [
+      key(t, 0.2, { root: { show: 0.12, glow: 1.2 }, burst: b.len ?? 0.8 }),
+      key(t + 0.2, 1.1, { root: { show: 1.18 } }),
+      key(t + 1.3, 0.35, { root: { show: 1 }, burst: 0.5 }),
+      key(t + 1.6, 1, { root: { glow: 0.4 } }),
+    ],
+    dur: 1.6,
+  }),
+  /** Rain from a cloud for `len` seconds (default 4): the cloud darkens a little, shakes and lets it pour. */
+  rain: (s, b, t) => {
+    const len = b.len ?? 4;
+    const keys: Key[] = [key(t, 0.3, { root: { glow: 1.2, show: 1.08 }, rain: len, burst: 0.6 })];
+    for (let i = 0; i < 6; i++) keys.push(key(t + 0.3 + i * 0.12, 0.12, { root: { tilt: i % 2 ? -4 : 4 }, minor: true }));
+    keys.push(key(t + 1.1, 0.4, { root: { tilt: 0, show: 1 } }), key(t + len, 1, { root: { glow: s.root.glow ?? 0.45 } }));
+    return { keys, dur: len };
+  },
   /** Turns once round. */
-  spin: (s, _b, t) => ({ keys: [key(t, 1.2, { root: { rotY: s.root.rotY + 360 }, burst: 0.6 })], dur: 1.2 }),
+  spin: (s, _b, t) => ({ keys: [key(t, 1.2, { root: { rotY: s.root.rotY + 360, glow: 1 }, burst: 0.6 }), key(t + 1.2, 0.8, { root: { glow: s.root.glow ?? 0.45 } })], dur: 1.2 }),
 };
 
 export function runAct(s: State, b: Beat, t: number): ActResult {

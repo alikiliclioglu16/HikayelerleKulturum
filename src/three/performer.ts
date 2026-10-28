@@ -18,11 +18,6 @@ export interface CharacterDef {
   /** Eyes for eyelids, in fractions of the model height: x, y (from the feet), z, radius. */
   eyes?: [number, number, number, number][];
   skin?: string;
-  /**
-   * How far the arms hang down in the relaxed pose (degrees from the model's A-pose, default 30). Models made
-   * with the arms already close to the body use less, so the hands do not sink into the clothes.
-   */
-  armDown?: number;
 }
 
 export const CHARACTERS: Record<string, CharacterDef> = {
@@ -37,17 +32,18 @@ export const CHARACTERS: Record<string, CharacterDef> = {
   babaanne: { src: '/models/aile/babaanne.glb', height: 0.49, name: 'Babaanne' },
   dede: { src: '/models/aile/dede.glb', height: 0.525, name: 'Dede' },
   ayse: { src: '/models/aile/ayse.glb', height: 0.49, name: 'Ayşe Teyze' },
+  // Tale characters: still models without bones, played like toys (three/toy.ts, book.json → toyCast)
   // Nasreddin Hoca ve Kazan
-  hoca: { src: '/models/masal/hoca.glb', height: 0.53, name: 'Nasreddin Hoca', armDown: 22 },
+  hoca: { src: '/models/masal/hoca.glb', height: 0.53, name: 'Nasreddin Hoca' },
   komsu: { src: '/models/masal/komsu.glb', height: 0.52, name: 'Komşu' },
   'aksehirli-teyze': { src: '/models/masal/aksehirli-teyze.glb', height: 0.47, name: 'Akşehirli Teyze' },
-  pazarci: { src: '/models/masal/pazarci.glb', height: 0.53, name: 'Pazarcı Amca', armDown: 14 },
+  pazarci: { src: '/models/masal/pazarci.glb', height: 0.53, name: 'Pazarcı Amca' },
   // Keloğlan ve Üç Tohum
-  keloglan: { src: '/models/masal/keloglan.glb', height: 0.45, name: 'Keloğlan', armDown: 20 },
+  keloglan: { src: '/models/masal/keloglan.glb', height: 0.45, name: 'Keloğlan' },
   'keloglan-anasi': { src: '/models/masal/keloglan-anasi.glb', height: 0.47, name: 'Keloğlan’ın anası' },
-  'hasan-amca': { src: '/models/masal/hasan-amca.glb', height: 0.49, name: 'Hasan Amca', armDown: 14 },
+  'hasan-amca': { src: '/models/masal/hasan-amca.glb', height: 0.49, name: 'Hasan Amca' },
   'koylu-cocuk': { src: '/models/masal/koylu-cocuk.glb', height: 0.34, name: 'Köylü çocuk' },
-  'koylu-kadin': { src: '/models/masal/koylu-kadin.glb', height: 0.47, name: 'Köylü kadın', armDown: 18 },
+  'koylu-kadin': { src: '/models/masal/koylu-kadin.glb', height: 0.47, name: 'Köylü kadın' },
 };
 
 export type Euler3 = [number, number, number];
@@ -63,6 +59,12 @@ export interface RootState {
   /** Things only (see PropActor): how much it is there (0 gone … 1 shown) and a tilt to the side (degrees). */
   show?: number;
   tilt?: number;
+  /** Things and toy characters: lean forward (degrees), squash (1 normal, <1 squashed, >1 stretched), magic glow. */
+  lean?: number;
+  sq?: number;
+  glow?: number;
+  /** Toy characters: an extra turn (degrees) for a spin, snapped back to 0 afterwards. */
+  spin?: number;
 }
 
 export interface State {
@@ -89,6 +91,8 @@ export interface Key {
   minor?: boolean;
   /** A burst of sparkles when this key starts (strength), for magic things. */
   burst?: number;
+  /** Rain falling from this thing for so many seconds when the key starts (a cloud). */
+  rain?: number;
 }
 
 const D2R = Math.PI / 180;
@@ -244,16 +248,17 @@ export class Performer {
     this.keys.sort((a, b) => a.t - b.t);
   }
 
+  /** Leaving the page: things it put down go too. */
+  leave() {
+    for (const o of this.dropped) o.parent?.remove(o);
+    this.dropped = [];
+  }
+
   /** The state the character will have once every scheduled key has finished. */
   endState(): State {
     const s = cloneState(this.start);
     for (const k of this.keys) mergeKey(s, k);
     return s;
-  }
-
-  /** Correction of the arm angle for this model (see CharacterDef.armDown). */
-  private get armFix() {
-    return 30 - (this.def.armDown ?? 30);
   }
 
   /** Calm mode (reduce motion): small in-between movements are left out and changes are short fades. */
@@ -277,8 +282,7 @@ export class Performer {
     // bones
     for (const [k, b] of Object.entries(this.bones)) {
       const R = this.rest[k];
-      let e = s.pose[k];
-      if (e && this.armFix && (k === 'upper_arm_L' || k === 'upper_arm_R')) e = [e[0], e[1], e[2] + (k === 'upper_arm_L' ? this.armFix : -this.armFix)];
+      const e = s.pose[k];
       if (!e) {
         b.quaternion.copy(R.ql);
         continue;

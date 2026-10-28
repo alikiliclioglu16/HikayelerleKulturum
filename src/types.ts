@@ -71,6 +71,8 @@ export interface PageModel {
   id?: string;
   /** With `id`: not there until a beat makes it appear or rise. */
   hidden?: boolean;
+  /** With `id`: a magic thing (a story wonder): a golden glow behind it, twinkles, a sparkle trail when it moves. */
+  magic?: boolean;
   /** With `id`: starts this far from its place ([x, y, z] in page widths) until a beat moves it (e.g. the sun rising). */
   from?: [number, number, number];
   /** A table: things put down above it land on its top, this far up its height (0..1). */
@@ -171,6 +173,8 @@ export interface Book {
   table?: TableModel[];
   /** Book cover colour in the reader. */
   coverColor?: string;
+  /** The characters move as whole toys (hop, turn, lean, squash) instead of bending (see three/toy.ts). */
+  toyCast?: boolean;
 }
 
 export interface BookListing {

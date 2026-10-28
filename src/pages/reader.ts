@@ -72,6 +72,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   const scene = new BookScene(sceneHost);
   // testing aid in development only: window.__sahne.seekStage(3.5) shows a moment of the page's play
   if (import.meta.env.DEV) (window as unknown as { __sahne: BookScene }).__sahne = scene;
+  scene.toyCast = !!book.toyCast;
   scene.setCalm(store.settings.calm);
   scene.onCastProgress = (n, total) => {
     castWait.hidden = total === 0 || n >= total;

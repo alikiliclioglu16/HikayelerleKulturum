@@ -142,9 +142,9 @@ function tray(w: number, color = '#C9CED6') {
 export const HELD: Record<string, () => THREE.Object3D> = {
   // Nasreddin Hoca ve Kazan
   kazan: () => glbHeld('/models/masal/kazan.glb', 0.085, { word: 'kazan', atHeight: 0.4, ahead: 0.22 }),
-  tencere: () => glbHeld('/models/masal/tencere.glb', 0.045, { word: 'tencere', atHeight: 0.45, ahead: 0.2 }),
+  tencere: () => glbHeld('/models/masal/tencere.glb', 0.06, { word: 'tencere', atHeight: 0.45, ahead: 0.2 }),
   // Keloğlan ve Üç Tohum
-  tohum: () => glbHeld('/models/masal/tohum.glb', 0.022, { word: 'tohum', hand: 'R' }),
+  tohum: () => glbHeld('/models/masal/tohum.glb', 0.034, { word: 'tohum', hand: 'R' }),
   kova: () => glbHeld('/models/kenney/bucket.glb', 0.06, { word: 'kova', hand: 'R' }, true),
   sebze: () => glbHeld('/models/masal/lahana.glb', 0.06, { word: 'lahana', atHeight: 0.45, ahead: 0.2 }),
   baklavaTepsisi: () => {
