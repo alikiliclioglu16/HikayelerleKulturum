@@ -75,6 +75,7 @@ function audio(force = false): AudioContext | null {
       musicBus.connect(musicVerb).connect(reverbIn);
     }
     if (ctx.state === 'suspended') void ctx.resume();
+    loadClips(ctx);
     return ctx;
   } catch {
     return null;
@@ -86,9 +87,40 @@ const out = () => target ?? fxBus!;
 
 /** Per-sound loudness, measured so every object sounds equally clear. */
 const LEVEL: Record<string, number> = {
-  caydanlik: 1.6, simit: 2.1, 'peri-bacasi': 3.4, balon: 2.5, kahve: 1.9, lokum: 1.5,
-  'kiz-kulesi': 2.2, bayrak: 3.0, ebru: 1.6, karagoz: 1.5, galata: 0.65, baglama: 0.9, davul: 0.85,
+  caydanlik: 1.6, simit: 2.1, 'peri-bacasi': 3.4, balon: 2.5, kahve: 1.9, lokum: 1.5, ebru: 1.6,
 };
+
+/**
+ * Shelf sounds played by real instruments (FluidR3 GM samples, see public/sesler/raf): the bağlama, bells,
+ * chimes, the harp, the davul, the trumpet. Loaded once the sound is on; things like a simit's crunch or the
+ * çaydanlık's steam have no instrument, so they are still made here.
+ */
+const CLIP_IDS = ['baglama', 'cay', 'baklava', 'nazar', 'lale', 'galata', 'kiz-kulesi', 'davul', 'karagoz', 'dondurma', 'cini', 'mangala', 'bayrak'];
+const clips = new Map<string, AudioBuffer>();
+let clipsAsked = false;
+function loadClips(a: AudioContext) {
+  if (clipsAsked) return;
+  clipsAsked = true;
+  for (const id of CLIP_IDS) {
+    fetch(`/sesler/raf/${id}.mp3`)
+      .then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(new Error(String(r.status)))))
+      .then((d) => new Promise<AudioBuffer>((res, rej) => a.decodeAudioData(d, res, rej)))
+      .then((b) => clips.set(id, b))
+      .catch(() => undefined);
+  }
+}
+/** Play a shelf clip; false while it is still loading. */
+function clip(a: AudioContext, t: number, id: string, vol = 0.55) {
+  const b = clips.get(id);
+  if (!b) return false;
+  const src = a.createBufferSource();
+  src.buffer = b;
+  const g = a.createGain();
+  g.gain.value = vol;
+  src.connect(g).connect(out());
+  src.start(t);
+  return true;
+}
 
 /* ------------------------------------------------------------------ */
 /* building blocks                                                     */
@@ -199,8 +231,7 @@ type Recipe = (a: AudioContext, t: number) => void;
 const ITEM_SOUNDS: Record<string, Recipe> = {
   // a spoon clinking a tea glass, twice, with a glassy ring
   cay: (a, t) => {
-    bell(a, 2960, t, 0.7, 0.28, [1, 1.47, 2.09, 2.9]);
-    bell(a, 3140, t + 0.16, 0.8, 0.22, [1, 1.47, 2.09, 2.9]);
+    if (!clip(a, t, 'cay')) bell(a, 2960, t, 0.7, 0.28, [1, 1.47, 2.09, 2.9]);
   },
   // the çaydanlık starting to whistle, with steam
   caydanlik: (a, t) => {
@@ -217,8 +248,7 @@ const ITEM_SOUNDS: Record<string, Recipe> = {
   },
   // a little Hicaz phrase on the bağlama: D Eb F# G
   baglama: (a, t) => {
-    [N(-7), N(-6), N(-3), N(-2)].forEach((f, i) => pluck(a, f, t + i * 0.12, 0.55));
-    pluck(a, N(-14), t, 0.35, 1.8);
+    if (!clip(a, t, 'baglama', 0.65)) [N(-7), N(-6), N(-3), N(-2)].forEach((f, i) => pluck(a, f, t + i * 0.12, 0.55));
   },
   // wind whistling around the fairy chimneys
   'peri-bacasi': (a, t) => {
@@ -235,15 +265,15 @@ const ITEM_SOUNDS: Record<string, Recipe> = {
   // crispy layers of baklava, then a sweet ding
   baklava: (a, t) => {
     for (let i = 0; i < 5; i++) hiss(a, 'highpass', 3200, 2400, t + i * 0.045, 0.045, 0.4, 0.8, 0.001);
-    bell(a, N(15), t + 0.28, 0.9, 0.16, [1, 2, 3.01]);
+    clip(a, t, 'baklava', 0.4);
   },
   // a cascade of glass chimes for the nazar boncuğu
   nazar: (a, t) => {
-    [N(19), N(22), N(26), N(31)].forEach((f, i) => bell(a, f, t + i * 0.08, 1.2, 0.17, [1, 2.4, 4.2]));
+    if (!clip(a, t, 'nazar')) [N(19), N(22), N(26), N(31)].forEach((f, i) => bell(a, f, t + i * 0.08, 1.2, 0.17, [1, 2.4, 4.2]));
   },
   // a harp glissando, like a tulip opening
   lale: (a, t) => {
-    [0, 2, 4, 7, 9, 12, 16].forEach((s, i) => pluck(a, N(s), t + i * 0.055, 0.4, 1.4));
+    if (!clip(a, t, 'lale')) [0, 2, 4, 7, 9, 12, 16].forEach((s, i) => pluck(a, N(s), t + i * 0.055, 0.4, 1.4));
   },
   // a coffee cup set on its saucer, then bubbling coffee
   kahve: (a, t) => {
@@ -257,24 +287,22 @@ const ITEM_SOUNDS: Record<string, Recipe> = {
   },
   // the deep bell of an old tower
   galata: (a, t) => {
-    bell(a, 196, t, 3.2, 0.5, [1, 2.0, 2.4, 3.0, 4.2, 5.4]);
-    bell(a, 392, t, 1.8, 0.12, [1, 2.76]);
+    if (!clip(a, t, 'galata', 0.7)) bell(a, 196, t, 3.2, 0.3, [1, 2.0, 2.4, 3.0, 4.2, 5.4]);
   },
   // a wave on the Bosphorus and two seagulls
   'kiz-kulesi': (a, t) => {
-    hiss(a, 'lowpass', 400, 1600, t, 0.5, 0.35, 0.7, 0.25);
-    hiss(a, 'lowpass', 1600, 300, t + 0.45, 0.7, 0.28, 0.7, 0.05);
-    for (const d of [0.15, 0.48]) {
+    if (!clip(a, t, 'kiz-kulesi', 0.6)) hiss(a, 'lowpass', 400, 1600, t, 0.5, 0.35, 0.7, 0.25);
+    for (const d of [0.25, 0.6]) {
       warble(a, 1700, 1150, t + d, 0.22, 0.12, 20, 80, 'triangle');
       warble(a, 1600, 1050, t + d + 0.18, 0.2, 0.09, 20, 80, 'triangle');
     }
   },
   // a davul beat: dum ... tek tek
   davul: (a, t) => {
-    drum(a, t, 70, 0.9, 0.35);
-    hiss(a, 'bandpass', 3000, 1800, t + 0.28, 0.06, 0.5, 1.2, 0.001);
-    hiss(a, 'bandpass', 3000, 1800, t + 0.42, 0.06, 0.45, 1.2, 0.001);
-    drum(a, t + 0.56, 70, 0.75, 0.3);
+    if (!clip(a, t, 'davul', 0.7)) {
+      drum(a, t, 70, 0.9, 0.35);
+      drum(a, t + 0.56, 70, 0.75, 0.3);
+    }
   },
   // paint drops falling onto the water tray
   ebru: (a, t) => {
@@ -285,28 +313,25 @@ const ITEM_SOUNDS: Record<string, Recipe> = {
   },
   // the shadow-play puppets: wooden clack-clack and a slide whistle
   karagoz: (a, t) => {
-    bell(a, 820, t, 0.12, 0.45, [1, 2.3, 3.7]);
-    bell(a, 980, t + 0.12, 0.12, 0.4, [1, 2.3, 3.7]);
-    tone(a, 'sine', 600, 1500, t + 0.3, 0.35, 0.16, 0.02);
+    if (!clip(a, t, 'karagoz')) bell(a, 820, t, 0.12, 0.45, [1, 2.3, 3.7]);
+    tone(a, 'sine', 600, 1500, t + 0.3, 0.35, 0.1, 0.02);
   },
   // the Maraş ice cream seller's jingling bell
   dondurma: (a, t) => {
-    for (let i = 0; i < 7; i++) bell(a, i % 2 ? 2350 : 2100, t + i * 0.06, 0.45, 0.16, [1, 2.7, 4.6]);
+    if (!clip(a, t, 'dondurma')) for (let i = 0; i < 7; i++) bell(a, i % 2 ? 2350 : 2100, t + i * 0.06, 0.45, 0.16, [1, 2.7, 4.6]);
   },
   // a bright porcelain ting with a long ring
   cini: (a, t) => {
-    bell(a, 2480, t, 1.6, 0.26, [1, 2.32, 4.25, 6.1]);
-    bell(a, 1240, t, 1.0, 0.08, [1, 2.0]);
+    if (!clip(a, t, 'cini')) bell(a, 2480, t, 1.6, 0.26, [1, 2.32, 4.25, 6.1]);
   },
   // stones dropping into the mangala pits
   mangala: (a, t) => {
-    for (let i = 0; i < 5; i++) bell(a, 1100 + Math.random() * 600, t + i * 0.075 + Math.random() * 0.02, 0.12, 0.35, [1, 2.2]);
-    tone(a, 'sine', 180, 120, t + 0.4, 0.15, 0.2, 0.002);
+    if (!clip(a, t, 'mangala')) for (let i = 0; i < 5; i++) bell(a, 1100 + Math.random() * 600, t + i * 0.075, 0.12, 0.35, [1, 2.2]);
   },
   // the flag flapping in the wind and a short proud fanfare
   bayrak: (a, t) => {
-    for (let i = 0; i < 4; i++) hiss(a, 'bandpass', 900, 500, t + i * 0.08, 0.08, 0.35, 1.4, 0.002);
-    [0, 4, 7, 12].forEach((s, i) => tone(a, 'square', N(s - 5), N(s - 5), t + 0.3 + i * 0.1, i === 3 ? 0.5 : 0.12, 0.05, 0.01));
+    for (let i = 0; i < 4; i++) hiss(a, 'bandpass', 900, 500, t + i * 0.08, 0.08, 0.2, 1.4, 0.002);
+    if (!clip(a, t, 'bayrak', 0.5)) [0, 4, 7, 12].forEach((s, i) => tone(a, 'square', N(s - 5), N(s - 5), t + 0.3 + i * 0.1, i === 3 ? 0.5 : 0.12, 0.05, 0.01));
   },
 };
 

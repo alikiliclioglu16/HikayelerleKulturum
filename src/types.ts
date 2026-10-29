@@ -169,8 +169,6 @@ export interface Book {
    * overlaps the next round, so it loops without a seam.
    */
   music?: { src: string; loop: number };
-  /** The book's learning outcome in the Türkiye Yüzyılı Maarif Modeli, printed on the left page. */
-  kazanim?: string;
   glossary: Record<string, { en: string; icon?: string }>;
   quiz: QuizItem[];
   valueHunt: ValueHuntItem[];

@@ -117,12 +117,10 @@ function woodCanvas(): HTMLCanvasElement {
   return c;
 }
 
-/** What is printed on the left page: the page title, the book's Maarif Model learning outcome and the page number. */
+/** What is printed on the left page: the page title and the page number (and the logo in the corner). */
 export interface LeftPageDeco {
   title: string;
   sub: string;
-  /** Türkiye Yüzyılı Maarif Modeli: the book's values and its learning outcome (kazanım). */
-  kazanim?: { values: string[]; text: string };
 }
 
 /** The Houston Education Attaché's logo, printed in the corner of the left page. */
@@ -134,21 +132,6 @@ function logo() {
     logoImg.src = LOGO_SRC;
   }
   return logoImg;
-}
-
-/** Words of `text` broken into lines no wider than `width`. */
-function wrap(g: CanvasRenderingContext2D, text: string, width: number) {
-  const lines: string[] = [];
-  let line = '';
-  for (const w of text.split(/\s+/)) {
-    const next = line ? `${line} ${w}` : w;
-    if (line && g.measureText(next).width > width) {
-      lines.push(line);
-      line = w;
-    } else line = next;
-  }
-  if (line) lines.push(line);
-  return lines;
 }
 
 function pageCanvas(side: 'left' | 'right', target?: HTMLCanvasElement, deco?: LeftPageDeco): HTMLCanvasElement {
@@ -173,7 +156,6 @@ function pageCanvas(side: 'left' | 'right', target?: HTMLCanvasElement, deco?: L
   g.lineWidth = 3;
   g.strokeRect(26, 26, W - 52, H - 52);
   if (deco) {
-    // the page is seen at a low angle, so the print is large: it has to read well in the close shot
     const cx = W / 2 - 8;
     g.textAlign = 'center';
     g.textBaseline = 'alphabetic';
@@ -194,42 +176,6 @@ function pageCanvas(side: 'left' | 'right', target?: HTMLCanvasElement, deco?: L
     const lw = img.naturalWidth ? (img.naturalWidth / img.naturalHeight) * lh : 93;
     const ly = H - 26 - 16 - lh;
     if (img.complete && img.naturalWidth) g.drawImage(img, W - 26 - 22 - lw, ly, lw, lh);
-    if (deco.kazanim) {
-      // above it, in the half of the page next to the spine (the reading card covers the other half), a framed
-      // panel: Türkiye Yüzyılı Maarif Modeli, Kazanım, the book's values and its learning outcome
-      const bw = 262;
-      const bx = W - 26 - 18 - bw;
-      const pcx = bx + bw / 2;
-      g.font = '700 18px "Andika", system-ui';
-      const vals = wrap(g, deco.kazanim.values.join(' · '), bw - 22);
-      g.font = '21px "Andika", system-ui';
-      const lines = wrap(g, deco.kazanim.text, bw - 22).slice(0, 10);
-      const bh = 118 + vals.length * 23 + lines.length * 26 + 8;
-      const top = Math.max(150, ly - 14 - bh);
-      g.fillStyle = 'rgba(28,63,140,0.06)';
-      g.strokeStyle = 'rgba(28,63,140,0.45)';
-      g.lineWidth = 2.5;
-      g.beginPath();
-      g.roundRect(bx, top, bw, bh, 18);
-      g.fill();
-      g.stroke();
-      g.fillStyle = '#1C3F8C';
-      g.font = '700 15px "Andika", system-ui';
-      g.letterSpacing = '1px';
-      g.fillText('TÜRKİYE YÜZYILI', pcx, top + 28);
-      g.fillText('MAARİF MODELİ', pcx, top + 48);
-      g.letterSpacing = '0px';
-      g.fillStyle = '#D2372C';
-      g.font = '600 28px "DynaPuff", system-ui';
-      g.fillText('Kazanım', pcx, top + 86);
-      g.fillStyle = '#2F8A4A';
-      g.font = '700 18px "Andika", system-ui';
-      vals.forEach((l, i) => g.fillText(l, pcx, top + 116 + i * 23));
-      g.fillStyle = '#2B3654';
-      g.font = '21px "Andika", system-ui';
-      const ty = top + 116 + vals.length * 23 + 6;
-      lines.forEach((l, i) => g.fillText(l, pcx, ty + i * 26));
-    }
   }
   return c;
 }
@@ -782,7 +728,7 @@ export class BookScene {
 
   /* ---------------- book animation ---------------- */
 
-  /** Print the page title, the Maarif Model learning outcome and the logo on the left page. */
+  /** Print the page title, the page number and the logo on the left page. */
   setLeftPage(deco: LeftPageDeco | null) {
     pageCanvas('left', this.leftCanvas, deco ?? undefined);
     this.leftTex.needsUpdate = true;

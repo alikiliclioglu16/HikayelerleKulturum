@@ -14,7 +14,6 @@
     "adalet",
     "durustluk"
   ],
-  "kazanim": "İşine gelene de gelmeyene de aynı ölçüyle bakmanın adalet olduğunu fark eder; hatasını dürüstçe söyleyip özür diler.",
   "music": {
     "src": "/books/nasreddin-hoca-kazan/muzik.mp3",
     "loop": 46.17
@@ -37,13 +36,12 @@
       },
       "models": [
         {
-          "src": "/models/kenney/rugRound.glb",
+          "src": "/models/masal/sedir.glb",
           "x": 0.02,
-          "z": 0.8,
-          "h": 0.02,
-          "w": 0.66,
-          "word": "halı",
-          "tint": "#B8432E"
+          "z": 0.3,
+          "h": 0.2,
+          "w": 0.62,
+          "word": "sedir"
         },
         {
           "src": "/models/kenney/tableCoffee.glb",
@@ -79,14 +77,6 @@
           "word": "çay"
         },
         {
-          "src": "/models/kenney/pottedPlant.glb",
-          "x": -0.42,
-          "z": 0.62,
-          "h": 0.2,
-          "word": "saksı",
-          "fx": "breathe"
-        },
-        {
           "src": "/models/masal/kazan.glb",
           "x": 0.12,
           "z": 0.78,
@@ -104,7 +94,8 @@
           "id": "dede",
           "x": -0.06,
           "z": 0.55,
-          "rotY": 0
+          "rotY": 0,
+          "hold": "kitap"
         },
         {
           "id": "elif",
@@ -224,7 +215,63 @@
           "look": "dede"
         }
       ],
-      "ambience": "crickets"
+      "ambience": "crickets",
+      "layers": [
+        {
+          "src": "art/p1.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.12,
+                0.02,
+                0.4,
+                0.36
+              ]
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "/books/nasreddin-hoca-kazan/ses/p1.mp3",
+        "marks": [
+          0.01,
+          0.35,
+          0.55,
+          0.74,
+          1.22,
+          2.12,
+          2.88,
+          3.36,
+          4.27,
+          4.65,
+          5.18,
+          5.87,
+          6.25,
+          6.62,
+          7.31,
+          8.1,
+          8.41,
+          8.6,
+          9.3,
+          9.75,
+          10.58,
+          10.79,
+          11.59,
+          11.79,
+          13.33,
+          13.63,
+          13.92,
+          14.1,
+          14.52,
+          14.94,
+          15.48,
+          15.94
+        ]
+      }
     },
     {
       "id": "p2",
@@ -242,22 +289,6 @@
         "en": "Akşehir is a town in Konya, at the foot of the Sultan Mountains. Nasreddin Hodja spent most of his life here. His tomb is in Akşehir too, and every summer the town holds a Nasreddin Hodja Festival."
       },
       "models": [
-        {
-          "src": "/models/kenney/tree-high-round.glb",
-          "x": -0.44,
-          "z": 0.42,
-          "h": 0.42,
-          "word": "ağaç",
-          "fx": "sway"
-        },
-        {
-          "src": "/models/kenney/fountain-round.glb",
-          "x": 0.38,
-          "z": 0.86,
-          "h": 0.06,
-          "w": 0.22,
-          "word": "çeşme"
-        },
         {
           "src": "/models/masal/aksehir-kapisi.glb",
           "x": 0.2,
@@ -298,6 +329,14 @@
           "magic": true,
           "hidden": true,
           "fx": "bob"
+        },
+        {
+          "src": "/models/masal/tas-cesme.glb",
+          "x": -0.42,
+          "z": 0.36,
+          "h": 0.3,
+          "word": "çeşme",
+          "rotY": 25
         }
       ],
       "cast": [
@@ -417,7 +456,60 @@
           "focus": true
         }
       ],
-      "ambience": "birds"
+      "ambience": "birds",
+      "layers": [
+        {
+          "src": "art/p2.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": []
+        }
+      ],
+      "audio": {
+        "src": "/books/nasreddin-hoca-kazan/ses/p2.mp3",
+        "marks": [
+          0.05,
+          0.26,
+          0.79,
+          1.44,
+          1.81,
+          2.02,
+          2.84,
+          3.36,
+          3.73,
+          4.93,
+          5.16,
+          5.63,
+          6.13,
+          6.74,
+          7.1,
+          7.59,
+          8.24,
+          9.54,
+          10.01,
+          10.47,
+          10.8,
+          11.13,
+          11.6,
+          12.18,
+          12.71,
+          12.93,
+          13.3,
+          14.75,
+          15.22,
+          15.68,
+          16.11,
+          17.23,
+          17.61,
+          18.31,
+          19.04,
+          19.35,
+          19.98,
+          20.62,
+          21.0
+        ]
+      }
     },
     {
       "id": "p3",
@@ -435,22 +527,6 @@
         "en": "There is a Turkish proverb: \"A neighbour needs even the ashes of a neighbour\", meaning neighbours help each other with even the smallest things. There is also a lovely custom: a borrowed dish is never returned empty, a little food or something sweet is put inside."
       },
       "models": [
-        {
-          "src": "/models/kenney/tree-high-round.glb",
-          "x": -0.45,
-          "z": 0.4,
-          "h": 0.42,
-          "word": "ağaç",
-          "fx": "sway"
-        },
-        {
-          "src": "/models/kenney/pottedPlant.glb",
-          "x": 0.44,
-          "z": 0.8,
-          "h": 0.16,
-          "word": "saksı",
-          "fx": "breathe"
-        },
         {
           "src": "/models/masal/aksehir-kapisi.glb",
           "x": 0.3,
@@ -545,7 +621,56 @@
           "look": "komsu"
         }
       ],
-      "ambience": "birds"
+      "ambience": "birds",
+      "layers": [
+        {
+          "src": "art/p3.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": []
+        }
+      ],
+      "audio": {
+        "src": "/books/nasreddin-hoca-kazan/ses/p3.mp3",
+        "marks": [
+          0.03,
+          0.49,
+          0.95,
+          1.76,
+          1.95,
+          2.28,
+          2.79,
+          3.39,
+          4.41,
+          5.23,
+          6.01,
+          6.34,
+          6.67,
+          7.28,
+          7.61,
+          8.22,
+          8.55,
+          8.88,
+          9.47,
+          9.85,
+          10.83,
+          11.38,
+          11.6,
+          12.31,
+          12.85,
+          13.85,
+          14.03,
+          14.57,
+          14.84,
+          15.12,
+          15.85,
+          16.26,
+          17.01,
+          17.59,
+          18.22
+        ]
+      }
     },
     {
       "id": "p4",
@@ -563,23 +688,6 @@
         "en": "\"Müjde!\" is what you say when you bring good news. It is an old Turkish custom to give a small gift to the person who brings good news; this gift is called müjdelik."
       },
       "models": [
-        {
-          "src": "/models/kenney/tree-high-round.glb",
-          "x": 0.45,
-          "z": 0.42,
-          "h": 0.42,
-          "word": "ağaç",
-          "fx": "sway"
-        },
-        {
-          "src": "/models/kenney/fence.glb",
-          "x": -0.42,
-          "z": 0.7,
-          "h": 0.1,
-          "w": 0.2,
-          "word": "çit",
-          "rotY": 90
-        },
         {
           "src": "/models/masal/aksehir-kapisi.glb",
           "x": 0.32,
@@ -710,7 +818,66 @@
           "focus": true
         }
       ],
-      "ambience": "birds"
+      "ambience": "birds",
+      "layers": [
+        {
+          "src": "art/p4.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": []
+        }
+      ],
+      "audio": {
+        "src": "/books/nasreddin-hoca-kazan/ses/p4.mp3",
+        "marks": [
+          0.03,
+          0.46,
+          0.7,
+          1.34,
+          1.67,
+          2.14,
+          2.47,
+          3.55,
+          3.93,
+          4.31,
+          4.82,
+          5.29,
+          5.76,
+          6.32,
+          6.51,
+          7.63,
+          7.94,
+          9.09,
+          9.53,
+          10.37,
+          10.73,
+          11.08,
+          11.44,
+          11.65,
+          12.0,
+          12.8,
+          13.77,
+          14.66,
+          14.99,
+          15.47,
+          15.66,
+          16.11,
+          16.66,
+          17.32,
+          17.93,
+          18.52,
+          19.0,
+          20.19,
+          20.62,
+          20.92,
+          21.47,
+          22.19,
+          22.75,
+          22.93,
+          23.28
+        ]
+      }
     },
     {
       "id": "p5",
@@ -724,14 +891,6 @@
         "en": "A week went by. The Hodja knocked on his neighbour's door again: \"Neighbour, would you lend me the pot once more?\" The neighbour ran happily and brought the pot. \"How nice!\" he thought. \"Maybe this time it will bring another baby.\" The pot's baby, the little saucepan, was standing by the door."
       },
       "models": [
-        {
-          "src": "/models/kenney/tree-high-round.glb",
-          "x": -0.45,
-          "z": 0.36,
-          "h": 0.42,
-          "word": "ağaç",
-          "fx": "sway"
-        },
         {
           "src": "/models/masal/aksehir-kapisi.glb",
           "x": 0.32,
@@ -869,7 +1028,62 @@
           "optional": true
         }
       ],
-      "ambience": "birds"
+      "ambience": "birds",
+      "layers": [
+        {
+          "src": "art/p5.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": []
+        }
+      ],
+      "audio": {
+        "src": "/books/nasreddin-hoca-kazan/ses/p5.mp3",
+        "marks": [
+          0.02,
+          0.55,
+          0.77,
+          1.15,
+          2.08,
+          2.43,
+          2.78,
+          3.42,
+          4.06,
+          4.99,
+          5.76,
+          6.14,
+          6.29,
+          6.56,
+          6.82,
+          7.69,
+          8.36,
+          9.03,
+          9.66,
+          10.14,
+          11.03,
+          11.92,
+          12.13,
+          12.86,
+          13.16,
+          13.33,
+          13.63,
+          13.8,
+          13.97,
+          14.27,
+          14.92,
+          15.28,
+          16.42,
+          16.98,
+          17.71,
+          18.08,
+          18.57,
+          19.38,
+          19.82,
+          20.27,
+          20.88
+        ]
+      }
     },
     {
       "id": "p6",
@@ -888,28 +1102,12 @@
       },
       "models": [
         {
-          "src": "/models/kenney/tree-high-round.glb",
-          "x": 0.45,
-          "z": 0.34,
-          "h": 0.42,
-          "word": "ağaç",
-          "fx": "sway"
-        },
-        {
-          "src": "/models/kenney/lantern.glb",
-          "x": -0.42,
-          "z": 0.66,
-          "h": 0.34,
-          "word": "fener"
-        },
-        {
-          "src": "/models/animals/kedi.glb",
+          "src": "/models/masal/kedi.glb",
           "x": -0.4,
           "z": 0.92,
           "h": 0.12,
           "word": "kedi",
-          "rotY": 40,
-          "anim": "none"
+          "rotY": 40
         },
         {
           "src": "/models/masal/aksehir-kapisi.glb",
@@ -1038,7 +1236,64 @@
           "len": 1.6
         }
       ],
-      "ambience": "crickets"
+      "ambience": "crickets",
+      "layers": [
+        {
+          "src": "art/p6.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": []
+        }
+      ],
+      "audio": {
+        "src": "/books/nasreddin-hoca-kazan/ses/p6.mp3",
+        "marks": [
+          0.03,
+          0.55,
+          1.39,
+          2.14,
+          2.55,
+          3.12,
+          3.36,
+          4.5,
+          4.87,
+          5.4,
+          5.92,
+          6.6,
+          7.55,
+          8.15,
+          8.56,
+          9.56,
+          9.94,
+          10.47,
+          10.98,
+          11.35,
+          12.17,
+          12.45,
+          12.93,
+          13.53,
+          13.81,
+          14.76,
+          15.14,
+          15.51,
+          15.83,
+          16.2,
+          16.94,
+          17.86,
+          18.29,
+          19.26,
+          19.43,
+          19.85,
+          20.42,
+          20.61,
+          20.94,
+          21.28,
+          21.77,
+          22.13,
+          22.69
+        ]
+      }
     },
     {
       "id": "p7",
@@ -1057,63 +1312,12 @@
       },
       "models": [
         {
-          "src": "/models/kenney/stall-red.glb",
-          "x": -0.3,
-          "z": 0.3,
-          "h": 0.3,
-          "w": 0.34,
-          "word": "tezgâh",
-          "rotY": 15
-        },
-        {
-          "src": "/models/kenney/watermelon.glb",
-          "x": -0.36,
-          "z": 0.36,
-          "h": 0.06,
-          "y": 0.105,
-          "word": "karpuz"
-        },
-        {
-          "src": "/models/kenney/grapes.glb",
-          "x": -0.24,
-          "z": 0.33,
-          "h": 0.05,
-          "y": 0.105,
-          "word": "üzüm"
-        },
-        {
-          "src": "/models/kenney/stall-green.glb",
-          "x": 0.32,
-          "z": 0.28,
-          "h": 0.3,
-          "w": 0.32,
-          "word": "tezgâh",
-          "rotY": -15
-        },
-        {
-          "src": "/models/kenney/eggplant.glb",
-          "x": 0.28,
-          "z": 0.31,
-          "h": 0.05,
-          "y": 0.1,
-          "word": "patlıcan",
-          "rotY": 40
-        },
-        {
           "src": "/models/kenney/tomato.glb",
           "x": 0.37,
           "z": 0.3,
           "h": 0.04,
           "y": 0.1,
           "word": "domates"
-        },
-        {
-          "src": "/models/kenney/fountain-round.glb",
-          "x": -0.02,
-          "z": 0.4,
-          "h": 0.06,
-          "w": 0.26,
-          "word": "çeşme"
         },
         {
           "src": "/models/masal/esek.glb",
@@ -1147,6 +1351,73 @@
           "magic": true,
           "hidden": true,
           "fx": "bob"
+        },
+        {
+          "src": "/models/masal/pazar-tezgahi.glb",
+          "x": -0.32,
+          "z": 0.3,
+          "h": 0.32,
+          "w": 0.34,
+          "word": "tezgâh",
+          "rotY": 15
+        },
+        {
+          "src": "/models/masal/pazar-tezgahi.glb",
+          "x": 0.33,
+          "z": 0.28,
+          "h": 0.32,
+          "w": 0.34,
+          "word": "tezgâh",
+          "rotY": -15
+        },
+        {
+          "src": "/models/masal/elma.glb",
+          "x": -0.37,
+          "z": 0.33,
+          "h": 0.04,
+          "y": 0.15,
+          "word": "elma"
+        },
+        {
+          "src": "/models/masal/elma.glb",
+          "x": -0.3,
+          "z": 0.31,
+          "h": 0.04,
+          "y": 0.15,
+          "word": "elma"
+        },
+        {
+          "src": "/models/masal/lahana.glb",
+          "x": -0.24,
+          "z": 0.31,
+          "h": 0.05,
+          "y": 0.15,
+          "word": "lahana"
+        },
+        {
+          "src": "/models/masal/havuc.glb",
+          "x": 0.29,
+          "z": 0.29,
+          "h": 0.06,
+          "y": 0.15,
+          "word": "havuç",
+          "rotY": 60
+        },
+        {
+          "src": "/models/masal/misir.glb",
+          "x": 0.37,
+          "z": 0.28,
+          "h": 0.07,
+          "y": 0.15,
+          "word": "mısır",
+          "rotY": -30
+        },
+        {
+          "src": "/models/masal/tas-cesme.glb",
+          "x": 0.0,
+          "z": 0.2,
+          "h": 0.26,
+          "word": "çeşme"
         }
       ],
       "cast": [
@@ -1287,7 +1558,63 @@
           "look": "reader"
         }
       ],
-      "ambience": "birds"
+      "ambience": "birds",
+      "layers": [
+        {
+          "src": "art/p7.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": []
+        }
+      ],
+      "audio": {
+        "src": "/books/nasreddin-hoca-kazan/ses/p7.mp3",
+        "marks": [
+          0.08,
+          0.41,
+          1.02,
+          1.75,
+          2.89,
+          3.85,
+          4.43,
+          5.15,
+          5.59,
+          6.08,
+          6.66,
+          6.98,
+          8.56,
+          8.88,
+          9.43,
+          9.75,
+          10.29,
+          11.02,
+          11.26,
+          12.66,
+          13.1,
+          13.41,
+          13.85,
+          14.16,
+          15.25,
+          15.67,
+          16.22,
+          16.61,
+          16.91,
+          17.46,
+          18.5,
+          18.91,
+          19.66,
+          20.07,
+          21.0,
+          21.98,
+          22.19,
+          22.89,
+          23.22,
+          23.42,
+          23.89,
+          24.4
+        ]
+      }
     },
     {
       "id": "p8",
@@ -1306,13 +1633,12 @@
       },
       "models": [
         {
-          "src": "/models/kenney/rugRound.glb",
+          "src": "/models/masal/sedir.glb",
           "x": 0.02,
-          "z": 0.8,
-          "h": 0.02,
-          "w": 0.66,
-          "word": "halı",
-          "tint": "#B8432E"
+          "z": 0.3,
+          "h": 0.2,
+          "w": 0.62,
+          "word": "sedir"
         },
         {
           "src": "/models/kenney/tableCoffee.glb",
@@ -1348,23 +1674,6 @@
           "word": "çay"
         },
         {
-          "src": "/models/kenney/pottedPlant.glb",
-          "x": -0.42,
-          "z": 0.62,
-          "h": 0.2,
-          "word": "saksı",
-          "fx": "breathe"
-        },
-        {
-          "src": "/models/kenney/books.glb",
-          "x": -0.2,
-          "z": 0.86,
-          "h": 0.06,
-          "w": 0.12,
-          "word": "kitap",
-          "rotY": 20
-        },
-        {
           "src": "/models/masal/kazan.glb",
           "x": 0.12,
           "z": 0.78,
@@ -1374,6 +1683,15 @@
           "id": "kazan",
           "magic": true,
           "fx": "bob"
+        },
+        {
+          "src": "/models/masal/dede-kitap.glb",
+          "x": -0.12,
+          "z": 0.78,
+          "h": 0.07,
+          "y": 0.09,
+          "word": "kitap",
+          "rotY": -15
         }
       ],
       "cast": [
@@ -1503,7 +1821,91 @@
           "look": "reader"
         }
       ],
-      "ambience": "crickets"
+      "ambience": "crickets",
+      "layers": [
+        {
+          "src": "art/p8.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.3,
+                0.02,
+                0.44,
+                0.38
+              ]
+            }
+          ]
+        }
+      ],
+      "audio": {
+        "src": "/books/nasreddin-hoca-kazan/ses/p8.mp3",
+        "marks": [
+          0.07,
+          0.43,
+          0.95,
+          1.46,
+          2.64,
+          3.35,
+          3.79,
+          4.1,
+          4.54,
+          5.25,
+          5.84,
+          6.87,
+          7.07,
+          7.28,
+          7.63,
+          8.52,
+          8.87,
+          9.37,
+          10.45,
+          11.27,
+          11.89,
+          12.33,
+          12.95,
+          13.38,
+          14.44,
+          14.68,
+          15.09,
+          15.84,
+          16.81,
+          17.54,
+          17.73,
+          18.05,
+          18.36,
+          19.21,
+          19.4,
+          20.1,
+          20.54,
+          20.98,
+          21.72,
+          22.98,
+          23.32,
+          23.95,
+          24.91,
+          25.74,
+          26.29,
+          26.84,
+          27.38,
+          28.03,
+          28.87,
+          29.13,
+          29.58,
+          30.03,
+          30.36,
+          30.83,
+          31.43,
+          31.91,
+          32.1,
+          32.43,
+          33.32,
+          33.83
+        ]
+      }
     }
   ],
   "glossary": {
@@ -1719,6 +2121,22 @@
     },
     "Akşehirli Teyze": {
       "en": "a lady from Akşehir"
+    },
+    "elma": {
+      "en": "apple",
+      "icon": "🍎"
+    },
+    "lahana": {
+      "en": "cabbage",
+      "icon": "🥬"
+    },
+    "havuç": {
+      "en": "carrot",
+      "icon": "🥕"
+    },
+    "mısır": {
+      "en": "corn",
+      "icon": "🌽"
     }
   },
   "quiz": [

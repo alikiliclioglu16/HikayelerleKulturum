@@ -141,6 +141,7 @@ function tray(w: number, color = '#C9CED6') {
 /** Each returns a group sized for a character about 0.4–0.55 tall; userData: word, hand ('R' for one hand), atHeight, ahead. */
 export const HELD: Record<string, () => THREE.Object3D> = {
   // Nasreddin Hoca ve Kazan
+  kitap: () => glbHeld('/models/masal/dede-kitap.glb', 0.075, { word: 'kitap', atHeight: 0.42, ahead: 0.2 }),
   kazan: () => glbHeld('/models/masal/kazan.glb', 0.085, { word: 'kazan', atHeight: 0.4, ahead: 0.22 }),
   tencere: () => glbHeld('/models/masal/tencere.glb', 0.06, { word: 'tencere', atHeight: 0.45, ahead: 0.2 }),
   // Keloğlan ve Üç Tohum

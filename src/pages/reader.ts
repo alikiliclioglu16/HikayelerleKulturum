@@ -1,7 +1,6 @@
 import { h, icon } from '../ui/dom';
 import { loadBook, loadListing, coverCanvas, fonts } from '../content';
 import { store } from '../store';
-import { valueById } from '../values';
 import { tokenize, estimateMarks, type Token } from '../text';
 import { Narrator } from '../narrator';
 import { BookScene } from '../three/bookScene';
@@ -173,11 +172,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
    */
   function setMode(m: 'side' | 'portrait') {
     const p = page();
-    scene.setLeftPage({
-      title: p.title.tr,
-      sub: `Sayfa ${index + 1}`,
-      kazanim: book.kazanim ? { values: book.values.map((v) => valueById(v).name), text: book.kazanim } : undefined,
-    });
+    scene.setLeftPage({ title: p.title.tr, sub: `Sayfa ${index + 1}` });
     shell.classList.toggle('layout-side', m === 'side');
     shell.classList.toggle('layout-portrait', m === 'portrait');
   }
@@ -336,7 +331,10 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     if (!st) return;
     scene.freeze(false);
     scene.resetStage();
-    st.setText(tokens, estimateMarks(tokens, narrator.rate));
+    // the recorded narration's own word times (at the chosen speed), or an estimated reading pace
+    const rec = page().audio;
+    const speed = Math.max(0.6, Math.min(1.3, narrator.rate / 0.9));
+    st.setText(tokens, rec && rec.marks.length > tokens.filter((t) => t.kind === 'word').length - 1 ? rec.marks.map((m) => m / speed) : estimateMarks(tokens, narrator.rate));
     if (withNarration) st.playWithNarration();
     else st.playAuto();
   }
