@@ -44,9 +44,3 @@ export const VALUES: ValueDef[] = [
 export function valueById(id: string): ValueDef {
   return VALUES.find((v) => v.id === id) ?? { id, name: id, en: id, group: 'aile' };
 }
-
-export const LEVELS = [
-  { id: '1', name: 'Tomurcuk', ages: '4–6 yaş', en: 'Bud, ages 4–6', note: 'Kısa cümleler, dinle ve dokun' },
-  { id: '2', name: 'Lale', ages: '7–9 yaş', en: 'Tulip, ages 7–9', note: 'Kısa paragraflar ve yeni kelimeler' },
-  { id: '3', name: 'Çınar', ages: '10–11 yaş', en: 'Plane tree, ages 10–11', note: 'Uzun metin ve kültür ayrıntıları' },
-] as const;

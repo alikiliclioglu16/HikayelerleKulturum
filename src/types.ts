@@ -1,4 +1,3 @@
-export type LevelId = '1' | '2' | '3';
 
 export interface Bi {
   tr: string;
@@ -83,10 +82,8 @@ export interface PageModel {
 
 /** A 3D object on the reading table, around the book (world units, the book is 2 wide). */
 export interface TableModel {
-  /** A GLB model … */
-  src?: string;
-  /** … or one of the culture objects drawn in code (e.g. "lale", "nazar", "lokum", "lamba" for the mosaic lamp). */
-  proc?: string;
+  /** A GLB model (the culture objects of the home shelf are in /models/culture). */
+  src: string;
   word?: string;
   x: number;
   z: number;
@@ -127,7 +124,7 @@ export interface PageData {
   id: string;
   scene: string;
   title: Bi;
-  text: Record<LevelId, Bi>;
+  text: Bi;
   culture?: Bi;
   /** Optional image-based layers; when missing the procedural scene is used. */
   layers?: LayerSpec[];
@@ -139,8 +136,10 @@ export interface PageData {
   beats?: import('./three/acts').Beat[];
   /** Named spots the characters can look at or walk to: [x, y, z] in page coordinates (like models). */
   spots?: Record<string, [number, number, number]>;
-  /** Optional recorded narration per level. */
-  audio?: Partial<Record<LevelId, PageAudio>>;
+  /** Soft sounds of the place under the page: birds (morning, a village) or crickets (night). */
+  ambience?: 'birds' | 'crickets';
+  /** Optional recorded narration. */
+  audio?: PageAudio;
 }
 
 export interface QuizItem {
@@ -165,6 +164,11 @@ export interface Book {
   summary: Bi;
   values: string[];
   pages: PageData[];
+  /**
+   * The book's own music (see sfx.ts): an MP3 whose first `loop` seconds repeat; the rest is the reverb tail that
+   * overlaps the next round, so it loops without a seam.
+   */
+  music?: { src: string; loop: number };
   glossary: Record<string, { en: string; icon?: string }>;
   quiz: QuizItem[];
   valueHunt: ValueHuntItem[];

@@ -1,12 +1,7 @@
-import type { LevelId } from './types';
-
 /**
  * Everything is kept in this browser only (localStorage). No accounts, no cookies, no analytics.
  */
 export interface Settings {
-  level: LevelId;
-  /** The reader has picked a reading level on the welcome screen (asked once, on the first visit). */
-  levelChosen: boolean;
   rate: number;
   big: boolean;
   calm: boolean;
@@ -41,7 +36,7 @@ interface Data {
 }
 
 const defaults: Data = {
-  settings: { level: '2', levelChosen: false, rate: 0.9, big: false, calm: false, sound: true, music: true },
+  settings: { rate: 0.9, big: false, calm: false, sound: true, music: true },
   chest: {},
   progress: {},
   culture: [],
@@ -54,7 +49,8 @@ function load(): Data {
     if (!raw) return structuredClone(defaults);
     const d = JSON.parse(raw) as Partial<Data>;
     const settings = { ...defaults.settings, ...(d.settings ?? {}) };
-    delete (settings as Partial<Settings> & { showEn?: boolean }).showEn; // an old setting (English was removed)
+    // old settings: English was removed, and every book is now read in its one (full) text
+    for (const k of ['showEn', 'level', 'levelChosen']) delete (settings as unknown as Record<string, unknown>)[k];
     return {
       settings,
       chest: d.chest ?? {},

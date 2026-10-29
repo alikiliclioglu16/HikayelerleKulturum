@@ -1,12 +1,12 @@
-import { h, icon, chip, tulipLogo, levelIcon } from '../ui/dom';
+import { h, icon, chip, tulipLogo } from '../ui/dom';
 import { loadListing, loadCulture, coverCanvas, cloneCanvas, fonts } from '../content';
 import { store } from '../store';
-import { LEVELS, valueById } from '../values';
+import { valueById } from '../values';
 import { Narrator } from '../narrator';
 import { sfx } from '../sfx';
 import { HomeScene, HEROES, ITEM_GAP, type CultureDef } from '../home3d/homeScene';
 import { MOTIFS } from '../home3d/kilim';
-import type { BookListing, LevelId } from '../types';
+import type { BookListing } from '../types';
 
 /**
  * The home page is a 3D room: a shelf of Turkish culture objects on top and a shelf of books below.
@@ -30,7 +30,6 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   const soundBtn = h('button', { class: 'round-btn', type: 'button' });
   const musicBtn = h('button', { class: 'round-btn', type: 'button' });
   const chestBadge = h('span', { class: 'badge' }, '0');
-  const levelBtn = h('button', { class: 'round-btn level-chip', type: 'button', 'aria-haspopup': 'dialog' });
   const hud = h(
     'header',
     { class: 'home-hud' },
@@ -43,7 +42,6 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     h(
       'nav',
       { class: 'home-actions', 'aria-label': 'Menü' },
-      levelBtn,
       musicBtn,
       soundBtn,
       h('a', { class: 'round-btn', href: '#/sandik', 'aria-label': 'Kelime Sandığım', title: 'Kelime Sandığım' }, icon.chest(), chestBadge),
@@ -172,7 +170,8 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     else sfx.stopMusic();
     updateSound();
   });
-  // starts now, or right after the first tap or key press (browsers require one)
+  // the home page lullaby starts now, or right after the first tap or key press (browsers require one)
+  sfx.useMusic(null);
   sfx.startMusic();
 
   /* ---------- culture bubble ---------- */
@@ -337,16 +336,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     } else {
       const prog = store.progress(b.id);
       const started = prog.page > 0 && prog.page < (b.pages ?? 0);
-      const lvLine = h('p', { class: 'bs-level' });
-      const showLevel = () => {
-        const lv = LEVELS.find((l) => l.id === store.settings.level)!;
-        const change = h('button', { class: 'link-btn', type: 'button' }, 'Değiştir');
-        change.addEventListener('click', () => levelGate(false, showLevel));
-        lvLine.replaceChildren(levelIcon(lv.id), h('span', null, 'Okuma seviyesi: ', h('strong', null, lv.name), ` (${lv.ages}) `, change));
-      };
-      showLevel();
       body.push(
-        lvLine,
         h(
           'div',
           { class: 'bs-actions' },
@@ -367,64 +357,6 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     shell.append(backdrop);
     sheetClose = close;
     (sheet.querySelector('a.btn, button.btn:not(.sheet-x)') as HTMLElement | null)?.focus({ preventScroll: true });
-  }
-
-  /* ---------- reading level ---------- */
-  function updateLevelBtn() {
-    const lv = LEVELS.find((l) => l.id === store.settings.level)!;
-    levelBtn.replaceChildren(levelIcon(lv.id), h('span', { class: 'lc-name' }, lv.name));
-    levelBtn.setAttribute('aria-label', `Okuma seviyesi: ${lv.name}, ${lv.ages}. Değiştirmek için dokun`);
-    levelBtn.title = `Okuma seviyesi: ${lv.name} (${lv.ages})`;
-  }
-
-  /** The reader picks a level once (Tomurcuk, Lale, Çınar); all books are read at it. */
-  let gate: { el: HTMLElement; close: () => void } | null = null;
-  function levelGate(first: boolean, after?: () => void) {
-    gate?.close();
-    const back = h('div', { class: 'level-gate' });
-    const opener = document.activeElement as HTMLElement | null;
-    const close = () => {
-      back.remove();
-      gate = null;
-      opener?.focus?.({ preventScroll: true });
-    };
-    const choose = (id: LevelId) => {
-      store.setSettings({ level: id, levelChosen: true });
-      sfx.chime();
-      updateLevelBtn();
-      close();
-      after?.();
-    };
-    const current = store.settings.level;
-    const choices = LEVELS.map((lv) => {
-      const b = h(
-        'button',
-        { class: `lg-card lv${lv.id}`, type: 'button', 'aria-pressed': first ? undefined : String(lv.id === current) },
-        h('span', { class: 'lg-art' }, levelIcon(lv.id)),
-        h('span', { class: 'lg-name' }, lv.name),
-        h('span', { class: 'lg-ages' }, lv.ages),
-        h('span', { class: 'lg-note' }, lv.note),
-      );
-      b.addEventListener('click', () => choose(lv.id as LevelId));
-      return b;
-    });
-    const x = first ? null : h('button', { class: 'btn light small icon-only sheet-x', type: 'button', 'aria-label': 'Kapat' }, icon.close());
-    x?.addEventListener('click', close);
-    const box = h(
-      'div',
-      { class: 'level-gate-box', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'lg-title' },
-      x,
-      h('div', { class: 'lg-logo', 'aria-hidden': 'true' }, tulipLogo()),
-      h('h2', { id: 'lg-title' }, first ? 'Hoş geldin! Okuma seviyeni seç' : 'Okuma seviyesi'),
-      h('p', { class: 'lg-lead' }, first ? 'Bütün kitaplar seçtiğin seviyede okunacak. İstediğin zaman sağ üstten değiştirebilirsin.' : 'Bütün kitaplar bu seviyede okunur.'),
-      h('div', { class: 'lg-cards' }, ...choices),
-    );
-    back.append(box);
-    if (!first) back.addEventListener('click', (e) => e.target === back && close());
-    shell.append(back);
-    gate = { el: back, close };
-    const focus = choices.find((c) => c.getAttribute('aria-pressed') === 'true') ?? choices[1];
-    focus.focus({ preventScroll: true });
   }
 
   /* ---------- carousel ---------- */
@@ -615,10 +547,6 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
 
   const onKey = (e: KeyboardEvent) => {
     if (e.key !== 'Escape') return;
-    if (gate) {
-      if (store.settings.levelChosen) gate.close();
-      return;
-    }
     if (sheetClose) sheetClose();
     else closePop();
   };
@@ -660,15 +588,10 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
       }, 1600);
     }
   };
-  updateLevelBtn();
-  levelBtn.addEventListener('click', () => levelGate(false));
-  // the reading level is asked once, on the first visit; every book is then read at that level
-  if (!store.settings.levelChosen) window.setTimeout(() => levelGate(true, shelfHint), scene.reducedMotion ? 0 : 1200);
-  else shelfHint();
+  shelfHint();
 
   return () => {
     window.removeEventListener('keydown', onKey);
-    // the music keeps playing into the book
     ro.disconnect();
     narrator.stop();
     closePop();

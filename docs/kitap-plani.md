@@ -1,7 +1,7 @@
 # 15 Kitaplık Plan
 
 Hedef kitle: ABD'de yaşayan, 4–11 yaş arası, Türkçe öğrenen çift dilli çocuklar.
-Her kitap: 8 sayfa, üç seviye (Tomurcuk 4–6, Lale 7–9, Çınar 10–11), İngilizce çeviri, "Biliyor musun?" kültür notları, sözlük, 5 soruluk yarışma, değer avı ve aile köşesi.
+Her kitap: 8 sayfa, tek tam metin (4–11 yaş), İngilizce çeviri, "Biliyor musun?" kültür notları, sözlük, 5 soruluk yarışma, değer avı ve aile köşesi.
 
 Kitaplar aynı ailenin hikâyesini sürdürür (Elif, Can, anne, baba, İzmir'deki babaanne ve dede). Masal kitaplarında (Nasreddin Hoca, Keloğlan, Karagöz) bu aile hikâyeyi bir kitaptan okur ya da dededen dinler; böylece seri bir bütün olur.
 

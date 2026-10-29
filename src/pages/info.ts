@@ -2,7 +2,7 @@ import { h, icon } from '../ui/dom';
 import { page } from '../ui/shell';
 import { store } from '../store';
 import { Narrator } from '../narrator';
-import { LEVELS, VALUES, VALUE_GROUPS, type ValueGroup } from '../values';
+import { VALUES, VALUE_GROUPS, type ValueGroup } from '../values';
 
 const narrator = new Narrator();
 
@@ -74,14 +74,15 @@ export function renderParents(root: HTMLElement) {
         h('p', null, 'Resimdeki nesnelere dokunmak da işe yarar: dokunulan nesnenin Türkçesi okunur ve metindeki kelime parlar. Böylece çocuk kelimeyle resmi birlikte öğrenir.'),
         h('h2', null, 'Kültür rafı'),
         h('p', null, 'Ana sayfadaki üst rafta 20 Türk kültürü ögesi durur: çay, simit, bağlama, peri bacaları, nazar boncuğu, Karagöz ile Hacivat ve daha fazlası. Çocuk bir ögeye dokununca Türkçe adını duyar ve kısa bir bilgi okur; öge Kelime Sandığı’na eklenir.'),
-        h('h2', null, 'Üç okuma seviyesi'),
-        h('ul', null, ...LEVELS.map((l) => h('li', null, h('strong', null, `${l.name} (${l.ages}): `), l.note))),
-        h('p', null, 'Aynı hikâye üç farklı uzunlukta yazıldı. Kardeşler aynı kitabı kendi seviyelerinde okuyabilir.'),
+        h('h2', null, 'Kimler için?'),
+        h('p', null, 'Kitaplar 4–11 yaş için yazıldı. Küçükler dinleyip resimdeki nesnelere dokunarak, büyükler metni kendileri okuyarak takip eder; zor kelimeler Kelime Sandığı’nda birikir.'),
         h('h2', null, 'Değerler'),
         h('p', null, 'Kitaplar Türkiye Yüzyılı Maarif Modeli’nin Erdem-Değer-Eylem Çerçevesi’ndeki değerleri işler. Her kitabın sonunda bir değer avı, konuşma soruları ve küçük bir aile görevi vardır.'),
         h('ul', null, ...groups),
         h('h2', null, 'Sesli okuma'),
         h('p', null, 'Bu ilk sürümde sesli okuma cihazın kendi Türkçe sesiyle yapılır. iPhone, iPad ve Mac’te Safari, Windows’ta Microsoft Edge ve Android’de Chrome Türkçe ses sunar. Türkçe ses olmayan cihazlarda kelimeler okuma hızında sırayla parlar, siz sesli okursunuz. Sonraki sürümde kitaplar gerçek bir anlatıcının sesiyle gelecek.'),
+        h('h2', null, 'Müzik ve sesler'),
+        h('p', null, 'Her kitabın kendi müziği vardır: Bayram Sabahı’nda Rast, Nasreddin Hoca’da Hicaz, Keloğlan’da Uşşak makamında yazılmış kısa havalar. Müzikler FluidR3 GM ses bankasının (Frank Wen, CC BY 3.0) çalgı örnekleriyle hazırlandı. Sahnelerdeki sesler ve ana sayfadaki ninni tarayıcıda üretilir.'),
         h('h2', null, 'Gizlilik'),
         h('p', null, 'Hesap açmak gerekmez. Çerez, reklam ya da izleme aracı kullanılmaz. Okuma ilerlemesi ve Kelime Sandığı yalnızca bu tarayıcıda saklanır ve başka bir yere gönderilmez.'),
         reset,

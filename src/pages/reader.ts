@@ -1,12 +1,11 @@
 import { h, icon } from '../ui/dom';
 import { loadBook, loadListing, coverCanvas, fonts } from '../content';
 import { store } from '../store';
-import { LEVELS } from '../values';
 import { tokenize, estimateMarks, type Token } from '../text';
 import { Narrator } from '../narrator';
 import { BookScene } from '../three/bookScene';
 import { sceneLayers, buildProcLayer, buildImageLayer, type BuiltLayer } from '../art/scenes';
-import type { Book, LevelId, PageData, TableModel } from '../types';
+import type { Book, PageData, TableModel } from '../types';
 import { sfx } from '../sfx';
 
 /** Culture objects on the reading table when a book does not choose its own. */
@@ -30,7 +29,6 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   /* ---------- state ---------- */
   const prog = store.progress(bookId);
   let index = Math.min(book.pages.length - 1, Math.max(0, startPage !== undefined ? startPage : prog.page));
-  let level: LevelId = store.settings.level;
   let tokens: Token[] = [];
   let plain = '';
   let playing = false;
@@ -74,13 +72,16 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   if (import.meta.env.DEV) (window as unknown as { __sahne: BookScene }).__sahne = scene;
   scene.toyCast = !!book.toyCast;
   scene.setCalm(store.settings.calm);
+  // the sounds of each page's play: hops, knocks, magic, rain
+  scene.onSound = (kind, delay, seconds) => sfx.scene(kind, delay, seconds);
   scene.onCastProgress = (n, total) => {
     castWait.hidden = total === 0 || n >= total;
     castWait.querySelector('.cw-text')!.textContent = `Karakterler sahneye geliyor… ${n}/${total}`;
   };
   void scene.setTable(book.table ?? DEFAULT_TABLE);
   scene.setWall(book.id, listingItem.carpet ?? { motif: 'elibelinde' });
-  // the calm background music keeps playing while reading
+  // the book's own music (it fades in over the home page lullaby)
+  sfx.useMusic(book.music ?? null);
   sfx.startMusic();
   const cover = await coverCanvas(listingItem, 900);
   scene.setCover(cover);
@@ -110,7 +111,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
 
   function renderText() {
     const p = page();
-    const t = p.text[level];
+    const t = p.text;
     ({ tokens, plain } = tokenize(t.tr));
     const tr = h('p', { class: 'tr', lang: 'tr' });
     wordEls = [];
@@ -324,13 +325,16 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     nowEl?.classList.add('now');
   }
 
-  /** Match the page's play to the words of the current level and start it from the beginning. */
+  /** Match the page's play to the words of its text and start it from the beginning. */
   function prepareStage(withNarration: boolean) {
     const st = scene.stage;
     if (!st) return;
     scene.freeze(false);
     scene.resetStage();
-    st.setText(tokens, estimateMarks(tokens, narrator.rate));
+    // the recorded narration's own word times (at the chosen speed), or an estimated reading pace
+    const rec = page().audio;
+    const speed = Math.max(0.6, Math.min(1.3, narrator.rate / 0.9));
+    st.setText(tokens, rec && rec.marks.length > tokens.filter((t) => t.kind === 'word').length - 1 ? rec.marks.map((m) => m / speed) : estimateMarks(tokens, narrator.rate));
     if (withNarration) st.playWithNarration();
     else st.playAuto();
   }
@@ -364,7 +368,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
           }
         },
       },
-      p.audio?.[level],
+      p.audio,
     );
   }
 
@@ -391,7 +395,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     if (playing) return pause();
     // iPhone/iPad only allow speech that starts directly inside the tap, so avoid waiting when possible
     if (!narrator.resolved) await narrator.ready;
-    if (narrator.mode === 'silent' && !silentNoticeShown && !page().audio?.[level]) {
+    if (narrator.mode === 'silent' && !silentNoticeShown && !page().audio) {
       silentNoticeShown = true;
       voiceSheet(true, startReading);
       return;
@@ -424,6 +428,8 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     const shown = scene.showPage(layers, dir).then(() => {
       scene.shot('close', 1700, angleFor(index));
       void scene.setModels(page().models ?? []);
+  sfx.setAmbience(page().ambience ?? null);
+      sfx.setAmbience(page().ambience ?? null);
       return scene.setCast(page());
     });
     window.setTimeout(() => {
@@ -523,20 +529,6 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
         layout();
       }),
     );
-    // the level was chosen on the welcome screen; a grown-up can still change it here
-    const levels = h(
-      'div',
-      { class: 'seg', role: 'group', 'aria-label': 'Okuma seviyesi' },
-      ...LEVELS.map((lv) =>
-        seg(lv.id === level, lv.name, () => {
-          level = lv.id as LevelId;
-          store.setSettings({ level, levelChosen: true });
-          renderText();
-          layout();
-          prepareStage(false);
-        }),
-      ),
-    );
     const calm = h('input', { type: 'checkbox', class: 'switch', checked: s.calm, 'aria-label': 'Sakin hareket' });
     calm.addEventListener('change', () => {
       store.setSettings({ calm: (calm as HTMLInputElement).checked });
@@ -556,10 +548,9 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     });
     sheet(
       'Ayarlar',
-      h('div', { class: 'row' }, h('label', null, 'Okuma seviyesi', h('small', null, LEVELS.map((l) => `${l.name} ${l.ages}`).join(' · '))), levels),
       h('div', { class: 'row' }, h('label', null, 'Okuma hızı', h('small', null, 'Yavaştan hızlıya')), rate),
       h('div', { class: 'row' }, h('label', null, 'Yazı boyutu'), size),
-      h('div', { class: 'row' }, h('label', null, 'Arka plan müziği', h('small', null, 'Okurken sakin müzik')), music),
+      h('div', { class: 'row' }, h('label', null, 'Arka plan müziği', h('small', null, 'Kitabın kendi müziği')), music),
       h('div', { class: 'row' }, h('label', null, 'Sakin hareket', h('small', null, 'Kamera ve ışık hareketleri durur, animasyonlar kısalır')), calm),
       h('div', { class: 'row' }, h('label', null, 'Anlatıcı sesi', h('small', null, narrator.voice ? narrator.voice.name : 'Cihazda Türkçe ses bulunamadı')), voiceBtn),
     );
@@ -615,6 +606,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   window.setTimeout(() => book.pages.forEach((p) => scene.prefetch(p.models ?? [])), 1500);
 
   return () => {
+    sfx.setAmbience(null);
     window.removeEventListener('keydown', onKey);
     window.clearTimeout(duckTimer);
     sfx.duck(false);
