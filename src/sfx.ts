@@ -552,6 +552,28 @@ const SCENE_SOUNDS: Record<string, (a: AudioContext, t: number) => void> = {
     tone(a, 'sine', 300, 900, t, 0.35, 0.16, 0.02);
     [12, 16, 19].forEach((s, i) => pluck(a, N(s - 12), t + 0.25 + i * 0.07, 0.25, 1.2));
   },
+  // one deep stroke of the davul
+  davul: (a, t) => drum(a, t, 66, 0.5, 0.3),
+  // a globe spinning by itself: a long airy whoosh and a run of little bells
+  whirl: (a, t) => {
+    hiss(a, 'bandpass', 500, 2600, t, 1.6, 0.12, 1.4, 0.3);
+    for (let i = 0; i < 12; i++) bell(a, N(12 + ((i * 5) % 17)), t + i * 0.18, 0.7, 0.04, [1, 2.4]);
+  },
+  // a greeting bubble popping up: a bright "pop" and a chime
+  greet: (a, t) => {
+    tone(a, 'sine', 500, 1100, t, 0.12, 0.2, 0.004);
+    bell(a, N(19 + Math.floor(Math.random() * 5)), t + 0.06, 0.7, 0.07, [1, 2.4]);
+  },
+  // a hall clapping and cheering
+  applause: (a, t) => {
+    for (let i = 0; i < 70; i++) hiss(a, 'bandpass', 1400 + Math.random() * 1400, 900, t + Math.random() * 2.2, 0.03, 0.05 + Math.random() * 0.06, 1.2, 0.001);
+    hiss(a, 'bandpass', 900, 1200, t, 2.4, 0.04, 0.6, 0.3);
+  },
+  // a balloon squeaking as it is blown up and tied
+  balloon: (a, t) => {
+    warble(a, 300, 700, t, 0.5, 0.06, 14, 40, 'sawtooth');
+    hiss(a, 'bandpass', 1200, 2600, t, 0.5, 0.06, 2, 0.1);
+  },
   // a whoosh round
   spin: (a, t) => {
     hiss(a, 'bandpass', 600, 2400, t, 0.45, 0.14, 1.6, 0.12);
@@ -659,6 +681,19 @@ export const sfx = {
     const t = a.currentTime;
     for (let i = 0; i < 6; i++) hiss(a, 'bandpass', 3200, 2000, t + i * 0.035, 0.05, 0.22, 1, 0.002);
     [N(15), N(19), N(22)].forEach((f, i) => bell(a, f, t + 0.2 + i * 0.06, 0.7, 0.1, [1, 2.4]));
+  },
+  /** A page turning: paper lifting with a little crinkle, a swish through the air, a soft landing. */
+  pageTurn() {
+    const a = audio();
+    if (!a) return;
+    const t = a.currentTime + 0.02;
+    hiss(a, 'bandpass', 800, 2800, t, 0.6, 0.2, 0.9, 0.16);
+    for (let i = 0; i < 9; i++) {
+      const d = 0.03 + Math.random() * 0.45;
+      hiss(a, 'highpass', 3600 + Math.random() * 1600, 2800, t + d, 0.02 + Math.random() * 0.025, 0.08 + Math.random() * 0.1, 0.8, 0.001);
+    }
+    hiss(a, 'lowpass', 500, 140, t + 0.62, 0.14, 0.28, 0.7, 0.004);
+    tone(a, 'sine', 150, 90, t + 0.62, 0.09, 0.07, 0.003);
   },
   /** A short, friendly meow. */
   meow() {

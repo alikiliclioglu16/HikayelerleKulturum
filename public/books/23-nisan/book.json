@@ -1,0 +1,3068 @@
+{
+  "id": "23-nisan",
+  "title": "23 Nisan Şenliği",
+  "titleEn": "The April 23 Festival",
+  "culture": {
+    "tr": "23 Nisan Ulusal Egemenlik ve Çocuk Bayramı, dünya çocukları, halay",
+    "en": "National Sovereignty and Children's Day"
+  },
+  "summary": {
+    "tr": "Elif'in Amerika'daki okulunda bir Dünya Çocukları Şenliği hazırlanıyor. Elif, babaannesinden 23 Nisan'ın hikâyesini dinler ve bu bayramı sınıf arkadaşlarıyla paylaşır: herkes kendi dilinde merhaba der, hep birlikte halay çekerler ve dilek balonlarını gökyüzüne bırakırlar.",
+    "en": "Elif shares April 23, the children's holiday of Türkiye, with her classmates from around the world."
+  },
+  "values": [
+    "sevgi",
+    "vatanseverlik",
+    "ozgurluk"
+  ],
+  "music": {
+    "src": "/books/23-nisan/muzik.mp3",
+    "loop": 27.0
+  },
+  "toyCast": true,
+  "glossary": {
+    "sınıf": {
+      "en": "classroom",
+      "icon": "🏫"
+    },
+    "şenlik": {
+      "en": "festival",
+      "icon": "🎉"
+    },
+    "kültür": {
+      "en": "culture",
+      "icon": "🌍"
+    },
+    "dünya küresi": {
+      "en": "globe",
+      "icon": "🌐"
+    },
+    "parmak kaldırmak": {
+      "en": "to raise your hand",
+      "icon": "✋"
+    },
+    "23 Nisan": {
+      "en": "April 23, National Sovereignty and Children's Day",
+      "icon": "🇹🇷"
+    },
+    "çocuk": {
+      "en": "child",
+      "icon": "🧒"
+    },
+    "armağan": {
+      "en": "gift",
+      "icon": "🎁"
+    },
+    "bayram": {
+      "en": "holiday, festival",
+      "icon": "🎊"
+    },
+    "babaanne": {
+      "en": "grandma (dad's mother)",
+      "icon": "👵"
+    },
+    "Ankara": {
+      "en": "Ankara, the capital of Türkiye",
+      "icon": "🏙️"
+    },
+    "Meclis": {
+      "en": "the Grand National Assembly",
+      "icon": "🏛️"
+    },
+    "millet": {
+      "en": "nation",
+      "icon": "👨‍👩‍👧‍👦"
+    },
+    "Atatürk": {
+      "en": "Atatürk, founder of the Republic of Türkiye",
+      "icon": "🇹🇷"
+    },
+    "kâğıt": {
+      "en": "paper",
+      "icon": "📄"
+    },
+    "makas": {
+      "en": "scissors",
+      "icon": "✂️"
+    },
+    "lale": {
+      "en": "tulip",
+      "icon": "🌷"
+    },
+    "süs zinciri": {
+      "en": "paper garland",
+      "icon": "🎀"
+    },
+    "balon": {
+      "en": "balloon",
+      "icon": "🎈"
+    },
+    "tavan": {
+      "en": "ceiling",
+      "icon": "🏠"
+    },
+    "salon": {
+      "en": "hall",
+      "icon": "🏛️"
+    },
+    "dil": {
+      "en": "language",
+      "icon": "🗣️"
+    },
+    "merhaba": {
+      "en": "hello",
+      "icon": "👋"
+    },
+    "kürsü": {
+      "en": "stage, podium",
+      "icon": "🎤"
+    },
+    "Türkçe": {
+      "en": "Turkish (language)",
+      "icon": "🇹🇷"
+    },
+    "arkadaşlık": {
+      "en": "friendship",
+      "icon": "🤝"
+    },
+    "bayrak": {
+      "en": "flag",
+      "icon": "🇹🇷"
+    },
+    "egemenlik": {
+      "en": "sovereignty, the right to rule",
+      "icon": "⚖️"
+    },
+    "bahçe": {
+      "en": "garden, schoolyard",
+      "icon": "🌳"
+    },
+    "davul": {
+      "en": "drum",
+      "icon": "🥁"
+    },
+    "halay": {
+      "en": "halay, a line dance from Anatolia",
+      "icon": "💃"
+    },
+    "serçe parmak": {
+      "en": "little finger",
+      "icon": "🤙"
+    },
+    "omuz omuza": {
+      "en": "shoulder to shoulder",
+      "icon": "🧑‍🤝‍🧑"
+    },
+    "dilek": {
+      "en": "wish",
+      "icon": "🌟"
+    },
+    "gökyüzü": {
+      "en": "sky",
+      "icon": "☁️"
+    },
+    "özgür": {
+      "en": "free",
+      "icon": "🕊️"
+    },
+    "resim": {
+      "en": "picture, drawing",
+      "icon": "🖼️"
+    },
+    "el ele": {
+      "en": "hand in hand",
+      "icon": "🤝"
+    },
+    "güneş": {
+      "en": "sun",
+      "icon": "☀️"
+    },
+    "ekran": {
+      "en": "screen",
+      "icon": "📱"
+    },
+    "duvar": {
+      "en": "wall",
+      "icon": "🧱"
+    },
+    "sıra": {
+      "en": "school desk",
+      "icon": "🪑"
+    },
+    "tablet": {
+      "en": "tablet",
+      "icon": "📱"
+    },
+    "Türk bayrağı": {
+      "en": "the Turkish flag",
+      "icon": "🇹🇷"
+    },
+    "dilek kartı": {
+      "en": "wish card",
+      "icon": "💌"
+    }
+  },
+  "quiz": [
+    {
+      "q": {
+        "tr": "Türkiye Büyük Millet Meclisi hangi yıl açıldı?",
+        "en": "In which year did the Grand National Assembly open?"
+      },
+      "options": [
+        {
+          "tr": "1920",
+          "en": "1920"
+        },
+        {
+          "tr": "1980",
+          "en": "1980"
+        },
+        {
+          "tr": "1453",
+          "en": "1453"
+        }
+      ],
+      "answer": 0,
+      "page": "p2"
+    },
+    {
+      "q": {
+        "tr": "Atatürk 23 Nisan'ı kime armağan etti?",
+        "en": "Who did Atatürk give April 23 to?"
+      },
+      "options": [
+        {
+          "tr": "Öğretmenlere",
+          "en": "To teachers"
+        },
+        {
+          "tr": "Çocuklara",
+          "en": "To children"
+        },
+        {
+          "tr": "Askerlere",
+          "en": "To soldiers"
+        }
+      ],
+      "answer": 1,
+      "page": "p2"
+    },
+    {
+      "q": {
+        "tr": "Elif ile Can kırmızı kâğıttan ne kestiler?",
+        "en": "What did Elif and Can cut out of red paper?"
+      },
+      "options": [
+        {
+          "tr": "Yıldızlar",
+          "en": "Stars"
+        },
+        {
+          "tr": "Kalpler",
+          "en": "Hearts"
+        },
+        {
+          "tr": "Laleler",
+          "en": "Tulips"
+        }
+      ],
+      "answer": 2,
+      "page": "p3"
+    },
+    {
+      "q": {
+        "tr": "Elif arkadaşlarına hangi Türkçe kelimeyi öğretti?",
+        "en": "Which Turkish word did Elif teach her friends?"
+      },
+      "options": [
+        {
+          "tr": "Arkadaşlık",
+          "en": "Arkadaşlık (friendship)"
+        },
+        {
+          "tr": "Merhaba",
+          "en": "Merhaba (hello)"
+        },
+        {
+          "tr": "Teşekkürler",
+          "en": "Teşekkürler (thanks)"
+        }
+      ],
+      "answer": 0,
+      "page": "p5"
+    },
+    {
+      "q": {
+        "tr": "Halayda çocuklar birbirlerinin neresinden tutundu?",
+        "en": "How did the children hold on to each other in the halay?"
+      },
+      "options": [
+        {
+          "tr": "Kulaklarından",
+          "en": "By the ears"
+        },
+        {
+          "tr": "Serçe parmaklarından",
+          "en": "By their little fingers"
+        },
+        {
+          "tr": "Ayaklarından",
+          "en": "By the feet"
+        }
+      ],
+      "answer": 1,
+      "page": "p6"
+    }
+  ],
+  "valueHunt": [
+    {
+      "page": "p2",
+      "answer": "vatanseverlik",
+      "options": [
+        "tasarruf",
+        "vatanseverlik",
+        "temizlik"
+      ],
+      "why": {
+        "tr": "Elif, babaannesinden ülkesinin hikâyesini merakla dinledi ve 23 Nisan'ı arkadaşlarına anlatmak istedi. Ülkesini ve onun bayramlarını sevmek vatanseverliktir.",
+        "en": "Loving your country and its holidays."
+      }
+    },
+    {
+      "page": "p5",
+      "answer": "sevgi",
+      "options": [
+        "sevgi",
+        "mahremiyet",
+        "sabir"
+      ],
+      "why": {
+        "tr": "Elif, bayramını farklı ülkelerden arkadaşlarıyla paylaştı ve onlara 'arkadaşlık' kelimesini öğretti. Paylaşmak sevgiyi büyütür.",
+        "en": "Sharing a holiday with friends is love."
+      }
+    },
+    {
+      "page": "p7",
+      "answer": "ozgurluk",
+      "options": [
+        "temizlik",
+        "estetik",
+        "ozgurluk"
+      ],
+      "why": {
+        "tr": "Çocuklar dileklerini balonlara bağlayıp gökyüzüne bıraktı. Her balon özgürce uçan bir dilekti.",
+        "en": "Each balloon was a wish flying free."
+      }
+    },
+    {
+      "page": "p7",
+      "answer": "sevgi",
+      "options": [
+        "sevgi",
+        "tasarruf",
+        "sorumluluk"
+      ],
+      "why": {
+        "tr": "Can'ın balonu uçunca Liam kendi balonunu paylaştı. Arkadaşını üzgün görünce ona yardım etmek sevgidir.",
+        "en": "Liam shared his balloon with Can."
+      }
+    }
+  ],
+  "family": {
+    "task": {
+      "tr": "Çocuğunuzla bir kâğıda 'arkadaşlık' kelimesini bildiğiniz bütün dillerde yazın. Sonra kırmızı kâğıttan bir lale kesip pencerenize asın ve 23 Nisan'da büyüklerinizi arayıp bayramlarını kutlayın.",
+      "en": "Write 'friendship' in every language you know, cut a paper tulip and call your elders on April 23."
+    },
+    "talk": [
+      {
+        "tr": "Sence Atatürk bu bayramı neden çocuklara armağan etti?",
+        "en": ""
+      },
+      {
+        "tr": "Sınıfında başka ülkelerden arkadaşların var mı? Onlardan hangi kelimeleri öğrendin?",
+        "en": ""
+      },
+      {
+        "tr": "Bir dilek balonun olsaydı karta ne yazardın?",
+        "en": ""
+      }
+    ]
+  },
+  "table": [
+    {
+      "src": "/models/culture/caydanlik.glb",
+      "word": "çaydanlık",
+      "x": -1.52,
+      "z": 0.06,
+      "h": 0.36,
+      "rotY": 20
+    },
+    {
+      "src": "/models/culture/cay.glb",
+      "word": "çay",
+      "x": -1.3,
+      "z": 0.56,
+      "h": 0.2,
+      "steam": true
+    },
+    {
+      "src": "/models/culture/simit.glb",
+      "word": "simit",
+      "x": 1.48,
+      "z": -0.42,
+      "h": 0.22,
+      "rotY": 10
+    },
+    {
+      "src": "/models/culture/baklava.glb",
+      "word": "baklava",
+      "x": 1.42,
+      "z": 0.42,
+      "h": 0.26,
+      "w": 0.3
+    }
+  ],
+  "pages": [
+    {
+      "id": "p1",
+      "scene": "n1",
+      "title": {
+        "tr": "Dünya Çocukları Şenliği",
+        "en": "The World Children's Festival"
+      },
+      "text": {
+        "tr": "Nisan'ın ilk haftasıydı. Ms. Carter {sınıfa|sınıf} güler yüzle girdi: 'Bu ay bir Dünya Çocukları {Şenliği|şenlik} yapacağız. Her biriniz kendi {kültüründen|kültür} bir şey paylaşacak.' Masadaki {dünya küresi} sanki kendiliğinden dönmeye başladı. Elif hemen {parmak kaldırdı|parmak kaldırmak}: 'Türkiye'de {23 Nisan}, {çocuklara|çocuk} {armağan} edilmiş bir {bayramdır|bayram}. Ben onu anlatmak istiyorum!'",
+        "en": "It was the first week of April. Ms. Carter walked into the classroom smiling: \"This month we will hold a World Children's Festival. Each of you will share something from your own culture.\" The globe on the desk seemed to start spinning by itself. Elif raised her hand at once: \"In Türkiye, April 23 is a holiday given as a gift to children. I want to tell you about it!\""
+      },
+      "culture": {
+        "tr": "23 Nisan Ulusal Egemenlik ve Çocuk Bayramı her yıl Türkiye'de kutlanır. O gün okullarda şiirler okunur, gösteriler yapılır; çocuklar bir günlüğüne müdürlük, valilik gibi makamlara oturur.",
+        "en": "April 23, National Sovereignty and Children's Day, is celebrated every year in Türkiye. Schools hold shows, and children take the seats of officials for a day."
+      },
+      "layers": [
+        {
+          "src": "art/p1.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": []
+        }
+      ],
+      "ambience": "birds",
+      "models": [
+        {
+          "src": "/models/23-nisan/okul-sirasi.glb",
+          "x": 0.24,
+          "z": 0.36,
+          "h": 0.17,
+          "word": "sıra"
+        },
+        {
+          "src": "/models/23-nisan/kure-standi.glb",
+          "x": 0.24,
+          "z": 0.36,
+          "h": 0.15,
+          "y": 0.17,
+          "word": "dünya küresi"
+        },
+        {
+          "src": "/models/23-nisan/kure.glb",
+          "x": 0.235,
+          "z": 0.36,
+          "h": 0.074,
+          "y": 0.23,
+          "word": "dünya küresi",
+          "id": "kure",
+          "magic": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "ogretmen",
+          "x": 0.0,
+          "z": 0.42,
+          "rotY": 10
+        },
+        {
+          "id": "elif",
+          "x": -0.34,
+          "z": 0.62,
+          "rotY": 30
+        },
+        {
+          "id": "zara",
+          "x": -0.17,
+          "z": 0.74,
+          "rotY": 20
+        },
+        {
+          "id": "kenji",
+          "x": 0.0,
+          "z": 0.8,
+          "rotY": 0
+        },
+        {
+          "id": "amara",
+          "x": 0.18,
+          "z": 0.76,
+          "rotY": -20
+        },
+        {
+          "id": "liam",
+          "x": 0.36,
+          "z": 0.66,
+          "rotY": -35
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "ms",
+            "carter",
+            "sınıfa"
+          ],
+          "who": "ogretmen",
+          "do": "wave",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "şenliği",
+            "şenlik"
+          ],
+          "who": "ogretmen",
+          "do": "talk",
+          "look": "reader",
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "şenliği",
+            "yapacağız"
+          ],
+          "who": "zara",
+          "do": "hop",
+          "look": "ogretmen"
+        },
+        {
+          "cue": [
+            "şenliği",
+            "yapacağız"
+          ],
+          "who": "kenji",
+          "do": "hop",
+          "look": "ogretmen",
+          "wait": 0.15
+        },
+        {
+          "cue": [
+            "şenliği",
+            "yapacağız"
+          ],
+          "who": "amara",
+          "do": "hop",
+          "look": "ogretmen",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "şenliği",
+            "yapacağız"
+          ],
+          "who": "liam",
+          "do": "hop",
+          "look": "ogretmen",
+          "wait": 0.45
+        },
+        {
+          "cue": [
+            "küresi",
+            "dönmeye"
+          ],
+          "who": "kure",
+          "do": "whirl",
+          "len": 3.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "küresi",
+            "dönmeye"
+          ],
+          "who": "zara",
+          "do": "lookAt",
+          "target": "kure",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "küresi",
+            "dönmeye"
+          ],
+          "who": "kenji",
+          "do": "lookAt",
+          "target": "kure",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "küresi",
+            "dönmeye"
+          ],
+          "who": "liam",
+          "do": "lookAt",
+          "target": "kure",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "parmak",
+            "kaldırdı"
+          ],
+          "who": "elif",
+          "do": "raise",
+          "look": "ogretmen",
+          "focus": true,
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "türkiye",
+            "nisan"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "ogretmen",
+          "len": 3.2
+        },
+        {
+          "cue": [
+            "istiyorum",
+            "anlatmak"
+          ],
+          "who": "ogretmen",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "istiyorum"
+          ],
+          "who": "amara",
+          "do": "cheer",
+          "look": "elif",
+          "wait": 0.4
+        }
+      ],
+      "audio": {
+        "src": "/books/23-nisan/ses/p1.mp3",
+        "marks": [
+          0.04,
+          0.58,
+          0.8,
+          1.89,
+          2.13,
+          2.53,
+          3.11,
+          3.52,
+          3.92,
+          4.79,
+          4.96,
+          5.14,
+          5.31,
+          5.61,
+          6.15,
+          6.57,
+          7.59,
+          7.78,
+          8.24,
+          8.56,
+          9.16,
+          9.35,
+          9.54,
+          10.71,
+          11.34,
+          12.12,
+          12.47,
+          13.25,
+          13.74,
+          14.62,
+          14.98,
+          15.34,
+          16.48,
+          17.17,
+          17.54,
+          18.22,
+          18.75,
+          19.28,
+          19.5,
+          20.23,
+          20.39,
+          20.68,
+          21.07,
+          21.72
+        ]
+      }
+    },
+    {
+      "id": "p2",
+      "scene": "n2",
+      "title": {
+        "tr": "Babaannenin anlattıkları",
+        "en": "Grandma's story"
+      },
+      "text": {
+        "tr": "Akşam Elif, {babaannesini|babaanne} görüntülü aradı. Babaanne gülümsedi: 'Yıl 1920'ymiş. {23 Nisan}'da {Ankara}'da {Türkiye Büyük Millet Meclisi|Meclis} açılmış. Artık kararları {milletin|millet} seçtiği vekiller verecekmiş.' Masada minicik bir {Meclis} binası beliriverdi. '{Atatürk} bu güzel günü çocuklara {armağan} etmiş, çünkü yarınları çocuklar kuracak.' Can gözlerini kocaman açtı: 'Yani bu bayram bizim mi?'",
+        "en": "In the evening Elif video-called her grandma. Grandma smiled: \"The year was 1920. On April 23 the Grand National Assembly of Türkiye opened in Ankara. From then on, representatives chosen by the nation would make the decisions.\" A tiny Assembly building appeared on the table. \"Atatürk gave this beautiful day to children as a gift, because children will build tomorrow.\" Can's eyes grew wide: \"So this holiday is ours?\""
+      },
+      "culture": {
+        "tr": "Türkiye Büyük Millet Meclisi 23 Nisan 1920'de Ankara'da açıldı. 1979'dan beri her nisan dünyanın dört bir yanından çocuklar Türkiye'ye gelip bu bayramı Türk çocuklarıyla birlikte kutluyor.",
+        "en": "The Grand National Assembly of Türkiye opened in Ankara on April 23, 1920. Since 1979, children from all over the world have come to Türkiye every April to celebrate it together."
+      },
+      "layers": [
+        {
+          "src": "art/p2.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": []
+        }
+      ],
+      "ambience": "crickets",
+      "models": [
+        {
+          "proc": "tablet",
+          "word": "tablet",
+          "x": 0.3,
+          "z": 0.42,
+          "h": 0.5,
+          "rotY": -55
+        },
+        {
+          "src": "/models/23-nisan/meclis.glb",
+          "x": -0.04,
+          "z": 0.46,
+          "h": 0.12,
+          "w": 0.26,
+          "word": "Meclis",
+          "id": "meclis",
+          "magic": true,
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.3,
+          "z": 0.66,
+          "rotY": 50,
+          "look": "tablet"
+        },
+        {
+          "id": "can",
+          "x": -0.1,
+          "z": 0.8,
+          "rotY": 40,
+          "look": "tablet"
+        },
+        {
+          "id": "babaanne",
+          "x": 0.0,
+          "z": 0.0,
+          "rotY": 0,
+          "screen": true,
+          "look": "reader"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "akşam",
+            "babaannesini",
+            "görüntülü"
+          ],
+          "who": "elif",
+          "do": "wave",
+          "look": "tablet",
+          "focus": true
+        },
+        {
+          "cue": [
+            "babaannesini",
+            "görüntülü",
+            "gülümsedi"
+          ],
+          "who": "babaanne",
+          "do": "wave",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "gülümsedi",
+            "1920"
+          ],
+          "who": "babaanne",
+          "do": "talk",
+          "look": "reader",
+          "len": 3.2
+        },
+        {
+          "cue": [
+            "ankara",
+            "meclisi"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "tablet",
+          "len": 2
+        },
+        {
+          "cue": [
+            "kararları",
+            "vekiller"
+          ],
+          "who": "babaanne",
+          "do": "talk",
+          "look": "reader",
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "minicik",
+            "meclis",
+            "beliriverdi"
+          ],
+          "who": "meclis",
+          "do": "appear",
+          "len": 2.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "minicik",
+            "meclis",
+            "beliriverdi"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "meclis",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "minicik",
+            "meclis",
+            "beliriverdi"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "meclis",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "atatürk"
+          ],
+          "who": "babaanne",
+          "do": "talk",
+          "look": "reader",
+          "len": 3
+        },
+        {
+          "cue": [
+            "kuracak",
+            "yarınları"
+          ],
+          "who": "meclis",
+          "do": "shine",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "can",
+            "gözlerini",
+            "kocaman"
+          ],
+          "who": "can",
+          "do": "raise",
+          "look": "tablet",
+          "focus": true,
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "bizim",
+            "yani"
+          ],
+          "who": "babaanne",
+          "do": "nod",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "bizim"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "can",
+          "wait": 0.5
+        }
+      ],
+      "audio": {
+        "src": "/books/23-nisan/ses/p2.mp3",
+        "marks": [
+          0.02,
+          0.56,
+          1.1,
+          2.94,
+          3.53,
+          4.36,
+          5.04,
+          5.72,
+          5.93,
+          6.44,
+          6.86,
+          7.11,
+          7.71,
+          7.95,
+          9.78,
+          10.65,
+          11.0,
+          11.64,
+          12.14,
+          12.63,
+          13.13,
+          14.27,
+          14.72,
+          15.17,
+          15.48,
+          15.8,
+          16.25,
+          17.32,
+          17.79,
+          17.98,
+          18.31,
+          18.63,
+          19.24,
+          19.7,
+          20.26,
+          20.6,
+          21.24,
+          21.72,
+          22.72,
+          22.95,
+          23.66,
+          24.21,
+          24.94,
+          25.32,
+          25.54,
+          25.92,
+          26.3,
+          26.56
+        ]
+      }
+    },
+    {
+      "id": "p3",
+      "scene": "n3",
+      "title": {
+        "tr": "Kâğıttan laleler",
+        "en": "Paper tulips"
+      },
+      "text": {
+        "tr": "Hafta sonu Elif ile Can masaya {kâğıtlar|kâğıt}, {makaslar|makas} ve boyalar yaydı. Kırmızı kâğıttan {laleler|lale} kestiler, beyaz halkalardan uzun bir {süs zinciri} yaptılar. Can {balonları|balon} şişirirken yanakları da balon gibi oldu. Birden süsler havalandı ve {tavana|tavan} kendiliğinden asıldı. Elif kahkahayla güldü: '{Bayram|bayram} şimdiden başladı!'",
+        "en": "At the weekend Elif and Can spread paper, scissors and paints on the table. They cut tulips out of red paper and made a long garland of white rings. As Can blew up the balloons, his cheeks became balloons too. Suddenly the decorations floated up and hung themselves from the ceiling. Elif burst out laughing: \"The holiday has already begun!\""
+      },
+      "culture": {
+        "tr": "Lale, Türk sanatında en çok sevilen çiçektir. Çinilerde, halılarda ve kumaşlarda lale desenleri görülür. 23 Nisan'da sınıflar kırmızı-beyaz süslerle, bayraklarla ve çocukların resimleriyle donatılır.",
+        "en": "The tulip is the best-loved flower in Turkish art. On April 23, classrooms are decorated in red and white."
+      },
+      "layers": [
+        {
+          "src": "art/p3.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": []
+        }
+      ],
+      "ambience": "birds",
+      "models": [
+        {
+          "src": "/models/23-nisan/kagit-lale.glb",
+          "x": -0.42,
+          "z": 0.84,
+          "h": 0.11,
+          "word": "lale",
+          "id": "lale1",
+          "magic": true,
+          "hidden": true,
+          "rotY": 20
+        },
+        {
+          "src": "/models/23-nisan/kagit-lale.glb",
+          "x": -0.35,
+          "z": 0.88,
+          "h": 0.12,
+          "word": "lale",
+          "id": "lale2",
+          "magic": true,
+          "hidden": true
+        },
+        {
+          "src": "/models/23-nisan/kagit-lale.glb",
+          "x": -0.28,
+          "z": 0.85,
+          "h": 0.105,
+          "word": "lale",
+          "id": "lale3",
+          "magic": true,
+          "hidden": true,
+          "rotY": -25
+        },
+        {
+          "src": "/models/23-nisan/sus-zinciri.glb",
+          "x": -0.2,
+          "z": 0.12,
+          "h": 0.1,
+          "y": 0.62,
+          "word": "süs zinciri",
+          "id": "zincir1",
+          "magic": true,
+          "from": [
+            0.05,
+            -0.55,
+            0.6
+          ]
+        },
+        {
+          "src": "/models/23-nisan/sus-zinciri.glb",
+          "x": 0.22,
+          "z": 0.12,
+          "h": 0.1,
+          "y": 0.6,
+          "word": "süs zinciri",
+          "id": "zincir2",
+          "magic": true,
+          "rotY": 180,
+          "from": [
+            -0.1,
+            -0.53,
+            0.62
+          ]
+        },
+        {
+          "src": "/models/23-nisan/balon.glb",
+          "x": -0.42,
+          "z": 0.16,
+          "h": 0.14,
+          "y": 0.5,
+          "word": "balon",
+          "tint": "#E3262E",
+          "id": "tavan1",
+          "magic": true,
+          "from": [
+            0.2,
+            -0.45,
+            0.55
+          ]
+        },
+        {
+          "src": "/models/23-nisan/balon.glb",
+          "x": 0.42,
+          "z": 0.16,
+          "h": 0.14,
+          "y": 0.48,
+          "word": "balon",
+          "tint": "#F6F2EA",
+          "id": "tavan2",
+          "magic": true,
+          "from": [
+            -0.25,
+            -0.43,
+            0.55
+          ]
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.16,
+          "z": 0.66,
+          "rotY": 15
+        },
+        {
+          "id": "can",
+          "x": 0.2,
+          "z": 0.7,
+          "rotY": -20
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "hafta",
+            "sonu"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "can",
+          "len": 2.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "kâğıtlar",
+            "makaslar",
+            "boyalar"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "laleler",
+            "kestiler"
+          ],
+          "who": "lale1",
+          "do": "grow",
+          "len": 0.9,
+          "focus": true
+        },
+        {
+          "cue": [
+            "laleler",
+            "kestiler"
+          ],
+          "who": "lale2",
+          "do": "grow",
+          "len": 0.9,
+          "wait": 0.35
+        },
+        {
+          "cue": [
+            "laleler",
+            "kestiler"
+          ],
+          "who": "lale3",
+          "do": "grow",
+          "len": 0.9,
+          "wait": 0.7
+        },
+        {
+          "cue": [
+            "laleler",
+            "kestiler"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "lale2",
+          "len": 2
+        },
+        {
+          "cue": [
+            "balonları",
+            "şişirirken"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "balon",
+          "look": "reader",
+          "focus": true,
+          "sound": "balloon"
+        },
+        {
+          "cue": [
+            "yanakları",
+            "balon"
+          ],
+          "who": "can",
+          "do": "raise",
+          "look": "reader",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "havalandı",
+            "süsler"
+          ],
+          "who": "zincir1",
+          "do": "rise",
+          "focus": true
+        },
+        {
+          "cue": [
+            "havalandı",
+            "süsler"
+          ],
+          "who": "zincir2",
+          "do": "rise",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "havalandı",
+            "süsler"
+          ],
+          "who": "tavan1",
+          "do": "rise",
+          "wait": 0.15
+        },
+        {
+          "cue": [
+            "havalandı",
+            "süsler"
+          ],
+          "who": "tavan2",
+          "do": "rise",
+          "wait": 0.45
+        },
+        {
+          "cue": [
+            "havalandı",
+            "süsler"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "up",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "kahkahayla",
+            "güldü"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "başladı",
+            "bayram"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "reader"
+        }
+      ],
+      "audio": {
+        "src": "/books/23-nisan/ses/p3.mp3",
+        "marks": [
+          0.05,
+          0.37,
+          0.7,
+          1.02,
+          1.34,
+          1.53,
+          1.99,
+          2.58,
+          3.24,
+          3.51,
+          4.17,
+          5.18,
+          5.63,
+          6.22,
+          6.66,
+          7.66,
+          8.01,
+          8.65,
+          9.1,
+          9.3,
+          9.94,
+          11.14,
+          11.33,
+          11.94,
+          12.54,
+          13.15,
+          13.34,
+          13.67,
+          14.0,
+          14.82,
+          15.15,
+          15.47,
+          16.07,
+          16.48,
+          16.95,
+          17.7,
+          18.5,
+          19.0,
+          19.76,
+          20.46,
+          20.94,
+          21.63,
+          22.35
+        ]
+      }
+    },
+    {
+      "id": "p4",
+      "scene": "n4",
+      "title": {
+        "tr": "Herkes kendi dilinde",
+        "en": "Everyone in their own language"
+      },
+      "text": {
+        "tr": "{Şenlik|şenlik} günü okul {salonu|salon} rengarenkti. Ms. Carter, 'Herkes kendi {dilinde|dil} {merhaba} desin!' dedi. Zara 'Assalam-o-Alaikum!', Kenji 'Konnichiwa!', Amara 'Akwaaba!', Liam 'Hello!' diye seslendi. Selamlar renkli baloncuklar gibi havada uçuştu. Sıra Elif'e geldi; derin bir nefes aldı ve {kürsüye|kürsü} yürüdü.",
+        "en": "On the day of the festival the school hall was full of colour. Ms. Carter said, \"Let everyone say hello in their own language!\" Zara called \"Assalam-o-Alaikum!\", Kenji \"Konnichiwa!\", Amara \"Akwaaba!\" and Liam \"Hello!\". The greetings flew through the air like colourful bubbles. Then it was Elif's turn; she took a deep breath and walked to the stage."
+      },
+      "culture": {
+        "tr": "Assalam-o-Alaikum, Pakistan'da konuşulan Urducada 'merhaba' yerine kullanılır. Konnichiwa Japonca 'merhaba', Akwaaba ise Gana'da konuşulan Twi dilinde 'hoş geldin' demektir.",
+        "en": "Assalam-o-Alaikum is a greeting in Urdu, Konnichiwa means hello in Japanese, and Akwaaba means welcome in Twi, spoken in Ghana."
+      },
+      "layers": [
+        {
+          "src": "art/p4.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": []
+        }
+      ],
+      "models": [
+        {
+          "src": "/models/23-nisan/kursu.glb",
+          "x": 0.0,
+          "z": 0.3,
+          "h": 0.09,
+          "w": 0.5,
+          "word": "kürsü"
+        },
+        {
+          "proc": "bubble",
+          "label": "Assalam-o-Alaikum!",
+          "color": "#7B4BB7",
+          "x": -0.18,
+          "z": 0.7,
+          "y": 0.44,
+          "h": 0.07,
+          "id": "bub_zara",
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Konnichiwa!",
+          "color": "#14937A",
+          "x": -0.05,
+          "z": 0.7,
+          "y": 0.55,
+          "h": 0.07,
+          "id": "bub_kenji",
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Akwaaba!",
+          "color": "#D9452F",
+          "x": 0.14,
+          "z": 0.7,
+          "y": 0.44,
+          "h": 0.07,
+          "id": "bub_amara",
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Hello!",
+          "color": "#D8941A",
+          "x": 0.32,
+          "z": 0.7,
+          "y": 0.55,
+          "h": 0.07,
+          "id": "bub_liam",
+          "hidden": true,
+          "magic": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "ogretmen",
+          "x": -0.4,
+          "z": 0.44,
+          "rotY": 30
+        },
+        {
+          "id": "zara",
+          "x": -0.24,
+          "z": 0.7,
+          "rotY": 10
+        },
+        {
+          "id": "kenji",
+          "x": -0.05,
+          "z": 0.76,
+          "rotY": 0
+        },
+        {
+          "id": "amara",
+          "x": 0.14,
+          "z": 0.76,
+          "rotY": -5
+        },
+        {
+          "id": "liam",
+          "x": 0.32,
+          "z": 0.7,
+          "rotY": -15
+        },
+        {
+          "id": "elif",
+          "x": 0.44,
+          "z": 0.56,
+          "rotY": -40
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "şenlik",
+            "salonu",
+            "rengarenk"
+          ],
+          "who": "ogretmen",
+          "do": "wave",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "herkes",
+            "dilinde",
+            "merhaba"
+          ],
+          "who": "ogretmen",
+          "do": "talk",
+          "look": "reader",
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "zara",
+            "assalam"
+          ],
+          "who": "zara",
+          "do": "wave",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "zara",
+            "assalam"
+          ],
+          "who": "bub_zara",
+          "do": "appear",
+          "len": 1,
+          "wait": 0.15,
+          "sound": "greet"
+        },
+        {
+          "cue": [
+            "kenji",
+            "konnichiwa"
+          ],
+          "who": "kenji",
+          "do": "wave",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kenji",
+            "konnichiwa"
+          ],
+          "who": "bub_kenji",
+          "do": "appear",
+          "len": 1,
+          "wait": 0.15,
+          "sound": "greet"
+        },
+        {
+          "cue": [
+            "amara",
+            "akwaaba"
+          ],
+          "who": "amara",
+          "do": "wave",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "amara",
+            "akwaaba"
+          ],
+          "who": "bub_amara",
+          "do": "appear",
+          "len": 1,
+          "wait": 0.15,
+          "sound": "greet"
+        },
+        {
+          "cue": [
+            "liam",
+            "hello"
+          ],
+          "who": "liam",
+          "do": "wave",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "liam",
+            "hello"
+          ],
+          "who": "bub_liam",
+          "do": "appear",
+          "len": 1,
+          "wait": 0.15,
+          "sound": "greet"
+        },
+        {
+          "cue": [
+            "selamlar",
+            "baloncuklar",
+            "uçuştu"
+          ],
+          "who": "bub_zara",
+          "do": "rise",
+          "to": [
+            0.12,
+            0.24,
+            -0.35
+          ],
+          "wait": 0.0
+        },
+        {
+          "cue": [
+            "selamlar",
+            "baloncuklar",
+            "uçuştu"
+          ],
+          "who": "bub_kenji",
+          "do": "rise",
+          "to": [
+            -0.06,
+            0.27,
+            -0.35
+          ],
+          "wait": 0.18
+        },
+        {
+          "cue": [
+            "selamlar",
+            "baloncuklar",
+            "uçuştu"
+          ],
+          "who": "bub_amara",
+          "do": "rise",
+          "to": [
+            0.08,
+            0.3,
+            -0.35
+          ],
+          "wait": 0.36
+        },
+        {
+          "cue": [
+            "selamlar",
+            "baloncuklar",
+            "uçuştu"
+          ],
+          "who": "bub_liam",
+          "do": "rise",
+          "to": [
+            -0.14,
+            0.32999999999999996,
+            -0.35
+          ],
+          "wait": 0.54
+        },
+        {
+          "cue": [
+            "selamlar",
+            "baloncuklar",
+            "uçuştu"
+          ],
+          "who": "kenji",
+          "do": "lookAt",
+          "target": "up",
+          "len": 2
+        },
+        {
+          "cue": [
+            "selamlar",
+            "baloncuklar",
+            "uçuştu"
+          ],
+          "who": "amara",
+          "do": "cheer",
+          "look": "up",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "sıra",
+            "elif'e",
+            "geldi"
+          ],
+          "who": "elif",
+          "do": "hop",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "nefes",
+            "kürsüye"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            -0.3,
+            0,
+            -0.16
+          ],
+          "face": -10,
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "kürsüye",
+            "yürüdü"
+          ],
+          "who": "bub_zara",
+          "do": "vanish",
+          "wait": 0.0,
+          "sound": null
+        },
+        {
+          "cue": [
+            "kürsüye",
+            "yürüdü"
+          ],
+          "who": "bub_kenji",
+          "do": "vanish",
+          "wait": 0.2,
+          "sound": null
+        },
+        {
+          "cue": [
+            "kürsüye",
+            "yürüdü"
+          ],
+          "who": "bub_amara",
+          "do": "vanish",
+          "wait": 0.4,
+          "sound": null
+        },
+        {
+          "cue": [
+            "kürsüye",
+            "yürüdü"
+          ],
+          "who": "bub_liam",
+          "do": "vanish",
+          "wait": 0.6000000000000001,
+          "sound": null
+        }
+      ],
+      "audio": {
+        "src": "/books/23-nisan/ses/p4.mp3",
+        "marks": [
+          0.05,
+          0.4,
+          0.87,
+          1.22,
+          1.72,
+          2.89,
+          3.14,
+          3.87,
+          4.21,
+          4.56,
+          5.05,
+          5.54,
+          6.21,
+          6.91,
+          7.7,
+          8.2,
+          8.4,
+          9.32,
+          10.06,
+          11.09,
+          11.86,
+          13.01,
+          13.7,
+          14.41,
+          14.8,
+          15.69,
+          16.21,
+          16.58,
+          17.25,
+          17.62,
+          18.14,
+          19.06,
+          19.39,
+          19.85,
+          20.57,
+          20.93,
+          21.14,
+          21.51,
+          21.87,
+          22.08,
+          22.6,
+          23.15
+        ]
+      }
+    },
+    {
+      "id": "p5",
+      "scene": "n5",
+      "title": {
+        "tr": "Arkadaşlık",
+        "en": "Friendship"
+      },
+      "text": {
+        "tr": "Elif {kürsüde|kürsü}, '{Merhaba|merhaba}! Benim adım Elif,' dedi. 'Size {Türkçe} bir kelime öğreteceğim: {arkadaşlık}.' Bütün salon hep bir ağızdan tekrarladı: 'Ar-ka-daş-lık!' Sahnedeki {Türk bayrağı|bayrak} rüzgârda dalgalandı. Elif devam etti: '{Atatürk}, {egemenlik} kayıtsız şartsız milletindir, demiş. {Bayramını|bayram} da biz çocuklara vermiş. Bugün bu bayramı sizinle paylaşıyorum.'",
+        "en": "On the stage Elif said, \"Hello! My name is Elif. I will teach you a Turkish word: arkadaşlık, friendship.\" The whole hall repeated together: \"Ar-ka-daş-lık!\" The Turkish flag on the stage waved in the wind. Elif went on: \"Atatürk said, sovereignty belongs to the nation without any condition. And he gave his holiday to us children. Today I share this holiday with you.\""
+      },
+      "culture": {
+        "tr": "'Egemenlik kayıtsız şartsız milletindir' sözü Türkiye Büyük Millet Meclisi'nin genel kurul salonunda yazılıdır. Bu söz, ülkeyi halkın seçtiği kişilerin yönetmesi demektir.",
+        "en": "\"Sovereignty belongs unconditionally to the nation\" is written in the main hall of the Turkish Grand National Assembly."
+      },
+      "layers": [
+        {
+          "src": "art/p5.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": []
+        }
+      ],
+      "models": [
+        {
+          "src": "/models/23-nisan/kursu.glb",
+          "x": -0.06,
+          "z": 0.42,
+          "h": 0.09,
+          "w": 0.5,
+          "word": "kürsü"
+        },
+        {
+          "src": "/models/23-nisan/bayrak-direk.glb",
+          "x": 0.24,
+          "z": 0.32,
+          "h": 0.5,
+          "word": "bayrak"
+        },
+        {
+          "src": "/models/23-nisan/bayrak-kumas.glb",
+          "x": 0.355,
+          "z": 0.32,
+          "h": 0.13,
+          "y": 0.335,
+          "w": 0.22,
+          "word": "Türk bayrağı",
+          "id": "bayrak",
+          "magic": true,
+          "fx": "wave"
+        },
+        {
+          "proc": "bubble",
+          "label": "Ar-ka-daş-lık!",
+          "color": "#D2372C",
+          "x": -0.06,
+          "z": 0.42,
+          "y": 0.56,
+          "h": 0.11,
+          "id": "bub_ark",
+          "hidden": true,
+          "magic": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.06,
+          "z": 0.42,
+          "rotY": 0,
+          "y": 0.09
+        },
+        {
+          "id": "zara",
+          "x": -0.42,
+          "z": 0.72,
+          "rotY": 55
+        },
+        {
+          "id": "kenji",
+          "x": -0.3,
+          "z": 0.86,
+          "rotY": 35
+        },
+        {
+          "id": "amara",
+          "x": 0.3,
+          "z": 0.84,
+          "rotY": -35
+        },
+        {
+          "id": "liam",
+          "x": 0.42,
+          "z": 0.7,
+          "rotY": -55
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "elif",
+            "kürsüde"
+          ],
+          "who": "elif",
+          "do": "wave",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "benim",
+            "adım"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "reader",
+          "len": 2
+        },
+        {
+          "cue": [
+            "türkçe",
+            "kelime"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "reader",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "arkadaşlık"
+          ],
+          "who": "elif",
+          "do": "raise",
+          "look": "reader",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "tekrarladı",
+            "bütün"
+          ],
+          "who": "bub_ark",
+          "do": "appear",
+          "len": 1.4,
+          "focus": true,
+          "sound": "greet"
+        },
+        {
+          "cue": [
+            "tekrarladı",
+            "bütün"
+          ],
+          "who": "zara",
+          "do": "cheer",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "tekrarladı",
+            "bütün"
+          ],
+          "who": "kenji",
+          "do": "cheer",
+          "look": "elif",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "tekrarladı",
+            "bütün"
+          ],
+          "who": "amara",
+          "do": "cheer",
+          "look": "elif",
+          "wait": 0.1
+        },
+        {
+          "cue": [
+            "tekrarladı",
+            "bütün"
+          ],
+          "who": "liam",
+          "do": "cheer",
+          "look": "elif",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "türk",
+            "bayrağı",
+            "dalgalandı"
+          ],
+          "who": "bayrak",
+          "do": "shine",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "türk",
+            "bayrağı",
+            "dalgalandı"
+          ],
+          "who": "bub_ark",
+          "do": "vanish",
+          "sound": null,
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "devam",
+            "atatürk"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "reader",
+          "len": 3.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "vermiş",
+            "çocuklara"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "reader",
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "paylaşıyorum"
+          ],
+          "who": "elif",
+          "do": "bow",
+          "look": "reader",
+          "len": 1.6,
+          "sound": "applause"
+        },
+        {
+          "cue": [
+            "paylaşıyorum"
+          ],
+          "who": "zara",
+          "do": "cheer",
+          "look": "elif",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "paylaşıyorum"
+          ],
+          "who": "liam",
+          "do": "cheer",
+          "look": "elif",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "paylaşıyorum"
+          ],
+          "who": "bayrak",
+          "do": "shine",
+          "len": 0.8,
+          "wait": 0.6
+        }
+      ],
+      "audio": {
+        "src": "/books/23-nisan/ses/p5.mp3",
+        "marks": [
+          0.02,
+          0.4,
+          1.31,
+          2.04,
+          2.35,
+          2.66,
+          3.21,
+          4.02,
+          4.33,
+          4.64,
+          4.82,
+          5.26,
+          6.33,
+          7.56,
+          8.07,
+          8.57,
+          9.0,
+          9.29,
+          10.36,
+          11.08,
+          11.31,
+          11.54,
+          11.77,
+          12.51,
+          13.22,
+          13.93,
+          14.47,
+          15.68,
+          15.95,
+          16.22,
+          17.11,
+          17.68,
+          18.56,
+          19.24,
+          19.64,
+          20.39,
+          21.09,
+          21.76,
+          21.97,
+          22.18,
+          22.85,
+          23.67,
+          24.01,
+          24.21,
+          24.7,
+          25.18,
+          25.99
+        ]
+      }
+    },
+    {
+      "id": "p6",
+      "scene": "n6",
+      "title": {
+        "tr": "Hep birlikte halay",
+        "en": "A halay together"
+      },
+      "text": {
+        "tr": "Sonra hep birlikte {bahçeye|bahçe} çıktılar. Elif'in babası {davulu|davul} getirmişti: düm, tek, düm, tek! Elif arkadaşlarına {halayı|halay} öğretti. {Serçe parmaklarını|serçe parmak} birbirine geçirip {omuz omuza} dizildiler. Kenji önce şaşırdı ama kısa sürede en hızlı ayak o oldu. Halka büyüdükçe öğretmenler ve veliler de {halaya|halay} katıldı.",
+        "en": "Then everyone went out into the garden together. Elif's dad had brought his drum: boom, tek, boom, tek! Elif taught her friends the halay. They linked their little fingers and lined up shoulder to shoulder. Kenji was puzzled at first, but soon he had the quickest feet of all. As the circle grew, teachers and parents joined the halay too."
+      },
+      "culture": {
+        "tr": "Halay, Anadolu'nun birçok yerinde düğünlerde ve bayramlarda oynanan bir halk oyunudur. Oyuncular serçe parmaklarından ya da omuzlarından tutuşur; en başta mendil sallayan kişiye 'halaybaşı' denir.",
+        "en": "Halay is a folk dance from many parts of Anatolia. Dancers link little fingers or shoulders, and the leader waves a handkerchief."
+      },
+      "layers": [
+        {
+          "src": "art/p6.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": []
+        }
+      ],
+      "ambience": "birds",
+      "models": [],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.3,
+          "z": 0.7050000000000001,
+          "rotY": 0
+        },
+        {
+          "id": "zara",
+          "x": -0.15,
+          "z": 0.6825,
+          "rotY": 0
+        },
+        {
+          "id": "kenji",
+          "x": 0.0,
+          "z": 0.66,
+          "rotY": 0
+        },
+        {
+          "id": "amara",
+          "x": 0.15,
+          "z": 0.6825,
+          "rotY": 0
+        },
+        {
+          "id": "liam",
+          "x": 0.3,
+          "z": 0.7050000000000001,
+          "rotY": 0
+        },
+        {
+          "id": "baba",
+          "x": -0.44,
+          "z": 0.44,
+          "rotY": 35,
+          "hold": "davul"
+        },
+        {
+          "id": "ogretmen",
+          "x": 0.44,
+          "z": 0.44,
+          "rotY": -35
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "sonra",
+            "bahçeye"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "babası",
+            "davulu"
+          ],
+          "who": "baba",
+          "do": "drum",
+          "look": "reader",
+          "len": 7,
+          "focus": true
+        },
+        {
+          "cue": [
+            "halayı",
+            "öğretti"
+          ],
+          "who": "elif",
+          "do": "dance",
+          "look": "zara",
+          "len": 7
+        },
+        {
+          "cue": [
+            "serçe",
+            "omuz",
+            "dizildiler"
+          ],
+          "who": "zara",
+          "do": "dance",
+          "look": "reader",
+          "len": 6
+        },
+        {
+          "cue": [
+            "serçe",
+            "omuz",
+            "dizildiler"
+          ],
+          "who": "amara",
+          "do": "dance",
+          "look": "reader",
+          "len": 6,
+          "wait": 0.25
+        },
+        {
+          "cue": [
+            "serçe",
+            "omuz",
+            "dizildiler"
+          ],
+          "who": "liam",
+          "do": "dance",
+          "look": "reader",
+          "len": 6
+        },
+        {
+          "cue": [
+            "kenji",
+            "şaşırdı"
+          ],
+          "who": "kenji",
+          "do": "lookAround",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "hızlı",
+            "ayak"
+          ],
+          "who": "kenji",
+          "do": "cheer",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "hızlı",
+            "ayak"
+          ],
+          "who": "kenji",
+          "do": "dance",
+          "look": "reader",
+          "len": 5
+        },
+        {
+          "cue": [
+            "halka",
+            "büyüdükçe",
+            "veliler"
+          ],
+          "who": "ogretmen",
+          "do": "dance",
+          "look": "reader",
+          "len": 4
+        },
+        {
+          "cue": [
+            "halka",
+            "büyüdükçe",
+            "veliler"
+          ],
+          "who": "baba",
+          "do": "drum",
+          "look": "reader",
+          "len": 4
+        },
+        {
+          "cue": [
+            "katıldı",
+            "halaya"
+          ],
+          "who": "elif",
+          "do": "dance",
+          "look": "reader",
+          "len": 3
+        },
+        {
+          "cue": [
+            "katıldı",
+            "halaya"
+          ],
+          "who": "zara",
+          "do": "dance",
+          "look": "reader",
+          "len": 3
+        }
+      ],
+      "audio": {
+        "src": "/books/23-nisan/ses/p6.mp3",
+        "marks": [
+          0.05,
+          0.38,
+          0.57,
+          1.14,
+          1.6,
+          2.71,
+          3.36,
+          4.02,
+          5.09,
+          5.93,
+          6.27,
+          6.52,
+          6.77,
+          7.61,
+          7.91,
+          8.71,
+          9.14,
+          10.02,
+          11.01,
+          11.59,
+          12.04,
+          12.76,
+          13.74,
+          14.11,
+          14.49,
+          15.01,
+          15.56,
+          15.93,
+          16.46,
+          16.67,
+          17.05,
+          17.42,
+          17.64,
+          18.25,
+          18.61,
+          19.26,
+          19.91,
+          20.12,
+          20.62,
+          20.83,
+          21.34,
+          21.88
+        ]
+      }
+    },
+    {
+      "id": "p7",
+      "scene": "n7",
+      "title": {
+        "tr": "Dilek balonları",
+        "en": "Wish balloons"
+      },
+      "text": {
+        "tr": "Şenliğin sonunda herkes bir karta {dileğini|dilek} yazıp {balonunun|balon} ipine bağladı. Can'ın balonu bir rüzgârla elinden kaçıverdi; dudakları büküldü. Liam kendi balonunu uzattı: 'Al, birlikte uçuralım.' Üçe kadar saydılar ve balonları {gökyüzüne|gökyüzü} bıraktılar. Balonlar pırıl pırıl yükseldi; her biri {özgürce|özgür} uçan bir {dilekti|dilek}.",
+        "en": "At the end of the festival everyone wrote a wish on a card and tied it to the string of their balloon. A gust of wind snatched Can's balloon from his hand, and his lip trembled. Liam held out his own balloon: \"Here, let's fly it together.\" They counted to three and let the balloons go into the sky. The balloons rose, sparkling; each one was a wish flying free."
+      },
+      "layers": [
+        {
+          "src": "art/p7.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": []
+        }
+      ],
+      "ambience": "birds",
+      "models": [
+        {
+          "src": "/models/23-nisan/balon.glb",
+          "x": -0.42500000000000004,
+          "z": 0.64,
+          "h": 0.22,
+          "y": 0.16,
+          "word": "balon",
+          "tint": "#E3262E",
+          "id": "b_elif",
+          "hidden": true
+        },
+        {
+          "src": "/models/23-nisan/balon.glb",
+          "x": -0.255,
+          "z": 0.64,
+          "h": 0.22,
+          "y": 0.16,
+          "word": "balon",
+          "tint": "#F6F2EA",
+          "id": "b_zara",
+          "hidden": true
+        },
+        {
+          "src": "/models/23-nisan/balon.glb",
+          "x": -0.085,
+          "z": 0.64,
+          "h": 0.22,
+          "y": 0.16,
+          "word": "balon",
+          "tint": "#E3262E",
+          "id": "b_can",
+          "hidden": true
+        },
+        {
+          "src": "/models/23-nisan/balon.glb",
+          "x": 0.085,
+          "z": 0.64,
+          "h": 0.22,
+          "y": 0.16,
+          "word": "balon",
+          "tint": "#F6F2EA",
+          "id": "b_liam",
+          "hidden": true
+        },
+        {
+          "src": "/models/23-nisan/balon.glb",
+          "x": 0.255,
+          "z": 0.64,
+          "h": 0.22,
+          "y": 0.16,
+          "word": "balon",
+          "tint": "#E3262E",
+          "id": "b_amara",
+          "hidden": true
+        },
+        {
+          "src": "/models/23-nisan/balon.glb",
+          "x": -0.085,
+          "z": 0.64,
+          "h": 0.22,
+          "y": 0.16,
+          "word": "balon",
+          "tint": "#F6F2EA",
+          "id": "b_can2",
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.34,
+          "z": 0.7,
+          "rotY": 0,
+          "hold": "kart"
+        },
+        {
+          "id": "zara",
+          "x": -0.17,
+          "z": 0.7,
+          "rotY": 0
+        },
+        {
+          "id": "can",
+          "x": -0.0,
+          "z": 0.7,
+          "rotY": 0
+        },
+        {
+          "id": "liam",
+          "x": 0.17,
+          "z": 0.7,
+          "rotY": 0
+        },
+        {
+          "id": "amara",
+          "x": 0.34,
+          "z": 0.7,
+          "rotY": 0
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "şenliğin",
+            "sonunda",
+            "karta"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "reader",
+          "len": 2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "ipine",
+            "bağladı",
+            "balonunun"
+          ],
+          "who": "b_elif",
+          "do": "appear",
+          "len": 0.7,
+          "wait": 0.0
+        },
+        {
+          "cue": [
+            "ipine",
+            "bağladı",
+            "balonunun"
+          ],
+          "who": "b_zara",
+          "do": "appear",
+          "len": 0.7,
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "ipine",
+            "bağladı",
+            "balonunun"
+          ],
+          "who": "b_can",
+          "do": "appear",
+          "len": 0.7,
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "ipine",
+            "bağladı",
+            "balonunun"
+          ],
+          "who": "b_liam",
+          "do": "appear",
+          "len": 0.7,
+          "wait": 0.6000000000000001
+        },
+        {
+          "cue": [
+            "ipine",
+            "bağladı",
+            "balonunun"
+          ],
+          "who": "b_amara",
+          "do": "appear",
+          "len": 0.7,
+          "wait": 0.8
+        },
+        {
+          "cue": [
+            "can'ın",
+            "kaçıverdi",
+            "rüzgârla"
+          ],
+          "who": "b_can",
+          "do": "rise",
+          "to": [
+            0.2,
+            0.7,
+            -0.4
+          ],
+          "focus": true
+        },
+        {
+          "cue": [
+            "kaçıverdi",
+            "dudakları"
+          ],
+          "who": "can",
+          "do": "bow",
+          "look": "up",
+          "len": 2
+        },
+        {
+          "cue": [
+            "liam",
+            "uzattı"
+          ],
+          "who": "b_liam",
+          "do": "vanish",
+          "sound": null
+        },
+        {
+          "cue": [
+            "liam",
+            "uzattı"
+          ],
+          "who": "liam",
+          "do": "give",
+          "target": "balonBeyaz",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "liam",
+            "uzattı"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "balonBeyaz",
+          "look": "liam",
+          "wait": 0.1
+        },
+        {
+          "cue": [
+            "birlikte",
+            "uçuralım"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "liam"
+        },
+        {
+          "cue": [
+            "üçe",
+            "saydılar"
+          ],
+          "who": "elif",
+          "do": "hop",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "üçe",
+            "saydılar"
+          ],
+          "who": "amara",
+          "do": "hop",
+          "look": "reader",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "üçe",
+            "saydılar"
+          ],
+          "who": "zara",
+          "do": "hop",
+          "look": "reader",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "bıraktılar",
+            "gökyüzüne"
+          ],
+          "who": "can",
+          "do": "give",
+          "look": "up",
+          "sound": null
+        },
+        {
+          "cue": [
+            "bıraktılar",
+            "gökyüzüne"
+          ],
+          "who": "b_can2",
+          "do": "appear",
+          "len": 0.3,
+          "sound": null,
+          "wait": 0.45
+        },
+        {
+          "cue": [
+            "bıraktılar",
+            "gökyüzüne"
+          ],
+          "who": "b_elif",
+          "do": "rise",
+          "to": [
+            0.06,
+            0.8,
+            -0.3
+          ],
+          "wait": 0.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "bıraktılar",
+            "gökyüzüne"
+          ],
+          "who": "b_zara",
+          "do": "rise",
+          "to": [
+            -0.06,
+            0.8,
+            -0.3
+          ],
+          "wait": 0.75
+        },
+        {
+          "cue": [
+            "bıraktılar",
+            "gökyüzüne"
+          ],
+          "who": "b_liam",
+          "do": "rise",
+          "to": [
+            -0.06,
+            0.8,
+            -0.3
+          ],
+          "wait": 1.0499999999999998
+        },
+        {
+          "cue": [
+            "bıraktılar",
+            "gökyüzüne"
+          ],
+          "who": "b_amara",
+          "do": "rise",
+          "to": [
+            0.06,
+            0.8,
+            -0.3
+          ],
+          "wait": 1.2
+        },
+        {
+          "cue": [
+            "bıraktılar",
+            "gökyüzüne"
+          ],
+          "who": "b_can2",
+          "do": "rise",
+          "to": [
+            -0.06,
+            0.8,
+            -0.3
+          ],
+          "wait": 1.35
+        },
+        {
+          "cue": [
+            "pırıl",
+            "yükseldi"
+          ],
+          "who": "liam",
+          "do": "cheer",
+          "look": "up"
+        },
+        {
+          "cue": [
+            "pırıl",
+            "yükseldi"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "up",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "özgürce",
+            "dilekti"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "up",
+          "len": 2.4
+        }
+      ],
+      "audio": {
+        "src": "/books/23-nisan/ses/p7.mp3",
+        "marks": [
+          0.03,
+          0.51,
+          0.99,
+          1.33,
+          1.53,
+          1.87,
+          2.49,
+          2.83,
+          3.46,
+          3.94,
+          4.93,
+          5.29,
+          5.8,
+          6.01,
+          6.52,
+          7.03,
+          7.96,
+          8.53,
+          9.35,
+          9.63,
+          9.92,
+          10.44,
+          11.36,
+          11.76,
+          12.17,
+          13.07,
+          13.4,
+          13.72,
+          14.19,
+          14.38,
+          14.98,
+          15.58,
+          16.78,
+          17.38,
+          17.8,
+          18.23,
+          19.08,
+          19.3,
+          19.69,
+          20.34,
+          20.72,
+          20.94,
+          21.63
+        ]
+      }
+    },
+    {
+      "id": "p8",
+      "scene": "n8",
+      "title": {
+        "tr": "Her yıl!",
+        "en": "Every year!"
+      },
+      "text": {
+        "tr": "O akşam Elif bir {resim} çizdi: dünyanın dört bir yanından çocuklar {el ele} tutuşmuş, ortada kocaman bir {güneş}. {Babaanne|babaanne} {ekranda|ekran} resmi görünce gözleri doldu: '{Bayramı|bayram} paylaştıkça büyütmüşsün, kızım.' Elif resmi {duvara|duvar} astı. Can uykulu bir sesle sordu: 'Seneye yine yapalım mı?' Herkes hep bir ağızdan cevap verdi: 'Her yıl!'",
+        "en": "That evening Elif drew a picture: children from all over the world holding hands, with a big sun in the middle. When Grandma saw the picture on the screen, her eyes filled with tears: \"You made the holiday bigger by sharing it, my girl.\" Elif hung the picture on the wall. Can asked sleepily, \"Shall we do it again next year?\" Everyone answered together: \"Every year!\""
+      },
+      "culture": {
+        "tr": "Türkiye'de 23 Nisan'da çocuklar beyaz gömlekler ve kırmızı kurdelelerle bayram törenlerine katılır. Akşam evlerde bayrak asılır, aileler bayramı birbirine kutlar.",
+        "en": "On April 23, children in Türkiye join ceremonies, and families congratulate each other in the evening."
+      },
+      "layers": [
+        {
+          "src": "art/p8.webp",
+          "z": 0.04,
+          "w": 0.96,
+          "h": 0.86,
+          "hotspots": []
+        }
+      ],
+      "ambience": "crickets",
+      "models": [
+        {
+          "proc": "tablet",
+          "word": "tablet",
+          "x": 0.3,
+          "z": 0.36,
+          "h": 0.46,
+          "rotY": -45
+        },
+        {
+          "src": "/models/23-nisan/elif-resim.glb",
+          "x": -0.12,
+          "z": 0.08,
+          "h": 0.14,
+          "y": 0.3,
+          "w": 0.2,
+          "word": "resim",
+          "id": "resimDuvar",
+          "magic": true,
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.18,
+          "z": 0.62,
+          "rotY": 10,
+          "hold": "resim"
+        },
+        {
+          "id": "can",
+          "x": 0.06,
+          "z": 0.74,
+          "rotY": -10
+        },
+        {
+          "id": "anne",
+          "x": -0.4,
+          "z": 0.46,
+          "rotY": 30
+        },
+        {
+          "id": "baba",
+          "x": 0.42,
+          "z": 0.66,
+          "rotY": -40
+        },
+        {
+          "id": "babaanne",
+          "x": 0.0,
+          "z": 0.0,
+          "rotY": 0,
+          "screen": true,
+          "look": "reader"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "akşam",
+            "resim",
+            "çizdi"
+          ],
+          "who": "elif",
+          "do": "offer",
+          "look": "reader",
+          "len": 2.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "el",
+            "kocaman",
+            "güneş"
+          ],
+          "who": "anne",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "babaanne",
+            "ekranda"
+          ],
+          "who": "elif",
+          "do": "offer",
+          "look": "tablet",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "babaanne",
+            "ekranda",
+            "görünce"
+          ],
+          "who": "babaanne",
+          "do": "talk",
+          "look": "reader",
+          "len": 3
+        },
+        {
+          "cue": [
+            "büyütmüşsün",
+            "kızım"
+          ],
+          "who": "babaanne",
+          "do": "blowKiss",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "resmi",
+            "duvara",
+            "astı"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.08,
+            0,
+            -0.26
+          ],
+          "face": 170,
+          "look": "up"
+        },
+        {
+          "cue": [
+            "resmi",
+            "duvara",
+            "astı"
+          ],
+          "who": "elif",
+          "do": "give",
+          "look": "up",
+          "sound": null
+        },
+        {
+          "cue": [
+            "resmi",
+            "duvara",
+            "astı"
+          ],
+          "who": "resimDuvar",
+          "do": "appear",
+          "len": 1.6,
+          "focus": true,
+          "wait": 1.9
+        },
+        {
+          "cue": [
+            "can",
+            "uykulu"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "seneye",
+            "yine"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "reader",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "herkes",
+            "ağızdan",
+            "cevap"
+          ],
+          "who": "anne",
+          "do": "cheer",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "herkes",
+            "ağızdan",
+            "cevap"
+          ],
+          "who": "baba",
+          "do": "cheer",
+          "look": "reader",
+          "wait": 0.15
+        },
+        {
+          "cue": [
+            "herkes",
+            "ağızdan",
+            "cevap"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "reader",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "herkes",
+            "ağızdan",
+            "cevap"
+          ],
+          "who": "babaanne",
+          "do": "wave",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "her",
+            "yıl"
+          ],
+          "who": "resimDuvar",
+          "do": "shine",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "her",
+            "yıl"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "reader"
+        }
+      ],
+      "audio": {
+        "src": "/books/23-nisan/ses/p8.mp3",
+        "marks": [
+          0.02,
+          0.23,
+          0.6,
+          0.96,
+          1.18,
+          1.54,
+          2.32,
+          2.89,
+          3.13,
+          3.36,
+          3.93,
+          4.51,
+          5.08,
+          5.81,
+          6.5,
+          7.07,
+          7.31,
+          8.13,
+          8.75,
+          9.23,
+          9.57,
+          10.05,
+          10.53,
+          11.25,
+          11.79,
+          12.48,
+          13.18,
+          14.08,
+          14.4,
+          14.72,
+          15.18,
+          16.12,
+          16.35,
+          16.92,
+          17.15,
+          17.55,
+          18.37,
+          18.8,
+          19.11,
+          19.54,
+          20.07,
+          20.42,
+          20.63,
+          20.93,
+          21.43,
+          21.89,
+          22.55,
+          22.9,
+          23.29
+        ]
+      }
+    }
+  ]
+}

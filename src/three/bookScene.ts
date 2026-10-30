@@ -13,6 +13,7 @@ import type { ActResult, Beat } from './acts';
 import { PropActor } from './propActor';
 import { ToyPerformer } from './toy';
 import { Rain } from './rain';
+import { PageText, pageLogo, type PageTextSpec } from './pageText';
 import { Sparkles } from '../home3d/sparkles';
 import type { PageData } from '../types';
 import { WallCarpet, type CarpetDesign } from '../home3d/carpet';
@@ -123,16 +124,7 @@ export interface LeftPageDeco {
   sub: string;
 }
 
-/** The Houston Education Attaché's logo, printed in the corner of the left page. */
-const LOGO_SRC = '/logo/houston-egitim-atasesi.webp';
-let logoImg: HTMLImageElement | null = null;
-function logo() {
-  if (!logoImg) {
-    logoImg = new Image();
-    logoImg.src = LOGO_SRC;
-  }
-  return logoImg;
-}
+const logo = pageLogo;
 
 function pageCanvas(side: 'left' | 'right', target?: HTMLCanvasElement, deco?: LeftPageDeco): HTMLCanvasElement {
   const c = target ?? document.createElement('canvas');
@@ -186,6 +178,80 @@ function tileCanvas(): HTMLCanvasElement {
   return pen.canvas;
 }
 
+/**
+ * A speech bubble in the air (a greeting in a child's own language): a rounded white cloud with a coloured
+ * edge and a little tail, always facing the camera. `h` is its height in page widths.
+ */
+function speechBubble(label: string, color: string, h: number) {
+  const c = document.createElement('canvas');
+  const g = c.getContext('2d')!;
+  const font = '600 64px "DynaPuff", system-ui';
+  g.font = font;
+  const tw = g.measureText(label).width;
+  const pad = 40;
+  c.width = Math.ceil(tw + pad * 2 + 12);
+  c.height = 150;
+  g.font = font;
+  const w = c.width - 12;
+  const bh = 112;
+  g.fillStyle = 'rgba(30,40,70,0.18)';
+  g.beginPath();
+  g.roundRect(10, 10, w, bh, 52);
+  g.fill();
+  g.fillStyle = '#FFFFFF';
+  g.strokeStyle = color;
+  g.lineWidth = 7;
+  g.beginPath();
+  g.roundRect(4, 4, w, bh, 52);
+  g.moveTo(w * 0.3, bh);
+  g.lineTo(w * 0.24, bh + 32);
+  g.lineTo(w * 0.42, bh);
+  g.fill();
+  g.stroke();
+  g.fillStyle = '#FFFFFF';
+  g.fillRect(w * 0.3 + 4, bh - 4, w * 0.12 - 8, 10);
+  g.fillStyle = color;
+  g.textAlign = 'center';
+  g.textBaseline = 'middle';
+  g.fillText(label, 4 + w / 2, 4 + bh / 2 + 3);
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false }));
+  sprite.renderOrder = 4;
+  const aspect = c.width / c.height;
+  sprite.scale.set(h * aspect, h, 1);
+  sprite.position.y = h / 2;
+  const grp = new THREE.Group();
+  grp.add(sprite);
+  return grp;
+}
+
+/** A flag waving: the cloth's points move in a travelling wave that grows away from the pole (left edge). */
+function waveCloth(root: THREE.Object3D, t: number, ph: number) {
+  root.traverse((n) => {
+    const m = n as THREE.Mesh;
+    if (!m.isMesh) return;
+    let base = m.userData.waveBase as { pos: Float32Array; min: number; span: number; amp: number } | undefined;
+    if (!base) {
+      // own copy of the shape (the loaded model is shared between pages)
+      m.geometry = m.geometry.clone();
+      const pos = m.geometry.attributes.position.array as Float32Array;
+      m.geometry.computeBoundingBox();
+      const bb = m.geometry.boundingBox!;
+      base = { pos: Float32Array.from(pos), min: bb.min.x, span: Math.max(1e-6, bb.max.x - bb.min.x), amp: (bb.max.x - bb.min.x) * 0.06 };
+      m.userData.waveBase = base;
+    }
+    const attr = m.geometry.attributes.position as THREE.BufferAttribute;
+    const p = attr.array as Float32Array;
+    for (let i = 0; i < p.length; i += 3) {
+      const d = (base.pos[i] - base.min) / base.span;
+      p[i + 2] = base.pos[i + 2] + Math.sin(d * 7.5 - t * 4.2 + ph) * base.amp * d;
+      p[i + 1] = base.pos[i + 1] + Math.sin(d * 5 - t * 3.1 + ph) * base.amp * 0.25 * d;
+    }
+    attr.needsUpdate = true;
+  });
+}
+
 /** A set piece built in code, wrapped like a loaded model. */
 function procActor(name: string): Actor {
   return procActorFrom((PROPS[name] ?? (() => new THREE.Group()))());
@@ -235,6 +301,15 @@ export class BookScene {
   private turnGroup = new THREE.Group();
   private coverMat!: THREE.MeshLambertMaterial;
   private leftCanvas = document.createElement('canvas');
+  /** The story text printed on the left page (when it is not shown in a card). */
+  private pageText = new PageText(512, Math.round(512 * PAGE_D));
+  private textSpec: PageTextSpec | null = null;
+  private textNow = -1;
+  private textFlash = new Set<number>();
+  private flashTimer = 0;
+  private leftBlock!: THREE.Mesh;
+  /** The text is read from the left page: the close shot frames both pages. */
+  textOnPage = false;
   private leftTex!: THREE.CanvasTexture;
   private raycaster = new THREE.Raycaster();
   private ro: ResizeObserver;
@@ -354,7 +429,8 @@ export class BookScene {
     const leftTex = canvasTexture(pageCanvas('left', this.leftCanvas), r);
     this.leftTex = leftTex;
     const rightTex = canvasTexture(pageCanvas('right'), r);
-    const leftTop = new THREE.MeshLambertMaterial({ map: leftTex });
+    // the printed page is lit a little from within, so the text reads clearly in every light
+    const leftTop = new THREE.MeshLambertMaterial({ map: leftTex, emissive: '#ffffff', emissiveMap: leftTex, emissiveIntensity: 0.22 });
     const rightTop = new THREE.MeshLambertMaterial({ map: rightTex });
 
     const boardGeo = new THREE.BoxGeometry(PAGE_W + 0.05, COVER_T, PAGE_D + 0.08);
@@ -381,6 +457,7 @@ export class BookScene {
     leftBlock.position.set(-PAGE_W / 2, COVER_T + PAGE_T / 2 - PAGE_TOP, 0);
     leftBlock.receiveShadow = true;
     leftBlock.castShadow = true;
+    this.leftBlock = leftBlock;
     this.leftGroup.add(leftBoard, leftBlock);
     this.scene.add(this.leftGroup);
 
@@ -518,7 +595,10 @@ export class BookScene {
       overhead: { min: V(-2.1, 0, -1.4), max: V(2.2, 0.3, 1.5), cy: 0, el: 82, az: -28, reg: this.regions.wide, lim: 0.98 },
       cover: { min: V(-0.05, 0, -0.75), max: V(1.1, 0.12, 0.75), cy: 0.05, el: 50, az: 18, reg: this.regions.wide, lim: 0.5 },
       wide: { min: V(-1.12, 0, -0.8), max: V(1.12, 0.4, 0.8), cy: 0.12, el: 52, az: this.shotAz * 0.5, reg: this.regions.wide, lim: 0.9 },
-      close: { min: V(0.02, 0, -0.66), max: V(1.0, 0.86, 0.46), cy: 0.34, el: 21, az: this.shotAz, reg: this.regions.close, lim: 1.02 },
+      close: this.textOnPage
+        ? // both pages: the text on the left readable, the pop-up on the right
+          { min: V(-1.0, 0, -0.68), max: V(1.0, 0.52, 0.68), cy: 0.14, el: 52, az: 0, reg: this.regions.wide, lim: 0.98 }
+        : { min: V(0.02, 0, -0.66), max: V(1.0, 0.86, 0.46), cy: 0.34, el: 21, az: this.shotAz, reg: this.regions.close, lim: 1.02 },
     }[kind];
     const center = cfg.min.clone().add(cfg.max).multiplyScalar(0.5);
     center.y = cfg.cy;
@@ -526,10 +606,12 @@ export class BookScene {
     const hp = kind === 'close' ? this.focusPoint() : null;
     if (hp) {
       // lean towards the character who acts or speaks (or the magic thing), keeping the others in the picture
-      center.x += (hp.x - center.x) * 0.45;
-      center.z += (hp.z - center.z) * 0.35;
-      center.y += (hp.y * 0.85 - center.y) * 0.4;
-      tighten = 0.8;
+      // with the text on the page the lean is small, so the whole book stays in the picture
+      const k = this.textOnPage ? 0.12 : 1;
+      center.x += (hp.x - center.x) * 0.45 * k;
+      center.z += (hp.z - center.z) * 0.35 * k;
+      center.y += (hp.y * 0.85 - center.y) * 0.4 * k;
+      tighten = this.textOnPage ? 1 : 0.8;
     }
     const el = THREE.MathUtils.degToRad(cfg.el);
     const az = THREE.MathUtils.degToRad(cfg.az);
@@ -685,6 +767,9 @@ export class BookScene {
         case 'spin':
           g.rotation.y += dt * 0.6;
           break;
+        case 'wave':
+          waveCloth(g, t, ph);
+          break;
         case 'grow': {
           // a plant grows up out of the soil, then sways a little
           const k = Math.min(1, Math.max(0, (t - m.born - 0.4) / 3.5));
@@ -730,12 +815,72 @@ export class BookScene {
 
   /** Print the page title, the page number and the logo on the left page. */
   setLeftPage(deco: LeftPageDeco | null) {
+    this.textSpec = null;
     pageCanvas('left', this.leftCanvas, deco ?? undefined);
     this.leftTex.needsUpdate = true;
     this.invalidate();
     // the logo may still be loading: print the page again once it is there
     const img = logo();
     if (deco && !img.complete) img.addEventListener('load', () => this.setLeftPage(deco), { once: true });
+  }
+
+  /** Print the page's story text on the left page (title, text, page number, logo). */
+  setPageText(spec: PageTextSpec) {
+    this.textSpec = spec;
+    this.textNow = -1;
+    this.textFlash.clear();
+    const g = this.leftCanvas.getContext('2d')!;
+    this.pageText.setText(g, spec);
+    this.drawLeft();
+    const img = logo();
+    if (!img.complete) img.addEventListener('load', () => this.textSpec === spec && this.drawLeft(), { once: true });
+  }
+
+  /** Mark the word being read (word index, -1 for none). */
+  highlightWord(wi: number) {
+    if (wi === this.textNow || !this.textSpec) return;
+    this.textNow = wi;
+    this.drawLeft();
+  }
+
+  /** Light up words for a moment (after a tap on the word or on its thing in the pop-up). */
+  flashWords(list: number[]) {
+    if (!this.textSpec || !list.length) return;
+    list.forEach((w) => this.textFlash.add(w));
+    this.drawLeft();
+    window.clearTimeout(this.flashTimer);
+    this.flashTimer = window.setTimeout(() => {
+      this.textFlash.clear();
+      if (this.textSpec) this.drawLeft();
+    }, 1400);
+  }
+
+  private drawLeft() {
+    pageCanvas('left', this.leftCanvas);
+    const g = this.leftCanvas.getContext('2d')!;
+    g.setTransform(2, 0, 0, 2, 0, 0);
+    this.pageText.draw(g, this.textNow, this.textFlash);
+    this.leftTex.needsUpdate = true;
+    this.invalidate();
+  }
+
+  /** The word of the left page under a screen point, and where it is on the screen. */
+  pickPageWord(clientX: number, clientY: number) {
+    if (!this.textSpec) return null;
+    const rect = this.renderer.domElement.getBoundingClientRect();
+    const ndc = new THREE.Vector2(((clientX - rect.left) / rect.width) * 2 - 1, -((clientY - rect.top) / rect.height) * 2 + 1);
+    this.raycaster.setFromCamera(ndc, this.camera);
+    const hit = this.raycaster.intersectObject(this.leftBlock, false)[0];
+    if (!hit?.uv || hit.face?.materialIndex !== 2) return null;
+    const px = hit.uv.x * this.pageText.W;
+    const py = (1 - hit.uv.y) * this.pageText.H;
+    const b = this.pageText.hit(px, py);
+    if (!b) return null;
+    // the top middle of the word, on the screen
+    const u = (b.x + b.w / 2) / this.pageText.W;
+    const v = b.y / this.pageText.H;
+    const p = new THREE.Vector3(-PAGE_W + u * PAGE_W, PAGE_TOP + 0.002, -PAGE_D / 2 + v * PAGE_D);
+    return { wi: b.wi, ...this.toScreen(p) };
   }
 
   setCover(canvas: HTMLCanvasElement) {
@@ -908,10 +1053,11 @@ export class BookScene {
     if (this.things.has(b.who)) {
       if (b.do === 'ring') play(b.who === 'saat' ? 'alarm' : 'clink', d);
       else if (b.do === 'rain') play('rain', d + 0.2, b.len ?? 4);
-      else if (['appear', 'vanish', 'rise', 'sink', 'shine', 'grow', 'spin'].includes(b.do)) play(b.do, d);
+      else if (['appear', 'vanish', 'rise', 'sink', 'shine', 'grow', 'spin', 'whirl'].includes(b.do)) play(b.do, d);
       return;
     }
     for (const k of res.keys) if (k.root?.sq === 0.9) play('hop', k.t - now);
+    if (b.do === 'drum') for (const k of res.keys) if (k.root?.sq === 0.92) play('davul', k.t - now);
     if (['cheer', 'knock', 'angry', 'put'].includes(b.do)) play(b.do, d);
     else if (b.do === 'twirl' || b.do === 'spin') play('spin', d);
     else if (b.do === 'hopOut') play('hop', d + 0.7);
@@ -1256,7 +1402,14 @@ export class BookScene {
       list.map(async (spec, i) => {
         let actor: Actor;
         try {
-          actor = spec.proc === 'tablet' ? procActorFrom(this.tablet()) : spec.proc ? procActor(spec.proc) : await loadActor(spec.src!, spec.h, spec.w);
+          actor =
+            spec.proc === 'tablet'
+              ? procActorFrom(this.tablet())
+              : spec.proc === 'bubble'
+                ? procActorFrom(speechBubble(spec.label ?? '', spec.color ?? '#1C3F8C', spec.h))
+                : spec.proc
+                  ? procActor(spec.proc)
+                  : await loadActor(spec.src!, spec.h, spec.w);
         } catch (e) {
           console.warn('Model yüklenemedi', spec.src, e);
           return;
@@ -1409,6 +1562,7 @@ export class BookScene {
   }
 
   isPickable(clientX: number, clientY: number): boolean {
+    if (this.pickPageWord(clientX, clientY)) return true;
     const rect = this.renderer.domElement.getBoundingClientRect();
     const ndc = new THREE.Vector2(((clientX - rect.left) / rect.width) * 2 - 1, -((clientY - rect.top) / rect.height) * 2 + 1);
     this.raycaster.setFromCamera(ndc, this.camera);

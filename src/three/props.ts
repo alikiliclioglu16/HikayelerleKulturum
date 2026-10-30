@@ -8,12 +8,22 @@ import { loadGltf } from '../home3d/actors';
  * has loaded; it is scaled to height `h` (page widths). `hang`: the top of the model at the origin, so it
  * hangs below the hand (a bucket); otherwise the model stands on the origin.
  */
-function glbHeld(url: string, h: number, data: Record<string, unknown>, hang = false, rotY = 0) {
+function glbHeld(url: string, h: number, data: Record<string, unknown>, hang = false, rotY = 0, tint?: string) {
   const g = new THREE.Group();
   Object.assign(g.userData, data);
   loadGltf(url).then((gltf) => {
     const m = gltf.scene.clone(true);
     m.rotation.y = rotY;
+    if (tint)
+      m.traverse((n) => {
+        const mesh = n as THREE.Mesh;
+        if (!mesh.isMesh) return;
+        const mat = (mesh.material as THREE.MeshStandardMaterial).clone();
+        mat.map = null;
+        mat.color.set(tint);
+        mat.roughness = 0.35;
+        mesh.material = mat;
+      });
     const box = new THREE.Box3().setFromObject(m);
     const s = h / Math.max(1e-6, box.max.y - box.min.y);
     m.scale.setScalar(s);
@@ -148,6 +158,12 @@ export const HELD: Record<string, () => THREE.Object3D> = {
   tohum: () => glbHeld('/models/masal/tohum.glb', 0.034, { word: 'tohum', hand: 'R' }),
   kova: () => glbHeld('/models/kenney/bucket.glb', 0.06, { word: 'kova', hand: 'R' }, true),
   sebze: () => glbHeld('/models/masal/lahana.glb', 0.06, { word: 'lahana', atHeight: 0.45, ahead: 0.2 }),
+  // 23 Nisan Şenliği
+  balon: () => glbHeld('/models/23-nisan/balon.glb', 0.24, { word: 'balon', hand: 'R' }, false, 0, '#E3262E'),
+  balonBeyaz: () => glbHeld('/models/23-nisan/balon.glb', 0.24, { word: 'balon', hand: 'R' }, false, 0, '#F6F2EA'),
+  resim: () => glbHeld('/models/23-nisan/elif-resim.glb', 0.1, { word: 'resim', atHeight: 0.42, ahead: 0.2 }),
+  davul: () => glbHeld('/models/culture/davul.glb', 0.11, { word: 'davul', atHeight: 0.36, ahead: 0.22 }),
+  kart: () => glbHeld('/models/23-nisan/dilek-karti.glb', 0.06, { word: 'dilek kartı', hand: 'R' }),
   baklavaTepsisi: () => {
     const g = new THREE.Group();
     const t = tray(0.13, '#B9773E');

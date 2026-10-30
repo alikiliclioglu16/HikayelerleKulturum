@@ -120,6 +120,8 @@ Bir kitabı bu kipe almak için `book.json` içine `"toyCast": true` yazılır. 
 | | Köylü çocuk | `koylu-cocuk` | 0,34 |
 | | Köylü kadın | `koylu-kadin` | 0,47 |
 
+23 Nisan Şenliği'nde (`/models/23-nisan/`) Elif'in öğretmeni ve sınıf arkadaşları da aynı şekilde oynar: Ms. Carter (`ogretmen`, 0,50), Zara (`zara`, 0,39), Kenji (`kenji`, 0,38), Amara (`amara`, 0,385), Liam (`liam`, 0,40).
+
 **Oyuncak hareketleri** (`src/three/toy.ts` → TOY_ACTS; beat'lerde `do` ile yazılır):
 
 | do | Ne yapar |
@@ -135,6 +137,9 @@ Bir kitabı bu kipe almak için `book.json` içine `"toyCast": true` yazılır. 
 | `turn` / `spin` | Zıplayarak döner / tam tur atar |
 | `give` / `receive` | Elindekini verir / alır: eşya bir yay çizerek, yıldız izi bırakarak öbürüne uçar |
 | `offer` / `put` / `hug` / `rest` | Uzatır / yere bırakır / sarılır / dik durur |
+| `raise` | Söz almak için parmak kaldırır gibi uzanır |
+| `dance` | Halay adımları: yana adım, omuz titretme, küçük zıplama |
+| `drum` | Davul çalar: her vuruşta eğilir (davul sesiyle) |
 
 Elde tutulan eşyalar (`kazan`, `tencere`, `tohum`, `kova`, `sebze`; three/props.ts → HELD) büyükse göğsün önünde, küçükse sağ elin yanında süzülür. Kimse vermeden alınan bir eşya ışıltıyla belirir.
 
@@ -142,6 +147,6 @@ Beat'e `wait` (saniye) eklenirse hareket ipucu kelimesinden o kadar sonra başla
 
 ### Masalsı nesneler
 
-Sayfa modellerinden `id` verilenler hikâyeye katılır; `"magic": true` olanların arkasında altın bir hale parlar, ara ara pırıldar, hareket ederken yıldız izi bırakır. Kullanılan hareketler (`src/three/acts.ts` → THING_ACTS): `appear` (büyüyerek, parlayarak belirir), `vanish`, `rise` (`to` noktasına süzülür; `from` ile gökten iner), `sink` (toprağa gömülür), `ring` (titrer), `shine` (parlar), `grow` (topraktan büyüyerek çıkar), `rain` (bulut `len` saniye yağmur yağdırır), `spin`. `focus: true` kamerayı o nesneye yaklaştırır.
+Sayfa modellerinden `id` verilenler hikâyeye katılır; `"magic": true` olanların arkasında altın bir hale parlar, ara ara pırıldar, hareket ederken yıldız izi bırakır. Kullanılan hareketler (`src/three/acts.ts` → THING_ACTS): `appear` (büyüyerek, parlayarak belirir), `vanish`, `rise` (`to` noktasına süzülür; `from` ile gökten iner), `sink` (toprağa gömülür), `ring` (titrer), `shine` (parlar), `grow` (topraktan büyüyerek çıkar), `rain` (bulut `len` saniye yağmur yağdırır), `whirl` (kendi kendine hızla döner, yavaşlar: sınıftaki küre), `spin`. `focus: true` kamerayı o nesneye yaklaştırır.
 
 2. kitapta: hikâye başlarken çay masasının üstünde beliren küçük kazan, Hoca'nın aklındaki pilav ve kazan, kazandan "doğan" tencere, "ölünce" göğe süzülen kazan, pazarda dönen kazan ile yavrusu. 3. kitapta: Anne masala başlarken topraktan yükselen ışıklı tohum, saman, toprağa gömülen tohumlar, sırayla çıkan filizler, Hasan Amca'nın tarlasında paylaşınca çıkan filizler, yağmur yağdıran bulut ve ardından büyüyen sebzeler, gökten düşen üç elma.

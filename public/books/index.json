@@ -224,7 +224,7 @@
     },
     {
       "id": "23-nisan",
-      "status": "soon",
+      "status": "ready",
       "title": "23 Nisan Şenliği",
       "titleEn": "The April 23 Festival",
       "values": [
@@ -233,20 +233,154 @@
         "ozgurluk"
       ],
       "blurb": {
-        "tr": "Dünyanın çocuklara armağan edilen ilk bayramında Elif'in sınıfı bir şenlik hazırlıyor.",
-        "en": "Elif's class prepares for the first holiday in the world dedicated to children."
+        "tr": "Elif, 23 Nisan'ı dünyanın dört bir yanından sınıf arkadaşlarıyla paylaşıyor: her dilde merhaba, hep birlikte halay ve gökyüzüne uçan dilek balonları.",
+        "en": ""
       },
       "cover": {
         "art": "cover-soon",
-        "color": "#D2372C",
-        "motif": "bayrak"
+        "color": "#1C3F8C",
+        "motif": "bayrak",
+        "src": "kapak.webp",
+        "model": "/models/kapak/23-nisan.glb",
+        "live": {
+          "regions": [
+            {
+              "kind": "glow",
+              "at": [
+                0.194,
+                0.7
+              ],
+              "r": [
+                0.04,
+                0.03
+              ],
+              "amp": 0.55,
+              "speed": 2.4,
+              "phase": 0,
+              "color": "#FFFFFF"
+            },
+            {
+              "kind": "glow",
+              "at": [
+                0.24,
+                0.65
+              ],
+              "r": [
+                0.04,
+                0.03
+              ],
+              "amp": 0.55,
+              "speed": 2.4,
+              "phase": 1.2,
+              "color": "#FF6A6A"
+            },
+            {
+              "kind": "glow",
+              "at": [
+                0.144,
+                0.626
+              ],
+              "r": [
+                0.04,
+                0.03
+              ],
+              "amp": 0.55,
+              "speed": 2.4,
+              "phase": 2.4,
+              "color": "#FF6A6A"
+            },
+            {
+              "kind": "glow",
+              "at": [
+                0.81,
+                0.704
+              ],
+              "r": [
+                0.04,
+                0.03
+              ],
+              "amp": 0.55,
+              "speed": 2.4,
+              "phase": 0.6,
+              "color": "#FF6A6A"
+            },
+            {
+              "kind": "glow",
+              "at": [
+                0.764,
+                0.636
+              ],
+              "r": [
+                0.04,
+                0.03
+              ],
+              "amp": 0.55,
+              "speed": 2.4,
+              "phase": 1.8,
+              "color": "#FFFFFF"
+            },
+            {
+              "kind": "glow",
+              "at": [
+                0.724,
+                0.607
+              ],
+              "r": [
+                0.04,
+                0.03
+              ],
+              "amp": 0.55,
+              "speed": 2.4,
+              "phase": 3.0,
+              "color": "#FF6A6A"
+            },
+            {
+              "kind": "glow",
+              "at": [
+                0.87,
+                0.611
+              ],
+              "r": [
+                0.04,
+                0.03
+              ],
+              "amp": 0.55,
+              "speed": 2.4,
+              "phase": 4.2,
+              "color": "#FF6A6A"
+            }
+          ],
+          "twinkles": [
+            [
+              0.19,
+              0.72
+            ],
+            [
+              0.81,
+              0.72
+            ],
+            [
+              0.5,
+              0.83
+            ],
+            [
+              0.3,
+              0.86
+            ],
+            [
+              0.7,
+              0.86
+            ]
+          ]
+        }
       },
       "carpet": {
         "motif": "yildiz",
         "field": "#A3262A",
         "border": "#1F2C4C",
         "src": "/halilar/23-nisan.webp"
-      }
+      },
+      "pages": 8
     },
     {
       "id": "ebru",

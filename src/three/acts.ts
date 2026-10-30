@@ -463,6 +463,19 @@ export const THING_ACTS: Record<string, Act> = {
     keys.push(key(t + 1.1, 0.4, { root: { tilt: 0, show: 1 } }), key(t + len, 1, { root: { glow: s.root.glow ?? 0.45 } }));
     return { keys, dur: len };
   },
+  /** Spins round and round by itself, fast and then slowing down (the globe in the classroom). */
+  whirl: (s, b, t) => {
+    const len = b.len ?? 3.2;
+    return {
+      keys: [
+        key(t, 0.3, { root: { glow: 1.4, show: 1.08 }, burst: 0.8 }),
+        key(t, len, { root: { rotY: s.root.rotY + 1080 } }),
+        key(t + 0.4, 0.4, { root: { show: 1 } }),
+        key(t + len, 1, { root: { glow: s.root.glow ?? 0.45 }, burst: 0.5 }),
+      ],
+      dur: len,
+    };
+  },
   /** Turns once round. */
   spin: (s, _b, t) => ({ keys: [key(t, 1.2, { root: { rotY: s.root.rotY + 360, glow: 1 }, burst: 0.6 }), key(t + 1.2, 0.8, { root: { glow: s.root.glow ?? 0.45 } })], dur: 1.2 }),
 };

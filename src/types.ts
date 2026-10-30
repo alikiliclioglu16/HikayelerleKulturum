@@ -70,6 +70,9 @@ export interface PageModel {
   id?: string;
   /** With `id`: not there until a beat makes it appear or rise. */
   hidden?: boolean;
+  /** For `proc: "bubble"`: the words in a speech bubble (a greeting floating in the air), and its colour. */
+  label?: string;
+  color?: string;
   /** With `id`: a magic thing (a story wonder): a golden glow behind it, twinkles, a sparkle trail when it moves. */
   magic?: boolean;
   /** With `id`: starts this far from its place ([x, y, z] in page widths) until a beat moves it (e.g. the sun rising). */
@@ -77,7 +80,7 @@ export interface PageModel {
   /** A table: things put down above it land on its top, this far up its height (0..1). */
   top?: number;
   /** Gentle life for still objects: trees sway, a pot wobbles, a lantern swings, a plant breathes. */
-  fx?: 'sway' | 'wobble' | 'swing' | 'breathe' | 'bob' | 'spin' | 'grow';
+  fx?: 'sway' | 'wobble' | 'swing' | 'breathe' | 'bob' | 'spin' | 'grow' | 'wave';
 }
 
 /** A 3D object on the reading table, around the book (world units, the book is 2 wide). */

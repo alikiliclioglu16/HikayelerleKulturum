@@ -735,19 +735,21 @@ main {
   padding-top: 4px;
   font-size: 16px;
 }
-.layout-landscape .page-text {
-  padding: 4px 6px;
+/* the story is printed on the book's left page: the card stays only for screen readers */
+.layout-book .page-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
-.layout-portrait .page-text,
-.layout-side .page-text {
+.layout-portrait .page-text {
   padding: 16px 18px 14px;
   border-radius: var(--r-l);
   background: var(--paper);
   box-shadow: 0 -2px 0 rgba(255, 255, 255, 0.6), 0 12px 30px -10px rgba(26, 35, 64, 0.5);
   overflow-y: auto;
-}
-.layout-side .page-text {
-  padding: 22px 24px 18px;
 }
 
 .w {

@@ -61,7 +61,9 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   const playBtn = h('button', { class: 'btn play', type: 'button' }, playIcon, playLbl);
   const nextBtn = h('button', { class: 'btn turq icon-only', type: 'button', 'aria-label': 'Sonraki sayfa' }, icon.next());
   const replayBtn = h('button', { class: 'btn light icon-only', type: 'button', 'aria-label': 'Sahneyi tekrar oynat', title: 'Tekrar oynat' }, icon.replay());
-  const controls = h('nav', { class: 'reader-controls', 'aria-label': 'Okuma kontrolleri' }, prevBtn, playBtn, replayBtn, nextBtn);
+  const cultureBtn = h('button', { class: 'btn light icon-only', type: 'button', 'aria-label': 'Biliyor musun?', title: 'Biliyor musun?' }, icon.light());
+  cultureBtn.addEventListener('click', () => page().culture && cultureSheet(page()));
+  const controls = h('nav', { class: 'reader-controls', 'aria-label': 'Okuma kontrolleri' }, prevBtn, playBtn, replayBtn, cultureBtn, nextBtn);
   const castWait = h('div', { class: 'cast-wait', role: 'status', hidden: true }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), h('span', { class: 'cw-text' }, 'Karakterler sahneye geliyor…'));
 
   shell.replaceChildren(sceneHost, bar, textEl, controls, castWait);
@@ -121,7 +123,12 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
         const span = h('span', { class: `w${isGloss ? ' g' : ''}`, 'data-wi': tok.wi, 'data-lemma': isGloss ? tok.lemma : undefined }, tok.text);
         span.addEventListener('click', (e) => {
           e.stopPropagation();
-          onWord(tok, span);
+          span.classList.remove('flash');
+          void span.offsetWidth;
+          span.classList.add('flash');
+          const r = span.getBoundingClientRect();
+          const sr = shell.getBoundingClientRect();
+          onWord(tok, { x: r.left - sr.left + r.width / 2, y: r.top - sr.top });
         });
         wordEls.push(span);
         tr.append(span);
@@ -132,6 +139,9 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
       actions.append(h('button', { class: 'btn light small', type: 'button', onclick: () => cultureSheet(p) }, icon.light(), 'Biliyor musun?'));
     }
     textEl.replaceChildren(h('div', { class: 'pg-title', lang: 'tr' }, p.title.tr), tr, actions);
+    cultureBtn.hidden = !p.culture;
+    nowEl = null;
+    printPage();
     pageNoEl.replaceChildren(h('span', { class: 'pg-word' }, 'Sayfa '), `${index + 1} / ${book.pages.length}`);
     titleEl.hidden = false;
     prevBtn.disabled = index === 0;
@@ -161,21 +171,42 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     );
   }
 
+  /** The story text printed on the left page of the book (when the screen is wide enough to read it there). */
+  function printPage() {
+    const p = page();
+    if (!onPage) {
+      scene.setLeftPage({ title: p.title.tr, sub: `Sayfa ${index + 1}` });
+      return;
+    }
+    const gloss = new Set<number>();
+    for (const t of tokens) if (t.kind === 'word' && t.lemma && book.glossary[t.lemma]) gloss.add(t.wi!);
+    scene.setPageText({ title: p.title.tr, sub: `Sayfa ${index + 1}`, tokens, gloss, big: store.settings.big });
+  }
+
   /* ---------- layout ---------- */
 
 
   /**
    * Two layouts, like a film set seen through a camera:
-   *  - side: wide screens, a text card on the left and the camera close on the pop-up to its right
-   *  - portrait: tall screens, the pop-up on top and a text card below
+   *  - book: wide screens; the story is printed on the left page of the open book, the pop-up stands on the
+   *    right page, and the camera frames both (no text card on the screen)
+   *  - portrait: tall, narrow screens (phones), where print on the page would be too small: the pop-up on top
+   *    and a text card below
    * Between pages the camera pulls back to a wide shot of the whole table.
    */
-  function setMode(m: 'side' | 'portrait') {
-    const p = page();
-    scene.setLeftPage({ title: p.title.tr, sub: `Sayfa ${index + 1}` });
-    shell.classList.toggle('layout-side', m === 'side');
-    shell.classList.toggle('layout-portrait', m === 'portrait');
+  let onPage = true;
+  function setMode(m: 'book' | 'portrait') {
+    const was = onPage;
+    onPage = m === 'book';
+    scene.textOnPage = onPage;
+    shell.classList.toggle('layout-book', onPage);
+    shell.classList.toggle('layout-portrait', !onPage);
+    if (was !== onPage || printedBig !== store.settings.big) {
+      printedBig = store.settings.big;
+      printPage();
+    }
   }
+  let printedBig = store.settings.big;
 
   function layout() {
     const W = shell.clientWidth;
@@ -186,21 +217,11 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     const reset = { left: '', right: '', top: '', bottom: '', width: '', height: '', maxHeight: '', transform: '' };
     const wide = { x: 0, y: barH, w: W, h: H - barH - ctrlH };
 
-    if (W / H >= 1.15 && W >= 720) {
-      const cardW = Math.round(Math.min(460, Math.max(320, W * 0.32)));
-      setMode('side');
-      const avail = H - barH - ctrlH - 16;
-      Object.assign(textEl.style, reset, { left: '20px', top: `${barH + 10}px`, width: `${cardW}px`, maxHeight: `${avail}px` });
-      let size = big ? 28 : 24;
-      textEl.style.fontSize = `${size}px`;
-      while (size > 17 && textEl.scrollHeight > avail) {
-        size -= 1;
-        textEl.style.fontSize = `${size}px`;
-      }
-      // centre the card in the space between the bars when it is short
-      const free = avail - textEl.offsetHeight;
-      if (free > 40) textEl.style.top = `${barH + 10 + Math.round(free * 0.35)}px`;
-      scene.setLayout({ x: cardW + 28, y: barH, w: W - cardW - 36, h: H - barH - ctrlH }, wide);
+    if (W / H >= 0.95 && W >= 640) {
+      setMode('book');
+      // the text card stays for screen readers only
+      Object.assign(textEl.style, reset);
+      scene.setLayout(wide, wide);
       return;
     }
     setMode('portrait');
@@ -250,6 +271,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
       void el.offsetWidth;
       el.classList.add('flash');
     });
+    scene.flashWords(tokens.filter((t) => t.kind === 'word' && t.lemma === lemma).map((t) => t.wi!));
   }
 
   let duckTimer = 0;
@@ -260,18 +282,15 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     narrator.say(text);
   }
 
-  function onWord(tok: Token, span: HTMLElement) {
+  /** A word was tapped (in the card or on the printed page); `at` is where it is on the screen. */
+  function onWord(tok: Token, at: { x: number; y: number }) {
     if (playing) pause();
     say(tok.text);
-    span.classList.remove('flash');
-    void span.offsetWidth;
-    span.classList.add('flash');
+    scene.flashWords([tok.wi!]);
     const lemma = tok.lemma && book.glossary[tok.lemma] ? tok.lemma : null;
     if (!lemma) return;
     const isNew = collect(lemma);
-    const r = span.getBoundingClientRect();
-    const s = shell.getBoundingClientRect();
-    bubble('word-pop', r.left - s.left + r.width / 2, r.top - s.top, lemma, isNew);
+    bubble('word-pop', at.x, at.y, lemma, isNew);
     const pt = scene.focusWord(lemma);
     if (pt) {
       const sp = h('div', { class: 'tag3d', style: `left:${pt.x}px;top:${pt.y}px` }, h('div', { class: 'bubble' }, h('span', { class: 't', lang: 'tr' }, lemma)));
@@ -286,6 +305,17 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   sceneHost.addEventListener('pointerup', (e) => {
     if (!downAt || Math.hypot(e.clientX - downAt.x, e.clientY - downAt.y) > 12) return;
     downAt = null;
+    // a word printed on the left page
+    const pw = scene.pickPageWord(e.clientX, e.clientY);
+    if (pw) {
+      const tok = tokens.find((t) => t.kind === 'word' && t.wi === pw.wi);
+      if (tok) {
+        const sr = shell.getBoundingClientRect();
+        const cr = sceneHost.getBoundingClientRect();
+        onWord(tok, { x: pw.x + cr.left - sr.left, y: pw.y + cr.top - sr.top });
+      }
+      return;
+    }
     const res = scene.pick(e.clientX, e.clientY);
     if (!res) return;
     if (playing) pause();
@@ -311,7 +341,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   /* ---------- narration ---------- */
   function setPlayUI() {
     playIcon.replaceChildren(playing ? icon.pause() : icon.play());
-    const voiceLabel = narrator.mode === 'voice' ? 'Bana oku' : 'Birlikte oku';
+    const voiceLabel = narrator.mode === 'voice' || page().audio ? 'Bana oku' : 'Birlikte oku';
     playLbl.textContent = playing ? 'Duraklat' : voiceLabel;
     playBtn.setAttribute('aria-label', playing ? 'Okumayı duraklat' : voiceLabel);
     playBtn.setAttribute('aria-pressed', String(playing));
@@ -323,6 +353,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     nowEl?.classList.remove('now');
     nowEl = wordEls[wi] ?? null;
     nowEl?.classList.add('now');
+    scene.highlightWord(wi);
   }
 
   /** Match the page's play to the words of its text and start it from the beginning. */
@@ -425,10 +456,11 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     const layers = await getLayers(page());
     // pull back to see the whole table while the page turns, then move in on the new pop-up from another side
     scene.shot('wide', 1000, angleFor(index));
+    // the paper sound starts with the turn, once the pop-up has folded down
+    window.setTimeout(() => sfx.pageTurn(), scene.reducedMotion ? 0 : 340);
     const shown = scene.showPage(layers, dir).then(() => {
       scene.shot('close', 1700, angleFor(index));
       void scene.setModels(page().models ?? []);
-  sfx.setAmbience(page().ambience ?? null);
       sfx.setAmbience(page().ambience ?? null);
       return scene.setCast(page());
     });
@@ -593,10 +625,12 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   scene.shot('cover', 2200, undefined, 0.15);
   await new Promise((r) => window.setTimeout(r, scene.reducedMotion ? 0 : 1700));
   scene.shot('wide', 1600, angleFor(index));
+  window.setTimeout(() => sfx.pageTurn(), scene.reducedMotion ? 0 : 450);
   await scene.open(true);
   scene.shot('close', 1800, angleFor(index));
   await scene.showPage(await firstLayers, 0);
   void scene.setModels(page().models ?? []);
+  sfx.setAmbience(page().ambience ?? null);
   textEl.style.transition = 'opacity .4s';
   textEl.style.opacity = '1';
   void scene.setCast(page()).then(() => prepareStage(false));

@@ -404,6 +404,45 @@ export const TOY_ACTS: Record<string, ToyAct> = {
   /** A turn all the way round with a hop. */
   spin: (s, b, t, H) => ({ keys: [...hopKeys(s, t, 0.08 * H, undefined, true), key(t + 0.05, 0.4, { root: { spin: 360 } }), key(t + 0.6, 0.001, { root: { spin: 0 }, look: b.look ?? s.look })], dur: 0.7 }),
 
+  /** Raises a hand to speak: stretches up tall on tiptoe with a little bounce. */
+  raise: (s, b, t, H) => ({
+    keys: [
+      key(t, 0.25, { root: { sq: 1.1, tilt: -5, y: s.root.y + 0.02 * H }, look: b.look ?? b.target ?? 'reader' }),
+      key(t + 0.3, 0.15, { root: { sq: 1.05 }, minor: true }),
+      key(t + 0.45, 0.15, { root: { sq: 1.1 }, minor: true }),
+      key(t + (b.len ?? 1.4) - 0.35, 0.35, { root: { ...upright, y: s.root.y } }),
+    ],
+    dur: b.len ?? 1.4,
+  }),
+
+  /** Halay steps: side step, side step back with a shoulder shimmy and a little hop, again and again. */
+  dance: (s, b, t, H) => {
+    const len = b.len ?? 4;
+    const keys: Key[] = [key(t, 0.2, { look: b.look ?? s.look })];
+    const x = s.root.x;
+    let at = t;
+    for (let i = 0; at < t + len - 0.5; i++) {
+      const side = i % 2 ? 0 : 0.03;
+      keys.push(...hopKeys({ ...s, root: { ...s.root, x: i % 2 ? x + 0.03 : x } }, at, 0.035 * H, { x: x + side }));
+      keys.push(key(at + 0.05, 0.2, { root: { tilt: i % 2 ? 7 : -7, lean: 4 }, minor: true }));
+      at += 0.5;
+    }
+    keys.push(key(at, 0.35, { root: { x, ...upright } }));
+    return { keys, dur: at + 0.35 - t };
+  },
+
+  /** Plays the davul: bobs on every beat. */
+  drum: (s, b, t) => {
+    const len = b.len ?? 4;
+    const keys: Key[] = [key(t, 0.2, { root: { lean: 6 }, look: b.look ?? s.look })];
+    for (let i = 0; i < Math.floor(len / 0.5); i++) {
+      keys.push(key(t + i * 0.5, 0.08, { root: { sq: 0.92, tilt: i % 2 ? 4 : -4 } }));
+      keys.push(key(t + i * 0.5 + 0.1, 0.2, { root: { sq: 1 }, minor: true }));
+    }
+    keys.push(key(t + len, 0.35, { root: { ...upright } }));
+    return { keys, dur: len + 0.35 };
+  },
+
   /** Back upright. */
   rest: (_s, b, t) => ({ keys: [key(t, 0.4, { root: { ...upright }, look: b.look ?? null })], dur: 0.4 }),
   /** Named poses mean nothing to a toy; it just stands up straight and looks. */

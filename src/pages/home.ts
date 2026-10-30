@@ -331,7 +331,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
       h('p', { class: 'bs-sum', lang: 'tr' }, b.blurb.tr),
     ];
     if (soon) {
-      body.push(h('p', { class: 'bs-soon' }, 'Bu kitap yakında rafta olacak. Şimdilik Bayram Sabahı’nı okuyabilirsin.'));
+      body.push(h('p', { class: 'bs-soon' }, 'Bu kitap yakında rafta olacak. Şimdilik raftaki hazır kitaplardan birini okuyabilirsin.'));
       body.push(h('div', { class: 'bs-actions' }, h('button', { class: 'btn light', type: 'button', onclick: close }, 'Kapat')));
     } else {
       const prog = store.progress(b.id);

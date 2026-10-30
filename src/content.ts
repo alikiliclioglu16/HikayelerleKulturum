@@ -44,6 +44,7 @@ export function fonts() {
   fontsReady ??= Promise.all([
     document.fonts.load('600 80px "DynaPuff"', 'Bayram Sabahı ğüşıöçİŞĞ'),
     document.fonts.load('20px "Andika"', 'ğüşıöç'),
+    document.fonts.load('700 20px "Andika"', 'ğüşıöç'),
   ]).catch(() => undefined);
   return fontsReady;
 }

@@ -44,6 +44,12 @@ export const CHARACTERS: Record<string, CharacterDef> = {
   'hasan-amca': { src: '/models/masal/hasan-amca.glb', height: 0.49, name: 'Hasan Amca' },
   'koylu-cocuk': { src: '/models/masal/koylu-cocuk.glb', height: 0.34, name: 'Köylü çocuk' },
   'koylu-kadin': { src: '/models/masal/koylu-kadin.glb', height: 0.47, name: 'Köylü kadın' },
+  // 23 Nisan Şenliği: Elif's teacher and classmates
+  ogretmen: { src: '/models/23-nisan/ogretmen.glb', height: 0.5, name: 'Ms. Carter' },
+  zara: { src: '/models/23-nisan/zara.glb', height: 0.39, name: 'Zara' },
+  kenji: { src: '/models/23-nisan/kenji.glb', height: 0.38, name: 'Kenji' },
+  amara: { src: '/models/23-nisan/amara.glb', height: 0.385, name: 'Amara' },
+  liam: { src: '/models/23-nisan/liam.glb', height: 0.4, name: 'Liam' },
 };
 
 export type Euler3 = [number, number, number];
