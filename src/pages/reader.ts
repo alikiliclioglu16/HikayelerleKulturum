@@ -1,6 +1,7 @@
 import { h, icon } from '../ui/dom';
 import { loadBook, loadListing, coverCanvas, fonts } from '../content';
 import { store } from '../store';
+import { treasureFor, type Treasure } from '../treasures';
 import { tokenize, estimateMarks, type Token } from '../text';
 import { Narrator } from '../narrator';
 import { BookScene } from '../three/bookScene';
@@ -10,9 +11,9 @@ import { sfx } from '../sfx';
 
 /** Culture objects on the reading table when a book does not choose its own. */
 const DEFAULT_TABLE: TableModel[] = [
-  { src: '/models/culture/caydanlik.glb', word: 'çaydanlık', x: -1.52, z: 0.08, h: 0.36, rotY: 20 },
-  { src: '/models/culture/cay.glb', word: 'çay', x: -1.3, z: 0.56, h: 0.2, steam: true },
-  { src: '/models/culture/simit.glb', word: 'simit', x: 1.5, z: -0.42, h: 0.22, rotY: 10 },
+  { src: '/models/culture/caydanlik.glb', word: 'çaydanlık', x: -1.8, z: 0.3, h: 0.36, rotY: 20 },
+  { src: '/models/culture/cay.glb', word: 'çay', x: -1.52, z: 0.9, h: 0.2, steam: true },
+  { src: '/models/culture/simit.glb', word: 'simit', x: 1.74, z: -0.25, h: 0.22, rotY: 10 },
 ];
 
 const nextFrame = () => new Promise((r) => requestAnimationFrame(() => r(null)));
@@ -41,16 +42,14 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   const sceneHost = h('div', { class: 'scene-host' });
   const titleEl = h('strong', null, book.title);
   const pageNoEl = h('span', null, '');
-  const dots = h('div', { class: 'dots', role: 'group', 'aria-label': 'Sayfalar' });
-  const chestCount = h('span', { class: 'count' }, String(Object.keys(store.chest).length));
-  const chestLink = h('a', { class: 'btn light small chest-link', href: '#/sandik', 'aria-label': 'Kelime Sandığım' }, icon.chest(), chestCount);
+  const chestCount = h('span', { class: 'count' }, String(store.treasureCount));
+  const chestLink = h('a', { class: 'btn light small chest-link', href: '#/sandik', 'aria-label': 'Kelime Sandığım', title: 'Kelime Sandığım' }, icon.chest(), chestCount);
   const settingsBtn = h('button', { class: 'btn light small icon-only', type: 'button', 'aria-label': 'Ayarlar' }, icon.gear());
   const bar = h(
     'header',
     { class: 'reader-bar' },
     h('a', { class: 'btn light small', href: '#/', 'aria-label': 'Kitaplara dön' }, icon.home()),
     h('div', { class: 'reader-title' }, titleEl, pageNoEl),
-    dots,
     h('div', { class: 'bar-actions' }, chestLink, settingsBtn),
   );
 
@@ -148,27 +147,6 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     const last = index === book.pages.length - 1;
     nextBtn.setAttribute('aria-label', last ? 'Kitabı bitir' : 'Sonraki sayfa');
     nextBtn.classList.toggle('red', last);
-    renderDots();
-  }
-
-  function renderDots() {
-    const read = store.progress(bookId).read;
-    dots.replaceChildren(
-      ...book.pages.map((p, i) => {
-        const b = h(
-          'button',
-          {
-            class: `dot${read.includes(p.id) ? ' read' : ''}${i === index ? ' current' : ''}`,
-            type: 'button',
-            'aria-label': `Sayfa ${i + 1}${read.includes(p.id) ? ', okundu' : ''}`,
-            'aria-current': i === index ? 'page' : undefined,
-          },
-          icon.star(),
-        );
-        b.addEventListener('click', () => goTo(i));
-        return b;
-      }),
-    );
   }
 
   /** The story text printed on the left page of the book (when the screen is wide enough to read it there). */
@@ -233,17 +211,26 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
 
   /* ---------- words & pop-ups ---------- */
   let popTimer = 0;
-  function bubble(cls: string, x: number, y: number, lemma: string, isNew: boolean) {
+  function bubble(cls: string, x: number, y: number, lemma: string, found: Treasure | null) {
     shell.querySelectorAll(`.${cls}`).forEach((e) => e.remove());
     const g = book.glossary[lemma];
     const el = h(
       'div',
-      { class: cls, style: `left:${Math.round(x)}px;top:${Math.round(y)}px`, role: 'status' },
+      { class: `${cls}${found ? ' treasure' : ''}`, style: `left:${Math.round(x)}px;top:${Math.round(y)}px`, role: 'status' },
       h(
         'div',
         { class: 'bubble' },
-        g?.icon ? h('span', { class: 'ico', 'aria-hidden': 'true' }, g.icon) : null,
-        h('div', null, h('div', { class: 't', lang: 'tr' }, lemma, isNew ? h('span', { class: 'new' }, 'Sandığa eklendi') : null)),
+        found
+          ? h('img', { class: 'thumb', src: found.thumb, alt: '' })
+          : g?.icon
+            ? h('span', { class: 'ico', 'aria-hidden': 'true' }, g.icon)
+            : null,
+        h(
+          'div',
+          null,
+          h('div', { class: 't', lang: 'tr' }, lemma),
+          found ? h('span', { class: 'new' }, found.name === lemma ? 'Yeni kültür hazinesi! Sandığa eklendi' : `Yeni kültür hazinesi: ${found.name}`) : null,
+        ),
       ),
     );
     // keep the bubble on screen
@@ -254,15 +241,19 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     if (b.right > s.right - 8) el.style.left = `${x - (b.right - s.right + 8)}px`;
     if (b.top < s.top + 8) el.style.top = `${y + (s.top + 8 - b.top)}px`;
     window.clearTimeout(popTimer);
-    popTimer = window.setTimeout(() => shell.querySelectorAll('.word-pop, .tag3d').forEach((e) => e.remove()), 3200);
+    popTimer = window.setTimeout(() => shell.querySelectorAll('.word-pop, .tag3d').forEach((e) => e.remove()), found ? 4800 : 3200);
   }
 
-  function collect(lemma: string): boolean {
-    const g = book.glossary[lemma];
-    if (!g) return false;
-    const isNew = store.addWord({ lemma, en: g.en, icon: g.icon, book: book.id, at: Date.now() });
-    chestCount.textContent = String(Object.keys(store.chest).length);
-    return isNew;
+  /** A word or a thing of the page was tapped: a culture treasure goes into the chest (the treasure, the first time). */
+  function collect(word: string): Treasure | null {
+    const t = treasureFor(word);
+    if (!t || !store.addTreasure(t.id, book.id)) return null;
+    chestCount.textContent = String(store.treasureCount);
+    chestLink.classList.remove('got');
+    void chestLink.offsetWidth;
+    chestLink.classList.add('got');
+    sfx.chime();
+    return t;
   }
 
   function flashWords(lemma: string) {
@@ -289,8 +280,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     scene.flashWords([tok.wi!]);
     const lemma = tok.lemma && book.glossary[tok.lemma] ? tok.lemma : null;
     if (!lemma) return;
-    const isNew = collect(lemma);
-    bubble('word-pop', at.x, at.y, lemma, isNew);
+    bubble('word-pop', at.x, at.y, lemma, collect(lemma));
     const pt = scene.focusWord(lemma);
     if (pt) {
       const sp = h('div', { class: 'tag3d', style: `left:${pt.x}px;top:${pt.y}px` }, h('div', { class: 'bubble' }, h('span', { class: 't', lang: 'tr' }, lemma)));
@@ -320,8 +310,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     if (!res) return;
     if (playing) pause();
     say(res.word);
-    const isNew = collect(res.word);
-    bubble('tag3d', res.x, res.y, res.word, isNew);
+    bubble('tag3d', res.x, res.y, res.word, collect(res.word));
     flashWords(res.word);
   });
   let hoverT = 0;
@@ -388,7 +377,6 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
           highlight(-1);
           if (index >= book.pages.length - 1 || !playing) sfx.duck(false);
           store.markRead(bookId, p.id);
-          renderDots();
           if (!playing) return;
           if (index < book.pages.length - 1) {
             window.setTimeout(() => playing && goTo(index + 1, true), 900);

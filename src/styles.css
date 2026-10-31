@@ -659,36 +659,6 @@ main {
   font-size: 14px;
   color: var(--ink-soft);
 }
-.dots {
-  display: flex;
-  gap: 4px;
-  margin: 0 auto;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
-}
-.dot {
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  background: transparent;
-  color: #c4cfd8;
-  cursor: pointer;
-}
-.dot svg {
-  width: 22px;
-  height: 22px;
-}
-.dot.read {
-  color: var(--saffron);
-}
-.dot.current {
-  background: var(--turq-soft);
-}
 .bar-actions {
   display: flex;
   gap: 8px;
@@ -1067,9 +1037,6 @@ input[type='checkbox'].switch:checked::after {
   .reader-title span {
     white-space: nowrap;
     font-weight: 700;
-  }
-  .dots {
-    display: none;
   }
   .bar-actions {
     gap: 6px;
@@ -1828,3 +1795,402 @@ input[type='checkbox'].switch:checked::after {
   }
 }
 
+
+/* ---------- Kelime Sandığı: culture treasures ---------- */
+
+.chest-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 0 6px;
+}
+.chest-head h1 {
+  font-size: clamp(38px, 5vw, 56px);
+  color: var(--cobalt);
+}
+.chest-head p {
+  max-width: 60ch;
+  color: var(--ink-soft);
+  margin: 10px 0 0;
+}
+.chest-meter {
+  flex: none;
+  min-width: 190px;
+  padding: 14px 18px 16px;
+  border-radius: var(--r-m);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.cm-num {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--ink-soft);
+}
+.cm-num strong {
+  font-size: 44px;
+  color: var(--red);
+}
+.cm-label {
+  margin-top: -4px;
+  font-weight: 700;
+  color: var(--cobalt);
+}
+.cm-bar {
+  height: 12px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: var(--tile);
+  overflow: hidden;
+}
+.cm-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--saffron), var(--red));
+}
+.chest-empty {
+  margin-top: 20px;
+}
+
+.t-group {
+  --g: var(--turq);
+  --g-soft: #e2f4f2;
+  margin-top: 30px;
+}
+.t-group.g-lezzet {
+  --g: #e0822f;
+  --g-soft: #fff0dc;
+}
+.t-group.g-sanat {
+  --g: var(--red);
+  --g-soft: #fde6e2;
+}
+.t-group.g-yer {
+  --g: var(--cobalt);
+  --g-soft: #e1e9f8;
+}
+.t-group.g-gelenek {
+  --g: var(--turq-deep);
+  --g-soft: #dcf2ef;
+}
+.t-group.g-masal {
+  --g: #7b4bb3;
+  --g-soft: #efe5fa;
+}
+.t-group h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 30px;
+  color: var(--g);
+}
+.t-group h2 .n {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.t-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+.t-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 10px 14px;
+  border: 0;
+  border-radius: var(--r-m);
+  background: var(--white);
+  box-shadow: var(--shadow), inset 0 -5px 0 var(--g);
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+button.t-card:hover,
+button.t-card:focus-visible {
+  transform: translateY(-4px) rotate(-1deg);
+}
+.t-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 14px;
+  background: radial-gradient(circle at 50% 62%, #fff 0 34%, var(--g-soft) 70%);
+}
+.t-stage img {
+  width: 92%;
+  height: 92%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 8px rgba(26, 35, 64, 0.22));
+  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.6, 1);
+}
+button.t-card:hover .t-stage img {
+  transform: scale(1.07);
+}
+.t-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1.1;
+  color: var(--cobalt);
+}
+.t-card.locked {
+  cursor: default;
+  box-shadow: inset 0 0 0 2px var(--line);
+  background: rgba(255, 255, 255, 0.55);
+}
+.t-card.locked .t-stage {
+  background: radial-gradient(circle at 50% 62%, rgba(255, 255, 255, 0.8) 0 34%, var(--tile) 72%);
+}
+.t-card.locked .t-stage img {
+  filter: brightness(0) opacity(0.16);
+}
+.t-card.locked .q {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: 46px;
+  color: var(--g);
+  opacity: 0.55;
+}
+.t-card.locked .t-name {
+  color: var(--ink-soft);
+}
+.t-hint {
+  font-size: 13px;
+  line-height: 1.3;
+  color: var(--ink-soft);
+}
+
+/* the treasure's card: its 3D model on a stand, its text and a listen button */
+.no-scroll {
+  overflow: hidden;
+}
+.tc-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(20, 30, 60, 0.45);
+  animation: fade 0.2s ease-out;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+.tc-card {
+  --g: var(--turq);
+  --g-soft: #e2f4f2;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  width: min(900px, 100%);
+  max-height: calc(100vh - 32px);
+  overflow: hidden;
+  border-radius: var(--r-l);
+  background: var(--white);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.55);
+  animation: pop 0.28s cubic-bezier(0.3, 1.5, 0.6, 1);
+}
+.tc-card[data-group='lezzet'] {
+  --g: #e0822f;
+  --g-soft: #fff0dc;
+}
+.tc-card[data-group='sanat'] {
+  --g: var(--red);
+  --g-soft: #fde6e2;
+}
+.tc-card[data-group='yer'] {
+  --g: var(--cobalt);
+  --g-soft: #e1e9f8;
+}
+.tc-card[data-group='gelenek'] {
+  --g: var(--turq-deep);
+  --g-soft: #dcf2ef;
+}
+.tc-card[data-group='masal'] {
+  --g: #7b4bb3;
+  --g-soft: #efe5fa;
+}
+.tc-view {
+  position: relative;
+  min-height: 420px;
+  background: radial-gradient(circle at 50% 58%, #fff 0 30%, var(--g-soft) 75%);
+}
+.tv-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+}
+.tv-canvas.dragging {
+  cursor: grabbing;
+}
+.tc-drag {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  padding: 2px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.tc-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 34px 30px 26px;
+  overflow-y: auto;
+}
+.tc-chip {
+  align-self: flex-start;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: var(--g-soft);
+  color: var(--g);
+  font-size: 14px;
+  font-weight: 700;
+}
+.tc-info h2 {
+  font-size: 42px;
+  color: var(--g);
+  padding-right: 40px;
+}
+.tc-fact {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.55;
+}
+.tc-where {
+  margin: 0;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.tc-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+.tc-nav {
+  display: inline-flex;
+  gap: 8px;
+}
+.tc-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+}
+
+/* a culture treasure found in a book: the bubble shows its picture */
+.word-pop.treasure .bubble,
+.tag3d.treasure .bubble {
+  box-shadow: 0 0 0 3px var(--saffron), 0 16px 30px -10px rgba(26, 35, 64, 0.55);
+}
+.word-pop.treasure .bubble::after,
+.tag3d.treasure .bubble::after {
+  box-shadow: 3px 3px 0 0 var(--saffron);
+}
+.bubble .thumb {
+  width: 58px;
+  height: 58px;
+  margin: -6px 0 -6px -6px;
+  object-fit: contain;
+  animation: treasure-spin 0.9s cubic-bezier(0.3, 1.5, 0.6, 1);
+}
+.word-pop.treasure .new,
+.tag3d.treasure .new {
+  display: block;
+  margin: 4px 0 0;
+  width: max-content;
+}
+@keyframes treasure-spin {
+  from {
+    transform: scale(0.3) rotate(-30deg);
+  }
+}
+.chest-link.got {
+  animation: chest-got 0.7s cubic-bezier(0.3, 1.6, 0.6, 1);
+}
+@keyframes chest-got {
+  30% {
+    transform: scale(1.25) rotate(-6deg);
+    background: var(--saffron);
+  }
+}
+
+@media (max-width: 720px) {
+  .chest-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .chest-meter {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+  }
+  .cm-num strong {
+    font-size: 32px;
+  }
+  .cm-label {
+    margin: 0;
+  }
+  .cm-bar {
+    margin: 0;
+  }
+  .t-grid {
+    grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+    gap: 12px;
+  }
+  .t-name {
+    font-size: 17px;
+  }
+  .tc-card {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+  .tc-view {
+    min-height: 290px;
+  }
+  .tc-info {
+    padding: 18px 20px 20px;
+    overflow: visible;
+  }
+  .tc-info h2 {
+    font-size: 34px;
+  }
+  .tc-fact {
+    font-size: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .t-card,
+  .t-stage img,
+  .bubble .thumb,
+  .chest-link.got {
+    transition: none;
+    animation: none;
+  }
+}

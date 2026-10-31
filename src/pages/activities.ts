@@ -50,7 +50,7 @@ export async function renderEnd(root: HTMLElement, id: string) {
       h(
         'div',
         { class: 'hero-actions', style: 'margin-top:28px' },
-        h('a', { class: 'btn turq', href: '#/sandik' }, icon.chest(), `Kelime Sandığım (${Object.keys(store.chest).length})`),
+        h('a', { class: 'btn turq', href: '#/sandik' }, icon.chest(), `Kelime Sandığım (${store.treasureCount})`),
         h('a', { class: 'btn light', href: `#/kitap/${id}/1` }, 'Tekrar oku'),
       ),
     ),

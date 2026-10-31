@@ -1,3 +1,5 @@
+import { treasureFor, treasureById } from './treasures';
+
 /**
  * Everything is kept in this browser only (localStorage). No accounts, no cookies, no analytics.
  */
@@ -9,10 +11,15 @@ export interface Settings {
   music: boolean;
 }
 
-export interface ChestWord {
+/** A culture treasure in the Kelime Sandığı: when it was found and where (a book id or 'raf', the home shelf). */
+export interface Found {
+  at: number;
+  from: string;
+}
+
+/** The word chest of earlier versions (any word; now only culture treasures are kept). */
+interface OldChestWord {
   lemma: string;
-  en: string;
-  icon?: string;
   book: string;
   at: number;
 }
@@ -29,7 +36,7 @@ const KEY = 'hk:v1';
 
 interface Data {
   settings: Settings;
-  chest: Record<string, ChestWord>;
+  treasures: Record<string, Found>;
   progress: Record<string, BookProgress>;
   culture: string[];
   hints: string[];
@@ -37,7 +44,7 @@ interface Data {
 
 const defaults: Data = {
   settings: { rate: 0.9, big: false, calm: false, sound: true, music: true },
-  chest: {},
+  treasures: {},
   progress: {},
   culture: [],
   hints: [],
@@ -51,11 +58,20 @@ function load(): Data {
     const settings = { ...defaults.settings, ...(d.settings ?? {}) };
     // old settings: English was removed, and every book is now read in its one (full) text
     for (const k of ['showEn', 'level', 'levelChosen']) delete (settings as unknown as Record<string, unknown>)[k];
+    const culture = d.culture ?? [];
+    const treasures: Record<string, Found> = { ...(d.treasures ?? {}) };
+    // the old word chest: keep the words that are culture treasures, and everything found on the shelf
+    const old = (d as { chest?: Record<string, OldChestWord> }).chest ?? {};
+    for (const w of Object.values(old)) {
+      const t = treasureFor(w.lemma);
+      if (t && !treasures[t.id]) treasures[t.id] = { at: w.at, from: w.book === 'kultur-rafi' ? 'raf' : w.book };
+    }
+    for (const id of culture) if (treasureById(id) && !treasures[id]) treasures[id] = { at: 0, from: 'raf' };
     return {
       settings,
-      chest: d.chest ?? {},
+      treasures,
       progress: d.progress ?? {},
-      culture: d.culture ?? [],
+      culture,
       hints: d.hints ?? [],
     };
   } catch {
@@ -83,18 +99,19 @@ export const store = {
     data.settings = { ...data.settings, ...patch };
     save();
   },
-  get chest() {
-    return data.chest;
+  /** The culture treasures found so far (by treasure id). */
+  get treasures() {
+    return data.treasures;
   },
-  addWord(w: ChestWord): boolean {
-    if (data.chest[w.lemma]) return false;
-    data.chest[w.lemma] = w;
+  get treasureCount() {
+    return Object.keys(data.treasures).length;
+  },
+  /** Put a treasure in the chest; returns true the first time. */
+  addTreasure(id: string, from: string): boolean {
+    if (data.treasures[id] || !treasureById(id)) return false;
+    data.treasures[id] = { at: Date.now(), from };
     save();
     return true;
-  },
-  removeWord(lemma: string) {
-    delete data.chest[lemma];
-    save();
   },
   progress(book: string): BookProgress {
     return data.progress[book] ?? { page: 0, read: [] };

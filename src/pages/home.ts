@@ -121,12 +121,12 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     const ready = list.filter((b) => b.status === 'ready');
     const total = ready.reduce((a, b) => a + (b.pages ?? 0), 0);
     const read = ready.reduce((a, b) => a + store.progress(b.id).read.length, 0);
-    const words = Object.keys(store.chest).length;
+    const words = store.treasureCount;
     statPages.replaceChildren(icon.star(), `${read}/${total}`);
     statChest.replaceChildren(icon.chest(), String(words));
     statCulture.replaceChildren(icon.tulip(), `${store.culture.length}/${culture.length}`);
-    stats.setAttribute('aria-label', `${total} sayfanın ${read} tanesi okundu, sandıkta ${words} kelime, kültür rafında ${culture.length} nesneden ${store.culture.length} tanesi keşfedildi`);
-    stats.title = 'Okunan sayfalar, sandıktaki kelimeler, keşfedilen kültür nesneleri';
+    stats.setAttribute('aria-label', `${total} sayfanın ${read} tanesi okundu, sandıkta ${words} kültür hazinesi, kültür rafında ${culture.length} nesneden ${store.culture.length} tanesi keşfedildi`);
+    stats.title = 'Okunan sayfalar, sandıktaki kültür hazineleri, keşfedilen raf nesneleri';
     chestBadge.textContent = String(words);
     cards.forEach(({ book, bar, meta }) => {
       if (book.status === 'soon') {
@@ -236,7 +236,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     scene.hopItem(i);
     scene.sparkle('item', i, 1.8);
     const isNew = store.discover(c.id);
-    store.addWord({ lemma: c.name, en: c.en, icon: c.icon, book: 'kultur-rafi', at: Date.now() });
+    store.addTreasure(c.id, 'raf');
     sfx.item(c.id, i);
     if (isNew) sfx.chime();
     speak(c.name);
@@ -271,8 +271,6 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   function petCat() {
     scene.poke();
     sfx.meow();
-    store.addWord({ lemma: 'kedi', en: 'cat', icon: '🐈', book: 'kultur-rafi', at: Date.now() });
-    updateStats();
     window.setTimeout(() => speak('kedi'), 500);
     const a = scene.catAnchor();
     if (a) {

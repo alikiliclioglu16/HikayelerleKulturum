@@ -31,7 +31,10 @@ async function route() {
       return;
     }
     document.title = 'Hikâyelerle Kültürüm';
-    if (parts[0] === 'sandik') return renderChest(app);
+    if (parts[0] === 'sandik') {
+      cleanup = renderChest(app);
+      return;
+    }
     if (parts[0] === 'ebeveyn') return renderParents(app);
     document.title = 'Hikâyelerle Kültürüm | Türk kültürüyle büyüyen resimli kitaplar';
     const { renderHome } = await import('./pages/home');
