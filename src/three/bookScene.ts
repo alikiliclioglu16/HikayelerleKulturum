@@ -13,7 +13,7 @@ import type { ActResult, Beat } from './acts';
 import { PropActor } from './propActor';
 import { ToyPerformer } from './toy';
 import { Rain } from './rain';
-import { PageText, pageLogo, tulip, type PageTextSpec } from './pageText';
+import { PageText, pageLogo, type PageTextSpec } from './pageText';
 import { Sparkles } from '../home3d/sparkles';
 import type { PageData } from '../types';
 import { WallCarpet, type CarpetDesign } from '../home3d/carpet';
@@ -40,13 +40,13 @@ export type ShotKind = 'overhead' | 'cover' | 'wide' | 'close';
 /** Things that always stand on the reading table, around the book: culture objects from the home shelf. */
 const C = (id: string) => `/models/culture/${id}.glb`;
 const DESK_DECOR: TableModel[] = [
-  { src: C('ebru'), word: 'ebru', x: -1.62, z: -1.05, h: 0.36, rotY: 15 },
+  { src: C('ebru'), word: 'ebru', x: -2.95, z: -1.2, h: 0.36, rotY: 15 },
   { src: C('nazar'), word: 'nazar boncuğu', x: -1.22, z: 1.02, h: 0.28, rotY: 25 },
   { src: C('lokum'), word: 'lokum', x: -0.55, z: 1.16, h: 0.17, rotY: -10 },
   { src: C('cini'), word: 'çini', x: -0.9, z: -1.2, h: 0.34, rotY: 8 },
-  { src: C('lale'), word: 'lale', x: 2.25, z: -0.95, h: 0.4 },
+  { src: C('lale'), word: 'lale', x: 2.75, z: -0.3, h: 0.4 },
   { src: C('mangala'), word: 'mangala', x: 0.25, z: -1.25, h: 0.12, w: 0.5, rotY: -6 },
-  { src: C('baglama'), word: 'bağlama', x: 2.0, z: -0.6, h: 0.5, rotY: -30 },
+  { src: C('baglama'), word: 'bağlama', x: 3.1, z: -0.45, h: 0.5, rotY: -30 },
 ];
 
 export interface Region {
@@ -155,30 +155,16 @@ function pageCanvas(side: 'left' | 'right', target?: HTMLCanvasElement, deco?: L
   g.lineWidth = 3;
   g.strokeRect(26, 26, W - 52, H - 52);
   if (ornament) {
-    // under the standing text card: a tulip rosette and a band of dots on the part of the page in front of it
-    const cx = W / 2 - 6;
-    const cy = H * 0.79;
+    // in front of the standing text card: the Houston Education Attaché's logo, drawn taller than it is so that,
+    // seen low across the page, it looks its own shape; and a band of dots near the page's edge
+    const img = logo();
+    if (img.complete && img.naturalWidth) {
+      const lw = 124;
+      const lh = (img.naturalHeight / img.naturalWidth) * lw * 1.7;
+      g.drawImage(img, W / 2 - 6 - lw / 2, H * 0.775 - lh / 2, lw, lh);
+    }
     g.save();
     g.globalAlpha = 0.5;
-    g.strokeStyle = '#1C3F8C';
-    g.lineWidth = 3;
-    for (const r of [100, 90]) {
-      g.beginPath();
-      g.arc(cx, cy, r, 0, Math.PI * 2);
-      g.stroke();
-    }
-    const colors = ['#C8261F', '#138A80', '#E9A23B', '#1C3F8C'];
-    for (let i = 0; i < 8; i++) {
-      g.save();
-      g.translate(cx, cy);
-      g.rotate((i / 8) * Math.PI * 2);
-      tulip(g, 0, -18, 66, colors[i % 4]);
-      g.restore();
-    }
-    g.fillStyle = '#C8261F';
-    g.beginPath();
-    g.arc(cx, cy, 14, 0, Math.PI * 2);
-    g.fill();
     g.fillStyle = '#1C3F8C';
     for (let x = 52; x < W - 44; x += 22) {
       g.beginPath();
@@ -917,6 +903,18 @@ export class BookScene {
       // the page under the card has only an ornament
       pageCanvas('left', this.leftCanvas, undefined, true);
       this.leftTex.needsUpdate = true;
+      const lg = logo();
+      if (!lg.complete)
+        lg.addEventListener(
+          'load',
+          () => {
+            if (!this.textSpec) return;
+            pageCanvas('left', this.leftCanvas, undefined, true);
+            this.leftTex.needsUpdate = true;
+            this.invalidate();
+          },
+          { once: true },
+        );
     }
     const g = this.cardCanvas.getContext('2d')!;
     g.setTransform(1, 0, 0, 1, 0, 0);

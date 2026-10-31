@@ -4,7 +4,7 @@ import type { Token } from '../text';
  * The story text printed on a pop-up card that stands up on the left page of the open book, facing the reader
  * like the picture on the right page: a parchment card with an arched top, a cobalt and red border with tulips,
  * the title, the text set in lines that fill the card, the word being read with a soft marker, glossary words
- * with a dotted underline, the page number and the Houston Education Attaché's logo in the corner.
+ * with a dotted underline and the page number (the Houston Education Attaché's logo is printed on the page in front).
  * Layout units: the card is W wide (canvas pixels are twice that); `boxes` gives each word's place, so a tap on
  * the card can find the word.
  */
@@ -156,11 +156,10 @@ export class PageText {
     return out;
   }
 
-  /** The text area: below the title, above the page number; lines next to the logo are shorter. */
+  /** The text area: below the title, above the page number. */
   private area() {
     const { W, H } = this;
-    const logoH = H * 0.13;
-    return { left: W * 0.075, right: W * 0.925, top: H * 0.175, bottom: H * 0.895, logoTop: H * 0.94 - logoH - 6, logoLeft: W * 0.915 - logoH * 0.8 - 14 };
+    return { left: W * 0.075, right: W * 0.925, top: H * 0.175, bottom: H * 0.9 };
   }
 
   private layout(g: CanvasRenderingContext2D, spec: PageTextSpec, size: number, force = false) {
@@ -173,9 +172,9 @@ export class PageText {
     let y = a.top + size;
     let line: Line = { y, pieces: [] };
     let x = a.left;
-    const limit = (yy: number) => (yy + size * 0.3 > a.logoTop ? a.logoLeft : a.right);
+    const limit = () => a.right;
     for (const p of pieces) {
-      if (line.pieces.length && x + p.width > limit(y)) {
+      if (line.pieces.length && x + p.width > limit()) {
         lines.push(line);
         y += lh;
         line = { y, pieces: [] };
@@ -283,17 +282,11 @@ export class PageText {
         g.fill();
       }
     }
-    // page number and logo
+    // page number
     g.fillStyle = '#3A4466';
     g.font = '700 19px "Andika", system-ui';
     g.textAlign = 'center';
     g.fillText(spec.sub, W / 2, H * 0.955);
-    const img = pageLogo();
-    if (img.complete && img.naturalWidth) {
-      const lh = H * 0.13;
-      const lw = (img.naturalWidth / img.naturalHeight) * lh;
-      g.drawImage(img, W * 0.915 - lw, H * 0.94 - lh, lw, lh);
-    }
   }
 
   /** The word under a point of the card (layout units), with a little slack. */
