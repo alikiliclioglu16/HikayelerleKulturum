@@ -236,6 +236,64 @@ export const HELD: Record<string, () => THREE.Object3D> = {
     Object.assign(g.userData, { word: 'lokum', hand: 'R' });
     return g;
   },
+  /** Elif's little pink bow-shaped hair clip. */
+  toka: () => {
+    const g = new THREE.Group();
+    const mat = new THREE.MeshStandardMaterial({ color: '#F06FA0', roughness: 0.45 });
+    for (const s of [-1, 1]) {
+      const wing = new THREE.Mesh(new THREE.ConeGeometry(0.009, 0.016, 12), mat);
+      wing.rotation.z = (s * Math.PI) / 2;
+      wing.position.x = s * 0.008;
+      g.add(wing);
+    }
+    g.add(new THREE.Mesh(new THREE.SphereGeometry(0.0045, 10, 8), new THREE.MeshStandardMaterial({ color: '#F2B33D', roughness: 0.3, metalness: 0.3 })));
+    Object.assign(g.userData, { word: 'toka', hand: 'R' });
+    return g;
+  },
+  /** A stack of folded white napkins. */
+  peceteler: () => {
+    const g = new THREE.Group();
+    for (let i = 0; i < 4; i++) {
+      const n = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.005, 0.05), new THREE.MeshStandardMaterial({ color: i % 2 ? '#FFFFFF' : '#F4F1EA', roughness: 0.95 }));
+      n.position.y = i * 0.0055;
+      n.rotation.y = (i % 2) * 0.12;
+      g.add(n);
+    }
+    const band = new THREE.Mesh(new THREE.BoxGeometry(0.052, 0.024, 0.008), new THREE.MeshStandardMaterial({ color: '#D2372C', roughness: 0.6 }));
+    band.position.y = 0.01;
+    g.add(band);
+    Object.assign(g.userData, { word: 'peçete', atHeight: 0.46, ahead: 0.28 });
+    return g;
+  },
+  /** One bayram candy in a twisted wrapper. */
+  seker: () => {
+    const g = new THREE.Group();
+    const wrap = new THREE.MeshStandardMaterial({ color: '#F2B33D', roughness: 0.3 });
+    g.add(new THREE.Mesh(new THREE.SphereGeometry(0.008, 12, 8).scale(1.3, 0.85, 0.85), wrap));
+    for (const s of [-1, 1]) {
+      const end = new THREE.Mesh(new THREE.ConeGeometry(0.006, 0.01, 8), wrap);
+      end.rotation.z = (s * Math.PI) / 2;
+      end.position.x = s * 0.014;
+      g.add(end);
+    }
+    Object.assign(g.userData, { word: 'bayram şekeri', hand: 'R' });
+    return g;
+  },
+  /** Elif's blue colouring pencil. */
+  kalem: () => {
+    const g = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.0035, 0.0035, 0.05, 6), new THREE.MeshStandardMaterial({ color: '#2F6BD8', roughness: 0.5 }));
+    const tip = new THREE.Mesh(new THREE.ConeGeometry(0.0035, 0.01, 6), new THREE.MeshStandardMaterial({ color: '#E9C99A', roughness: 0.8 }));
+    tip.position.y = 0.03;
+    const lead = new THREE.Mesh(new THREE.ConeGeometry(0.0013, 0.004, 6), new THREE.MeshStandardMaterial({ color: '#1E4FB0' }));
+    lead.position.y = 0.0365;
+    g.add(body, tip, lead);
+    g.rotation.z = 0.5;
+    Object.assign(g.userData, { word: 'boya kalemi', hand: 'R' });
+    return g;
+  },
+  /** The little model of the Grand National Assembly building that babaanne shows on the video call. */
+  maket: () => glbHeld('/models/23-nisan/meclis.glb', 0.09, { word: 'Meclis', atHeight: 0.42, ahead: 0.22 }),
   lokumTabagi: () => {
     const g = new THREE.Group();
     const p = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.032, 0.006, 24), new THREE.MeshStandardMaterial({ color: '#FFFFFF', roughness: 0.4 }));

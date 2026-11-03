@@ -3,12 +3,12 @@
   "title": "Keloğlan ve Üç Tohum",
   "titleEn": "Keloğlan and the Three Seeds",
   "culture": {
-    "tr": "Keloğlan masalları, Anadolu köyü, hasat",
+    "tr": "Keloğlan, masal tekerlemeleri, Anadolu köyü, hasat ve atasözü",
     "en": "Keloğlan tales"
   },
   "summary": {
-    "tr": "Bahçeye tohum eken Can sabırsızlanınca Anne, Keloğlan'ın masalını anlatır: kuraklıkta üç tohumu sabırla büyüten, suyunu komşusuyla paylaşan ve bütün köye bereket getiren Keloğlan.",
-    "en": "Keloğlan grows three seeds patiently and brings plenty to the village."
+    "tr": "Bahçeye tohum eken Can 'Hemen filizlenir mi?' diye sorunca annesi Huriye Hanım, Keloğlan'ın masalını anlatır: kuraklıkta üç tohuma sabırla bakan, suyu komşularıyla birlikte koruyan ve hasadını paylaşan Keloğlan.",
+    "en": ""
   },
   "values": [
     "caliskanlik",
@@ -25,11 +25,11 @@
       "scene": "e1",
       "title": {
         "tr": "Bahçede üç tohum",
-        "en": "Three seeds in the garden"
+        "en": ""
       },
       "text": {
-        "tr": "Bahar gelmiş, Amerika'daki evlerinin {bahçesi|bahçe} ısınmıştı. Anne, Elif ve Can küçük bir köşeye {tohum} ektiler. Can sulama kabını bırakır bırakmaz toprağa eğildi: 'Neden hâlâ çıkmadı?' Anne gülümsedi: 'Tohumlar acele etmez Can. Sana sabırlı bir çocuğun, {Keloğlan}'ın {masalını|masal} anlatayım.'",
-        "en": "Spring had come and the garden of their house in America was warm. Mom, Elif and Can planted seeds in a little corner. As soon as Can put down the watering can, he bent over the soil: \"Why haven't they come up yet?\" Mom smiled: \"Seeds are never in a hurry, Can. Let me tell you the tale of a patient boy, Keloğlan.\""
+        "tr": "Bahar gelince Elif, Can ve anneleri Huriye Hanım evlerinin {bahçesine|bahçe} {tohum} ekti. Can {toprağa|toprak} eğildi. “Hemen {filizlenir|filiz} mi?” diye sordu. {Anne|anne}, “Büyümek zaman ister. Toprağını da izlemeliyiz,” dedi. Sonra bahçedeki sıraya oturdular. Huriye Hanım, emek vermeyi seven {Keloğlan’ın|Keloğlan} {masalını|masal} anlatmaya başladı. Can {sulama kabını|sulama kabı} yanına bıraktı. Elif de dikkatle dinledi.",
+        "en": ""
       },
       "culture": {
         "tr": "Keloğlan, Türk masallarının en sevilen kahramanıdır. Saçı olmayan, yoksul ama akıllı, iyi kalpli ve çalışkan bir gençtir. Türk masalları çoğu zaman 'Bir varmış, bir yokmuş' diye başlar.",
@@ -117,47 +117,52 @@
           ],
           "who": "anne",
           "do": "put",
+          "look": "down",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "eğildi"
+          ],
+          "who": "can",
+          "do": "bow",
           "look": "down"
         },
         {
           "cue": [
-            "can"
+            "hemen",
+            "filiz"
           ],
           "who": "can",
           "do": "talk",
-          "look": "reader",
+          "look": "anne",
           "focus": true,
-          "len": 2.2
+          "len": 2.0
         },
         {
           "cue": [
-            "büyüyecek",
-            "hâlâ",
-            "çıkmadı"
-          ],
-          "who": "can",
-          "do": "lookAt",
-          "target": "toprak",
-          "len": 1.6
-        },
-        {
-          "cue": [
-            "anne",
-            "masal",
-            "güldü",
-            "gülümsedi"
+            "büyümek"
           ],
           "who": "anne",
           "do": "talk",
           "look": "can",
           "len": 2.4,
-          "optional": true
+          "focus": true
         },
         {
           "cue": [
-            "masal",
+            "sıraya",
+            "oturdular"
+          ],
+          "who": "anne",
+          "do": "turn",
+          "face": 20,
+          "look": "can"
+        },
+        {
+          "cue": [
             "keloğlan",
-            "büyüyecek"
+            "masal"
           ],
           "who": "tohum",
           "do": "appear",
@@ -166,9 +171,8 @@
         },
         {
           "cue": [
-            "masal",
             "keloğlan",
-            "büyüyecek"
+            "masal"
           ],
           "who": "can",
           "do": "cheer",
@@ -177,9 +181,8 @@
         },
         {
           "cue": [
-            "masal",
             "keloğlan",
-            "büyüyecek"
+            "masal"
           ],
           "who": "elif",
           "do": "hop",
@@ -188,13 +191,29 @@
         },
         {
           "cue": [
-            "masal",
             "keloğlan",
-            "büyüyecek"
+            "masal"
           ],
           "who": "tohum",
           "do": "spin",
           "wait": 0.6
+        },
+        {
+          "cue": [
+            "sulama"
+          ],
+          "who": "can",
+          "do": "put",
+          "look": "down"
+        },
+        {
+          "cue": [
+            "dinledi",
+            "dikkatle"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "anne"
         }
       ],
       "ambience": "birds",
@@ -206,63 +225,18 @@
           "h": 0.86,
           "hotspots": []
         }
-      ],
-      "audio": {
-        "src": "/books/keloglan-tohum/ses/p1.mp3",
-        "marks": [
-          0.01,
-          0.51,
-          1.34,
-          2.17,
-          2.73,
-          3.17,
-          4.16,
-          4.51,
-          4.86,
-          5.06,
-          5.27,
-          5.73,
-          6.02,
-          6.52,
-          6.86,
-          7.7,
-          7.89,
-          8.35,
-          8.81,
-          9.26,
-          9.72,
-          10.18,
-          10.98,
-          11.35,
-          11.71,
-          12.63,
-          12.96,
-          13.91,
-          14.39,
-          14.88,
-          15.22,
-          15.76,
-          16.06,
-          16.47,
-          16.65,
-          17.07,
-          17.48,
-          17.66,
-          18.2,
-          18.9
-        ]
-      }
+      ]
     },
     {
       "id": "p2",
       "scene": "e2",
       "title": {
-        "tr": "Bir varmış, bir yokmuş",
-        "en": "Once upon a time"
+        "tr": "Bir varmış bir yokmuş",
+        "en": ""
       },
       "text": {
-        "tr": "Bir varmış, bir yokmuş. Evvel zaman içinde, kalbur saman içinde, {Keloğlan} {anasıyla|ana} küçük bir {köyde|köy} yaşarmış. O yaz gökten tek damla yağmur düşmemiş, {tarlalar|tarla} kupkuru kalmış. Anası çıkınını açıp oğlunun avucuna üç {tohum} koymuş: 'Oğlum, bunlar sihirli değil. Ama emek verir, {sabırla|sabır} beklersen bereket getirir.'",
-        "en": "Once upon a time, long long ago, Keloğlan lived with his mother in a little village. That summer not a single drop of rain fell, and the fields were bone dry. His mother opened her little bundle and put three seeds in her son's hand: \"My son, these are not magic. But if you work hard and wait patiently, they will bring plenty.\""
+        "tr": "Bir varmış, bir yokmuş. Evvel zaman içinde, kalbur {saman} içinde, {Keloğlan} {anasıyla|ana} bir Anadolu {köyünde|köy} yaşarmış. O yıl {yağmur} az yağmış. {Tarlalar|tarla} kurumuş. Anası, Keloğlan’a üç {tohum} vermiş: biri {mısır}, biri {lahana}, biri {havuç} tohumuymuş. “Bunlar sihirli tohum değil,” demiş. “Büyümeleri için {suya|su}, ışığa, uygun toprağa ve zamana ihtiyaçları var,” diye eklemiş.",
+        "en": ""
       },
       "culture": {
         "tr": "'Evvel zaman içinde, kalbur saman içinde' bir masal tekerlemesidir. Masalcı bu sözlerle dinleyenleri hayal dünyasına davet eder. Masallar eskiden kış gecelerinde, ocak başında anlatılırdı.",
@@ -287,6 +261,42 @@
           "hidden": true,
           "y": 0.18,
           "magic": true,
+          "fx": "bob"
+        },
+        {
+          "src": "/models/masal/misir.glb",
+          "x": 0.1,
+          "z": 0.62,
+          "h": 0.09,
+          "y": 0.44,
+          "word": "mısır",
+          "id": "t_misir",
+          "magic": true,
+          "hidden": true,
+          "fx": "bob"
+        },
+        {
+          "src": "/models/masal/lahana.glb",
+          "x": 0.22,
+          "z": 0.62,
+          "h": 0.06,
+          "y": 0.46,
+          "word": "lahana",
+          "id": "t_lahana",
+          "magic": true,
+          "hidden": true,
+          "fx": "bob"
+        },
+        {
+          "src": "/models/masal/havuc.glb",
+          "x": 0.34,
+          "z": 0.62,
+          "h": 0.08,
+          "y": 0.44,
+          "word": "havuç",
+          "id": "t_havuc",
+          "magic": true,
+          "hidden": true,
           "fx": "bob"
         }
       ],
@@ -337,9 +347,16 @@
         },
         {
           "cue": [
-            "anası",
-            "tohum",
-            "avucuna"
+            "tarlalar",
+            "kurumuş"
+          ],
+          "who": "keloglan",
+          "do": "bow",
+          "look": "down"
+        },
+        {
+          "cue": [
+            "anası"
           ],
           "who": "keloglan-anasi",
           "do": "give",
@@ -349,31 +366,79 @@
         },
         {
           "cue": [
-            "anası",
-            "tohum",
-            "avucuna"
+            "tohum"
           ],
           "who": "keloglan",
           "do": "receive",
           "target": "tohum",
-          "look": "keloglan-anasi"
+          "look": "keloglan-anasi",
+          "wait": 0.4
         },
         {
           "cue": [
-            "oğlum",
+            "mısır"
+          ],
+          "who": "t_misir",
+          "do": "appear",
+          "len": 0.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "lahana"
+          ],
+          "who": "t_lahana",
+          "do": "appear",
+          "len": 0.8
+        },
+        {
+          "cue": [
+            "havuç"
+          ],
+          "who": "t_havuc",
+          "do": "appear",
+          "len": 0.8
+        },
+        {
+          "cue": [
+            "bunlar",
             "sihirli"
           ],
           "who": "keloglan-anasi",
           "do": "talk",
           "look": "keloglan",
-          "len": 2.4,
-          "optional": true
+          "len": 2.4
         },
         {
           "cue": [
-            "bereket",
-            "vermiş",
-            "tohum"
+            "suya",
+            "ışığa"
+          ],
+          "who": "t_misir",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "suya",
+            "ışığa"
+          ],
+          "who": "t_lahana",
+          "do": "vanish",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "suya",
+            "ışığa"
+          ],
+          "who": "t_havuc",
+          "do": "vanish",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "zamana",
+            "eklemiş"
           ],
           "who": "keloglan",
           "do": "nod",
@@ -389,69 +454,18 @@
           "h": 0.86,
           "hotspots": []
         }
-      ],
-      "audio": {
-        "src": "/books/keloglan-tohum/ses/p2.mp3",
-        "marks": [
-          0.02,
-          0.38,
-          0.98,
-          1.34,
-          2.48,
-          2.91,
-          3.35,
-          4.1,
-          4.48,
-          4.87,
-          5.75,
-          6.27,
-          6.95,
-          7.42,
-          7.64,
-          8.01,
-          9.05,
-          9.3,
-          9.56,
-          9.99,
-          10.24,
-          10.67,
-          11.11,
-          12.05,
-          12.65,
-          13.25,
-          14.16,
-          14.65,
-          15.28,
-          15.63,
-          16.12,
-          16.76,
-          16.96,
-          17.3,
-          18.09,
-          18.77,
-          19.12,
-          19.63,
-          20.29,
-          20.68,
-          21.08,
-          21.63,
-          22.21,
-          22.79,
-          23.36,
-          23.98
-        ]
-      }
+      ]
     },
     {
       "id": "p3",
       "scene": "e3",
       "title": {
-        "tr": "Emek olmadan yemek olmaz",
-        "en": "No work, no food"
+        "tr": "Emek verilen toprak",
+        "en": ""
       },
       "text": {
-        "tr": "Keloğlan güneş doğmadan kalkmış. {Çapayla|çapa} sert toprağı yumuşatmış, üç tohumu yan yana ekmiş. Köyün {kuyusu|kuyu} uzakmış ama Keloğlan her gün {kovasını|kova} doldurup tarlasına {su} taşımış. Ayakları yorulsa da 'Emek olmadan yemek olmaz' deyip yoluna devam etmiş.",
-        "en": "Keloğlan got up before sunrise. With a hoe he softened the hard soil and planted the three seeds side by side. The village well was far away, but every day Keloğlan filled his bucket and carried water to his field. Even when his feet were tired he said, \"No work, no food,\" and kept going."
+        "tr": "Keloğlan küçük bir {toprak} parçasını ekime hazırlamış. {Tohumları|tohum}, büyüyebilecekleri aralıklarla ekmiş. {Hasan Amca} da ona yardım etmiş. {Kuyudan|kuyu} {suyu|su} birlikte getirmişler. Keloğlan toprağı kontrol etmiş; gerektiği kadar sulamış. Bazen yorulunca dinlenmiş, sonra işine dönmüş. “Emek olmadan yemek olmaz,” demiş {anası|ana}. Keloğlan, her gün yaptığı küçük bakımın önemli olduğunu görmüş.",
+        "en": ""
       },
       "culture": {
         "tr": "'Emek olmadan yemek olmaz' bir Türk atasözüdür: Çalışmadan hiçbir şey kazanılmaz. Anadolu köylerinde eskiden suyu kuyulardan ve çeşmelerden kovalarla taşırlardı.",
@@ -532,6 +546,18 @@
           "x": 0.1,
           "z": 0.68,
           "rotY": 0
+        },
+        {
+          "id": "hasan-amca",
+          "x": 0.44,
+          "z": 0.52,
+          "rotY": -50
+        },
+        {
+          "id": "keloglan-anasi",
+          "x": -0.38,
+          "z": 0.44,
+          "rotY": 30
         }
       ],
       "beats": [
@@ -546,8 +572,8 @@
         },
         {
           "cue": [
-            "ekmiş",
-            "tohum"
+            "tohum",
+            "ekmiş"
           ],
           "who": "tohum1",
           "do": "appear",
@@ -556,8 +582,8 @@
         },
         {
           "cue": [
-            "ekmiş",
-            "tohum"
+            "tohum",
+            "ekmiş"
           ],
           "who": "tohum2",
           "do": "appear",
@@ -566,8 +592,8 @@
         },
         {
           "cue": [
-            "ekmiş",
-            "tohum"
+            "tohum",
+            "ekmiş"
           ],
           "who": "tohum3",
           "do": "appear",
@@ -576,8 +602,8 @@
         },
         {
           "cue": [
-            "ekmiş",
-            "tohum"
+            "tohum",
+            "ekmiş"
           ],
           "who": "keloglan",
           "do": "lookAt",
@@ -586,16 +612,29 @@
         },
         {
           "cue": [
-            "kuyu",
-            "su"
+            "hasan"
+          ],
+          "who": "hasan-amca",
+          "do": "walkTo",
+          "to": [
+            -0.14,
+            0,
+            0.1
+          ],
+          "face": -60,
+          "look": "keloglan",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kuyu"
           ],
           "who": "tohum1",
           "do": "sink"
         },
         {
           "cue": [
-            "kuyu",
-            "su"
+            "kuyu"
           ],
           "who": "tohum2",
           "do": "sink",
@@ -603,8 +642,7 @@
         },
         {
           "cue": [
-            "kuyu",
-            "su"
+            "kuyu"
           ],
           "who": "tohum3",
           "do": "sink",
@@ -612,8 +650,7 @@
         },
         {
           "cue": [
-            "kuyu",
-            "su"
+            "kuyu"
           ],
           "who": "keloglan",
           "do": "walkTo",
@@ -627,9 +664,22 @@
         },
         {
           "cue": [
-            "kuyu",
-            "su",
-            "kova"
+            "kuyu"
+          ],
+          "who": "hasan-amca",
+          "do": "walkTo",
+          "to": [
+            0.02,
+            0,
+            -0.14
+          ],
+          "face": -70,
+          "look": "keloglan",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "getirmişler"
           ],
           "who": "keloglan",
           "do": "receive",
@@ -637,9 +687,8 @@
         },
         {
           "cue": [
-            "taşı",
-            "üşen",
-            "devam"
+            "kontrol",
+            "toprağı"
           ],
           "who": "keloglan",
           "do": "walkTo",
@@ -651,6 +700,51 @@
           "face": 10,
           "look": "reader",
           "focus": true
+        },
+        {
+          "cue": [
+            "sulamış"
+          ],
+          "who": "keloglan",
+          "do": "bow",
+          "look": "down"
+        },
+        {
+          "cue": [
+            "yorulunca",
+            "dinlenmiş"
+          ],
+          "who": "keloglan",
+          "do": "rest",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "işine",
+            "dönmüş"
+          ],
+          "who": "keloglan",
+          "do": "bow",
+          "look": "down"
+        },
+        {
+          "cue": [
+            "emek"
+          ],
+          "who": "keloglan-anasi",
+          "do": "talk",
+          "look": "keloglan",
+          "len": 2.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "bakımın",
+            "görmüş"
+          ],
+          "who": "keloglan",
+          "do": "nod",
+          "look": "keloglan-anasi"
         }
       ],
       "ambience": "birds",
@@ -662,64 +756,22 @@
           "h": 0.86,
           "hotspots": []
         }
-      ],
-      "audio": {
-        "src": "/books/keloglan-tohum/ses/p3.mp3",
-        "marks": [
-          0.02,
-          0.67,
-          1.12,
-          1.77,
-          2.65,
-          3.24,
-          3.48,
-          4.16,
-          5.17,
-          5.39,
-          5.92,
-          6.14,
-          6.51,
-          7.26,
-          7.63,
-          8.16,
-          8.69,
-          9.07,
-          9.6,
-          9.81,
-          10.03,
-          10.72,
-          11.25,
-          11.93,
-          12.15,
-          13.01,
-          13.6,
-          14.05,
-          14.5,
-          14.88,
-          15.42,
-          15.8,
-          16.43,
-          16.83,
-          17.4,
-          17.8,
-          18.24
-        ]
-      }
+      ]
     },
     {
       "id": "p4",
       "scene": "e4",
       "title": {
-        "tr": "Sabreden derviş",
-        "en": "Patience pays"
+        "tr": "Üç küçük filiz",
+        "en": ""
       },
       "text": {
-        "tr": "Günler sonra topraktan üç minik {filiz} başını uzatmış. Yoldan geçen {köylüler|köylü} kahkahayla gülmüş: 'Bu kuraklıkta üç tohumla mı karnını doyuracaksın Keloğlan?' Keloğlan hiç kızmamış. 'Sabreden derviş muradına ermiş,' demiş. Her sabah filizlerine {gölge} yapmış, her akşam onları sulamış.",
-        "en": "Days later three tiny sprouts poked their heads out of the soil. Villagers passing by burst out laughing: \"Are you going to fill your stomach with three seeds in this drought, Keloğlan?\" Keloğlan did not get angry at all. \"Whoever is patient gets their wish,\" he said. Every morning he made shade for his sprouts and every evening he watered them."
+        "tr": "Günler sonra üç {filiz} görünmüş. Keloğlan sevinçle {Hasan Amca’yı|Hasan Amca} çağırmış. Yoldan geçen bir kadın ile {çocuk} da filizlere bakmış. “Bu sıcakta onlara nasıl bakıyorsun?” diye sormuşlar. Keloğlan yaptıklarını anlatmış. Çok sıcak saatlerde filizleri koruyor, toprağın nemini izliyormuş. Yeni yaprakları hemen çekiştirmeden bekliyormuş. Büyümelerini görmek ona her gün ayrı bir {sevinç} veriyormuş.",
+        "en": ""
       },
       "culture": {
-        "tr": "'Sabreden derviş muradına ermiş' atasözü, sabırla bekleyenin sonunda isteğine kavuşacağını anlatır.",
-        "en": "Whoever is patient gets their wish."
+        "tr": "Filizler çok sıcak saatlerde gölgede tutulur, toprak kurumaya başlayınca sulanır. Sabırla bakılan bitkiler zamanla güçlenir. ‘Sabreden derviş muradına ermiş’ atasözü de sabırla bekleyenin isteğine kavuşacağını anlatır.",
+        "en": ""
       },
       "models": [
         {
@@ -768,6 +820,12 @@
           "x": -0.16,
           "z": 0.56,
           "rotY": 20
+        },
+        {
+          "id": "hasan-amca",
+          "x": -0.46,
+          "z": 0.36,
+          "rotY": 40
         },
         {
           "id": "koylu-kadin",
@@ -819,83 +877,111 @@
             "günler"
           ],
           "who": "keloglan",
+          "do": "hop",
+          "look": "filiz2"
+        },
+        {
+          "cue": [
+            "hasan"
+          ],
+          "who": "keloglan",
+          "do": "wave",
+          "look": "hasan-amca",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çağırmış"
+          ],
+          "who": "hasan-amca",
+          "do": "walkTo",
+          "to": [
+            0.16,
+            0,
+            0.0
+          ],
+          "face": 40,
+          "look": "filiz2",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "kadın",
+            "filizlere"
+          ],
+          "who": "koylu-kadin",
           "do": "lookAt",
           "target": "filiz2",
           "len": 1.6
         },
         {
           "cue": [
-            "filiz",
-            "günler"
-          ],
-          "who": "keloglan",
-          "do": "hop",
-          "look": "filiz2"
-        },
-        {
-          "cue": [
-            "köylü",
-            "gül"
-          ],
-          "who": "koylu-kadin",
-          "do": "cheer",
-          "look": "keloglan"
-        },
-        {
-          "cue": [
-            "köylü",
-            "gül"
+            "çocuk",
+            "filizlere"
           ],
           "who": "koylu-cocuk",
           "do": "point",
-          "target": "keloglan",
+          "target": "filiz2",
           "len": 1.6
         },
         {
           "cue": [
-            "karın",
-            "kuraklık"
+            "sıcakta",
+            "nasıl"
           ],
           "who": "koylu-kadin",
           "do": "talk",
           "look": "keloglan",
           "len": 2.2,
-          "optional": true,
           "focus": true
         },
         {
           "cue": [
-            "sabreden",
-            "kızmamış",
-            "sabır"
+            "anlatmış",
+            "yaptıklarını"
           ],
           "who": "keloglan",
           "do": "talk",
-          "look": "reader",
-          "focus": true,
-          "len": 2.4
+          "look": "koylu-kadin",
+          "len": 3.0,
+          "focus": true
         },
         {
           "cue": [
-            "sabreden",
-            "kızmamış",
-            "sabır"
-          ],
-          "who": "filiz2",
-          "do": "shine",
-          "len": 0.8,
-          "wait": 0.8
-        },
-        {
-          "cue": [
-            "sulamaya",
-            "sulamış",
-            "gölge"
+            "koruyor",
+            "nemini"
           ],
           "who": "keloglan",
           "do": "bow",
-          "look": "filiz2",
-          "optional": true
+          "look": "filiz2"
+        },
+        {
+          "cue": [
+            "bekliyormuş",
+            "çekiştirmeden"
+          ],
+          "who": "filiz2",
+          "do": "shine",
+          "len": 0.8
+        },
+        {
+          "cue": [
+            "sevinç",
+            "büyümelerini"
+          ],
+          "who": "keloglan",
+          "do": "cheer",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "sevinç"
+          ],
+          "who": "hasan-amca",
+          "do": "nod",
+          "look": "keloglan",
+          "wait": 0.3
         }
       ],
       "ambience": "birds",
@@ -907,66 +993,22 @@
           "h": 0.86,
           "hotspots": []
         }
-      ],
-      "audio": {
-        "src": "/books/keloglan-tohum/ses/p4.mp3",
-        "marks": [
-          0.0,
-          0.38,
-          0.79,
-          1.36,
-          1.6,
-          2.09,
-          2.49,
-          3.07,
-          4.1,
-          4.51,
-          4.92,
-          5.5,
-          6.25,
-          7.03,
-          7.22,
-          7.84,
-          8.03,
-          8.51,
-          8.7,
-          9.17,
-          9.93,
-          10.8,
-          11.45,
-          11.72,
-          12.87,
-          13.49,
-          13.93,
-          14.73,
-          15.36,
-          16.22,
-          16.44,
-          16.82,
-          17.67,
-          18.04,
-          18.7,
-          18.92,
-          19.28,
-          19.81,
-          20.37
-        ]
-      }
+      ]
     },
     {
       "id": "p5",
       "scene": "e5",
       "title": {
-        "tr": "Kuyudaki son su",
-        "en": "The last water in the well"
+        "tr": "Suyu birlikte korumak",
+        "en": ""
       },
       "text": {
-        "tr": "Kuraklık uzadıkça {kuyunun|kuyu} dibinde birkaç kova {su} kalmış. {Komşusu|komşu} Hasan Amca'nın tarlası sararmış, yaşlı adam üzgün üzgün oturuyormuş. Keloğlan bir kendi filizlerine, bir Hasan Amca'ya bakmış. Sonra {kovasındaki|kova} suyun yarısını onun tarlasına dökmüş: 'Bir elin nesi var, iki elin sesi var Hasan Amca. Birlikte büyütelim.' Hasan Amca'nın gözleri dolmuş.",
-        "en": "As the drought went on, only a few buckets of water were left at the bottom of the well. Uncle Hasan's field had turned yellow and the old man sat there sadly. Keloğlan looked at his own sprouts, then at Uncle Hasan. Then he poured half of his bucket onto Uncle Hasan's field: \"One hand alone makes no sound, two hands clap, Uncle Hasan. Let's grow them together.\" Uncle Hasan's eyes filled with tears."
+        "tr": "{Kuraklık|kuraklık} uzayınca {kuyudaki|kuyu} {su} azalmış. {Hasan Amca’nın|Hasan Amca} {tarlası|tarla} da susuz kalmış. {Köylüler|köylü} önce insanların ve hayvanların içme suyunu ayırmış. Sonra ekinleri için kalan suyu dikkatle kullanmaya karar vermişler. Keloğlan {kovasındaki|kova} sudan Hasan Amca’nın küçük ekim alanına da vermiş. Birlikte toprağı örtüp nemini korumuşlar. {Yardımlaşırken|yardımlaşmak} suyu boşa akıtmamışlar.",
+        "en": ""
       },
       "culture": {
-        "tr": "'Bir elin nesi var, iki elin sesi var' atasözü, birlikte çalışınca işlerin kolaylaştığını anlatır. Anadolu köylerinde komşular zor günlerde birbirine yardım eder; birlikte iş yapmaya imece denir.",
-        "en": "Two hands together: helping each other."
+        "tr": "Kurak zamanlarda Anadolu köylerinde su dikkatle paylaşılır: Önce içme suyu ayrılır, kalan su tarlalara verilir. ‘Bir elin nesi var, iki elin sesi var’ atasözü de birlikte çalışınca işlerin kolaylaştığını anlatır.",
+        "en": ""
       },
       "models": [
         {
@@ -1020,6 +1062,12 @@
           "z": 0.5,
           "rotY": -40,
           "pose": "bow"
+        },
+        {
+          "id": "koylu-kadin",
+          "x": -0.46,
+          "z": 0.64,
+          "rotY": 40
         }
       ],
       "beats": [
@@ -1032,8 +1080,8 @@
         },
         {
           "cue": [
-            "kuyu",
-            "kuraklık"
+            "kuraklık",
+            "kuyudaki"
           ],
           "who": "keloglan",
           "do": "lookAt",
@@ -1042,7 +1090,6 @@
         },
         {
           "cue": [
-            "komşu",
             "hasan"
           ],
           "who": "keloglan",
@@ -1053,9 +1100,40 @@
         },
         {
           "cue": [
-            "yarısını",
-            "paylaş",
-            "kovasındaki"
+            "köylüler",
+            "içme"
+          ],
+          "who": "koylu-kadin",
+          "do": "walkTo",
+          "to": [
+            0.08,
+            0,
+            -0.26
+          ],
+          "face": 10,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ayırmış"
+          ],
+          "who": "koylu-kadin",
+          "do": "receive",
+          "target": "kova",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "karar"
+          ],
+          "who": "keloglan",
+          "do": "nod",
+          "look": "koylu-kadin"
+        },
+        {
+          "cue": [
+            "keloğlan"
           ],
           "who": "keloglan",
           "do": "walkTo",
@@ -1069,8 +1147,6 @@
         },
         {
           "cue": [
-            "yarısını",
-            "paylaş",
             "kovasındaki"
           ],
           "who": "keloglan",
@@ -1079,8 +1155,6 @@
         },
         {
           "cue": [
-            "yarısını",
-            "paylaş",
             "kovasındaki"
           ],
           "who": "hasan-amca",
@@ -1089,8 +1163,6 @@
         },
         {
           "cue": [
-            "yarısını",
-            "paylaş",
             "kovasındaki"
           ],
           "who": "hasan-amca",
@@ -1103,9 +1175,7 @@
         {
           "cue": [
             "birlikte",
-            "elin",
-            "gözleri",
-            "paylaş"
+            "örtüp"
           ],
           "who": "filiz1",
           "do": "grow",
@@ -1115,9 +1185,7 @@
         {
           "cue": [
             "birlikte",
-            "elin",
-            "gözleri",
-            "paylaş"
+            "örtüp"
           ],
           "who": "filiz2",
           "do": "grow",
@@ -1126,24 +1194,22 @@
         },
         {
           "cue": [
-            "birlikte",
-            "elin"
-          ],
-          "who": "keloglan",
-          "do": "talk",
-          "look": "hasan-amca",
-          "len": 2.2,
-          "optional": true
-        },
-        {
-          "cue": [
-            "gözleri",
-            "birlikte",
-            "paylaş"
+            "nemini",
+            "korumuşlar"
           ],
           "who": "hasan-amca",
           "do": "nod",
           "look": "keloglan"
+        },
+        {
+          "cue": [
+            "yardımlaşırken",
+            "boşa"
+          ],
+          "who": "keloglan",
+          "do": "cheer",
+          "look": "reader",
+          "focus": true
         }
       ],
       "ambience": "birds",
@@ -1155,73 +1221,18 @@
           "h": 0.86,
           "hotspots": []
         }
-      ],
-      "audio": {
-        "src": "/books/keloglan-tohum/ses/p5.mp3",
-        "marks": [
-          0.08,
-          0.58,
-          1.23,
-          1.84,
-          2.34,
-          2.69,
-          3.04,
-          3.25,
-          4.0,
-          4.52,
-          4.89,
-          5.41,
-          5.94,
-          6.76,
-          7.13,
-          7.51,
-          7.88,
-          8.26,
-          9.51,
-          10.04,
-          10.25,
-          10.62,
-          11.55,
-          11.74,
-          12.06,
-          12.53,
-          13.18,
-          13.52,
-          14.28,
-          14.62,
-          15.24,
-          15.58,
-          16.2,
-          16.95,
-          17.16,
-          17.52,
-          17.89,
-          18.19,
-          18.49,
-          18.79,
-          19.09,
-          19.27,
-          19.57,
-          20.13,
-          20.56,
-          21.54,
-          21.93,
-          22.49,
-          23.05,
-          23.48
-        ]
-      }
+      ]
     },
     {
       "id": "p6",
       "scene": "e6",
       "title": {
-        "tr": "Yağmur geldi!",
-        "en": "The rain came!"
+        "tr": "Yağmur ve zaman",
+        "en": ""
       },
       "text": {
-        "tr": "Bir sabah gök gürlemiş, bulutlar toplanmış ve günlerce şakır şakır {yağmur} yağmış. Keloğlan yağmurun altında sevinçle koşmuş. Sabırla büyüttüğü üç tohumdan boy boy {mısırlar|mısır}, iri {lahanalar|lahana}, turuncu {havuçlar|havuç} ve {kabaklar|kabak} çıkmış. Suyunu paylaştığı Hasan Amca'nın tarlası da yemyeşil olmuş.",
-        "en": "One morning thunder rolled, clouds gathered and it rained for days. Keloğlan ran happily in the rain. From the three seeds he had grown so patiently came tall corn, big cabbages, orange carrots and pumpkins. Uncle Hasan's field, which he had shared his water with, turned bright green too."
+        "tr": "Sonunda {yağmur} yağmış. Keloğlan yağışı evinin önünden sevinçle izlemiş. Haftalar geçtikçe {mısır} uzamış, {lahana} yapraklanmış, {havuç} toprağın içinde büyümüş. {Hasan Amca’nın|Hasan Amca} {kabakları|kabak} da gelişmiş. Keloğlan’ın bahçesinde {sebzeler|sebze} kocaman görünüyormuş. {Anası|ana} gülümsemiş: “Bakımınız ve yağmur işe yaradı.” Keloğlan her sebzenin aynı zamanda olgunlaşmadığını da öğrenmiş; {hasat} için uygun zamanı beklemiş.",
+        "en": ""
       },
       "culture": {
         "tr": "Anadolu'da yağmur bereket demektir. Kuraklık zamanlarında köylerde birlikte yağmur duasına çıkılır, ardından yağmur yağınca herkes sevinir.",
@@ -1313,14 +1324,19 @@
           "x": 0.4,
           "z": 0.62,
           "rotY": -40
+        },
+        {
+          "id": "keloglan-anasi",
+          "x": -0.4,
+          "z": 0.38,
+          "rotY": 35
         }
       ],
       "beats": [
         {
           "cue": [
-            "gök",
-            "yağmur",
-            "sonunda"
+            "sonunda",
+            "yağmur"
           ],
           "who": "bulut",
           "do": "appear",
@@ -1329,10 +1345,7 @@
         },
         {
           "cue": [
-            "şakır",
-            "yağmış",
-            "yağdı",
-            "yağmur"
+            "yağmış"
           ],
           "who": "bulut",
           "do": "rain",
@@ -1340,8 +1353,8 @@
         },
         {
           "cue": [
-            "yağmur",
-            "yağmış"
+            "yağışı",
+            "izlemiş"
           ],
           "who": "keloglan",
           "do": "lookAt",
@@ -1350,9 +1363,7 @@
         },
         {
           "cue": [
-            "sevin",
-            "koşmuş",
-            "sebze"
+            "sevinçle"
           ],
           "who": "keloglan",
           "do": "cheer",
@@ -1361,20 +1372,15 @@
         },
         {
           "cue": [
-            "mısır",
-            "sebze",
-            "kocaman"
+            "mısır"
           ],
           "who": "misir1",
           "do": "grow",
-          "len": 0.8,
-          "wait": 0.0
+          "len": 0.8
         },
         {
           "cue": [
-            "mısır",
-            "sebze",
-            "kocaman"
+            "mısır"
           ],
           "who": "misir2",
           "do": "grow",
@@ -1383,9 +1389,7 @@
         },
         {
           "cue": [
-            "mısır",
-            "sebze",
-            "kocaman"
+            "mısır"
           ],
           "who": "misir3",
           "do": "grow",
@@ -1394,43 +1398,40 @@
         },
         {
           "cue": [
-            "lahana",
-            "sebze",
-            "kocaman"
+            "lahana"
           ],
           "who": "lahana1",
           "do": "grow",
-          "len": 0.8,
-          "wait": 1.05
+          "len": 0.8
         },
         {
           "cue": [
-            "havuç",
-            "sebze",
-            "kocaman"
+            "havuç"
           ],
           "who": "havuc1",
           "do": "grow",
-          "len": 0.8,
-          "wait": 1.4
+          "len": 0.8
         },
         {
           "cue": [
-            "kabak",
-            "sebze",
-            "kocaman",
-            "yeşer"
+            "kabak"
           ],
           "who": "kabak1",
           "do": "grow",
-          "len": 0.8,
-          "wait": 1.75
+          "len": 0.8
+        },
+        {
+          "cue": [
+            "kabak"
+          ],
+          "who": "hasan-amca",
+          "do": "cheer",
+          "look": "keloglan",
+          "wait": 0.5
         },
         {
           "cue": [
             "kocaman",
-            "boy",
-            "mısır",
             "sebze"
           ],
           "who": "keloglan",
@@ -1440,13 +1441,23 @@
         },
         {
           "cue": [
-            "hasan",
-            "kocaman",
-            "yeşer"
+            "anası",
+            "bakımınız"
           ],
-          "who": "hasan-amca",
-          "do": "cheer",
-          "look": "keloglan"
+          "who": "keloglan-anasi",
+          "do": "talk",
+          "look": "keloglan",
+          "len": 2.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "olgunlaş",
+            "hasat"
+          ],
+          "who": "keloglan",
+          "do": "nod",
+          "look": "keloglan-anasi"
         }
       ],
       "layers": [
@@ -1457,67 +1468,22 @@
           "h": 0.86,
           "hotspots": []
         }
-      ],
-      "audio": {
-        "src": "/books/keloglan-tohum/ses/p6.mp3",
-        "marks": [
-          0.03,
-          0.28,
-          0.72,
-          0.97,
-          2.03,
-          2.73,
-          3.42,
-          3.71,
-          4.4,
-          4.9,
-          5.39,
-          5.88,
-          6.96,
-          7.55,
-          8.13,
-          8.72,
-          9.31,
-          10.08,
-          10.57,
-          11.33,
-          11.53,
-          12.23,
-          12.51,
-          12.8,
-          13.73,
-          14.04,
-          14.78,
-          15.3,
-          15.82,
-          16.04,
-          16.56,
-          17.47,
-          17.97,
-          18.63,
-          18.98,
-          19.49,
-          19.99,
-          20.2,
-          20.7,
-          21.1
-        ]
-      }
+      ]
     },
     {
       "id": "p7",
       "scene": "e7",
       "title": {
-        "tr": "Gökten üç elma düştü",
-        "en": "Three apples fell from the sky"
+        "tr": "Gökten üç elma düşmüş",
+        "en": ""
       },
       "text": {
-        "tr": "Hasat zamanı bütün {köy} bir araya gelmiş; Keloğlan'ın anası kocaman bir sofra kurmuş. Keloğlan, sebzelerinden çıkan yeni tohumları torba torba komşularına dağıtmış. Ertesi yıl köyün bütün tarlaları {bereketli|bereket} olmuş, kimse aç kalmamış. Onlar ermiş muradına, biz çıkalım kerevetine. Gökten üç elma düşmüş: biri anlatana, biri dinleyene, biri de okuyana!",
-        "en": "At harvest time the whole village came together and Keloğlan's mother laid a huge table. Keloğlan gave sacks of new seeds from his vegetables to his neighbours. The next year every field in the village was full of plenty and nobody went hungry. They got their wish, and we climb up to our seat. Three apples fell from the sky: one for the teller, one for the listener and one for the reader!"
+        "tr": "{Hasat|hasat} zamanı {köylüler|köylü} ellerindeki ürünleri ortak {sofraya|sofra} getirmiş. Kimi {ekmek}, kimi {sebze} getirmiş. Keloğlan da yetiştirdiklerinden {paylaşmış|paylaşmak}. {Mısırından|mısır} ayırdığı {tohumları|tohum} kurutup sonraki ekim için saklamış. {Komşular|komşu} kendi tohumlarını da paylaşmış. Sofra, herkesin katkısıyla dolmuş. Gökten üç {elma} düşmüş: biri anlatana, biri dinleyene, biri de okuyana! {Masal|masal} burada sona ermiş.",
+        "en": ""
       },
       "culture": {
-        "tr": "Türk masalları çoğu zaman 'Gökten üç elma düşmüş' diye biter. 'Onlar ermiş muradına, biz çıkalım kerevetine' de bilinen bir masal sonu tekerlemesidir.",
-        "en": "Classic Turkish tale endings."
+        "tr": "Türk masalları çoğu zaman ‘Gökten üç elma düşmüş: biri anlatana, biri dinleyene, biri de okuyana’ diye biter. Hasat zamanı köylerde ortak sofralar kurulur; herkes ürününden bir pay getirir.",
+        "en": ""
       },
       "models": [
         {
@@ -1656,9 +1622,7 @@
       "beats": [
         {
           "cue": [
-            "hasat",
-            "köy",
-            "bütün"
+            "hasat"
           ],
           "who": "keloglan-anasi",
           "do": "nod",
@@ -1666,30 +1630,84 @@
         },
         {
           "cue": [
-            "tohum",
-            "dağıt"
+            "ortak",
+            "getirmiş"
+          ],
+          "who": "koylu-kadin",
+          "do": "offer",
+          "look": "reader",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "ekmek"
+          ],
+          "who": "koylu-cocuk",
+          "do": "offer",
+          "look": "reader",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "yetiştirdiklerinden"
           ],
           "who": "keloglan",
           "do": "give",
-          "target": "tohum",
+          "target": "sebze",
           "look": "hasan-amca",
           "focus": true
         },
         {
           "cue": [
-            "tohum",
-            "dağıt"
+            "paylaşmış"
           ],
           "who": "hasan-amca",
           "do": "receive",
-          "target": "tohum",
-          "look": "keloglan"
+          "target": "sebze",
+          "look": "keloglan",
+          "wait": 0.4
         },
         {
           "cue": [
-            "bereket",
-            "bitmiş",
-            "murad"
+            "mısırından",
+            "tohumları"
+          ],
+          "who": "keloglan",
+          "do": "bow",
+          "look": "down"
+        },
+        {
+          "cue": [
+            "saklamış"
+          ],
+          "who": "keloglan",
+          "do": "nod",
+          "look": "keloglan-anasi"
+        },
+        {
+          "cue": [
+            "komşular"
+          ],
+          "who": "hasan-amca",
+          "do": "give",
+          "target": "tohum",
+          "look": "keloglan",
+          "focus": true
+        },
+        {
+          "cue": [
+            "tohumlarını"
+          ],
+          "who": "keloglan",
+          "do": "receive",
+          "target": "tohum",
+          "look": "hasan-amca",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "katkısıyla",
+            "dolmuş"
           ],
           "who": "koylu-kadin",
           "do": "cheer",
@@ -1697,18 +1715,17 @@
         },
         {
           "cue": [
-            "bereket",
-            "bitmiş",
-            "murad"
+            "katkısıyla",
+            "dolmuş"
           ],
           "who": "koylu-cocuk",
           "do": "cheer",
-          "look": "keloglan"
+          "look": "keloglan",
+          "wait": 0.2
         },
         {
           "cue": [
-            "elma",
-            "bitmiş"
+            "elma"
           ],
           "who": "elma2",
           "do": "rise",
@@ -1716,8 +1733,7 @@
         },
         {
           "cue": [
-            "elma",
-            "bitmiş"
+            "elma"
           ],
           "who": "elma1",
           "do": "rise",
@@ -1725,8 +1741,7 @@
         },
         {
           "cue": [
-            "elma",
-            "bitmiş"
+            "elma"
           ],
           "who": "elma3",
           "do": "rise",
@@ -1734,8 +1749,7 @@
         },
         {
           "cue": [
-            "elma",
-            "bitmiş"
+            "elma"
           ],
           "who": "keloglan",
           "do": "lookAt",
@@ -1744,8 +1758,7 @@
         },
         {
           "cue": [
-            "okuyana",
-            "bitmiş"
+            "okuyana"
           ],
           "who": "elma1",
           "do": "shine",
@@ -1753,8 +1766,7 @@
         },
         {
           "cue": [
-            "okuyana",
-            "bitmiş"
+            "okuyana"
           ],
           "who": "elma2",
           "do": "shine",
@@ -1763,8 +1775,7 @@
         },
         {
           "cue": [
-            "okuyana",
-            "bitmiş"
+            "okuyana"
           ],
           "who": "elma3",
           "do": "shine",
@@ -1773,13 +1784,22 @@
         },
         {
           "cue": [
-            "okuyana",
-            "bitmiş"
+            "okuyana"
           ],
           "who": "keloglan",
           "do": "wave",
           "look": "reader",
           "focus": true
+        },
+        {
+          "cue": [
+            "masal",
+            "sona"
+          ],
+          "who": "keloglan-anasi",
+          "do": "wave",
+          "look": "reader",
+          "optional": true
         }
       ],
       "ambience": "birds",
@@ -1791,77 +1811,22 @@
           "h": 0.86,
           "hotspots": []
         }
-      ],
-      "audio": {
-        "src": "/books/keloglan-tohum/ses/p7.mp3",
-        "marks": [
-          0.05,
-          0.45,
-          1.01,
-          1.41,
-          1.64,
-          1.87,
-          2.43,
-          3.08,
-          3.75,
-          4.37,
-          4.89,
-          5.1,
-          5.46,
-          6.31,
-          7.1,
-          7.9,
-          8.25,
-          8.6,
-          9.37,
-          9.73,
-          10.08,
-          10.88,
-          11.75,
-          12.25,
-          12.46,
-          12.81,
-          13.16,
-          13.81,
-          14.55,
-          15.17,
-          15.6,
-          15.85,
-          16.86,
-          17.26,
-          17.67,
-          18.41,
-          18.65,
-          19.22,
-          20.52,
-          21.0,
-          21.28,
-          21.77,
-          22.6,
-          22.98,
-          23.87,
-          24.22,
-          25.12,
-          25.42,
-          25.59,
-          26.17
-        ]
-      }
+      ]
     },
     {
       "id": "p8",
       "scene": "e8",
       "title": {
         "tr": "Sabrın meyvesi",
-        "en": "The fruit of patience"
+        "en": ""
       },
       "text": {
-        "tr": "Haftalar geçti. Bir sabah Can pencereden bağırdı: '{Filizler|filiz} çıkmış!' O günden sonra her akşam onları suladı, hiç acele etmedi. Yaz gelince Anne bahçedeki domates ve salatalıklarla bir çoban {salatası|salata} yaptı. Can, bir zamanlar sevmediği havucu bile keyifle yedi: 'Kendi yetiştirdiğim {sebze} daha lezzetli!' Anne gülümsedi: 'Hem lezzetli hem sağlıklı. Sabrın meyvesi tatlıdır.'",
-        "en": "Weeks went by. One morning Can shouted from the window: \"The sprouts are up!\" From that day on he watered them every evening and never hurried them. When summer came, Mom made a shepherd's salad with tomatoes and cucumbers from the garden. Can even enjoyed the carrots he used to dislike: \"Vegetables I grow myself taste better!\" Mom smiled: \"Tasty and healthy too. The fruit of patience is sweet.\""
+        "tr": "Can bahçedeki {tohumları|tohum} her gün dikkatle izledi. Günler sonra {filizler|filiz} çıkınca Elif’i çağırdı. Birlikte sulama sıralarını planladılar. Yaz gelince olgunlaşan {sebzeleri|sebze} büyükleriyle topladılar. Yıkayıp {sofraya|sofra} hazırladılar. Can küçük bir {havuç} dilimini denedi. “Bunu büyürken görmüştüm!” dedi. Sonra bir {fotoğraf} çekip Ahmet {Dede’ye|dede} gönderdiler. Bahçelerindeki değişimi onunla da paylaşmak istiyorlardı.",
+        "en": ""
       },
       "culture": {
-        "tr": "Çoban salatası domates, salatalık, biber ve soğanla yapılan, Türk sofralarının en sevilen salatasıdır. 'Sabrın sonu selamettir' atasözü de sabırla bekleyenin sonunda iyiliğe ulaşacağını anlatır.",
-        "en": "Shepherd's salad and patience."
+        "tr": "Bahçede yetişen sebzeler toplandıktan sonra iyice yıkanır. Türk sofralarında taze sebzelerle yapılan salatalar çok sevilir; en bilineni domates, salatalık, biber ve soğanla yapılan çoban salatasıdır. ‘Sabrın sonu selamettir’ atasözü de sabırla bekleyenin sonunda iyiliğe ulaşacağını anlatır.",
+        "en": ""
       },
       "models": [
         {
@@ -1948,8 +1913,16 @@
       "beats": [
         {
           "cue": [
-            "bağırdı",
-            "filiz"
+            "can"
+          ],
+          "who": "can",
+          "do": "bow",
+          "look": "down",
+          "focus": true
+        },
+        {
+          "cue": [
+            "filizler"
           ],
           "who": "filiz1",
           "do": "grow",
@@ -1958,8 +1931,7 @@
         },
         {
           "cue": [
-            "bağırdı",
-            "filiz"
+            "filizler"
           ],
           "who": "filiz2",
           "do": "grow",
@@ -1968,8 +1940,7 @@
         },
         {
           "cue": [
-            "bağırdı",
-            "filiz"
+            "filizler"
           ],
           "who": "can",
           "do": "cheer",
@@ -1978,16 +1949,44 @@
         },
         {
           "cue": [
-            "suladı",
-            "mutlu"
+            "elif’i",
+            "çağırdı"
           ],
           "who": "can",
-          "do": "bow",
-          "look": "filiz1"
+          "do": "wave",
+          "look": "elif"
         },
         {
           "cue": [
-            "salata"
+            "çağırdı"
+          ],
+          "who": "elif",
+          "do": "hop",
+          "look": "can",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "sulama",
+            "planladılar"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "can",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "planladılar"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "elif",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "sebze"
           ],
           "who": "anne",
           "do": "receive",
@@ -1997,9 +1996,8 @@
         },
         {
           "cue": [
-            "salata",
-            "havuc",
-            "sebze"
+            "yıkayıp",
+            "hazırladılar"
           ],
           "who": "anne",
           "do": "offer",
@@ -2008,25 +2006,50 @@
         },
         {
           "cue": [
-            "kendi",
-            "lezzetli",
-            "sebze"
+            "havuç"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "anne"
+        },
+        {
+          "cue": [
+            "bunu",
+            "büyürken"
           ],
           "who": "can",
           "do": "talk",
           "look": "reader",
-          "focus": true,
-          "len": 2.4
+          "len": 2.2,
+          "focus": true
         },
         {
           "cue": [
-            "sağlıklı",
-            "güçlü",
-            "tatlı"
+            "fotoğraf"
+          ],
+          "who": "elif",
+          "do": "raise",
+          "look": "reader",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "dede",
+            "gönderdiler"
+          ],
+          "who": "anne",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "paylaşmak",
+            "istiyorlardı"
           ],
           "who": "elif",
           "do": "cheer",
-          "look": "can"
+          "look": "reader"
         }
       ],
       "ambience": "birds",
@@ -2038,65 +2061,7 @@
           "h": 0.86,
           "hotspots": []
         }
-      ],
-      "audio": {
-        "src": "/books/keloglan-tohum/ses/p8.mp3",
-        "marks": [
-          0.05,
-          0.67,
-          1.49,
-          1.72,
-          2.12,
-          2.35,
-          3.08,
-          3.98,
-          4.66,
-          5.54,
-          5.75,
-          6.11,
-          6.47,
-          6.68,
-          7.03,
-          7.54,
-          8.26,
-          8.44,
-          8.88,
-          9.82,
-          10.01,
-          10.48,
-          10.81,
-          11.41,
-          11.88,
-          12.07,
-          13.04,
-          13.23,
-          13.56,
-          14.16,
-          14.91,
-          15.11,
-          15.39,
-          15.87,
-          16.49,
-          16.97,
-          17.3,
-          17.78,
-          18.42,
-          18.75,
-          19.48,
-          19.8,
-          20.13,
-          21.13,
-          21.47,
-          22.46,
-          22.7,
-          23.54,
-          23.78,
-          24.74,
-          25.12,
-          25.65,
-          26.32
-        ]
-      }
+      ]
     }
   ],
   "glossary": {
@@ -2302,6 +2267,42 @@
     "sofra": {
       "en": "low dining table",
       "icon": "🍽️"
+    },
+    "sulama kabı": {
+      "en": "watering can",
+      "icon": "🚿"
+    },
+    "çocuk": {
+      "en": "child",
+      "icon": "🧒"
+    },
+    "sevinç": {
+      "en": "joy",
+      "icon": "😊"
+    },
+    "kuraklık": {
+      "en": "drought",
+      "icon": "☀️"
+    },
+    "yardımlaşmak": {
+      "en": "to help each other",
+      "icon": "🤝"
+    },
+    "hasat": {
+      "en": "harvest",
+      "icon": "🌾"
+    },
+    "ekmek": {
+      "en": "bread",
+      "icon": "🍞"
+    },
+    "fotoğraf": {
+      "en": "photo",
+      "icon": "📷"
+    },
+    "dede": {
+      "en": "grandpa",
+      "icon": "👴"
     }
   },
   "quiz": [
@@ -2351,30 +2352,30 @@
     },
     {
       "q": {
-        "tr": "Köylüler gülünce Keloğlan ne dedi?",
-        "en": "What did Keloğlan say when the villagers laughed?"
+        "tr": "Keloğlan'ın anası ona hangi tohumları verdi?",
+        "en": ""
       },
       "options": [
         {
-          "tr": "Sabreden derviş muradına ermiş.",
-          "en": "Whoever is patient gets their wish."
+          "tr": "Mısır, lahana ve havuç",
+          "en": ""
         },
         {
-          "tr": "Bir daha ekmem.",
-          "en": "I will never plant again."
+          "tr": "Elma, armut ve ayva",
+          "en": ""
         },
         {
-          "tr": "Haklısınız.",
-          "en": "You are right."
+          "tr": "Domates, biber ve patlıcan",
+          "en": ""
         }
       ],
       "answer": 0,
-      "page": "p4"
+      "page": "p2"
     },
     {
       "q": {
-        "tr": "Keloğlan suyunun yarısını kime verdi?",
-        "en": "Who did Keloğlan give half his water to?"
+        "tr": "Keloğlan kovasındaki sudan kime verdi?",
+        "en": ""
       },
       "options": [
         {
@@ -2426,8 +2427,8 @@
         "ozgurluk"
       ],
       "why": {
-        "tr": "Keloğlan her gün erkenden kalkıp toprağı kazdı ve kuyudan su taşıdı. Bu çalışkanlıktır.",
-        "en": "Hard work."
+        "tr": "Keloğlan toprağı hazırladı, tohumları ekti ve her gün sulayıp baktı. Bu çalışkanlıktır.",
+        "en": ""
       }
     },
     {
@@ -2439,8 +2440,8 @@
         "tasarruf"
       ],
       "why": {
-        "tr": "Köylüler gülse de Keloğlan filizlerini sabırla bekledi ve bakmaya devam etti.",
-        "en": "Patience."
+        "tr": "Keloğlan filizlerini çekiştirmeden bekledi ve her gün sabırla baktı.",
+        "en": ""
       }
     },
     {
@@ -2452,8 +2453,8 @@
         "adalet"
       ],
       "why": {
-        "tr": "Can kendi yetiştirdiği taze sebzeleri severek yedi. Taze sebze ve meyve bizi sağlıklı tutar.",
-        "en": "Healthy living."
+        "tr": "Can bahçede büyüyen sebzeleri yıkayıp severek yedi. Taze sebze ve meyve bizi sağlıklı tutar.",
+        "en": ""
       }
     }
   ],
@@ -2464,7 +2465,7 @@
     },
     "talk": [
       {
-        "tr": "Keloğlan köylüler gülünce neden kızmadı?",
+        "tr": "Keloğlan ve köylüler kuraklıkta suyu nasıl dikkatli kullandı?",
         "en": ""
       },
       {

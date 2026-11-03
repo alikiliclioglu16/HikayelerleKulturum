@@ -3,12 +3,12 @@
   "title": "Bayram Sabahı",
   "titleEn": "Bayram Morning",
   "culture": {
-    "tr": "Ramazan Bayramı",
+    "tr": "Ramazan Bayramı, bayramlık, aileye özgü el öpme geleneği, bayramlaşma ve ikram",
     "en": "Ramadan Bayram (Eid al-Fitr)"
   },
   "summary": {
-    "tr": "Elif ile kardeşi Can, Amerika'daki evlerinde ilk bayram sabahını karşılıyor: bayramlıklar, baklava, babaanneyle görüntülü arama, el öpme, adil paylaşım ve bayramı ilk kez duyan bir arkadaş.",
-    "en": "Elif and her little brother Can celebrate Bayram at their home in America: new clothes, baklava, a video call with Grandma, kissing an elder's hand, sharing fairly and a friend who hears about Bayram for the first time."
+    "tr": "Elif ile kardeşi Can, Amerika'daki evlerinde Ramazan Bayramı'nı karşılıyor: bayramlıklar, hep birlikte kurulan bayram sofrası, babaanne ve dedeyle görüntülü bayramlaşma, Ayşe Teyze'nin ziyareti, şekerleri adil paylaşma ve bayramı merak eden bir arkadaş.",
+    "en": ""
   },
   "values": [
     "saygi",
@@ -25,12 +25,12 @@
       "id": "p1",
       "scene": "p1",
       "title": {
-        "tr": "Bugün bayram!",
-        "en": "Today is Bayram!"
+        "tr": "Bugün bayram",
+        "en": ""
       },
       "text": {
-        "tr": "Elif o sabah herkesten {erken} uyandı. {Pencereden|pencere} süzülen {güneş}, odasını altın rengine boyamıştı. Mutfaktan tatlı bir {baklava} kokusu geliyordu. 'Bugün Ramazan {Bayramı|bayram}!' diye fısıldadı ve heyecanla {yatağından|yatak} fırladı.",
-        "en": "That morning Elif woke up before everyone else. Sunlight streaming through the window had painted her room gold. A sweet smell of baklava came from the kitchen. \"Today is Ramadan Bayram!\" she whispered, and jumped out of bed with excitement."
+        "tr": "Elif sabah {erkenden|erken} uyandı. {Pencereden|pencere} giren {güneş} odasını aydınlatıyordu. Mutfaktan {baklava} kokusu geliyordu. “Bugün Ramazan {Bayramı|bayram}!” dedi sevinçle. Bu bayram, Ramazan ayının sonunda kutlanıyordu. Elif {kapısını|kapı} açınca {Can’ı|Can} gördü. {Kardeşi|kardeş} de heyecanlıydı. İkisi birlikte {mutfağa|mutfak} yürüdü. Evlerinde güzel bir gün başlıyordu.",
+        "en": ""
       },
       "culture": {
         "tr": "Ramazan Bayramı, oruç tutulan Ramazan ayının ardından gelir ve üç gün sürer. Tatlılar ve şekerler ikram edildiği için ona Şeker Bayramı da denir.",
@@ -110,6 +110,12 @@
           "pose": "lying",
           "lie": 1,
           "eyes": 0
+        },
+        {
+          "id": "can",
+          "x": -0.36,
+          "z": 0.48,
+          "rotY": 70
         }
       ],
       "spots": {
@@ -127,7 +133,6 @@
       "beats": [
         {
           "cue": [
-            "günaydın",
             "erken",
             "uyand"
           ],
@@ -136,7 +141,6 @@
         },
         {
           "cue": [
-            "günaydın",
             "uyand"
           ],
           "who": "elif",
@@ -147,8 +151,7 @@
         {
           "cue": [
             "pencere",
-            "güneş",
-            "bugün"
+            "güneş"
           ],
           "who": "ay",
           "do": "sink"
@@ -156,8 +159,7 @@
         {
           "cue": [
             "pencere",
-            "güneş",
-            "bugün"
+            "güneş"
           ],
           "who": "gunes",
           "do": "rise"
@@ -177,15 +179,15 @@
             "mutfak",
             "baklava"
           ],
-          "optional": true,
           "who": "elif",
           "do": "lookAt",
           "target": "right",
-          "len": 1.6
+          "len": 1.6,
+          "optional": true
         },
         {
           "cue": [
-            "bayram"
+            "bugün"
           ],
           "who": "elif",
           "do": "cheer",
@@ -193,8 +195,8 @@
         },
         {
           "cue": [
-            "fırladı",
-            "mutlu"
+            "dedi",
+            "sevinç"
           ],
           "who": "elif",
           "do": "hopOut",
@@ -206,6 +208,106 @@
           "face": 0,
           "look": "reader",
           "focus": true
+        },
+        {
+          "cue": [
+            "kapı"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            -0.25,
+            -0.14,
+            -0.02
+          ],
+          "face": -90,
+          "look": "can"
+        },
+        {
+          "cue": [
+            "can’ı",
+            "gördü"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.03,
+            0,
+            0.14
+          ],
+          "face": 90,
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can’ı",
+            "gördü"
+          ],
+          "who": "elif",
+          "do": "wave",
+          "look": "can",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "kardeş",
+            "heyecan"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "birlikte",
+            "mutfağa"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            -0.208,
+            -0.14,
+            0.214
+          ],
+          "face": 0,
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "birlikte",
+            "mutfağa"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.06,
+            0,
+            0.38
+          ],
+          "face": 0,
+          "look": "reader",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "evlerinde",
+            "güzel"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "evlerinde",
+            "güzel"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "reader",
+          "wait": 0.25
         }
       ],
       "layers": [
@@ -227,56 +329,22 @@
           ]
         }
       ],
-      "ambience": "birds",
-      "audio": {
-        "src": "/books/bayram-sabahi/ses/p1.mp3",
-        "marks": [
-          0.02,
-          0.39,
-          0.6,
-          0.97,
-          1.49,
-          1.86,
-          2.88,
-          3.53,
-          4.03,
-          4.39,
-          5.03,
-          5.39,
-          5.89,
-          7.06,
-          7.52,
-          7.85,
-          8.15,
-          8.61,
-          9.07,
-          10.17,
-          10.53,
-          11.03,
-          11.75,
-          12.12,
-          12.8,
-          13.01,
-          13.69,
-          14.37,
-          14.93
-        ]
-      }
+      "ambience": "birds"
     },
     {
       "id": "p2",
       "scene": "p2",
       "title": {
         "tr": "Bayramlıklar",
-        "en": "Bayram clothes"
+        "en": ""
       },
       "text": {
-        "tr": "Annesi bayramdan önce iki kardeşe yeni kıyafetler almıştı. Bayram için alınan bu giysilere {bayramlık} denir. Elif mavi {elbisesini|elbise} giydi ve {aynada|ayna} kendine gülümsedi. Kardeşi Can ise {papyonunu|papyon} bir türlü bağlayamıyordu. Elif sabırla yardım etti: 'Bak, böyle daha yakışıklı oldun!'",
-        "en": "Before Bayram, their mother had bought the two siblings new clothes. Clothes bought for Bayram are called bayramlık. Elif put on her blue dress and smiled at herself in the mirror. Her brother Can just couldn't tie his bow tie. Elif patiently helped: \"Look, now you're even more handsome!\""
+        "tr": "Elif mavi {elbisesini|elbise} giydi. Can da temiz {gömleğini|gömlek} ve {papyonunu|papyon} hazırladı. Bayram için özenle seçilen giysilere {bayramlık} denirdi. Her yıl yeni giysi almak gerekmiyordu; önemli olan temiz ve özenli olmaktı. Can papyonunu düzeltmekte zorlanınca {yardım} istedi. Elif yardım etti. Can da ablasının düşen {saç tokasını|toka} buldu.",
+        "en": ""
       },
       "culture": {
-        "tr": "Bayram sabahı giyilen yeni kıyafetlere bayramlık denir. Pek çok çocuk, bayramlığını bir gece önceden başucuna koyar ve sabahı sabırsızlıkla bekler.",
-        "en": "New clothes worn on Bayram morning are called bayramlık. Many children lay theirs out next to the bed the night before and can hardly wait for morning."
+        "tr": "Bayram sabahı giyilen temiz ve özenli kıyafetlere bayramlık denir. Pek çok çocuk, bayramlığını bir gece önceden hazırlar ve sabahı sabırsızlıkla bekler.",
+        "en": ""
       },
       "models": [
         {
@@ -319,9 +387,8 @@
       "beats": [
         {
           "cue": [
-            "bayramlı",
-            "yeni",
-            "annesi"
+            "elbise",
+            "mavi"
           ],
           "who": "elif",
           "do": "twirl",
@@ -329,8 +396,7 @@
         },
         {
           "cue": [
-            "elbise",
-            "ayna"
+            "giydi"
           ],
           "who": "elif",
           "do": "lookAt",
@@ -339,8 +405,7 @@
         },
         {
           "cue": [
-            "elbise",
-            "ayna"
+            "giydi"
           ],
           "who": "ayna",
           "do": "shine",
@@ -348,8 +413,37 @@
         },
         {
           "cue": [
-            "can'",
-            "kardeş"
+            "gömle",
+            "hazırladı"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "bayramlık",
+            "özenle"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 10,
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "önemli",
+            "temiz"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "papyonunu",
+            "zorlan"
           ],
           "who": "can",
           "do": "turn",
@@ -358,7 +452,17 @@
         },
         {
           "cue": [
-            "papyon"
+            "yardım"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "elif",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
           ],
           "who": "elif",
           "do": "walkTo",
@@ -372,8 +476,8 @@
         },
         {
           "cue": [
-            "düzelt",
-            "yardım"
+            "yardım",
+            "etti"
           ],
           "who": "elif",
           "do": "fixBow",
@@ -383,13 +487,51 @@
         },
         {
           "cue": [
-            "yakışıklı",
-            "düzelt",
-            "yardım"
+            "ablasının",
+            "düşen"
           ],
           "who": "can",
+          "do": "bow",
+          "look": "down"
+        },
+        {
+          "cue": [
+            "saç",
+            "buldu"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "toka",
+          "look": "down"
+        },
+        {
+          "cue": [
+            "buldu"
+          ],
+          "who": "can",
+          "do": "give",
+          "look": "elif",
+          "wait": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "buldu"
+          ],
+          "who": "elif",
+          "do": "receive",
+          "target": "toka",
+          "look": "can",
+          "wait": 2.0
+        },
+        {
+          "cue": [
+            "buldu"
+          ],
+          "who": "elif",
           "do": "cheer",
-          "look": "reader"
+          "look": "can",
+          "wait": 4.0
         }
       ],
       "layers": [
@@ -399,63 +541,18 @@
           "w": 0.96,
           "h": 0.86
         }
-      ],
-      "audio": {
-        "src": "/books/bayram-sabahi/ses/p2.mp3",
-        "marks": [
-          0.09,
-          0.61,
-          1.12,
-          1.48,
-          1.85,
-          2.36,
-          2.73,
-          3.39,
-          4.38,
-          4.73,
-          5.08,
-          5.57,
-          5.77,
-          6.41,
-          6.9,
-          7.7,
-          8.04,
-          8.38,
-          9.15,
-          9.5,
-          9.69,
-          10.18,
-          10.66,
-          11.66,
-          12.15,
-          12.34,
-          12.69,
-          13.31,
-          13.51,
-          13.86,
-          15.18,
-          15.5,
-          15.96,
-          16.28,
-          17.16,
-          17.68,
-          17.96,
-          18.25,
-          18.77,
-          19.09
-        ]
-      }
+      ]
     },
     {
       "id": "p3",
       "scene": "p3",
       "title": {
         "tr": "Bayram sofrası",
-        "en": "The Bayram table"
+        "en": ""
       },
       "text": {
-        "tr": "Babası {bayram namazından|bayram namazı} döndüğünde {sofra} neredeyse hazırdı. Annesi fırından altın renkli {baklava} tepsisini çıkardı. İnce belli bardaklarda {çay} buğulanıyordu. Elif tabakları dizdi, Can da {lokum} kutusunu iki eliyle dikkatle taşıdı. Bayram sofrası, herkes görevini yapınca kuruluyordu.",
-        "en": "By the time Dad came back from the Bayram prayer, the table was almost ready. Mom took the golden tray of baklava out of the oven. Tea steamed in tulip-shaped glasses. Elif set out the plates, and Can carefully carried the box of Turkish delight with both hands. A Bayram table comes together when everyone does their part."
+        "tr": "Baba {bayram namazından|bayram namazı} dönünce {mutfağa|mutfak} geçti. Anne ile {kahvaltıyı|kahvaltı} hazırladılar. Elif {tabakları|tabak} dizdi, Can {peçeteleri|peçete} yerleştirdi. {Baklava|baklava} tepsisi sıcak olduğu için onu büyükler taşıdı. {Sofrada|sofra} {peynir}, {zeytin} ve {ekmek} de vardı. Büyüklerin {çayının|çay} yanında çocukların {suları|su} duruyordu. Herkes oturunca Elif gülümsedi. Bu sofrada herkesin küçük bir emeği vardı.",
+        "en": ""
       },
       "culture": {
         "tr": "Türkiye'de çay, ince belli bardaklarda içilir ve iki katlı bir çaydanlıkta demlenir. Misafire çay ikram etmek, 'Hoş geldin' demenin bir yoludur.",
@@ -500,7 +597,7 @@
           "x": 0.28,
           "z": 0.56,
           "rotY": -15,
-          "hold": "lokumKutusu",
+          "hold": "peceteler",
           "pose": "hold"
         }
       ],
@@ -523,10 +620,9 @@
         },
         {
           "cue": [
-            "döndü",
-            "döndüğünde"
+            "mutfa",
+            "geçti"
           ],
-          "optional": true,
           "who": "baba",
           "do": "talk",
           "look": "anne",
@@ -534,7 +630,30 @@
         },
         {
           "cue": [
-            "anne",
+            "kahvaltı"
+          ],
+          "who": "anne",
+          "do": "nod",
+          "look": "baba"
+        },
+        {
+          "cue": [
+            "tabak"
+          ],
+          "who": "elif",
+          "do": "put",
+          "focus": true
+        },
+        {
+          "cue": [
+            "peçete"
+          ],
+          "who": "can",
+          "do": "put",
+          "focus": true
+        },
+        {
+          "cue": [
             "baklava"
           ],
           "who": "anne",
@@ -545,9 +664,8 @@
         },
         {
           "cue": [
-            "baklava",
-            "çıkardı",
-            "yaptı"
+            "büyükler",
+            "taşıdı"
           ],
           "who": "anne",
           "do": "put",
@@ -555,7 +673,8 @@
         },
         {
           "cue": [
-            "çay"
+            "peynir",
+            "zeytin"
           ],
           "who": "baba",
           "do": "receive",
@@ -564,48 +683,26 @@
         },
         {
           "cue": [
-            "koydu",
-            "buğu",
-            "elif",
-            "tabak"
+            "çay",
+            "büyüklerin"
           ],
           "who": "baba",
           "do": "put"
         },
         {
           "cue": [
-            "elif",
-            "tabak",
-            "sofra"
+            "oturunca",
+            "gülümsedi"
           ],
           "who": "elif",
-          "do": "put",
+          "do": "cheer",
+          "look": "reader",
           "focus": true
         },
         {
           "cue": [
-            "can",
-            "lokum"
-          ],
-          "who": "can",
-          "do": "offer",
-          "look": "reader",
-          "focus": true,
-          "len": 1.8
-        },
-        {
-          "cue": [
-            "taşıdı",
-            "kutu",
-            "lokum"
-          ],
-          "who": "can",
-          "do": "put"
-        },
-        {
-          "cue": [
-            "görev",
-            "herkes"
+            "emeği",
+            "herkesin"
           ],
           "who": "anne",
           "do": "nod",
@@ -613,13 +710,13 @@
         },
         {
           "cue": [
-            "görev",
-            "herkes",
-            "kuruluyor"
+            "emeği",
+            "herkesin"
           ],
           "who": "can",
           "do": "cheer",
-          "look": "reader"
+          "look": "reader",
+          "wait": 0.3
         }
       ],
       "layers": [
@@ -629,63 +726,22 @@
           "w": 0.96,
           "h": 0.86
         }
-      ],
-      "audio": {
-        "src": "/books/bayram-sabahi/ses/p3.mp3",
-        "marks": [
-          0.03,
-          0.57,
-          1.6,
-          2.3,
-          2.68,
-          3.39,
-          4.48,
-          4.99,
-          5.49,
-          5.85,
-          6.2,
-          6.71,
-          7.36,
-          8.32,
-          8.67,
-          9.02,
-          9.67,
-          9.87,
-          11.19,
-          11.54,
-          12.2,
-          12.81,
-          13.0,
-          13.18,
-          13.5,
-          14.09,
-          14.41,
-          14.86,
-          15.45,
-          16.29,
-          16.72,
-          17.43,
-          17.75,
-          18.34,
-          18.8,
-          19.56
-        ]
-      }
+      ]
     },
     {
       "id": "p4",
       "scene": "p4",
       "title": {
         "tr": "Uzaktan bayramlaşma",
-        "en": "A Bayram call from far away"
+        "en": ""
       },
       "text": {
-        "tr": "Elif'in {babaannesi|babaanne} ile {dedesi|dede} Türkiye'de, İzmir'de yaşıyordu. Aralarında koca bir okyanus vardı. Saatler bile farklıydı ama bayram sevgisi uzakları yakın ediyordu. Elif görüntülü aramada '{Bayramınız kutlu olsun|bayramınız kutlu olsun}, {ellerinizden öperim|ellerinizden öperim}!' dedi. Dedesi arkasındaki {Saat Kulesi'ni|Saat Kulesi} gösterip güldü: 'Burada öğleden sonra oldu bile!'",
-        "en": "Elif's grandma and grandpa lived in İzmir, Türkiye. A whole ocean lay between them. Even their clocks showed different times, but Bayram love brought faraway people close. On the video call Elif said, \"Happy Bayram, I kiss your hands!\" Grandpa pointed to the Clock Tower behind him and laughed: \"It's already afternoon here!\""
+        "tr": "{Babaanne} ile {dede} Türkiye’de, İzmir’de yaşıyordu. Elif’in ailesi ise Amerika’daydı. {Görüntülü arama|görüntülü arama} başlayınca iki kardeş {ekrana|ekran} yaklaştı. “{Bayramınız mübarek olsun|bayramınız mübarek olsun}!” dediler. Dede, “Burada öğleden sonra oldu,” diye anlattı. Saatler farklıydı ama sohbetleri aynı sevinçle doluydu. Elif, babaannesine {elbisesini|elbise} gösterdi. Can da {sofrayı|sofra} birlikte hazırladıklarını anlattı.",
+        "en": ""
       },
       "culture": {
-        "tr": "Bayramda uzaktaki büyükler telefonla ya da görüntülü aranır. 'Ellerinizden öperim' demek, uzaktan el öpmek gibidir.",
-        "en": "During Bayram, family elders who live far away get a phone or video call. Saying \"Ellerinizden öperim\" (I kiss your hands) is like kissing their hand from afar."
+        "tr": "Bayramda uzaktaki büyükler telefonla ya da görüntülü aranır. “Bayramınız mübarek olsun” ve “İyi bayramlar” en çok söylenen bayram dilekleridir.",
+        "en": ""
       },
       "models": [
         {
@@ -737,8 +793,7 @@
       "beats": [
         {
           "cue": [
-            "babaanne",
-            "elif"
+            "babaanne"
           ],
           "who": "babaanne",
           "do": "wave",
@@ -746,20 +801,48 @@
         },
         {
           "cue": [
-            "aradı",
-            "görüntülü",
-            "aramada"
+            "dede"
+          ],
+          "who": "dede",
+          "do": "wave",
+          "look": "reader",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "ekran",
+            "yaklaştı"
           ],
           "who": "elif",
-          "do": "wave",
+          "do": "walkTo",
+          "to": [
+            0.08,
+            0,
+            -0.04
+          ],
+          "face": 55,
           "look": "tablet",
           "focus": true
         },
         {
           "cue": [
-            "iyi bayram",
-            "bayramınız",
-            "iyi"
+            "ekran",
+            "yaklaştı"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.06,
+            0,
+            -0.06
+          ],
+          "face": 50,
+          "look": "tablet",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "bayramınız"
           ],
           "who": "elif",
           "do": "talk",
@@ -769,7 +852,6 @@
         },
         {
           "cue": [
-            "iyi",
             "bayramınız"
           ],
           "who": "can",
@@ -778,18 +860,7 @@
         },
         {
           "cue": [
-            "ellerinizden",
-            "öperim"
-          ],
-          "who": "elif",
-          "do": "blowKiss",
-          "look": "tablet"
-        },
-        {
-          "cue": [
-            "sevindi",
-            "öperim",
-            "dedi"
+            "dediler"
           ],
           "who": "babaanne",
           "do": "blowKiss",
@@ -797,10 +868,8 @@
         },
         {
           "cue": [
-            "dedesi",
-            "saat",
-            "gösterip",
-            "yaşıyor"
+            "dede",
+            "burada"
           ],
           "who": "dede",
           "do": "point",
@@ -809,15 +878,44 @@
         },
         {
           "cue": [
-            "burada",
-            "güldü",
-            "öğleden"
+            "öğleden",
+            "anlattı"
           ],
-          "optional": true,
           "who": "dede",
           "do": "talk",
           "look": "reader",
-          "len": 2.4
+          "len": 2.4,
+          "optional": true
+        },
+        {
+          "cue": [
+            "elbise",
+            "gösterdi"
+          ],
+          "who": "elif",
+          "do": "twirl",
+          "focus": true
+        },
+        {
+          "cue": [
+            "sofra",
+            "hazırladık"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "tablet",
+          "len": 2.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "hazırladık",
+            "anlattı"
+          ],
+          "who": "babaanne",
+          "do": "nod",
+          "look": "reader",
+          "optional": true
         }
       ],
       "layers": [
@@ -856,65 +954,22 @@
             }
           ]
         }
-      ],
-      "audio": {
-        "src": "/books/bayram-sabahi/ses/p4.mp3",
-        "marks": [
-          0.01,
-          0.43,
-          1.09,
-          1.39,
-          1.9,
-          2.66,
-          3.13,
-          4.18,
-          4.95,
-          5.3,
-          5.5,
-          5.99,
-          6.67,
-          7.17,
-          7.51,
-          8.4,
-          8.75,
-          9.1,
-          9.59,
-          10.23,
-          10.58,
-          11.67,
-          11.96,
-          12.5,
-          13.34,
-          14.9,
-          16.23,
-          16.87,
-          17.34,
-          18.09,
-          18.98,
-          19.45,
-          20.1,
-          20.59,
-          21.08,
-          21.43,
-          21.77,
-          22.16
-        ]
-      }
+      ]
     },
     {
       "id": "p5",
       "scene": "p5",
       "title": {
-        "tr": "El öpme",
-        "en": "Kissing an elder's hand"
+        "tr": "Ayşe Teyze geldi",
+        "en": ""
       },
       "text": {
-        "tr": "Kapı çaldı. Gelen, yan evde oturan Ayşe {Teyze'ydi|teyze}. Elif hemen onun {elini öptü|el öpmek} ve eli saygıyla {alnına|alın} değdirdi. Babası, el öpmenin büyüklere {saygı} ve sevgi göstermenin eski bir geleneği olduğunu anlatmıştı. Ayşe Teyze gülümseyerek Elif'in avucuna {harçlık} sıkıştırdı: '{Nice bayramlara|nice bayramlara}, güzel kızım!' Kapının önündeki sokak {kedisi|kedi} bile bu güzel anı izliyordu.",
-        "en": "The doorbell rang. It was Aunt Ayşe from next door. Elif quickly kissed her hand and gently touched it to her forehead. Dad had explained that kissing an elder's hand is an old tradition of showing respect and love. Smiling, Aunt Ayşe pressed some pocket money into Elif's palm: \"To many more Bayrams, my dear girl!\" Even the street cat by the door was watching this lovely moment."
+        "tr": "{Kapı|kapı} çalınca {baba|Baba} kapıyı açtı. Gelen, tanıdıkları {komşuları|komşu} {Ayşe Teyze’ydi|Ayşe Teyze}. Elif, “Elini öpebilir miyim?” diye sordu. Ayşe Teyze gülümseyince {elini öpüp|el öpmek} {alnına|alın} götürdü. Bu, ailelerinin sevgiyle sürdürdüğü bir bayram {geleneğiydi|gelenek}. Can da “{İyi bayramlar|iyi bayramlar}!” dedi. Ayşe Teyze iki kardeşe küçük birer {bayram harçlığı|harçlık} verdi. Sonra birlikte sohbet ettiler.",
+        "en": ""
       },
       "culture": {
-        "tr": "El öpülürken büyüğün eli önce öpülür, sonra alına değdirilir. Büyükler de çocuklara şeker ya da harçlık verir. Eve girerken ayakkabılar kapının önünde çıkarılır. Türkiye'de, özellikle İstanbul'da, sokak kedileri mahallenin bir parçasıdır; komşular onlara su ve mama bırakır.",
-        "en": "To kiss an elder's hand, you kiss it and then touch it to your forehead. Elders give children candy or pocket money in return. Shoes are taken off at the door before entering the home. In Türkiye, especially Istanbul, street cats are part of the neighborhood; neighbors leave them water and food."
+        "tr": "Bazı ailelerde bayramda büyüklerin eli öpülür ve alına götürülür; bu, saygı ve sevgi göstermenin eski bir geleneğidir. El öpmeden önce izin istemek de bir saygı göstergesidir. Büyükler de çocuklara küçük bir bayram harçlığı verebilir.",
+        "en": ""
       },
       "models": [
         {
@@ -938,30 +993,64 @@
       "cast": [
         {
           "id": "ayse",
-          "x": -0.36,
-          "z": 0.34,
-          "rotY": 30
+          "x": -0.46,
+          "z": 0.3,
+          "rotY": 40
+        },
+        {
+          "id": "baba",
+          "x": -0.2,
+          "z": 0.36,
+          "rotY": -70
         },
         {
           "id": "elif",
           "x": 0.18,
           "z": 0.6,
           "rotY": -30
+        },
+        {
+          "id": "can",
+          "x": 0.38,
+          "z": 0.68,
+          "rotY": -40
         }
       ],
       "beats": [
         {
           "cue": [
-            "kapı",
-            "ayşe",
+            "kapı"
+          ],
+          "who": "baba",
+          "do": "turn",
+          "face": -100,
+          "look": "ayse"
+        },
+        {
+          "cue": [
+            "açtı"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            0.34,
+            0,
+            -0.08
+          ],
+          "face": -60,
+          "look": "ayse"
+        },
+        {
+          "cue": [
+            "gelen",
             "komşu"
           ],
           "who": "ayse",
           "do": "walkTo",
           "to": [
-            0.26,
+            0.31,
             0,
-            0.285
+            0.3
           ],
           "face": 90,
           "look": "elif",
@@ -969,25 +1058,31 @@
         },
         {
           "cue": [
-            "geldi",
-            "teyze",
-            "bayramlaş"
+            "elif"
           ],
           "who": "elif",
           "do": "walkTo",
           "to": [
-            -0.035,
+            -0.08,
             0,
-            -0.032
+            0.0
           ],
           "face": -90,
           "look": "ayse"
         },
         {
           "cue": [
-            "elini",
-            "öptü",
-            "hemen"
+            "elini"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "ayse",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "gülümse"
           ],
           "who": "ayse",
           "do": "offerHand",
@@ -996,8 +1091,7 @@
         },
         {
           "cue": [
-            "elini",
-            "öptü"
+            "elini öpüp"
           ],
           "who": "elif",
           "do": "kissHand",
@@ -1006,54 +1100,95 @@
         },
         {
           "cue": [
-            "saygı",
-            "gelenek"
+            "gelenek",
+            "sevgiyle"
           ],
-          "optional": true,
-          "who": "ayse",
+          "who": "baba",
           "do": "nod",
-          "look": "elif"
-        },
-        {
-          "cue": [
-            "harçlık",
-            "avucuna"
-          ],
-          "who": "ayse",
-          "do": "give",
           "look": "elif",
-          "target": "harclik"
+          "optional": true
         },
         {
           "cue": [
-            "harçlık",
-            "avucuna"
+            "can"
           ],
-          "who": "elif",
-          "do": "receive",
-          "target": "harclik",
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.1,
+            0,
+            -0.06
+          ],
+          "face": -80,
+          "look": "ayse"
+        },
+        {
+          "cue": [
+            "iyi bayram"
+          ],
+          "who": "can",
+          "do": "wave",
           "look": "ayse",
           "focus": true
         },
         {
           "cue": [
-            "nice"
+            "kardeşe"
           ],
-          "optional": true,
           "who": "ayse",
-          "do": "talk",
-          "look": "elif",
-          "len": 2.0
+          "do": "give",
+          "target": "harclik",
+          "look": "elif"
         },
         {
           "cue": [
-            "kedi"
+            "kardeşe"
           ],
-          "optional": true,
           "who": "elif",
-          "do": "lookAt",
-          "target": "kedi",
-          "len": 1.6
+          "do": "receive",
+          "target": "harclik",
+          "look": "ayse",
+          "wait": 0.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "verdi",
+            "bayram harç"
+          ],
+          "who": "ayse",
+          "do": "give",
+          "target": "harclik",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "verdi",
+            "bayram harç"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "harclik",
+          "look": "ayse",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "sohbet"
+          ],
+          "who": "ayse",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "sohbet"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "ayse",
+          "wait": 0.6
         }
       ],
       "layers": [
@@ -1063,73 +1198,18 @@
           "w": 0.96,
           "h": 0.86
         }
-      ],
-      "audio": {
-        "src": "/books/bayram-sabahi/ses/p5.mp3",
-        "marks": [
-          0.03,
-          0.39,
-          1.16,
-          1.52,
-          1.73,
-          2.08,
-          2.59,
-          2.94,
-          3.74,
-          4.09,
-          4.43,
-          4.78,
-          5.56,
-          5.76,
-          6.11,
-          6.6,
-          7.09,
-          7.96,
-          8.43,
-          8.63,
-          9.19,
-          9.8,
-          10.13,
-          10.32,
-          10.65,
-          11.26,
-          11.6,
-          11.79,
-          12.4,
-          13.01,
-          13.96,
-          14.29,
-          14.62,
-          15.37,
-          15.84,
-          16.44,
-          16.77,
-          17.92,
-          18.87,
-          19.23,
-          19.97,
-          20.52,
-          21.1,
-          21.42,
-          21.87,
-          22.19,
-          22.37,
-          22.69,
-          23.01,
-          23.63
-        ]
-      }
+      ]
     },
     {
       "id": "p6",
       "scene": "p6",
       "title": {
-        "tr": "Adil paylaşım",
-        "en": "Sharing fairly"
+        "tr": "Bir sana bir bana",
+        "en": ""
       },
       "text": {
-        "tr": "Can, {bayram şekeri|bayram şekeri} dolu {kâseyi|kâse} kucaklayıp 'Hepsi benim!' diye bağırdı. Elif kızmadı. Şekerleri masaya döküp tek tek saydı: 'Gel, {paylaşalım|paylaşmak}. Bir tane sana, bir tane bana.' Şekerler iki {eşit} yığına ayrıldı. En güzel ambalajlılar da kapıya gelecek misafirler için kenara kondu. Can, adil paylaşmanın hepsini almaktan daha güzel olduğunu fark etti.",
-        "en": "Can hugged the bowl full of Bayram candy and shouted, \"They're all mine!\" Elif didn't get angry. She poured the candy onto the table and counted it piece by piece: \"Come on, let's share. One for you, one for me.\" The candy was split into two equal piles. The prettiest-wrapped ones were set aside for guests who would come to the door. Can realized that sharing fairly felt better than taking it all."
+        "tr": "Can {şeker kâsesini|bayram şekeri} görünce heyecanlandı. “Bunları nasıl {paylaşacağız|paylaşmak}?” diye sordu. Önce {misafirlere|misafir} {ikram etmek} için bir bölümünü ayırdılar. Sonra kalanları saydılar. “Bir sana, bir bana,” dedi Elif. İki kardeşe {eşit} sayıda şeker düştü. Can kendi payını {tabağına|tabak} koydu. “Senin sevdiğin renk de burada,” diyerek bir şekeri ablasıyla değiştirmeyi önerdi.",
+        "en": ""
       },
       "culture": {
         "tr": "Bayramda kapı kapı dolaşan çocuklara şeker ikram edilir. Bu yüzden evlerde bayram şekeri hep hazır bekler.",
@@ -1196,9 +1276,8 @@
         },
         {
           "cue": [
-            "hepsi",
-            "aldı",
-            "kucakla"
+            "bunları",
+            "nasıl"
           ],
           "who": "can",
           "do": "talk",
@@ -1207,21 +1286,18 @@
         },
         {
           "cue": [
-            "elif",
-            "güldü",
-            "kızmadı",
-            "paylaş"
+            "önce",
+            "misafir"
           ],
           "who": "elif",
           "do": "talk",
           "look": "can",
-          "len": 2.4,
+          "len": 2.2,
           "focus": true
         },
         {
           "cue": [
-            "paylaş",
-            "masaya"
+            "ayırdılar"
           ],
           "who": "can",
           "do": "put",
@@ -1229,10 +1305,8 @@
         },
         {
           "cue": [
-            "eşit",
-            "ayır",
-            "sayd",
-            "tane"
+            "saydılar",
+            "kalanları"
           ],
           "who": "elif",
           "do": "point",
@@ -1241,26 +1315,61 @@
         },
         {
           "cue": [
-            "misafir",
-            "kenar",
-            "sakla"
+            "sana"
           ],
-          "optional": true,
           "who": "elif",
-          "do": "nod",
-          "look": "can"
+          "do": "talk",
+          "look": "can",
+          "len": 2.0,
+          "focus": true
         },
         {
           "cue": [
-            "fark",
-            "adil",
-            "eşit",
-            "şeker"
+            "eşit"
           ],
           "who": "can",
-          "do": "cheer",
-          "look": "reader",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "payını",
+            "tabağına"
+          ],
+          "who": "can",
+          "do": "bow",
+          "look": "masa"
+        },
+        {
+          "cue": [
+            "sevdiğin",
+            "renk"
+          ],
+          "who": "can",
+          "do": "give",
+          "target": "seker",
+          "look": "elif",
           "focus": true
+        },
+        {
+          "cue": [
+            "sevdiğin",
+            "renk"
+          ],
+          "who": "elif",
+          "do": "receive",
+          "target": "seker",
+          "look": "can",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "önerdi",
+            "değiştirme"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "can"
         }
       ],
       "layers": [
@@ -1270,74 +1379,18 @@
           "w": 0.96,
           "h": 0.86
         }
-      ],
-      "audio": {
-        "src": "/books/bayram-sabahi/ses/p6.mp3",
-        "marks": [
-          0.02,
-          0.23,
-          1.22,
-          1.58,
-          2.1,
-          2.95,
-          3.38,
-          4.0,
-          4.32,
-          5.25,
-          5.58,
-          6.42,
-          7.05,
-          7.53,
-          7.96,
-          8.16,
-          8.36,
-          9.11,
-          9.52,
-          10.4,
-          10.61,
-          11.06,
-          11.57,
-          11.73,
-          12.01,
-          12.77,
-          13.26,
-          13.61,
-          13.96,
-          14.46,
-          15.38,
-          15.56,
-          15.88,
-          16.59,
-          16.77,
-          17.22,
-          17.67,
-          18.24,
-          18.56,
-          19.0,
-          19.78,
-          19.97,
-          20.45,
-          21.05,
-          21.52,
-          21.99,
-          22.32,
-          22.65,
-          23.25,
-          23.44,
-          23.98
-        ]
-      }
+      ]
     },
     {
       "id": "p7",
       "scene": "p7",
       "title": {
         "tr": "Maya ile bayram",
-        "en": "Bayram with Maya"
+        "en": ""
       },
       "text": {
-        "tr": "Öğleden sonra okuldan {arkadaşı|arkadaş} Maya kapıda belirdi. Maya bayramı ilk kez duyuyordu. Elif ona bayramın ne olduğunu iki dilde, hem İngilizce hem Türkçe anlattı. Sonra pudra şekerli {lokum} {ikram etti|ikram etmek}. Maya lokumun tadına bayıldı ve Elif'in öğrettiği ilk Türkçe sözü gururla söyledi: '{İyi bayramlar|iyi bayramlar}!' Maya'nın {köpeği|köpek} Pamuk ise sevinçle kuyruğunu sallayıp etrafta koşturdu.",
-        "en": "In the afternoon her school friend Maya appeared at the door. Maya was hearing about Bayram for the first time. Elif explained it in two languages, English and Turkish. Then she offered her powdered Turkish delight. Maya loved the taste and proudly said the first Turkish words Elif had taught her: \"Happy Bayram!\" Maya's dog Pamuk happily wagged her tail and ran around."
+        "tr": "Öğleden sonra Elif’in {arkadaşı|arkadaş} {Maya} geldi. Ramazan Bayramı’nı merak ediyordu. Elif önce {Türkçe} anlattı, sonra gerektiğinde İngilizce yardım etti. {Anne}, Maya’nın ailesine danışarak {lokum} {ikram etti|ikram etmek}. Maya {teşekkür edip|teşekkür etmek} küçük bir parça aldı. Ardından Elif’in öğrettiği sözü söyledi: “{İyi bayramlar|iyi bayramlar}!” İki arkadaş gülümsedi. Maya’nın {köpeği|köpek} Pamuk da kapının yanında kuyruğunu sallıyordu.",
+        "en": ""
       },
       "culture": {
         "tr": "Bayramda komşular ve arkadaşlar birbirini ziyaret eder, küsler barışır. Kapısını herkese açmak bayramın en güzel yanlarındandır.",
@@ -1372,15 +1425,21 @@
           "id": "elif",
           "x": 0.15,
           "z": 0.56,
-          "rotY": -60,
-          "hold": "lokumTabagi",
-          "pose": "hold"
+          "rotY": -60
         },
         {
           "id": "maya",
           "x": -0.46,
           "z": 0.5,
           "rotY": 70
+        },
+        {
+          "id": "anne",
+          "x": 0.4,
+          "z": 0.36,
+          "rotY": -60,
+          "hold": "lokumTabagi",
+          "pose": "hold"
         }
       ],
       "beats": [
@@ -1402,10 +1461,8 @@
         },
         {
           "cue": [
-            "anlattı",
-            "bilmiyordu",
-            "duyuyordu",
-            "bayramı"
+            "türkçe",
+            "anlattı"
           ],
           "who": "elif",
           "do": "talk",
@@ -1415,30 +1472,50 @@
         },
         {
           "cue": [
-            "lokum",
-            "verdi"
+            "ingilizce"
           ],
-          "who": "elif",
-          "do": "offer",
-          "look": "maya",
-          "len": 2.6
+          "who": "maya",
+          "do": "nod",
+          "look": "elif",
+          "optional": true
         },
         {
           "cue": [
-            "ikram",
+            "anne"
+          ],
+          "who": "anne",
+          "do": "walkTo",
+          "to": [
+            -0.38,
+            0,
+            0.04
+          ],
+          "face": -150,
+          "look": "maya"
+        },
+        {
+          "cue": [
             "lokum",
-            "tadına"
+            "ikram"
+          ],
+          "who": "anne",
+          "do": "offer",
+          "look": "maya",
+          "len": 2.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "teşekkür"
           ],
           "who": "maya",
           "do": "receive",
-          "look": "elif",
-          "target": "lokum"
+          "target": "lokum",
+          "look": "anne"
         },
         {
           "cue": [
-            "iyi bayram",
-            "iyi",
-            "söyledi"
+            "iyi bayram"
           ],
           "who": "maya",
           "do": "talk",
@@ -1448,23 +1525,33 @@
         },
         {
           "cue": [
-            "iyi bayram",
-            "bayramlar"
+            "gülümsedi",
+            "arkadaş"
           ],
           "who": "maya",
           "do": "cheer",
-          "look": "reader"
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "gülümsedi",
+            "arkadaş"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "maya",
+          "wait": 0.25
         },
         {
           "cue": [
             "köpe",
             "pamuk"
           ],
-          "optional": true,
           "who": "elif",
           "do": "lookAt",
           "target": "köpek",
-          "len": 1.6
+          "len": 1.6,
+          "optional": true
         }
       ],
       "layers": [
@@ -1474,75 +1561,18 @@
           "w": 0.96,
           "h": 0.86
         }
-      ],
-      "audio": {
-        "src": "/books/bayram-sabahi/ses/p7.mp3",
-        "marks": [
-          0.03,
-          0.5,
-          0.84,
-          1.31,
-          1.93,
-          2.26,
-          2.74,
-          3.67,
-          4.03,
-          4.54,
-          4.75,
-          4.96,
-          6.07,
-          6.38,
-          6.69,
-          7.12,
-          7.3,
-          7.86,
-          8.17,
-          8.74,
-          8.93,
-          9.54,
-          9.84,
-          10.17,
-          11.23,
-          11.57,
-          11.91,
-          12.39,
-          12.74,
-          13.91,
-          14.25,
-          14.74,
-          15.23,
-          15.72,
-          16.07,
-          16.56,
-          17.3,
-          17.5,
-          17.85,
-          18.19,
-          18.68,
-          19.51,
-          20.94,
-          21.44,
-          21.94,
-          22.29,
-          22.64,
-          23.14,
-          23.78,
-          24.28,
-          24.78,
-          25.32
-        ]
-      }
+      ]
     },
     {
       "id": "p8",
       "scene": "p8",
       "title": {
-        "tr": "Bayramın anlamı",
-        "en": "What Bayram means"
+        "tr": "Günün hatırası",
+        "en": ""
       },
       "text": {
-        "tr": "Akşam olunca bütün {aile} pencerenin önünde toplandı. Gökyüzünde incecik bir {hilal} parlıyordu. Elif günü düşündü: Ayşe Teyze'nin eli, babaannesinin sesi, Maya'nın ilk Türkçe sözü... 'Bayram,' dedi, 'büyüklere {saygı}, küçüklere {sevgi} ve herkesle paylaşmak demek.' Annesi onu alnından öptü: 'Yarın bayramın ikinci günü. Yeni günde yeni sevinçler!'",
-        "en": "When evening came, the whole family gathered by the window. A slender crescent moon shone in the sky. Elif thought about the day: Aunt Ayşe's hand, Grandma's voice, Maya's first Turkish words... \"Bayram,\" she said, \"means respect for elders, love for little ones, and sharing with everyone.\" Mom kissed her on the forehead: \"Tomorrow is the second day of Bayram. A new day, new joys!\""
+        "tr": "Akşam Elif ile Can {pencerenin|pencere} önüne oturdu. {Babaannenin|babaanne} sesi, {Ayşe Teyze’nin|Ayşe Teyze} gülüşü ve Maya’nın {Türkçe} sözü akıllarındaydı. “Bugün en çok birlikte vakit geçirmeyi sevdim,” dedi Elif. Can da {misafirler|misafir} için ayırdıkları {şekerleri|bayram şekeri} hatırladı. Anne ile baba yanlarına geldi. Ertesi gün kimi arayıp {bayramlaşacaklarına|bayramlaşmak} birlikte karar verdiler. {Bayram|bayram} sevinci evlerinde sürüyordu.",
+        "en": ""
       },
       "culture": {
         "tr": "Bayramların tarihi her yıl yaklaşık on bir gün öne gelir, çünkü Ay takvimine göre belirlenir. Hilal, yeni bir ayın başladığını gösterir.",
@@ -1569,35 +1599,9 @@
           "hidden": true,
           "fx": "bob",
           "magic": true
-        },
-        {
-          "src": "/models/bayram/hilal-kapali.glb",
-          "x": 0.326,
-          "z": 0.1,
-          "h": 0.2,
-          "word": "hilal",
-          "y": 0.58,
-          "id": "hilalUyku",
-          "hidden": true,
-          "fx": "bob",
-          "magic": true
         }
       ],
       "cast": [
-        {
-          "id": "baba",
-          "x": -0.3,
-          "z": 0.6,
-          "rotY": 180,
-          "look": "hilal"
-        },
-        {
-          "id": "anne",
-          "x": -0.1,
-          "z": 0.62,
-          "rotY": 175,
-          "look": "hilal"
-        },
         {
           "id": "elif",
           "x": 0.11,
@@ -1611,6 +1615,18 @@
           "z": 0.66,
           "rotY": 185,
           "look": "hilal"
+        },
+        {
+          "id": "anne",
+          "x": -0.44,
+          "z": 0.58,
+          "rotY": 90
+        },
+        {
+          "id": "baba",
+          "x": -0.46,
+          "z": 0.74,
+          "rotY": 90
         }
       ],
       "spots": {
@@ -1623,8 +1639,6 @@
       "beats": [
         {
           "cue": [
-            "hilal",
-            "gök",
             "akşam"
           ],
           "who": "hilal",
@@ -1633,8 +1647,7 @@
         },
         {
           "cue": [
-            "hilal",
-            "gök"
+            "pencere"
           ],
           "who": "can",
           "do": "point",
@@ -1644,9 +1657,17 @@
         },
         {
           "cue": [
-            "elif",
-            "günü",
-            "bayram"
+            "babaanne",
+            "sesi"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 150,
+          "look": "can"
+        },
+        {
+          "cue": [
+            "bugün"
           ],
           "who": "elif",
           "do": "turn",
@@ -1656,73 +1677,103 @@
         },
         {
           "cue": [
-            "bayram",
-            "dedi",
-            "saygı"
+            "birlikte",
+            "vakit"
           ],
           "who": "elif",
           "do": "talk",
           "look": "reader",
-          "len": 3.0
+          "len": 2.4
         },
         {
           "cue": [
-            "sevgi",
-            "annes",
-            "sarıldı"
+            "misafir",
+            "hatırladı"
           ],
-          "who": "anne",
-          "do": "walkTo",
-          "to": [
-            0.09,
-            0,
-            0.03
-          ],
-          "face": 80,
-          "look": "elif"
-        },
-        {
-          "cue": [
-            "sarıldı",
-            "öptü",
-            "annes",
-            "sevgi"
-          ],
-          "who": "anne",
-          "do": "kissForehead",
-          "target": "elif",
+          "who": "can",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.0,
           "focus": true
         },
         {
           "cue": [
-            "sarıldı",
-            "öptü",
-            "sevgi",
-            "yarın"
+            "anne",
+            "yanlarına"
           ],
-          "who": "hilal",
-          "do": "vanish"
+          "who": "anne",
+          "do": "walkTo",
+          "to": [
+            0.36,
+            0,
+            0.04
+          ],
+          "face": 170,
+          "look": "elif",
+          "focus": true
         },
         {
           "cue": [
-            "sarıldı",
-            "öptü",
-            "sevgi",
-            "yarın"
+            "anne",
+            "yanlarına"
           ],
-          "who": "hilalUyku",
-          "do": "appear",
-          "len": 0.8
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            0.24,
+            0,
+            -0.04
+          ],
+          "face": 175,
+          "look": "hilal",
+          "wait": 0.3
         },
         {
           "cue": [
-            "yarın",
-            "sevinç"
+            "ertesi",
+            "kimi"
           ],
-          "optional": true,
+          "who": "anne",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "karar"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "anne"
+        },
+        {
+          "cue": [
+            "karar"
+          ],
           "who": "can",
           "do": "cheer",
-          "look": "reader"
+          "look": "reader",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "bayram",
+            "sevinci"
+          ],
+          "who": "hilal",
+          "do": "shine",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "sevinci",
+            "sürüyor"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "reader",
+          "wait": 0.3,
+          "optional": true
         }
       ],
       "layers": [
@@ -1744,59 +1795,7 @@
           ]
         }
       ],
-      "ambience": "crickets",
-      "audio": {
-        "src": "/books/bayram-sabahi/ses/p8.mp3",
-        "marks": [
-          0.06,
-          0.4,
-          0.89,
-          1.23,
-          1.71,
-          2.34,
-          2.83,
-          3.74,
-          4.38,
-          5.02,
-          5.32,
-          5.67,
-          6.79,
-          7.12,
-          7.46,
-          8.32,
-          8.7,
-          9.23,
-          9.84,
-          10.74,
-          11.53,
-          12.19,
-          12.42,
-          12.89,
-          13.72,
-          14.47,
-          15.12,
-          15.88,
-          16.42,
-          17.14,
-          17.53,
-          17.93,
-          18.48,
-          19.04,
-          19.97,
-          20.43,
-          20.75,
-          21.21,
-          21.91,
-          22.25,
-          22.74,
-          23.23,
-          23.84,
-          24.23,
-          24.63,
-          25.02,
-          25.62
-        ]
-      }
+      "ambience": "crickets"
     }
   ],
   "glossary": {
@@ -2047,13 +2046,97 @@
     "Ayşe Teyze": {
       "en": "Aunt Ayşe",
       "icon": "👵"
+    },
+    "kapı": {
+      "en": "door",
+      "icon": "🚪"
+    },
+    "kardeş": {
+      "en": "brother, sister",
+      "icon": "🧒"
+    },
+    "mutfak": {
+      "en": "kitchen",
+      "icon": "🍳"
+    },
+    "gömlek": {
+      "en": "shirt",
+      "icon": "👔"
+    },
+    "yardım": {
+      "en": "help",
+      "icon": "🤝"
+    },
+    "toka": {
+      "en": "hair clip",
+      "icon": "🎀"
+    },
+    "kahvaltı": {
+      "en": "breakfast",
+      "icon": "🍳"
+    },
+    "peçete": {
+      "en": "napkin",
+      "icon": "🧻"
+    },
+    "peynir": {
+      "en": "cheese",
+      "icon": "🧀"
+    },
+    "zeytin": {
+      "en": "olive",
+      "icon": "🫒"
+    },
+    "ekmek": {
+      "en": "bread",
+      "icon": "🍞"
+    },
+    "su": {
+      "en": "water",
+      "icon": "💧"
+    },
+    "görüntülü arama": {
+      "en": "video call",
+      "icon": "📱"
+    },
+    "ekran": {
+      "en": "screen",
+      "icon": "📱"
+    },
+    "bayramınız mübarek olsun": {
+      "en": "Happy Bayram (to elders)",
+      "icon": "💐"
+    },
+    "komşu": {
+      "en": "neighbour",
+      "icon": "🏠"
+    },
+    "gelenek": {
+      "en": "tradition",
+      "icon": "🎎"
+    },
+    "misafir": {
+      "en": "guest",
+      "icon": "🧳"
+    },
+    "Türkçe": {
+      "en": "Turkish",
+      "icon": "🇹🇷"
+    },
+    "teşekkür etmek": {
+      "en": "to thank",
+      "icon": "🙏"
+    },
+    "bayramlaşmak": {
+      "en": "to exchange Bayram greetings",
+      "icon": "🤝"
     }
   },
   "quiz": [
     {
       "q": {
-        "tr": "Bayram için alınan yeni kıyafetlere ne denir?",
-        "en": "What do we call the new clothes bought for Bayram?"
+        "tr": "Bayram için özenle seçilen giysilere ne denir?",
+        "en": ""
       },
       "options": [
         {
@@ -2074,24 +2157,24 @@
     },
     {
       "q": {
-        "tr": "Elif, Ayşe Teyze'ye nasıl saygı gösterdi?",
-        "en": "How did Elif show respect to Aunt Ayşe?"
+        "tr": "Elif, Ayşe Teyze'nin elini öpmeden önce ne yaptı?",
+        "en": ""
       },
       "options": [
         {
-          "tr": "Ona el salladı",
-          "en": "She waved at her"
+          "tr": "İzin istedi",
+          "en": ""
         },
         {
-          "tr": "Elini öpüp alnına koydu",
-          "en": "She kissed her hand and touched it to her forehead"
+          "tr": "El salladı",
+          "en": ""
         },
         {
-          "tr": "Ona lokum verdi",
-          "en": "She gave her Turkish delight"
+          "tr": "Lokum verdi",
+          "en": ""
         }
       ],
-      "answer": 1,
+      "answer": 0,
       "page": "p5"
     },
     {
@@ -2118,21 +2201,21 @@
     },
     {
       "q": {
-        "tr": "Can şekerlerin hepsini almak istedi. Elif ne yaptı?",
-        "en": "Can wanted all the candy. What did Elif do?"
+        "tr": "Elif ile Can şekerleri nasıl paylaştı?",
+        "en": ""
       },
       "options": [
         {
-          "tr": "Şekerleri eşit paylaştırdı",
-          "en": "She shared the candy equally"
+          "tr": "Önce misafirlere ayırıp kalanı eşit paylaştılar",
+          "en": ""
         },
         {
-          "tr": "Şekerleri sakladı",
-          "en": "She hid the candy"
+          "tr": "Hepsini Can aldı",
+          "en": ""
         },
         {
-          "tr": "Annesine şikâyet etti",
-          "en": "She told on him to Mom"
+          "tr": "Şekerleri sakladılar",
+          "en": ""
         }
       ],
       "answer": 0,
@@ -2171,8 +2254,8 @@
         "temizlik"
       ],
       "why": {
-        "tr": "Elif, Ayşe Teyze'nin elini öpüp alnına koyarak büyüğüne saygı gösterdi.",
-        "en": "Elif showed respect to an elder by kissing Aunt Ayşe's hand and touching it to her forehead."
+        "tr": "Elif, Ayşe Teyze'nin elini öpmeden önce izin istedi, sonra elini öpüp alnına götürdü. Büyüğüne saygı gösterdi.",
+        "en": ""
       }
     },
     {
@@ -2184,8 +2267,8 @@
         "sabir"
       ],
       "why": {
-        "tr": "Elif şekerleri iki eşit yığına ayırdı. Herkese hakkını vermek adalettir.",
-        "en": "Elif split the candy into two equal piles. Giving everyone their fair share is fairness."
+        "tr": "Elif ile Can önce misafirlerin payını ayırdı, sonra kalan şekerleri eşit paylaştı. Herkese hakkını vermek adalettir.",
+        "en": ""
       }
     },
     {
@@ -2197,8 +2280,8 @@
         "aile-butunlugu"
       ],
       "why": {
-        "tr": "Aralarında okyanus olsa da aile bayramda bir araya geldi.",
-        "en": "Even with an ocean between them, the family came together for Bayram."
+        "tr": "Aralarında okyanus olsa da aile görüntülü aramayla bayramlaştı ve sevincini paylaştı.",
+        "en": ""
       }
     },
     {
@@ -2217,8 +2300,8 @@
   ],
   "family": {
     "task": {
-      "tr": "Bu hafta ailece uzakta yaşayan bir büyüğünüzü arayın. Çocuğunuz 'Ellerinizden öperim' desin ve bayramdan bir anısını sorsun.",
-      "en": "This week, call an elder who lives far away. Let your child say \"Ellerinizden öperim\" and ask them about a Bayram memory."
+      "tr": "Bu hafta ailece uzakta yaşayan bir büyüğünüzü arayın. Çocuğunuz 'Bayramınız mübarek olsun' ya da 'İyi bayramlar' desin ve büyüğünden bir bayram anısı dinlesin.",
+      "en": ""
     },
     "talk": [
       {

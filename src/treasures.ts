@@ -352,7 +352,8 @@ export const TREASURES: Treasure[] = [
       "ankara",
       "egemenlik",
       "atatürk",
-      "millet"
+      "millet",
+      "maket"
     ],
     "fact": "Türkiye Büyük Millet Meclisi 23 Nisan 1920’de Ankara’da açıldı. Atatürk bu günü çocuklara armağan etti. Her yıl 23 Nisan’da Ulusal Egemenlik ve Çocuk Bayramı’nı dünya çocuklarıyla birlikte kutlarız.",
     "found": [
@@ -501,7 +502,8 @@ export const TREASURES: Treasure[] = [
     "words": [
       "nasreddin hoca",
       "fıkra",
-      "akşehir"
+      "akşehir",
+      "sarık"
     ],
     "fact": "Nasreddin Hoca, yüzyıllar önce Akşehir’de yaşamış bilge ve esprili bir halk kahramanıdır. Fıkraları hem güldürür hem düşündürür. Akşehir’de her yıl onun adına bir şenlik yapılır.",
     "found": [

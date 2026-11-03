@@ -3,12 +3,12 @@
   "title": "Nasreddin Hoca ve Kazan",
   "titleEn": "Nasreddin Hodja and the Pot",
   "culture": {
-    "tr": "Nasreddin Hoca fıkraları, Akşehir",
+    "tr": "Nasreddin Hoca fıkraları, Akşehir, komşuluk ve ödünç eşya kullanma",
     "en": "Nasreddin Hodja stories, Akşehir"
   },
   "summary": {
-    "tr": "Dede, Elif ile Can'a ünlü bir Nasreddin Hoca fıkrası anlatıyor: ödünç alınan kazan bir gün 'doğurur', bir gün de 'ölür'. Fıkra bitince Can da dürüst olmanın cesaret istediğini gösteriyor.",
-    "en": "Grandpa tells Elif and Can a famous Nasreddin Hodja story: a borrowed pot 'has a baby' one day and 'dies' another. When the story ends, Can shows that being honest takes courage."
+    "tr": "Ahmet Dede, Elif ile Can'a ünlü bir Nasreddin Hoca fıkrası anlatıyor: ödünç alınan kazan bir gün 'doğurur', bir gün de 'ölür'; sonunda Hoca kazanı sahibine geri verir. Fıkra bitince Can da doğruyu söyler ve hatasını düzeltmeye çalışır.",
+    "en": ""
   },
   "values": [
     "adalet",
@@ -24,11 +24,11 @@
       "scene": "k1",
       "title": {
         "tr": "Dedemin fıkrası",
-        "en": "Grandpa's funny story"
+        "en": ""
       },
       "text": {
-        "tr": "{Dede|dede} bu yaz İzmir'den, Amerika'daki torunlarını görmeye gelmişti. Akşam {çaydanlık} fokurdarken Dede eski kitabını açtı: 'Size bir {Nasreddin Hoca} {fıkrası|fıkra} anlatayım. Hem güleceksiniz hem düşüneceksiniz.' Elif ile Can {sedire|sedir} kurulup dinlemeye başladı.",
-        "en": "This summer Grandpa had come from İzmir to visit his grandchildren in America. While the teapot bubbled in the evening, Grandpa opened his old book: \"Let me tell you a Nasreddin Hodja story. You will laugh, and you will think.\" Elif and Can settled on the divan and began to listen."
+        "tr": "Ahmet {Dede|dede}, İzmir’den Amerika’daki torunlarını görmeye gelmişti. Akşam eski {kitabını|kitap} açtı. Elif ile Can {sedire|sedir} oturdu. “Size bir {Nasreddin Hoca} {fıkrası|fıkra} anlatacağım,” dedi. “Fıkra, bizi güldürürken düşündüren kısa bir anlatıdır.” {Çaydanlıktan|çaydanlık} hafif bir ses geliyordu. Can kitabın resmine baktı. {Sarıklı|sarık}, güler yüzlü Hoca’nın başından neler geçtiğini merak ediyordu.",
+        "en": ""
       },
       "culture": {
         "tr": "Nasreddin Hoca, yedi yüz yıldan uzun zaman önce Anadolu'da yaşamış, bilge ve şakacı bir halk kahramanıdır. Onun hem güldüren hem düşündüren kısa hikâyelerine fıkra denir. 2022'de UNESCO, Nasreddin Hoca fıkralarını anlatma geleneğini insanlığın somut olmayan kültürel mirası listesine aldı.",
@@ -114,8 +114,8 @@
       "beats": [
         {
           "cue": [
-            "dede",
-            "akşam"
+            "ahmet",
+            "dede"
           ],
           "who": "dede",
           "do": "talk",
@@ -125,8 +125,18 @@
         },
         {
           "cue": [
-            "dede",
-            "elif"
+            "kitabını",
+            "açtı"
+          ],
+          "who": "dede",
+          "do": "offer",
+          "look": "reader",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "elif",
+            "sedire"
           ],
           "who": "elif",
           "do": "lookAt",
@@ -135,8 +145,8 @@
         },
         {
           "cue": [
-            "dede",
-            "elif"
+            "elif",
+            "sedire"
           ],
           "who": "can",
           "do": "lookAt",
@@ -145,7 +155,7 @@
         },
         {
           "cue": [
-            "fıkra"
+            "nasreddin"
           ],
           "who": "dede",
           "do": "talk",
@@ -154,7 +164,6 @@
         },
         {
           "cue": [
-            "fıkra",
             "nasreddin"
           ],
           "who": "kazan",
@@ -164,7 +173,6 @@
         },
         {
           "cue": [
-            "fıkra",
             "nasreddin"
           ],
           "who": "elif",
@@ -174,7 +182,6 @@
         },
         {
           "cue": [
-            "fıkra",
             "nasreddin"
           ],
           "who": "can",
@@ -184,20 +191,35 @@
         },
         {
           "cue": [
-            "dinli",
-            "sedir",
-            "oturdu",
-            "kurul"
+            "güldürürken"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "can",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "çaydanlık"
           ],
           "who": "kazan",
           "do": "spin"
         },
         {
           "cue": [
-            "dinli",
-            "sedir",
-            "oturdu",
-            "kurul"
+            "resmine",
+            "baktı"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "dede",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "merak",
+            "sarıklı"
           ],
           "who": "can",
           "do": "cheer",
@@ -205,14 +227,12 @@
         },
         {
           "cue": [
-            "dinli",
-            "sedir",
-            "oturdu",
-            "kurul"
+            "merak"
           ],
           "who": "elif",
           "do": "nod",
-          "look": "dede"
+          "look": "dede",
+          "wait": 0.3
         }
       ],
       "ambience": "crickets",
@@ -234,55 +254,18 @@
             }
           ]
         }
-      ],
-      "audio": {
-        "src": "/books/nasreddin-hoca-kazan/ses/p1.mp3",
-        "marks": [
-          0.01,
-          0.35,
-          0.55,
-          0.74,
-          1.22,
-          2.12,
-          2.88,
-          3.36,
-          4.27,
-          4.65,
-          5.18,
-          5.87,
-          6.25,
-          6.62,
-          7.31,
-          8.1,
-          8.41,
-          8.6,
-          9.3,
-          9.75,
-          10.58,
-          10.79,
-          11.59,
-          11.79,
-          13.33,
-          13.63,
-          13.92,
-          14.1,
-          14.52,
-          14.94,
-          15.48,
-          15.94
-        ]
-      }
+      ]
     },
     {
       "id": "p2",
       "scene": "k2",
       "title": {
         "tr": "Büyük bir kazan lazım",
-        "en": "A big pot is needed"
+        "en": ""
       },
       "text": {
-        "tr": "Çok eskiden {Akşehir} diye bir kasabada Nasreddin Hoca yaşarmış. Bir gün Hoca'nın evine uzak köylerden {misafirler|misafir} gelecekmiş. Herkese yetecek kadar pilav pişirmek için kocaman bir {kazan} gerekiyormuş. Hoca'nın kazanı ise küçükmüş. Hoca sarığını düzeltmiş ve {komşusunun|komşu} {kapısını|kapı} çalmış.",
-        "en": "Long ago, in a town called Akşehir, there lived Nasreddin Hodja. One day guests from faraway villages were coming to his house. To cook enough rice for everyone he needed a huge pot, but his own pot was small. The Hodja straightened his turban and knocked on his neighbour's door."
+        "tr": "Çok eskiden {Akşehir’de|Akşehir} {Nasreddin Hoca} yaşarmış. Bir gün evine {misafirler|misafir} gelecekmiş. Hoca herkese {pilav} hazırlamak istemiş ama {kazanı|kazan} küçükmüş. Kazan, çok yemek pişirilen büyük bir {tencereymiş|tencere}. Hoca biraz düşünmüş. Sonra {komşusundan|komşu} büyük kazanını {ödünç} istemeye karar vermiş. Ödünç aldığı eşyayı kullanıp geri vermesi gerektiğini biliyormuş. Komşusunun {kapısını|kapı} çalmış.",
+        "en": ""
       },
       "culture": {
         "tr": "Akşehir, Konya'da, Sultan Dağları'nın eteğinde bir ilçedir. Nasreddin Hoca hayatının büyük bölümünü burada geçirmiştir. Hoca'nın türbesi de Akşehir'dedir ve şehirde her yaz Nasreddin Hoca Şenliği yapılır.",
@@ -350,9 +333,8 @@
       "beats": [
         {
           "cue": [
-            "hoca",
-            "nasreddin",
-            "eskiden"
+            "eskiden",
+            "akşehir"
           ],
           "who": "hoca",
           "do": "walkTo",
@@ -367,7 +349,6 @@
         },
         {
           "cue": [
-            "misafir",
             "pilav"
           ],
           "who": "pilav",
@@ -377,7 +358,6 @@
         },
         {
           "cue": [
-            "misafir",
             "pilav"
           ],
           "who": "hoca",
@@ -387,7 +367,7 @@
         },
         {
           "cue": [
-            "kazan"
+            "kazanı"
           ],
           "who": "kazan",
           "do": "appear",
@@ -395,45 +375,59 @@
         },
         {
           "cue": [
-            "kazan"
+            "küçükmüş"
           ],
           "who": "hoca",
           "do": "talk",
           "look": "kazan",
-          "len": 2.2
+          "len": 2.0
         },
         {
           "cue": [
-            "kapı",
-            "yok",
-            "küçük"
+            "tencere"
           ],
           "who": "kazan",
           "do": "ring"
         },
         {
           "cue": [
-            "kapı",
-            "yok",
-            "küçük"
+            "düşünmüş"
+          ],
+          "who": "hoca",
+          "do": "nod",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "komşusundan",
+            "karar"
           ],
           "who": "pilav",
           "do": "vanish",
-          "wait": 0.6
+          "wait": 0.4
         },
         {
           "cue": [
-            "kapı",
-            "yok"
+            "komşusundan",
+            "karar"
           ],
           "who": "kazan",
           "do": "vanish",
-          "wait": 0.3
+          "wait": 0.7
         },
         {
           "cue": [
-            "kapı",
-            "yok"
+            "biliyormuş"
+          ],
+          "who": "hoca",
+          "do": "talk",
+          "look": "reader",
+          "len": 2.0,
+          "optional": true
+        },
+        {
+          "cue": [
+            "komşusunun"
           ],
           "who": "hoca",
           "do": "walkTo",
@@ -447,8 +441,7 @@
         },
         {
           "cue": [
-            "kapı",
-            "yok"
+            "çalmış"
           ],
           "who": "hoca",
           "do": "knock",
@@ -465,66 +458,22 @@
           "h": 0.86,
           "hotspots": []
         }
-      ],
-      "audio": {
-        "src": "/books/nasreddin-hoca-kazan/ses/p2.mp3",
-        "marks": [
-          0.05,
-          0.26,
-          0.79,
-          1.44,
-          1.81,
-          2.02,
-          2.84,
-          3.36,
-          3.73,
-          4.93,
-          5.16,
-          5.63,
-          6.13,
-          6.74,
-          7.1,
-          7.59,
-          8.24,
-          9.54,
-          10.01,
-          10.47,
-          10.8,
-          11.13,
-          11.6,
-          12.18,
-          12.71,
-          12.93,
-          13.3,
-          14.75,
-          15.22,
-          15.68,
-          16.11,
-          17.23,
-          17.61,
-          18.31,
-          19.04,
-          19.35,
-          19.98,
-          20.62,
-          21.0
-        ]
-      }
+      ]
     },
     {
       "id": "p3",
       "scene": "k3",
       "title": {
-        "tr": "Al Hocam, güle güle kullan",
-        "en": "Here you are, Hodja!"
+        "tr": "Güle güle kullan",
+        "en": ""
       },
       "text": {
-        "tr": "{Komşusu|komşu} kapıyı açıp, 'Hoş geldin Hocam, buyur!' demiş. Hoca, 'Komşu, bana birkaç günlüğüne büyük {kazanını|kazan} {ödünç} verir misin?' diye sormuş. Komşusu hiç düşünmeden kazanı getirmiş: 'Al Hocam, güle güle kullan. Komşu komşunun külüne muhtaçtır!'",
-        "en": "His neighbour opened the door: \"Welcome, Hodja, come in!\" The Hodja asked, \"Neighbour, would you lend me your big pot for a few days?\" Without a second thought the neighbour brought the pot: \"Here you are, Hodja, use it in good health. Neighbours need each other, even for a handful of ashes!\""
+        "tr": "{Komşusu|komşu} kapıyı açmış. “Hoş geldin Hocam!” demiş. Hoca, “Büyük {kazanını|kazan} birkaç günlüğüne {ödünç} verir misin?” diye sormuş. Komşusu kazanı getirmiş. “Güle güle kullan,” demiş. Hoca teşekkür etmiş. Kazanı dikkatle evine taşımış. {Misafirler|misafir} gelince {pilavı|pilav} birlikte yemişler. Ertesi gün Hoca kazanı temizlemiş ve komşusuna geri götürmek için hazırlamış.",
+        "en": ""
       },
       "culture": {
-        "tr": "Türkçede 'Komşu komşunun külüne muhtaçtır' diye bir atasözü vardır: Komşular en küçük işte bile birbirine yardım eder. Bir de güzel bir gelenek vardır: Ödünç alınan kap boş geri verilmez, içine biraz yemek ya da tatlı konur.",
-        "en": "There is a Turkish proverb: \"A neighbour needs even the ashes of a neighbour\", meaning neighbours help each other with even the smallest things. There is also a lovely custom: a borrowed dish is never returned empty, a little food or something sweet is put inside."
+        "tr": "Türkçede ‘Komşu komşunun külüne muhtaçtır’ diye bir atasözü vardır: Komşular en küçük işte bile birbirine yardım eder. Ödünç alınan eşya özenle kullanılır, temizlenip zamanında geri verilir.",
+        "en": ""
       },
       "models": [
         {
@@ -534,6 +483,18 @@
           "h": 0.5,
           "word": "kapı",
           "id": "kapi"
+        },
+        {
+          "src": "/models/masal/pilav.glb",
+          "x": -0.3,
+          "z": 0.7,
+          "h": 0.1,
+          "y": 0.42,
+          "word": "pilav",
+          "id": "pilav",
+          "magic": true,
+          "hidden": true,
+          "fx": "bob"
         }
       ],
       "cast": [
@@ -555,7 +516,8 @@
       "beats": [
         {
           "cue": [
-            "komşu"
+            "komşusu",
+            "hoş"
           ],
           "who": "komsu",
           "do": "talk",
@@ -565,9 +527,7 @@
         },
         {
           "cue": [
-            "hoca",
-            "ödünç",
-            "kazan"
+            "kazanını"
           ],
           "who": "hoca",
           "do": "talk",
@@ -577,10 +537,7 @@
         },
         {
           "cue": [
-            "verdi",
-            "getirmiş",
-            "vermiş",
-            "al"
+            "getirmiş"
           ],
           "who": "komsu",
           "do": "give",
@@ -588,36 +545,84 @@
         },
         {
           "cue": [
-            "verdi",
-            "getirmiş",
-            "vermiş",
-            "al"
+            "getirmiş"
           ],
           "who": "hoca",
           "do": "receive",
           "target": "kazan",
           "look": "komsu",
+          "wait": 0.4,
           "focus": true
         },
         {
           "cue": [
-            "güle",
-            "al",
-            "muhtaç"
+            "güle"
           ],
           "who": "komsu",
           "do": "talk",
           "look": "hoca",
-          "len": 2.0
+          "len": 1.8
         },
         {
           "cue": [
-            "dedi",
-            "muhtaç",
-            "vermiş"
+            "teşekkür"
           ],
           "who": "hoca",
           "do": "bow",
+          "look": "komsu"
+        },
+        {
+          "cue": [
+            "dikkatle",
+            "taşımış"
+          ],
+          "who": "hoca",
+          "do": "walkTo",
+          "to": [
+            -0.2,
+            0,
+            0.08
+          ],
+          "face": -60,
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "pilav"
+          ],
+          "who": "pilav",
+          "do": "appear",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "ertesi"
+          ],
+          "who": "pilav",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "temizlemiş"
+          ],
+          "who": "hoca",
+          "do": "nod",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "götürmek",
+            "hazırlamış"
+          ],
+          "who": "hoca",
+          "do": "walkTo",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "face": 40,
           "look": "komsu"
         }
       ],
@@ -630,58 +635,18 @@
           "h": 0.86,
           "hotspots": []
         }
-      ],
-      "audio": {
-        "src": "/books/nasreddin-hoca-kazan/ses/p3.mp3",
-        "marks": [
-          0.03,
-          0.49,
-          0.95,
-          1.76,
-          1.95,
-          2.28,
-          2.79,
-          3.39,
-          4.41,
-          5.23,
-          6.01,
-          6.34,
-          6.67,
-          7.28,
-          7.61,
-          8.22,
-          8.55,
-          8.88,
-          9.47,
-          9.85,
-          10.83,
-          11.38,
-          11.6,
-          12.31,
-          12.85,
-          13.85,
-          14.03,
-          14.57,
-          14.84,
-          15.12,
-          15.85,
-          16.26,
-          17.01,
-          17.59,
-          18.22
-        ]
-      }
+      ]
     },
     {
       "id": "p4",
       "scene": "k4",
       "title": {
-        "tr": "Kazanınız doğurdu!",
-        "en": "Your pot had a baby!"
+        "tr": "Kazan doğurdu",
+        "en": ""
       },
       "text": {
-        "tr": "Birkaç gün sonra Hoca {kazanı|kazan} geri götürmüş. Komşu bakmış ki kazanın içinde minicik bir {tencere}! Hoca gülümseyerek, 'Müjde komşu, senin kazan bizde bir yavru {doğurdu|doğurmak}!' demiş. Komşu, 'Kazan doğurur mu hiç?' diyecekmiş ama tencereyi görünce sesini çıkarmamış. 'Hayırlı olsun Hocam!' diyerek ikisini de almış.",
-        "en": "A few days later the Hodja took the pot back. The neighbour looked, and inside the pot was a tiny saucepan! Smiling, the Hodja said, \"Good news, neighbour, your pot gave birth to a baby at our house!\" The neighbour was about to say, \"Can a pot have a baby?\" but when he saw the saucepan he kept quiet. \"May it bring luck, Hodja!\" he said, and took them both."
+        "tr": "Hoca {kazanı|kazan} geri verirken içine küçük bir {tencere} koymuş. “{Müjde|müjde} komşu, kazanınız {doğurdu|doğurmak}!” demiş. Komşu şaşırmış. Kazanın canlı olmadığını, yavrusu olamayacağını biliyormuş. Ama küçük tencere hoşuna gitmiş. Bir şey sormadan ikisini de almış. Hoca gülümsemiş. {Fıkranın|fıkra} tuhaflığı tam da buradaymış: Komşu, işine gelen bu sözü sorgulamamış.",
+        "en": ""
       },
       "culture": {
         "tr": "'Müjde!' iyi bir haber verirken söylenir. Müjdeli haberi getirene küçük bir hediye vermek eski bir Türk geleneğidir; bu hediyeye 'müjdelik' ya da 'müjde parası' denir.",
@@ -727,8 +692,7 @@
       "beats": [
         {
           "cue": [
-            "hoca",
-            "birkaç"
+            "hoca"
           ],
           "who": "hoca",
           "do": "walkTo",
@@ -743,11 +707,13 @@
         },
         {
           "cue": [
-            "içinde"
+            "içine",
+            "koymuş"
           ],
           "who": "hoca",
-          "do": "put",
-          "look": "down"
+          "do": "offer",
+          "look": "komsu",
+          "len": 2.2
         },
         {
           "cue": [
@@ -769,8 +735,7 @@
         },
         {
           "cue": [
-            "müjde",
-            "kazanınız"
+            "müjde"
           ],
           "who": "hoca",
           "do": "talk",
@@ -787,10 +752,16 @@
         },
         {
           "cue": [
-            "şaşır",
-            "hayırlı",
-            "dedi",
-            "doğurur"
+            "şaşırmış"
+          ],
+          "who": "komsu",
+          "do": "raise",
+          "look": "hoca",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "hoşuna"
           ],
           "who": "komsu",
           "do": "cheer",
@@ -798,24 +769,52 @@
         },
         {
           "cue": [
-            "sevinç",
-            "ikisini",
-            "dedi"
+            "sormadan",
+            "ikisini"
           ],
-          "who": "tencere",
-          "do": "vanish"
+          "who": "hoca",
+          "do": "give",
+          "look": "komsu"
         },
         {
           "cue": [
-            "sevinç",
-            "ikisini",
-            "dedi"
+            "sormadan",
+            "ikisini"
           ],
           "who": "komsu",
           "do": "receive",
-          "target": "tencere",
-          "look": "reader",
+          "target": "kazan",
+          "look": "hoca",
+          "wait": 0.4,
           "focus": true
+        },
+        {
+          "cue": [
+            "sormadan",
+            "ikisini"
+          ],
+          "who": "tencere",
+          "do": "vanish",
+          "wait": 0.9
+        },
+        {
+          "cue": [
+            "gülümsemiş"
+          ],
+          "who": "hoca",
+          "do": "nod",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "sorgulamamış",
+            "işine"
+          ],
+          "who": "hoca",
+          "do": "point",
+          "target": "komsu",
+          "len": 1.6,
+          "optional": true
         }
       ],
       "ambience": "birds",
@@ -827,68 +826,18 @@
           "h": 0.86,
           "hotspots": []
         }
-      ],
-      "audio": {
-        "src": "/books/nasreddin-hoca-kazan/ses/p4.mp3",
-        "marks": [
-          0.03,
-          0.46,
-          0.7,
-          1.34,
-          1.67,
-          2.14,
-          2.47,
-          3.55,
-          3.93,
-          4.31,
-          4.82,
-          5.29,
-          5.76,
-          6.32,
-          6.51,
-          7.63,
-          7.94,
-          9.09,
-          9.53,
-          10.37,
-          10.73,
-          11.08,
-          11.44,
-          11.65,
-          12.0,
-          12.8,
-          13.77,
-          14.66,
-          14.99,
-          15.47,
-          15.66,
-          16.11,
-          16.66,
-          17.32,
-          17.93,
-          18.52,
-          19.0,
-          20.19,
-          20.62,
-          20.92,
-          21.47,
-          22.19,
-          22.75,
-          22.93,
-          23.28
-        ]
-      }
+      ]
     },
     {
       "id": "p5",
       "scene": "k5",
       "title": {
         "tr": "Belki yine doğurur",
-        "en": "Maybe it will have another baby"
+        "en": ""
       },
       "text": {
-        "tr": "Aradan bir hafta geçmiş. Hoca yine {komşusunun|komşu} kapısını çalmış: 'Komşu, {kazanı|kazan} bir daha verir misin?' Komşusu sevinçle koşmuş, kazanı getirmiş. İçinden, 'Ne güzel! Belki bu sefer de bir yavru getirir,' diye geçirmiş. Kazanın yavrusu, yani küçük {tencere}, kapının önünde duruyormuş.",
-        "en": "A week went by. The Hodja knocked on his neighbour's door again: \"Neighbour, would you lend me the pot once more?\" The neighbour ran happily and brought the pot. \"How nice!\" he thought. \"Maybe this time it will bring another baby.\" The pot's baby, the little saucepan, was standing by the door."
+        "tr": "Bir süre sonra Hoca yeniden {kapıya|kapı} gelmiş. “{Kazanını|kazan} bir daha {ödünç} verir misin?” diye sormuş. Komşu hemen kazanı getirmiş. Aklında küçük {tencere} varmış. “Belki bu kez de bir tencere getirir,” diye düşünmüş. Kazanın nasıl {doğurabildiğini|doğurmak} yine sormamış. Hoca teşekkür edip kazanı almış. Komşu, bu kez ne olacağını beklemeye başlamış.",
+        "en": ""
       },
       "models": [
         {
@@ -930,7 +879,7 @@
         {
           "cue": [
             "hoca",
-            "aradan"
+            "yeniden"
           ],
           "who": "hoca",
           "do": "knock",
@@ -938,10 +887,7 @@
         },
         {
           "cue": [
-            "kazan",
-            "istedi",
-            "istemiş",
-            "verir"
+            "kazanını"
           ],
           "who": "hoca",
           "do": "talk",
@@ -951,9 +897,8 @@
         },
         {
           "cue": [
-            "komşu",
-            "sevin",
-            "hemen"
+            "hemen",
+            "getirmiş"
           ],
           "who": "komsu",
           "do": "cheer",
@@ -962,9 +907,6 @@
         },
         {
           "cue": [
-            "belki",
-            "yavru",
-            "doğurur",
             "tencere"
           ],
           "who": "tencere",
@@ -974,8 +916,16 @@
         },
         {
           "cue": [
-            "belki",
-            "içinden"
+            "tencere"
+          ],
+          "who": "komsu",
+          "do": "lookAt",
+          "target": "tencere",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "belki"
           ],
           "who": "komsu",
           "do": "talk",
@@ -985,10 +935,7 @@
         },
         {
           "cue": [
-            "verdi",
-            "getirmiş",
-            "vermiş",
-            "getirir"
+            "teşekkür"
           ],
           "who": "komsu",
           "do": "give",
@@ -996,21 +943,18 @@
         },
         {
           "cue": [
-            "verdi",
-            "getirmiş",
-            "vermiş",
-            "getirir"
+            "teşekkür"
           ],
           "who": "hoca",
           "do": "receive",
           "target": "kazan",
           "look": "komsu",
+          "wait": 0.4,
           "focus": true
         },
         {
           "cue": [
-            "yavru",
-            "tencere"
+            "beklemeye"
           ],
           "who": "tencere",
           "do": "ring",
@@ -1018,13 +962,11 @@
         },
         {
           "cue": [
-            "yavru",
-            "tencere"
+            "beklemeye"
           ],
           "who": "komsu",
-          "do": "lookAt",
-          "target": "tencere",
-          "len": 1.8,
+          "do": "nod",
+          "look": "hoca",
           "optional": true
         }
       ],
@@ -1037,68 +979,22 @@
           "h": 0.86,
           "hotspots": []
         }
-      ],
-      "audio": {
-        "src": "/books/nasreddin-hoca-kazan/ses/p5.mp3",
-        "marks": [
-          0.02,
-          0.55,
-          0.77,
-          1.15,
-          2.08,
-          2.43,
-          2.78,
-          3.42,
-          4.06,
-          4.99,
-          5.76,
-          6.14,
-          6.29,
-          6.56,
-          6.82,
-          7.69,
-          8.36,
-          9.03,
-          9.66,
-          10.14,
-          11.03,
-          11.92,
-          12.13,
-          12.86,
-          13.16,
-          13.33,
-          13.63,
-          13.8,
-          13.97,
-          14.27,
-          14.92,
-          15.28,
-          16.42,
-          16.98,
-          17.71,
-          18.08,
-          18.57,
-          19.38,
-          19.82,
-          20.27,
-          20.88
-        ]
-      }
+      ]
     },
     {
       "id": "p6",
       "scene": "k6",
       "title": {
-        "tr": "Kazanınız öldü",
-        "en": "Your pot has died"
+        "tr": "Kazan öldü",
+        "en": ""
       },
       "text": {
-        "tr": "Günler, haftalar geçmiş ama {kazandan|kazan} ses çıkmamış. {Komşu|komşu} sonunda Hoca'nın {kapısına|kapı} gitmiş: 'Hocam, kazanım nerede?' Hoca başını eğip üzgün üzgün, 'Ah komşu, başın sağ olsun. Senin kazan dün gece {öldü|ölmek},' demiş. Komşu öfkeyle, 'Ne diyorsun Hocam? Hiç kazan ölür mü?' diye bağırmış.",
-        "en": "Days and weeks went by, but there was no sign of the pot. At last the neighbour went to the Hodja's door: \"Hodja, where is my pot?\" The Hodja lowered his head and said sadly, \"Oh neighbour, I am so sorry. Your pot died last night.\" The neighbour shouted angrily, \"What are you saying, Hodja? Can a pot ever die?\""
+        "tr": "Aradan günler geçmiş. {Komşu} kazanını almaya Hoca’nın evine gitmiş. “Hocam, kazanım nerede?” diye sormuş. Hoca, şakasını sürdürerek, “{Kazanınız|kazan} {öldü|ölmek},” demiş. Komşu bir adım geri çekilmiş. “Hiç kazan ölür mü?” diye karşı çıkmış. Can, Ahmet {Dede’yi|dede} dinlerken kaşlarını kaldırdı. Elif de meraklandı. Hoca bu soruya acaba ne cevap verecekti?",
+        "en": ""
       },
       "culture": {
-        "tr": "'Başın sağ olsun' sözü, birini kaybeden kişiye üzüntümüzü göstermek için söylenir. Hoca bu sözü bir kazan için söyleyince fıkra daha da komik olur.",
-        "en": "\"Başın sağ olsun\" (may your head be well) is said to comfort someone who has lost a loved one. When the Hodja says it about a pot, the story becomes even funnier."
+        "tr": "Nasreddin Hoca fıkraları genellikle kısa bir olay, şaşırtıcı bir söz ve düşündüren bir sonla biter. Fıkra anlatılırken herkes sondaki o sözü merakla bekler.",
+        "en": ""
       },
       "models": [
         {
@@ -1146,8 +1042,7 @@
       "beats": [
         {
           "cue": [
-            "komşu",
-            "günler"
+            "komşu"
           ],
           "who": "komsu",
           "do": "walkTo",
@@ -1163,9 +1058,7 @@
         {
           "cue": [
             "kazanım",
-            "gitti",
-            "dayanama",
-            "kapısına"
+            "nerede"
           ],
           "who": "komsu",
           "do": "talk",
@@ -1174,9 +1067,8 @@
         },
         {
           "cue": [
-            "üzgün",
-            "başın",
-            "öldü"
+            "şakasını",
+            "sürdürerek"
           ],
           "who": "hoca",
           "do": "bow",
@@ -1214,8 +1106,7 @@
         },
         {
           "cue": [
-            "öldü",
-            "sağ"
+            "öldü"
           ],
           "who": "hoca",
           "do": "talk",
@@ -1224,16 +1115,39 @@
         },
         {
           "cue": [
+            "adım",
+            "geri"
+          ],
+          "who": "komsu",
+          "do": "walkTo",
+          "to": [
+            -0.14,
+            0,
+            0.0
+          ],
+          "face": -55,
+          "look": "hoca"
+        },
+        {
+          "cue": [
             "ölür",
-            "bağır",
-            "öfke",
-            "dedi"
+            "karşı"
           ],
           "who": "komsu",
           "do": "angry",
           "target": "hoca",
           "focus": true,
           "len": 1.6
+        },
+        {
+          "cue": [
+            "acaba",
+            "cevap"
+          ],
+          "who": "hoca",
+          "do": "nod",
+          "look": "reader",
+          "optional": true
         }
       ],
       "ambience": "crickets",
@@ -1245,66 +1159,18 @@
           "h": 0.86,
           "hotspots": []
         }
-      ],
-      "audio": {
-        "src": "/books/nasreddin-hoca-kazan/ses/p6.mp3",
-        "marks": [
-          0.03,
-          0.55,
-          1.39,
-          2.14,
-          2.55,
-          3.12,
-          3.36,
-          4.5,
-          4.87,
-          5.4,
-          5.92,
-          6.6,
-          7.55,
-          8.15,
-          8.56,
-          9.56,
-          9.94,
-          10.47,
-          10.98,
-          11.35,
-          12.17,
-          12.45,
-          12.93,
-          13.53,
-          13.81,
-          14.76,
-          15.14,
-          15.51,
-          15.83,
-          16.2,
-          16.94,
-          17.86,
-          18.29,
-          19.26,
-          19.43,
-          19.85,
-          20.42,
-          20.61,
-          20.94,
-          21.28,
-          21.77,
-          22.13,
-          22.69
-        ]
-      }
+      ]
     },
     {
       "id": "p7",
       "scene": "k7",
       "title": {
-        "tr": "Doğurduğuna inandın da…",
-        "en": "You believed it had a baby…"
+        "tr": "Hoca’nın sorusu",
+        "en": ""
       },
       "text": {
-        "tr": "Hoca sakalını sıvazlayıp gülümsemiş: 'Komşu, kazanının doğurduğuna {inandın|inanmak} da öldüğüne neden inanmıyorsun?' Komşu ağzını açmış ama söyleyecek söz bulamamış. İşine gelen habere hemen inandığını, işine gelmeyene ise karşı çıktığını anlamış. {Pazar|pazar} yerindeki herkes kahkahalarla gülmüş; en sonunda komşu da gülmeye başlamış.",
-        "en": "The Hodja stroked his beard and smiled: \"Neighbour, you believed your pot had a baby, so why don't you believe it died?\" The neighbour opened his mouth but could not find a word to say. He understood that he had believed the news that suited him at once, and argued against the news that did not. Everyone at the market burst out laughing, and in the end the neighbour began to laugh too."
+        "tr": "Hoca gülümseyip sormuş: “Doğurduğuna {inandın|inanmak} da öldüğüne neden inanmıyorsun?” {Komşu} düşünmüş. İşine gelen sözü doğru kabul ettiğini fark etmiş. Ertesi gün {pazarda|pazar} karşılaştıklarında bu tuhaf konuşmayı hatırlayıp gülmüşler. Hoca temiz {kazanı|kazan} sahibine vermiş. Küçük {tencerenin|tencere} de bir {şaka} hediyesi olduğunu söylemiş. Böylece {ödünç} kazan yine komşunun evine dönmüş.",
+        "en": ""
       },
       "culture": {
         "tr": "Fıkradaki 'Doğurduğuna inandın da öldüğüne neden inanmıyorsun?' sözü bugün de kullanılır. İşine geleni kabul edip gelmeyeni reddeden birine güler yüzle hatırlatma yapmak için söylenir.",
@@ -1327,18 +1193,6 @@
           "word": "eşek",
           "rotY": 50,
           "fx": "breathe"
-        },
-        {
-          "src": "/models/masal/kazan.glb",
-          "x": -0.07,
-          "z": 0.42,
-          "h": 0.11,
-          "y": 0.34,
-          "word": "kazan",
-          "id": "kazan",
-          "magic": true,
-          "hidden": true,
-          "fx": "bob"
         },
         {
           "src": "/models/masal/tencere.glb",
@@ -1425,7 +1279,9 @@
           "id": "hoca",
           "x": -0.16,
           "z": 0.62,
-          "rotY": 20
+          "rotY": 20,
+          "hold": "kazan",
+          "pose": "hold"
         },
         {
           "id": "komsu",
@@ -1449,7 +1305,8 @@
       "beats": [
         {
           "cue": [
-            "hoca"
+            "hoca",
+            "gülümseyip"
           ],
           "who": "hoca",
           "do": "talk",
@@ -1459,39 +1316,7 @@
         },
         {
           "cue": [
-            "inandın",
-            "komşu"
-          ],
-          "who": "kazan",
-          "do": "appear",
-          "len": 1.4
-        },
-        {
-          "cue": [
-            "inandın",
-            "komşu"
-          ],
-          "who": "tencere",
-          "do": "appear",
-          "len": 1.4,
-          "wait": 0.35
-        },
-        {
-          "cue": [
-            "inandın",
-            "komşu"
-          ],
-          "who": "komsu",
-          "do": "lookAt",
-          "target": "hoca",
-          "len": 1.5
-        },
-        {
-          "cue": [
-            "susmuş",
-            "söz",
-            "ağzını",
-            "inanmıyorsun"
+            "düşünmüş"
           ],
           "who": "komsu",
           "do": "bow",
@@ -1499,9 +1324,15 @@
         },
         {
           "cue": [
-            "herkes",
-            "pazar",
-            "anlamış"
+            "fark"
+          ],
+          "who": "komsu",
+          "do": "nod",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "pazarda"
           ],
           "who": "aksehirli-teyze",
           "do": "cheer",
@@ -1509,38 +1340,16 @@
         },
         {
           "cue": [
-            "herkes",
-            "pazar",
-            "anlamış"
+            "pazarda"
           ],
           "who": "pazarci",
           "do": "cheer",
-          "look": "hoca"
-        },
-        {
-          "cue": [
-            "gülmüş",
-            "güldü",
-            "gülmeye"
-          ],
-          "who": "kazan",
-          "do": "spin"
-        },
-        {
-          "cue": [
-            "gülmüş",
-            "güldü",
-            "gülmeye"
-          ],
-          "who": "tencere",
-          "do": "spin",
+          "look": "hoca",
           "wait": 0.2
         },
         {
           "cue": [
-            "gülmüş",
-            "güldü",
-            "gülmeye"
+            "gülmüşler"
           ],
           "who": "komsu",
           "do": "cheer",
@@ -1549,13 +1358,75 @@
         },
         {
           "cue": [
-            "gülmüş",
-            "güldü",
-            "gülmeye"
+            "gülmüşler"
           ],
           "who": "hoca",
           "do": "nod",
+          "look": "komsu"
+        },
+        {
+          "cue": [
+            "temiz"
+          ],
+          "who": "hoca",
+          "do": "give",
+          "look": "komsu"
+        },
+        {
+          "cue": [
+            "temiz"
+          ],
+          "who": "komsu",
+          "do": "receive",
+          "target": "kazan",
+          "look": "hoca",
+          "wait": 0.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "tencere"
+          ],
+          "who": "tencere",
+          "do": "appear",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "tencere"
+          ],
+          "who": "tencere",
+          "do": "spin",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "şaka",
+            "söylemiş"
+          ],
+          "who": "hoca",
+          "do": "talk",
+          "look": "komsu",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "böylece",
+            "dönmüş"
+          ],
+          "who": "komsu",
+          "do": "cheer",
           "look": "reader"
+        },
+        {
+          "cue": [
+            "dönmüş"
+          ],
+          "who": "tencere",
+          "do": "shine",
+          "len": 0.8,
+          "optional": true
         }
       ],
       "ambience": "birds",
@@ -1567,69 +1438,22 @@
           "h": 0.86,
           "hotspots": []
         }
-      ],
-      "audio": {
-        "src": "/books/nasreddin-hoca-kazan/ses/p7.mp3",
-        "marks": [
-          0.08,
-          0.41,
-          1.02,
-          1.75,
-          2.89,
-          3.85,
-          4.43,
-          5.15,
-          5.59,
-          6.08,
-          6.66,
-          6.98,
-          8.56,
-          8.88,
-          9.43,
-          9.75,
-          10.29,
-          11.02,
-          11.26,
-          12.66,
-          13.1,
-          13.41,
-          13.85,
-          14.16,
-          15.25,
-          15.67,
-          16.22,
-          16.61,
-          16.91,
-          17.46,
-          18.5,
-          18.91,
-          19.66,
-          20.07,
-          21.0,
-          21.98,
-          22.19,
-          22.89,
-          23.22,
-          23.42,
-          23.89,
-          24.4
-        ]
-      }
+      ]
     },
     {
       "id": "p8",
       "scene": "k8",
       "title": {
-        "tr": "Terazinin iki kefesi",
-        "en": "Both sides of the scale"
+        "tr": "Doğruyu söylemek",
+        "en": ""
       },
       "text": {
-        "tr": "Fıkra bitince Elif düşündü: 'Komşu, işine gelen habere inandı, gelmeyene inanmadı. Bu hiç {adil} değil.' Dede başını salladı: '{Adalet|adalet}, terazinin iki kefesini eşit tutmaktır.' Can birden kıpkırmızı oldu: 'Abla, dün senin mavi {boya kalemini|boya kalemi} ben kırdım. Saklamak istedim ama… {Özür dilerim|özür dilemek}.' Elif kardeşine sarıldı. Dede, 'Doğruyu söylemek cesaret ister,' dedi. O akşam Can, {dürüst} olmanın insanın içini ne kadar rahatlattığını öğrendi.",
-        "en": "When the story ended, Elif thought: \"The neighbour believed the news that suited him and not the news that didn't. That's not fair at all.\" Grandpa nodded: \"Fairness means keeping both sides of the scale equal.\" Suddenly Can turned bright red: \"Sis, I broke your blue crayon yesterday. I wanted to hide it, but… I'm sorry.\" Elif hugged her little brother. \"Telling the truth takes courage,\" said Grandpa. That evening Can learned how much lighter you feel when you are honest."
+        "tr": "“Hoca’nın {şakası|şaka} komik ama {kazan} ölmez ki,” dedi Can. Ahmet {Dede|dede} başını salladı. “{Fıkra|fıkra} bize duyduğumuz sözü düşünmeyi hatırlatıyor. {Ödünç|ödünç} aldığımızı da geri vermeliyiz.” Can biraz durdu. “Abla, mavi {kalemini|boya kalemi} ben kırdım. {Özür dilerim|özür dilemek}.” Elif onu dinledi. Sonra kalemi birlikte açmayı denediler. Can doğruyu söylemiş, hatasını düzeltmek için bir adım atmıştı.",
+        "en": ""
       },
       "culture": {
-        "tr": "Nasreddin Hoca fıkralarında Hoca'nın amacı çoğu zaman bir şey kazanmak değil, insanları güldürerek düşündürmektir. Bu fıkranın sonunda kazana ne oldu, bilinmez. Siz olsaydınız fıkrayı nasıl bitirirdiniz?",
-        "en": "In Nasreddin Hodja stories, the Hodja usually does not want to win anything; he wants to make people laugh and think. Nobody knows what happened to the pot in the end. How would you finish the story?"
+        "tr": "Nasreddin Hoca fıkralarında Hoca'nın amacı çoğu zaman insanları güldürerek düşündürmektir. Bu fıkrada Hoca, kazanı sonunda sahibine geri verir. Ödünç alınan eşyayı özenle kullanıp geri vermek komşuluğun gereğidir.",
+        "en": ""
       },
       "models": [
         {
@@ -1723,28 +1547,45 @@
         },
         {
           "cue": [
-            "fıkra",
-            "elif"
+            "şakası"
           ],
-          "who": "elif",
+          "who": "can",
           "do": "talk",
           "look": "dede",
           "focus": true,
-          "len": 2.4
+          "len": 2.2
         },
         {
           "cue": [
-            "fıkra",
-            "elif"
+            "ölmez"
           ],
           "who": "kazan",
           "do": "vanish",
-          "wait": 1.2
+          "wait": 0.6
         },
         {
           "cue": [
-            "kıpkırmızı",
-            "özür"
+            "ahmet",
+            "başını"
+          ],
+          "who": "dede",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "fıkra"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "can",
+          "len": 3.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "biraz",
+            "durdu"
           ],
           "who": "can",
           "do": "turn",
@@ -1753,8 +1594,7 @@
         },
         {
           "cue": [
-            "abla",
-            "özür"
+            "abla"
           ],
           "who": "can",
           "do": "talk",
@@ -1772,53 +1612,87 @@
         },
         {
           "cue": [
-            "sarıldı",
-            "dürüst",
-            "aferin"
+            "dinledi"
           ],
           "who": "elif",
-          "do": "walkTo",
-          "to": [
-            0.36,
-            0,
-            0.0
-          ],
-          "face": 90,
+          "do": "nod",
           "look": "can"
         },
         {
           "cue": [
-            "sarıldı",
-            "dürüst",
-            "aferin"
+            "sonra",
+            "kalemi"
           ],
           "who": "elif",
-          "do": "hug",
-          "target": "can",
-          "focus": true
+          "do": "walkTo",
+          "to": [
+            0.1,
+            0,
+            -0.17
+          ],
+          "face": 60,
+          "look": "can"
         },
         {
           "cue": [
-            "dede",
-            "doğruyu",
-            "aferin",
-            "dürüst"
+            "sonra",
+            "kalemi"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.44,
+            0,
+            -0.15
+          ],
+          "face": 50,
+          "look": "can"
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "kalem",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "açmayı",
+            "denediler"
+          ],
+          "who": "elif",
+          "do": "bow",
+          "look": "down"
+        },
+        {
+          "cue": [
+            "açmayı",
+            "denediler"
+          ],
+          "who": "can",
+          "do": "bow",
+          "look": "down",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "doğruyu"
           ],
           "who": "dede",
-          "do": "talk",
-          "look": "can",
-          "len": 2.4,
-          "focus": true
+          "do": "nod",
+          "look": "can"
         },
         {
           "cue": [
-            "rahatlat",
-            "davrandın",
-            "dürüst"
+            "adım",
+            "atmıştı"
           ],
           "who": "can",
           "do": "cheer",
-          "look": "reader"
+          "look": "reader",
+          "focus": true
         }
       ],
       "ambience": "crickets",
@@ -1840,72 +1714,7 @@
             }
           ]
         }
-      ],
-      "audio": {
-        "src": "/books/nasreddin-hoca-kazan/ses/p8.mp3",
-        "marks": [
-          0.07,
-          0.43,
-          0.95,
-          1.46,
-          2.64,
-          3.35,
-          3.79,
-          4.1,
-          4.54,
-          5.25,
-          5.84,
-          6.87,
-          7.07,
-          7.28,
-          7.63,
-          8.52,
-          8.87,
-          9.37,
-          10.45,
-          11.27,
-          11.89,
-          12.33,
-          12.95,
-          13.38,
-          14.44,
-          14.68,
-          15.09,
-          15.84,
-          16.81,
-          17.54,
-          17.73,
-          18.05,
-          18.36,
-          19.21,
-          19.4,
-          20.1,
-          20.54,
-          20.98,
-          21.72,
-          22.98,
-          23.32,
-          23.95,
-          24.91,
-          25.74,
-          26.29,
-          26.84,
-          27.38,
-          28.03,
-          28.87,
-          29.13,
-          29.58,
-          30.03,
-          30.36,
-          30.83,
-          31.43,
-          31.91,
-          32.1,
-          32.43,
-          33.32,
-          33.83
-        ]
-      }
+      ]
     }
   ],
   "glossary": {
@@ -2137,6 +1946,18 @@
     "mısır": {
       "en": "corn",
       "icon": "🌽"
+    },
+    "sarık": {
+      "en": "turban",
+      "icon": "👳"
+    },
+    "müjde": {
+      "en": "good news!",
+      "icon": "🎉"
+    },
+    "şaka": {
+      "en": "joke",
+      "icon": "😄"
     }
   },
   "quiz": [
@@ -2208,8 +2029,8 @@
     },
     {
       "q": {
-        "tr": "Komşu neden 'Kazan ölür mü hiç?' diye kızdı?",
-        "en": "Why did the neighbour get angry and say \"Can a pot die?\""
+        "tr": "Komşu neden 'Hiç kazan ölür mü?' diye karşı çıktı?",
+        "en": ""
       },
       "options": [
         {
@@ -2261,8 +2082,8 @@
         "estetik"
       ],
       "why": {
-        "tr": "Komşu, kazanını hiç düşünmeden Hoca'ya ödünç verdi. Komşular birbirine yardım eder.",
-        "en": "The neighbour lent his pot to the Hodja without a second thought. Neighbours help each other."
+        "tr": "Komşu, kazanını Hoca'ya ödünç verdi. Komşular birbirine yardım eder.",
+        "en": ""
       }
     },
     {
@@ -2287,8 +2108,8 @@
         "temizlik"
       ],
       "why": {
-        "tr": "Can, kalemi kırdığını saklamadı ve doğruyu söyledi. Bu dürüstlüktür.",
-        "en": "Can did not hide that he broke the crayon; he told the truth. That is honesty."
+        "tr": "Can, kalemi kırdığını saklamadı, doğruyu söyledi ve hatasını düzeltmeye çalıştı. Bu dürüstlüktür.",
+        "en": ""
       }
     }
   ],
