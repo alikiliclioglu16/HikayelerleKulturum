@@ -246,10 +246,46 @@
             {
               "word": "pencere",
               "rect": [
-                0.12,
+                0.13,
                 0.02,
-                0.4,
+                0.44,
                 0.36
+              ]
+            },
+            {
+              "word": "ay",
+              "rect": [
+                0.37,
+                0.08,
+                0.06,
+                0.07
+              ]
+            },
+            {
+              "word": "çini",
+              "rect": [
+                0.68,
+                0.0,
+                0.16,
+                0.15
+              ]
+            },
+            {
+              "word": "Saat Kulesi",
+              "rect": [
+                0.75,
+                0.15,
+                0.14,
+                0.21
+              ]
+            },
+            {
+              "word": "halı",
+              "rect": [
+                0.0,
+                0.67,
+                1.0,
+                0.22
               ]
             }
           ],
@@ -451,14 +487,42 @@
           "focus": true
         }
       ],
-      "ambience": "birds",
+      "ambience": "village",
       "layers": [
         {
           "src": "art/p2-arka.webp",
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "ev",
+              "rect": [
+                0.27,
+                0.0,
+                0.33,
+                0.37
+              ]
+            },
+            {
+              "word": "cami",
+              "rect": [
+                0.75,
+                0.2,
+                0.08,
+                0.3
+              ]
+            },
+            {
+              "word": "dağ",
+              "rect": [
+                0.6,
+                0.18,
+                0.4,
+                0.12
+              ]
+            }
+          ],
           "floor": "art/p2-zemin.webp",
           "full": true
         }
@@ -630,14 +694,42 @@
           "look": "komsu"
         }
       ],
-      "ambience": "birds",
+      "ambience": "village",
       "layers": [
         {
           "src": "art/p3-arka.webp",
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "çiçek",
+              "rect": [
+                0.37,
+                0.15,
+                0.3,
+                0.14
+              ]
+            },
+            {
+              "word": "cami",
+              "rect": [
+                0.79,
+                0.2,
+                0.06,
+                0.25
+              ]
+            },
+            {
+              "word": "merdiven",
+              "rect": [
+                0.61,
+                0.42,
+                0.2,
+                0.24
+              ]
+            }
+          ],
           "floor": "art/p3-zemin.webp",
           "full": true
         }
@@ -823,14 +915,42 @@
           "optional": true
         }
       ],
-      "ambience": "birds",
+      "ambience": "village",
       "layers": [
         {
           "src": "art/p4-arka.webp",
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "çiçek",
+              "rect": [
+                0.37,
+                0.18,
+                0.3,
+                0.12
+              ]
+            },
+            {
+              "word": "çamaşır",
+              "rect": [
+                0.8,
+                0.2,
+                0.18,
+                0.1
+              ]
+            },
+            {
+              "word": "merdiven",
+              "rect": [
+                0.57,
+                0.42,
+                0.22,
+                0.24
+              ]
+            }
+          ],
           "floor": "art/p4-zemin.webp",
           "full": true
         }
@@ -978,14 +1098,42 @@
           "optional": true
         }
       ],
-      "ambience": "birds",
+      "ambience": "village",
       "layers": [
         {
           "src": "art/p5-arka.webp",
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "çiçek",
+              "rect": [
+                0.39,
+                0.18,
+                0.22,
+                0.13
+              ]
+            },
+            {
+              "word": "cami",
+              "rect": [
+                0.75,
+                0.2,
+                0.07,
+                0.22
+              ]
+            },
+            {
+              "word": "merdiven",
+              "rect": [
+                0.64,
+                0.43,
+                0.15,
+                0.22
+              ]
+            }
+          ],
           "floor": "art/p5-zemin.webp",
           "full": true
         }
@@ -1167,7 +1315,35 @@
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "gökyüzü",
+              "rect": [
+                0.45,
+                0.0,
+                0.55,
+                0.25
+              ]
+            },
+            {
+              "word": "cami",
+              "rect": [
+                0.75,
+                0.3,
+                0.07,
+                0.25
+              ]
+            },
+            {
+              "word": "fener",
+              "rect": [
+                0.94,
+                0.1,
+                0.06,
+                0.1
+              ]
+            }
+          ],
           "floor": "art/p6-zemin.webp",
           "full": true
         }
@@ -1441,14 +1617,33 @@
           "optional": true
         }
       ],
-      "ambience": "birds",
+      "ambience": "market",
       "layers": [
         {
           "src": "art/p7-arka.webp",
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "pazar",
+              "rect": [
+                0.42,
+                0.45,
+                0.48,
+                0.18
+              ]
+            },
+            {
+              "word": "cami",
+              "rect": [
+                0.68,
+                0.18,
+                0.14,
+                0.28
+              ]
+            }
+          ],
           "floor": "art/p7-zemin.webp",
           "full": true
         }
@@ -1720,10 +1915,46 @@
             {
               "word": "pencere",
               "rect": [
-                0.3,
+                0.15,
                 0.02,
-                0.44,
-                0.38
+                0.42,
+                0.36
+              ]
+            },
+            {
+              "word": "ay",
+              "rect": [
+                0.38,
+                0.08,
+                0.06,
+                0.07
+              ]
+            },
+            {
+              "word": "çini",
+              "rect": [
+                0.68,
+                0.0,
+                0.18,
+                0.14
+              ]
+            },
+            {
+              "word": "Saat Kulesi",
+              "rect": [
+                0.74,
+                0.14,
+                0.15,
+                0.22
+              ]
+            },
+            {
+              "word": "halı",
+              "rect": [
+                0.0,
+                0.67,
+                1.0,
+                0.22
               ]
             }
           ],
@@ -1974,6 +2205,38 @@
     "şaka": {
       "en": "joke",
       "icon": "😄"
+    },
+    "ay": {
+      "en": "moon",
+      "icon": "🌙"
+    },
+    "çini": {
+      "en": "Iznik tile",
+      "icon": "🏺"
+    },
+    "Saat Kulesi": {
+      "en": "Clock Tower",
+      "icon": "🕰️"
+    },
+    "cami": {
+      "en": "mosque",
+      "icon": "🕌"
+    },
+    "çiçek": {
+      "en": "flower",
+      "icon": "🌸"
+    },
+    "merdiven": {
+      "en": "stairs",
+      "icon": "🪜"
+    },
+    "çamaşır": {
+      "en": "laundry",
+      "icon": "👕"
+    },
+    "gökyüzü": {
+      "en": "sky",
+      "icon": "🌅"
     }
   },
   "quiz": [

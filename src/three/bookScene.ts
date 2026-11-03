@@ -1753,11 +1753,11 @@ export class BookScene {
           .filter((h) => u >= h.rect[0] && u <= h.rect[0] + h.rect[2] && v >= h.rect[1] && v <= h.rect[1] + h.rect[3])
           .sort((a, c) => a.rect[2] * a.rect[3] - c.rect[2] * c.rect[3]);
         if (spots.length) {
-          this.hop(layer);
+          this.touchSpot(layer, spots[0].rect);
           const pt = this.hotspotPoint(layer, spots[0].rect);
           return { word: spots[0].word, ...pt };
         }
-        this.hop(layer, 0.4);
+        if (!b.spec.full) this.hop(layer, 0.4);
         return null;
       }
       const prop = this.props.find((p) => {
@@ -1815,7 +1815,7 @@ export class BookScene {
     for (const l of this.layers) {
       const spot = l.built.hotspots.find((h) => h.word === lemma);
       if (spot) {
-        this.hop(l);
+        this.touchSpot(l, spot.rect);
         return this.hotspotPoint(l, spot.rect);
       }
     }
@@ -1830,6 +1830,54 @@ export class BookScene {
   hasWord(lemma: string): boolean {
     if (this.models.some((m) => m.word === lemma)) return true;
     return this.layers.some((l) => l.built.hotspots.some((h) => h.word === lemma)) || this.props.some((p) => p.word === lemma);
+  }
+
+  /** A touched part of the picture answers: a paper cut-out hops; on a full-page backdrop the part itself glows. */
+  private touchSpot(l: LayerObj, rect: [number, number, number, number]) {
+    if (l.built.spec.full) this.glowSpot(l, rect);
+    else this.hop(l);
+  }
+
+  private glowTexture?: THREE.CanvasTexture;
+  /** A soft warm light the shape of a rounded box, for lighting up part of a picture. */
+  private glowTex() {
+    if (this.glowTexture) return this.glowTexture;
+    // a glowing golden frame with a soft light inside (the frame sits 40 of 256 pixels in from each edge)
+    const c = document.createElement('canvas');
+    c.width = c.height = 256;
+    const g = c.getContext('2d')!;
+    g.shadowColor = 'rgba(255, 196, 40, 1)';
+    g.shadowBlur = 30;
+    g.fillStyle = 'rgba(255, 246, 205, 0.22)';
+    g.strokeStyle = '#FFD54A';
+    g.lineWidth = 16;
+    g.beginPath();
+    g.roundRect(40, 40, 176, 176, 30);
+    g.fill();
+    g.stroke();
+    g.stroke();
+    this.glowTexture = new THREE.CanvasTexture(c);
+    this.glowTexture.colorSpace = THREE.SRGBColorSpace;
+    return this.glowTexture;
+  }
+
+  /** Light up one part of a full-page backdrop for a moment, with a few sparkles. */
+  private glowSpot(l: LayerObj, rect: [number, number, number, number]) {
+    const w = rect[2] * l.width;
+    const hh = rect[3] * l.height;
+    const mat = new THREE.MeshBasicMaterial({ map: this.glowTex(), transparent: true, opacity: 0, depthWrite: false });
+    const glow = new THREE.Mesh(new THREE.PlaneGeometry(w * (256 / 176) + 0.03, hh * (256 / 176) + 0.03), mat);
+    glow.position.set((rect[0] + rect[2] / 2 - 0.5) * l.width, (1 - rect[1] - rect[3] / 2) * l.height, 0.006);
+    l.mesh.add(glow);
+    l.mesh.updateMatrixWorld();
+    this.sparkles.burst(glow.getWorldPosition(new THREE.Vector3()), new THREE.Vector3(w * 0.5, hh * 0.5, 0.02), Math.round(10 + 14 * Math.min(1, w + hh)), 0.9);
+    void this.tweens.add(this.reducedMotion ? 800 : 1600, 0, 1, (k) => (mat.opacity = Math.sin(Math.min(1, k * 1.6) * Math.PI * 0.5) * (1 - Math.max(0, k - 0.6) / 0.4)), ease.linear).then(() => {
+      l.mesh.remove(glow);
+      glow.geometry.dispose();
+      mat.dispose();
+      this.invalidate();
+    });
+    this.invalidate();
   }
 
   private hop(l: LayerObj, amount = 1) {

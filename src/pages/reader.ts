@@ -508,7 +508,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     sheet('Biliyor musun?', h('p', { lang: 'tr' }, p.culture.tr), narrator.voice ? listen : h('span'));
   }
 
-  function voiceSheet(fromPlay = false, onClose: (() => void) | null = null) {
+  function voiceSheet(_fromPlay = false, onClose: (() => void) | null = null) {
     const v = narrator.voice;
     sheetWith(
       v ? 'Türkçe ses hazır' : 'Bu cihazda Türkçe ses yok',
@@ -517,7 +517,6 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
         ? h('p', null, `Kitap, cihazınızdaki “${v.name}” sesiyle okunuyor.`)
         : h('p', null, 'Kelimeler okuma hızında sırayla parlayacak; çocuğunuzla birlikte sesli okuyabilirsiniz.'),
       v ? h('span') : h('p', null, 'Türkçe sesli okuma için Safari (iPhone, iPad, Mac), Microsoft Edge ya da Android’de Chrome kullanın. Windows’ta Ayarlar > Saat ve dil > Konuşma bölümünden Türkçe ses de ekleyebilirsiniz.'),
-      fromPlay ? h('p', null, 'İleride kitaplara gerçek bir anlatıcının sesi de eklenecek.') : h('span'),
     );
   }
 

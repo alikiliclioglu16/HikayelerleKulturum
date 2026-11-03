@@ -223,7 +223,44 @@
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "ağaç",
+              "rect": [
+                0.0,
+                0.0,
+                0.3,
+                0.4
+              ]
+            },
+            {
+              "word": "ev",
+              "rect": [
+                0.68,
+                0.0,
+                0.32,
+                0.53
+              ]
+            },
+            {
+              "word": "çit",
+              "rect": [
+                0.18,
+                0.38,
+                0.37,
+                0.1
+              ]
+            },
+            {
+              "word": "çimen",
+              "rect": [
+                0.0,
+                0.5,
+                1.0,
+                0.22
+              ]
+            }
+          ],
           "floor": "art/p1-zemin.webp",
           "full": true
         }
@@ -447,14 +484,51 @@
           "look": "keloglan-anasi"
         }
       ],
-      "ambience": "birds",
+      "ambience": "village",
       "layers": [
         {
           "src": "art/p2-arka.webp",
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "güneş",
+              "rect": [
+                0.12,
+                0.08,
+                0.1,
+                0.11
+              ]
+            },
+            {
+              "word": "cami",
+              "rect": [
+                0.73,
+                0.18,
+                0.06,
+                0.17
+              ]
+            },
+            {
+              "word": "köy",
+              "rect": [
+                0.48,
+                0.27,
+                0.52,
+                0.2
+              ]
+            },
+            {
+              "word": "tarla",
+              "rect": [
+                0.0,
+                0.6,
+                1.0,
+                0.4
+              ]
+            }
+          ],
           "floor": "art/p2-zemin.webp",
           "full": true
         }
@@ -751,14 +825,51 @@
           "look": "keloglan-anasi"
         }
       ],
-      "ambience": "birds",
+      "ambience": "village",
       "layers": [
         {
           "src": "art/p3-arka.webp",
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "güneş",
+              "rect": [
+                0.15,
+                0.38,
+                0.1,
+                0.11
+              ]
+            },
+            {
+              "word": "cami",
+              "rect": [
+                0.72,
+                0.19,
+                0.07,
+                0.17
+              ]
+            },
+            {
+              "word": "köy",
+              "rect": [
+                0.5,
+                0.27,
+                0.5,
+                0.2
+              ]
+            },
+            {
+              "word": "tarla",
+              "rect": [
+                0.0,
+                0.6,
+                1.0,
+                0.4
+              ]
+            }
+          ],
           "floor": "art/p3-zemin.webp",
           "full": true
         }
@@ -990,14 +1101,51 @@
           "wait": 0.3
         }
       ],
-      "ambience": "birds",
+      "ambience": "village",
       "layers": [
         {
           "src": "art/p4-arka.webp",
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "güneş",
+              "rect": [
+                0.11,
+                0.07,
+                0.12,
+                0.12
+              ]
+            },
+            {
+              "word": "cami",
+              "rect": [
+                0.72,
+                0.19,
+                0.07,
+                0.15
+              ]
+            },
+            {
+              "word": "köy",
+              "rect": [
+                0.5,
+                0.27,
+                0.5,
+                0.2
+              ]
+            },
+            {
+              "word": "tarla",
+              "rect": [
+                0.0,
+                0.6,
+                1.0,
+                0.4
+              ]
+            }
+          ],
           "floor": "art/p4-zemin.webp",
           "full": true
         }
@@ -1220,14 +1368,51 @@
           "focus": true
         }
       ],
-      "ambience": "birds",
+      "ambience": "village",
       "layers": [
         {
           "src": "art/p5-arka.webp",
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "güneş",
+              "rect": [
+                0.11,
+                0.07,
+                0.12,
+                0.12
+              ]
+            },
+            {
+              "word": "cami",
+              "rect": [
+                0.73,
+                0.18,
+                0.06,
+                0.17
+              ]
+            },
+            {
+              "word": "çit",
+              "rect": [
+                0.0,
+                0.48,
+                0.95,
+                0.07
+              ]
+            },
+            {
+              "word": "tarla",
+              "rect": [
+                0.0,
+                0.62,
+                1.0,
+                0.38
+              ]
+            }
+          ],
           "floor": "art/p5-zemin.webp",
           "full": true
         }
@@ -1476,11 +1661,49 @@
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "gökkuşağı",
+              "rect": [
+                0.1,
+                0.17,
+                0.24,
+                0.14
+              ]
+            },
+            {
+              "word": "bulut",
+              "rect": [
+                0.0,
+                0.0,
+                1.0,
+                0.17
+              ]
+            },
+            {
+              "word": "cami",
+              "rect": [
+                0.73,
+                0.18,
+                0.06,
+                0.16
+              ]
+            },
+            {
+              "word": "köy",
+              "rect": [
+                0.5,
+                0.3,
+                0.5,
+                0.2
+              ]
+            }
+          ],
           "floor": "art/p6-zemin.webp",
           "full": true
         }
-      ]
+      ],
+      "ambience": "village"
     },
     {
       "id": "p7",
@@ -1814,14 +2037,42 @@
           "optional": true
         }
       ],
-      "ambience": "birds",
+      "ambience": "village",
       "layers": [
         {
           "src": "art/p7-arka.webp",
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "ağaç",
+              "rect": [
+                0.0,
+                0.0,
+                0.3,
+                0.55
+              ]
+            },
+            {
+              "word": "güneş",
+              "rect": [
+                0.18,
+                0.15,
+                0.1,
+                0.1
+              ]
+            },
+            {
+              "word": "cami",
+              "rect": [
+                0.71,
+                0.17,
+                0.06,
+                0.18
+              ]
+            }
+          ],
           "floor": "art/p7-zemin.webp",
           "full": true
         }
@@ -2073,7 +2324,44 @@
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "ev",
+              "rect": [
+                0.66,
+                0.0,
+                0.34,
+                0.52
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.0,
+                0.0,
+                0.55,
+                0.42
+              ]
+            },
+            {
+              "word": "çit",
+              "rect": [
+                0.3,
+                0.38,
+                0.37,
+                0.08
+              ]
+            },
+            {
+              "word": "çimen",
+              "rect": [
+                0.0,
+                0.5,
+                1.0,
+                0.25
+              ]
+            }
+          ],
           "floor": "art/p8-zemin.webp",
           "full": true
         }
@@ -2319,6 +2607,18 @@
     "dede": {
       "en": "grandpa",
       "icon": "👴"
+    },
+    "güneş": {
+      "en": "sun",
+      "icon": "☀️"
+    },
+    "cami": {
+      "en": "mosque",
+      "icon": "🕌"
+    },
+    "gökkuşağı": {
+      "en": "rainbow",
+      "icon": "🌈"
     }
   },
   "quiz": [

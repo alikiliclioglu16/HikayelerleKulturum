@@ -232,6 +232,42 @@
     "dilek köşesi": {
       "en": "wish corner",
       "icon": "✨"
+    },
+    "harita": {
+      "en": "map",
+      "icon": "🗺️"
+    },
+    "pencere": {
+      "en": "window",
+      "icon": "🪟"
+    },
+    "kitap": {
+      "en": "book",
+      "icon": "📚"
+    },
+    "çini": {
+      "en": "Iznik tile",
+      "icon": "🏺"
+    },
+    "halı": {
+      "en": "carpet",
+      "icon": "🧶"
+    },
+    "masa": {
+      "en": "table",
+      "icon": "🪑"
+    },
+    "okul": {
+      "en": "school",
+      "icon": "🏫"
+    },
+    "ağaç": {
+      "en": "tree",
+      "icon": "🌳"
+    },
+    "çiçek": {
+      "en": "flower",
+      "icon": "🌸"
     }
   },
   "quiz": [
@@ -476,12 +512,58 @@
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "harita",
+              "rect": [
+                0.35,
+                0.03,
+                0.4,
+                0.3
+              ]
+            },
+            {
+              "word": "Atatürk",
+              "rect": [
+                0.76,
+                0.07,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "word": "pencere",
+              "rect": [
+                0.0,
+                0.0,
+                0.32,
+                0.45
+              ]
+            },
+            {
+              "word": "kitap",
+              "rect": [
+                0.38,
+                0.41,
+                0.46,
+                0.09
+              ]
+            },
+            {
+              "word": "resim",
+              "rect": [
+                0.9,
+                0.04,
+                0.1,
+                0.47
+              ]
+            }
+          ],
           "floor": "art/p1-zemin.webp",
           "full": true
         }
       ],
-      "ambience": "birds",
+      "ambience": "school",
       "models": [
         {
           "src": "/models/23-nisan/okul-sirasi.glb",
@@ -708,7 +790,44 @@
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.13,
+                0.03,
+                0.43,
+                0.35
+              ]
+            },
+            {
+              "word": "Atatürk",
+              "rect": [
+                0.75,
+                0.15,
+                0.13,
+                0.2
+              ]
+            },
+            {
+              "word": "çini",
+              "rect": [
+                0.69,
+                0.02,
+                0.18,
+                0.12
+              ]
+            },
+            {
+              "word": "halı",
+              "rect": [
+                0.0,
+                0.67,
+                1.0,
+                0.22
+              ]
+            }
+          ],
           "floor": "art/p2-zemin.webp",
           "full": true
         }
@@ -912,12 +1031,49 @@
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.1,
+                0.0,
+                0.26,
+                0.33
+              ]
+            },
+            {
+              "word": "masa",
+              "rect": [
+                0.41,
+                0.37,
+                0.43,
+                0.24
+              ]
+            },
+            {
+              "word": "çini",
+              "rect": [
+                0.46,
+                0.02,
+                0.11,
+                0.21
+              ]
+            },
+            {
+              "word": "kitap",
+              "rect": [
+                0.86,
+                0.0,
+                0.14,
+                0.55
+              ]
+            }
+          ],
           "floor": "art/p3-zemin.webp",
           "full": true
         }
       ],
-      "ambience": "birds",
+      "ambience": "home",
       "models": [
         {
           "src": "/models/23-nisan/kagit-lale.glb",
@@ -1260,7 +1416,17 @@
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "sahne",
+              "rect": [
+                0.21,
+                0.15,
+                0.58,
+                0.38
+              ]
+            }
+          ],
           "floor": "art/p4-zemin.webp",
           "full": true
         }
@@ -1656,7 +1822,8 @@
           "wait": 0.8,
           "sound": null
         }
-      ]
+      ],
+      "ambience": "hall"
     },
     {
       "id": "p5",
@@ -1679,7 +1846,17 @@
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "sahne",
+              "rect": [
+                0.12,
+                0.12,
+                0.75,
+                0.42
+              ]
+            }
+          ],
           "floor": "art/p5-zemin.webp",
           "full": true
         }
@@ -1969,7 +2146,8 @@
           "look": "elif",
           "wait": 0.6
         }
-      ]
+      ],
+      "ambience": "hall"
     },
     {
       "id": "p6",
@@ -1992,12 +2170,40 @@
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "okul",
+              "rect": [
+                0.22,
+                0.18,
+                0.67,
+                0.36
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.0,
+                0.0,
+                0.2,
+                0.6
+              ]
+            },
+            {
+              "word": "çiçek",
+              "rect": [
+                0.15,
+                0.48,
+                0.75,
+                0.07
+              ]
+            }
+          ],
           "floor": "art/p6-zemin.webp",
           "full": true
         }
       ],
-      "ambience": "birds",
+      "ambience": "school",
       "models": [],
       "cast": [
         {
@@ -2210,12 +2416,40 @@
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "okul",
+              "rect": [
+                0.31,
+                0.44,
+                0.52,
+                0.25
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.0,
+                0.15,
+                0.3,
+                0.6
+              ]
+            },
+            {
+              "word": "bahçe",
+              "rect": [
+                0.0,
+                0.68,
+                1.0,
+                0.12
+              ]
+            }
+          ],
           "floor": "art/p7-zemin.webp",
           "full": true
         }
       ],
-      "ambience": "birds",
+      "ambience": "school",
       "models": [
         {
           "src": "/models/23-nisan/balon.glb",
@@ -2643,7 +2877,44 @@
           "z": 0,
           "w": 1,
           "h": 0.9,
-          "hotspots": [],
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.15,
+                0.04,
+                0.41,
+                0.34
+              ]
+            },
+            {
+              "word": "Atatürk",
+              "rect": [
+                0.75,
+                0.15,
+                0.14,
+                0.2
+              ]
+            },
+            {
+              "word": "çini",
+              "rect": [
+                0.68,
+                0.0,
+                0.12,
+                0.14
+              ]
+            },
+            {
+              "word": "halı",
+              "rect": [
+                0.0,
+                0.68,
+                1.0,
+                0.22
+              ]
+            }
+          ],
           "floor": "art/p8-zemin.webp",
           "full": true
         }

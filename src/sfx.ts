@@ -606,7 +606,32 @@ function rainSound(a: AudioContext, t: number, seconds: number) {
   }
 }
 
-/** Soft sounds of a place, under a page: birds in the morning or the village, crickets at night. */
+/** A little bird: two or three quick chirps. */
+function bird(a: AudioContext, t: number, vol = 1) {
+  const f = 2600 + Math.random() * 1400;
+  const n = 2 + Math.floor(Math.random() * 3);
+  for (let i = 0; i < n; i++) warble(a, f, f * (1.15 + Math.random() * 0.2), t + i * 0.13, 0.09, 0.025 * vol, 30, 120, 'sine');
+}
+
+/** One soft tick of a wall clock. */
+function clickTick(a: AudioContext, t: number, f: number) {
+  hiss(a, 'bandpass', f, f, t, 0.015, 0.03, 6, 0.001);
+}
+
+/** Voices far off: a few syllables of children talking, soft and blurred. */
+function murmur(a: AudioContext, t: number, vol = 1) {
+  const n = 3 + Math.floor(Math.random() * 4);
+  let d = 0;
+  for (let i = 0; i < n; i++) {
+    const f = 220 + Math.random() * 160;
+    const dur = 0.09 + Math.random() * 0.14;
+    warble(a, f, f * (0.85 + Math.random() * 0.3), t + d, dur, 0.011 * vol, 5, 20, 'triangle');
+    hiss(a, 'bandpass', 900 + Math.random() * 700, 1000, t + d, dur, 0.007 * vol, 3, 0.02);
+    d += dur + Math.random() * 0.12;
+  }
+}
+
+/** Soft sounds of a place, under a page: birds, crickets at night, a quiet room, a kitchen, a village, a market, a school. */
 let ambience: { kind: string; timer: number } | null = null;
 function ambienceTick() {
   const a = ctx;
@@ -617,13 +642,34 @@ function ambienceTick() {
   g.connect(fxBus!);
   target = g;
   try {
-    if (ambience.kind === 'birds') {
-      // a little bird: two or three quick chirps
-      const f = 2600 + Math.random() * 1400;
-      const n = 2 + Math.floor(Math.random() * 3);
-      for (let i = 0; i < n; i++) warble(a, f, f * (1.15 + Math.random() * 0.2), t + i * 0.13, 0.09, 0.025, 30, 120, 'sine');
-    } else if (ambience.kind === 'crickets') {
+    const k = ambience.kind;
+    const r = Math.random();
+    if (k === 'birds') bird(a, t);
+    else if (k === 'crickets') {
       for (let i = 0; i < 6; i++) tone(a, 'sine', 4300, 4300, t + i * 0.045, 0.03, 0.012, 0.004);
+    } else if (k === 'home') {
+      // a quiet room: the clock ticking, now and then a bird outside the window
+      if (r < 0.75) for (let i = 0; i < 4; i++) clickTick(a, t + i * 0.5, i % 2 ? 1700 : 2100);
+      else bird(a, t, 0.5);
+    } else if (k === 'kitchen') {
+      // breakfast: a glass of tea set on its saucer, a spoon stirring, the kettle simmering
+      if (r < 0.4) bell(a, 2600 + Math.random() * 900, t, 0.35, 0.018, [1, 2.7]);
+      else if (r < 0.7) for (let i = 0; i < 4; i++) bell(a, 3800 + Math.random() * 400, t + i * 0.12, 0.08, 0.008, [1]);
+      else hiss(a, 'bandpass', 1800, 2200, t, 1.6, 0.012, 2, 0.4);
+    } else if (k === 'village') {
+      // a village or an old town: birds, a sheep's bell far away, a dog
+      if (r < 0.6) bird(a, t, 0.8);
+      else if (r < 0.85) for (let i = 0; i < 3; i++) bell(a, 1150 + Math.random() * 80, t + i * (0.18 + Math.random() * 0.1), 0.5, 0.012, [1, 2.4, 3.9]);
+      else for (let i = 0; i < 2; i++) tone(a, 'sawtooth', 380, 300, t + i * 0.28, 0.09, 0.006, 0.01);
+    } else if (k === 'market') {
+      // a market: people talking, a scale's pan, a cart
+      murmur(a, t, 0.9);
+      if (r < 0.35) bell(a, 1900 + Math.random() * 600, t + 0.4, 0.3, 0.01, [1, 2.6]);
+    } else if (k === 'school' || k === 'hall') {
+      // children talking and laughing nearby (a hall is fuller; a school yard has birds)
+      murmur(a, t, k === 'hall' ? 1.1 : 0.8);
+      if (k === 'school' && r < 0.3) bird(a, t + 0.6, 0.6);
+      if (k === 'hall' && r < 0.12) for (let i = 0; i < 18; i++) hiss(a, 'bandpass', 1800, 1200, t + 0.5 + Math.random() * 1.1, 0.03, 0.012, 1.2, 0.001);
     }
   } finally {
     target = null;
@@ -729,13 +775,14 @@ export const sfx = {
     if (kind === 'rain') return rainSound(a, t, seconds);
     SCENE_SOUNDS[kind]?.(a, t);
   },
-  /** Birds or crickets under the page (null for none). */
+  /** Sounds of the place under the page (birds, crickets, home, kitchen, village, market, school, hall; null for none). */
   setAmbience(kind: string | null) {
     if (ambience?.kind === kind) return;
     if (ambience) window.clearInterval(ambience.timer);
     ambience = null;
     if (!kind) return;
-    ambience = { kind, timer: window.setInterval(() => Math.random() < (kind === 'crickets' ? 0.55 : 0.35) && ambienceTick(), 1000) };
+    const odds: Record<string, number> = { crickets: 0.55, birds: 0.35, home: 0.3, kitchen: 0.4, village: 0.35, market: 0.6, school: 0.55, hall: 0.6 };
+    ambience = { kind, timer: window.setInterval(() => Math.random() < (odds[kind] ?? 0.35) && ambienceTick(), 1000) };
   },
 
   /* background music */

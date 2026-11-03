@@ -119,7 +119,6 @@ export async function renderQuiz(root: HTMLElement, id: string) {
     host.replaceChildren(
       h('p', { class: 'quiz-q' }, score === book.quiz.length ? 'Hepsini bildin!' : `${book.quiz.length} sorudan ${score} doğru`),
       stars(score, book.quiz.length),
-      h('p', { class: 'quiz-en' }, `You got ${score} out of ${book.quiz.length}.`),
       h(
         'div',
         { class: 'hero-actions', style: 'margin-top:20px' },

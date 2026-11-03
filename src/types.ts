@@ -146,7 +146,7 @@ export interface PageData {
   /** Named spots the characters can look at or walk to: [x, y, z] in page coordinates (like models). */
   spots?: Record<string, [number, number, number]>;
   /** Soft sounds of the place under the page: birds (morning, a village) or crickets (night). */
-  ambience?: 'birds' | 'crickets';
+  ambience?: 'birds' | 'crickets' | 'home' | 'kitchen' | 'village' | 'market' | 'school' | 'hall';
   /** Optional recorded narration. */
   audio?: PageAudio;
 }
