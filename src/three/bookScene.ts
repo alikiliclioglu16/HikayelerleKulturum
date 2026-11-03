@@ -75,6 +75,8 @@ interface LayerObj {
   upright: number;
   width: number;
   height: number;
+  /** The ground printed on the page in front of a full-page backdrop. */
+  floor?: THREE.Mesh;
 }
 
 interface ModelObj {
@@ -1067,6 +1069,7 @@ export class BookScene {
   }
 
   private makeLayer(b: BuiltLayer): LayerObj {
+    if (b.spec.full) return this.makeFullLayer(b);
     const width = b.spec.w * PAGE_W;
     const height = b.spec.h;
     const geo = new THREE.PlaneGeometry(width, height);
@@ -1087,7 +1090,48 @@ export class BookScene {
     return { pivot, mesh, built: b, upright, width, height };
   }
 
+  /**
+   * A full-page backdrop: the picture stands along the back edge of the right page, as wide as the page, like the
+   * back half of a pop-up page folded up; the scene's ground is printed flat on the page in front of it.
+   */
+  private makeFullLayer(b: BuiltLayer): LayerObj {
+    const width = PAGE_W;
+    const height = (PAGE_W * b.canvas.height) / b.canvas.width;
+    const geo = new THREE.PlaneGeometry(width, height);
+    geo.translate(0, height / 2, 0);
+    const tex = canvasTexture(b.canvas, this.renderer);
+    const mesh = new THREE.Mesh(geo, new THREE.MeshLambertMaterial({ map: tex, side: THREE.DoubleSide }));
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+    const pivot = new THREE.Group();
+    pivot.position.set(PAGE_W / 2, PAGE_TOP + 0.002, -PAGE_D / 2 + 0.004);
+    pivot.add(mesh);
+    pivot.rotation.x = -Math.PI / 2 + 0.01;
+    pivot.visible = false;
+    this.scene.add(pivot);
+    let floor: THREE.Mesh | undefined;
+    if (b.floor) {
+      const depth = PAGE_D - 0.006;
+      const fgeo = new THREE.PlaneGeometry(PAGE_W, depth);
+      fgeo.rotateX(-Math.PI / 2);
+      const ftex = canvasTexture(b.floor, this.renderer);
+      floor = new THREE.Mesh(fgeo, new THREE.MeshLambertMaterial({ map: ftex, transparent: true, opacity: 0, depthWrite: false }));
+      floor.receiveShadow = true;
+      floor.position.set(PAGE_W / 2, PAGE_TOP + 0.0012, -PAGE_D / 2 + 0.004 + depth / 2);
+      floor.visible = false;
+      this.scene.add(floor);
+    }
+    return { pivot, mesh, built: b, upright: 0, width, height, floor };
+  }
+
   private disposeLayer(l: LayerObj) {
+    if (l.floor) {
+      this.scene.remove(l.floor);
+      l.floor.geometry.dispose();
+      const fm = l.floor.material as THREE.MeshLambertMaterial;
+      fm.map?.dispose();
+      fm.dispose();
+    }
     this.scene.remove(l.pivot);
     l.mesh.geometry.dispose();
     const m = l.mesh.material as THREE.MeshLambertMaterial;
@@ -1109,6 +1153,13 @@ export class BookScene {
         this.tweens.add(fold, l.pivot.rotation.x, -Math.PI / 2 + 0.01, (v) => (l.pivot.rotation.x = v), ease.in, i * this.dur(60)),
       );
     folds.push(this.lowerCard(340));
+    // the printed ground fades with the fold
+    for (const l of old) {
+      const f = l.floor;
+      if (!f) continue;
+      const fm = f.material as THREE.MeshLambertMaterial;
+      folds.push(this.tweens.add(fold, fm.opacity, 0, (v) => (fm.opacity = v), ease.in));
+    }
     this.invalidate();
     await Promise.all(folds);
     old.forEach((l) => this.disposeLayer(l));
@@ -1127,6 +1178,11 @@ export class BookScene {
     this.layers = next.map((b) => this.makeLayer(b));
     const pops = this.layers.map((l, i) => {
       l.pivot.visible = true;
+      if (l.floor) {
+        const fm = l.floor.material as THREE.MeshLambertMaterial;
+        l.floor.visible = true;
+        void this.tweens.add(this.dur(500), 0, 1, (v) => (fm.opacity = v), ease.out);
+      }
       return this.tweens.add(this.dur(620), -Math.PI / 2 + 0.01, l.upright, (v) => (l.pivot.rotation.x = v), ease.back, i * this.dur(110));
     });
     // the text card rises together with the pop-up

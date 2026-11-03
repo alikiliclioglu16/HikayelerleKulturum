@@ -238,10 +238,10 @@
       "ambience": "crickets",
       "layers": [
         {
-          "src": "art/p1.webp",
-          "z": 0.04,
-          "w": 0.96,
-          "h": 0.86,
+          "src": "art/p1-arka.webp",
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
           "hotspots": [
             {
               "word": "pencere",
@@ -252,7 +252,9 @@
                 0.36
               ]
             }
-          ]
+          ],
+          "floor": "art/p1-zemin.webp",
+          "full": true
         }
       ]
     },
@@ -452,11 +454,13 @@
       "ambience": "birds",
       "layers": [
         {
-          "src": "art/p2.webp",
-          "z": 0.04,
-          "w": 0.96,
-          "h": 0.86,
-          "hotspots": []
+          "src": "art/p2-arka.webp",
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [],
+          "floor": "art/p2-zemin.webp",
+          "full": true
         }
       ]
     },
@@ -629,11 +633,13 @@
       "ambience": "birds",
       "layers": [
         {
-          "src": "art/p3.webp",
-          "z": 0.04,
-          "w": 0.96,
-          "h": 0.86,
-          "hotspots": []
+          "src": "art/p3-arka.webp",
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [],
+          "floor": "art/p3-zemin.webp",
+          "full": true
         }
       ]
     },
@@ -820,11 +826,13 @@
       "ambience": "birds",
       "layers": [
         {
-          "src": "art/p4.webp",
-          "z": 0.04,
-          "w": 0.96,
-          "h": 0.86,
-          "hotspots": []
+          "src": "art/p4-arka.webp",
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [],
+          "floor": "art/p4-zemin.webp",
+          "full": true
         }
       ]
     },
@@ -973,11 +981,13 @@
       "ambience": "birds",
       "layers": [
         {
-          "src": "art/p5.webp",
-          "z": 0.04,
-          "w": 0.96,
-          "h": 0.86,
-          "hotspots": []
+          "src": "art/p5-arka.webp",
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [],
+          "floor": "art/p5-zemin.webp",
+          "full": true
         }
       ]
     },
@@ -1153,11 +1163,13 @@
       "ambience": "crickets",
       "layers": [
         {
-          "src": "art/p6.webp",
-          "z": 0.04,
-          "w": 0.96,
-          "h": 0.86,
-          "hotspots": []
+          "src": "art/p6-arka.webp",
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [],
+          "floor": "art/p6-zemin.webp",
+          "full": true
         }
       ]
     },
@@ -1432,11 +1444,13 @@
       "ambience": "birds",
       "layers": [
         {
-          "src": "art/p7.webp",
-          "z": 0.04,
-          "w": 0.96,
-          "h": 0.86,
-          "hotspots": []
+          "src": "art/p7-arka.webp",
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [],
+          "floor": "art/p7-zemin.webp",
+          "full": true
         }
       ]
     },
@@ -1698,10 +1712,10 @@
       "ambience": "crickets",
       "layers": [
         {
-          "src": "art/p8.webp",
-          "z": 0.04,
-          "w": 0.96,
-          "h": 0.86,
+          "src": "art/p8-arka.webp",
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
           "hotspots": [
             {
               "word": "pencere",
@@ -1712,7 +1726,9 @@
                 0.38
               ]
             }
-          ]
+          ],
+          "floor": "art/p8-zemin.webp",
+          "full": true
         }
       ]
     }

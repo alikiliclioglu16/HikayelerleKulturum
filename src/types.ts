@@ -28,6 +28,12 @@ export interface LayerSpec {
   hotspots?: Hotspot[];
   /** Only used for the small pictures in the activities (the 3D models play this part in the book). */
   thumbOnly?: boolean;
+  /**
+   * A full-page backdrop, like a real pop-up book: the picture stands at the back edge of the right page, as wide as
+   * the page with square corners, and `floor` (an image) is printed flat on the page in front of it as the scene's ground.
+   */
+  full?: boolean;
+  floor?: string;
 }
 
 /** A 3D model (GLB) standing on the pop-up page. */

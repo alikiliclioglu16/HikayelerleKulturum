@@ -18,6 +18,8 @@ export interface BuiltLayer {
   aw: number;
   ah: number;
   hotspots: Hotspot[];
+  /** The ground printed on the page in front of a full-page backdrop. */
+  floor?: HTMLCanvasElement;
 }
 
 const BACK = { z: 0.04, w: 0.96, h: 0.86 };
@@ -523,6 +525,7 @@ export function sceneThumb(layers: BuiltLayer[], width = 560): HTMLCanvasElement
  * saved as a transparent PNG/WebP). The image is fitted to the layer and bottom-aligned.
  */
 export async function buildImageLayer(spec: LayerSpec, baseUrl: string, px = 1024): Promise<BuiltLayer> {
+  if (spec.full) return buildFullLayer(spec, baseUrl, px);
   const img = new Image();
   img.src = baseUrl + spec.src;
   await img.decode();
@@ -535,6 +538,24 @@ export async function buildImageLayer(spec: LayerSpec, baseUrl: string, px = 102
   c.getContext('2d')!.drawImage(img, (c.width - w) / 2, c.height - hgt, w, hgt);
   const cut = cutout(c, Math.round(px / 130));
   return { spec, canvas: cut.canvas, alpha: cut.alpha, aw: cut.aw, ah: cut.ah, hotspots: spec.hotspots ?? [] };
+}
+
+async function loadCanvas(url: string, maxW: number) {
+  const img = new Image();
+  img.src = url;
+  await img.decode();
+  const s = Math.min(1, maxW / img.naturalWidth);
+  const c = document.createElement('canvas');
+  c.width = Math.round(img.naturalWidth * s);
+  c.height = Math.round(img.naturalHeight * s);
+  c.getContext('2d')!.drawImage(img, 0, 0, c.width, c.height);
+  return c;
+}
+
+/** A full-page backdrop (square, no paper outline) and the ground printed in front of it. */
+async function buildFullLayer(spec: LayerSpec, baseUrl: string, px: number): Promise<BuiltLayer> {
+  const [canvas, floor] = await Promise.all([loadCanvas(baseUrl + spec.src, px), spec.floor ? loadCanvas(baseUrl + spec.floor, px) : Promise.resolve(undefined)]);
+  return { spec, canvas, alpha: new Uint8Array([255]), aw: 1, ah: 1, hotspots: spec.hotspots ?? [], floor };
 }
 
 /* ------------------------------------------------------------------ */
