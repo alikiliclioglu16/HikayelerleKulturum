@@ -1,10 +1,9 @@
 import type { Token } from '../text';
 
 /**
- * The story text printed on a pop-up card that stands up on the left page of the open book, facing the reader
- * like the picture on the right page: a parchment card with an arched top, a cobalt and red border with tulips,
- * the title, the text set in lines that fill the card, the word being read with a soft marker, glossary words
- * with a dotted underline and the page number (the Houston Education Attaché's logo is printed on the page in front).
+ * The story text printed on the left page of the open book: a tulip and the title, the text set in lines that fill
+ * the print area, the word being read with a soft marker, glossary words with a dotted underline and the page number
+ * (the Houston Education Attaché's logo is printed on the page behind it).
  * Layout units: the card is W wide (canvas pixels are twice that); `boxes` gives each word's place, so a tap on
  * the card can find the word.
  */
@@ -29,7 +28,6 @@ export interface WordBox {
 
 const INK = '#101018';
 const RED = '#C8261F';
-const COBALT = '#1C3F8C';
 const TURQ = '#138A80';
 const MARK = 'rgba(255, 196, 46, 0.8)';
 const FLASH = 'rgba(96, 206, 198, 0.75)';
@@ -99,25 +97,6 @@ export class PageText {
     readonly H: number,
   ) {}
 
-  /** The card's outline: straight sides, rounded bottom corners, a gentle arch on top. */
-  private outline(g: CanvasRenderingContext2D, inset: number) {
-    const { W, H } = this;
-    const r = 26 - inset * 0.3;
-    const top = 26 + inset;
-    const peak = 4 + inset;
-    g.beginPath();
-    g.moveTo(inset, H - inset - r);
-    g.lineTo(inset, top + r);
-    g.quadraticCurveTo(inset, top, inset + r, top);
-    g.quadraticCurveTo(W / 2, peak - 6, W - inset - r, top);
-    g.quadraticCurveTo(W - inset, top, W - inset, top + r);
-    g.lineTo(W - inset, H - inset - r);
-    g.quadraticCurveTo(W - inset, H - inset, W - inset - r, H - inset);
-    g.lineTo(inset + r, H - inset);
-    g.quadraticCurveTo(inset, H - inset, inset, H - inset - r);
-    g.closePath();
-  }
-
   /** Lay out the text at the largest size that fills the card without running past the bottom. */
   setText(g: CanvasRenderingContext2D, spec: PageTextSpec) {
     this.spec = spec;
@@ -159,7 +138,7 @@ export class PageText {
   /** The text area: below the title, above the page number. */
   private area() {
     const { W, H } = this;
-    return { left: W * 0.075, right: W * 0.925, top: H * 0.175, bottom: H * 0.9 };
+    return { left: W * 0.04, right: W * 0.96, top: H * 0.13, bottom: H * 0.93 };
   }
 
   private layout(g: CanvasRenderingContext2D, spec: PageTextSpec, size: number, force = false) {
@@ -194,41 +173,11 @@ export class PageText {
     return true;
   }
 
-  /** The parchment card with its border (transparent outside the arched outline). */
+  /** The sheet is clear: the words are printed straight onto the page; only a little tulip sits above the title. */
   private paper(g: CanvasRenderingContext2D) {
     const { W, H } = this;
     g.clearRect(0, 0, W, H);
-    // a soft drop shadow inside the canvas edge, so the card reads as thick paper
-    this.outline(g, 2);
-    const grd = g.createLinearGradient(0, 0, 0, H);
-    grd.addColorStop(0, '#FFF9EC');
-    grd.addColorStop(1, '#FBEFD6');
-    g.fillStyle = grd;
-    g.fill();
-    g.lineWidth = 3;
-    g.strokeStyle = 'rgba(120, 84, 40, 0.45)';
-    g.stroke();
-    // cobalt and red frame
-    this.outline(g, 14);
-    g.lineWidth = 5;
-    g.strokeStyle = COBALT;
-    g.stroke();
-    this.outline(g, 22);
-    g.lineWidth = 2;
-    g.strokeStyle = RED;
-    g.stroke();
-    // tulips at the top and in the bottom corners, little dots on the sides
-    tulip(g, W / 2, 38, 24, RED);
-    tulip(g, 46, H - 34, 26, RED);
-    tulip(g, W - 46, H - 34, 26, '#E9A23B');
-    g.fillStyle = COBALT;
-    for (let y = H * 0.2; y < H * 0.85; y += H * 0.1) {
-      for (const x of [14, W - 14]) {
-        g.beginPath();
-        g.arc(x, y, 2.6, 0, Math.PI * 2);
-        g.fill();
-      }
-    }
+    tulip(g, W / 2, H * 0.035, 14, RED);
   }
 
   /** Draw the card: `now` is the word being read (-1 for none), `flash` words light up after a tap. */
@@ -247,7 +196,7 @@ export class PageText {
       ts -= 2;
       g.font = `600 ${ts}px "DynaPuff", system-ui`;
     }
-    g.fillText(spec.title, W / 2, H * 0.145);
+    g.fillText(spec.title, W / 2, H * 0.105);
     // markers behind the words
     const size = this.size;
     for (const b of this.boxes) {
@@ -286,7 +235,7 @@ export class PageText {
     g.fillStyle = '#3A4466';
     g.font = '700 19px "Andika", system-ui';
     g.textAlign = 'center';
-    g.fillText(spec.sub, W / 2, H * 0.955);
+    g.fillText(spec.sub, W / 2, H * 0.985);
   }
 
   /** The word under a point of the card (layout units), with a little slack. */

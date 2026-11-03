@@ -26,13 +26,25 @@ const PAGE_D = 1.36;
 const COVER_T = 0.022;
 const PAGE_T = 0.045;
 const PAGE_TOP = COVER_T + PAGE_T;
-/** The text card that stands on the left page: size, where its foot is (page depth), its lean back and its first turn (it turns square to the camera). */
+/**
+ * The story text printed flat on the left page: its width, its depth on the page and where its front edge is.
+ * The camera looks low across the book, so print lying on the page looks squashed; the letters are therefore
+ * printed STRETCH times taller (front to back) than they are wide, and seen from the camera they look their own shape.
+ */
 const CARD_W = 0.96;
-const CARD_H = 0.9;
-const CARD_Z = 0.08;
-const CARD_TILT = -0.15;
+const CARD_H = 1.14;
+const CARD_Z = 0.5;
 const CARD_YAW = 0;
-const FOLDED = -Math.PI / 2 + 0.01;
+const STRETCH = 1.6;
+const FLAT = -Math.PI / 2;
+/**
+ * The far rows of print look smaller than the near ones, so the print is spread unevenly over the page: of its depth
+ * t (0 at the front edge, 1 at the back), the share of the printed sheet below it is printShare(t); rows near the back
+ * get more room. `printDepth` turns it back.
+ */
+const FAR = 0.5;
+const printShare = (t: number) => (t - (FAR / 2) * t * t) / (1 - FAR / 2);
+const printDepth = (s: number) => (1 - Math.sqrt(1 - 2 * FAR * s * (1 - FAR / 2))) / FAR;
 
 /** Camera shots: from high above, the closed book, the whole open book, and close on the pop-up. */
 export type ShotKind = 'overhead' | 'cover' | 'wide' | 'close';
@@ -155,18 +167,18 @@ function pageCanvas(side: 'left' | 'right', target?: HTMLCanvasElement, deco?: L
   g.lineWidth = 3;
   g.strokeRect(26, 26, W - 52, H - 52);
   if (ornament) {
-    // in front of the standing text card: the Houston Education Attaché's logo, drawn taller than it is so that,
-    // seen low across the page, it looks its own shape; and a band of dots near the page's edge
+    // in the front corner of the page, under the printed story: the Houston Education Attaché's logo, drawn taller
+    // than it is so that, seen low across the page, it looks its own shape; and a band of dots near the page's edge
     const img = logo();
     if (img.complete && img.naturalWidth) {
-      const lw = 124;
-      const lh = (img.naturalHeight / img.naturalWidth) * lw * 1.7;
-      g.drawImage(img, W / 2 - 6 - lw / 2, H * 0.775 - lh / 2, lw, lh);
+      const lh = H * 0.13;
+      const lw = (img.naturalWidth / img.naturalHeight) * (lh / 1.5);
+      g.drawImage(img, 44, H - 44 - lh, lw, lh);
     }
     g.save();
     g.globalAlpha = 0.5;
     g.fillStyle = '#1C3F8C';
-    for (let x = 52; x < W - 44; x += 22) {
+    for (let x = 150; x < W - 44; x += 22) {
       g.beginPath();
       g.arc(x, H - 44, 3.4, 0, Math.PI * 2);
       g.fill();
@@ -328,7 +340,7 @@ export class BookScene {
   private coverMat!: THREE.MeshLambertMaterial;
   private leftCanvas = document.createElement('canvas');
   /** The story text on a pop-up card standing on the left page (wide screens). */
-  private pageText = new PageText(512, Math.round((512 * CARD_H) / CARD_W));
+  private pageText = new PageText(512, Math.round((512 * CARD_H) / CARD_W / STRETCH));
   private textSpec: PageTextSpec | null = null;
   private textNow = -1;
   private textFlash = new Set<number>();
@@ -495,25 +507,38 @@ export class BookScene {
     this.leftGroup.add(leftBoard, leftBlock);
     this.scene.add(this.leftGroup);
 
-    // the text card: a parchment pop-up hinged on the left page, standing up to face the reader
+    // the story text: printed on a transparent sheet lying on the left page (it fades in and out with the pages)
     this.cardCanvas.width = this.pageText.W * 2;
     this.cardCanvas.height = this.pageText.H * 2;
     const cardTex = canvasTexture(this.cardCanvas, r);
     this.cardTex = cardTex;
-    const cardGeo = new THREE.PlaneGeometry(CARD_W, CARD_H);
+    const cardGeo = new THREE.PlaneGeometry(CARD_W, CARD_H, 1, 32);
     cardGeo.translate(0, CARD_H / 2, 0);
+    const uv = cardGeo.attributes.uv as THREE.BufferAttribute;
+    const pos = cardGeo.attributes.position as THREE.BufferAttribute;
+    for (let i = 0; i < uv.count; i++) uv.setY(i, printShare(pos.getY(i) / CARD_H));
     const card = new THREE.Mesh(
       cardGeo,
-      new THREE.MeshLambertMaterial({ map: cardTex, emissive: '#ffffff', emissiveMap: cardTex, emissiveIntensity: 0.34, alphaTest: 0.5, side: THREE.DoubleSide }),
+      new THREE.MeshLambertMaterial({
+        map: cardTex,
+        emissive: '#ffffff',
+        emissiveMap: cardTex,
+        emissiveIntensity: 0.3,
+        transparent: true,
+        opacity: 0,
+        depthWrite: false,
+        polygonOffset: true,
+        polygonOffsetFactor: -2,
+        polygonOffsetUnits: -2,
+      }),
     );
-    card.castShadow = true;
-    card.customDepthMaterial = new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking, map: cardTex, alphaTest: 0.5 });
+    card.renderOrder = 1;
     this.cardMesh = card;
     this.cardPivot.add(card);
-    this.cardPivot.rotation.x = FOLDED;
+    this.cardPivot.rotation.x = FLAT;
     this.cardPivot.visible = false;
     const cardBase = this.cardBase;
-    cardBase.position.set(-PAGE_W / 2, 0.003, CARD_Z);
+    cardBase.position.set(-PAGE_W / 2, 0.002, CARD_Z);
     cardBase.rotation.y = CARD_YAW;
     cardBase.add(this.cardPivot);
     this.leftGroup.add(cardBase);
@@ -931,25 +956,32 @@ export class BookScene {
     if (this.pageShown && !this.cardUp) void this.raiseCard(0);
   }
 
-  /** The text card pops up from the left page. */
+  private get cardMat() {
+    return this.cardMesh.material as THREE.MeshLambertMaterial;
+  }
+
+  /** The story text appears on the left page (fades in like fresh ink). */
   private raiseCard(delay: number) {
     this.cardSession++;
     this.cardUp = true;
     this.cardPivot.visible = true;
-    const p = this.tweens.add(this.dur(760), FOLDED, CARD_TILT, (v) => (this.cardPivot.rotation.x = v), ease.back, this.dur(delay));
+    const mat = this.cardMat;
+    const p = this.tweens.add(this.dur(600), mat.opacity, 1, (v) => (mat.opacity = v), ease.out, this.dur(delay));
     this.invalidate();
     return p;
   }
 
-  /** The text card folds down flat (and is hidden once it lies on the page). */
+  /** The story text fades from the left page (and is hidden once gone). */
   private lowerCard(ms: number) {
     const session = ++this.cardSession;
+    const mat = this.cardMat;
     if (!this.cardUp) {
+      mat.opacity = 0;
       this.cardPivot.visible = false;
       return Promise.resolve();
     }
     this.cardUp = false;
-    const p = this.tweens.add(this.dur(ms), this.cardPivot.rotation.x, FOLDED, (v) => (this.cardPivot.rotation.x = v), ease.in);
+    const p = this.tweens.add(this.dur(ms), mat.opacity, 0, (v) => (mat.opacity = v), ease.in);
     this.invalidate();
     return p.then(() => {
       if (session === this.cardSession) this.cardPivot.visible = false;
@@ -999,7 +1031,7 @@ export class BookScene {
     // the top middle of the word, on the screen
     const u = (b.x + b.w / 2) / this.pageText.W;
     const v = b.y / this.pageText.H;
-    const p = this.cardMesh.localToWorld(new THREE.Vector3((u - 0.5) * CARD_W, (1 - v) * CARD_H, 0));
+    const p = this.cardMesh.localToWorld(new THREE.Vector3((u - 0.5) * CARD_W, printDepth(1 - v) * CARD_H, 0));
     return { wi: b.wi, ...this.toScreen(p) };
   }
 
