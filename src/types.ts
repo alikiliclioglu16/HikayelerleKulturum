@@ -177,7 +177,7 @@ export interface Book {
    * The book's own music (see sfx.ts): an MP3 whose first `loop` seconds repeat; the rest is the reverb tail that
    * overlaps the next round, so it loops without a seam.
    */
-  music?: { src: string; loop: number };
+  music?: { src: string; loop: number; gain?: number };
   glossary: Record<string, { en: string; icon?: string }>;
   quiz: QuizItem[];
   valueHunt: ValueHuntItem[];

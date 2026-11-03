@@ -17,7 +17,8 @@
   ],
   "music": {
     "src": "/books/keloglan-tohum/muzik.mp3",
-    "loop": 57.6
+    "loop": 57.6,
+    "gain": 1.32
   },
   "pages": [
     {

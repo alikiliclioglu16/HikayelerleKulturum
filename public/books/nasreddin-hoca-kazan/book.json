@@ -16,7 +16,8 @@
   ],
   "music": {
     "src": "/books/nasreddin-hoca-kazan/muzik.mp3",
-    "loop": 46.17
+    "loop": 46.17,
+    "gain": 0.91
   },
   "pages": [
     {

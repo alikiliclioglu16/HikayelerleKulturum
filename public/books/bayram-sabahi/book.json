@@ -18,7 +18,8 @@
   ],
   "music": {
     "src": "/books/bayram-sabahi/muzik.mp3",
-    "loop": 62.4
+    "loop": 62.4,
+    "gain": 1.06
   },
   "pages": [
     {
