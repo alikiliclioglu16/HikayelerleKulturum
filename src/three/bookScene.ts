@@ -35,14 +35,14 @@ const CARD_W = 0.96;
 const CARD_H = 1.14;
 const CARD_Z = 0.5;
 const CARD_YAW = 0;
-const STRETCH = 1.6;
+const STRETCH = 1.35;
 const FLAT = -Math.PI / 2;
 /**
  * The far rows of print look smaller than the near ones, so the print is spread unevenly over the page: of its depth
  * t (0 at the front edge, 1 at the back), the share of the printed sheet below it is printShare(t); rows near the back
  * get more room. `printDepth` turns it back.
  */
-const FAR = 0.5;
+const FAR = 0.4;
 const printShare = (t: number) => (t - (FAR / 2) * t * t) / (1 - FAR / 2);
 const printDepth = (s: number) => (1 - Math.sqrt(1 - 2 * FAR * s * (1 - FAR / 2))) / FAR;
 
@@ -680,7 +680,7 @@ export class BookScene {
       close: this.textOnPage
         ? // both pages seen from low in front, like a stage: the text card on the left and the pop-up on the right stand
           // up facing the reader, so the words read clearly and the characters and the backdrop are seen whole
-          { min: V(-0.98, 0, -0.58), max: V(1.0, 0.88, 0.36), cy: 0.4, el: 15, az: this.shotAz * 0.12, reg: this.regions.wide, lim: 0.99 }
+          { min: V(-0.98, 0, -0.58), max: V(1.0, 0.88, 0.36), cy: 0.4, el: 25, az: this.shotAz * 0.12, reg: this.regions.wide, lim: 0.99 }
         : { min: V(0.02, 0, -0.66), max: V(1.0, 0.86, 0.46), cy: 0.34, el: 21, az: this.shotAz, reg: this.regions.close, lim: 1.02 },
     }[kind];
     const center = cfg.min.clone().add(cfg.max).multiplyScalar(0.5);
