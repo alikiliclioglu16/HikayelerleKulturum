@@ -106,7 +106,7 @@ Aynı karakterin hareketleri sırayla oynar; yalnızca bakma hareketleri (`lookA
 
 Ekim 2026'da gelen dokuz masal karakteri **iskeletsiz** kullanılır: modelin kendisi hiç bükülmez, bir çocuğun elindeki oyuncak figür gibi bütün hâlinde zıplar, döner, öne eğilir, yana sallanır, basılıp esner (squash & stretch). Otomatik iskeletle kollar ve kıyafetler eğri büküldüğü için bu yol seçildi; sonuç daha temiz ve "pop-up kitap" hissine daha uygun. Dosyalar `public/models/masal/` klasöründe, gelen hâliyle (yalnızca doku küçültüldü).
 
-Bir kitabı bu kipe almak için `book.json` içine `"toyCast": true` yazılır. O kitapta aile karakterleri de (Dede, Anne, Elif, Can) aynı şekilde oynar: kemikli modelleri bir kez rahat duruşa (kollar aşağıda) getirilir, sonra yalnızca bütün olarak hareket eder. 1. kitap (Bayram Sabahı) eskisi gibi kemikli oynar.
+Bir kitabı bu kipe almak için `book.json` içine `"toyCast": true` yazılır. O kitapta aile karakterleri de (Dede, Anne, Elif, Can) aynı şekilde oynar: kemikli modelleri bir kez rahat duruşa (kollar aşağıda) getirilir, sonra yalnızca bütün olarak hareket eder. 1. kitap (Bayram Sabahı) ve 4. kitap (23 Nisan Şenliği) kemikli oynar: 23 Nisan'ın öğretmeni ve dört sınıf arkadaşı (Zara, Kenji, Amara, Liam) aynı 19 kemikli iskeletle donatıldı; parmak kaldırma (`raise`), halay (`dance`), davul çalma (`drum`) ve zıplama (`hop`) hareketleri `acts.ts` içine eklendi.
 
 | Kitap | Karakter | id | Boy (sayfa birimi) |
 |---|---|---|---|
