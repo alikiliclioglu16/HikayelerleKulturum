@@ -20,6 +20,7 @@
     "loop": 27.0,
     "gain": 0.89
   },
+  "toyCast": true,
   "glossary": {
     "sınıf": {
       "en": "classroom",
@@ -602,7 +603,7 @@
           "id": "elif",
           "x": -0.34,
           "z": 0.62,
-          "rotY": -5
+          "rotY": 30
         },
         {
           "id": "zara",
@@ -691,7 +692,7 @@
           ],
           "who": "elif",
           "do": "raise",
-          "look": "reader",
+          "look": "ogretmen",
           "focus": true,
           "len": 1.6
         },
@@ -1214,34 +1215,8 @@
             "büyüklerinin"
           ],
           "who": "anne",
-          "do": "walkTo",
-          "look": "elif",
-          "to": [
-            0.14,
-            0,
-            0.08
-          ],
-          "face": 60
-        },
-        {
-          "cue": [
-            "laleler",
-            "kestiler"
-          ],
-          "who": "anne",
-          "do": "bow",
-          "look": "elif",
-          "wait": 0.3
-        },
-        {
-          "cue": [
-            "laleler",
-            "kestiler"
-          ],
-          "who": "elif",
-          "do": "bow",
-          "look": "down",
-          "wait": 0.5
+          "do": "nod",
+          "look": "elif"
         },
         {
           "cue": [
@@ -1278,17 +1253,6 @@
           "do": "lookAt",
           "target": "lale2",
           "len": 2
-        },
-        {
-          "cue": [
-            "halkaları",
-            "birleştirip"
-          ],
-          "who": "can",
-          "do": "pose",
-          "target": "handsTogether",
-          "look": "elif",
-          "len": 1.6
         },
         {
           "cue": [
@@ -2365,27 +2329,6 @@
         },
         {
           "cue": [
-            "karıştırınca",
-            "kenji"
-          ],
-          "who": "kenji",
-          "do": "turn",
-          "face": 60,
-          "look": "left",
-          "wait": 0.2
-        },
-        {
-          "cue": [
-            "yeniden",
-            "denediler"
-          ],
-          "who": "kenji",
-          "do": "turn",
-          "face": 0,
-          "look": "elif"
-        },
-        {
-          "cue": [
             "yeniden",
             "denediler"
           ],
@@ -3071,17 +3014,6 @@
           "do": "talk",
           "look": "reader",
           "len": 2.4
-        },
-        {
-          "cue": [
-            "herkesin",
-            "adını"
-          ],
-          "who": "elif",
-          "do": "talk",
-          "look": "tablet",
-          "len": 2.2,
-          "focus": true
         },
         {
           "cue": [
