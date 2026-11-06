@@ -120,10 +120,88 @@ export function nightstand() {
   return g;
 }
 
+/** A wooden garden bench (seat 0.1 high), facing +Z. */
+export function bench(len = 0.52) {
+  const g = new THREE.Group();
+  const paint = new THREE.MeshStandardMaterial({ color: '#8A5A34', roughness: 0.75 });
+  const iron = new THREE.MeshStandardMaterial({ color: '#2F3A35', roughness: 0.5, metalness: 0.4 });
+  for (let i = 0; i < 3; i++) {
+    const slat = new THREE.Mesh(new THREE.BoxGeometry(len, 0.008, 0.026), paint);
+    slat.position.set(0, 0.1, -0.032 + i * 0.03);
+    g.add(slat);
+  }
+  for (let i = 0; i < 2; i++) {
+    const back = new THREE.Mesh(new THREE.BoxGeometry(len, 0.026, 0.008), paint);
+    back.position.set(0, 0.135 + i * 0.036, -0.05);
+    back.rotation.x = -0.12;
+    g.add(back);
+  }
+  for (const x of [-len / 2 + 0.03, len / 2 - 0.03]) {
+    const front = new THREE.Mesh(new THREE.BoxGeometry(0.012, 0.1, 0.012), iron);
+    front.position.set(x, 0.05, 0.03);
+    const rear = new THREE.Mesh(new THREE.BoxGeometry(0.012, 0.2, 0.012), iron);
+    rear.position.set(x, 0.1, -0.05);
+    rear.rotation.x = -0.12;
+    const arm = new THREE.Mesh(new THREE.BoxGeometry(0.014, 0.01, 0.1), iron);
+    arm.position.set(x, 0.13, -0.01);
+    g.add(front, rear, arm);
+  }
+  g.traverse((o) => ((o as THREE.Mesh).castShadow = (o as THREE.Mesh).receiveShadow = true));
+  return g;
+}
+
+/** A photograph of a carrot with a white border, standing up (0.13 wide). */
+export function photo() {
+  const c = document.createElement('canvas');
+  c.width = 200;
+  c.height = 240;
+  const g = c.getContext('2d')!;
+  g.fillStyle = '#FFFFFF';
+  g.fillRect(0, 0, 200, 240);
+  const sky = g.createLinearGradient(0, 14, 0, 186);
+  sky.addColorStop(0, '#9ED6F5');
+  sky.addColorStop(1, '#E9F6D8');
+  g.fillStyle = sky;
+  g.fillRect(14, 14, 172, 172);
+  g.fillStyle = '#7CB850';
+  g.fillRect(14, 140, 172, 46);
+  g.fillStyle = '#F07C22';
+  g.beginPath();
+  g.moveTo(70, 70);
+  g.quadraticCurveTo(120, 60, 132, 72);
+  g.lineTo(78, 168);
+  g.closePath();
+  g.fill();
+  g.fillStyle = '#3F9A3A';
+  for (const [x, a] of [[126, -0.5], [134, 0], [140, 0.5]] as [number, number][]) {
+    g.save();
+    g.translate(x, 70);
+    g.rotate(a);
+    g.beginPath();
+    g.ellipse(0, -18, 6, 18, 0, 0, Math.PI * 2);
+    g.fill();
+    g.restore();
+  }
+  g.fillStyle = '#3A4466';
+  g.font = '700 22px Andika, sans-serif';
+  g.textAlign = 'center';
+  g.fillText('havuç', 100, 222);
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(0.13, 0.156), new THREE.MeshStandardMaterial({ map: tex, roughness: 0.6, side: THREE.DoubleSide }));
+  m.position.y = 0.078;
+  m.castShadow = true;
+  const grp = new THREE.Group();
+  grp.add(m);
+  return grp;
+}
+
 export const PROPS: Record<string, () => THREE.Object3D> = {
   bed: () => bed(0.58, 0.25),
   blanket: () => blanket(0.3, 0.26),
   nightstand,
+  bench: () => bench(),
+  photo,
 };
 
 /* ---------------- things the characters hold ---------------- */
@@ -152,6 +230,38 @@ function tray(w: number, color = '#C9CED6') {
 export const HELD: Record<string, () => THREE.Object3D> = {
   // Nasreddin Hoca ve Kazan
   kitap: () => glbHeld('/models/masal/dede-kitap.glb', 0.075, { word: 'kitap', atHeight: 0.42, ahead: 0.2 }),
+  /** The same book held up open in front of the face, as when reading aloud. */
+  okunanKitap: () => {
+    const g = glbHeld('/models/masal/dede-kitap.glb', 0.085, { word: 'kitap', atHeight: 0.66, ahead: 0.16 });
+    g.rotation.x = -0.9;
+    return g;
+  },
+  /** A small camera held up to the eye. */
+  fotoMakinesi: () => {
+    const g = new THREE.Group();
+    const body = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.032, 0.022), new THREE.MeshStandardMaterial({ color: '#2A2F3A', roughness: 0.45 }));
+    const lens = new THREE.Mesh(new THREE.CylinderGeometry(0.011, 0.012, 0.016, 20), new THREE.MeshStandardMaterial({ color: '#111318', roughness: 0.2, metalness: 0.5 }));
+    lens.rotation.x = Math.PI / 2;
+    lens.position.z = 0.018;
+    const glass = new THREE.Mesh(new THREE.CircleGeometry(0.008, 20), new THREE.MeshStandardMaterial({ color: '#5AA7E6', roughness: 0.05, metalness: 0.6 }));
+    glass.position.z = 0.027;
+    const flash = new THREE.Mesh(new THREE.BoxGeometry(0.012, 0.007, 0.004), new THREE.MeshStandardMaterial({ color: '#F4F4F0', emissive: '#FFFFFF', emissiveIntensity: 0.4 }));
+    flash.position.set(-0.015, 0.011, 0.012);
+    const strap = new THREE.Mesh(new THREE.BoxGeometry(0.052, 0.006, 0.024), new THREE.MeshStandardMaterial({ color: '#D2372C' }));
+    strap.position.y = 0.019;
+    g.add(body, lens, glass, flash, strap);
+    Object.assign(g.userData, { word: 'fotoğraf makinesi', atHeight: 0.62, ahead: 0.18 });
+    return g;
+  },
+  /** A slice of washed carrot. */
+  havucDilimi: () => {
+    const g = new THREE.Group();
+    const m = new THREE.Mesh(new THREE.CylinderGeometry(0.009, 0.009, 0.004, 18), new THREE.MeshStandardMaterial({ color: '#F07C22', roughness: 0.5 }));
+    m.rotation.x = Math.PI / 2;
+    g.add(m);
+    Object.assign(g.userData, { word: 'havuç', hand: 'R' });
+    return g;
+  },
   kazan: () => glbHeld('/models/masal/kazan.glb', 0.085, { word: 'kazan', atHeight: 0.4, ahead: 0.22 }),
   tencere: () => glbHeld('/models/masal/tencere.glb', 0.06, { word: 'tencere', atHeight: 0.45, ahead: 0.2 }),
   // Keloğlan ve Üç Tohum
@@ -163,7 +273,7 @@ export const HELD: Record<string, () => THREE.Object3D> = {
   balonBeyaz: () => glbHeld('/models/23-nisan/balon.glb', 0.24, { word: 'balon', hand: 'R' }, false, 0, '#F6F2EA'),
   resim: () => glbHeld('/models/23-nisan/elif-resim.glb', 0.1, { word: 'resim', atHeight: 0.42, ahead: 0.2 }),
   davul: () => glbHeld('/models/culture/davul.glb', 0.11, { word: 'davul', atHeight: 0.36, ahead: 0.22 }),
-  kart: () => glbHeld('/models/23-nisan/dilek-karti.glb', 0.06, { word: 'dilek kartı', hand: 'R' }),
+  kart: () => glbHeld('/models/23-nisan/dilek-karti.glb', 0.085, { word: 'dilek kartı', hand: 'R' }),
   baklavaTepsisi: () => {
     const g = new THREE.Group();
     const t = tray(0.13, '#B9773E');

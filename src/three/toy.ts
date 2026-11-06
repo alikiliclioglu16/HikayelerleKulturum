@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { loadGltf } from '../home3d/actors';
 import { CHARACTERS, Performer, PUT_DOWN, RELAXED, blendKey, cloneState, mergeKey, smooth, type CharacterDef, type Key, type RootState, type State } from './performer';
-import { runAct, type Beat, type ActResult } from './acts';
+import { POSES, runAct, type Beat, type ActResult } from './acts';
 
 /**
  * A story character played like a toy on a pop-up page: the model itself never bends, it hops, turns, leans,
@@ -28,6 +28,9 @@ export class ToyPerformer {
   private heldName: string | null = null;
   private dropped: THREE.Object3D[] = [];
   private phase = Math.random() * 6;
+  /** A family member: its rigged model, bent only to sit down. */
+  private inner: Performer | null = null;
+  private sitting = false;
   calm = false;
   makeProp: ((name: string) => THREE.Object3D | null) | null = null;
   surfaceAt: (p: THREE.Vector3) => THREE.Vector3 | null = () => null;
@@ -67,7 +70,9 @@ export class ToyPerformer {
     if (def.src.includes('/models/aile/')) {
       const p = await Performer.load(id);
       p.reset({ pose: { ...RELAXED }, root: { x: 0, y: 0, z: 0, rotY: 0, lie: 0 }, eyes: 1, look: null }, new THREE.Vector3());
-      return new ToyPerformer(id, def, p.root, h);
+      const toy = new ToyPerformer(id, def, p.root, h);
+      toy.inner = p;
+      return toy;
     }
     const gltf = await loadGltf(def.src);
     const model = gltf.scene.clone(true);
@@ -151,6 +156,12 @@ export class ToyPerformer {
     const side = 1 / Math.sqrt(Math.max(0.3, sq));
     this.body.scale.set(side, sq, side);
     this.setHeld(s.hold ?? null);
+    // a family member sits down: the legs bend (the only time a toy figure bends)
+    const sitting = (r.sit ?? 0) > 0.5;
+    if (this.inner && sitting !== this.sitting) {
+      this.sitting = sitting;
+      this.inner.reset({ pose: { ...RELAXED, ...(sitting ? POSES.sit : {}) }, root: { x: 0, y: 0, z: 0, rotY: 0, lie: 0 }, eyes: 1, look: null }, new THREE.Vector3());
+    }
   }
 
   /** Two-handed things float in front of the chest, small ones beside the right hand. */
@@ -441,6 +452,24 @@ export const TOY_ACTS: Record<string, ToyAct> = {
     }
     keys.push(key(t + len, 0.35, { root: { ...upright } }));
     return { keys, dur: len + 0.35 };
+  },
+
+  /**
+   * Sits down on a seat: hops onto it (`to`: the place, its y the seat's height above the page minus the hips'
+   * height), turns to `face` and sits. Without `to` it sits where it is.
+   */
+  sit: (s, b, t, H) => {
+    const to = b.to ? { x: b.to[0], y: b.to[1], z: b.to[2] } : {};
+    const face = b.face !== undefined ? near(s.root.rotY, b.face) : s.root.rotY;
+    return {
+      keys: [key(t, 0.2, { root: { rotY: face }, look: b.look ?? s.look }), ...hopKeys(s, t + 0.15, 0.1 * H, { ...to, rotY: face }), key(t + 0.4, 0.05, { root: { sit: 1 } })],
+      dur: 0.8,
+    };
+  },
+  /** Stands up from a seat and hops down to `to` (or just in front). */
+  stand: (s, b, t, H) => {
+    const to = b.to ? { x: b.to[0], y: b.to[1], z: b.to[2] } : { y: 0 };
+    return { keys: [key(t, 0.05, { root: { sit: 0 } }), ...hopKeys(s, t + 0.05, 0.08 * H, to), key(t + 0.5, 0.3, { look: b.look ?? s.look })], dur: 0.8 };
   },
 
   /** Back upright. */

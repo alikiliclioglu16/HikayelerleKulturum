@@ -29,7 +29,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Bahar gelince Elif, Can ve anneleri Huriye Hanım evlerinin {bahçesine|bahçe} {tohum} ekti. Can {toprağa|toprak} eğildi. “Hemen {filizlenir|filiz} mi?” diye sordu. {Anne|anne}, “Büyümek zaman ister. Toprağını da izlemeliyiz,” dedi. Sonra bahçedeki sıraya oturdular. Huriye Hanım, emek vermeyi seven {Keloğlan’ın|Keloğlan} {masalını|masal} anlatmaya başladı. Can {sulama kabını|sulama kabı} yanına bıraktı. Elif de dikkatle dinledi.",
+        "tr": "Elif, Can ve {anneleri|anne} Huriye Hanım {bahçeye|bahçe} {tohum} ekti. Can “Hemen {filizlenir|filiz} mi?” diye sordu. Anneleri “Büyümek zaman ister. {Toprağını|toprak} da izlemeliyiz.” dedi. Sonra sıraya oturdular. Huriye Hanım emek vermeyi seven {Keloğlan’ın|Keloğlan} {masalını|masal} anlatmaya başladı.",
         "en": ""
       },
       "culture": {
@@ -81,6 +81,13 @@
           "magic": true,
           "hidden": true,
           "fx": "bob"
+        },
+        {
+          "proc": "bench",
+          "x": 0.0,
+          "z": 0.3,
+          "h": 0.2,
+          "word": "sıra"
         }
       ],
       "cast": [
@@ -123,7 +130,7 @@
         },
         {
           "cue": [
-            "eğildi"
+            "can"
           ],
           "who": "can",
           "do": "bow",
@@ -156,9 +163,46 @@
             "oturdular"
           ],
           "who": "anne",
-          "do": "turn",
-          "face": 20,
-          "look": "can"
+          "do": "sit",
+          "to": [
+            0.11,
+            -0.14,
+            -0.26
+          ],
+          "face": 0,
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "sıraya",
+            "oturdular"
+          ],
+          "who": "elif",
+          "do": "sit",
+          "to": [
+            -0.02,
+            -0.074,
+            -0.22
+          ],
+          "face": 0,
+          "look": "anne",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "sıraya",
+            "oturdular"
+          ],
+          "who": "can",
+          "do": "sit",
+          "to": [
+            -0.12,
+            -0.036,
+            -0.32
+          ],
+          "face": 0,
+          "look": "anne",
+          "wait": 0.4
         },
         {
           "cue": [
@@ -201,20 +245,20 @@
         },
         {
           "cue": [
-            "sulama"
+            "başladı"
           ],
           "who": "can",
-          "do": "put",
-          "look": "down"
+          "do": "nod",
+          "look": "anne"
         },
         {
           "cue": [
-            "dinledi",
-            "dikkatle"
+            "başladı"
           ],
           "who": "elif",
           "do": "nod",
-          "look": "anne"
+          "look": "anne",
+          "wait": 0.8
         }
       ],
       "ambience": "birds",
@@ -275,7 +319,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Bir varmış, bir yokmuş. Evvel zaman içinde, kalbur {saman} içinde, {Keloğlan} {anasıyla|ana} bir Anadolu {köyünde|köy} yaşarmış. O yıl {yağmur} az yağmış. {Tarlalar|tarla} kurumuş. Anası, Keloğlan’a üç {tohum} vermiş: biri {mısır}, biri {lahana}, biri {havuç} tohumuymuş. “Bunlar sihirli tohum değil,” demiş. “Büyümeleri için {suya|su}, ışığa, uygun toprağa ve zamana ihtiyaçları var,” diye eklemiş.",
+        "tr": "Bir varmış, bir yokmuş. Evvel zaman içinde, kalbur {saman} içinde, {Keloğlan} {anasıyla|ana} bir Anadolu {köyünde|köy} yaşarmış. {Yağmur|yağmur} az yağmış, {tarlalar|tarla} kurumuş. Anası {mısır}, {lahana} ve {havuç} {tohumu|tohum} vermiş. “Sihirli değiller. Büyümeleri için {su}, ışık, toprak ve zaman gerekir.” demiş.",
         "en": ""
       },
       "culture": {
@@ -406,7 +450,7 @@
         },
         {
           "cue": [
-            "tohum"
+            "anası"
           ],
           "who": "keloglan",
           "do": "receive",
@@ -451,16 +495,16 @@
         },
         {
           "cue": [
-            "suya",
-            "ışığa"
+            "su",
+            "ışık"
           ],
           "who": "t_misir",
           "do": "vanish"
         },
         {
           "cue": [
-            "suya",
-            "ışığa"
+            "su",
+            "ışık"
           ],
           "who": "t_lahana",
           "do": "vanish",
@@ -468,8 +512,8 @@
         },
         {
           "cue": [
-            "suya",
-            "ışığa"
+            "su",
+            "ışık"
           ],
           "who": "t_havuc",
           "do": "vanish",
@@ -477,8 +521,7 @@
         },
         {
           "cue": [
-            "zamana",
-            "eklemiş"
+            "zaman"
           ],
           "who": "keloglan",
           "do": "nod",
@@ -543,7 +586,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Keloğlan küçük bir {toprak} parçasını ekime hazırlamış. {Tohumları|tohum}, büyüyebilecekleri aralıklarla ekmiş. {Hasan Amca} da ona yardım etmiş. {Kuyudan|kuyu} {suyu|su} birlikte getirmişler. Keloğlan toprağı kontrol etmiş; gerektiği kadar sulamış. Bazen yorulunca dinlenmiş, sonra işine dönmüş. “Emek olmadan yemek olmaz,” demiş {anası|ana}. Keloğlan, her gün yaptığı küçük bakımın önemli olduğunu görmüş.",
+        "tr": "Keloğlan {toprağı|toprak} hazırlayıp {tohumları|tohum} uygun aralıklarla ekmiş. {Hasan amca|Hasan amca} yardım etmiş. {Kuyudan|kuyu} birlikte {su} getirmişler. Keloğlan toprağı kontrol edip gerektiği kadar sulamış. Yorulunca dinlenmiş. {Anası|ana} “Emek olmadan yemek olmaz.” demiş. Keloğlan her gün bahçesiyle ilgilenmiş.",
         "en": ""
       },
       "culture": {
@@ -799,12 +842,12 @@
         },
         {
           "cue": [
-            "işine",
-            "dönmüş"
+            "yorulunca"
           ],
           "who": "keloglan",
           "do": "bow",
-          "look": "down"
+          "look": "down",
+          "wait": 1.0
         },
         {
           "cue": [
@@ -818,8 +861,7 @@
         },
         {
           "cue": [
-            "bakımın",
-            "görmüş"
+            "ilgilenmiş"
           ],
           "who": "keloglan",
           "do": "nod",
@@ -884,7 +926,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Günler sonra üç {filiz} görünmüş. Keloğlan sevinçle {Hasan Amca’yı|Hasan Amca} çağırmış. Yoldan geçen bir kadın ile {çocuk} da filizlere bakmış. “Bu sıcakta onlara nasıl bakıyorsun?” diye sormuşlar. Keloğlan yaptıklarını anlatmış. Çok sıcak saatlerde filizleri koruyor, toprağın nemini izliyormuş. Yeni yaprakları hemen çekiştirmeden bekliyormuş. Büyümelerini görmek ona her gün ayrı bir {sevinç} veriyormuş.",
+        "tr": "Günler sonra üç {filiz} görünmüş. Keloğlan {Hasan amcayı|Hasan amca} çağırmış. Yoldan geçen bir kadınla {çocuk} da durmuş. “Onlara nasıl bakıyorsun?” diye sormuşlar. Keloğlan toprağın nemini izlediğini anlatmış. Filizleri sıcaktan koruyor, yapraklarını çekiştirmeden büyümelerini bekliyormuş. Yeni yapraklar çıktıkça {seviniyormuş|sevinç}.",
         "en": ""
       },
       "culture": {
@@ -1094,7 +1136,7 @@
         },
         {
           "cue": [
-            "sevinç"
+            "seviniyormuş"
           ],
           "who": "hasan-amca",
           "do": "nod",
@@ -1160,7 +1202,7 @@
         "en": ""
       },
       "text": {
-        "tr": "{Kuraklık|kuraklık} uzayınca {kuyudaki|kuyu} {su} azalmış. {Hasan Amca’nın|Hasan Amca} {tarlası|tarla} da susuz kalmış. {Köylüler|köylü} önce insanların ve hayvanların içme suyunu ayırmış. Sonra ekinleri için kalan suyu dikkatle kullanmaya karar vermişler. Keloğlan {kovasındaki|kova} sudan Hasan Amca’nın küçük ekim alanına da vermiş. Birlikte toprağı örtüp nemini korumuşlar. {Yardımlaşırken|yardımlaşmak} suyu boşa akıtmamışlar.",
+        "tr": "{Kuraklık|kuraklık} uzayınca {kuyudaki|kuyu} {su} azalmış. {Köylüler|köylü} önce insanların ve hayvanların içme suyunu ayırmış. Kalan suyu ekinler için dikkatle kullanmışlar. Keloğlan {Hasan amcanın|Hasan amca} ekinlerine de su vermiş. Birlikte toprağı örtüp nemini korumuşlar. {Yardımlaşırken|yardımlaşmak} suyu boşa akıtmamışlar.",
         "en": ""
       },
       "culture": {
@@ -1247,13 +1289,14 @@
         },
         {
           "cue": [
-            "hasan"
+            "su"
           ],
           "who": "keloglan",
           "do": "lookAt",
           "target": "hasan-amca",
           "len": 1.6,
-          "focus": true
+          "focus": true,
+          "wait": 1.0
         },
         {
           "cue": [
@@ -1282,7 +1325,7 @@
         },
         {
           "cue": [
-            "karar"
+            "kullanmışlar"
           ],
           "who": "keloglan",
           "do": "nod",
@@ -1304,7 +1347,7 @@
         },
         {
           "cue": [
-            "kovasındaki"
+            "vermiş"
           ],
           "who": "keloglan",
           "do": "give",
@@ -1312,7 +1355,7 @@
         },
         {
           "cue": [
-            "kovasındaki"
+            "vermiş"
           ],
           "who": "hasan-amca",
           "do": "rest",
@@ -1320,7 +1363,7 @@
         },
         {
           "cue": [
-            "kovasındaki"
+            "vermiş"
           ],
           "who": "hasan-amca",
           "do": "receive",
@@ -1427,7 +1470,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Sonunda {yağmur} yağmış. Keloğlan yağışı evinin önünden sevinçle izlemiş. Haftalar geçtikçe {mısır} uzamış, {lahana} yapraklanmış, {havuç} toprağın içinde büyümüş. {Hasan Amca’nın|Hasan Amca} {kabakları|kabak} da gelişmiş. Keloğlan’ın bahçesinde {sebzeler|sebze} kocaman görünüyormuş. {Anası|ana} gülümsemiş: “Bakımınız ve yağmur işe yaradı.” Keloğlan her sebzenin aynı zamanda olgunlaşmadığını da öğrenmiş; {hasat} için uygun zamanı beklemiş.",
+        "tr": "Sonunda {yağmur} yağmış. Haftalar geçtikçe {mısır} uzamış, {lahana} yapraklanmış, {havuç} toprağın içinde büyümüş. {Hasan amcanın|Hasan amca} {kabakları|kabak} da gelişmiş. {Anası|ana} “Bakımınız ve yağmur işe yaradı.” demiş. Keloğlan {sebzelerin|sebze} farklı zamanlarda olgunlaştığını öğrenmiş. Her birini toplamak için uygun zamanı beklemiş.",
         "en": ""
       },
       "culture": {
@@ -1549,8 +1592,7 @@
         },
         {
           "cue": [
-            "yağışı",
-            "izlemiş"
+            "yağmış"
           ],
           "who": "keloglan",
           "do": "lookAt",
@@ -1559,12 +1601,13 @@
         },
         {
           "cue": [
-            "sevinçle"
+            "yağmış"
           ],
           "who": "keloglan",
           "do": "cheer",
           "look": "reader",
-          "focus": true
+          "focus": true,
+          "wait": 1.2
         },
         {
           "cue": [
@@ -1627,8 +1670,7 @@
         },
         {
           "cue": [
-            "kocaman",
-            "sebze"
+            "gelişmiş"
           ],
           "who": "keloglan",
           "do": "lookAt",
@@ -1714,7 +1756,7 @@
         "en": ""
       },
       "text": {
-        "tr": "{Hasat|hasat} zamanı {köylüler|köylü} ellerindeki ürünleri ortak {sofraya|sofra} getirmiş. Kimi {ekmek}, kimi {sebze} getirmiş. Keloğlan da yetiştirdiklerinden {paylaşmış|paylaşmak}. {Mısırından|mısır} ayırdığı {tohumları|tohum} kurutup sonraki ekim için saklamış. {Komşular|komşu} kendi tohumlarını da paylaşmış. Sofra, herkesin katkısıyla dolmuş. Gökten üç {elma} düşmüş: biri anlatana, biri dinleyene, biri de okuyana! {Masal|masal} burada sona ermiş.",
+        "tr": "{Hasat|hasat} zamanı {köylüler|köylü} ortak {sofra} kurmuş. Kimi {ekmek}, kimi {sebze} getirmiş. Keloğlan yetiştirdiklerini {paylaşmış|paylaşmak}. {Mısır|mısır} {tohumlarını|tohum} sonraki ekim için saklamış. {Komşular|komşu} da tohumlarını paylaşmış. Gökten üç {elma} düşmüş: biri anlatana, biri dinleyene, biri okuyana! {Masal|masal} burada bitmiş.",
         "en": ""
       },
       "culture": {
@@ -1885,7 +1927,7 @@
         },
         {
           "cue": [
-            "yetiştirdiklerinden"
+            "yetiştirdiklerini"
           ],
           "who": "keloglan",
           "do": "give",
@@ -1942,8 +1984,7 @@
         },
         {
           "cue": [
-            "katkısıyla",
-            "dolmuş"
+            "paylaşmış"
           ],
           "who": "koylu-kadin",
           "do": "cheer",
@@ -1951,8 +1992,7 @@
         },
         {
           "cue": [
-            "katkısıyla",
-            "dolmuş"
+            "paylaşmış"
           ],
           "who": "koylu-cocuk",
           "do": "cheer",
@@ -2087,7 +2127,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Can bahçedeki {tohumları|tohum} her gün dikkatle izledi. Günler sonra {filizler|filiz} çıkınca Elif’i çağırdı. Birlikte sulama sıralarını planladılar. Yaz gelince olgunlaşan {sebzeleri|sebze} büyükleriyle topladılar. Yıkayıp {sofraya|sofra} hazırladılar. Can küçük bir {havuç} dilimini denedi. “Bunu büyürken görmüştüm!” dedi. Sonra bir {fotoğraf} çekip Ahmet {Dede’ye|dede} gönderdiler. Bahçelerindeki değişimi onunla da paylaşmak istiyorlardı.",
+        "tr": "Can bahçedeki {tohumları|tohum} her gün izledi. {Filizler|filiz} çıkınca Elif’i çağırdı. Sulama sıralarını birlikte planladılar. Yazın olgunlaşan {sebzeleri|sebze} büyükleriyle topladılar. Can yıkadıkları {havuçtan|havuç} bir dilim yedi. “Bunu büyürken görmüştüm!” dedi. {Fotoğrafını|fotoğraf} Ahmet {dedeye|dede} gönderdiler.",
         "en": ""
       },
       "culture": {
@@ -2154,6 +2194,28 @@
           "h": 0.13,
           "word": "köpek",
           "rotY": 40
+        },
+        {
+          "src": "/models/masal/koy-sofrasi.glb",
+          "x": -0.3,
+          "z": 0.7,
+          "h": 0.07,
+          "w": 0.3,
+          "word": "sofra",
+          "id": "sofra",
+          "hidden": true,
+          "top": 0.9
+        },
+        {
+          "proc": "photo",
+          "x": -0.12,
+          "z": 0.6,
+          "y": 0.38,
+          "h": 0.1,
+          "word": "fotoğraf",
+          "id": "foto",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -2262,17 +2324,63 @@
         },
         {
           "cue": [
-            "yıkayıp",
-            "hazırladılar"
+            "topladılar"
           ],
           "who": "anne",
-          "do": "offer",
-          "look": "can",
-          "len": 2.0
+          "do": "walkTo",
+          "to": [
+            0,
+            0,
+            0.06
+          ],
+          "face": 0,
+          "look": "sofra"
         },
         {
           "cue": [
-            "havuç"
+            "topladılar"
+          ],
+          "who": "anne",
+          "do": "put",
+          "look": "sofra"
+        },
+        {
+          "cue": [
+            "topladılar"
+          ],
+          "who": "sofra",
+          "do": "appear",
+          "len": 1.2,
+          "wait": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "yıkadıkları"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.42,
+            0,
+            0.06
+          ],
+          "face": -90,
+          "look": "sofra"
+        },
+        {
+          "cue": [
+            "havuçtan",
+            "dilim"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "havucDilimi",
+          "look": "sofra"
+        },
+        {
+          "cue": [
+            "yedi"
           ],
           "who": "can",
           "do": "cheer",
@@ -2291,17 +2399,59 @@
         },
         {
           "cue": [
-            "fotoğraf"
+            "fotoğrafını"
           ],
-          "who": "elif",
-          "do": "raise",
+          "who": "can",
+          "do": "receive",
+          "target": "fotoMakinesi",
           "look": "reader",
-          "len": 1.4,
           "focus": true
         },
         {
           "cue": [
+            "fotoğrafını"
+          ],
+          "who": "can",
+          "do": "raise",
+          "look": "reader",
+          "len": 1.4,
+          "sound": "shutter",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "fotoğrafını"
+          ],
+          "who": "foto",
+          "do": "appear",
+          "len": 1.2,
+          "wait": 0.6
+        },
+        {
+          "cue": [
             "dede",
+            "gönderdiler"
+          ],
+          "who": "foto",
+          "do": "rise",
+          "to": [
+            0,
+            0.35,
+            -0.3
+          ],
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "dede",
+            "gönderdiler"
+          ],
+          "who": "foto",
+          "do": "vanish",
+          "wait": 1.6
+        },
+        {
+          "cue": [
             "gönderdiler"
           ],
           "who": "anne",
@@ -2310,12 +2460,12 @@
         },
         {
           "cue": [
-            "paylaşmak",
-            "istiyorlardı"
+            "gönderdiler"
           ],
           "who": "elif",
           "do": "cheer",
-          "look": "reader"
+          "look": "can",
+          "wait": 1.0
         }
       ],
       "ambience": "birds",
@@ -2566,7 +2716,7 @@
       "en": "apple",
       "icon": "🍎"
     },
-    "Hasan Amca": {
+    "Hasan amca": {
       "en": "Uncle Hasan"
     },
     "sofra": {
@@ -2620,6 +2770,14 @@
     "gökkuşağı": {
       "en": "rainbow",
       "icon": "🌈"
+    },
+    "sıra": {
+      "en": "bench",
+      "icon": "🪑"
+    },
+    "fotoğraf makinesi": {
+      "en": "camera",
+      "icon": "📷"
     }
   },
   "quiz": [
@@ -2691,7 +2849,7 @@
     },
     {
       "q": {
-        "tr": "Keloğlan kovasındaki sudan kime verdi?",
+        "tr": "Keloğlan suyunu kiminle paylaştı?",
         "en": ""
       },
       "options": [
@@ -2704,7 +2862,7 @@
           "en": "His mother"
         },
         {
-          "tr": "Hasan Amca'ya",
+          "tr": "Hasan amca'ya",
           "en": "Uncle Hasan"
         }
       ],
@@ -2782,15 +2940,15 @@
     },
     "talk": [
       {
-        "tr": "Keloğlan ve köylüler kuraklıkta suyu nasıl dikkatli kullandı?",
+        "tr": "Keloğlan tohumlarına hangi bakımları yaptı?",
         "en": ""
       },
       {
-        "tr": "Sen hiç bir şeyi sabırla beklemek zorunda kaldın mı? Ne hissettin?",
+        "tr": "Suyu paylaşmadan önce içme suyunu neden ayırdılar?",
         "en": ""
       },
       {
-        "tr": "En sevdiğin sebze hangisi? Onunla hangi Türk yemeği yapılır?",
+        "tr": "Bir bitkinin zamanla değişimini resimlerle anlat.",
         "en": ""
       }
     ]

@@ -314,12 +314,31 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     flashWords(res.word);
   });
   let hoverT = 0;
+  // with a mouse, a thing's or a character's name shows as soon as the pointer is over it
+  const hoverTag = h('div', { class: 'hover-tag', 'aria-hidden': 'true' }, h('span', { lang: 'tr' }));
+  let hoverWord = '';
+  const hideHover = () => {
+    hoverWord = '';
+    hoverTag.remove();
+  };
+  sceneHost.addEventListener('pointerleave', hideHover);
   sceneHost.addEventListener('pointermove', (e) => {
     if (e.pointerType !== 'mouse') return;
     const now = performance.now();
     if (now - hoverT < 70) return;
     hoverT = now;
     sceneHost.classList.toggle('pickable', scene.isPickable(e.clientX, e.clientY));
+    const lab = scene.hoverLabel(e.clientX, e.clientY);
+    if (!lab || shell.querySelector('.word-pop, .tag3d')) return hideHover();
+    const sr = shell.getBoundingClientRect();
+    const cr = sceneHost.getBoundingClientRect();
+    hoverTag.style.left = `${lab.x + cr.left - sr.left}px`;
+    hoverTag.style.top = `${lab.y + cr.top - sr.top}px`;
+    if (lab.word !== hoverWord) {
+      hoverWord = lab.word;
+      hoverTag.firstElementChild!.textContent = lab.word;
+    }
+    if (!hoverTag.isConnected) shell.append(hoverTag);
   });
 
   /** Every page is filmed from a slightly different side. */
@@ -440,7 +459,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     history.replaceState(null, '', `#/kitap/${bookId}/${index + 1}`);
     textEl.style.transition = 'opacity .25s';
     textEl.style.opacity = '0';
-    shell.querySelectorAll('.word-pop, .tag3d').forEach((e) => e.remove());
+    shell.querySelectorAll('.word-pop, .tag3d, .hover-tag').forEach((e) => e.remove());
     const layers = await getLayers(page());
     // pull back to see the whole table while the page turns, then move in on the new pop-up from another side
     scene.shot('wide', 1000, angleFor(index));

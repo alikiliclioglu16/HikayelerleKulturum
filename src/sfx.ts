@@ -124,7 +124,7 @@ const AMBIENCE_LEVEL: Record<string, number> = {
 /** Each story sound evened out (measured), so a hop, a pop, a balloon or the applause are all heard alike. */
 const SCENE_LEVEL: Record<string, number> = {
   hop: 1.8, cheer: 1.35, pop: 1.7, greet: 1.7, balloon: 4, rain: 0.5, whirl: 1.5, knock: 1.1, angry: 0.85, put: 1.5,
-  fly: 2, vanish: 1.6, rise: 1.6, sink: 1.7, clink: 1.3, alarm: 1.5, shine: 1.2, davul: 0.85, applause: 3.6, spin: 4.5,
+  fly: 2, vanish: 1.6, tek: 1.2, shutter: 1.4, rise: 1.6, sink: 1.7, clink: 1.3, alarm: 1.5, shine: 1.2, davul: 0.85, applause: 3.6, spin: 4.5,
 };
 
 /**
@@ -785,7 +785,22 @@ const SCENE_SOUNDS: Record<string, (a: AudioContext, t: number) => void> = {
     );
   },
   // one deep stroke of the davul
-  davul: (a, t) => drum(a, t, 66, 0.5, 0.3),
+  // the davul played with the stick: "düm", a deep boom with the skin's slap
+  davul: (a, t) => {
+    drum(a, t, 82, 0.75, 0.55);
+    tone(a, "sine", 190, 120, t, 0.18, 0.22, 0.002);
+  },
+  // … and "tek", the thin switch on the other side: a dry, bright crack
+  tek: (a, t) => {
+    hiss(a, "bandpass", 3200, 2400, t, 0.06, 0.32, 1.6, 0.001);
+    tone(a, "triangle", 620, 420, t, 0.05, 0.12, 0.001);
+  },
+  // a camera's shutter: a soft click and a whirr
+  shutter: (a, t) => {
+    hiss(a, "highpass", 3000, 2600, t, 0.03, 0.3, 0.7, 0.001);
+    hiss(a, "highpass", 2600, 2200, t + 0.07, 0.03, 0.22, 0.7, 0.001);
+    hiss(a, "bandpass", 900, 1600, t + 0.12, 0.25, 0.06, 2, 0.02);
+  },
   // a globe spinning by itself: a long airy whoosh and a run of little bells
   whirl: (a, t) => {
     hiss(a, "bandpass", 500, 2600, t, 1.6, 0.12, 1.4, 0.3);

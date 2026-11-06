@@ -7,7 +7,7 @@
     "en": "Nasreddin Hodja stories, Akşehir"
   },
   "summary": {
-    "tr": "Ahmet Dede, Elif ile Can'a ünlü bir Nasreddin Hoca fıkrası anlatıyor: ödünç alınan kazan bir gün 'doğurur', bir gün de 'ölür'; sonunda Hoca kazanı sahibine geri verir. Fıkra bitince Can da doğruyu söyler ve hatasını düzeltmeye çalışır.",
+    "tr": "Ahmet dede, Elif ile Can'a ünlü bir Nasreddin Hoca fıkrası anlatıyor: ödünç alınan kazan bir gün 'doğurur', bir gün de 'ölür'; sonunda Hoca kazanı sahibine geri verir. Fıkra bitince Can da doğruyu söyler ve hatasını düzeltmeye çalışır.",
     "en": ""
   },
   "values": [
@@ -28,7 +28,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Ahmet {Dede|dede}, İzmir’den Amerika’daki torunlarını görmeye gelmişti. Akşam eski {kitabını|kitap} açtı. Elif ile Can {sedire|sedir} oturdu. “Size bir {Nasreddin Hoca} {fıkrası|fıkra} anlatacağım,” dedi. “Fıkra, bizi güldürürken düşündüren kısa bir anlatıdır.” {Çaydanlıktan|çaydanlık} hafif bir ses geliyordu. Can kitabın resmine baktı. {Sarıklı|sarık}, güler yüzlü Hoca’nın başından neler geçtiğini merak ediyordu.",
+        "tr": "Ahmet {dede} İzmir’den Amerika’daki torunlarını görmeye gelmişti. Akşam {kitabını|kitap} açtı. Elif ile Can {sedire|sedir} oturdu. “Size {Nasreddin Hoca’dan|Nasreddin Hoca} bir {fıkra} anlatacağım. Fıkra güldürürken düşündüren kısa bir anlatıdır.” dedi. Can resme baktı. {Sarıklı|sarık}, güler yüzlü Hoca’nın başından geçenleri merak ediyordu.",
         "en": ""
       },
       "culture": {
@@ -76,27 +76,15 @@
           "h": 0.06,
           "y": 0.09,
           "word": "çay"
-        },
-        {
-          "src": "/models/masal/kazan.glb",
-          "x": 0.12,
-          "z": 0.78,
-          "h": 0.1,
-          "y": 0.36,
-          "word": "kazan",
-          "id": "kazan",
-          "magic": true,
-          "hidden": true,
-          "fx": "bob"
         }
       ],
       "cast": [
         {
           "id": "dede",
-          "x": -0.06,
-          "z": 0.55,
-          "rotY": 0,
-          "hold": "kitap"
+          "x": 0.34,
+          "z": 0.6,
+          "rotY": -55,
+          "hold": "okunanKitap"
         },
         {
           "id": "elif",
@@ -107,7 +95,7 @@
         {
           "id": "can",
           "x": 0.27,
-          "z": 0.64,
+          "z": 0.72,
           "rotY": -35
         }
       ],
@@ -131,7 +119,7 @@
           ],
           "who": "dede",
           "do": "offer",
-          "look": "reader",
+          "look": "elif",
           "len": 1.8
         },
         {
@@ -140,9 +128,15 @@
             "sedire"
           ],
           "who": "elif",
-          "do": "lookAt",
-          "target": "dede",
-          "len": 2
+          "do": "sit",
+          "to": [
+            0.17,
+            -0.068,
+            -0.3
+          ],
+          "face": 0,
+          "look": "dede",
+          "focus": true
         },
         {
           "cue": [
@@ -150,9 +144,15 @@
             "sedire"
           ],
           "who": "can",
-          "do": "lookAt",
-          "target": "dede",
-          "len": 2
+          "do": "sit",
+          "to": [
+            -0.17,
+            -0.03,
+            -0.4
+          ],
+          "face": 0,
+          "look": "dede",
+          "wait": 0.35
         },
         {
           "cue": [
@@ -161,16 +161,7 @@
           "who": "dede",
           "do": "talk",
           "look": "elif",
-          "len": 2.2
-        },
-        {
-          "cue": [
-            "nasreddin"
-          ],
-          "who": "kazan",
-          "do": "appear",
-          "len": 1.6,
-          "focus": true
+          "len": 2.4
         },
         {
           "cue": [
@@ -178,7 +169,7 @@
           ],
           "who": "elif",
           "do": "lookAt",
-          "target": "kazan",
+          "target": "dede",
           "len": 2
         },
         {
@@ -187,7 +178,7 @@
           ],
           "who": "can",
           "do": "hop",
-          "look": "kazan",
+          "look": "dede",
           "wait": 0.4
         },
         {
@@ -201,14 +192,7 @@
         },
         {
           "cue": [
-            "çaydanlık"
-          ],
-          "who": "kazan",
-          "do": "spin"
-        },
-        {
-          "cue": [
-            "resmine",
+            "resme",
             "baktı"
           ],
           "who": "can",
@@ -219,12 +203,11 @@
         },
         {
           "cue": [
-            "merak",
             "sarıklı"
           ],
           "who": "can",
           "do": "cheer",
-          "look": "kazan"
+          "look": "reader"
         },
         {
           "cue": [
@@ -303,7 +286,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Çok eskiden {Akşehir’de|Akşehir} {Nasreddin Hoca} yaşarmış. Bir gün evine {misafirler|misafir} gelecekmiş. Hoca herkese {pilav} hazırlamak istemiş ama {kazanı|kazan} küçükmüş. Kazan, çok yemek pişirilen büyük bir {tencereymiş|tencere}. Hoca biraz düşünmüş. Sonra {komşusundan|komşu} büyük kazanını {ödünç} istemeye karar vermiş. Ödünç aldığı eşyayı kullanıp geri vermesi gerektiğini biliyormuş. Komşusunun {kapısını|kapı} çalmış.",
+        "tr": "Eskiden {Akşehir’de|Akşehir} {Nasreddin Hoca} yaşarmış. Bir gün {misafirlerine|misafir} {pilav} pişirmek istemiş. {Kazanı|kazan} küçükmüş. Kazan çok yemek pişirmeye yarayan büyük bir kapmış. Hoca {komşusunun|komşu} büyük kazanını {ödünç} istemiş. İşini bitirince kazanı geri vermesi gerektiğini biliyormuş.",
         "en": ""
       },
       "culture": {
@@ -423,14 +406,14 @@
         },
         {
           "cue": [
-            "tencere"
+            "kapmış"
           ],
           "who": "kazan",
           "do": "ring"
         },
         {
           "cue": [
-            "düşünmüş"
+            "hoca"
           ],
           "who": "hoca",
           "do": "nod",
@@ -438,8 +421,7 @@
         },
         {
           "cue": [
-            "komşusundan",
-            "karar"
+            "ödünç"
           ],
           "who": "pilav",
           "do": "vanish",
@@ -447,8 +429,7 @@
         },
         {
           "cue": [
-            "komşusundan",
-            "karar"
+            "ödünç"
           ],
           "who": "kazan",
           "do": "vanish",
@@ -466,7 +447,7 @@
         },
         {
           "cue": [
-            "komşusunun"
+            "biliyormuş"
           ],
           "who": "hoca",
           "do": "walkTo",
@@ -480,7 +461,7 @@
         },
         {
           "cue": [
-            "çalmış"
+            "biliyormuş"
           ],
           "who": "hoca",
           "do": "knock",
@@ -537,7 +518,7 @@
         "en": ""
       },
       "text": {
-        "tr": "{Komşusu|komşu} kapıyı açmış. “Hoş geldin Hocam!” demiş. Hoca, “Büyük {kazanını|kazan} birkaç günlüğüne {ödünç} verir misin?” diye sormuş. Komşusu kazanı getirmiş. “Güle güle kullan,” demiş. Hoca teşekkür etmiş. Kazanı dikkatle evine taşımış. {Misafirler|misafir} gelince {pilavı|pilav} birlikte yemişler. Ertesi gün Hoca kazanı temizlemiş ve komşusuna geri götürmek için hazırlamış.",
+        "tr": "{Komşusu|komşu} “Hoş geldin, Hocam!” demiş. Hoca “{Kazanını|kazan} birkaç günlüğüne {ödünç} verir misin?” diye sormuş. Komşusu kazanı getirmiş. “Güle güle kullan.” demiş. Hoca teşekkür etmiş. {Misafirlerine|misafir} {pilav} pişirmiş. Ertesi gün kazanı temizleyip komşusuna götürmek üzere hazırlamış.",
         "en": ""
       },
       "culture": {
@@ -571,9 +552,7 @@
           "id": "komsu",
           "x": 0.2,
           "z": 0.48,
-          "rotY": -40,
-          "hold": "kazan",
-          "pose": "hold"
+          "rotY": -40
         },
         {
           "id": "hoca",
@@ -603,6 +582,44 @@
           "look": "komsu",
           "focus": true,
           "len": 2.2
+        },
+        {
+          "cue": [
+            "sormuş"
+          ],
+          "who": "komsu",
+          "do": "walkTo",
+          "to": [
+            0.07,
+            0,
+            -0.14
+          ],
+          "face": 150,
+          "look": "kapi"
+        },
+        {
+          "cue": [
+            "sormuş"
+          ],
+          "who": "komsu",
+          "do": "receive",
+          "target": "kazan",
+          "look": "kapi"
+        },
+        {
+          "cue": [
+            "getirmiş"
+          ],
+          "who": "komsu",
+          "do": "walkTo",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "face": -40,
+          "look": "hoca",
+          "focus": true
         },
         {
           "cue": [
@@ -642,8 +659,7 @@
         },
         {
           "cue": [
-            "dikkatle",
-            "taşımış"
+            "teşekkür"
           ],
           "who": "hoca",
           "do": "walkTo",
@@ -653,7 +669,8 @@
             0.08
           ],
           "face": -60,
-          "look": "reader"
+          "look": "reader",
+          "wait": 1.2
         },
         {
           "cue": [
@@ -673,7 +690,7 @@
         },
         {
           "cue": [
-            "temizlemiş"
+            "temizleyip"
           ],
           "who": "hoca",
           "do": "nod",
@@ -744,7 +761,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Hoca {kazanı|kazan} geri verirken içine küçük bir {tencere} koymuş. “{Müjde|müjde} komşu, kazanınız {doğurdu|doğurmak}!” demiş. Komşu şaşırmış. Kazanın canlı olmadığını, yavrusu olamayacağını biliyormuş. Ama küçük tencere hoşuna gitmiş. Bir şey sormadan ikisini de almış. Hoca gülümsemiş. {Fıkranın|fıkra} tuhaflığı tam da buradaymış: Komşu, işine gelen bu sözü sorgulamamış.",
+        "tr": "Hoca {kazanın|kazan} içine küçük bir {tencere} koymuş. “{Müjde|müjde}, komşu! Kazanınız {doğurdu|doğurmak}!” demiş. Komşusu şaşırmış. Kazanın canlı olmadığını biliyormuş ama tencere hoşuna gitmiş. Sorgulamadan ikisini de almış. Hoca gülümsemiş. Komşusu işine gelen bu tuhaf sözü doğru kabul etmiş.",
         "en": ""
       },
       "culture": {
@@ -965,7 +982,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Bir süre sonra Hoca yeniden {kapıya|kapı} gelmiş. “{Kazanını|kazan} bir daha {ödünç} verir misin?” diye sormuş. Komşu hemen kazanı getirmiş. Aklında küçük {tencere} varmış. “Belki bu kez de bir tencere getirir,” diye düşünmüş. Kazanın nasıl {doğurabildiğini|doğurmak} yine sormamış. Hoca teşekkür edip kazanı almış. Komşu, bu kez ne olacağını beklemeye başlamış.",
+        "tr": "Hoca yeniden komşusunun {kapısını|kapı} çalmış. “{Kazanını|kazan} bir daha {ödünç} verir misin?” diye sormuş. Komşusu hemen kazanı getirmiş. “Belki yine küçük bir {tencere} verir.” diye düşünmüş. Kazanın nasıl {doğurabileceğini|doğurmak} sorgulamamış. Hoca teşekkür edip kazanı almış.",
         "en": ""
       },
       "models": [
@@ -1036,7 +1053,7 @@
         },
         {
           "cue": [
-            "tencere"
+            "belki"
           ],
           "who": "tencere",
           "do": "shine",
@@ -1045,7 +1062,7 @@
         },
         {
           "cue": [
-            "tencere"
+            "belki"
           ],
           "who": "komsu",
           "do": "lookAt",
@@ -1083,7 +1100,7 @@
         },
         {
           "cue": [
-            "beklemeye"
+            "almış"
           ],
           "who": "tencere",
           "do": "ring",
@@ -1091,7 +1108,7 @@
         },
         {
           "cue": [
-            "beklemeye"
+            "almış"
           ],
           "who": "komsu",
           "do": "nod",
@@ -1148,7 +1165,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Aradan günler geçmiş. {Komşu} kazanını almaya Hoca’nın evine gitmiş. “Hocam, kazanım nerede?” diye sormuş. Hoca, şakasını sürdürerek, “{Kazanınız|kazan} {öldü|ölmek},” demiş. Komşu bir adım geri çekilmiş. “Hiç kazan ölür mü?” diye karşı çıkmış. Can, Ahmet {Dede’yi|dede} dinlerken kaşlarını kaldırdı. Elif de meraklandı. Hoca bu soruya acaba ne cevap verecekti?",
+        "tr": "Günler geçmiş. {Komşusu|Komşu} {kazanını|kazan} almaya gitmiş. “Hocam, kazanım nerede?” diye sormuş. Hoca şakasını sürdürmüş: “Kazanınız {öldü|ölmek}.” Komşusu “Hiç kazan ölür mü?” diye karşı çıkmış. Ahmet {dedeyi|dede} dinleyen Can kaşlarını kaldırdı. Elif de Hoca’nın cevabını merak etti.",
         "en": ""
       },
       "culture": {
@@ -1274,8 +1291,7 @@
         },
         {
           "cue": [
-            "adım",
-            "geri"
+            "komşusu"
           ],
           "who": "komsu",
           "do": "walkTo",
@@ -1300,8 +1316,7 @@
         },
         {
           "cue": [
-            "acaba",
-            "cevap"
+            "cevabını"
           ],
           "who": "hoca",
           "do": "nod",
@@ -1358,7 +1373,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Hoca gülümseyip sormuş: “Doğurduğuna {inandın|inanmak} da öldüğüne neden inanmıyorsun?” {Komşu} düşünmüş. İşine gelen sözü doğru kabul ettiğini fark etmiş. Ertesi gün {pazarda|pazar} karşılaştıklarında bu tuhaf konuşmayı hatırlayıp gülmüşler. Hoca temiz {kazanı|kazan} sahibine vermiş. Küçük {tencerenin|tencere} de bir {şaka} hediyesi olduğunu söylemiş. Böylece {ödünç} kazan yine komşunun evine dönmüş.",
+        "tr": "Hoca “Doğurduğuna {inandın|inanmak} da öldüğüne neden inanmıyorsun?” diye sormuş. {Komşusu|Komşu} işine gelen sözü doğru kabul ettiğini anlamış. Ertesi gün karşılaştıklarında bu konuşmaya gülmüşler. Hoca temiz {kazanı|kazan} geri vermiş. Küçük {tencerenin|tencere} de bir {şaka} hediyesi olduğunu söylemiş.",
         "en": ""
       },
       "culture": {
@@ -1505,7 +1520,7 @@
         },
         {
           "cue": [
-            "düşünmüş"
+            "komşusu"
           ],
           "who": "komsu",
           "do": "bow",
@@ -1513,7 +1528,7 @@
         },
         {
           "cue": [
-            "fark"
+            "anlamış"
           ],
           "who": "komsu",
           "do": "nod",
@@ -1521,7 +1536,7 @@
         },
         {
           "cue": [
-            "pazarda"
+            "ertesi"
           ],
           "who": "aksehirli-teyze",
           "do": "cheer",
@@ -1529,7 +1544,7 @@
         },
         {
           "cue": [
-            "pazarda"
+            "ertesi"
           ],
           "who": "pazarci",
           "do": "cheer",
@@ -1601,21 +1616,22 @@
         },
         {
           "cue": [
-            "böylece",
-            "dönmüş"
+            "söylemiş"
           ],
           "who": "komsu",
           "do": "cheer",
-          "look": "reader"
+          "look": "reader",
+          "wait": 1.0
         },
         {
           "cue": [
-            "dönmüş"
+            "söylemiş"
           ],
           "who": "tencere",
           "do": "shine",
           "len": 0.8,
-          "optional": true
+          "optional": true,
+          "wait": 1.2
         }
       ],
       "ambience": "market",
@@ -1658,7 +1674,7 @@
         "en": ""
       },
       "text": {
-        "tr": "“Hoca’nın {şakası|şaka} komik ama {kazan} ölmez ki,” dedi Can. Ahmet {Dede|dede} başını salladı. “{Fıkra|fıkra} bize duyduğumuz sözü düşünmeyi hatırlatıyor. {Ödünç|ödünç} aldığımızı da geri vermeliyiz.” Can biraz durdu. “Abla, mavi {kalemini|boya kalemi} ben kırdım. {Özür dilerim|özür dilemek}.” Elif onu dinledi. Sonra kalemi birlikte açmayı denediler. Can doğruyu söylemiş, hatasını düzeltmek için bir adım atmıştı.",
+        "tr": "Can “{Kazan|kazan} ölmez ki!” dedi. Ahmet {dede} “{Fıkra|fıkra} duyduklarımızı sorgulamayı hatırlatıyor. {Ödünç|ödünç} aldığımızı da geri vermeliyiz.” diye açıkladı. Can ablasına döndü. “Mavi {kaleminin|boya kalemi} ucunu ben kırdım. {Özür dilerim|özür dilemek}.” Elif onu dinledi. Sonra kalemi birlikte açtılar.",
         "en": ""
       },
       "culture": {
@@ -1757,7 +1773,7 @@
         },
         {
           "cue": [
-            "şakası"
+            "can"
           ],
           "who": "can",
           "do": "talk",
@@ -1794,8 +1810,7 @@
         },
         {
           "cue": [
-            "biraz",
-            "durdu"
+            "ablasına"
           ],
           "who": "can",
           "do": "turn",
@@ -1804,7 +1819,7 @@
         },
         {
           "cue": [
-            "abla"
+            "mavi"
           ],
           "who": "can",
           "do": "talk",
@@ -1869,8 +1884,7 @@
         },
         {
           "cue": [
-            "açmayı",
-            "denediler"
+            "açtılar"
           ],
           "who": "elif",
           "do": "bow",
@@ -1878,8 +1892,7 @@
         },
         {
           "cue": [
-            "açmayı",
-            "denediler"
+            "açtılar"
           ],
           "who": "can",
           "do": "bow",
@@ -1888,21 +1901,22 @@
         },
         {
           "cue": [
-            "doğruyu"
+            "açtılar"
           ],
           "who": "dede",
           "do": "nod",
-          "look": "can"
+          "look": "can",
+          "wait": 1.5
         },
         {
           "cue": [
-            "adım",
-            "atmıştı"
+            "açtılar"
           ],
           "who": "can",
           "do": "cheer",
           "look": "reader",
-          "focus": true
+          "focus": true,
+          "wait": 2.5
         }
       ],
       "ambience": "crickets",
@@ -2340,7 +2354,7 @@
           "en": "Because he spilled the tea"
         },
         {
-          "tr": "Elif'in boya kalemini kırdığı için",
+          "tr": "Elif'in kaleminin ucunu kırdığı için",
           "en": "Because he broke Elif's crayon"
         },
         {
@@ -2388,7 +2402,7 @@
         "temizlik"
       ],
       "why": {
-        "tr": "Can, kalemi kırdığını saklamadı, doğruyu söyledi ve hatasını düzeltmeye çalıştı. Bu dürüstlüktür.",
+        "tr": "Can, kalemin ucunu kırdığını saklamadı, doğruyu söyledi ve hatasını düzeltmeye çalıştı. Bu dürüstlüktür.",
         "en": ""
       }
     }
@@ -2400,16 +2414,16 @@
     },
     "talk": [
       {
-        "tr": "Komşunun yaptığı adil miydi? Neden?",
-        "en": "Was the neighbour being fair? Why?"
+        "tr": "Komşu küçük tencereyi görünce ne düşündü?",
+        "en": ""
       },
       {
-        "tr": "Doğruyu söylemek ne zaman zor gelir? O zaman ne yaparsın?",
-        "en": "When is it hard to tell the truth? What do you do then?"
+        "tr": "Bir haber hoşumuza gidince hemen doğru saymalı mıyız? Neden?",
+        "en": ""
       },
       {
-        "tr": "Sen bu fıkrayı nasıl bitirirdin?",
-        "en": "How would you end this story?"
+        "tr": "Ödünç bir eşya istemek için bir konuşma canlandır.",
+        "en": ""
       }
     ]
   },

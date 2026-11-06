@@ -31,7 +31,7 @@ export const CHARACTERS: Record<string, CharacterDef> = {
   baba: { src: '/models/aile/baba.glb', height: 0.55, name: 'Baba' },
   babaanne: { src: '/models/aile/babaanne.glb', height: 0.49, name: 'Babaanne' },
   dede: { src: '/models/aile/dede.glb', height: 0.525, name: 'Dede' },
-  ayse: { src: '/models/aile/ayse.glb', height: 0.49, name: 'Ayşe Teyze' },
+  ayse: { src: '/models/aile/ayse.glb', height: 0.49, name: 'Ayşe teyze' },
   // Tale characters: still models without bones, played like toys (three/toy.ts, book.json → toyCast)
   // Nasreddin Hoca ve Kazan
   hoca: { src: '/models/masal/hoca.glb', height: 0.53, name: 'Nasreddin Hoca' },
@@ -41,7 +41,7 @@ export const CHARACTERS: Record<string, CharacterDef> = {
   // Keloğlan ve Üç Tohum
   keloglan: { src: '/models/masal/keloglan.glb', height: 0.45, name: 'Keloğlan' },
   'keloglan-anasi': { src: '/models/masal/keloglan-anasi.glb', height: 0.47, name: 'Keloğlan’ın anası' },
-  'hasan-amca': { src: '/models/masal/hasan-amca.glb', height: 0.49, name: 'Hasan Amca' },
+  'hasan-amca': { src: '/models/masal/hasan-amca.glb', height: 0.49, name: 'Hasan amca' },
   'koylu-cocuk': { src: '/models/masal/koylu-cocuk.glb', height: 0.34, name: 'Köylü çocuk' },
   'koylu-kadin': { src: '/models/masal/koylu-kadin.glb', height: 0.47, name: 'Köylü kadın' },
   // 23 Nisan Şenliği: Elif's teacher and classmates
@@ -71,6 +71,8 @@ export interface RootState {
   glow?: number;
   /** Toy characters: an extra turn (degrees) for a spin, snapped back to 0 afterwards. */
   spin?: number;
+  /** Toy family characters: sitting (1) on a seat, legs bent, or standing (0). */
+  sit?: number;
 }
 
 export interface State {

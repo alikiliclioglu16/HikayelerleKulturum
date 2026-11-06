@@ -1272,7 +1272,11 @@ export class BookScene {
       return;
     }
     for (const k of res.keys) if (k.root?.sq === 0.9) play('hop', k.t - now);
-    if (b.do === 'drum') for (const k of res.keys) if (k.root?.sq === 0.92) play('davul', k.t - now);
+    if (b.do === 'drum') {
+      // düm, tek, düm, tek: every beat of the act sounds, the boom and the crack in turn
+      let i = 0;
+      for (const k of res.keys) if (k.root?.sq === 0.92) play(i++ % 2 ? 'tek' : 'davul', k.t - now);
+    }
     if (['cheer', 'knock', 'angry', 'put'].includes(b.do)) play(b.do, d);
     else if (b.do === 'twirl' || b.do === 'spin') play('spin', d);
     else if (b.do === 'hopOut') play('hop', d + 0.7);
@@ -1772,6 +1776,54 @@ export class BookScene {
         this.hopProp(prop);
         return { word: prop.word, ...this.toScreen(prop.anchor) };
       }
+    }
+    return null;
+  }
+
+  /**
+   * What is under the mouse in the pop-up, for a name tag shown on hover (nothing moves, nothing sounds):
+   * a character's name, a thing's word, a named part of the picture; and where to show it.
+   */
+  hoverLabel(clientX: number, clientY: number): { word: string; x: number; y: number } | null {
+    const rect = this.renderer.domElement.getBoundingClientRect();
+    const ndc = new THREE.Vector2(((clientX - rect.left) / rect.width) * 2 - 1, -((clientY - rect.top) / rect.height) * 2 + 1);
+    this.raycaster.setFromCamera(ndc, this.camera);
+    const perf = [...this.performers.values()];
+    const hits = this.raycaster.intersectObjects(
+      [...this.layers.map((l) => l.mesh), ...this.props.map((p) => p.object), ...this.models.map((m) => m.actor.hit), ...perf.flatMap((p) => (p.heldObject ? [p.hit, p.heldObject] : [p.hit]))],
+      true,
+    );
+    const inside = (o: THREE.Object3D | null, root: THREE.Object3D) => {
+      for (; o; o = o.parent) if (o === root) return true;
+      return false;
+    };
+    for (const hit of hits) {
+      const holder = perf.find((p) => p.heldObject && inside(hit.object, p.heldObject));
+      if (holder?.heldWord) return { word: holder.heldWord, ...this.toScreen(holder.heldObject!.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0, 0.05, 0))) };
+      const who = this.pickPerformer(hit.object);
+      if (who) return { word: who.def.name, ...this.toScreen(who.headPosition().add(new THREE.Vector3(0, 0.06, 0))) };
+      const m = this.models.find((x) => x.actor.hit === hit.object);
+      if (m) {
+        if (!m.word) continue;
+        const top = m.actor.root.position.clone();
+        top.y += m.actor.hit.scale.y * m.actor.root.scale.y + 0.02;
+        return { word: m.word, ...this.toScreen(top) };
+      }
+      const layer = this.layers.find((l) => l.mesh === hit.object);
+      if (layer && hit.uv) {
+        const b = layer.built;
+        const u = hit.uv.x;
+        const v = 1 - hit.uv.y;
+        const ax = Math.min(b.aw - 1, Math.max(0, Math.floor(u * b.aw)));
+        const ay = Math.min(b.ah - 1, Math.max(0, Math.floor(v * b.ah)));
+        if (b.alpha[ay * b.aw + ax] < 100) continue;
+        const spot = b.hotspots
+          .filter((h) => u >= h.rect[0] && u <= h.rect[0] + h.rect[2] && v >= h.rect[1] && v <= h.rect[1] + h.rect[3])
+          .sort((a, c) => a.rect[2] * a.rect[3] - c.rect[2] * c.rect[3])[0];
+        return spot ? { word: spot.word, ...this.hotspotPoint(layer, spot.rect) } : null;
+      }
+      const prop = this.props.find((p) => inside(hit.object, p.object));
+      if (prop?.word) return { word: prop.word, ...this.toScreen(prop.anchor) };
     }
     return null;
   }

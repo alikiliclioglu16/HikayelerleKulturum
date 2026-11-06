@@ -70,6 +70,11 @@ export const POSES: Record<string, Pose> = {
   offerHand: { upper_arm_R: [-34, 0, 20], forearm_R: [-30, 0, 0], hand_R: [0, 0, 0] },
   bow: { spine: [18, 0, 0], chest: [12, 0, 0], head: [12, 0, 0] },
   hold: { upper_arm_L: [-40, 0, -30], upper_arm_R: [-40, 0, 30], forearm_L: [-70, 0, 0], forearm_R: [-70, 0, 0] },
+  /** Sitting on a seat: thighs forward, lower legs hanging, hands resting on the knees. */
+  sit: {
+    thigh_L: [-84, 0, -4], thigh_R: [-84, 0, 4], shin_L: [82, 0, 0], shin_R: [82, 0, 0],
+    upper_arm_L: [-22, 0, -24], upper_arm_R: [-22, 0, 24], forearm_L: [-40, 0, 0], forearm_R: [-40, 0, 0],
+  },
   hug: { upper_arm_L: [-60, 0, -10], upper_arm_R: [-60, 0, 10], forearm_L: [-30, -70, 0], forearm_R: [-30, 70, 0], spine: [8, 0, 0] },
 };
 

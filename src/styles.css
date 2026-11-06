@@ -2194,3 +2194,18 @@ button.t-card:hover .t-stage img {
     animation: none;
   }
 }
+
+/* a thing's or a character's name, shown while the mouse is over it */
+.hover-tag {
+  position: absolute;
+  z-index: 19;
+  transform: translate(-50%, calc(-100% - 8px));
+  pointer-events: none;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 0 0 2px var(--turq), 0 8px 18px -8px rgba(26, 35, 64, 0.5);
+  font: 700 17px/1.2 'Andika', system-ui, sans-serif;
+  color: #101018;
+  white-space: nowrap;
+}

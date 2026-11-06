@@ -444,15 +444,15 @@
     },
     "talk": [
       {
-        "tr": "Sence Atatürk bu bayramı neden çocuklara armağan etti?",
+        "tr": "Elif arkadaşlarına hangi Türkçe sözü öğretti?",
         "en": ""
       },
       {
-        "tr": "Sınıfında başka ülkelerden arkadaşların var mı? Onlardan hangi kelimeleri öğrendin?",
+        "tr": "Halaya herkesin aynı biçimde katılması gerekli miydi? Neden?",
         "en": ""
       },
       {
-        "tr": "Bir dilek balonun olsaydı karta ne yazardın?",
+        "tr": "Birlikte yaşamak istediğin bir dünyayı çiz veya anlat.",
         "en": ""
       }
     ]
@@ -500,7 +500,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Nisan ayıydı. {Öğretmenleri|öğretmen} Bayan Carter {sınıfa|sınıf} girdi. “Okulumuzda bir Dünya Çocukları {Şenliği|şenlik} yapacağız. İsteyen, ailesinin {kültüründen|kültür} bir şey paylaşabilir,” dedi. Elif {parmak kaldırdı|parmak kaldırmak}. “Ben {23 Nisan} Ulusal {Egemenlik|egemenlik} ve {Çocuk|çocuk} {Bayramı’nı|bayram} anlatmak istiyorum!” Arkadaşları {dünya küresinde|dünya küresi} Türkiye’yi buldu. Elif’in aklında anlatacakları, öğreteceği {Türkçe} sözler ve birlikte oynayabilecekleri bir {oyun} vardı.",
+        "tr": "Nisan ayıydı. {Öğretmenleri|öğretmen} Bayan Carter {sınıfa|sınıf} girdi. “Dünya {Çocukları|çocuk} {Şenliği|şenlik} yapacağız. İsteyen, ailesinin {kültüründen|kültür} bir şey paylaşabilir.” dedi. Elif “Ben {23 Nisan} Ulusal {Egemenlik|egemenlik} ve Çocuk {Bayramı’nı|bayram} anlatacağım!” diye seslendi. Arkadaşları {dünya küresinde|dünya küresi} Türkiye’yi buldu.",
         "en": ""
       },
       "culture": {
@@ -603,31 +603,36 @@
           "id": "elif",
           "x": -0.34,
           "z": 0.62,
-          "rotY": 30
+          "rotY": 120,
+          "look": "ogretmen"
         },
         {
           "id": "zara",
           "x": -0.17,
           "z": 0.74,
-          "rotY": 20
+          "rotY": 152,
+          "look": "ogretmen"
         },
         {
           "id": "kenji",
           "x": 0.0,
           "z": 0.8,
-          "rotY": 0
+          "rotY": 180,
+          "look": "ogretmen"
         },
         {
           "id": "amara",
           "x": 0.18,
           "z": 0.76,
-          "rotY": -20
+          "rotY": -152,
+          "look": "ogretmen"
         },
         {
           "id": "liam",
           "x": 0.36,
           "z": 0.66,
-          "rotY": -35
+          "rotY": -124,
+          "look": "ogretmen"
         }
       ],
       "beats": [
@@ -688,7 +693,7 @@
         },
         {
           "cue": [
-            "parmak"
+            "elif"
           ],
           "who": "elif",
           "do": "raise",
@@ -707,7 +712,7 @@
         },
         {
           "cue": [
-            "istiyorum"
+            "seslendi"
           ],
           "who": "ogretmen",
           "do": "nod",
@@ -715,7 +720,7 @@
         },
         {
           "cue": [
-            "istiyorum"
+            "seslendi"
           ],
           "who": "amara",
           "do": "cheer",
@@ -761,12 +766,13 @@
         },
         {
           "cue": [
-            "oyun"
+            "buldu"
           ],
           "who": "elif",
           "do": "cheer",
           "look": "reader",
-          "focus": true
+          "focus": true,
+          "wait": 1.5
         }
       ]
     },
@@ -778,7 +784,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Elif o akşam {babaannesi|babaanne} Fatma Hanım’ı görüntülü aradı. Babaanne, “Türkiye Büyük Millet {Meclisi|Meclis}, 23 Nisan 1920’de {Ankara’da|Ankara} açıldı,” dedi. Masadaki küçük Meclis {maketini|maket} gösterdi. “{Milletin|millet} temsilcileri ülkenin geleceği için bir araya geldi. {Egemenlik|egemenlik}, milletin kendi yönetiminde söz sahibi olmasıdır. {Atatürk} çocuklara çok önem verdi. Biz Türkiye’de bu günü çocuklara {armağan} edilen bir {bayram} olarak kutluyoruz.”",
+        "tr": "Elif {babaannesini|babaanne} aradı. Fatma Hanım “Türkiye Büyük {Millet|millet} {Meclisi|Meclis}, 23 Nisan 1920’de {Ankara’da|Ankara} açıldı.” dedi. “{Egemenlik|egemenlik}, milletin yönetimde söz sahibi olmasıdır. Milletin temsilcileri burada toplanır. {Atatürk} bu {bayramı|bayram} çocuklara {armağan} etti. Biz de sevinçle kutluyoruz.”",
         "en": ""
       },
       "culture": {
@@ -917,7 +923,7 @@
         },
         {
           "cue": [
-            "masadaki"
+            "açıldı"
           ],
           "who": "babaanne",
           "do": "receive",
@@ -926,7 +932,7 @@
         },
         {
           "cue": [
-            "gösterdi"
+            "dedi"
           ],
           "who": "babaanne",
           "do": "offer",
@@ -936,7 +942,7 @@
         },
         {
           "cue": [
-            "gösterdi"
+            "dedi"
           ],
           "who": "meclis",
           "do": "appear",
@@ -945,7 +951,7 @@
         },
         {
           "cue": [
-            "gösterdi"
+            "dedi"
           ],
           "who": "elif",
           "do": "lookAt",
@@ -955,7 +961,7 @@
         },
         {
           "cue": [
-            "gösterdi"
+            "dedi"
           ],
           "who": "can",
           "do": "hop",
@@ -1019,7 +1025,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Hafta sonu Elif ile Can masaya renkli {kâğıtları|kâğıt} yaydı. Büyüklerinin yardımıyla kırmızı {laleler|lale} kestiler. Kırmızı ve beyaz halkaları birleştirip bir {süs zinciri} yaptılar. Babaları Kenan Bey {balonları|balon} {pompayla|pompa} şişirdi. Can hazırladığı laleleri saydı, Elif süsleri yerleştirdi. Sonra aile büyükleri bunları yüksek yerlere astı. İki kardeş biraz geri çekilip baktı. Oda {şenlik} için yavaş yavaş hazır oluyordu.",
+        "tr": "Elif ile Can renkli {kâğıtları|kâğıt} masaya yaydı. Büyüklerinin yardımıyla kırmızı {laleler|lale} kestiler. Kâğıt halkalardan {süs zinciri} yaptılar. Babaları Kenan Bey {balonları|balon} {pompayla|pompa} şişirdi. Can laleleri saydı, Elif süsleri yerleştirdi. Yüksekteki süsleri büyükler astı. Oda {şenliğe|şenlik} hazırdı.",
         "en": ""
       },
       "culture": {
@@ -1193,7 +1199,7 @@
       "beats": [
         {
           "cue": [
-            "hafta"
+            "elif"
           ],
           "who": "elif",
           "do": "talk",
@@ -1357,8 +1363,7 @@
         },
         {
           "cue": [
-            "geri",
-            "baktı"
+            "oda"
           ],
           "who": "elif",
           "do": "lookAt",
@@ -1367,8 +1372,7 @@
         },
         {
           "cue": [
-            "geri",
-            "baktı"
+            "oda"
           ],
           "who": "can",
           "do": "lookAt",
@@ -1404,7 +1408,7 @@
         "en": ""
       },
       "text": {
-        "tr": "{Şenlik|şenlik} günü {öğretmen}, “Evinizde kullandığınız bir selamı paylaşabilirsiniz,” dedi. Zara, “Assalam-o-Alaikum!” dedi. Kenji, “Konnichiwa!” diye seslendi. Amara, “Akwaaba! Bizim evde konuşulan Twi dilinde ‘hoş geldin’ demek,” diye açıkladı. Liam, “Hello!” dedi. Elif de “{Merhaba|merhaba}!” diye karşılık verdi. Selamlar farklıydı. Arkadaşlar birbirlerini dinleyip yeni sözleri söylemeyi denedi. Sıra şimdi Elif’in sunumundaydı.",
+        "tr": "{Öğretmen|öğretmen} “Evinizde kullandığınız bir selamı paylaşın.” dedi. Zara “Assalam-o-Alaikum!” diye seslendi. Kenji “Konnichiwa!” dedi. Amara “Akwaaba! Twi dilinde ‘hoş geldin’ demek.” diye açıkladı. Liam “Hello!” dedi. Elif “{Merhaba|merhaba}!” diye karşılık verdi. Arkadaşlar birbirlerini dinledi, yeni sözleri söylemeyi denedi.",
         "en": ""
       },
       "culture": {
@@ -1513,37 +1517,42 @@
           "id": "zara",
           "x": -0.24,
           "z": 0.7,
-          "rotY": 10
+          "rotY": -148,
+          "look": "ogretmen"
         },
         {
           "id": "kenji",
           "x": -0.05,
           "z": 0.76,
-          "rotY": 0
+          "rotY": -132,
+          "look": "ogretmen"
         },
         {
           "id": "amara",
           "x": 0.14,
           "z": 0.76,
-          "rotY": -5
+          "rotY": -121,
+          "look": "ogretmen"
         },
         {
           "id": "liam",
           "x": 0.32,
           "z": 0.7,
-          "rotY": -15
+          "rotY": -110,
+          "look": "ogretmen"
         },
         {
           "id": "elif",
           "x": 0.44,
           "z": 0.56,
-          "rotY": -40
+          "rotY": -98,
+          "look": "ogretmen"
         }
       ],
       "beats": [
         {
           "cue": [
-            "şenlik"
+            "öğretmen"
           ],
           "who": "ogretmen",
           "do": "wave",
@@ -1566,7 +1575,7 @@
           ],
           "who": "zara",
           "do": "wave",
-          "look": "reader",
+          "look": "ogretmen",
           "focus": true
         },
         {
@@ -1585,7 +1594,7 @@
           ],
           "who": "kenji",
           "do": "wave",
-          "look": "reader",
+          "look": "ogretmen",
           "focus": true
         },
         {
@@ -1604,7 +1613,7 @@
           ],
           "who": "amara",
           "do": "wave",
-          "look": "reader",
+          "look": "ogretmen",
           "focus": true
         },
         {
@@ -1633,7 +1642,7 @@
           ],
           "who": "liam",
           "do": "wave",
-          "look": "reader",
+          "look": "ogretmen",
           "focus": true
         },
         {
@@ -1667,7 +1676,7 @@
         },
         {
           "cue": [
-            "selamlar"
+            "karşılık"
           ],
           "who": "bub_zara",
           "do": "rise",
@@ -1679,7 +1688,7 @@
         },
         {
           "cue": [
-            "selamlar"
+            "karşılık"
           ],
           "who": "bub_kenji",
           "do": "rise",
@@ -1692,7 +1701,7 @@
         },
         {
           "cue": [
-            "selamlar"
+            "karşılık"
           ],
           "who": "bub_amara",
           "do": "rise",
@@ -1705,7 +1714,7 @@
         },
         {
           "cue": [
-            "selamlar"
+            "karşılık"
           ],
           "who": "bub_liam",
           "do": "rise",
@@ -1718,20 +1727,20 @@
         },
         {
           "cue": [
-            "selamlar"
+            "karşılık"
           ],
           "who": "bub_elif",
           "do": "rise",
           "to": [
-            -0.2,
-            0.24,
-            -0.3
+            -0.04,
+            0.08,
+            -0.21
           ],
           "wait": 0.72
         },
         {
           "cue": [
-            "dinleyip"
+            "dinledi"
           ],
           "who": "zara",
           "do": "talk",
@@ -1740,7 +1749,7 @@
         },
         {
           "cue": [
-            "dinleyip"
+            "dinledi"
           ],
           "who": "kenji",
           "do": "talk",
@@ -1758,16 +1767,17 @@
         },
         {
           "cue": [
-            "sıra"
+            "denedi"
           ],
           "who": "elif",
           "do": "hop",
           "look": "reader",
-          "focus": true
+          "focus": true,
+          "wait": 1.0
         },
         {
           "cue": [
-            "sunumundaydı"
+            "denedi"
           ],
           "who": "elif",
           "do": "walkTo",
@@ -1777,50 +1787,52 @@
             -0.16
           ],
           "face": -10,
-          "look": "reader"
+          "look": "reader",
+          "wait": 1.5
         },
         {
           "cue": [
-            "sunumundaydı"
+            "denedi"
           ],
           "who": "bub_zara",
           "do": "vanish",
-          "sound": null
+          "sound": null,
+          "wait": 1.5
         },
         {
           "cue": [
-            "sunumundaydı"
+            "denedi"
           ],
           "who": "bub_kenji",
           "do": "vanish",
-          "wait": 0.2,
+          "wait": 1.7,
           "sound": null
         },
         {
           "cue": [
-            "sunumundaydı"
+            "denedi"
           ],
           "who": "bub_amara",
           "do": "vanish",
-          "wait": 0.4,
+          "wait": 1.9,
           "sound": null
         },
         {
           "cue": [
-            "sunumundaydı"
+            "denedi"
           ],
           "who": "bub_liam",
           "do": "vanish",
-          "wait": 0.6,
+          "wait": 2.1,
           "sound": null
         },
         {
           "cue": [
-            "sunumundaydı"
+            "denedi"
           ],
           "who": "bub_elif",
           "do": "vanish",
-          "wait": 0.8,
+          "wait": 2.3,
           "sound": null
         }
       ],
@@ -1834,7 +1846,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Elif alçak {sahneye|sahne} çıktı. “{Merhaba|merhaba}! Benim adım Elif,” dedi. Bir an heyecanlanınca derin bir nefes aldı. “{23 Nisan’ı|23 Nisan} sizinle paylaşmak istiyorum. Bugün size bir {Türkçe} kelime öğreteceğim: {arkadaşlık}.” Salondakiler kelimeyi birlikte söyledi. Elif, {Atatürk’ün|Atatürk} çocuklara verdiği değeri anlattı. Sonra {arkadaşlarını|arkadaş} yanına çağırdı. {Türk bayrağının|Türk bayrağı} yanında durup herkesin öğrenme, oynama ve düşüncelerini anlatma {hakkından|hak} konuştular.",
+        "tr": "Elif {sahneye|sahne} çıktı. “{Merhaba|merhaba}! Ben Elif.” dedi. Heyecanlanınca derin bir nefes aldı. “Size bir {Türkçe} kelime öğreteceğim: {arkadaşlık}.” Herkes kelimeyi tekrarladı. Elif, {Atatürk’ün|Atatürk} çocuklara verdiği değeri anlattı. {Türk bayrağının|Türk bayrağı} yanında öğrenme, oynama ve düşüncelerini anlatma {haklarından|hak} söz etti.",
         "en": ""
       },
       "culture": {
@@ -1912,25 +1924,29 @@
           "id": "zara",
           "x": -0.42,
           "z": 0.72,
-          "rotY": 55
+          "rotY": 130,
+          "look": "elif"
         },
         {
           "id": "kenji",
           "x": -0.3,
           "z": 0.86,
-          "rotY": 35
+          "rotY": 151,
+          "look": "elif"
         },
         {
           "id": "amara",
           "x": 0.3,
           "z": 0.84,
-          "rotY": -35
+          "rotY": -139,
+          "look": "elif"
         },
         {
           "id": "liam",
           "x": 0.42,
           "z": 0.7,
-          "rotY": -55
+          "rotY": -120,
+          "look": "elif"
         }
       ],
       "beats": [
@@ -1962,7 +1978,7 @@
         },
         {
           "cue": [
-            "23"
+            "size"
           ],
           "who": "elif",
           "do": "talk",
@@ -1980,7 +1996,7 @@
         },
         {
           "cue": [
-            "salondakiler"
+            "herkes"
           ],
           "who": "bub_ark",
           "do": "appear",
@@ -1990,7 +2006,7 @@
         },
         {
           "cue": [
-            "salondakiler"
+            "herkes"
           ],
           "who": "zara",
           "do": "cheer",
@@ -1998,7 +2014,7 @@
         },
         {
           "cue": [
-            "salondakiler"
+            "herkes"
           ],
           "who": "kenji",
           "do": "cheer",
@@ -2007,7 +2023,7 @@
         },
         {
           "cue": [
-            "salondakiler"
+            "herkes"
           ],
           "who": "amara",
           "do": "cheer",
@@ -2016,7 +2032,7 @@
         },
         {
           "cue": [
-            "salondakiler"
+            "herkes"
           ],
           "who": "liam",
           "do": "cheer",
@@ -2044,7 +2060,7 @@
         },
         {
           "cue": [
-            "arkadaşlarını"
+            "anlattı"
           ],
           "who": "elif",
           "do": "wave",
@@ -2052,7 +2068,7 @@
         },
         {
           "cue": [
-            "arkadaşlarını"
+            "anlattı"
           ],
           "who": "zara",
           "do": "walkTo",
@@ -2067,7 +2083,7 @@
         },
         {
           "cue": [
-            "arkadaşlarını"
+            "anlattı"
           ],
           "who": "kenji",
           "do": "walkTo",
@@ -2082,7 +2098,7 @@
         },
         {
           "cue": [
-            "arkadaşlarını"
+            "anlattı"
           ],
           "who": "amara",
           "do": "walkTo",
@@ -2097,7 +2113,7 @@
         },
         {
           "cue": [
-            "arkadaşlarını"
+            "anlattı"
           ],
           "who": "liam",
           "do": "walkTo",
@@ -2122,7 +2138,7 @@
         },
         {
           "cue": [
-            "hakkından"
+            "haklarından"
           ],
           "who": "elif",
           "do": "talk",
@@ -2131,7 +2147,7 @@
         },
         {
           "cue": [
-            "hakkından"
+            "haklarından"
           ],
           "who": "zara",
           "do": "nod",
@@ -2140,7 +2156,7 @@
         },
         {
           "cue": [
-            "hakkından"
+            "haklarından"
           ],
           "who": "liam",
           "do": "nod",
@@ -2158,7 +2174,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Bahçede baba {davulu|davul} çaldı: düm, tek, düm, tek! Elif arkadaşlarına basit {halay} adımlarını gösterdi. Önce yan yana durdular. İsteyenler {el ele} tutuştu, isteyenler yanında ritim tuttu. Kenji bir adımı karıştırınca birlikte yeniden denediler. Öğretmenler ve veliler de katıldı. Herkes aynı hızda oynayamıyordu. Birbirlerini bekleyince halkadaki adımlar giderek uyum sağladı.",
+        "tr": "Babaları {davulla|davul} ritim tuttu: düm, tek, düm, tek! Elif basit {halay} adımlarını gösterdi. İsteyenler {el ele} tutuştu, isteyenler yanlarında ritim tuttu. Kenji bir adımı karıştırınca yeniden denediler. Öğretmenler ve veliler katıldı. Birbirlerini bekledikçe adımları uyum kazandı.",
         "en": ""
       },
       "culture": {
@@ -2254,7 +2270,7 @@
       "beats": [
         {
           "cue": [
-            "bahçede"
+            "babaları"
           ],
           "who": "elif",
           "do": "cheer",
@@ -2262,7 +2278,7 @@
         },
         {
           "cue": [
-            "davulu"
+            "davulla"
           ],
           "who": "baba",
           "do": "drum",
@@ -2281,14 +2297,12 @@
         },
         {
           "cue": [
-            "yan",
-            "durdular"
+            "isteyenler"
           ],
           "who": "zara",
           "do": "turn",
           "face": 0,
-          "look": "reader",
-          "optional": true
+          "look": "reader"
         },
         {
           "cue": [
@@ -2408,7 +2422,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Çocuklar küçük {kartlara|dilek kartı} {dileklerini|dilek} yazdı ya da çizdi. {Balonların|balon} iplerini tutup kartlarını gösterdiler. Can’ın ipi elinden kayacak gibi olunca Liam yardım etti. “Birlikte tutalım,” dedi. Balonları doğaya bırakmadılar; kartlarıyla birlikte şenliğin {dilek köşesine|dilek köşesi} bağladılar. Rüzgâr balonları hafifçe salladı. Can kendi kartını gösterdi: herkesin oyun oynayabileceği kocaman bir {bahçe} çizmişti.",
+        "tr": "Çocuklar kartlara {dileklerini|dilek} yazdı ya da çizdi. {Balonların|balon} iplerini tuttular. Can’ın ipi kayınca Liam yardım etti. “Birlikte tutalım.” dedi. Balonları doğaya bırakmadan {dilek köşesine|dilek köşesi} bağladılar. Rüzgârda sallanan balonların altında Can’ın kartı duruyordu: herkesin oynayabileceği kocaman bir {bahçe}!",
         "en": ""
       },
       "layers": [
@@ -2520,7 +2534,8 @@
           "id": "zara",
           "x": -0.17,
           "z": 0.7,
-          "rotY": 0
+          "rotY": 0,
+          "hold": "kart"
         },
         {
           "id": "can",
@@ -2533,13 +2548,15 @@
           "id": "liam",
           "x": 0.17,
           "z": 0.7,
-          "rotY": 0
+          "rotY": 0,
+          "hold": "kart"
         },
         {
           "id": "amara",
           "x": 0.34,
           "z": 0.7,
-          "rotY": 0
+          "rotY": 0,
+          "hold": "kart"
         }
       ],
       "beats": [
@@ -2609,26 +2626,36 @@
         },
         {
           "cue": [
-            "gösterdiler"
+            "tuttular"
+          ],
+          "who": "liam",
+          "do": "offer",
+          "look": "reader",
+          "len": 2.2,
+          "wait": 0.1
+        },
+        {
+          "cue": [
+            "tuttular"
           ],
           "who": "zara",
           "do": "offer",
           "look": "reader",
-          "len": 1.6
+          "len": 2.2
         },
         {
           "cue": [
-            "gösterdiler"
+            "tuttular"
           ],
           "who": "amara",
           "do": "offer",
           "look": "reader",
-          "len": 1.6,
+          "len": 2.2,
           "wait": 0.2
         },
         {
           "cue": [
-            "kayacak"
+            "kayınca"
           ],
           "who": "b_can",
           "do": "rise",
@@ -2641,7 +2668,7 @@
         },
         {
           "cue": [
-            "kayacak"
+            "kayınca"
           ],
           "who": "can",
           "do": "raise",
@@ -2824,7 +2851,7 @@
         },
         {
           "cue": [
-            "kartını"
+            "kartı"
           ],
           "who": "can",
           "do": "offer",
@@ -2865,7 +2892,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Akşam Elif bir {resim} çizdi. Resimde kendisi ve arkadaşları dünyanın çevresinde {el eleydi|el ele}. {Babaanneye|babaanne} gösterirken herkesin adını söyledi. Anne ile baba da şenliği dinledi. Can, “Liam bana yardım etti,” diye anlattı. Elif resmi {duvara|duvar} astı. Sonra gelecek yıl için bir fikir yazdı: herkes kendi sevdiği {oyunu|oyun} tanıtsın! {Bayramdan|bayram} geriye yeni sözler ve güzel hatıralar kalmıştı.",
+        "tr": "Akşam Elif arkadaşlarıyla dünyanın çevresinde {el ele} durdukları bir {resim} çizdi. {Babaannesine|babaanne} gösterip arkadaşlarının adlarını söyledi. Can, Liam’ın yardımını anlattı. Elif resmi astı. Gelecek yıl herkesin sevdiği {oyunu|oyun} tanıtmasını önerdi. {Bayramdan|bayram} yeni sözler ve güzel hatıralar kalmıştı.",
         "en": ""
       },
       "culture": {
@@ -2991,7 +3018,7 @@
         },
         {
           "cue": [
-            "el"
+            "çizdi"
           ],
           "who": "anne",
           "do": "nod",
@@ -2999,7 +3026,7 @@
         },
         {
           "cue": [
-            "babaanneye"
+            "babaannesine"
           ],
           "who": "elif",
           "do": "offer",
@@ -3008,7 +3035,7 @@
         },
         {
           "cue": [
-            "gösterirken"
+            "gösterip"
           ],
           "who": "babaanne",
           "do": "talk",
@@ -3017,7 +3044,7 @@
         },
         {
           "cue": [
-            "dinledi"
+            "söyledi"
           ],
           "who": "anne",
           "do": "nod",
@@ -3025,7 +3052,7 @@
         },
         {
           "cue": [
-            "dinledi"
+            "söyledi"
           ],
           "who": "baba",
           "do": "nod",
@@ -3034,7 +3061,7 @@
         },
         {
           "cue": [
-            "liam"
+            "can"
           ],
           "who": "can",
           "do": "talk",
@@ -3044,7 +3071,7 @@
         },
         {
           "cue": [
-            "duvara"
+            "astı"
           ],
           "who": "elif",
           "do": "walkTo",
@@ -3058,7 +3085,7 @@
         },
         {
           "cue": [
-            "duvara"
+            "astı"
           ],
           "who": "elif",
           "do": "give",
@@ -3067,7 +3094,7 @@
         },
         {
           "cue": [
-            "duvara"
+            "astı"
           ],
           "who": "resimDuvar",
           "do": "appear",
@@ -3077,7 +3104,7 @@
         },
         {
           "cue": [
-            "fikir"
+            "gelecek"
           ],
           "who": "elif",
           "do": "walkTo",
@@ -3091,7 +3118,7 @@
         },
         {
           "cue": [
-            "tanıtsın"
+            "önerdi"
           ],
           "who": "elif",
           "do": "talk",
