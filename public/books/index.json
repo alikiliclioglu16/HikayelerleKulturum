@@ -384,27 +384,30 @@
     },
     {
       "id": "ebru",
-      "status": "soon",
-      "title": "Ebru'nun Renkleri",
+      "status": "ready",
+      "title": "Ebrunun Renkleri",
       "titleEn": "The Colors of Ebru",
       "values": [
         "estetik",
         "sabir"
       ],
       "blurb": {
-        "tr": "Dede, İzmir'deki atölyesinde Elif ile Can'a suyun üstüne resim yapmayı öğretiyor: sabırla damlatılan boyalardan ebru laleleri açıyor.",
+        "tr": "Elif ile Can, İzmir'de Ahmet dedenin atölyesinde suyun üstüne resim yapmayı öğreniyor: kitreli su, fırçadan serpilen boyalar ve biz ile çizilen bir lale.",
         "en": ""
       },
       "cover": {
         "art": "cover-soon",
-        "color": "#1FA4A0",
-        "motif": "ebru"
+        "color": "#1F7FA8",
+        "motif": "ebru",
+        "src": "kapak.webp",
+        "titled": false
       },
       "carpet": {
         "motif": "su-yolu",
         "field": "#2E5C7A",
         "src": "/halilar/ebru.webp"
-      }
+      },
+      "pages": 8
     },
     {
       "id": "mahalle-firini",

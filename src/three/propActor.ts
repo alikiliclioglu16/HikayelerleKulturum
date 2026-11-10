@@ -210,7 +210,7 @@ export class PropActor {
     const r = s.root;
     const show = Math.max(0, Math.min(1.5, r.show ?? 1));
     this.group.position.set(r.x, r.y, r.z);
-    this.group.rotation.set(0, THREE.MathUtils.degToRad(r.rotY), THREE.MathUtils.degToRad(r.tilt ?? 0));
+    this.group.rotation.set(THREE.MathUtils.degToRad(r.lean ?? 0), THREE.MathUtils.degToRad(r.rotY), THREE.MathUtils.degToRad(r.tilt ?? 0));
     this.group.scale.setScalar(Math.max(0.001, show));
     this.group.visible = show > 0.01;
     const shown = show > 0.5;

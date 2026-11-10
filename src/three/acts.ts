@@ -485,6 +485,50 @@ export const THING_ACTS: Record<string, Act> = {
   spin: (s, _b, t) => ({ keys: [key(t, 1.2, { root: { rotY: s.root.rotY + 360, glow: 1 }, burst: 0.6 }), key(t + 1.2, 0.8, { root: { glow: s.root.glow ?? 0.45 } })], dur: 1.2 }),
 };
 
+/**
+ * A tool coming forward for a moment while the story talks about it: up and towards the reader by `to`
+ * (default a little), leaning, then back to its place. `len` is how long it stays forward.
+ */
+function toolMove(s: State, b: Beat, t: number, during: (t0: number, len: number) => Key[]): ActResult {
+  const r = s.root;
+  const to = b.to ?? [0, 0.05, 0.04];
+  const len = b.len ?? 1.4;
+  const out = { x: r.x + to[0], y: r.y + to[1], z: r.z + to[2] };
+  return {
+    keys: [
+      key(t, 0.45, { root: { ...out, show: 1.12, lean: b.face ?? -14, glow: 1.1 }, burst: 0.3 }),
+      ...during(t + 0.45, len).map((k) => ({ ...k, minor: true })),
+      key(t + 0.45 + len, 0.55, { root: { x: r.x, y: r.y, z: r.z, show: r.show ?? 1, lean: r.lean ?? 0, tilt: r.tilt ?? 0, glow: r.glow ?? 0.45 } }),
+    ],
+    dur: 1 + len,
+  };
+}
+
+Object.assign(THING_ACTS, {
+  /** Comes forward for a moment and goes back (a tool the story is talking about). */
+  lift: (s: State, b: Beat, t: number) => toolMove(s, b, t, () => []),
+  /** Comes forward and is flicked hard from side to side (a brush shaken over the water), then goes back. */
+  flick: (s: State, b: Beat, t: number) =>
+    toolMove(s, b, t, (t0, len) => {
+      const n = Math.max(2, Math.round(len / 0.16));
+      const ks: Key[] = [];
+      for (let i = 0; i < n; i++) ks.push(key(t0 + i * 0.16, 0.16, { root: { tilt: i % 2 ? -16 : 16 } }));
+      ks.push(key(t0 + n * 0.16, 0.2, { root: { tilt: 0 } }));
+      return ks;
+    }),
+  /** Comes forward and draws in the water with little strokes from side to side (the biz), then goes back. */
+  draw: (s: State, b: Beat, t: number) =>
+    toolMove(s, b, t, (t0, len) => {
+      const to = b.to ?? [0, 0.05, 0.04];
+      const x = s.root.x + to[0];
+      const z = s.root.z + to[2];
+      const n = Math.max(2, Math.round(len / 0.35));
+      const ks: Key[] = [];
+      for (let i = 0; i < n; i++) ks.push(key(t0 + i * 0.35, 0.35, { root: { x: x + (i % 2 ? -0.018 : 0.018), z: z + (i % 3 === 1 ? -0.012 : 0.006) } }));
+      return ks;
+    }),
+});
+
 export function runAct(s: State, b: Beat, t: number): ActResult {
   const a = ACTS[b.do] ?? THING_ACTS[b.do];
   if (!a) {

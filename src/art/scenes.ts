@@ -610,6 +610,27 @@ function titleText(p: Pen, title: string, cx: number, y: number, maxW: number, s
   return lines.length;
 }
 
+/**
+ * A cover from a painting without a title (`cover.titled: false` in index.json): the painting inside the tile
+ * border of the drawn covers, and the book's title written over its calm top.
+ */
+export function drawArtCover(img: CanvasImageSource & { width: number; height: number }, title: string, color: string, px = 700): HTMLCanvasElement {
+  const p = new Pen(px, 1.36);
+  const inner = tileBorder(p, color);
+  // fill the frame, cropping the painting evenly (it is a little taller than the frame)
+  const k = Math.max(inner.w / img.width, inner.h / img.height);
+  const sw = inner.w / k;
+  const sh = inner.h / k;
+  p.save();
+  p.c.beginPath();
+  p.c.rect(inner.x, inner.y, inner.w, inner.h);
+  p.c.clip();
+  p.c.drawImage(img, (img.width - sw) / 2, (img.height - sh) / 2, sw, sh, inner.x, inner.y, inner.w, inner.h);
+  p.restore();
+  titleText(p, title, p.W / 2, inner.y + 140, inner.w - 30, 128);
+  return p.canvas;
+}
+
 export function drawCover(art: string, title: string, opts: { color?: string; motif?: string } = {}, px = 700): HTMLCanvasElement {
   const p = new Pen(px, 1.36);
   if (art === 'cover-bayram') {

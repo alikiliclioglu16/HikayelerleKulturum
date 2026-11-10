@@ -1,6 +1,6 @@
 import type { CultureDef } from './home3d/homeScene';
 import type { Book, BookListing } from './types';
-import { drawCover } from './art/scenes';
+import { drawArtCover, drawCover } from './art/scenes';
 
 const books = new Map<string, Promise<Book>>();
 let listing: Promise<BookListing[]> | null = null;
@@ -62,10 +62,13 @@ export async function coverCanvas(b: BookListing, px = 700): Promise<HTMLCanvasE
     const img = new Image();
     img.src = `/books/${b.id}/${b.cover.src}`;
     await img.decode();
-    c = document.createElement('canvas');
-    c.width = px;
-    c.height = Math.round(px * 1.36);
-    c.getContext('2d')!.drawImage(img, 0, 0, c.width, c.height);
+    if (b.cover.titled === false) c = drawArtCover(img, b.title, b.cover.color ?? '#1FA4A0', px);
+    else {
+      c = document.createElement('canvas');
+      c.width = px;
+      c.height = Math.round(px * 1.36);
+      c.getContext('2d')!.drawImage(img, 0, 0, c.width, c.height);
+    }
   } else {
     c = drawCover(b.cover.art, b.title, { color: b.cover.color, motif: b.cover.motif }, px);
   }

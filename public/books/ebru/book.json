@@ -1,0 +1,3162 @@
+{
+  "id": "ebru",
+  "title": "Ebrunun Renkleri",
+  "titleEn": "The Colors of Ebru",
+  "culture": {
+    "tr": "Türk ebru sanatı, kitre, tekne, çiçek desenleri ve usta ile birlikte öğrenme",
+    "en": "Turkish ebru (paper marbling)"
+  },
+  "summary": {
+    "tr": "Elif ile Can, İzmir'de Ahmet dedenin atölyesinde ebru yapmayı öğrenir: kitreyle koyulaştırılmış su, fırçadan serpilen boyalar, biz ile çizilen lale ve karanfil. İlk denemede boyalar karışsa da sabırla yeniden denerler. Kuruyan ebrular önce ipe, sonra Can'ın Amerika'daki sınıfının panosuna asılır.",
+    "en": ""
+  },
+  "values": [
+    "estetik",
+    "sabir"
+  ],
+  "music": {
+    "src": "/books/ebru/muzik.mp3",
+    "loop": 45.36,
+    "gain": 0.93
+  },
+  "toyCast": true,
+  "glossary": {
+    "İzmir": {
+      "en": "İzmir, a city on the Aegean coast of Türkiye",
+      "icon": "🏙️"
+    },
+    "atölye": {
+      "en": "workshop, studio",
+      "icon": "🎨"
+    },
+    "raf": {
+      "en": "shelf",
+      "icon": "🗄️"
+    },
+    "boya": {
+      "en": "paint",
+      "icon": "🎨"
+    },
+    "fırça": {
+      "en": "brush",
+      "icon": "🖌️"
+    },
+    "kâğıt": {
+      "en": "paper",
+      "icon": "📄"
+    },
+    "dede": {
+      "en": "grandpa",
+      "icon": "👴"
+    },
+    "önlük": {
+      "en": "apron",
+      "icon": "🥼"
+    },
+    "ebru": {
+      "en": "ebru, the Turkish art of paper marbling",
+      "icon": "🌊"
+    },
+    "desen": {
+      "en": "pattern",
+      "icon": "🌀"
+    },
+    "tekne": {
+      "en": "the wide, shallow ebru tray",
+      "icon": "🟫"
+    },
+    "resim": {
+      "en": "picture",
+      "icon": "🖼️"
+    },
+    "kitre": {
+      "en": "gum tragacanth, used to thicken ebru water",
+      "icon": "🌿"
+    },
+    "damla": {
+      "en": "drop",
+      "icon": "💧"
+    },
+    "renk": {
+      "en": "colour",
+      "icon": "🌈"
+    },
+    "deneme": {
+      "en": "try, attempt",
+      "icon": "🔁"
+    },
+    "halka": {
+      "en": "ring",
+      "icon": "⭕"
+    },
+    "biz": {
+      "en": "awl, the thin pointed tool of ebru",
+      "icon": "📍"
+    },
+    "lale": {
+      "en": "tulip",
+      "icon": "🌷"
+    },
+    "karanfil": {
+      "en": "carnation",
+      "icon": "🌸"
+    },
+    "yaprak": {
+      "en": "leaf, petal",
+      "icon": "🍃"
+    },
+    "çiçek": {
+      "en": "flower",
+      "icon": "🌼"
+    },
+    "sihir": {
+      "en": "magic",
+      "icon": "✨"
+    },
+    "malzeme": {
+      "en": "material",
+      "icon": "🧰"
+    },
+    "ıslak": {
+      "en": "wet",
+      "icon": "💦"
+    },
+    "babaanne": {
+      "en": "grandma (dad's mother)",
+      "icon": "👵"
+    },
+    "kıvrım": {
+      "en": "curve, swirl",
+      "icon": "〰️"
+    },
+    "Amerika": {
+      "en": "America",
+      "icon": "🇺🇸"
+    },
+    "okul": {
+      "en": "school",
+      "icon": "🏫"
+    },
+    "öğretmen": {
+      "en": "teacher",
+      "icon": "👩‍🏫"
+    },
+    "pano": {
+      "en": "bulletin board",
+      "icon": "📌"
+    },
+    "kültür": {
+      "en": "culture",
+      "icon": "🌍"
+    },
+    "arkadaş": {
+      "en": "friend",
+      "icon": "🧒"
+    },
+    "masa": {
+      "en": "table",
+      "icon": "🪑"
+    },
+    "dolap": {
+      "en": "cupboard",
+      "icon": "🚪"
+    },
+    "çini": {
+      "en": "glazed tile, a painted plate",
+      "icon": "🍽️"
+    },
+    "ip": {
+      "en": "string, line",
+      "icon": "🧵"
+    },
+    "kapı": {
+      "en": "door",
+      "icon": "🚪"
+    },
+    "sedir": {
+      "en": "low cushioned bench",
+      "icon": "🛋️"
+    },
+    "harita": {
+      "en": "map",
+      "icon": "🗺️"
+    },
+    "pencere": {
+      "en": "window",
+      "icon": "🪟"
+    }
+  },
+  "quiz": [
+    {
+      "q": {
+        "tr": "Ebru suyu hangi maddeyle koyulaştırılır?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Kitre",
+          "en": "Gum tragacanth"
+        },
+        {
+          "tr": "Şeker",
+          "en": "Sugar"
+        },
+        {
+          "tr": "Un",
+          "en": "Flour"
+        }
+      ],
+      "answer": 0,
+      "page": "p2"
+    },
+    {
+      "q": {
+        "tr": "Can'ın ilk denemesinde neden büyük damlalar karıştı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Su çok soğuktu",
+          "en": ""
+        },
+        {
+          "tr": "Fırçayı hızla salladı ve çok boya kullandı",
+          "en": ""
+        },
+        {
+          "tr": "Kâğıt ıslaktı",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "page": "p3"
+    },
+    {
+      "q": {
+        "tr": "İkinci denemede suda hangi renk halkalar açıldı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Kırmızı ve yeşil",
+          "en": ""
+        },
+        {
+          "tr": "Mor ve turuncu",
+          "en": ""
+        },
+        {
+          "tr": "Mavi ve sarı",
+          "en": ""
+        }
+      ],
+      "answer": 2,
+      "page": "p4"
+    },
+    {
+      "q": {
+        "tr": "Ahmet dede suyun üstüne laleyi hangi araçla çizdi?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Biz",
+          "en": "An awl (biz)"
+        },
+        {
+          "tr": "Makas",
+          "en": "Scissors"
+        },
+        {
+          "tr": "Kalem",
+          "en": "A pencil"
+        }
+      ],
+      "answer": 0,
+      "page": "p5"
+    },
+    {
+      "q": {
+        "tr": "Ebrular kurusun diye nereye asıldı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Pencereye",
+          "en": ""
+        },
+        {
+          "tr": "İpe",
+          "en": ""
+        },
+        {
+          "tr": "Kapıya",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "page": "p7"
+    }
+  ],
+  "valueHunt": [
+    {
+      "page": "p4",
+      "answer": "sabir",
+      "options": [
+        "sabir",
+        "tasarruf",
+        "temizlik"
+      ],
+      "why": {
+        "tr": "Can ilk denemede olmayınca vazgeçmedi. Boya miktarını ayarladı, acele etmeden yeniden denedi. Sabır budur.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p5",
+      "answer": "estetik",
+      "options": [
+        "adalet",
+        "estetik",
+        "sorumluluk"
+      ],
+      "why": {
+        "tr": "Elif'in karanfilinin yaprakları birbirinin aynı değildi. Küçük farklılıklar çiçeği güzelleştirdi. Güzeli görmek ve yapmak estetiktir.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p6",
+      "answer": "sabir",
+      "options": [
+        "sabir",
+        "ozgurluk",
+        "dostluk"
+      ],
+      "why": {
+        "tr": "Elif ıslak kâğıda dokunmadan kurumasını bekledi. Beklemeyi bilmek sabırdır.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p8",
+      "answer": "estetik",
+      "options": [
+        "vatanseverlik",
+        "temizlik",
+        "estetik"
+      ],
+      "why": {
+        "tr": "Can ebruları panoda özenle sergiledi ve arkadaşlarına bu sanatın güzelliğini anlattı.",
+        "en": ""
+      }
+    }
+  ],
+  "family": {
+    "task": {
+      "tr": "Bir kabın içine su koyun ve damlalar halinde birkaç renk boya bırakın. Bir kürdanla desen çizip üzerine bir kâğıt bırakın, sonra kaldırın. Çıkan deseni birlikte kurutup asın.",
+      "en": ""
+    },
+    "talk": [
+      {
+        "tr": "Can ikinci denemesinde neyi değiştirdi?",
+        "en": ""
+      },
+      {
+        "tr": "İki ebrunun farklı olması neden güzel olabilir?",
+        "en": ""
+      },
+      {
+        "tr": "Bir sanat çalışmasını yaparken izlediğin sırayı anlat.",
+        "en": ""
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "p1",
+      "title": {
+        "tr": "Dedemin atölyesi",
+        "en": ""
+      },
+      "text": {
+        "tr": "Elif ile Can {İzmir’de|İzmir} Ahmet dedenin {atölyesine|atölye} girdi. {Raflarda|raf} {boyalar|boya}, {fırçalar|fırça} ve {kâğıtlar|kâğıt} vardı. {Dedeleri|dede} {önlüklerini|önlük} hazırlamıştı. “{Ebru|ebru} su yüzeyinde oluşturulan {deseni|desen} kâğıda aktarma sanatıdır.” dedi. Can {tekne} denen geniş kaba baktı. “{Resim|resim} suyun üstünde mi olacak?” diye sordu.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Ebru, Türk sanatlarından biridir. Kitreyle koyulaştırılmış suyun üstüne boyalar serpilir, oluşan desen kâğıda aktarılır. Türk ebru sanatı 2014'te UNESCO İnsanlığın Somut Olmayan Kültürel Mirası listesine alındı.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p1-arka.webp",
+          "floor": "art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "raf",
+              "rect": [
+                0.0,
+                0.26,
+                0.29,
+                0.24
+              ]
+            },
+            {
+              "word": "dolap",
+              "rect": [
+                0.0,
+                0.55,
+                0.27,
+                0.25
+              ]
+            },
+            {
+              "word": "lale",
+              "rect": [
+                0.3,
+                0.23,
+                0.15,
+                0.27
+              ]
+            },
+            {
+              "word": "karanfil",
+              "rect": [
+                0.46,
+                0.23,
+                0.14,
+                0.27
+              ]
+            },
+            {
+              "word": "çini",
+              "rect": [
+                0.61,
+                0.27,
+                0.09,
+                0.11
+              ]
+            },
+            {
+              "word": "İzmir",
+              "rect": [
+                0.7,
+                0.11,
+                0.29,
+                0.55
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "src": "/models/kenney/table.glb",
+          "x": 0.0,
+          "z": 0.52,
+          "h": 0.17,
+          "w": 0.44,
+          "word": "masa",
+          "tint": "#A8693A",
+          "top": 1
+        },
+        {
+          "src": "/models/ebru/ebru-teknesi.glb",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.17,
+          "h": 0.04,
+          "w": 0.2,
+          "word": "tekne",
+          "id": "tekne"
+        },
+        {
+          "proc": "sheet",
+          "decal": "/books/ebru/desen/su.webp",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.186,
+          "h": 0.01,
+          "w": 0.172,
+          "d": 0.14,
+          "word": "kitre"
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.155,
+          "z": 0.455,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "id": "boya_mavi"
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.185,
+          "z": 0.53,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "tint": "#C8322B",
+          "id": "boya_kirmizi"
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.16,
+          "z": 0.6,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "tint": "#E9B43A",
+          "id": "boya_sari"
+        },
+        {
+          "src": "/models/ebru/at-kili-firca.glb",
+          "x": -0.16,
+          "z": 0.585,
+          "y": 0.17,
+          "h": 0.085,
+          "pitch": 90,
+          "rotY": 75,
+          "word": "fırça",
+          "id": "firca"
+        },
+        {
+          "src": "/models/ebru/ebru-bizi.glb",
+          "x": -0.13,
+          "z": 0.6,
+          "y": 0.17,
+          "h": 0.07,
+          "pitch": 90,
+          "rotY": -80,
+          "word": "biz",
+          "id": "biz"
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": -0.155,
+          "z": 0.47,
+          "y": 0.17,
+          "h": 1,
+          "w": 0.12,
+          "word": "kâğıt",
+          "id": "kagit"
+        }
+      ],
+      "cast": [
+        {
+          "id": "dede",
+          "x": 0.0,
+          "z": 0.3,
+          "rotY": 0,
+          "look": "reader"
+        },
+        {
+          "id": "elif",
+          "x": -0.44,
+          "z": 0.86,
+          "rotY": 40,
+          "look": "dede"
+        },
+        {
+          "id": "can",
+          "x": -0.3,
+          "z": 0.92,
+          "rotY": 30,
+          "look": "dede"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.11,
+            0,
+            -0.366
+          ],
+          "face": 70,
+          "look": "tekne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.63,
+            0,
+            -0.439
+          ],
+          "face": -70,
+          "look": "tekne",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "atölyesine"
+          ],
+          "who": "dede",
+          "do": "wave",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "raflarda"
+          ],
+          "who": "elif",
+          "do": "lookAround",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "boyalar"
+          ],
+          "who": "boya_kirmizi",
+          "do": "lift",
+          "len": 1.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "boyalar"
+          ],
+          "who": "boya_mavi",
+          "do": "lift",
+          "len": 1.0,
+          "wait": 0.25
+        },
+        {
+          "cue": [
+            "boyalar"
+          ],
+          "who": "boya_sari",
+          "do": "lift",
+          "len": 1.0,
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "fırçalar"
+          ],
+          "who": "firca",
+          "do": "lift",
+          "len": 1.2,
+          "to": [
+            -0.039,
+            0.06,
+            0.01
+          ]
+        },
+        {
+          "cue": [
+            "kâğıtlar"
+          ],
+          "who": "kagit",
+          "do": "lift",
+          "len": 1.2,
+          "to": [
+            0,
+            0.05,
+            0.03
+          ],
+          "face": -25
+        },
+        {
+          "cue": [
+            "dedeleri"
+          ],
+          "who": "dede",
+          "do": "offer",
+          "look": "can",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "ebru"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "reader",
+          "len": 4.0
+        },
+        {
+          "cue": [
+            "ebru"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "dede",
+          "wait": 1.5
+        },
+        {
+          "cue": [
+            "tekne"
+          ],
+          "who": "tekne",
+          "do": "lift",
+          "to": [
+            0,
+            0.025,
+            0
+          ],
+          "len": 1.4,
+          "face": 0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "tekne"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "tekne",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "resim"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "dede",
+          "len": 2.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "sordu"
+          ],
+          "who": "dede",
+          "do": "nod",
+          "look": "can"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "title": {
+        "tr": "Özel hazırlanmış su",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Dedeleri|dede} {teknedeki|tekne} suyu gösterdi. “{Kitre|kitre} denen bir maddeyle koyulaştırdım. {Ebruya|ebru} özel {boyalar|boya} da hazırladım.” dedi. {Fırçasını|fırça} hafifçe vurarak suya {damlalar|damla} bıraktı. Kırmızı damlalar açıldı. Elif ile Can {renkleri|renk} izledi. Sıradan boyama suyundan farklı olduğunu fark ettiler.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Ebru suyu, kitre denen bitkisel bir maddeyle koyulaştırılır. Böylece boyalar batmaz, suyun yüzeyinde açılıp yayılır. Ebru boyaları da doğal toprak boyalarıyla hazırlanır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p2-arka.webp",
+          "floor": "art/p2-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "önlük",
+              "rect": [
+                0.0,
+                0.27,
+                0.12,
+                0.45
+              ]
+            },
+            {
+              "word": "raf",
+              "rect": [
+                0.11,
+                0.25,
+                0.26,
+                0.2
+              ]
+            },
+            {
+              "word": "dolap",
+              "rect": [
+                0.12,
+                0.55,
+                0.25,
+                0.25
+              ]
+            },
+            {
+              "word": "lale",
+              "rect": [
+                0.38,
+                0.22,
+                0.14,
+                0.28
+              ]
+            },
+            {
+              "word": "karanfil",
+              "rect": [
+                0.53,
+                0.22,
+                0.14,
+                0.28
+              ]
+            },
+            {
+              "word": "çini",
+              "rect": [
+                0.68,
+                0.27,
+                0.08,
+                0.1
+              ]
+            },
+            {
+              "word": "İzmir",
+              "rect": [
+                0.77,
+                0.11,
+                0.23,
+                0.55
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "src": "/models/kenney/table.glb",
+          "x": 0.0,
+          "z": 0.52,
+          "h": 0.17,
+          "w": 0.44,
+          "word": "masa",
+          "tint": "#A8693A",
+          "top": 1
+        },
+        {
+          "src": "/models/ebru/ebru-teknesi.glb",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.17,
+          "h": 0.04,
+          "w": 0.2,
+          "word": "tekne",
+          "id": "tekne"
+        },
+        {
+          "proc": "sheet",
+          "decal": "/books/ebru/desen/su.webp",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.186,
+          "h": 0.01,
+          "w": 0.172,
+          "d": 0.14,
+          "word": "kitre"
+        },
+        {
+          "proc": "sheet",
+          "decal": "/books/ebru/desen/damla.webp",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.1872,
+          "h": 0.01,
+          "w": 0.172,
+          "d": 0.14,
+          "word": "ebru",
+          "id": "damla",
+          "hidden": true
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.155,
+          "z": 0.455,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "id": "boya_mavi"
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.185,
+          "z": 0.53,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "tint": "#C8322B",
+          "id": "boya_kirmizi"
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.16,
+          "z": 0.6,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "tint": "#E9B43A",
+          "id": "boya_sari"
+        },
+        {
+          "src": "/models/ebru/at-kili-firca.glb",
+          "x": -0.16,
+          "z": 0.585,
+          "y": 0.17,
+          "h": 0.085,
+          "pitch": 90,
+          "rotY": 75,
+          "word": "fırça",
+          "id": "firca"
+        },
+        {
+          "src": "/models/ebru/ebru-bizi.glb",
+          "x": -0.13,
+          "z": 0.6,
+          "y": 0.17,
+          "h": 0.07,
+          "pitch": 90,
+          "rotY": -80,
+          "word": "biz",
+          "id": "biz"
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": -0.155,
+          "z": 0.47,
+          "y": 0.17,
+          "h": 1,
+          "w": 0.12,
+          "word": "kâğıt",
+          "id": "kagit"
+        }
+      ],
+      "cast": [
+        {
+          "id": "dede",
+          "x": 0.0,
+          "z": 0.3,
+          "rotY": 0
+        },
+        {
+          "id": "elif",
+          "x": -0.33,
+          "z": 0.56,
+          "rotY": 70,
+          "look": "tekne"
+        },
+        {
+          "id": "can",
+          "x": 0.33,
+          "z": 0.56,
+          "rotY": -70,
+          "look": "tekne"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "dedeleri"
+          ],
+          "who": "dede",
+          "do": "point",
+          "target": "tekne",
+          "look": "tekne",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "teknedeki"
+          ],
+          "who": "tekne",
+          "do": "lift",
+          "to": [
+            0,
+            0.02,
+            0
+          ],
+          "len": 1.2,
+          "face": 0
+        },
+        {
+          "cue": [
+            "kitre"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "elif",
+          "len": 3.0
+        },
+        {
+          "cue": [
+            "ebruya"
+          ],
+          "who": "boya_kirmizi",
+          "do": "lift",
+          "len": 1.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "ebruya"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "boya_kirmizi",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "fırçasını"
+          ],
+          "who": "firca",
+          "do": "flick",
+          "to": [
+            0.11,
+            0.055,
+            0.105
+          ],
+          "face": -50,
+          "len": 1.5,
+          "focus": true
+        },
+        {
+          "cue": [
+            "damlalar"
+          ],
+          "who": "damla",
+          "do": "appear",
+          "wait": 0.7,
+          "len": 0.6
+        },
+        {
+          "cue": [
+            "açıldı"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "tekne"
+        },
+        {
+          "cue": [
+            "renkleri"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "tekne",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "renkleri"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "tekne",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "fark"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "fark"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "can",
+          "wait": 0.3
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "title": {
+        "tr": "İlk deneme",
+        "en": ""
+      },
+      "text": {
+        "tr": "Can {fırçayı|fırça} hızla salladı. Büyük {damlalar|damla} karıştı. İstediği {desen} oluşmamıştı. “Yapamadım.” dedi. Dedesi “İlk {denemede|deneme} böyle olabilir. Fırçadaki {boya} miktarına bakalım.” diye cevap verdi. Elif de yaklaştı. Boyanın yayılışını incelediler. Can yeniden denemek istedi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Ebrucular boyayı fırçadan suya serperken fırçaya hafifçe vurur. Fırçada çok boya olursa damlalar büyür ve birbirine karışır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p3-arka.webp",
+          "floor": "art/p3-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "önlük",
+              "rect": [
+                0.0,
+                0.27,
+                0.12,
+                0.45
+              ]
+            },
+            {
+              "word": "raf",
+              "rect": [
+                0.11,
+                0.25,
+                0.26,
+                0.2
+              ]
+            },
+            {
+              "word": "dolap",
+              "rect": [
+                0.12,
+                0.55,
+                0.25,
+                0.25
+              ]
+            },
+            {
+              "word": "lale",
+              "rect": [
+                0.38,
+                0.22,
+                0.14,
+                0.28
+              ]
+            },
+            {
+              "word": "karanfil",
+              "rect": [
+                0.53,
+                0.22,
+                0.14,
+                0.28
+              ]
+            },
+            {
+              "word": "çini",
+              "rect": [
+                0.68,
+                0.27,
+                0.08,
+                0.1
+              ]
+            },
+            {
+              "word": "İzmir",
+              "rect": [
+                0.77,
+                0.11,
+                0.23,
+                0.55
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "src": "/models/kenney/table.glb",
+          "x": 0.0,
+          "z": 0.52,
+          "h": 0.17,
+          "w": 0.44,
+          "word": "masa",
+          "tint": "#A8693A",
+          "top": 1
+        },
+        {
+          "src": "/models/ebru/ebru-teknesi.glb",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.17,
+          "h": 0.04,
+          "w": 0.2,
+          "word": "tekne",
+          "id": "tekne"
+        },
+        {
+          "proc": "sheet",
+          "decal": "/books/ebru/desen/su.webp",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.186,
+          "h": 0.01,
+          "w": 0.172,
+          "d": 0.14,
+          "word": "kitre"
+        },
+        {
+          "proc": "sheet",
+          "decal": "/books/ebru/desen/karisik.webp",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.1872,
+          "h": 0.01,
+          "w": 0.172,
+          "d": 0.14,
+          "word": "ebru",
+          "id": "karisik",
+          "hidden": true
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.155,
+          "z": 0.455,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "id": "boya_mavi"
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.185,
+          "z": 0.53,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "tint": "#C8322B",
+          "id": "boya_kirmizi"
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.16,
+          "z": 0.6,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "tint": "#E9B43A",
+          "id": "boya_sari"
+        },
+        {
+          "src": "/models/ebru/at-kili-firca.glb",
+          "x": 0.135,
+          "z": 0.63,
+          "y": 0.17,
+          "h": 0.085,
+          "pitch": 90,
+          "rotY": -75,
+          "word": "fırça",
+          "id": "firca"
+        },
+        {
+          "src": "/models/ebru/ebru-bizi.glb",
+          "x": -0.13,
+          "z": 0.6,
+          "y": 0.17,
+          "h": 0.07,
+          "pitch": 90,
+          "rotY": -80,
+          "word": "biz",
+          "id": "biz"
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": -0.155,
+          "z": 0.47,
+          "y": 0.17,
+          "h": 1,
+          "w": 0.12,
+          "word": "kâğıt",
+          "id": "kagit"
+        }
+      ],
+      "cast": [
+        {
+          "id": "dede",
+          "x": 0.0,
+          "z": 0.3,
+          "rotY": 0
+        },
+        {
+          "id": "elif",
+          "x": -0.33,
+          "z": 0.56,
+          "rotY": 70,
+          "look": "tekne"
+        },
+        {
+          "id": "can",
+          "x": 0.33,
+          "z": 0.56,
+          "rotY": -70,
+          "look": "tekne"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "tekne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "fırçayı"
+          ],
+          "who": "firca",
+          "do": "flick",
+          "to": [
+            -0.157,
+            0.055,
+            0.067
+          ],
+          "face": -50,
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "damlalar"
+          ],
+          "who": "karisik",
+          "do": "appear",
+          "len": 0.5
+        },
+        {
+          "cue": [
+            "desen"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "tekne",
+          "len": 1.5
+        },
+        {
+          "cue": [
+            "yapamadım"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "dede",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "dedesi"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "can",
+          "len": 3.2
+        },
+        {
+          "cue": [
+            "fırçadaki"
+          ],
+          "who": "firca",
+          "do": "lift",
+          "to": [
+            0.048,
+            0.07,
+            0.013
+          ],
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "fırçadaki"
+          ],
+          "who": "dede",
+          "do": "point",
+          "target": "firca",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.06,
+            0,
+            0.0
+          ],
+          "face": 70,
+          "look": "tekne"
+        },
+        {
+          "cue": [
+            "incelediler"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "tekne",
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "incelediler"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "tekne",
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "yeniden"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "dede",
+          "focus": true
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "title": {
+        "tr": "Yeniden deniyorum",
+        "en": ""
+      },
+      "text": {
+        "tr": "Ahmet dede temiz {kâğıtla|kâğıt} yüzeydeki {boyaları|boya} aldı. {Fırçadaki|fırça} boya miktarını ayarladılar. Can bu kez küçük {damlalar|damla} serpti. Tıp, tıp, tıp! Mavi ve sarı {halkalar|halka} açıldı. Elif iki {deneme} arasındaki farkı gösterdi. Can hareketlerini izleyerek acele etmeden çalıştı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Ebruda acele edilmez. Usta, suyun yüzeyini temiz bir kâğıtla toplar ve her denemeye temiz bir suyla başlar. Sabır ebrunun en önemli malzemesidir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p4-arka.webp",
+          "floor": "art/p4-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "önlük",
+              "rect": [
+                0.0,
+                0.27,
+                0.12,
+                0.45
+              ]
+            },
+            {
+              "word": "raf",
+              "rect": [
+                0.11,
+                0.25,
+                0.26,
+                0.2
+              ]
+            },
+            {
+              "word": "dolap",
+              "rect": [
+                0.12,
+                0.55,
+                0.25,
+                0.25
+              ]
+            },
+            {
+              "word": "lale",
+              "rect": [
+                0.38,
+                0.22,
+                0.14,
+                0.28
+              ]
+            },
+            {
+              "word": "karanfil",
+              "rect": [
+                0.53,
+                0.22,
+                0.14,
+                0.28
+              ]
+            },
+            {
+              "word": "çini",
+              "rect": [
+                0.68,
+                0.27,
+                0.08,
+                0.1
+              ]
+            },
+            {
+              "word": "İzmir",
+              "rect": [
+                0.77,
+                0.11,
+                0.23,
+                0.55
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "src": "/models/kenney/table.glb",
+          "x": 0.0,
+          "z": 0.52,
+          "h": 0.17,
+          "w": 0.44,
+          "word": "masa",
+          "tint": "#A8693A",
+          "top": 1
+        },
+        {
+          "src": "/models/ebru/ebru-teknesi.glb",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.17,
+          "h": 0.04,
+          "w": 0.2,
+          "word": "tekne",
+          "id": "tekne"
+        },
+        {
+          "proc": "sheet",
+          "decal": "/books/ebru/desen/su.webp",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.186,
+          "h": 0.01,
+          "w": 0.172,
+          "d": 0.14,
+          "word": "kitre"
+        },
+        {
+          "proc": "sheet",
+          "decal": "/books/ebru/desen/karisik.webp",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.1872,
+          "h": 0.01,
+          "w": 0.172,
+          "d": 0.14,
+          "word": "ebru",
+          "id": "karisik"
+        },
+        {
+          "proc": "sheet",
+          "decal": "/books/ebru/desen/halka.webp",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.1884,
+          "h": 0.01,
+          "w": 0.172,
+          "d": 0.14,
+          "word": "ebru",
+          "id": "halka",
+          "hidden": true
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.155,
+          "z": 0.455,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "id": "boya_mavi"
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.185,
+          "z": 0.53,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "tint": "#C8322B",
+          "id": "boya_kirmizi"
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.16,
+          "z": 0.6,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "tint": "#E9B43A",
+          "id": "boya_sari"
+        },
+        {
+          "src": "/models/ebru/at-kili-firca.glb",
+          "x": 0.135,
+          "z": 0.63,
+          "y": 0.17,
+          "h": 0.085,
+          "pitch": 90,
+          "rotY": -75,
+          "word": "fırça",
+          "id": "firca"
+        },
+        {
+          "src": "/models/ebru/ebru-bizi.glb",
+          "x": -0.13,
+          "z": 0.6,
+          "y": 0.17,
+          "h": 0.07,
+          "pitch": 90,
+          "rotY": -80,
+          "word": "biz",
+          "id": "biz"
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": -0.155,
+          "z": 0.47,
+          "y": 0.17,
+          "h": 1,
+          "w": 0.12,
+          "word": "kâğıt",
+          "id": "kagit"
+        }
+      ],
+      "cast": [
+        {
+          "id": "dede",
+          "x": 0.0,
+          "z": 0.3,
+          "rotY": 0
+        },
+        {
+          "id": "elif",
+          "x": -0.33,
+          "z": 0.56,
+          "rotY": 70,
+          "look": "tekne"
+        },
+        {
+          "id": "can",
+          "x": 0.33,
+          "z": 0.56,
+          "rotY": -70,
+          "look": "tekne"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "ahmet"
+          ],
+          "who": "dede",
+          "do": "nod",
+          "look": "tekne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kâğıtla"
+          ],
+          "who": "kagit",
+          "do": "rise",
+          "to": [
+            0.155,
+            0.017,
+            0.061
+          ]
+        },
+        {
+          "cue": [
+            "aldı"
+          ],
+          "who": "karisik",
+          "do": "vanish",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "aldı"
+          ],
+          "who": "kagit",
+          "do": "vanish",
+          "wait": 0.7
+        },
+        {
+          "cue": [
+            "fırçadaki"
+          ],
+          "who": "firca",
+          "do": "lift",
+          "to": [
+            0.048,
+            0.07,
+            0.013
+          ],
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "fırçadaki"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "firca"
+        },
+        {
+          "cue": [
+            "serpti"
+          ],
+          "who": "firca",
+          "do": "flick",
+          "to": [
+            -0.157,
+            0.055,
+            0.067
+          ],
+          "face": -50,
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "tıp"
+          ],
+          "who": "halka",
+          "do": "appear",
+          "len": 0.7,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "halkalar"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "tekne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "point",
+          "target": "tekne",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "can",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "hareketlerini"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "tekne"
+        },
+        {
+          "cue": [
+            "çalıştı"
+          ],
+          "who": "dede",
+          "do": "nod",
+          "look": "can"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "title": {
+        "tr": "Suda bir lale",
+        "en": ""
+      },
+      "text": {
+        "tr": "Ahmet dede {biz} denen ince uçlu araçla {boyayı|boya} çekti. Suda bir {lale} belirdi. “{Ebruda|ebru} lale ve {karanfil} {desenleri|desen} de yapılır.” dedi. Elif dedesinin yardımıyla karanfil yaptı. {Yapraklar|yaprak} birbirinin aynı değildi. Küçük farklılıklar {çiçeğe|çiçek} ayrı bir görünüş vermişti.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Çiçekli ebruda lale, karanfil, gül ve sümbül gibi çiçekler biz ile suyun üstünde çizilir. Bu türün en ünlü ustası Necmeddin Okyay'dır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p5-arka.webp",
+          "floor": "art/p5-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "önlük",
+              "rect": [
+                0.0,
+                0.27,
+                0.12,
+                0.45
+              ]
+            },
+            {
+              "word": "raf",
+              "rect": [
+                0.11,
+                0.25,
+                0.26,
+                0.2
+              ]
+            },
+            {
+              "word": "dolap",
+              "rect": [
+                0.12,
+                0.55,
+                0.25,
+                0.25
+              ]
+            },
+            {
+              "word": "lale",
+              "rect": [
+                0.38,
+                0.22,
+                0.14,
+                0.28
+              ]
+            },
+            {
+              "word": "karanfil",
+              "rect": [
+                0.53,
+                0.22,
+                0.14,
+                0.28
+              ]
+            },
+            {
+              "word": "çini",
+              "rect": [
+                0.68,
+                0.27,
+                0.08,
+                0.1
+              ]
+            },
+            {
+              "word": "İzmir",
+              "rect": [
+                0.77,
+                0.11,
+                0.23,
+                0.55
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "src": "/models/kenney/table.glb",
+          "x": 0.0,
+          "z": 0.52,
+          "h": 0.17,
+          "w": 0.44,
+          "word": "masa",
+          "tint": "#A8693A",
+          "top": 1
+        },
+        {
+          "src": "/models/ebru/ebru-teknesi.glb",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.17,
+          "h": 0.04,
+          "w": 0.2,
+          "word": "tekne",
+          "id": "tekne"
+        },
+        {
+          "proc": "sheet",
+          "decal": "/books/ebru/desen/su.webp",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.186,
+          "h": 0.01,
+          "w": 0.172,
+          "d": 0.14,
+          "word": "kitre"
+        },
+        {
+          "proc": "sheet",
+          "decal": "/books/ebru/desen/lale.webp",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.1872,
+          "h": 0.01,
+          "w": 0.172,
+          "d": 0.14,
+          "word": "ebru",
+          "id": "lale",
+          "hidden": true
+        },
+        {
+          "proc": "sheet",
+          "decal": "/books/ebru/desen/lale-karanfil.webp",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.1884,
+          "h": 0.01,
+          "w": 0.172,
+          "d": 0.14,
+          "word": "ebru",
+          "id": "lale_karanfil",
+          "hidden": true
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.155,
+          "z": 0.455,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "id": "boya_mavi"
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.185,
+          "z": 0.53,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "tint": "#C8322B",
+          "id": "boya_kirmizi"
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.16,
+          "z": 0.6,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "tint": "#E9B43A",
+          "id": "boya_sari"
+        },
+        {
+          "src": "/models/ebru/at-kili-firca.glb",
+          "x": -0.16,
+          "z": 0.585,
+          "y": 0.17,
+          "h": 0.085,
+          "pitch": 90,
+          "rotY": 75,
+          "word": "fırça",
+          "id": "firca"
+        },
+        {
+          "src": "/models/ebru/ebru-bizi.glb",
+          "x": -0.15,
+          "z": 0.6,
+          "y": 0.17,
+          "h": 0.07,
+          "pitch": 90,
+          "rotY": -80,
+          "word": "biz",
+          "id": "biz"
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": -0.155,
+          "z": 0.47,
+          "y": 0.17,
+          "h": 1,
+          "w": 0.12,
+          "word": "kâğıt",
+          "id": "kagit"
+        }
+      ],
+      "cast": [
+        {
+          "id": "dede",
+          "x": 0.0,
+          "z": 0.3,
+          "rotY": 0
+        },
+        {
+          "id": "elif",
+          "x": -0.33,
+          "z": 0.56,
+          "rotY": 70,
+          "look": "tekne"
+        },
+        {
+          "id": "can",
+          "x": 0.33,
+          "z": 0.56,
+          "rotY": -70,
+          "look": "tekne"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "ahmet"
+          ],
+          "who": "dede",
+          "do": "point",
+          "target": "biz",
+          "len": 1.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "biz"
+          ],
+          "who": "biz",
+          "do": "draw",
+          "to": [
+            -0.077,
+            0.06,
+            -0.125
+          ],
+          "face": -70,
+          "len": 2.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "lale"
+          ],
+          "who": "lale",
+          "do": "appear",
+          "len": 0.8
+        },
+        {
+          "cue": [
+            "lale"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "tekne",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "ebruda"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "elif",
+          "len": 3.2
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.07,
+            0,
+            0.0
+          ],
+          "face": 70,
+          "look": "tekne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yardımıyla"
+          ],
+          "who": "biz",
+          "do": "draw",
+          "to": [
+            -0.075,
+            0.06,
+            -0.206
+          ],
+          "face": -70,
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "karanfil"
+          ],
+          "who": "lale_karanfil",
+          "do": "appear",
+          "len": 0.8,
+          "wait": 1.2
+        },
+        {
+          "cue": [
+            "yapraklar"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "tekne",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "yapraklar"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "tekne",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "farklılıklar"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "dede",
+          "focus": true
+        },
+        {
+          "cue": [
+            "vermişti"
+          ],
+          "who": "dede",
+          "do": "nod",
+          "look": "elif"
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "title": {
+        "tr": "Desen kâğıda geçiyor",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Dedeleri|dede} temiz {kâğıdı|kâğıt} suyun yüzeyine bıraktı. Kenarından tutup kaldırınca {desen} kâğıda geçti. Can “{Sihir|sihir} gibi!” dedi. Dedesi “{Malzemeler|malzeme} ve hareketlerimiz birlikte işe yarıyor.” diye anlattı. Elif {ıslak} kâğıda dokunmadan bekledi. Yeni {denemede|deneme} çıkacak deseni merak ediyordu.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Her ebru bir kez yapılır. Desen kâğıda alındıktan sonra suda bir daha aynısı oluşmaz; bu yüzden her ebru kâğıdı tektir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p6-arka.webp",
+          "floor": "art/p6-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "önlük",
+              "rect": [
+                0.0,
+                0.27,
+                0.12,
+                0.45
+              ]
+            },
+            {
+              "word": "raf",
+              "rect": [
+                0.11,
+                0.25,
+                0.26,
+                0.2
+              ]
+            },
+            {
+              "word": "dolap",
+              "rect": [
+                0.12,
+                0.55,
+                0.25,
+                0.25
+              ]
+            },
+            {
+              "word": "lale",
+              "rect": [
+                0.38,
+                0.22,
+                0.14,
+                0.28
+              ]
+            },
+            {
+              "word": "karanfil",
+              "rect": [
+                0.53,
+                0.22,
+                0.14,
+                0.28
+              ]
+            },
+            {
+              "word": "çini",
+              "rect": [
+                0.68,
+                0.27,
+                0.08,
+                0.1
+              ]
+            },
+            {
+              "word": "İzmir",
+              "rect": [
+                0.77,
+                0.11,
+                0.23,
+                0.55
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "src": "/models/kenney/table.glb",
+          "x": 0.0,
+          "z": 0.52,
+          "h": 0.17,
+          "w": 0.44,
+          "word": "masa",
+          "tint": "#A8693A",
+          "top": 1
+        },
+        {
+          "src": "/models/ebru/ebru-teknesi.glb",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.17,
+          "h": 0.04,
+          "w": 0.2,
+          "word": "tekne",
+          "id": "tekne"
+        },
+        {
+          "proc": "sheet",
+          "decal": "/books/ebru/desen/su.webp",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.186,
+          "h": 0.01,
+          "w": 0.172,
+          "d": 0.14,
+          "word": "kitre"
+        },
+        {
+          "proc": "sheet",
+          "decal": "/books/ebru/desen/lale.webp",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.1872,
+          "h": 0.01,
+          "w": 0.172,
+          "d": 0.14,
+          "word": "ebru",
+          "id": "lale"
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.155,
+          "z": 0.455,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "id": "boya_mavi"
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.185,
+          "z": 0.53,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "tint": "#C8322B",
+          "id": "boya_kirmizi"
+        },
+        {
+          "src": "/models/ebru/boya-kavanozu.glb",
+          "x": 0.16,
+          "z": 0.6,
+          "y": 0.17,
+          "h": 0.042,
+          "word": "boya",
+          "tint": "#E9B43A",
+          "id": "boya_sari"
+        },
+        {
+          "src": "/models/ebru/at-kili-firca.glb",
+          "x": -0.16,
+          "z": 0.585,
+          "y": 0.17,
+          "h": 0.085,
+          "pitch": 90,
+          "rotY": 75,
+          "word": "fırça",
+          "id": "firca"
+        },
+        {
+          "src": "/models/ebru/ebru-bizi.glb",
+          "x": -0.13,
+          "z": 0.6,
+          "y": 0.17,
+          "h": 0.07,
+          "pitch": 90,
+          "rotY": -80,
+          "word": "biz",
+          "id": "biz"
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": -0.155,
+          "z": 0.47,
+          "y": 0.17,
+          "h": 1,
+          "w": 0.12,
+          "word": "kâğıt",
+          "id": "kagit"
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": 0.0,
+          "z": 0.6,
+          "y": 0.25,
+          "h": 1,
+          "w": 0.13,
+          "word": "ebru",
+          "id": "kagit_lale",
+          "decal": "/books/ebru/desen/lale.webp",
+          "hidden": true,
+          "pitch": 65
+        }
+      ],
+      "cast": [
+        {
+          "id": "dede",
+          "x": 0.0,
+          "z": 0.3,
+          "rotY": 0
+        },
+        {
+          "id": "elif",
+          "x": -0.33,
+          "z": 0.56,
+          "rotY": 70,
+          "look": "tekne"
+        },
+        {
+          "id": "can",
+          "x": 0.33,
+          "z": 0.56,
+          "rotY": -70,
+          "look": "tekne"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "dedeleri"
+          ],
+          "who": "dede",
+          "do": "nod",
+          "look": "kagit",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kâğıdı"
+          ],
+          "who": "kagit",
+          "do": "rise",
+          "to": [
+            0.155,
+            0.017,
+            0.061
+          ],
+          "sound": "kagit"
+        },
+        {
+          "cue": [
+            "kaldırınca"
+          ],
+          "who": "kagit",
+          "do": "vanish",
+          "sound": null
+        },
+        {
+          "cue": [
+            "kaldırınca"
+          ],
+          "who": "lale",
+          "do": "vanish",
+          "sound": null
+        },
+        {
+          "cue": [
+            "kaldırınca"
+          ],
+          "who": "kagit_lale",
+          "do": "appear",
+          "len": 1.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "sihir"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "kagit_lale",
+          "focus": true
+        },
+        {
+          "cue": [
+            "sihir"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "dede",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "dedesi"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "can",
+          "len": 3.4
+        },
+        {
+          "cue": [
+            "ıslak"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "kagit_lale",
+          "len": 2.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "merak"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "dede",
+          "len": 1.6
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "title": {
+        "tr": "İpteki ebrular",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Ebruları|ebru} kurutmak için astılar. Ahmet dedenin {lalesi|lale}, Elif’in {karanfili|karanfil} ve Can’ın renk {halkaları|halka} yan yanaydı. {Babaanneleri|babaanne} “Yaparken en çok neye şaşırdınız?” diye sordu. Can ilk {denemesini|deneme} gösterdi. “Çok {boya} kullanmıştım.” dedi. Elif de kâğıdındaki {kıvrımları|kıvrım} anlattı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Ebru kâğıtları ıslakken üst üste konmaz. İpe ya da düz bir yere serilip kurutulur. Kuruyan ebrular kitap kaplarında, kartlarda ve tablolarda kullanılır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p7-arka.webp",
+          "floor": "art/p7-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "ip",
+              "rect": [
+                0.05,
+                0.31,
+                0.76,
+                0.06
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.82,
+                0.24,
+                0.18,
+                0.6
+              ]
+            },
+            {
+              "word": "sedir",
+              "rect": [
+                0.0,
+                0.57,
+                0.15,
+                0.28
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": -0.365,
+          "z": 0.025,
+          "y": 0.518,
+          "h": 1,
+          "w": 0.13,
+          "word": "ebru",
+          "id": "ip_lale",
+          "decal": "/books/ebru/desen/lale.webp",
+          "hidden": true,
+          "pitch": 90
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": -0.165,
+          "z": 0.025,
+          "y": 0.518,
+          "h": 1,
+          "w": 0.13,
+          "word": "ebru",
+          "id": "ip_karanfil",
+          "decal": "/books/ebru/desen/karanfil.webp",
+          "hidden": true,
+          "pitch": 90
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": 0.04,
+          "z": 0.025,
+          "y": 0.518,
+          "h": 1,
+          "w": 0.13,
+          "word": "ebru",
+          "id": "ip_halka",
+          "decal": "/books/ebru/desen/halka.webp",
+          "hidden": true,
+          "pitch": 90
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": 0.24,
+          "z": 0.025,
+          "y": 0.518,
+          "h": 1,
+          "w": 0.13,
+          "word": "ebru",
+          "id": "ip_karisik",
+          "decal": "/books/ebru/desen/karisik.webp",
+          "hidden": true,
+          "pitch": 90
+        }
+      ],
+      "cast": [
+        {
+          "id": "dede",
+          "x": -0.3,
+          "z": 0.5,
+          "rotY": 20,
+          "look": "reader"
+        },
+        {
+          "id": "elif",
+          "x": -0.1,
+          "z": 0.62,
+          "rotY": 0,
+          "look": "reader"
+        },
+        {
+          "id": "can",
+          "x": 0.12,
+          "z": 0.64,
+          "rotY": -10,
+          "look": "reader"
+        },
+        {
+          "id": "babaanne",
+          "x": 0.42,
+          "z": 0.4,
+          "rotY": -60,
+          "look": "can"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "ebruları"
+          ],
+          "who": "dede",
+          "do": "raise",
+          "look": "ip_lale",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "ebruları"
+          ],
+          "who": "ip_lale",
+          "do": "appear",
+          "len": 0.6,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "astılar"
+          ],
+          "who": "ip_karanfil",
+          "do": "appear",
+          "len": 0.6
+        },
+        {
+          "cue": [
+            "astılar"
+          ],
+          "who": "ip_halka",
+          "do": "appear",
+          "len": 0.6,
+          "wait": 0.35
+        },
+        {
+          "cue": [
+            "astılar"
+          ],
+          "who": "ip_karisik",
+          "do": "appear",
+          "len": 0.6,
+          "wait": 0.7
+        },
+        {
+          "cue": [
+            "lalesi"
+          ],
+          "who": "ip_lale",
+          "do": "lift",
+          "len": 1.0,
+          "to": [
+            0,
+            0.02,
+            0.05
+          ],
+          "face": 0
+        },
+        {
+          "cue": [
+            "karanfili"
+          ],
+          "who": "ip_karanfil",
+          "do": "lift",
+          "len": 1.0,
+          "to": [
+            0,
+            0.02,
+            0.05
+          ],
+          "face": 0
+        },
+        {
+          "cue": [
+            "halkaları"
+          ],
+          "who": "ip_halka",
+          "do": "lift",
+          "len": 1.0,
+          "to": [
+            0,
+            0.02,
+            0.05
+          ],
+          "face": 0
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "babaanne",
+          "do": "walkTo",
+          "to": [
+            -0.1,
+            0,
+            0.146
+          ],
+          "face": -40,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yaparken"
+          ],
+          "who": "babaanne",
+          "do": "talk",
+          "look": "can",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "ilk"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "ip_karisik",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "ilk"
+          ],
+          "who": "ip_karisik",
+          "do": "lift",
+          "len": 1.6,
+          "to": [
+            0,
+            0.02,
+            0.05
+          ],
+          "face": 0,
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "çok"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "babaanne",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "point",
+          "target": "ip_karanfil",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "kıvrımları"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "babaanne",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "anlattı"
+          ],
+          "who": "babaanne",
+          "do": "nod",
+          "look": "elif"
+        }
+      ]
+    },
+    {
+      "id": "p8",
+      "title": {
+        "tr": "Sınıftaki sergi",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Amerika’ya|Amerika} dönerken {ebruları|ebru} özenle yerleştirdiler. Can çalışmalarını {okulda|okul} gösterdi. {Öğretmeni|öğretmen} iznini alarak {panoya|pano} astı. Can ebrunun Türk {kültüründeki|kültür} yerini anlattı. {Arkadaşlarına|arkadaş} {desenin|desen} kâğıda nasıl geçtiğini açıkladı. İlk {denemesini|deneme} de gösterdi. “Nasıl öğrendiğimi hatırlatıyor.” dedi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Ebru bugün dünyanın birçok ülkesinde Türk sanatı olarak tanınır. Müzelerde, sergilerde ve okullarda ebru atölyeleri düzenlenir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p8-arka.webp",
+          "floor": "art/p8-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pano",
+              "rect": [
+                0.18,
+                0.13,
+                0.62,
+                0.53
+              ]
+            },
+            {
+              "word": "harita",
+              "rect": [
+                0.82,
+                0.19,
+                0.18,
+                0.18
+              ]
+            },
+            {
+              "word": "pencere",
+              "rect": [
+                0.0,
+                0.1,
+                0.17,
+                0.57
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "school",
+      "models": [
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": -0.19,
+          "z": 0.02,
+          "y": 0.63,
+          "h": 1,
+          "w": 0.16,
+          "word": "ebru",
+          "id": "pano_lale",
+          "decal": "/books/ebru/desen/lale.webp",
+          "hidden": true,
+          "pitch": 90
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": 0.0,
+          "z": 0.02,
+          "y": 0.63,
+          "h": 1,
+          "w": 0.16,
+          "word": "ebru",
+          "id": "pano_karanfil",
+          "decal": "/books/ebru/desen/karanfil.webp",
+          "hidden": true,
+          "pitch": 90
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": 0.19,
+          "z": 0.02,
+          "y": 0.63,
+          "h": 1,
+          "w": 0.16,
+          "word": "ebru",
+          "id": "pano_ikisi",
+          "decal": "/books/ebru/desen/lale-karanfil.webp",
+          "hidden": true,
+          "pitch": 90
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": -0.19,
+          "z": 0.02,
+          "y": 0.44,
+          "h": 1,
+          "w": 0.16,
+          "word": "ebru",
+          "id": "pano_halka",
+          "decal": "/books/ebru/desen/halka.webp",
+          "hidden": true,
+          "pitch": 90
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": 0.0,
+          "z": 0.02,
+          "y": 0.44,
+          "h": 1,
+          "w": 0.16,
+          "word": "ebru",
+          "id": "pano_damla",
+          "decal": "/books/ebru/desen/damla.webp",
+          "hidden": true,
+          "pitch": 90
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": 0.19,
+          "z": 0.02,
+          "y": 0.44,
+          "h": 1,
+          "w": 0.16,
+          "word": "ebru",
+          "id": "pano_karisik",
+          "decal": "/books/ebru/desen/karisik.webp",
+          "hidden": true,
+          "pitch": 90
+        }
+      ],
+      "cast": [
+        {
+          "id": "ogretmen",
+          "x": 0.36,
+          "z": 0.42,
+          "rotY": -30,
+          "look": "can"
+        },
+        {
+          "id": "can",
+          "x": 0.0,
+          "z": 0.5,
+          "rotY": 0,
+          "look": "reader"
+        },
+        {
+          "id": "zara",
+          "x": -0.3,
+          "z": 0.8,
+          "rotY": 160,
+          "look": "can"
+        },
+        {
+          "id": "kenji",
+          "x": -0.1,
+          "z": 0.86,
+          "rotY": 175,
+          "look": "can"
+        },
+        {
+          "id": "amara",
+          "x": 0.1,
+          "z": 0.86,
+          "rotY": -175,
+          "look": "can"
+        },
+        {
+          "id": "liam",
+          "x": 0.3,
+          "z": 0.8,
+          "rotY": -160,
+          "look": "can"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "amerika’ya"
+          ],
+          "who": "can",
+          "do": "offer",
+          "look": "reader",
+          "len": 2.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "okulda"
+          ],
+          "who": "can",
+          "do": "wave",
+          "look": "kenji"
+        },
+        {
+          "cue": [
+            "öğretmeni"
+          ],
+          "who": "ogretmen",
+          "do": "nod",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "panoya"
+          ],
+          "who": "pano_lale",
+          "do": "appear",
+          "len": 0.5
+        },
+        {
+          "cue": [
+            "panoya"
+          ],
+          "who": "pano_karanfil",
+          "do": "appear",
+          "len": 0.5,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "panoya"
+          ],
+          "who": "pano_ikisi",
+          "do": "appear",
+          "len": 0.5,
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "astı"
+          ],
+          "who": "pano_halka",
+          "do": "appear",
+          "len": 0.5
+        },
+        {
+          "cue": [
+            "astı"
+          ],
+          "who": "pano_damla",
+          "do": "appear",
+          "len": 0.5,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "astı"
+          ],
+          "who": "pano_karisik",
+          "do": "appear",
+          "len": 0.5,
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "ebrunun"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "reader",
+          "len": 3.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "arkadaşlarına"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "pano_lale",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "arkadaşlarına"
+          ],
+          "who": "zara",
+          "do": "lookAt",
+          "target": "pano_lale",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "arkadaşlarına"
+          ],
+          "who": "liam",
+          "do": "lookAt",
+          "target": "pano_lale",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "desenin"
+          ],
+          "who": "pano_lale",
+          "do": "lift",
+          "len": 1.2,
+          "to": [
+            0,
+            0.02,
+            0.05
+          ],
+          "face": 0
+        },
+        {
+          "cue": [
+            "ilk"
+          ],
+          "who": "pano_karisik",
+          "do": "lift",
+          "len": 1.6,
+          "to": [
+            0,
+            0.02,
+            0.05
+          ],
+          "face": 0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "ilk"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "pano_karisik",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "nasıl"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "reader",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "hatırlatıyor"
+          ],
+          "who": "amara",
+          "do": "cheer",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "hatırlatıyor"
+          ],
+          "who": "kenji",
+          "do": "cheer",
+          "look": "can",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "hatırlatıyor"
+          ],
+          "who": "ogretmen",
+          "do": "nod",
+          "look": "can",
+          "wait": 0.3
+        }
+      ]
+    }
+  ]
+}

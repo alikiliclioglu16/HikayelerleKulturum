@@ -124,7 +124,7 @@ const AMBIENCE_LEVEL: Record<string, number> = {
 /** Each story sound evened out (measured), so a hop, a pop, a balloon or the applause are all heard alike. */
 const SCENE_LEVEL: Record<string, number> = {
   hop: 1.8, cheer: 1.35, pop: 1.7, greet: 1.7, balloon: 4, rain: 0.5, whirl: 1.5, knock: 1.1, angry: 0.85, put: 1.5,
-  fly: 2, vanish: 1.6, tek: 1.2, shutter: 1.4, rise: 1.6, sink: 1.7, clink: 1.3, alarm: 1.5, shine: 1.2, davul: 0.85, applause: 3.6, spin: 4.5,
+  fly: 2, vanish: 1.6, lift: 1.8, damla: 1.5, cizgi: 1.6, kagit: 2, tek: 1.2, shutter: 1.4, rise: 1.6, sink: 1.7, clink: 1.3, alarm: 1.5, shine: 1.2, davul: 0.85, applause: 3.6, spin: 4.5,
 };
 
 /**
@@ -736,6 +736,27 @@ const SCENE_SOUNDS: Record<string, (a: AudioContext, t: number) => void> = {
   pop: (a, t) => {
     tone(a, "sine", 420, 980, t, 0.14, 0.22, 0.004);
     bell(a, N(24), t + 0.08, 0.5, 0.05, [1, 2.4]);
+  },
+  // a tool picked up and brought forward: a soft swish
+  lift: (a, t) => {
+    hiss(a, "bandpass", 900, 2200, t, 0.4, 0.1, 1.3, 0.12);
+  },
+  // paint drops falling onto the water of the ebru tray: tıp, tıp, tıp
+  damla: (a, t) => {
+    [0, 0.17, 0.36, 0.5].forEach((d, i) => {
+      tone(a, "sine", 650 + i * 140, 1600 + i * 180, t + d, 0.1, 0.4, 0.002);
+      hiss(a, "bandpass", 2500, 1200, t + d + 0.02, 0.08, 0.14, 2, 0.002);
+    });
+  },
+  // the biz drawing through the paint: a soft watery swirl
+  cizgi: (a, t) => {
+    hiss(a, "bandpass", 500, 1400, t, 1.4, 0.12, 2.5, 0.3);
+    tone(a, "sine", 520, 780, t + 0.1, 1.2, 0.05, 0.3);
+  },
+  // a sheet of paper laid down or lifted: a light rustle
+  kagit: (a, t) => {
+    hiss(a, "highpass", 2500, 5500, t, 0.35, 0.16, 0.7, 0.05);
+    hiss(a, "bandpass", 1800, 900, t + 0.2, 0.25, 0.1, 1.2, 0.04);
   },
   // a magic thing appears: a rising sparkle of little bells
   appear: (a, t) => {

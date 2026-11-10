@@ -52,6 +52,13 @@ export interface PageModel {
   h: number;
   /** Optional largest width/depth in page widths (for flat things like a rug). */
   w?: number;
+  /** For `proc: "sheet"`: its depth (front to back) in page widths; `w` is its width. */
+  d?: number;
+  /** A picture laid on the model's top face (e.g. an ebru pattern on a blank sheet of paper), or the picture of a
+   * `proc: "sheet"` (a flat picture lying on the page or floating on water). A path under /books/…. */
+  decal?: string;
+  /** Tip the model forwards (degrees around its left–right axis): 90 stands a flat sheet up, facing the reader. */
+  pitch?: number;
   /** Height above the page, e.g. a teapot standing on a table model. */
   y?: number;
   /** Turn, in degrees (0 faces the reader). */
@@ -206,5 +213,5 @@ export interface BookListing {
    * The cover: drawn in code (`art`), or a picture (`src`, in the book's folder). `model` is a sculpted 3D book
    * (GLB) shown on the home shelf, and `live` says which parts of its cover move (see home3d/livingCover.ts).
    */
-  cover: { art: string; color?: string; motif?: string; src?: string; model?: string; live?: import('./home3d/livingCover').LiveCover };
+  cover: { art: string; color?: string; motif?: string; src?: string; /** false: the painting in `src` has no title, so the site frames it and writes the title. */ titled?: boolean; model?: string; live?: import('./home3d/livingCover').LiveCover };
 }

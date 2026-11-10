@@ -297,6 +297,35 @@ function procActor(name: string): Actor {
   return procActorFrom((PROPS[name] ?? (() => new THREE.Group()))());
 }
 
+const textures = new Map<string, Promise<THREE.Texture>>();
+/** A picture for a sheet or a decal, loaded once. */
+function loadPicture(url: string) {
+  let p = textures.get(url);
+  if (!p) {
+    p = new THREE.TextureLoader().loadAsync(url).then((tex) => {
+      tex.colorSpace = THREE.SRGBColorSpace;
+      tex.anisotropy = 4;
+      return tex;
+    });
+    textures.set(url, p);
+  }
+  return p;
+}
+
+/** A flat picture lying face up (w wide, d deep): an ebru pattern on the water of the tekne, or on paper. */
+function pictureSheet(tex: THREE.Texture, w: number, d: number, wet = false) {
+  const m = new THREE.Mesh(
+    new THREE.PlaneGeometry(w, d),
+    new THREE.MeshStandardMaterial({ map: tex, roughness: wet ? 0.22 : 0.8, metalness: 0, polygonOffset: true, polygonOffsetFactor: -2 }),
+  );
+  m.rotation.x = -Math.PI / 2;
+  m.position.y = 0.0006;
+  m.receiveShadow = true;
+  const g = new THREE.Group();
+  g.add(m);
+  return g;
+}
+
 function procActorFrom(obj: THREE.Object3D): Actor {
   const root = new THREE.Group();
   root.add(obj);
@@ -1269,6 +1298,14 @@ export class BookScene {
       if (b.do === 'ring') play(b.who === 'saat' ? 'alarm' : 'clink', d);
       else if (b.do === 'rain') play('rain', d + 0.2, b.len ?? 4);
       else if (['appear', 'vanish', 'rise', 'sink', 'shine', 'grow', 'spin', 'whirl'].includes(b.do)) play(b.do, d);
+      else if (b.do === 'lift') play('lift', d);
+      else if (b.do === 'flick') {
+        play('lift', d);
+        play('damla', d + 0.5);
+      } else if (b.do === 'draw') {
+        play('lift', d);
+        play('cizgi', d + 0.5);
+      }
       return;
     }
     for (const k of res.keys) if (k.root?.sq === 0.9) play('hop', k.t - now);
@@ -1622,13 +1659,24 @@ export class BookScene {
         let actor: Actor;
         try {
           actor =
-            spec.proc === 'tablet'
+            spec.proc === 'sheet'
+              ? procActorFrom(pictureSheet(await loadPicture(spec.decal!), spec.w ?? 0.2, spec.d ?? spec.w ?? 0.2, true))
+              : spec.proc === 'tablet'
               ? procActorFrom(this.tablet())
               : spec.proc === 'bubble'
                 ? procActorFrom(speechBubble(spec.label ?? '', spec.color ?? '#1C3F8C', spec.h))
                 : spec.proc
                   ? procActor(spec.proc)
                   : await loadActor(spec.src!, spec.h, spec.w);
+          if (spec.src && spec.decal) {
+            // a picture on the top face of the model (the same blank paper with a different ebru pattern)
+            const tex = await loadPicture(spec.decal);
+            const box = new THREE.Box3().setFromObject(actor.root.children[0]);
+            const size = box.getSize(new THREE.Vector3());
+            const pic = pictureSheet(tex, size.x * 0.94, size.z * 0.94);
+            pic.position.set((box.min.x + box.max.x) / 2, box.max.y, (box.min.z + box.max.z) / 2);
+            actor.root.add(pic);
+          }
         } catch (e) {
           console.warn('Model yüklenemedi', spec.src, e);
           return;
@@ -1650,7 +1698,21 @@ export class BookScene {
       // put the model inside an extra group so idle effects pivot around its feet
       const fx = new THREE.Group();
       const wrap = actor.root.children.filter((c) => c !== actor.hit);
-      wrap.forEach((c) => fx.add(c));
+      if (spec.pitch) {
+        // tip a thing over (a sheet stood up on a rope or a board, a brush laid down on the table): it still stands
+        // on its place, centred, so its moves and the tap box stay level with the page
+        const tip = new THREE.Group();
+        wrap.forEach((c) => tip.add(c));
+        tip.rotation.x = THREE.MathUtils.degToRad(spec.pitch);
+        tip.updateMatrixWorld(true);
+        const box = new THREE.Box3().setFromObject(tip);
+        const size = box.getSize(new THREE.Vector3());
+        tip.position.set(-(box.min.x + box.max.x) / 2, -box.min.y, -(box.min.z + box.max.z) / 2);
+        fx.add(tip);
+        actor.hit.scale.set(Math.max(0.02, size.x), Math.max(0.02, size.y), Math.max(0.02, size.z));
+        actor.hit.position.set(0, size.y / 2, 0);
+        actor.height = size.y;
+      } else wrap.forEach((c) => fx.add(c));
       // a magic thing in the story moves inside its own group (see PropActor), around its place on the page
       const prop = spec.id ? this.things.get(spec.id) : undefined;
       if (prop) {
