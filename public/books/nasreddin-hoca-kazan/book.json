@@ -1016,9 +1016,7 @@
           "id": "komsu",
           "x": 0.18,
           "z": 0.46,
-          "rotY": -40,
-          "hold": "kazan",
-          "pose": "hold"
+          "rotY": -40
         }
       ],
       "beats": [
@@ -1047,9 +1045,49 @@
             "getirmiş"
           ],
           "who": "komsu",
-          "do": "cheer",
+          "do": "nod",
           "look": "hoca",
           "focus": true
+        },
+        {
+          "cue": [
+            "hemen",
+            "getirmiş"
+          ],
+          "who": "komsu",
+          "do": "walkTo",
+          "to": [
+            0.1,
+            0,
+            -0.12
+          ],
+          "face": 30,
+          "look": "kapi"
+        },
+        {
+          "cue": [
+            "hemen",
+            "getirmiş"
+          ],
+          "who": "komsu",
+          "do": "receive",
+          "target": "kazan",
+          "look": "kapi"
+        },
+        {
+          "cue": [
+            "hemen",
+            "getirmiş"
+          ],
+          "who": "komsu",
+          "do": "walkTo",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "face": -40,
+          "look": "hoca"
         },
         {
           "cue": [

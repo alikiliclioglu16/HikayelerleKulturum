@@ -1083,6 +1083,16 @@
       "ambience": "home",
       "models": [
         {
+          "src": "/models/kenney/table.glb",
+          "x": 0.02,
+          "z": 0.6,
+          "h": 0.13,
+          "w": 0.34,
+          "word": "masa",
+          "tint": "#B97A45",
+          "top": 1
+        },
+        {
           "src": "/models/23-nisan/kagit-lale.glb",
           "x": -0.42,
           "z": 0.84,
@@ -1168,20 +1178,72 @@
           "id": "tavan2",
           "magic": true,
           "hidden": true
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": -0.1,
+          "z": 0.575,
+          "y": 0.13,
+          "h": 1,
+          "w": 0.085,
+          "rotY": 12,
+          "word": "kâğıt",
+          "tint": "#E3262E",
+          "id": "kagit1",
+          "hidden": true
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": -0.02,
+          "z": 0.625,
+          "y": 0.13,
+          "h": 1,
+          "w": 0.085,
+          "rotY": -18,
+          "word": "kâğıt",
+          "tint": "#F2C230",
+          "id": "kagit2",
+          "hidden": true
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": 0.07,
+          "z": 0.575,
+          "y": 0.13,
+          "h": 1,
+          "w": 0.085,
+          "rotY": 25,
+          "word": "kâğıt",
+          "tint": "#2F6DC4",
+          "id": "kagit3",
+          "hidden": true
+        },
+        {
+          "src": "/models/ebru/ebru-kagidi.glb",
+          "x": 0.12,
+          "z": 0.63,
+          "y": 0.13,
+          "h": 1,
+          "w": 0.085,
+          "rotY": -8,
+          "word": "kâğıt",
+          "tint": "#3E9A4F",
+          "id": "kagit4",
+          "hidden": true
         }
       ],
       "cast": [
         {
           "id": "elif",
-          "x": -0.16,
-          "z": 0.66,
-          "rotY": 15
+          "x": -0.27,
+          "z": 0.62,
+          "rotY": 80
         },
         {
           "id": "can",
-          "x": 0.2,
-          "z": 0.7,
-          "rotY": -20
+          "x": 0.31,
+          "z": 0.64,
+          "rotY": -80
         },
         {
           "id": "baba",
@@ -1212,9 +1274,64 @@
             "kâğıtları",
             "yaydı"
           ],
+          "who": "elif",
+          "do": "put",
+          "look": "down",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "kâğıtları",
+            "yaydı"
+          ],
           "who": "can",
-          "do": "hop",
-          "look": "elif"
+          "do": "put",
+          "look": "down",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "kâğıtları",
+            "yaydı"
+          ],
+          "who": "kagit1",
+          "do": "appear",
+          "len": 0.5,
+          "wait": 0.4,
+          "sound": "pop"
+        },
+        {
+          "cue": [
+            "kâğıtları",
+            "yaydı"
+          ],
+          "who": "kagit2",
+          "do": "appear",
+          "len": 0.5,
+          "wait": 0.65,
+          "sound": null
+        },
+        {
+          "cue": [
+            "kâğıtları",
+            "yaydı"
+          ],
+          "who": "kagit3",
+          "do": "appear",
+          "len": 0.5,
+          "wait": 0.9,
+          "sound": null
+        },
+        {
+          "cue": [
+            "kâğıtları",
+            "yaydı"
+          ],
+          "who": "kagit4",
+          "do": "appear",
+          "len": 0.5,
+          "wait": 1.15,
+          "sound": null
         },
         {
           "cue": [
@@ -1681,9 +1798,9 @@
           "who": "bub_zara",
           "do": "rise",
           "to": [
-            0.12,
-            0.24,
-            -0.35
+            -0.09,
+            0.36,
+            -0.354
           ]
         },
         {
@@ -1693,9 +1810,9 @@
           "who": "bub_kenji",
           "do": "rise",
           "to": [
-            -0.06,
-            0.27,
-            -0.35
+            -0.07,
+            0.11,
+            -0.354
           ],
           "wait": 0.18
         },
@@ -1706,9 +1823,9 @@
           "who": "bub_amara",
           "do": "rise",
           "to": [
-            0.08,
-            0.3,
-            -0.35
+            -0.12,
+            0.36,
+            -0.354
           ],
           "wait": 0.36
         },
@@ -1719,9 +1836,9 @@
           "who": "bub_liam",
           "do": "rise",
           "to": [
-            -0.14,
-            0.33,
-            -0.35
+            -0.2,
+            0.11,
+            -0.354
           ],
           "wait": 0.54
         },
@@ -1732,9 +1849,9 @@
           "who": "bub_elif",
           "do": "rise",
           "to": [
-            -0.04,
-            0.08,
-            -0.21
+            -0.21,
+            0.3,
+            -0.183
           ],
           "wait": 0.72
         },
@@ -2422,7 +2539,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Çocuklar kartlara {dileklerini|dilek} yazdı ya da çizdi. {Balonların|balon} iplerini tuttular. Can’ın ipi kayınca Liam yardım etti. “Birlikte tutalım.” dedi. Balonları doğaya bırakmadan {dilek köşesine|dilek köşesi} bağladılar. Rüzgârda sallanan balonların altında Can’ın kartı duruyordu: herkesin oynayabileceği kocaman bir {bahçe}!",
+        "tr": "Çocuklar kartlara {dileklerini|dilek} yazıp çizdiler. {Balonların|balon} iplerini tuttular. Can’ın ipi kayınca Liam yardım etti. “Birlikte tutalım.” dedi. Balonları doğaya bırakmadan {dilek köşesine|dilek köşesi} bağladılar. Rüzgârda sallanan balonların altında Can’ın kartı duruyordu: herkesin oynayabileceği kocaman bir {bahçe}!",
         "en": ""
       },
       "layers": [
@@ -2797,13 +2914,113 @@
         },
         {
           "cue": [
-            "dilek"
+            "rüzgâr",
+            "salladı"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 119,
+          "look": "b_elif",
+          "wait": 0.0
+        },
+        {
+          "cue": [
+            "rüzgâr",
+            "salladı"
           ],
           "who": "elif",
           "do": "lookAt",
-          "target": "b_amara",
-          "len": 2.4,
+          "target": "b_elif",
+          "len": 3.0,
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "rüzgâr",
+            "salladı"
+          ],
+          "who": "zara",
+          "do": "turn",
+          "face": 126,
+          "look": "b_zara",
+          "wait": 0.1
+        },
+        {
+          "cue": [
+            "rüzgâr",
+            "salladı"
+          ],
+          "who": "zara",
+          "do": "lookAt",
+          "target": "b_zara",
+          "len": 3.0,
           "wait": 0.6
+        },
+        {
+          "cue": [
+            "rüzgâr",
+            "salladı"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 137,
+          "look": "b_can",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "rüzgâr",
+            "salladı"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "b_can",
+          "len": 3.0,
+          "wait": 0.7
+        },
+        {
+          "cue": [
+            "rüzgâr",
+            "salladı"
+          ],
+          "who": "liam",
+          "do": "turn",
+          "face": 145,
+          "look": "b_liam",
+          "wait": 0.30000000000000004
+        },
+        {
+          "cue": [
+            "rüzgâr",
+            "salladı"
+          ],
+          "who": "liam",
+          "do": "lookAt",
+          "target": "b_liam",
+          "len": 3.0,
+          "wait": 0.8
+        },
+        {
+          "cue": [
+            "rüzgâr",
+            "salladı"
+          ],
+          "who": "amara",
+          "do": "turn",
+          "face": 177,
+          "look": "b_amara",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "rüzgâr",
+            "salladı"
+          ],
+          "who": "amara",
+          "do": "lookAt",
+          "target": "b_amara",
+          "len": 3.0,
+          "wait": 0.9
         },
         {
           "cue": [
@@ -2854,10 +3071,32 @@
             "kartı"
           ],
           "who": "can",
-          "do": "offer",
-          "look": "reader",
-          "len": 2.4,
+          "do": "walkTo",
+          "to": [
+            0.3,
+            0,
+            -0.293
+          ],
+          "face": 150,
+          "look": "b_can",
           "focus": true
+        },
+        {
+          "cue": [
+            "kartı"
+          ],
+          "who": "can",
+          "do": "put",
+          "look": "down"
+        },
+        {
+          "cue": [
+            "kartı"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -20,
+          "look": "reader"
         },
         {
           "cue": [
@@ -2988,13 +3227,15 @@
           "id": "anne",
           "x": -0.4,
           "z": 0.46,
-          "rotY": 30
+          "rotY": 100,
+          "look": "tablet"
         },
         {
           "id": "baba",
           "x": 0.42,
           "z": 0.66,
-          "rotY": -40
+          "rotY": -162,
+          "look": "tablet"
         },
         {
           "id": "babaanne",
@@ -3029,6 +3270,26 @@
             "babaannesine"
           ],
           "who": "elif",
+          "do": "turn",
+          "face": 123,
+          "look": "tablet",
+          "focus": true
+        },
+        {
+          "cue": [
+            "babaannesine"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 153,
+          "look": "tablet",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "babaannesine"
+          ],
+          "who": "elif",
           "do": "offer",
           "look": "tablet",
           "len": 2.4
@@ -3048,7 +3309,7 @@
           ],
           "who": "anne",
           "do": "nod",
-          "look": "elif"
+          "look": "tablet"
         },
         {
           "cue": [
@@ -3056,7 +3317,7 @@
           ],
           "who": "baba",
           "do": "nod",
-          "look": "elif",
+          "look": "tablet",
           "wait": 0.2
         },
         {
@@ -3065,7 +3326,7 @@
           ],
           "who": "can",
           "do": "talk",
-          "look": "reader",
+          "look": "tablet",
           "len": 2.0,
           "focus": true
         },
@@ -3113,8 +3374,8 @@
             0,
             0
           ],
-          "face": 10,
-          "look": "reader"
+          "face": 123,
+          "look": "tablet"
         },
         {
           "cue": [
@@ -3122,8 +3383,48 @@
           ],
           "who": "elif",
           "do": "talk",
-          "look": "reader",
+          "look": "tablet",
           "len": 2.0
+        },
+        {
+          "cue": [
+            "bayramdan"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 0,
+          "look": "reader",
+          "wait": 0.0
+        },
+        {
+          "cue": [
+            "bayramdan"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 0,
+          "look": "reader",
+          "wait": 0.1
+        },
+        {
+          "cue": [
+            "bayramdan"
+          ],
+          "who": "anne",
+          "do": "turn",
+          "face": 0,
+          "look": "reader",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "bayramdan"
+          ],
+          "who": "baba",
+          "do": "turn",
+          "face": 0,
+          "look": "reader",
+          "wait": 0.30000000000000004
         },
         {
           "cue": [

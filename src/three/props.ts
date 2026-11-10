@@ -232,7 +232,7 @@ export const HELD: Record<string, () => THREE.Object3D> = {
   kitap: () => glbHeld('/models/masal/dede-kitap.glb', 0.075, { word: 'kitap', atHeight: 0.42, ahead: 0.2 }),
   /** The same book held up open in front of the face, as when reading aloud. */
   okunanKitap: () => {
-    const g = glbHeld('/models/masal/dede-kitap.glb', 0.085, { word: 'kitap', atHeight: 0.66, ahead: 0.16 });
+    const g = glbHeld('/models/masal/dede-kitap.glb', 0.085, { word: 'kitap', atHeight: 0.46, ahead: 0.2 });
     g.rotation.x = -0.9;
     return g;
   },
