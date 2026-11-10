@@ -316,7 +316,8 @@ function loadPicture(url: string) {
 function pictureSheet(tex: THREE.Texture, w: number, d: number, wet = false) {
   const m = new THREE.Mesh(
     new THREE.PlaneGeometry(w, d),
-    new THREE.MeshStandardMaterial({ map: tex, roughness: wet ? 0.22 : 0.8, metalness: 0, polygonOffset: true, polygonOffsetFactor: -2 }),
+    // a little of the picture's own light keeps its colours clear when the sheet stands in shade
+    new THREE.MeshStandardMaterial({ map: tex, emissive: '#FFFFFF', emissiveMap: tex, emissiveIntensity: 0.35, roughness: wet ? 0.22 : 0.8, metalness: 0, polygonOffset: true, polygonOffsetFactor: -2 }),
   );
   m.rotation.x = -Math.PI / 2;
   m.position.y = 0.0006;
