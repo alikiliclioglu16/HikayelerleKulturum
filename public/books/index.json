@@ -411,7 +411,7 @@
     },
     {
       "id": "mahalle-firini",
-      "status": "soon",
+      "status": "ready",
       "title": "Mahalle Fırını",
       "titleEn": "The Neighborhood Bakery",
       "values": [
@@ -425,13 +425,16 @@
       "cover": {
         "art": "cover-soon",
         "color": "#B8652B",
-        "motif": "simit"
+        "motif": "simit",
+        "src": "kapak.webp",
+        "titled": false
       },
       "carpet": {
         "motif": "pitrak",
         "field": "#8A4A26",
         "src": "/halilar/mahalle-firini.webp"
-      }
+      },
+      "pages": 8
     },
     {
       "id": "kapadokya",

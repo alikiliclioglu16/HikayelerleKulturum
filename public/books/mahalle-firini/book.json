@@ -1,0 +1,2944 @@
+{
+  "id": "mahalle-firini",
+  "title": "Mahalle Fırını",
+  "titleEn": "The Neighborhood Bakery",
+  "culture": {
+    "tr": "Mahalle fırını, taş fırın, simit, askıda ekmek ve yiyeceği değerlendirme",
+    "en": "The neighbourhood bakery, askıda ekmek and not wasting food"
+  },
+  "summary": {
+    "tr": "Elif ile Can, babaanneleriyle İzmir'deki mahalle fırınına gider. Fırıncı Ali amcadan taş fırını, askıda ekmek geleneğini ve bayat ekmeğin nasıl değerlendirileceğini öğrenirler. Can harçlığıyla askıya bir ekmek bırakır; Amerika'ya dönünce de okulun yiyecek bağışı kutusuna katkıda bulunur.",
+    "en": ""
+  },
+  "values": [
+    "tasarruf",
+    "yardimseverlik"
+  ],
+  "music": {
+    "src": "/books/mahalle-firini/muzik.mp3",
+    "loop": 32.4,
+    "gain": 0.71
+  },
+  "toyCast": true,
+  "glossary": {
+    "İzmir": {
+      "en": "İzmir, a city on the Aegean coast of Türkiye",
+      "icon": "🏙️"
+    },
+    "babaanne": {
+      "en": "grandma (dad's mother)",
+      "icon": "👵"
+    },
+    "fırın": {
+      "en": "bakery; oven",
+      "icon": "🏠"
+    },
+    "ekmek": {
+      "en": "bread",
+      "icon": "🍞"
+    },
+    "simit": {
+      "en": "simit, a sesame-covered bread ring",
+      "icon": "🥯"
+    },
+    "pide": {
+      "en": "pide, a flat Turkish bread",
+      "icon": "🫓"
+    },
+    "fırıncı": {
+      "en": "baker",
+      "icon": "👨‍🍳"
+    },
+    "günaydın": {
+      "en": "good morning",
+      "icon": "🌅"
+    },
+    "koklamak": {
+      "en": "to smell",
+      "icon": "👃"
+    },
+    "taş fırın": {
+      "en": "stone oven",
+      "icon": "🔥"
+    },
+    "hamur": {
+      "en": "dough",
+      "icon": "🫓"
+    },
+    "kürek": {
+      "en": "baker's peel, a long wooden paddle",
+      "icon": "🏓"
+    },
+    "nöbetleşe": {
+      "en": "taking turns",
+      "icon": "🔄"
+    },
+    "somun": {
+      "en": "a whole loaf of bread",
+      "icon": "🍞"
+    },
+    "emek": {
+      "en": "hard work, effort",
+      "icon": "💪"
+    },
+    "poşet": {
+      "en": "bag",
+      "icon": "🛍️"
+    },
+    "ihtiyaç": {
+      "en": "need",
+      "icon": "🤲"
+    },
+    "askıda ekmek": {
+      "en": "bread on the hanger: bread paid for in advance for someone in need",
+      "icon": "🧺"
+    },
+    "yardım": {
+      "en": "help",
+      "icon": "🤝"
+    },
+    "utandırmak": {
+      "en": "to embarrass someone",
+      "icon": "🙈"
+    },
+    "küflü": {
+      "en": "mouldy",
+      "icon": "🦠"
+    },
+    "ekmek çorbası": {
+      "en": "bread soup",
+      "icon": "🥣"
+    },
+    "ekmek tatlısı": {
+      "en": "bread pudding, a dessert made from stale bread",
+      "icon": "🍮"
+    },
+    "dilimlemek": {
+      "en": "to slice",
+      "icon": "🔪"
+    },
+    "dilim": {
+      "en": "slice",
+      "icon": "🍞"
+    },
+    "tepsi": {
+      "en": "tray",
+      "icon": "🍽️"
+    },
+    "süt": {
+      "en": "milk",
+      "icon": "🥛"
+    },
+    "tarçın": {
+      "en": "cinnamon",
+      "icon": "🟤"
+    },
+    "harçlık": {
+      "en": "pocket money",
+      "icon": "🪙"
+    },
+    "fiyat": {
+      "en": "price",
+      "icon": "🏷️"
+    },
+    "para": {
+      "en": "money",
+      "icon": "💰"
+    },
+    "askı": {
+      "en": "hanger, hook",
+      "icon": "🪝"
+    },
+    "müşteri": {
+      "en": "customer",
+      "icon": "🧑"
+    },
+    "selamlamak": {
+      "en": "to greet",
+      "icon": "👋"
+    },
+    "Amerika": {
+      "en": "America",
+      "icon": "🇺🇸"
+    },
+    "okul": {
+      "en": "school",
+      "icon": "🏫"
+    },
+    "bağış": {
+      "en": "donation",
+      "icon": "🎁"
+    },
+    "aile": {
+      "en": "family",
+      "icon": "👨‍👩‍👧"
+    },
+    "makarna": {
+      "en": "pasta",
+      "icon": "🍝"
+    },
+    "pirinç": {
+      "en": "rice",
+      "icon": "🍚"
+    },
+    "paylaşmak": {
+      "en": "to share",
+      "icon": "🤲"
+    },
+    "anne": {
+      "en": "mum",
+      "icon": "👩"
+    },
+    "saklama kabı": {
+      "en": "storage container",
+      "icon": "🥡"
+    },
+    "vitrin": {
+      "en": "shop window",
+      "icon": "🪟"
+    },
+    "kapı": {
+      "en": "door",
+      "icon": "🚪"
+    },
+    "raf": {
+      "en": "shelf",
+      "icon": "🗄️"
+    },
+    "tezgâh": {
+      "en": "counter",
+      "icon": "🪵"
+    },
+    "kasa": {
+      "en": "cash register",
+      "icon": "🧾"
+    },
+    "masa": {
+      "en": "table",
+      "icon": "🪑"
+    },
+    "bağış kutusu": {
+      "en": "donation box",
+      "icon": "📦"
+    },
+    "dolap": {
+      "en": "locker",
+      "icon": "🗄️"
+    },
+    "pano": {
+      "en": "notice board",
+      "icon": "📌"
+    },
+    "pencere": {
+      "en": "window",
+      "icon": "🪟"
+    },
+    "bayat": {
+      "en": "stale",
+      "icon": "🍞"
+    },
+    "tasarruf": {
+      "en": "thrift: using things carefully, without waste",
+      "icon": "🐷"
+    }
+  },
+  "quiz": [
+    {
+      "q": {
+        "tr": "Ali amca hamurları fırına neyle yerleştiriyordu?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Uzun saplı kürekle",
+          "en": ""
+        },
+        {
+          "tr": "Kaşıkla",
+          "en": ""
+        },
+        {
+          "tr": "Elleriyle",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "page": "p2"
+    },
+    {
+      "q": {
+        "tr": "Askıda ekmek nedir?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Kuruması için asılan ekmek",
+          "en": ""
+        },
+        {
+          "tr": "İhtiyacı olan biri için önceden parası ödenen ekmek",
+          "en": ""
+        },
+        {
+          "tr": "Satılmayan bayat ekmek",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "page": "p3"
+    },
+    {
+      "q": {
+        "tr": "Hangi ekmeği yememeliyiz?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Dünden kalan ekmeği",
+          "en": ""
+        },
+        {
+          "tr": "Doğru saklanmış ekmeği",
+          "en": ""
+        },
+        {
+          "tr": "Küflü ekmeği",
+          "en": ""
+        }
+      ],
+      "answer": 2,
+      "page": "p4"
+    },
+    {
+      "q": {
+        "tr": "Can sütlü karışımın üstüne ne serpti?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Tarçın",
+          "en": ""
+        },
+        {
+          "tr": "Tuz",
+          "en": ""
+        },
+        {
+          "tr": "Şeker",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "page": "p5"
+    },
+    {
+      "q": {
+        "tr": "Can askı için ne satın aldı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Bir simit",
+          "en": ""
+        },
+        {
+          "tr": "Bir ekmek",
+          "en": ""
+        },
+        {
+          "tr": "Bir pide",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "page": "p6"
+    }
+  ],
+  "valueHunt": [
+    {
+      "page": "p3",
+      "answer": "yardimseverlik",
+      "options": [
+        "yardimseverlik",
+        "estetik",
+        "temizlik"
+      ],
+      "why": {
+        "tr": "Askıda ekmek, tanımadığımız birine sessizce yardım etmenin bir yoludur.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p4",
+      "answer": "tasarruf",
+      "options": [
+        "cesaret",
+        "tasarruf",
+        "adalet"
+      ],
+      "why": {
+        "tr": "Dünden kalan bozulmamış ekmeği atmak yerine yeni bir yemekte kullanmak tasarruftur.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p6",
+      "answer": "yardimseverlik",
+      "options": [
+        "sabir",
+        "dostluk",
+        "yardimseverlik"
+      ],
+      "why": {
+        "tr": "Can harçlığıyla ihtiyacı olan biri için askıya bir ekmek bıraktı.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p8",
+      "answer": "tasarruf",
+      "options": [
+        "tasarruf",
+        "vatanseverlik",
+        "estetik"
+      ],
+      "why": {
+        "tr": "Can yiyebileceği kadar ekmek aldı, kalanını bozulmasın diye sakladı.",
+        "en": ""
+      }
+    }
+  ],
+  "family": {
+    "task": {
+      "tr": "Bu hafta evde bayat kalan ekmeği birlikte değerlendirin: ekmek çorbası, kızarmış ekmek ya da ekmek tatlısı yapın. Yaptığınız yemeğin resmini çizin.",
+      "en": ""
+    },
+    "talk": [
+      {
+        "tr": "Can askı için ne satın aldı?",
+        "en": ""
+      },
+      {
+        "tr": "Çocukların ekmek alan kişiye soru sormaması neden düşünceli bir davranıştı?",
+        "en": ""
+      },
+      {
+        "tr": "Evde yiyecek israfını azaltacak bir fikri çiz, anlat veya iki cümleyle yaz.",
+        "en": ""
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "p1",
+      "title": {
+        "tr": "Sıcak ekmek kokusu",
+        "en": ""
+      },
+      "text": {
+        "tr": "{İzmir’de|İzmir} bir sabah {babaanneleri|babaanne} Elif ile Can’ı {fırına|fırın} götürdü. Köşede sıcak {ekmek} kokusu vardı. Camın arkasında ekmekler, {simitler|simit} ve {pideler|pide} diziliydi. {Fırıncı|fırıncı} Ali amca kapıyı açtı. “{Günaydın|günaydın}!” dedi. Can burnunu kaldırdı. “Yolu {koklayarak|koklamak} da bulabilirdik!” diye güldü.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Türkiye'de neredeyse her mahallenin bir fırını vardır. Sabahları taze ekmek, simit ve pide almak için insanlar fırının önünde sıraya girer.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p1-arka.webp",
+          "floor": "art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "ekmek",
+              "rect": [
+                0.3,
+                0.36,
+                0.36,
+                0.11
+              ]
+            },
+            {
+              "word": "simit",
+              "rect": [
+                0.3,
+                0.48,
+                0.36,
+                0.09
+              ]
+            },
+            {
+              "word": "pide",
+              "rect": [
+                0.3,
+                0.58,
+                0.36,
+                0.08
+              ]
+            },
+            {
+              "word": "vitrin",
+              "rect": [
+                0.24,
+                0.3,
+                0.46,
+                0.4
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.82,
+                0.3,
+                0.13,
+                0.5
+              ]
+            },
+            {
+              "word": "İzmir",
+              "rect": [
+                0.0,
+                0.25,
+                0.1,
+                0.45
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "village",
+      "models": [],
+      "cast": [
+        {
+          "id": "babaanne",
+          "x": -0.46,
+          "z": 0.62,
+          "rotY": 70,
+          "look": "reader"
+        },
+        {
+          "id": "elif",
+          "x": -0.42,
+          "z": 0.8,
+          "rotY": 70,
+          "look": "babaanne"
+        },
+        {
+          "id": "can",
+          "x": -0.3,
+          "z": 0.86,
+          "rotY": 70,
+          "look": "babaanne"
+        },
+        {
+          "id": "ali",
+          "x": 0.37,
+          "z": 0.36,
+          "rotY": -20,
+          "look": "reader"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "babaanne",
+          "do": "walkTo",
+          "to": [
+            0.28,
+            0,
+            -0.049
+          ],
+          "face": 40,
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.34,
+            0,
+            -0.146
+          ],
+          "face": 20,
+          "look": "babaanne",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.42,
+            0,
+            -0.122
+          ],
+          "face": 10,
+          "look": "reader",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "kokusu"
+          ],
+          "who": "can",
+          "do": "lookAround",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "camın"
+          ],
+          "who": "elif",
+          "do": "point",
+          "len": 1.6,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "simitler"
+          ],
+          "who": "babaanne",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "fırıncı"
+          ],
+          "who": "ali",
+          "do": "walkTo",
+          "to": [
+            -0.08,
+            0,
+            0.146
+          ],
+          "face": -35,
+          "look": "babaanne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "günaydın"
+          ],
+          "who": "ali",
+          "do": "wave",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "günaydın"
+          ],
+          "who": "babaanne",
+          "do": "wave",
+          "look": "ali",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "burnunu"
+          ],
+          "who": "can",
+          "do": "raise",
+          "look": "up",
+          "len": 1.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "güldü"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "ali"
+        },
+        {
+          "cue": [
+            "güldü"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "can",
+          "wait": 0.3
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "title": {
+        "tr": "Taş fırın",
+        "en": ""
+      },
+      "text": {
+        "tr": "Ali amca {taş fırını|taş fırın} uzaktan gösterdi. {Hamurları|hamur} uzun saplı {kürekle|kürek} yerleştiriyordu. “Ekmekler hazır olsun diye erkenden başlarız.” dedi. Can “Ne zaman uyursunuz?” diye sordu. “{Nöbetleşe|nöbetleşe} çalışır, sonra dinleniriz.” Elif {ekmeklere|ekmek} baktı. Bir {somunun|somun} ardında birçok kişinin {emeği|emek} vardı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Taş fırın, içi taşla örülmüş ve odunla ısıtılan büyük bir fırındır. Fırıncılar ekmeği uzun saplı tahta bir kürekle fırının içine sürer ve pişince yine kürekle çıkarır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p2-arka.webp",
+          "floor": "art/p2-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "taş fırın",
+              "rect": [
+                0.55,
+                0.24,
+                0.36,
+                0.36
+              ]
+            },
+            {
+              "word": "raf",
+              "rect": [
+                0.1,
+                0.35,
+                0.28,
+                0.1
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.0,
+                0.15,
+                0.08,
+                0.62
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "kitchen",
+      "models": [
+        {
+          "src": "/models/firin/ekmek-somun.glb",
+          "x": -0.35,
+          "z": 0.03,
+          "y": 0.56,
+          "h": 1,
+          "w": 0.087,
+          "rotY": 0,
+          "word": "ekmek",
+          "id": "raf1"
+        },
+        {
+          "src": "/models/firin/ekmek-somun.glb",
+          "x": -0.26,
+          "z": 0.03,
+          "y": 0.56,
+          "h": 1,
+          "w": 0.087,
+          "rotY": 0,
+          "word": "ekmek",
+          "id": "raf2"
+        },
+        {
+          "src": "/models/culture/simit.glb",
+          "x": -0.19,
+          "z": 0.03,
+          "y": 0.56,
+          "h": 1,
+          "w": 0.042,
+          "rotY": 0,
+          "word": "simit"
+        },
+        {
+          "src": "/models/culture/simit.glb",
+          "x": -0.15,
+          "z": 0.03,
+          "y": 0.5640000000000001,
+          "h": 1,
+          "w": 0.042,
+          "rotY": 20,
+          "word": "simit"
+        }
+      ],
+      "cast": [
+        {
+          "id": "ali",
+          "x": 0.3,
+          "z": 0.42,
+          "rotY": -10,
+          "hold": "kurek",
+          "look": "reader"
+        },
+        {
+          "id": "babaanne",
+          "x": -0.38,
+          "z": 0.55,
+          "rotY": 40,
+          "look": "ali"
+        },
+        {
+          "id": "elif",
+          "x": -0.2,
+          "z": 0.7,
+          "rotY": 30,
+          "look": "ali"
+        },
+        {
+          "id": "can",
+          "x": -0.03,
+          "z": 0.74,
+          "rotY": 20,
+          "look": "ali"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "ali"
+          ],
+          "who": "ali",
+          "do": "turn",
+          "face": 150,
+          "look": "up",
+          "focus": true
+        },
+        {
+          "cue": [
+            "gösterdi"
+          ],
+          "who": "ali",
+          "do": "talk",
+          "len": 1.2,
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "kürekle"
+          ],
+          "who": "ali",
+          "do": "walkTo",
+          "to": [
+            0.03,
+            0,
+            -0.146
+          ],
+          "face": 170
+        },
+        {
+          "cue": [
+            "kürekle"
+          ],
+          "who": "ali",
+          "do": "offer",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "erkenden"
+          ],
+          "who": "ali",
+          "do": "turn",
+          "face": -30,
+          "look": "can"
+        },
+        {
+          "cue": [
+            "erkenden"
+          ],
+          "who": "ali",
+          "do": "talk",
+          "look": "can",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "ali",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "nöbetleşe"
+          ],
+          "who": "ali",
+          "do": "talk",
+          "look": "can",
+          "len": 2.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "nöbetleşe"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "ali",
+          "wait": 1.5
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": -40,
+          "look": "raf2",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "raf2",
+          "do": "lift",
+          "to": [
+            0,
+            0.03,
+            0.04
+          ],
+          "len": 1.4,
+          "face": 0
+        },
+        {
+          "cue": [
+            "emeği"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "ali"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "title": {
+        "tr": "Askıda ekmek",
+        "en": ""
+      },
+      "text": {
+        "tr": "Kapının yanında temiz {poşetlerde|poşet} ekmekler asılıydı. Elif bunları sordu. Ali amca “İsteyen başkası için de ekmek alır. {İhtiyacı|ihtiyaç} olan buradan alabilir. Buna {askıda ekmek} deriz.” diye anlattı. {Babaanneleri|babaanne} “{Yardım|yardım} ederken kimseyi {utandırmayız|utandırmak}.” dedi. Can {fırıncıyı|fırıncı} dinledi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Askıda ekmek, eski bir Türk yardımlaşma geleneğidir. Fırına gelen biri parasını ödeyip bir ekmeği askıya bırakır, ihtiyacı olan biri de kimseye sormadan alır. Böylece yardım eden de alan da gizli kalır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p3-arka.webp",
+          "floor": "art/p3-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "askıda ekmek",
+              "rect": [
+                0.22,
+                0.26,
+                0.27,
+                0.08
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.02,
+                0.17,
+                0.16,
+                0.62
+              ]
+            },
+            {
+              "word": "taş fırın",
+              "rect": [
+                0.55,
+                0.24,
+                0.37,
+                0.36
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "kitchen",
+      "models": [
+        {
+          "src": "/models/firin/ekmek-posu.glb",
+          "x": -0.24,
+          "z": 0.03,
+          "y": 0.43500000000000005,
+          "h": 0.1,
+          "word": "askıda ekmek",
+          "id": "poset1"
+        },
+        {
+          "src": "/models/firin/ekmek-posu.glb",
+          "x": -0.156,
+          "z": 0.03,
+          "y": 0.43500000000000005,
+          "h": 0.1,
+          "word": "askıda ekmek",
+          "id": "poset2"
+        },
+        {
+          "src": "/models/firin/ekmek-posu.glb",
+          "x": -0.07,
+          "z": 0.03,
+          "y": 0.43500000000000005,
+          "h": 0.1,
+          "word": "askıda ekmek",
+          "id": "poset3"
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.14,
+          "z": 0.62,
+          "rotY": 160,
+          "look": "poset2"
+        },
+        {
+          "id": "can",
+          "x": 0.04,
+          "z": 0.7,
+          "rotY": 0,
+          "look": "ali"
+        },
+        {
+          "id": "babaanne",
+          "x": -0.36,
+          "z": 0.62,
+          "rotY": 40,
+          "look": "elif"
+        },
+        {
+          "id": "ali",
+          "x": 0.26,
+          "z": 0.5,
+          "rotY": -40,
+          "look": "elif"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "poşetlerde"
+          ],
+          "who": "poset1",
+          "do": "lift",
+          "to": [
+            0,
+            0.01,
+            0.03
+          ],
+          "len": 0.8,
+          "face": 0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "poşetlerde"
+          ],
+          "who": "poset2",
+          "do": "lift",
+          "to": [
+            0,
+            0.01,
+            0.03
+          ],
+          "len": 0.8,
+          "face": 0,
+          "wait": 0.25
+        },
+        {
+          "cue": [
+            "poşetlerde"
+          ],
+          "who": "poset3",
+          "do": "lift",
+          "to": [
+            0,
+            0.01,
+            0.03
+          ],
+          "len": 0.8,
+          "face": 0,
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 60,
+          "look": "ali",
+          "focus": true
+        },
+        {
+          "cue": [
+            "sordu"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "ali",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "isteyen"
+          ],
+          "who": "ali",
+          "do": "talk",
+          "look": "elif",
+          "len": 3.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "ihtiyacı"
+          ],
+          "who": "ali",
+          "do": "point",
+          "target": "poset2",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "askıda"
+          ],
+          "who": "poset2",
+          "do": "lift",
+          "to": [
+            0,
+            0.02,
+            0.04
+          ],
+          "len": 1.4,
+          "face": 0
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "babaanne",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": -60,
+          "look": "babaanne",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "ali",
+          "len": 2.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "dinledi"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "ali"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "title": {
+        "tr": "Dünden kalan ekmekler",
+        "en": ""
+      },
+      "text": {
+        "tr": "Can dünden kalan {ekmekleri|ekmek} gösterdi. “Bunlar ne olacak?” diye sordu. Ali amca “Doğru saklanmış, bozulmamış ekmeği kullanabiliriz. {Küflü|küflü} ya da bozulmuş yiyeceği yemeyiz.” dedi. Fatma {babaanne} {ekmek çorbasını|ekmek çorbası} anlattı. {Fırıncı|fırıncı} “Birlikte {ekmek tatlısı} yapalım mı?” diye sordu.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Türk mutfağında bayat ekmek boşa gitmez. Ekmek çorbası, ekmek kadayıfı, ekmek tatlısı ve galeta gibi yemeklerde yeniden kullanılır. Küflü ekmek ise yenmez, atılır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p4-arka.webp",
+          "floor": "art/p4-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "tezgâh",
+              "rect": [
+                0.08,
+                0.6,
+                0.9,
+                0.22
+              ]
+            },
+            {
+              "word": "taş fırın",
+              "rect": [
+                0.5,
+                0.24,
+                0.36,
+                0.32
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "kitchen",
+      "models": [
+        {
+          "src": "/models/kenney/table.glb",
+          "x": 0.02,
+          "z": 0.56,
+          "h": 0.15,
+          "w": 0.4,
+          "word": "masa",
+          "tint": "#A8693A",
+          "top": 1
+        },
+        {
+          "src": "/models/firin/ekmek-somun.glb",
+          "x": -0.08,
+          "z": 0.53,
+          "y": 0.15,
+          "h": 1,
+          "w": 0.087,
+          "rotY": 15,
+          "word": "ekmek",
+          "id": "bayat1",
+          "tint": "#C8955A"
+        },
+        {
+          "src": "/models/firin/ekmek-somun.glb",
+          "x": 0.04,
+          "z": 0.58,
+          "y": 0.15,
+          "h": 1,
+          "w": 0.087,
+          "rotY": -10,
+          "word": "ekmek",
+          "id": "bayat2",
+          "tint": "#C8955A"
+        },
+        {
+          "src": "/models/firin/ekmek-somun.glb",
+          "x": 0.13,
+          "z": 0.52,
+          "y": 0.15,
+          "h": 1,
+          "w": 0.087,
+          "rotY": 30,
+          "word": "ekmek",
+          "id": "bayat3",
+          "tint": "#C8955A"
+        }
+      ],
+      "cast": [
+        {
+          "id": "can",
+          "x": -0.28,
+          "z": 0.64,
+          "rotY": 80,
+          "look": "bayat1"
+        },
+        {
+          "id": "elif",
+          "x": -0.32,
+          "z": 0.48,
+          "rotY": 90,
+          "look": "bayat2"
+        },
+        {
+          "id": "ali",
+          "x": 0.04,
+          "z": 0.34,
+          "rotY": 0,
+          "look": "can"
+        },
+        {
+          "id": "babaanne",
+          "x": 0.33,
+          "z": 0.6,
+          "rotY": -80,
+          "look": "can"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "bayat1",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "dünden"
+          ],
+          "who": "bayat1",
+          "do": "lift",
+          "to": [
+            0,
+            0.03,
+            0.03
+          ],
+          "len": 1.2,
+          "face": 0
+        },
+        {
+          "cue": [
+            "bunlar"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "ali",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "doğru"
+          ],
+          "who": "ali",
+          "do": "talk",
+          "look": "can",
+          "len": 3.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "küflü"
+          ],
+          "who": "ali",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "küflü"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "ali",
+          "wait": 0.8
+        },
+        {
+          "cue": [
+            "fatma"
+          ],
+          "who": "babaanne",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "fırıncı"
+          ],
+          "who": "ali",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "yapalım"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "ali",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "yapalım"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "ali",
+          "wait": 0.9
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "title": {
+        "tr": "Ekmek tatlısı",
+        "en": ""
+      },
+      "text": {
+        "tr": "Herkes ellerini yıkadı. Ali amca {ekmekleri|ekmek} {dilimledi|dilimlemek}. Elif {dilimleri|dilim} {tepsiye|tepsi} dizdi. Can {sütlü|süt} karışıma {tarçın} serpti. Tepsiyi sıcak {fırına|fırın} Ali amca yerleştirdi. {Babaanneleri|babaanne} “Yiyeceğimiz kadar ekmek alıyoruz.” dedi. Can “Kalan ekmek de başka yemeğe dönüşebiliyor!” diye karşılık verdi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Ekmek tatlısı, bayat ekmek dilimlerinin sütlü bir karışımla ıslatılıp fırında pişirilmesiyle yapılır. Üstüne tarçın serpilir. Mutfağa girmeden önce eller mutlaka yıkanır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p5-arka.webp",
+          "floor": "art/p5-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "taş fırın",
+              "rect": [
+                0.56,
+                0.24,
+                0.4,
+                0.4
+              ]
+            },
+            {
+              "word": "tezgâh",
+              "rect": [
+                0.07,
+                0.55,
+                0.48,
+                0.25
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "kitchen",
+      "models": [
+        {
+          "src": "/models/kenney/table.glb",
+          "x": 0.02,
+          "z": 0.56,
+          "h": 0.15,
+          "w": 0.4,
+          "word": "masa",
+          "tint": "#A8693A",
+          "top": 1
+        },
+        {
+          "src": "/models/ebru/ebru-teknesi.glb",
+          "x": 0.04,
+          "z": 0.54,
+          "y": 0.15,
+          "h": 0.03,
+          "w": 0.124,
+          "word": "tepsi",
+          "id": "tepsi",
+          "tint": "#8C9198"
+        },
+        {
+          "src": "/models/firin/ekmek-somun.glb",
+          "x": -0.13,
+          "z": 0.54,
+          "y": 0.15,
+          "h": 1,
+          "w": 0.087,
+          "rotY": 80,
+          "word": "ekmek",
+          "id": "tatlik",
+          "tint": "#C8955A"
+        },
+        {
+          "proc": "sutKasesi",
+          "x": 0.15,
+          "z": 0.5,
+          "y": 0.15,
+          "h": 0.03,
+          "word": "süt",
+          "id": "sut"
+        },
+        {
+          "proc": "tarcin",
+          "x": 0.16,
+          "z": 0.6,
+          "y": 0.15,
+          "h": 0.03,
+          "word": "tarçın",
+          "id": "tarcin"
+        },
+        {
+          "src": "/models/firin/ekmek-dilimi.glb",
+          "x": -0.13,
+          "z": 0.5,
+          "y": 0.15,
+          "h": 1,
+          "w": 0.034,
+          "rotY": 80,
+          "word": "dilim",
+          "id": "kesik1",
+          "hidden": true
+        },
+        {
+          "src": "/models/firin/ekmek-dilimi.glb",
+          "x": -0.13,
+          "z": 0.53,
+          "y": 0.15,
+          "h": 1,
+          "w": 0.034,
+          "rotY": 80,
+          "word": "dilim",
+          "id": "kesik2",
+          "hidden": true
+        },
+        {
+          "src": "/models/firin/ekmek-dilimi.glb",
+          "x": -0.13,
+          "z": 0.56,
+          "y": 0.15,
+          "h": 1,
+          "w": 0.034,
+          "rotY": 80,
+          "word": "dilim",
+          "id": "kesik3",
+          "hidden": true
+        },
+        {
+          "src": "/models/firin/ekmek-dilimi.glb",
+          "x": 0.006,
+          "z": 0.52,
+          "y": 0.156,
+          "h": 1,
+          "w": 0.034,
+          "rotY": 90,
+          "word": "dilim",
+          "id": "dilim1",
+          "hidden": true
+        },
+        {
+          "src": "/models/firin/ekmek-dilimi.glb",
+          "x": 0.04,
+          "z": 0.52,
+          "y": 0.156,
+          "h": 1,
+          "w": 0.034,
+          "rotY": 90,
+          "word": "dilim",
+          "id": "dilim2",
+          "hidden": true
+        },
+        {
+          "src": "/models/firin/ekmek-dilimi.glb",
+          "x": 0.074,
+          "z": 0.52,
+          "y": 0.156,
+          "h": 1,
+          "w": 0.034,
+          "rotY": 90,
+          "word": "dilim",
+          "id": "dilim3",
+          "hidden": true
+        },
+        {
+          "src": "/models/firin/ekmek-dilimi.glb",
+          "x": 0.006,
+          "z": 0.565,
+          "y": 0.156,
+          "h": 1,
+          "w": 0.034,
+          "rotY": 90,
+          "word": "dilim",
+          "id": "dilim4",
+          "hidden": true
+        },
+        {
+          "src": "/models/firin/ekmek-dilimi.glb",
+          "x": 0.04,
+          "z": 0.565,
+          "y": 0.156,
+          "h": 1,
+          "w": 0.034,
+          "rotY": 90,
+          "word": "dilim",
+          "id": "dilim5",
+          "hidden": true
+        },
+        {
+          "src": "/models/firin/ekmek-dilimi.glb",
+          "x": 0.074,
+          "z": 0.565,
+          "y": 0.156,
+          "h": 1,
+          "w": 0.034,
+          "rotY": 90,
+          "word": "dilim",
+          "id": "dilim6",
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "ali",
+          "x": -0.27,
+          "z": 0.48,
+          "rotY": 90,
+          "look": "tatlik"
+        },
+        {
+          "id": "elif",
+          "x": 0.05,
+          "z": 0.76,
+          "rotY": 180,
+          "look": "tepsi"
+        },
+        {
+          "id": "can",
+          "x": 0.32,
+          "z": 0.58,
+          "rotY": -90,
+          "look": "tepsi"
+        },
+        {
+          "id": "babaanne",
+          "x": -0.3,
+          "z": 0.74,
+          "rotY": 60,
+          "look": "elif"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "herkes"
+          ],
+          "who": "ali",
+          "do": "raise",
+          "len": 1.2,
+          "look": "up",
+          "focus": true
+        },
+        {
+          "cue": [
+            "herkes"
+          ],
+          "who": "elif",
+          "do": "raise",
+          "len": 1.2,
+          "look": "up",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "herkes"
+          ],
+          "who": "can",
+          "do": "raise",
+          "len": 1.2,
+          "look": "up",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "dilimledi"
+          ],
+          "who": "tatlik",
+          "do": "lift",
+          "to": [
+            0,
+            0.03,
+            0.02
+          ],
+          "len": 0.8,
+          "face": 0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "dilimledi"
+          ],
+          "who": "tatlik",
+          "do": "vanish",
+          "wait": 0.2,
+          "sound": null
+        },
+        {
+          "cue": [
+            "dilimledi"
+          ],
+          "who": "kesik1",
+          "do": "appear",
+          "len": 0.4,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "dilimledi"
+          ],
+          "who": "kesik2",
+          "do": "appear",
+          "len": 0.4,
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "dilimledi"
+          ],
+          "who": "kesik3",
+          "do": "appear",
+          "len": 0.4,
+          "wait": 0.7
+        },
+        {
+          "cue": [
+            "dizdi"
+          ],
+          "who": "elif",
+          "do": "put",
+          "look": "tepsi",
+          "focus": true
+        },
+        {
+          "cue": [
+            "dizdi"
+          ],
+          "who": "kesik1",
+          "do": "vanish",
+          "sound": null,
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "dizdi"
+          ],
+          "who": "dilim1",
+          "do": "appear",
+          "len": 0.3,
+          "wait": 0.2,
+          "sound": null
+        },
+        {
+          "cue": [
+            "dizdi"
+          ],
+          "who": "dilim2",
+          "do": "appear",
+          "len": 0.3,
+          "wait": 0.45,
+          "sound": null
+        },
+        {
+          "cue": [
+            "dizdi"
+          ],
+          "who": "kesik2",
+          "do": "vanish",
+          "sound": null,
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "dizdi"
+          ],
+          "who": "dilim3",
+          "do": "appear",
+          "len": 0.3,
+          "wait": 0.7
+        },
+        {
+          "cue": [
+            "dizdi"
+          ],
+          "who": "dilim4",
+          "do": "appear",
+          "len": 0.3,
+          "wait": 0.95,
+          "sound": null
+        },
+        {
+          "cue": [
+            "dizdi"
+          ],
+          "who": "kesik3",
+          "do": "vanish",
+          "sound": null,
+          "wait": 1.1
+        },
+        {
+          "cue": [
+            "dizdi"
+          ],
+          "who": "dilim5",
+          "do": "appear",
+          "len": 0.3,
+          "wait": 1.2,
+          "sound": null
+        },
+        {
+          "cue": [
+            "dizdi"
+          ],
+          "who": "dilim6",
+          "do": "appear",
+          "len": 0.3,
+          "wait": 1.45
+        },
+        {
+          "cue": [
+            "sütlü"
+          ],
+          "who": "sut",
+          "do": "lift",
+          "to": [
+            0,
+            0.03,
+            0.03
+          ],
+          "len": 0.9,
+          "face": 0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "tarçın"
+          ],
+          "who": "tarcin",
+          "do": "flick",
+          "to": [
+            -0.12,
+            0.06,
+            -0.073
+          ],
+          "len": 1.3,
+          "face": -60
+        },
+        {
+          "cue": [
+            "tarçın"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "tepsi",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "tepsiyi"
+          ],
+          "who": "ali",
+          "do": "walkTo",
+          "to": [
+            0.45,
+            0,
+            -0.366
+          ],
+          "face": 150,
+          "look": "up",
+          "focus": true
+        },
+        {
+          "cue": [
+            "tepsiyi"
+          ],
+          "who": "tepsi",
+          "do": "rise",
+          "to": [
+            0.21,
+            0.29,
+            -0.622
+          ],
+          "wait": 1.6
+        },
+        {
+          "cue": [
+            "tepsiyi"
+          ],
+          "who": "dilim1",
+          "do": "rise",
+          "to": [
+            0.244,
+            0.29,
+            -0.598
+          ],
+          "wait": 1.6
+        },
+        {
+          "cue": [
+            "tepsiyi"
+          ],
+          "who": "dilim2",
+          "do": "rise",
+          "to": [
+            0.21,
+            0.29,
+            -0.598
+          ],
+          "wait": 1.6
+        },
+        {
+          "cue": [
+            "tepsiyi"
+          ],
+          "who": "dilim3",
+          "do": "rise",
+          "to": [
+            0.176,
+            0.29,
+            -0.598
+          ],
+          "wait": 1.6
+        },
+        {
+          "cue": [
+            "tepsiyi"
+          ],
+          "who": "dilim4",
+          "do": "rise",
+          "to": [
+            0.244,
+            0.29,
+            -0.653
+          ],
+          "wait": 1.6
+        },
+        {
+          "cue": [
+            "tepsiyi"
+          ],
+          "who": "dilim5",
+          "do": "rise",
+          "to": [
+            0.21,
+            0.29,
+            -0.653
+          ],
+          "wait": 1.6
+        },
+        {
+          "cue": [
+            "tepsiyi"
+          ],
+          "who": "dilim6",
+          "do": "rise",
+          "to": [
+            0.176,
+            0.29,
+            -0.653
+          ],
+          "wait": 1.6
+        },
+        {
+          "cue": [
+            "yerleştirdi"
+          ],
+          "who": "tepsi",
+          "do": "vanish",
+          "wait": 1.0,
+          "sound": "vanish"
+        },
+        {
+          "cue": [
+            "yerleştirdi"
+          ],
+          "who": "dilim1",
+          "do": "vanish",
+          "wait": 1.0,
+          "sound": null
+        },
+        {
+          "cue": [
+            "yerleştirdi"
+          ],
+          "who": "dilim2",
+          "do": "vanish",
+          "wait": 1.0,
+          "sound": null
+        },
+        {
+          "cue": [
+            "yerleştirdi"
+          ],
+          "who": "dilim3",
+          "do": "vanish",
+          "wait": 1.0,
+          "sound": null
+        },
+        {
+          "cue": [
+            "yerleştirdi"
+          ],
+          "who": "dilim4",
+          "do": "vanish",
+          "wait": 1.0,
+          "sound": null
+        },
+        {
+          "cue": [
+            "yerleştirdi"
+          ],
+          "who": "dilim5",
+          "do": "vanish",
+          "wait": 1.0,
+          "sound": null
+        },
+        {
+          "cue": [
+            "yerleştirdi"
+          ],
+          "who": "dilim6",
+          "do": "vanish",
+          "wait": 1.0,
+          "sound": null
+        },
+        {
+          "cue": [
+            "yerleştirdi"
+          ],
+          "who": "ali",
+          "do": "turn",
+          "face": 0,
+          "look": "reader",
+          "wait": 1.6
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "babaanne",
+          "do": "talk",
+          "look": "can",
+          "len": 2.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "kalan"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "babaanne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kalan"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "babaanne",
+          "len": 2.4
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "title": {
+        "tr": "Biri bize biri askıya",
+        "en": ""
+      },
+      "text": {
+        "tr": "Can eve götürecekleri {ekmeği|ekmek} seçti. {Harçlığını|harçlık} sayıp {babaannesine|babaanne} sordu: “Askıya da ekmek alabilir miyim?” {Fiyatına|fiyat} birlikte baktılar. Can iki ekmeğin {parasını|para} uzattı. “Biri bize, biri {askıya|askı}.” dedi. Ali amca ekmeği astı. Can babaannesine kapıyı açık tuttu.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Türk kültüründe büyüklere kapıyı açık tutmak, yer vermek ve önce onları geçirmek saygının küçük ama önemli işaretleridir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p6-arka.webp",
+          "floor": "art/p6-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "tezgâh",
+              "rect": [
+                0.07,
+                0.55,
+                0.48,
+                0.25
+              ]
+            },
+            {
+              "word": "kasa",
+              "rect": [
+                0.09,
+                0.49,
+                0.11,
+                0.1
+              ]
+            },
+            {
+              "word": "askıda ekmek",
+              "rect": [
+                0.82,
+                0.32,
+                0.17,
+                0.08
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.0,
+                0.15,
+                0.06,
+                0.62
+              ]
+            },
+            {
+              "word": "taş fırın",
+              "rect": [
+                0.47,
+                0.24,
+                0.36,
+                0.33
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "kitchen",
+      "models": [
+        {
+          "src": "/models/firin/ekmek-somun.glb",
+          "x": -0.3,
+          "z": 0.035,
+          "y": 0.34,
+          "h": 1,
+          "w": 0.087,
+          "rotY": 0,
+          "word": "ekmek",
+          "id": "tez1"
+        },
+        {
+          "src": "/models/firin/ekmek-somun.glb",
+          "x": -0.2,
+          "z": 0.035,
+          "y": 0.34,
+          "h": 1,
+          "w": 0.087,
+          "rotY": 8,
+          "word": "ekmek",
+          "id": "tez2"
+        },
+        {
+          "src": "/models/firin/ekmek-somun.glb",
+          "x": -0.1,
+          "z": 0.035,
+          "y": 0.34,
+          "h": 1,
+          "w": 0.087,
+          "rotY": -6,
+          "word": "ekmek",
+          "id": "tez3"
+        },
+        {
+          "src": "/models/firin/ekmek-posu.glb",
+          "x": 0.34,
+          "z": 0.03,
+          "y": 0.49,
+          "h": 0.1,
+          "word": "askıda ekmek",
+          "id": "aski1"
+        },
+        {
+          "src": "/models/firin/ekmek-posu.glb",
+          "x": 0.4,
+          "z": 0.03,
+          "y": 0.49,
+          "h": 0.1,
+          "word": "askıda ekmek",
+          "id": "aski2",
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "ali",
+          "x": -0.22,
+          "z": 0.3,
+          "rotY": 10,
+          "look": "can"
+        },
+        {
+          "id": "can",
+          "x": -0.05,
+          "z": 0.62,
+          "rotY": -30,
+          "look": "tez2"
+        },
+        {
+          "id": "babaanne",
+          "x": 0.2,
+          "z": 0.66,
+          "rotY": -60,
+          "look": "can"
+        },
+        {
+          "id": "elif",
+          "x": 0.12,
+          "z": 0.8,
+          "rotY": -30,
+          "look": "can"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "seçti"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "tez2",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "seçti"
+          ],
+          "who": "tez2",
+          "do": "lift",
+          "to": [
+            0,
+            0.03,
+            0.04
+          ],
+          "len": 1.2,
+          "face": 0,
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "harçlığını"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "bozukPara",
+          "look": "down",
+          "focus": true
+        },
+        {
+          "cue": [
+            "babaannesine"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 60,
+          "look": "babaanne"
+        },
+        {
+          "cue": [
+            "askıya"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "babaanne",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "fiyatına"
+          ],
+          "who": "babaanne",
+          "do": "nod",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "fiyatına"
+          ],
+          "who": "babaanne",
+          "do": "point",
+          "target": "tez1",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "parasını"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -40,
+          "look": "ali",
+          "focus": true
+        },
+        {
+          "cue": [
+            "parasını"
+          ],
+          "who": "can",
+          "do": "give",
+          "target": "ali",
+          "look": "ali"
+        },
+        {
+          "cue": [
+            "parasını"
+          ],
+          "who": "ali",
+          "do": "receive",
+          "look": "can",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "biri"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "ali",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "ali"
+          ],
+          "who": "ali",
+          "do": "walkTo",
+          "to": [
+            0.5,
+            0,
+            0.122
+          ],
+          "face": 150,
+          "look": "aski1",
+          "focus": true
+        },
+        {
+          "cue": [
+            "astı"
+          ],
+          "who": "ali",
+          "do": "raise",
+          "len": 1.0,
+          "look": "up"
+        },
+        {
+          "cue": [
+            "astı"
+          ],
+          "who": "aski2",
+          "do": "appear",
+          "len": 0.5,
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "kapıyı"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.36,
+            0,
+            -0.122
+          ],
+          "face": -80,
+          "look": "babaanne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "tuttu"
+          ],
+          "who": "can",
+          "do": "raise",
+          "len": 1.4,
+          "look": "babaanne"
+        },
+        {
+          "cue": [
+            "tuttu"
+          ],
+          "who": "babaanne",
+          "do": "walkTo",
+          "to": [
+            -0.38,
+            0,
+            -0.049
+          ],
+          "face": -90,
+          "look": "can",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "tuttu"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            -0.3,
+            0,
+            -0.122
+          ],
+          "face": -90,
+          "look": "babaanne",
+          "wait": 0.6
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "title": {
+        "tr": "Sessiz bir teşekkür",
+        "en": ""
+      },
+      "text": {
+        "tr": "Ertesi sabah bir adam {askıdan|askı} ekmek alıyordu. Ali amca onu diğer {müşteriler|müşteri} gibi {selamladı|selamlamak}. Çocuklar adamı izleyip sorular sormadı. Can {babaannesinin|babaanne} yanına geçti. Eve yürürlerken Elif “{İhtiyaç|ihtiyaç} duyduğunda {yardım} bulmak güzel.” dedi. Babaanneleri ekmek {poşetini|poşet} taşıyordu.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Yardımlaşmada incelik önemlidir. Askıdan ekmek alan kişiye kimse soru sormaz, onu herkes gibi selamlar. Bu, insanın onurunu korumanın bir yoludur.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p7-arka.webp",
+          "floor": "art/p7-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "fırın",
+              "rect": [
+                0.2,
+                0.08,
+                0.8,
+                0.62
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.84,
+                0.3,
+                0.1,
+                0.5
+              ]
+            },
+            {
+              "word": "İzmir",
+              "rect": [
+                0.0,
+                0.28,
+                0.1,
+                0.45
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "village",
+      "models": [],
+      "cast": [
+        {
+          "id": "adam",
+          "x": 0.42,
+          "z": 0.42,
+          "rotY": -20,
+          "look": "ali"
+        },
+        {
+          "id": "ali",
+          "x": 0.24,
+          "z": 0.36,
+          "rotY": 20,
+          "look": "adam"
+        },
+        {
+          "id": "babaanne",
+          "x": -0.22,
+          "z": 0.62,
+          "rotY": 30,
+          "hold": "ekmekPosu",
+          "look": "elif"
+        },
+        {
+          "id": "elif",
+          "x": -0.36,
+          "z": 0.72,
+          "rotY": 30,
+          "look": "babaanne"
+        },
+        {
+          "id": "can",
+          "x": 0.0,
+          "z": 0.78,
+          "rotY": -20,
+          "look": "reader"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "adam"
+          ],
+          "who": "adam",
+          "do": "receive",
+          "target": "ekmekPosu",
+          "look": "ali",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ali"
+          ],
+          "who": "ali",
+          "do": "wave",
+          "look": "adam",
+          "focus": true
+        },
+        {
+          "cue": [
+            "selamladı"
+          ],
+          "who": "ali",
+          "do": "talk",
+          "look": "adam",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "selamladı"
+          ],
+          "who": "adam",
+          "do": "nod",
+          "look": "ali",
+          "wait": 0.8
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 60,
+          "look": "babaanne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "adam",
+          "do": "walkTo",
+          "to": [
+            -0.02,
+            0,
+            0.195
+          ],
+          "face": 150,
+          "look": "reader",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.12,
+            0,
+            -0.098
+          ],
+          "face": -60,
+          "look": "babaanne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yürürlerken"
+          ],
+          "who": "babaanne",
+          "do": "walkTo",
+          "to": [
+            -0.16,
+            0,
+            0.073
+          ],
+          "face": -100,
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "yürürlerken"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            -0.06,
+            0,
+            0.195
+          ],
+          "face": -100,
+          "look": "babaanne",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "yürürlerken"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.3,
+            0,
+            -0.024
+          ],
+          "face": -100,
+          "look": "babaanne",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "ihtiyaç"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "babaanne",
+          "len": 2.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "taşıyordu"
+          ],
+          "who": "babaanne",
+          "do": "nod",
+          "look": "elif"
+        }
+      ]
+    },
+    {
+      "id": "p8",
+      "title": {
+        "tr": "Bizim askımız",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Amerika’da|Amerika}, {okullarında|okul} bir yiyecek {bağışı|bağış} kutusu gördüler. {Aileleriyle|aile} kabul edilen ürünlerin listesine baktılar. Açılmamış {makarna} ve {pirinç} paketleri seçtiler. Can “{Paylaşmak|paylaşmak} çok güzel!” dedi. Akşam yiyebileceği kadar ekmek aldı. Kalan ekmeği {annesiyle|anne} {saklama kabına|saklama kabı} koydu.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Birçok ülkede okullar ve mahalleler yiyecek bağışı toplar. Bağışta genellikle açılmamış, bozulmayan ürünler kabul edilir. Türkiye'deki askıda ekmek de aynı paylaşma düşüncesinden doğar.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p8-arka.webp",
+          "floor": "art/p8-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "dolap",
+              "rect": [
+                0.0,
+                0.3,
+                0.14,
+                0.6
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.15,
+                0.27,
+                0.2,
+                0.62
+              ]
+            },
+            {
+              "word": "pano",
+              "rect": [
+                0.77,
+                0.28,
+                0.22,
+                0.24
+              ]
+            },
+            {
+              "word": "pencere",
+              "rect": [
+                0.4,
+                0.04,
+                0.58,
+                0.12
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "school",
+      "models": [
+        {
+          "src": "/models/firin/bagis-kutusu.glb",
+          "x": 0.06,
+          "z": 0.44,
+          "h": 1,
+          "w": 0.16,
+          "word": "bağış kutusu",
+          "id": "kutu",
+          "top": 0.7
+        },
+        {
+          "proc": "saklamaKabi",
+          "x": 0.26,
+          "z": 0.68,
+          "h": 0.04,
+          "word": "saklama kabı",
+          "id": "kap",
+          "hidden": true
+        },
+        {
+          "src": "/models/firin/ekmek-somun.glb",
+          "x": 0.26,
+          "z": 0.68,
+          "y": 0.006,
+          "h": 1,
+          "w": 0.087,
+          "rotY": 0,
+          "word": "ekmek",
+          "id": "kalan",
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "anne",
+          "x": 0.37,
+          "z": 0.56,
+          "rotY": -60,
+          "look": "can"
+        },
+        {
+          "id": "elif",
+          "x": -0.24,
+          "z": 0.62,
+          "rotY": 40,
+          "look": "kutu"
+        },
+        {
+          "id": "can",
+          "x": -0.08,
+          "z": 0.74,
+          "rotY": 20,
+          "look": "kutu"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "okullarında"
+          ],
+          "who": "kutu",
+          "do": "lift",
+          "to": [
+            0,
+            0.02,
+            0.03
+          ],
+          "len": 1.2,
+          "face": 0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "okullarında"
+          ],
+          "who": "elif",
+          "do": "point",
+          "target": "kutu",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "aileleriyle"
+          ],
+          "who": "anne",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "aileleriyle"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "anne",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "makarna"
+          ],
+          "who": "elif",
+          "do": "receive",
+          "target": "makarnaPaketi",
+          "look": "down",
+          "focus": true
+        },
+        {
+          "cue": [
+            "pirinç"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "pirincPaketi",
+          "look": "down"
+        },
+        {
+          "cue": [
+            "seçtiler"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.14,
+            0,
+            -0.22
+          ],
+          "face": 90,
+          "look": "kutu"
+        },
+        {
+          "cue": [
+            "seçtiler"
+          ],
+          "who": "elif",
+          "do": "put",
+          "look": "kutu"
+        },
+        {
+          "cue": [
+            "seçtiler"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.3,
+            0,
+            -0.342
+          ],
+          "face": -90,
+          "look": "kutu",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "seçtiler"
+          ],
+          "who": "can",
+          "do": "put",
+          "look": "kutu"
+        },
+        {
+          "cue": [
+            "paylaşmak"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "paylaşmak"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "can",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "akşam"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 60,
+          "look": "anne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kalan"
+          ],
+          "who": "kap",
+          "do": "appear",
+          "len": 0.6
+        },
+        {
+          "cue": [
+            "kalan"
+          ],
+          "who": "kalan",
+          "do": "appear",
+          "len": 0.6,
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "kalan"
+          ],
+          "who": "anne",
+          "do": "nod",
+          "look": "kap",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "koydu"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "anne"
+        }
+      ]
+    }
+  ]
+}

@@ -196,7 +196,58 @@ export function photo() {
   return grp;
 }
 
+// Mahalle Fırını: stand-ins in simple shapes until their models come (each stands on its bottom, sizes in page widths)
+function packet(w: number, d: number, h: number, body: string, band: string) {
+  const g = new THREE.Group();
+  const box = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), new THREE.MeshStandardMaterial({ color: body, roughness: 0.6 }));
+  box.position.y = h / 2;
+  const strip = new THREE.Mesh(new THREE.BoxGeometry(w * 1.02, h * 0.28, d * 1.02), new THREE.MeshStandardMaterial({ color: band, roughness: 0.5 }));
+  strip.position.y = h * 0.55;
+  g.add(box, strip);
+  g.traverse((n) => ((n as THREE.Mesh).castShadow = true));
+  return g;
+}
+function storageBox() {
+  const g = new THREE.Group();
+  const w = 0.1, d = 0.056, h = 0.04;
+  const glass = new THREE.MeshStandardMaterial({ color: '#DCEEF5', roughness: 0.15, transparent: true, opacity: 0.55 });
+  const box = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), glass);
+  box.position.y = h / 2;
+  const lid = new THREE.Mesh(new THREE.BoxGeometry(w * 1.04, 0.005, d * 1.04), new THREE.MeshStandardMaterial({ color: '#4FA3C7', roughness: 0.4 }));
+  const hinge = new THREE.Group();
+  hinge.position.set(0, h, -d / 2);
+  lid.position.set(0, 0, d / 2);
+  hinge.rotation.x = -1.15;
+  hinge.add(lid);
+  g.add(box, hinge);
+  return g;
+}
+function bowl() {
+  const g = new THREE.Group();
+  const cup = new THREE.Mesh(new THREE.CylinderGeometry(0.024, 0.015, 0.022, 24, 1, true), new THREE.MeshStandardMaterial({ color: '#F7F3EA', roughness: 0.3, side: THREE.DoubleSide }));
+  cup.position.y = 0.011;
+  const milk = new THREE.Mesh(new THREE.CircleGeometry(0.022, 24), new THREE.MeshStandardMaterial({ color: '#FFF4DC', roughness: 0.5 }));
+  milk.rotation.x = -Math.PI / 2;
+  milk.position.y = 0.018;
+  g.add(cup, milk);
+  return g;
+}
+function shaker() {
+  const g = new THREE.Group();
+  const body = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.02, 16), new THREE.MeshStandardMaterial({ color: '#9A5A2E', roughness: 0.6 }));
+  body.position.y = 0.01;
+  const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.0085, 0.0085, 0.006, 16), new THREE.MeshStandardMaterial({ color: '#F2F0EA', roughness: 0.4 }));
+  cap.position.y = 0.023;
+  g.add(body, cap);
+  return g;
+}
+
 export const PROPS: Record<string, () => THREE.Object3D> = {
+  makarna: () => packet(0.047, 0.019, 0.075, '#F2C230', '#2F5FA8'),
+  pirinc: () => packet(0.047, 0.022, 0.071, '#F4F1E8', '#3E8A4A'),
+  saklamaKabi: storageBox,
+  sutKasesi: bowl,
+  tarcin: shaker,
   bed: () => bed(0.58, 0.25),
   blanket: () => blanket(0.3, 0.26),
   nightstand,
@@ -228,6 +279,21 @@ function tray(w: number, color = '#C9CED6') {
 
 /** Each returns a group sized for a character about 0.4–0.55 tall; userData: word, hand ('R' for one hand), atHeight, ahead. */
 export const HELD: Record<string, () => THREE.Object3D> = {
+  // Mahalle Fırını
+  /** The baker's long wooden peel, held level and pointing ahead. */
+  kurek: () => glbHeld('/models/firin/firin-kuregi.glb', 0.0095, { word: 'kürek', atHeight: 0.45, ahead: 0.42 }),
+  somun: () => glbHeld('/models/firin/ekmek-somun.glb', 0.024, { word: 'ekmek', atHeight: 0.42, ahead: 0.22 }),
+  ekmekDilimi: () => glbHeld('/models/firin/ekmek-dilimi.glb', 0.014, { word: 'dilim', hand: 'R' }),
+  ekmekPosu: () => glbHeld('/models/firin/ekmek-posu.glb', 0.1, { word: 'poşet', atHeight: 0.38, ahead: 0.22 }),
+  /** Can's coins, held up so they show. */
+  bozukPara: () => {
+    const g = glbHeld('/models/firin/bozuk-para.glb', 0.0028, { word: 'para', hand: 'R' });
+    g.rotation.x = -1.2;
+    g.scale.setScalar(1);
+    return g;
+  },
+  makarnaPaketi: () => { const g = new THREE.Group(); g.add(PROPS.makarna()); g.userData = { word: 'makarna', atHeight: 0.4, ahead: 0.22 }; return g; },
+  pirincPaketi: () => { const g = new THREE.Group(); g.add(PROPS.pirinc()); g.userData = { word: 'pirinç', atHeight: 0.4, ahead: 0.22 }; return g; },
   // Nasreddin Hoca ve Kazan
   kitap: () => glbHeld('/models/masal/dede-kitap.glb', 0.075, { word: 'kitap', atHeight: 0.42, ahead: 0.2 }),
   /** The same book held up open in front of the face, as when reading aloud. */

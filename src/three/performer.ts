@@ -44,6 +44,9 @@ export const CHARACTERS: Record<string, CharacterDef> = {
   'hasan-amca': { src: '/models/masal/hasan-amca.glb', height: 0.49, name: 'Hasan amca' },
   'koylu-cocuk': { src: '/models/masal/koylu-cocuk.glb', height: 0.34, name: 'Köylü çocuk' },
   'koylu-kadin': { src: '/models/masal/koylu-kadin.glb', height: 0.47, name: 'Köylü kadın' },
+  // Mahalle Fırını
+  ali: { src: '/models/firin/ali-amca.glb', height: 0.53, name: 'Ali amca' },
+  adam: { src: '/models/firin/askidan-ekmek-alan-adam.glb', height: 0.54, name: 'Bir amca' },
   // 23 Nisan Şenliği: Elif's teacher and classmates
   ogretmen: { src: '/models/23-nisan/ogretmen.glb', height: 0.5, name: 'Ms. Carter' },
   zara: { src: '/models/23-nisan/zara.glb', height: 0.39, name: 'Zara' },
