@@ -1,7 +1,8 @@
 import * as THREE from 'three';
 import { loadGltf } from '../home3d/actors';
 import { CHARACTERS, Performer, PUT_DOWN, RELAXED, blendKey, cloneState, mergeKey, smooth, type CharacterDef, type Key, type RootState, type State } from './performer';
-import { POSES, runAct, type Beat, type ActResult } from './acts';
+import { NEUTRAL, POSES, runAct, type Beat, type ActResult } from './acts';
+import type { Pose } from './performer';
 
 /**
  * A story character played like a toy on a pop-up page: the model itself never bends, it hops, turns, leans,
@@ -30,7 +31,10 @@ export class ToyPerformer {
   private phase = Math.random() * 6;
   /** A family member: its rigged model, bent only to sit down. */
   private inner: Performer | null = null;
-  private sitting = false;
+  /** How much the arms are up carrying something (0…1), and the head's own turn towards what it looks at. */
+  private carry = 0;
+  private headYaw = 0;
+  private nextBlink = 2 + Math.random() * 3;
   calm = false;
   makeProp: ((name: string) => THREE.Object3D | null) | null = null;
   surfaceAt: (p: THREE.Vector3) => THREE.Vector3 | null = () => null;
@@ -114,12 +118,17 @@ export class ToyPerformer {
     return s;
   }
 
-  /** Toy acts (TOY_ACTS); looking acts are the same as for the bending characters. */
+  /**
+   * Toy acts (TOY_ACTS); looking acts are the same as for the bending characters. A family member has bones, so
+   * it also moves its arms, legs and head with the act (GESTURES) and really walks instead of hopping along.
+   */
   run(s: State, b: Beat, t: number): ActResult {
+    if (this.inner && b.do === 'walkTo') return rigWalk(s, b, t);
     const a = TOY_ACTS[b.do];
-    if (a) return a(s, b, t, this.height);
-    if (b.do === 'lookAt' || b.do === 'lookAround') return runAct(s, b, t);
-    return TOY_ACTS.hop(s, b, t, this.height);
+    const res = a ? a(s, b, t, this.height) : b.do === 'lookAt' || b.do === 'lookAround' ? runAct(s, b, t) : TOY_ACTS.hop(s, b, t, this.height);
+    const g = this.inner ? GESTURES[b.do] : undefined;
+    if (g) res.keys.push(...g(s, b, t, res.dur));
+    return res;
   }
 
   update(t: number, dt: number) {
@@ -156,11 +165,31 @@ export class ToyPerformer {
     const side = 1 / Math.sqrt(Math.max(0.3, sq));
     this.body.scale.set(side, sq, side);
     this.setHeld(s.hold ?? null);
-    // a family member sits down: the legs bend (the only time a toy figure bends)
-    const sitting = (r.sit ?? 0) > 0.5;
-    if (this.inner && sitting !== this.sitting) {
-      this.sitting = sitting;
-      this.inner.reset({ pose: { ...RELAXED, ...(sitting ? POSES.sit : {}) }, root: { x: 0, y: 0, z: 0, rotY: 0, lie: 0 }, eyes: 1, look: null }, new THREE.Vector3());
+    // a family member: arms, legs and head move with the act; it sits with bent legs, carries things in both
+    // arms, turns its head to what it looks at before the body follows, and blinks now and then
+    if (this.inner) {
+      const sitting = (r.sit ?? 0) > 0.5;
+      const big = !!this.held && this.held.obj.userData.hand !== 'R';
+      const kk = snap ? 1 : 1 - Math.exp(-dt * 7);
+      this.carry += ((big ? 1 : 0) - this.carry) * kk;
+      const pose: Pose = { ...RELAXED, ...s.pose, ...(sitting ? POSES.sit : {}) };
+      if (this.carry > 0.01) {
+        for (const b of ['upper_arm_L', 'upper_arm_R', 'forearm_L', 'forearm_R']) {
+          const from = pose[b] ?? [0, 0, 0];
+          const to = CARRY[b];
+          pose[b] = [from[0] + (to[0] - from[0]) * this.carry, from[1] + (to[1] - from[1]) * this.carry, from[2] + (to[2] - from[2]) * this.carry];
+        }
+      }
+      // the head leads: it turns further than the body towards the thing looked at
+      const extra = target ? THREE.MathUtils.clamp(want * 0.9, -0.55, 0.55) : 0;
+      this.headYaw += (extra - this.headYaw) * (snap ? 1 : 1 - Math.exp(-dt * 6));
+      let eyes = s.eyes;
+      if (!this.calm && dt > 0 && eyes > 0.5) {
+        if (t > this.nextBlink + 0.14) this.nextBlink = t + 2.2 + Math.random() * 3.5;
+        else if (t > this.nextBlink) eyes = 0;
+        else if (this.nextBlink - t > 8) this.nextBlink = t + 1 + Math.random() * 2; // the clock went back
+      }
+      this.inner.bend(pose, eyes, this.headYaw, 0);
     }
   }
 
@@ -218,6 +247,141 @@ export class ToyPerformer {
   }
 }
 
+/* ---------------- a family member's own movements ---------------- */
+
+/** Both forearms up in front, carrying something. */
+const CARRY: Pose = { upper_arm_L: [-34, 0, -22], upper_arm_R: [-34, 0, 22], forearm_L: [-78, 0, 0], forearm_R: [-78, 0, 0] };
+const pk = (t: number, dur: number, pose: Pose, minor = false): Key => ({ t, dur, pose, minor });
+const ARMS_DOWN: Pose = { ...RELAXED, hand_R: [0, 0, 0], hand_L: [0, 0, 0] };
+const BODY_UP: Pose = { spine: [0, 0, 0], chest: [0, 0, 0], head: [0, 0, 0] };
+
+/**
+ * Arm, head and body movements that go with the toy acts, for the characters that have bones. Each ends with the
+ * arms back down. (s, b, start, how long the toy act lasts) → pose keys.
+ */
+const GESTURES: Record<string, (s: State, b: Beat, t: number, dur: number) => Key[]> = {
+  /** Waves with the right hand held up in front of the shoulder. */
+  wave: (_s, _b, t, dur) => {
+    const up: Pose = { upper_arm_R: [-112, 0, 4], forearm_R: [-52, 0, 0] };
+    const ks = [pk(t, 0.28, up)];
+    const n = Math.max(3, Math.round((dur - 0.7) / 0.2));
+    for (let i = 0; i < n; i++) ks.push(pk(t + 0.28 + i * 0.2, 0.2, { forearm_R: [-52, 0, i % 2 ? 26 : -26], hand_R: [0, 0, i % 2 ? 12 : -12] }, true));
+    ks.push(pk(t + 0.28 + n * 0.2, 0.35, ARMS_DOWN));
+    return ks;
+  },
+  /** Both arms thrown up, twice with the hops. */
+  cheer: (_s, _b, t) => [
+    pk(t, 0.22, { ...POSES.cheer }),
+    pk(t + 0.38, 0.14, { upper_arm_L: [-8, 0, 80], upper_arm_R: [-8, 0, -80] }, true),
+    pk(t + 0.55, 0.2, { ...POSES.cheer }),
+    pk(t + 0.95, 0.4, { ...ARMS_DOWN, ...BODY_UP }),
+  ],
+  /** Speaks with the hands: one hand opens towards the listener, then the other, with small nods. */
+  talk: (_s, _b, t, dur) => {
+    const R: Pose = { upper_arm_R: [-40, 0, 24], forearm_R: [-58, 18, 0], hand_R: [0, 0, -18] };
+    const L: Pose = { upper_arm_L: [-36, 0, -22], forearm_L: [-52, -18, 0], hand_L: [0, 0, 18] };
+    const ks: Key[] = [pk(t + 0.15, 0.4, R)];
+    let at = t + 0.75;
+    for (let i = 0; at < t + dur - 1.0; i++, at += 0.7) {
+      if (i % 2 === 0) ks.push(pk(at, 0.4, { ...L, head: [7, 0, 0] }, true), pk(at + 0.35, 0.3, { upper_arm_R: RELAXED.upper_arm_R, forearm_R: RELAXED.forearm_R }, true));
+      else ks.push(pk(at, 0.4, { ...R, head: [0, 0, 0] }, true), pk(at + 0.35, 0.3, { upper_arm_L: RELAXED.upper_arm_L, forearm_L: RELAXED.forearm_L }, true));
+    }
+    ks.push(pk(t + dur - 0.5, 0.5, { ...ARMS_DOWN, ...BODY_UP }));
+    return ks;
+  },
+  /** Points with the right arm stretched out. */
+  point: (_s, _b, t, dur) => [pk(t, 0.35, { upper_arm_R: [-74, 0, 14], forearm_R: [-6, 0, 0] }), pk(t + dur - 0.45, 0.45, ARMS_DOWN)],
+  /** A hand up high to ask for a turn. */
+  raise: (_s, _b, t, dur) => [
+    pk(t, 0.3, { upper_arm_R: [-150, 0, 6], forearm_R: [-14, 0, 0], head: [-6, 0, 0] }),
+    pk(t + 0.35, 0.15, { forearm_R: [-26, 0, 0] }, true),
+    pk(t + 0.5, 0.15, { forearm_R: [-14, 0, 0] }, true),
+    pk(t + dur - 0.4, 0.4, { ...ARMS_DOWN, head: [0, 0, 0] }),
+  ],
+  nod: (_s, _b, t) => [pk(t, 0.2, { head: [16, 0, 0] }), pk(t + 0.22, 0.2, { head: [0, 0, 0] }), pk(t + 0.45, 0.2, { head: [16, 0, 0] }, true), pk(t + 0.67, 0.25, { head: [0, 0, 0] })],
+  bow: (_s, _b, t, dur) => [pk(t, 0.45, { head: [14, 0, 0], chest: [8, 0, 0] }), pk(t + dur - 0.5, 0.5, BODY_UP)],
+  knock: (_s, _b, t) => {
+    const up: Pose = { upper_arm_R: [-72, 0, 16], forearm_R: [-70, 0, 0] };
+    const hit: Pose = { forearm_R: [-40, 0, 0] };
+    return [pk(t, 0.22, up), pk(t + 0.25, 0.1, hit), pk(t + 0.37, 0.1, up), pk(t + 0.5, 0.1, hit), pk(t + 0.62, 0.1, up), pk(t + 0.9, 0.35, ARMS_DOWN)];
+  },
+  /** Arms stretched out with the thing, then down. */
+  give: (_s, _b, t) => [pk(t, 0.35, { upper_arm_L: [-62, 0, -14], upper_arm_R: [-62, 0, 14], forearm_L: [-30, 0, 0], forearm_R: [-30, 0, 0] }), pk(t + 0.85, 0.4, ARMS_DOWN)],
+  offer: (_s, _b, t, dur) => [pk(t, 0.35, { upper_arm_L: [-58, 0, -14], upper_arm_R: [-58, 0, 14], forearm_L: [-34, 0, 0], forearm_R: [-34, 0, 0] }), pk(t + dur - 0.4, 0.4, ARMS_DOWN)],
+  receive: (_s, _b, t) => [pk(t, 0.35, { upper_arm_L: [-60, 0, -14], upper_arm_R: [-60, 0, 14], forearm_L: [-30, 0, 0], forearm_R: [-30, 0, 0] }), pk(t + 0.7, 0.4, ARMS_DOWN)],
+  /** Reaches down to set the thing on its place. */
+  put: (_s, _b, t) => [pk(t, 0.4, { upper_arm_L: [-52, 0, -14], upper_arm_R: [-52, 0, 14], forearm_L: [-12, 0, 0], forearm_R: [-12, 0, 0], head: [12, 0, 0] }), pk(t + 0.7, 0.4, { ...ARMS_DOWN, head: [0, 0, 0] })],
+  hug: (_s, _b, t) => [pk(t, 0.35, { ...POSES.hug }), pk(t + 1.3, 0.4, { ...ARMS_DOWN, ...BODY_UP })],
+  /** Fists on the hips. */
+  angry: (_s, _b, t, dur) => [
+    pk(t, 0.2, { upper_arm_L: [8, 0, -52], upper_arm_R: [8, 0, 52], forearm_L: [-70, -60, 0], forearm_R: [-70, 60, 0], head: [8, 0, 0] }),
+    pk(t + Math.max(0.9, dur - 0.4), 0.4, { ...ARMS_DOWN, head: [0, 0, 0] }),
+  ],
+  /** Beats the davul: the arms strike in turn. */
+  drum: (_s, _b, t, dur) => {
+    const ks: Key[] = [];
+    const n = Math.floor((dur - 0.35) / 0.5);
+    for (let i = 0; i < n; i++) {
+      const r = i % 2 === 0;
+      ks.push(pk(t + i * 0.5, 0.1, { upper_arm_R: [r ? -30 : -56, 0, 22], forearm_R: [r ? -40 : -76, 0, 0], upper_arm_L: [r ? -56 : -30, 0, -22], forearm_L: [r ? -76 : -40, 0, 0] }, i > 0));
+    }
+    ks.push(pk(t + dur - 0.35, 0.35, ARMS_DOWN));
+    return ks;
+  },
+  /** Halay: arms out to the sides at shoulder height, shoulders shimmy. */
+  dance: (_s, _b, t, dur) => {
+    const ks: Key[] = [pk(t, 0.3, { upper_arm_L: [0, 0, 44], upper_arm_R: [0, 0, -44], forearm_L: [-30, 0, 0], forearm_R: [-30, 0, 0] })];
+    for (let at = t + 0.3, i = 0; at < t + dur - 0.6; at += 0.5, i++) ks.push(pk(at, 0.25, { chest: [0, i % 2 ? 9 : -9, 0], thigh_L: [i % 2 ? -22 : 0, 0, 0], shin_L: [i % 2 ? 30 : 0, 0, 0], thigh_R: [i % 2 ? 0 : -22, 0, 0], shin_R: [i % 2 ? 0 : 30, 0, 0] }, true));
+    ks.push(pk(t + dur - 0.4, 0.4, { ...NEUTRAL }));
+    return ks;
+  },
+  rest: (_s, _b, t) => [pk(t, 0.4, { ...NEUTRAL })],
+};
+GESTURES.kissHand = GESTURES.bow;
+GESTURES.offerHand = GESTURES.offer;
+GESTURES.fixBow = GESTURES.hug;
+GESTURES.kissForehead = GESTURES.hug;
+GESTURES.blowKiss = GESTURES.wave;
+
+/**
+ * A family member walks to a place (`to`) on its own legs: turns the way it goes, steps with swinging arms and
+ * a light bounce in every step, then stands and turns to `face`.
+ */
+function rigWalk(s: State, b: Beat, t: number): ActResult {
+  const to = b.to ?? [s.root.x, s.root.y, s.root.z];
+  const dx = to[0] - s.root.x;
+  const dz = to[2] - s.root.z;
+  const dist = Math.hypot(dx, dz);
+  const dir = near(s.root.rotY, (Math.atan2(dx, dz) * 180) / Math.PI);
+  const steps = Math.max(2, Math.round(dist / 0.042));
+  const stepT = 0.3;
+  const y = s.root.y;
+  const keys: Key[] = [key(t, 0.3, { root: { rotY: dir, ...upright, sit: 0 }, look: null })];
+  const t0 = t + 0.22;
+  for (let i = 0; i < steps; i++) {
+    const l = i % 2 === 0;
+    const at = t0 + i * stepT;
+    keys.push(
+      key(at, stepT, {
+        minor: true,
+        root: { x: s.root.x + (dx * (i + 1)) / steps, z: s.root.z + (dz * (i + 1)) / steps, lean: 4, tilt: l ? 2.2 : -2.2 },
+        pose: {
+          ...NEUTRAL,
+          thigh_L: [l ? -26 : 16, 0, 0], thigh_R: [l ? 16 : -26, 0, 0],
+          shin_L: [l ? 8 : 34, 0, 0], shin_R: [l ? 34 : 8, 0, 0],
+          upper_arm_L: [l ? 18 : -18, 0, -30], upper_arm_R: [l ? -18 : 18, 0, 30],
+          forearm_L: [l ? -10 : -26, 0, 0], forearm_R: [l ? -26 : -10, 0, 0],
+        },
+      }),
+      key(at, stepT / 2, { minor: true, root: { y: y + 0.006 } }),
+      key(at + stepT / 2, stepT / 2, { minor: true, root: { y } }),
+    );
+  }
+  const end = t0 + steps * stepT;
+  keys.push(key(end, 0.35, { pose: { ...NEUTRAL }, root: { x: to[0], z: to[2], y, rotY: b.face !== undefined ? near(dir, b.face) : dir, ...upright }, look: b.look ?? s.look }));
+  return { keys, dur: end - t + 0.4 };
+}
+
 /* ---------------- toy acts ---------------- */
 
 type ToyAct = (s: State, b: Beat, t: number, H: number) => ActResult;
@@ -259,18 +423,19 @@ export const TOY_ACTS: Record<string, ToyAct> = {
     const dz = to[2] - s.root.z;
     const dist = Math.hypot(dx, dz);
     const dir = near(s.root.rotY, (Math.atan2(dx, dz) * 180) / Math.PI);
-    const n = Math.max(2, Math.round(dist / 0.065));
+    const n = Math.max(2, Math.round(dist / 0.05));
     const keys: Key[] = [key(t, 0.25, { root: { rotY: dir, ...upright }, look: null })];
     let at = t + 0.2;
     let cur: State = { ...s, root: { ...s.root } };
     for (let i = 1; i <= n; i++) {
       const p = { x: s.root.x + (dx * i) / n, z: s.root.z + (dz * i) / n };
-      const hop = hopKeys(cur, at, 0.055 * H, p).map((k, j) => (j === 1 ? { ...k, minor: true } : k));
-      keys.push(...hop);
+      // a waddle: small quick steps, rocking from foot to foot and leaning into the walk
+      const hop = hopKeys(cur, at, 0.034 * H, p).map((k, j) => (j === 1 ? { ...k, minor: true } : k));
+      keys.push(...hop, key(at, 0.2, { root: { tilt: i % 2 ? 5 : -5, lean: 5 }, minor: true }));
       cur = { ...cur, root: { ...cur.root, ...p } };
-      at += 0.34;
+      at += 0.3;
     }
-    keys.push(key(at + 0.1, 0.35, { root: { x: to[0], z: to[2], rotY: b.face !== undefined ? near(dir, b.face) : dir, sq: 1 }, look: b.look ?? s.look }));
+    keys.push(key(at + 0.1, 0.35, { root: { x: to[0], z: to[2], rotY: b.face !== undefined ? near(dir, b.face) : dir, ...upright }, look: b.look ?? s.look }));
     return { keys, dur: at + 0.45 - t };
   },
 

@@ -41,7 +41,7 @@ type Act = (s: State, b: Beat, t: number) => ActResult;
 const merge = (...p: Pose[]): Pose => Object.assign({}, ...p.map(clonePose));
 
 /** Standing straight with the arms down: every bone an act may bend is set, so nothing stays bent afterwards. */
-const NEUTRAL: Pose = {
+export const NEUTRAL: Pose = {
   spine: [0, 0, 0], chest: [0, 0, 0], neck: [0, 0, 0], head: [0, 0, 0],
   hand_L: [0, 0, 0], hand_R: [0, 0, 0],
   thigh_L: [0, 0, 0], thigh_R: [0, 0, 0], shin_L: [0, 0, 0], shin_R: [0, 0, 0],

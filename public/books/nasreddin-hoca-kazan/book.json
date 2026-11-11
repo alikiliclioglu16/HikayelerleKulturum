@@ -59,7 +59,8 @@
           "z": 0.79,
           "h": 0.16,
           "y": 0.09,
-          "word": "çaydanlık"
+          "word": "çaydanlık",
+          "steam": true
         },
         {
           "src": "/models/culture/cay.glb",
@@ -321,7 +322,8 @@
           "id": "pilav",
           "magic": true,
           "hidden": true,
-          "fx": "bob"
+          "fx": "bob",
+          "steam": true
         },
         {
           "src": "/models/masal/kazan.glb",
@@ -544,7 +546,8 @@
           "id": "pilav",
           "magic": true,
           "hidden": true,
-          "fx": "bob"
+          "fx": "bob",
+          "steam": true
         }
       ],
       "cast": [
@@ -1743,7 +1746,8 @@
           "z": 0.79,
           "h": 0.16,
           "y": 0.09,
-          "word": "çaydanlık"
+          "word": "çaydanlık",
+          "steam": true
         },
         {
           "src": "/models/culture/cay.glb",

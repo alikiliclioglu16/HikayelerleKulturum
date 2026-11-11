@@ -7,7 +7,7 @@
     "en": "Ramadan Bayram (Eid al-Fitr)"
   },
   "summary": {
-    "tr": "Elif ile kardeşi Can, Amerika'daki evlerinde Ramazan Bayramı'nı karşılıyor: bayramlıklar, hep birlikte kurulan bayram sofrası, babaanne ve dedeyle görüntülü bayramlaşma, Ayşe Teyze'nin ziyareti, şekerleri adil paylaşma ve bayramı merak eden bir arkadaş.",
+    "tr": "Elif ile kardeşi Can, Amerika'daki evlerinde Ramazan Bayramı'nı karşılıyor: bayramlıklar, hep birlikte kurulan bayram sofrası, babaanne ve dedeyle görüntülü bayramlaşma, Ayşe teyze'nin ziyareti, şekerleri adil paylaşma ve bayramı merak eden bir arkadaş.",
     "en": ""
   },
   "values": [
@@ -30,7 +30,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Elif sabah {erkenden|erken} uyandı. {Pencereden|pencere} giren {güneş} odasını aydınlatıyordu. Mutfaktan {baklava} kokusu geliyordu. “Bugün Ramazan {Bayramı|bayram}!” dedi sevinçle. Bu bayram, Ramazan ayının sonunda kutlanıyordu. Elif {kapısını|kapı} açınca {Can’ı|Can} gördü. {Kardeşi|kardeş} de heyecanlıydı. İkisi birlikte {mutfağa|mutfak} yürüdü. Evlerinde güzel bir gün başlıyordu.",
+        "tr": "Elif sabah {erkenden|erken} uyandı. {Güneş|güneş} odasını aydınlatıyor, {mutfaktan|mutfak} {baklava} kokusu geliyordu. “Bugün Ramazan {Bayramı|bayram}!” dedi. Ramazan ayının ardından bayram gelmişti. {Kapısını|kapı} açınca {Can’ı|Can} gördü. {Kardeşi|kardeş} de heyecanlıydı. Birlikte mutfağa yürüdüler.",
         "en": ""
       },
       "culture": {
@@ -292,23 +292,22 @@
         },
         {
           "cue": [
-            "evlerinde",
-            "güzel"
+            "yürüdüler"
           ],
           "who": "elif",
           "do": "cheer",
           "look": "reader",
-          "focus": true
+          "focus": true,
+          "wait": 1.5
         },
         {
           "cue": [
-            "evlerinde",
-            "güzel"
+            "yürüdüler"
           ],
           "who": "can",
           "do": "cheer",
           "look": "reader",
-          "wait": 0.25
+          "wait": 1.75
         }
       ],
       "layers": [
@@ -351,7 +350,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Elif mavi {elbisesini|elbise} giydi. Can da temiz {gömleğini|gömlek} ve {papyonunu|papyon} hazırladı. Bayram için özenle seçilen giysilere {bayramlık} denirdi. Her yıl yeni giysi almak gerekmiyordu; önemli olan temiz ve özenli olmaktı. Can papyonunu düzeltmekte zorlanınca {yardım} istedi. Elif yardım etti. Can da ablasının düşen {saç tokasını|toka} buldu.",
+        "tr": "Elif mavi {elbisesini|elbise} giydi. Can {gömleğini|gömlek} ve {papyonunu|papyon} hazırladı. Bayram için özenle seçilen giysilere {bayramlık} denirdi. Her yıl yenisini almak gerekmiyordu. Temiz olmaları yeterliydi. Elif kardeşinin papyonunu düzeltti. Can da ablasının düşen saç {tokasını|toka} buldu.",
         "en": ""
       },
       "culture": {
@@ -464,7 +463,7 @@
         },
         {
           "cue": [
-            "yardım"
+            "papyonunu"
           ],
           "who": "can",
           "do": "talk",
@@ -474,7 +473,7 @@
         },
         {
           "cue": [
-            "elif"
+            "papyonunu"
           ],
           "who": "elif",
           "do": "walkTo",
@@ -488,8 +487,7 @@
         },
         {
           "cue": [
-            "yardım",
-            "etti"
+            "düzeltti"
           ],
           "who": "elif",
           "do": "fixBow",
@@ -595,7 +593,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Baba {bayram namazından|bayram namazı} dönünce {mutfağa|mutfak} geçti. Anne ile {kahvaltıyı|kahvaltı} hazırladılar. Elif {tabakları|tabak} dizdi, Can {peçeteleri|peçete} yerleştirdi. {Baklava|baklava} tepsisi sıcak olduğu için onu büyükler taşıdı. {Sofrada|sofra} {peynir}, {zeytin} ve {ekmek} de vardı. Büyüklerin {çayının|çay} yanında çocukların {suları|su} duruyordu. Herkes oturunca Elif gülümsedi. Bu sofrada herkesin küçük bir emeği vardı.",
+        "tr": "Babaları {bayram namazından|bayram namazı} dönünce anneleriyle {kahvaltıyı|kahvaltı} hazırladı. Elif {tabakları|tabak} dizdi, Can {peçeteleri|peçete} yerleştirdi. Sıcak {baklava} tepsisini büyükler taşıdı. {Sofrada|sofra} {peynir}, {zeytin} ve {ekmek} vardı. Büyükler {çay}, çocuklar {su} içecekti. Elif gülümsedi. Sofrada herkesin emeği vardı.",
         "en": ""
       },
       "culture": {
@@ -610,7 +608,8 @@
           "h": 0.158,
           "w": 0.62,
           "word": "sofra",
-          "top": 0.67
+          "top": 0.67,
+          "steam": true
         }
       ],
       "cast": [
@@ -664,8 +663,7 @@
         },
         {
           "cue": [
-            "mutfa",
-            "geçti"
+            "anneleriyle"
           ],
           "who": "baba",
           "do": "talk",
@@ -812,7 +810,7 @@
         "en": ""
       },
       "text": {
-        "tr": "{Babaanne} ile {dede} Türkiye’de, İzmir’de yaşıyordu. Elif’in ailesi ise Amerika’daydı. {Görüntülü arama|görüntülü arama} başlayınca iki kardeş {ekrana|ekran} yaklaştı. “{Bayramınız mübarek olsun|bayramınız mübarek olsun}!” dediler. Dede, “Burada öğleden sonra oldu,” diye anlattı. Saatler farklıydı ama sohbetleri aynı sevinçle doluydu. Elif, babaannesine {elbisesini|elbise} gösterdi. Can da {sofrayı|sofra} birlikte hazırladıklarını anlattı.",
+        "tr": "{Babaanneleri|Babaanne} Fatma Hanım ile {dedeleri|dede} Ahmet Bey, İzmir’de yaşıyordu. Çocukların ailesi Amerika’daydı. {Görüntülü aramada|görüntülü arama} “{Bayramınız mübarek olsun|bayramınız mübarek olsun}!” dediler. Dedeleri “Burada öğleden sonra oldu.” dedi. Elif {elbisesini|elbise} gösterdi. Can {sofrayı|sofra} birlikte hazırladıklarını anlattı. Uzakta olsalar da bayram sevincini paylaşıyorlardı.",
         "en": ""
       },
       "culture": {
@@ -886,8 +884,7 @@
         },
         {
           "cue": [
-            "ekran",
-            "yaklaştı"
+            "görüntülü"
           ],
           "who": "elif",
           "do": "walkTo",
@@ -902,8 +899,7 @@
         },
         {
           "cue": [
-            "ekran",
-            "yaklaştı"
+            "görüntülü"
           ],
           "who": "can",
           "do": "walkTo",
@@ -1048,11 +1044,11 @@
       "id": "p5",
       "scene": "p5",
       "title": {
-        "tr": "Ayşe Teyze geldi",
+        "tr": "Ayşe teyze geldi",
         "en": ""
       },
       "text": {
-        "tr": "{Kapı|kapı} çalınca {baba|Baba} kapıyı açtı. Gelen, tanıdıkları {komşuları|komşu} {Ayşe Teyze’ydi|Ayşe Teyze}. Elif, “Elini öpebilir miyim?” diye sordu. Ayşe Teyze gülümseyince {elini öpüp|el öpmek} {alnına|alın} götürdü. Bu, ailelerinin sevgiyle sürdürdüğü bir bayram {geleneğiydi|gelenek}. Can da “{İyi bayramlar|iyi bayramlar}!” dedi. Ayşe Teyze iki kardeşe küçük birer {bayram harçlığı|harçlık} verdi. Sonra birlikte sohbet ettiler.",
+        "tr": "{Kapıyı|kapı} {babaları|Baba} açtı. {Komşuları|komşu} {Ayşe teyze|Ayşe teyze} gelmişti. Elif “Elini öpebilir miyim?” diye sordu. Ayşe teyze gülümseyince {elini öpüp|el öpmek} {alnına|alın} götürdü. Bu, ailelerinin bayram {geleneğiydi|gelenek}. Can “{İyi bayramlar|iyi bayramlar}!” dedi. Ayşe teyze ikisine de {harçlık} verdi.",
         "en": ""
       },
       "culture": {
@@ -1188,8 +1184,7 @@
         },
         {
           "cue": [
-            "gelenek",
-            "sevgiyle"
+            "geleneğiydi"
           ],
           "who": "baba",
           "do": "nod",
@@ -1221,7 +1216,7 @@
         },
         {
           "cue": [
-            "kardeşe"
+            "ikisine"
           ],
           "who": "ayse",
           "do": "give",
@@ -1230,7 +1225,7 @@
         },
         {
           "cue": [
-            "kardeşe"
+            "ikisine"
           ],
           "who": "elif",
           "do": "receive",
@@ -1262,21 +1257,22 @@
         },
         {
           "cue": [
-            "sohbet"
+            "verdi"
           ],
           "who": "ayse",
           "do": "talk",
           "look": "elif",
-          "len": 2.2
+          "len": 2.2,
+          "wait": 2.0
         },
         {
           "cue": [
-            "sohbet"
+            "verdi"
           ],
           "who": "can",
           "do": "cheer",
           "look": "ayse",
-          "wait": 0.6
+          "wait": 2.6
         }
       ],
       "layers": [
@@ -1328,7 +1324,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Can {şeker kâsesini|bayram şekeri} görünce heyecanlandı. “Bunları nasıl {paylaşacağız|paylaşmak}?” diye sordu. Önce {misafirlere|misafir} {ikram etmek} için bir bölümünü ayırdılar. Sonra kalanları saydılar. “Bir sana, bir bana,” dedi Elif. İki kardeşe {eşit} sayıda şeker düştü. Can kendi payını {tabağına|tabak} koydu. “Senin sevdiğin renk de burada,” diyerek bir şekeri ablasıyla değiştirmeyi önerdi.",
+        "tr": "Can {şeker kâsesini|bayram şekeri} görünce “Bunları nasıl {paylaşacağız|paylaşmak}?” diye sordu. Önce {misafirlere|misafir} {ikram edecekleri|ikram etmek} şekerleri ayırdılar. Kalanları saydılar. Elif “Bir sana, bir bana.” dedi. {Eşit|eşit} sayıda şeker aldılar. Can ablasının sevdiği renkteki şekeri onunla değiştirmeyi önerdi.",
         "en": ""
       },
       "culture": {
@@ -1453,8 +1449,7 @@
         },
         {
           "cue": [
-            "payını",
-            "tabağına"
+            "aldılar"
           ],
           "who": "can",
           "do": "bow",
@@ -1532,7 +1527,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Öğleden sonra Elif’in {arkadaşı|arkadaş} {Maya} geldi. Ramazan Bayramı’nı merak ediyordu. Elif önce {Türkçe} anlattı, sonra gerektiğinde İngilizce yardım etti. {Anne}, Maya’nın ailesine danışarak {lokum} {ikram etti|ikram etmek}. Maya {teşekkür edip|teşekkür etmek} küçük bir parça aldı. Ardından Elif’in öğrettiği sözü söyledi: “{İyi bayramlar|iyi bayramlar}!” İki arkadaş gülümsedi. Maya’nın {köpeği|köpek} Pamuk da kapının yanında kuyruğunu sallıyordu.",
+        "tr": "Öğleden sonra Elif’in {arkadaşı|arkadaş} {Maya} geldi. Ramazan Bayramı’nı merak ediyordu. Elif {Türkçe} anlattı. Gerektiğinde İngilizceden yararlandı. {Anneleri|Anne}, ailesine danışarak Maya’ya {lokum} {ikram etti|ikram etmek}. Maya {teşekkür etti|teşekkür etmek}. Ardından öğrendiği sözü söyledi: “{İyi bayramlar|iyi bayramlar}!” {Köpeği|köpek} Pamuk da kuyruğunu sallıyordu.",
         "en": ""
       },
       "culture": {
@@ -1668,22 +1663,21 @@
         },
         {
           "cue": [
-            "gülümsedi",
-            "arkadaş"
+            "iyi bayram"
           ],
           "who": "maya",
           "do": "cheer",
-          "look": "elif"
+          "look": "elif",
+          "wait": 2.0
         },
         {
           "cue": [
-            "gülümsedi",
-            "arkadaş"
+            "iyi bayram"
           ],
           "who": "elif",
           "do": "cheer",
           "look": "maya",
-          "wait": 0.25
+          "wait": 2.25
         },
         {
           "cue": [
@@ -1755,7 +1749,7 @@
         "en": ""
       },
       "text": {
-        "tr": "Akşam Elif ile Can {pencerenin|pencere} önüne oturdu. {Babaannenin|babaanne} sesi, {Ayşe Teyze’nin|Ayşe Teyze} gülüşü ve Maya’nın {Türkçe} sözü akıllarındaydı. “Bugün en çok birlikte vakit geçirmeyi sevdim,” dedi Elif. Can da {misafirler|misafir} için ayırdıkları {şekerleri|bayram şekeri} hatırladı. Anne ile baba yanlarına geldi. Ertesi gün kimi arayıp {bayramlaşacaklarına|bayramlaşmak} birlikte karar verdiler. {Bayram|bayram} sevinci evlerinde sürüyordu.",
+        "tr": "Akşam Elif ile Can {pencerenin|pencere} önüne oturdu. {Babaannelerinin|babaanne} sesi, {Ayşe teyzenin|Ayşe teyze} gülüşü ve Maya’nın {Türkçe} sözü akıllarındaydı. Elif “Birlikte vakit geçirmeyi sevdim.” dedi. Can {misafirlere|misafir} ayırdıkları {şekerleri|bayram şekeri} hatırladı. Anne ve babalarıyla ertesi gün kimi arayacaklarını konuştular.",
         "en": ""
       },
       "culture": {
@@ -1851,7 +1845,7 @@
         },
         {
           "cue": [
-            "bugün"
+            "elif"
           ],
           "who": "elif",
           "do": "turn",
@@ -1924,7 +1918,7 @@
         },
         {
           "cue": [
-            "karar"
+            "konuştular"
           ],
           "who": "elif",
           "do": "nod",
@@ -1932,7 +1926,7 @@
         },
         {
           "cue": [
-            "karar"
+            "konuştular"
           ],
           "who": "can",
           "do": "cheer",
@@ -1941,22 +1935,21 @@
         },
         {
           "cue": [
-            "bayram",
-            "sevinci"
+            "konuştular"
           ],
           "who": "hilal",
           "do": "shine",
-          "len": 1.2
+          "len": 1.2,
+          "wait": 1.5
         },
         {
           "cue": [
-            "sevinci",
-            "sürüyor"
+            "konuştular"
           ],
           "who": "elif",
           "do": "cheer",
           "look": "reader",
-          "wait": 0.3,
+          "wait": 1.8,
           "optional": true
         }
       ],
@@ -2238,7 +2231,7 @@
       "en": "Grandpa",
       "icon": "👴"
     },
-    "Ayşe Teyze": {
+    "Ayşe teyze": {
       "en": "Aunt Ayşe",
       "icon": "👵"
     },
@@ -2372,7 +2365,7 @@
     },
     {
       "q": {
-        "tr": "Elif, Ayşe Teyze'nin elini öpmeden önce ne yaptı?",
+        "tr": "Elif, Ayşe teyze'nin elini öpmeden önce ne yaptı?",
         "en": ""
       },
       "options": [
@@ -2469,7 +2462,7 @@
         "temizlik"
       ],
       "why": {
-        "tr": "Elif, Ayşe Teyze'nin elini öpmeden önce izin istedi, sonra elini öpüp alnına götürdü. Büyüğüne saygı gösterdi.",
+        "tr": "Elif, Ayşe teyze'nin elini öpmeden önce izin istedi, sonra elini öpüp alnına götürdü. Büyüğüne saygı gösterdi.",
         "en": ""
       }
     },
@@ -2520,16 +2513,16 @@
     },
     "talk": [
       {
-        "tr": "Sen bir büyüğüne saygını nasıl gösterirsin?",
-        "en": "How do you show respect to an elder?"
+        "tr": "Elif ve Can sofraya nasıl yardım etti?",
+        "en": ""
       },
       {
-        "tr": "Bir şeyi kardeşinle ya da arkadaşınla nasıl adil paylaşırsın?",
-        "en": "How do you share something fairly with a sibling or friend?"
+        "tr": "El öpmek istemeyen biri sevgisini başka nasıl gösterebilir?",
+        "en": ""
       },
       {
-        "tr": "Arkadaşına hangi Türkçe sözü öğretmek isterdin?",
-        "en": "Which Turkish words would you like to teach a friend?"
+        "tr": "Bir bayram tebriği söyle veya yaz.",
+        "en": ""
       }
     ]
   },

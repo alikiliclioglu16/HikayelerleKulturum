@@ -1862,7 +1862,8 @@
           "z": 0.78,
           "h": 0.07,
           "w": 0.4,
-          "word": "sofra"
+          "word": "sofra",
+          "steam": true
         }
       ],
       "cast": [
@@ -2204,7 +2205,8 @@
           "word": "sofra",
           "id": "sofra",
           "hidden": true,
-          "top": 0.9
+          "top": 0.9,
+          "steam": true
         },
         {
           "proc": "photo",

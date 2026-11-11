@@ -52,6 +52,8 @@ export interface PageModel {
   h: number;
   /** Optional largest width/depth in page widths (for flat things like a rug). */
   w?: number;
+  /** Steam rises from it while it is on the page (hot soup, a pot on the fire, bread out of the oven). */
+  steam?: boolean;
   /** For `proc: "sheet"`: its depth (front to back) in page widths; `w` is its width. */
   d?: number;
   /** A picture laid on the model's top face (e.g. an ebru pattern on a blank sheet of paper), or the picture of a

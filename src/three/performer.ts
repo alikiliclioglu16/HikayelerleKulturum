@@ -289,6 +289,30 @@ export class Performer {
     this.apply(s, dt, false);
   }
 
+  /**
+   * Only the body: bend the bones to a pose and open or close the eyes, leaving place, look and hands alone
+   * (a family member played as a toy figure, see ToyPerformer). `headYaw`/`headPitch` (radians) turn the head.
+   */
+  bend(pose: Pose, eyes: number, headYaw = 0, headPitch = 0) {
+    for (const [k, b] of Object.entries(this.bones)) {
+      const R = this.rest[k];
+      const e = pose[k];
+      if (!e) b.quaternion.copy(R.ql);
+      else b.quaternion.copy(R.pw.clone().invert().multiply(qFromEuler(e)).multiply(R.pw).multiply(R.ql));
+    }
+    const head = this.bones.head;
+    if (head && (headYaw || headPitch)) {
+      const R = this.rest.head;
+      const turn = new THREE.Quaternion().setFromEuler(new THREE.Euler(headPitch, headYaw, 0, 'YXZ'));
+      head.quaternion.premultiply(R.pw.clone().invert().multiply(turn).multiply(R.pw));
+    }
+    for (const l of this.lids) {
+      const open = Math.min(1, Math.max(0, eyes));
+      l.scale.y = l.userData.sy * Math.max(0.02, 1 - open);
+      l.visible = open < 0.98;
+    }
+  }
+
   private apply(s: State, dt: number, snap: boolean) {
     // bones
     for (const [k, b] of Object.entries(this.bones)) {

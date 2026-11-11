@@ -15,6 +15,7 @@ import { ToyPerformer } from './toy';
 import { Rain } from './rain';
 import { PageText, pageLogo, type PageTextSpec } from './pageText';
 import { Sparkles } from '../home3d/sparkles';
+import { Party } from './party';
 import type { PageData } from '../types';
 import { WallCarpet, type CarpetDesign } from '../home3d/carpet';
 import type { BuiltLayer } from '../art/scenes';
@@ -351,6 +352,8 @@ export class BookScene {
   /** Magic things of the page that take part in the story (models with an `id`). */
   private things = new Map<string, PropActor>();
   private sparkles = new Sparkles(480);
+  /** Confetti, hearts, music notes and steam (see party.ts). */
+  private party = new Party();
   /** Rain from a magic cloud. */
   private rain = new Rain();
   /** Where the last thing left a character's hands (or a magic thing vanished), so the next one taken flies from there. */
@@ -457,7 +460,8 @@ export class BookScene {
   private buildWorld() {
     const r = this.renderer;
     const hemi = new THREE.HemisphereLight('#FFF7EC', '#9C7A5E', 2.1);
-    this.scene.add(hemi, this.sparkles.points, this.rain.points);
+    this.scene.add(hemi, this.sparkles.points, this.rain.points, this.party.group);
+    this.party.floor = PAGE_TOP;
     const light = new THREE.DirectionalLight('#FFF1DC', 1.9);
     light.position.set(-2.2, 4.2, 2.6);
     light.target.position.set(0.3, 0, 0);
@@ -812,6 +816,11 @@ export class BookScene {
     if (this.sparkles.update(this.frozen ? 0 : raw * 1000)) {
       const cam = this.camera as THREE.PerspectiveCamera;
       this.sparkles.setScale(this.renderer.domElement.height / (2 * Math.tan(THREE.MathUtils.degToRad(cam.fov / 2))));
+      alive = true;
+    }
+    if (!this.reducedMotion && this.party.update(this.frozen || !(this.stage?.playing ?? true) ? 0 : dt)) {
+      const cam = this.camera as THREE.PerspectiveCamera;
+      this.party.setScale(this.renderer.domElement.height / (2 * Math.tan(THREE.MathUtils.degToRad(cam.fov / 2))));
       alive = true;
     }
     if (!this.reducedMotion && this.models.length && !this.frozen) {
@@ -1284,6 +1293,39 @@ export class BookScene {
   }
 
   /**
+   * The little show of a beat: confetti at a cheer, hearts at a hug or a kissed hand, notes at a dance or a drum,
+   * stars when someone is handed something.
+   */
+  private beatShow(b: Beat, t: number, now: number) {
+    if (this.seeking || this.reducedMotion) return;
+    const who = this.performers.get(b.who);
+    if (!who) return;
+    const head = () => who.headPosition();
+    const d = Math.max(0, t - now);
+    const P = this.party;
+    switch (b.do) {
+      case 'cheer':
+        P.after(d + 0.25, () => P.confetti(head().add(new THREE.Vector3(0, 0.05, 0)), 40));
+        break;
+      case 'hug':
+      case 'kissHand':
+      case 'kissForehead':
+      case 'blowKiss':
+      case 'fixBow':
+        P.after(d + 0.5, () => P.hearts(head().add(new THREE.Vector3(0, 0.05, 0)), 5));
+        break;
+      case 'dance':
+      case 'drum':
+        P.after(d + 0.2, () => P.notes(head().add(new THREE.Vector3(0, 0.06, 0)), b.len ?? 4));
+        break;
+      case 'spin':
+      case 'twirl':
+        P.after(d + 0.2, () => P.stars(head(), 6));
+        break;
+    }
+  }
+
+  /**
    * The sounds of a beat: a tap each time a toy lands from a hop, a knock, a cheer; for magic things a sparkle,
    * a pot's clink, the alarm clock, rain. A beat can name its own `sound` (or null for silence).
    */
@@ -1561,7 +1603,25 @@ export class BookScene {
     this.pendingTake = null;
     this.stage = new Stage(actors, starts, page.beats ?? []);
     this.stage.onFocus = (who) => this.focus(who);
-    this.stage.onBeat = (b, t, res, now) => this.beatSound(b, t, res, now);
+    this.stage.onBeat = (b, t, res, now) => {
+      this.beatSound(b, t, res, now);
+      this.beatShow(b, t, now);
+    };
+    // steam over hot things (book.json → models[].steam), while they are on the page
+    this.party.clear();
+    for (const m of this.models) {
+      if (!m.spec.steam) continue;
+      const thing = m.spec.id ? this.things.get(m.spec.id) : undefined;
+      const root = m.actor.root;
+      const at = new THREE.Vector3();
+      const h = m.actor.height ?? m.spec.h;
+      this.party.steam(at, Math.max(0.03, (m.spec.w ?? m.spec.h) * 0.5), () => {
+        if (thing && !thing.group.visible) return false;
+        (thing?.group ?? root).getWorldPosition(at);
+        at.y += h * 0.95;
+        return true;
+      });
+    }
     this.seeking = true;
     this.stage.reset(this.castBase);
     this.seeking = false;

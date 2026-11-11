@@ -738,7 +738,8 @@
           "w": 0.087,
           "rotY": 0,
           "word": "ekmek",
-          "id": "raf1"
+          "id": "raf1",
+          "steam": true
         },
         {
           "src": "/models/firin/ekmek-somun.glb",
@@ -749,7 +750,8 @@
           "w": 0.087,
           "rotY": 0,
           "word": "ekmek",
-          "id": "raf2"
+          "id": "raf2",
+          "steam": true
         },
         {
           "src": "/models/culture/simit.glb",
@@ -2153,7 +2155,8 @@
           "w": 0.087,
           "rotY": 8,
           "word": "ekmek",
-          "id": "tez2"
+          "id": "tez2",
+          "steam": true
         },
         {
           "src": "/models/firin/ekmek-somun.glb",
