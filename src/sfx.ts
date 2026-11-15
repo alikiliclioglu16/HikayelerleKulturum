@@ -553,6 +553,30 @@ const music = {
   scale: [0, 2, 3, 5, 7, 8, 10, 12, 14, 15],
 };
 
+/** Recorded narration of the last few pages, decoded, for hearing single words. */
+const voiceBuffers = new Map<string, Promise<AudioBuffer | null>>();
+function voiceBuffer(a: AudioContext, src: string) {
+  let p = voiceBuffers.get(src);
+  if (!p) {
+    p = fetch(src)
+      .then((r) =>
+        r.ok ? r.arrayBuffer() : Promise.reject(new Error(String(r.status))),
+      )
+      .then(
+        (d) =>
+          new Promise<AudioBuffer>((res, rej) =>
+            a.decodeAudioData(d, res, rej),
+          ),
+      )
+      .catch(() => null);
+    voiceBuffers.set(src, p);
+    while (voiceBuffers.size > 3)
+      voiceBuffers.delete(voiceBuffers.keys().next().value as string);
+  }
+  return p;
+}
+let voiceNow: AudioBufferSourceNode | null = null;
+
 const buffers = new Map<string, Promise<AudioBuffer | null>>();
 function trackBuffer(a: AudioContext, src: string) {
   let p = buffers.get(src);
@@ -1029,6 +1053,35 @@ function ambienceTick() {
 /* ------------------------------------------------------------------ */
 
 export const sfx = {
+  /**
+   * One word of a page's recorded narration (`from`–`to` seconds), in the narrator's own voice. The voice is
+   * not an effect: it is heard even with the sounds turned off. False when the recording cannot be played.
+   */
+  async voice(src: string, from: number, to: number): Promise<boolean> {
+    const a = audio(true);
+    if (!a) return false;
+    const buf = await voiceBuffer(a, src);
+    if (!buf || from >= buf.duration) return false;
+    try {
+      voiceNow?.stop();
+    } catch {
+      /* already over */
+    }
+    const s = a.createBufferSource();
+    s.buffer = buf;
+    const g = a.createGain();
+    const t = a.currentTime + 0.02;
+    const start = Math.max(0, from - 0.02);
+    const dur = Math.min(buf.duration - start, Math.max(0.15, to - start));
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(1, t + 0.01);
+    g.gain.setValueAtTime(1, t + dur - 0.03);
+    g.gain.linearRampToValueAtTime(0, t + dur);
+    s.connect(g).connect(a.destination);
+    s.start(t, start, dur + 0.02);
+    voiceNow = s;
+    return true;
+  },
   pop() {
     const a = audio();
     if (!a) return;

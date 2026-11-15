@@ -138,8 +138,21 @@ export class Stage {
     // one act after another for the same character; only looking can happen while the body is busy
     const lookOnly = b.do === 'lookAt' || b.do === 'lookAround';
     const busy = this.busyUntil.get(b.who) ?? 0;
-    const t = (lookOnly ? this.clock : Math.max(this.clock, busy - 0.25)) + (b.wait ?? 0);
+    // `wait` counts from the cue word; a busy character starts when it is free (whichever is later)
+    const due = this.clock + (b.wait ?? 0);
+    const t = lookOnly ? due : Math.max(due, busy - 0.25);
     const res = p.run ? p.run(p.endState(), b, t) : runAct(p.endState(), b, t);
+    // the voice reads faster than this character can act: the act is played quicker (up to 40 %), so the scene
+    // keeps up with the words instead of falling further and further behind
+    const late = t - due;
+    if (!lookOnly && late > 0.3) {
+      const k = Math.max(0.6, 1 - 0.2 * late);
+      for (const key of res.keys) {
+        key.t = t + (key.t - t) * k;
+        key.dur *= k;
+      }
+      res.dur *= k;
+    }
     p.add(res.keys);
     this.busyUntil.set(b.who, Math.max(busy, t + res.dur));
     this.onBeat?.(b, t, res, this.clock);

@@ -134,8 +134,10 @@ export interface CastMember {
 
 export interface PageAudio {
   src: string;
-  /** Start time in seconds of every word token, in reading order. */
+  /** Start time in seconds of every word token, in reading order (and one more: when the last word ends). */
   marks: number[];
+  /** End time in seconds of every word token, so a single tapped word can be heard in the narrator's voice. */
+  ends?: number[];
 }
 
 export interface PageData {

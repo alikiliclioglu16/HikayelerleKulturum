@@ -2,7 +2,7 @@ import { h, icon } from '../ui/dom';
 import { loadBook, loadListing, coverCanvas, fonts } from '../content';
 import { store } from '../store';
 import { treasureFor, type Treasure } from '../treasures';
-import { tokenize, estimateMarks, type Token } from '../text';
+import { tokenize, estimateMarks, trLower, type Token } from '../text';
 import { Narrator } from '../narrator';
 import { BookScene } from '../three/bookScene';
 import { sceneLayers, buildProcLayer, buildImageLayer, type BuiltLayer } from '../art/scenes';
@@ -266,17 +266,35 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   }
 
   let duckTimer = 0;
-  function say(text: string) {
+  function duckFor(ms: number) {
     sfx.duck(true);
     window.clearTimeout(duckTimer);
-    duckTimer = window.setTimeout(() => !playing && sfx.duck(false), 1800 + text.length * 60);
+    duckTimer = window.setTimeout(() => !playing && sfx.duck(false), ms);
+  }
+  function say(text: string) {
+    duckFor(1800 + text.length * 60);
     narrator.say(text);
+  }
+
+  /** A word of the page: in the narrator's own voice when the page is recorded, otherwise the device's voice. */
+  function sayWord(text: string, wi?: number) {
+    const a = page().audio;
+    const i = wi ?? tokens.find((t) => t.kind === 'word' && trLower(t.text) === trLower(text))?.wi;
+    const from = i === undefined ? undefined : a?.marks[i];
+    const to = i === undefined ? undefined : a?.ends?.[i];
+    if (a && from !== undefined && to !== undefined) {
+      narrator.stop();
+      duckFor(1200 + (to - from) * 1000);
+      void sfx.voice(a.src, from, to).then((ok) => ok || narrator.say(text));
+      return;
+    }
+    say(text);
   }
 
   /** A word was tapped (in the card or on the printed page); `at` is where it is on the screen. */
   function onWord(tok: Token, at: { x: number; y: number }) {
     if (playing) pause();
-    say(tok.text);
+    sayWord(tok.text, tok.wi);
     scene.flashWords([tok.wi!]);
     const lemma = tok.lemma && book.glossary[tok.lemma] ? tok.lemma : null;
     if (!lemma) return;
@@ -309,7 +327,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     const res = scene.pick(e.clientX, e.clientY);
     if (!res) return;
     if (playing) pause();
-    say(res.word);
+    sayWord(res.word);
     bubble('tag3d', res.x, res.y, res.word, collect(res.word));
     flashWords(res.word);
   });
@@ -372,7 +390,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     scene.resetStage();
     // the recorded narration's own word times (at the chosen speed), or an estimated reading pace
     const rec = page().audio;
-    const speed = Math.max(0.6, Math.min(1.3, narrator.rate / 0.9));
+    const speed = narrator.speed;
     st.setText(tokens, rec && rec.marks.length > tokens.filter((t) => t.kind === 'word').length - 1 ? rec.marks.map((m) => m / speed) : estimateMarks(tokens, narrator.rate));
     if (withNarration) st.playWithNarration();
     else st.playAuto();
@@ -392,13 +410,26 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
           highlight(wi);
           scene.stage?.word(wi);
         },
+        onBlocked: () => {
+          // the browser wants a new tap before it plays the voice
+          pause();
+          toast('Sesi başlatmak için “Bana oku” düğmesine dokun.');
+        },
         onEnd: () => {
           highlight(-1);
           if (index >= book.pages.length - 1 || !playing) sfx.duck(false);
           store.markRead(bookId, p.id);
           if (!playing) return;
           if (index < book.pages.length - 1) {
-            window.setTimeout(() => playing && goTo(index + 1, true), 900);
+            // the page turns when the characters have finished what the last words told (a few seconds at most)
+            const ended = performance.now();
+            const turn = () => {
+              if (!playing) return;
+              const st = scene.stage;
+              if (st && !st.done && performance.now() - ended < 5000) window.setTimeout(turn, 150);
+              else goTo(index + 1, true);
+            };
+            window.setTimeout(turn, 900);
           } else {
             playing = false;
             setPlayUI();
@@ -431,8 +462,9 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
 
   playBtn.addEventListener('click', async () => {
     if (playing) return pause();
-    // iPhone/iPad only allow speech that starts directly inside the tap, so avoid waiting when possible
-    if (!narrator.resolved) await narrator.ready;
+    // iPhone/iPad only allow sound that starts directly inside the tap, so avoid waiting when possible
+    // (a recorded page needs no device voice at all)
+    if (!narrator.resolved && !page().audio) await narrator.ready;
     if (narrator.mode === 'silent' && !silentNoticeShown && !page().audio) {
       silentNoticeShown = true;
       voiceSheet(true, startReading);
@@ -455,6 +487,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     busy = true;
     const dir = i > index ? 1 : -1;
     index = i;
+    narrator.preload(page().audio);
     store.setProgress(bookId, { page: index });
     history.replaceState(null, '', `#/kitap/${bookId}/${index + 1}`);
     textEl.style.transition = 'opacity .25s';
@@ -529,6 +562,15 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
 
   function voiceSheet(_fromPlay = false, onClose: (() => void) | null = null) {
     const v = narrator.voice;
+    if (page().audio) {
+      sheetWith(
+        'Kayıtlı anlatıcı sesi',
+        onClose,
+        h('p', null, 'Bu kitap, kayıtlı bir anlatıcı sesiyle okunuyor. Okunan kelime parlar, sahnedeki hareketler sesi izler.'),
+        h('p', null, 'Bir kelimeye dokunursanız o kelimeyi anlatıcının sesinden yeniden duyarsınız. Okuma hızını Ayarlar’dan değiştirebilirsiniz.'),
+      );
+      return;
+    }
     sheetWith(
       v ? 'Türkçe ses hazır' : 'Bu cihazda Türkçe ses yok',
       onClose,
@@ -579,7 +621,8 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
       if (on) sfx.startMusic();
       else sfx.stopMusic();
     });
-    const voiceBtn = h('button', { class: 'btn light small', type: 'button' }, narrator.voice ? 'Ses bilgisi' : 'Türkçe ses yok');
+    const recorded = !!page().audio;
+    const voiceBtn = h('button', { class: 'btn light small', type: 'button' }, recorded || narrator.voice ? 'Ses bilgisi' : 'Türkçe ses yok');
     voiceBtn.addEventListener('click', () => {
       (shell.querySelector('.sheet-backdrop') as (HTMLElement & { close?: () => void }) | null)?.close?.();
       voiceSheet();
@@ -590,7 +633,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
       h('div', { class: 'row' }, h('label', null, 'Yazı boyutu'), size),
       h('div', { class: 'row' }, h('label', null, 'Arka plan müziği', h('small', null, 'Kitabın kendi müziği')), music),
       h('div', { class: 'row' }, h('label', null, 'Sakin hareket', h('small', null, 'Kamera ve ışık hareketleri durur, animasyonlar kısalır')), calm),
-      h('div', { class: 'row' }, h('label', null, 'Anlatıcı sesi', h('small', null, narrator.voice ? narrator.voice.name : 'Cihazda Türkçe ses bulunamadı')), voiceBtn),
+      h('div', { class: 'row' }, h('label', null, 'Anlatıcı sesi', h('small', null, recorded ? 'Kayıtlı anlatıcı sesi' : narrator.voice ? narrator.voice.name : 'Cihazda Türkçe ses bulunamadı')), voiceBtn),
     );
   });
 
@@ -617,8 +660,12 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     }
   };
   window.addEventListener('keydown', onKey);
+  // the reading stops when the app goes to the background (another app, a locked screen)
+  const onHide = () => document.hidden && playing && pause();
+  document.addEventListener('visibilitychange', onHide);
 
   /* ---------- start ---------- */
+  narrator.preload(page().audio);
   renderText();
   setPlayUI();
   layout();
@@ -648,6 +695,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   return () => {
     sfx.setAmbience(null);
     window.removeEventListener('keydown', onKey);
+    document.removeEventListener('visibilitychange', onHide);
     window.clearTimeout(duckTimer);
     sfx.duck(false);
     narrator.stop();

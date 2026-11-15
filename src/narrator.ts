@@ -4,6 +4,8 @@ import { estimateMarks, type Token } from './text';
 export interface NarrationHandlers {
   onWord: (wi: number) => void;
   onEnd: () => void;
+  /** The browser wants a new tap before it plays the recording (some phones after a while). */
+  onBlocked?: () => void;
 }
 
 /**
@@ -13,15 +15,60 @@ export interface NarrationHandlers {
  * 3. Otherwise silent follow-along: words light up at reading pace so a parent can read aloud.
  */
 export class Narrator {
-  rate = 0.9;
+  private speedRate = 0.9;
   voice: SpeechSynthesisVoice | null = null;
   ready: Promise<SpeechSynthesisVoice | null>;
   /** True once the voice search has finished (so speech can start inside the tap handler). */
   resolved = false;
   private timers: number[] = [];
-  private audio: HTMLAudioElement | null = null;
+  /**
+   * One sound element for every recorded page: once a tap has started it, phones let the same element
+   * go on to the next page by itself (a new element would wait for another tap).
+   */
+  private el: HTMLAudioElement | null = null;
+  private loaded = '';
+  /** The recording being read now. */
+  private audio: PageAudio | null = null;
   private raf = 0;
   private session = 0;
+
+  get rate() {
+    return this.speedRate;
+  }
+
+  /** Reading speed (0.6–1.2, 0.9 is normal); a recording follows it at once, keeping the voice's pitch. */
+  set rate(v: number) {
+    this.speedRate = v;
+    if (this.el && this.audio) this.el.playbackRate = this.speed;
+  }
+
+  /** Playback speed of the recordings (1 at the normal reading speed). */
+  get speed() {
+    return Math.max(0.6, Math.min(1.3, this.speedRate / 0.9));
+  }
+
+  private element() {
+    if (!this.el) {
+      this.el = new Audio();
+      this.el.preload = 'auto';
+      this.el.preservesPitch = true;
+    }
+    return this.el;
+  }
+
+  private load(src: string) {
+    const el = this.element();
+    if (this.loaded !== src) {
+      this.loaded = src;
+      el.src = src;
+    }
+    return el;
+  }
+
+  /** Start loading a page's recording, so the voice starts as soon as the play button is pressed. */
+  preload(audio?: PageAudio) {
+    if (audio && !this.audio) this.load(audio.src);
+  }
 
   constructor() {
     this.ready = this.findVoice().then((v) => {
@@ -64,49 +111,88 @@ export class Narrator {
     this.timers.forEach((t) => clearTimeout(t));
     this.timers = [];
     cancelAnimationFrame(this.raf);
-    if (this.audio) {
-      this.audio.pause();
-      this.audio = null;
+    if (this.el) {
+      this.el.onended = null;
+      this.el.onerror = null;
+      this.el.ontimeupdate = null;
+      if (!this.el.paused) this.el.pause();
     }
+    this.audio = null;
     if ('speechSynthesis' in window) speechSynthesis.cancel();
   }
 
   play(tokens: Token[], plain: string, h: NarrationHandlers, audio?: PageAudio, fromWord = 0) {
     this.stop();
     const id = this.session;
-    if (audio) return this.playAudio(audio, h, id, fromWord);
+    if (audio) return this.playAudio(audio, tokens, plain, h, id, fromWord);
+    this.playVoice(tokens, plain, h, id, fromWord);
+  }
+
+  private playVoice(tokens: Token[], plain: string, h: NarrationHandlers, id: number, fromWord: number) {
     if (this.voice) return this.playSpeech(tokens, plain, h, id, fromWord);
     return this.playSilent(tokens, h, id, fromWord);
   }
 
-  private playAudio(audio: PageAudio, h: NarrationHandlers, id: number, fromWord: number) {
-    const el = new Audio(audio.src);
-    this.audio = el;
-    el.playbackRate = Math.max(0.6, Math.min(1.3, this.rate / 0.9));
-    el.currentTime = audio.marks[fromWord] ?? 0;
+  private playAudio(audio: PageAudio, tokens: Token[], plain: string, h: NarrationHandlers, id: number, fromWord: number) {
+    const el = this.load(audio.src);
+    this.audio = audio;
+    el.defaultPlaybackRate = this.speed;
+    el.playbackRate = this.speed;
+    // from the very beginning (the recording starts with a breath of silence) or from a word
+    const from = fromWord > 0 ? (audio.marks[fromWord] ?? 0) : 0;
+    try {
+      if (Math.abs(el.currentTime - from) > 0.01) el.currentTime = from;
+    } catch {
+      /* not loaded yet: it starts from the beginning */
+    }
     let last = -1;
-    const tick = () => {
-      if (id !== this.session) return;
-      const t = el.currentTime;
+    const update = (t: number) => {
       let wi = 0;
       while (wi + 1 < audio.marks.length && audio.marks[wi + 1] <= t) wi++;
       if (wi !== last) {
         last = wi;
         h.onWord(wi);
       }
+    };
+    const tick = () => {
+      if (id !== this.session) return;
+      update(el.currentTime);
       this.raf = requestAnimationFrame(tick);
     };
+    // also when the screen draws slowly (a busy scene, a tab in the background)
+    el.ontimeupdate = () => id === this.session && !el.paused && update(el.currentTime);
     el.onended = () => {
-      if (id === this.session) {
-        cancelAnimationFrame(this.raf);
-        h.onEnd();
-      }
+      if (id !== this.session) return;
+      cancelAnimationFrame(this.raf);
+      // the last words count as read, so the moves that wait for them still happen
+      update(Infinity);
+      this.audio = null;
+      h.onEnd();
     };
-    el.play().then(tick, () => this.playSilentFallback(h, id));
-  }
-
-  private playSilentFallback(h: NarrationHandlers, id: number) {
-    if (id === this.session) h.onEnd();
+    // the file could not be loaded (offline…): read the page with the device's voice instead
+    let failed = false;
+    const fallback = () => {
+      if (failed || id !== this.session) return;
+      failed = true;
+      cancelAnimationFrame(this.raf);
+      el.onended = null;
+      el.onerror = null;
+      el.ontimeupdate = null;
+      this.audio = null;
+      this.loaded = '';
+      this.playVoice(tokens, plain, h, id, Math.max(0, last));
+    };
+    el.onerror = fallback;
+    el.play().then(
+      () => id === this.session && tick(),
+      (e: unknown) => {
+        if (id !== this.session) return;
+        if ((e as DOMException)?.name === 'NotAllowedError' && h.onBlocked) {
+          this.audio = null;
+          h.onBlocked();
+        } else if ((e as DOMException)?.name !== 'AbortError') fallback();
+      },
+    );
   }
 
   private playSpeech(tokens: Token[], plain: string, h: NarrationHandlers, id: number, fromWord: number) {
