@@ -1,0 +1,2874 @@
+{
+  "id": "kapadokya",
+  "title": "Kapadokya'nın Güzel Atları",
+  "titleEn": "The Beautiful Horses of Cappadocia",
+  "culture": {
+    "tr": "Kapadokya, peri bacaları, kaya yerleşimleri ve sıcak hava balonları",
+    "en": "Cappadocia: fairy chimneys, rock houses and hot-air balloons"
+  },
+  "summary": {
+    "tr": "Elif ile Can, anne ve babalarıyla Kapadokya'ya gider. Pansiyon sahibinin kızı Zeynep ve babası Mustafa amcayla vadide yürürken ayağı tele takılmış bir tay bulurlar. Taya dokunmadan sessizce bekler, yetişkinlere haber verirler; veteriner Ayten Hanım tayı kurtarır, tay annesine kavuşur ve adını Can koyar: Balon.",
+    "en": ""
+  },
+  "values": [
+    "duyarlilik",
+    "merhamet"
+  ],
+  "music": {
+    "src": "/books/kapadokya/muzik.mp3",
+    "loop": 43.74,
+    "gain": 0.93
+  },
+  "toyCast": true,
+  "glossary": {
+    "Kapadokya": {
+      "en": "Cappadocia, a region in central Türkiye",
+      "icon": "🏜️"
+    },
+    "balon": {
+      "en": "balloon; hot-air balloon",
+      "icon": "🎈"
+    },
+    "süzülmek": {
+      "en": "to glide, to float",
+      "icon": "🕊️"
+    },
+    "şapkalı": {
+      "en": "wearing a hat",
+      "icon": "🎩"
+    },
+    "kaya": {
+      "en": "rock",
+      "icon": "🪨"
+    },
+    "mantar": {
+      "en": "mushroom",
+      "icon": "🍄"
+    },
+    "peri bacası": {
+      "en": "fairy chimney: a tall rock with a stone cap, shaped by wind and rain",
+      "icon": "🏔️"
+    },
+    "pansiyon": {
+      "en": "guesthouse",
+      "icon": "🏡"
+    },
+    "at": {
+      "en": "horse",
+      "icon": "🐎"
+    },
+    "kardeş": {
+      "en": "brother or sister",
+      "icon": "👫"
+    },
+    "merak": {
+      "en": "curiosity",
+      "icon": "🧐"
+    },
+    "yaşıt": {
+      "en": "the same age",
+      "icon": "👧"
+    },
+    "vadi": {
+      "en": "valley",
+      "icon": "🏞️"
+    },
+    "yağmur": {
+      "en": "rain",
+      "icon": "🌧️"
+    },
+    "rüzgâr": {
+      "en": "wind",
+      "icon": "🌬️"
+    },
+    "volkanik": {
+      "en": "volcanic",
+      "icon": "🌋"
+    },
+    "aşındırmak": {
+      "en": "to wear away",
+      "icon": "🌪️"
+    },
+    "kaya evi": {
+      "en": "a house carved into the rock",
+      "icon": "🏠"
+    },
+    "patika": {
+      "en": "footpath",
+      "icon": "🥾"
+    },
+    "gölgeli": {
+      "en": "shady",
+      "icon": "🌳"
+    },
+    "dinlenmek": {
+      "en": "to rest",
+      "icon": "😌"
+    },
+    "tay": {
+      "en": "foal, a baby horse",
+      "icon": "🐴"
+    },
+    "tel": {
+      "en": "wire",
+      "icon": "🧷"
+    },
+    "yaralı": {
+      "en": "hurt, injured",
+      "icon": "🩹"
+    },
+    "yetişkin": {
+      "en": "grown-up",
+      "icon": "🧑"
+    },
+    "korkmak": {
+      "en": "to be scared",
+      "icon": "😨"
+    },
+    "sessizce": {
+      "en": "quietly",
+      "icon": "🤫"
+    },
+    "veteriner hekim": {
+      "en": "veterinarian, an animal doctor",
+      "icon": "🩺"
+    },
+    "veteriner": {
+      "en": "vet",
+      "icon": "🩺"
+    },
+    "yardım": {
+      "en": "help",
+      "icon": "🤝"
+    },
+    "yara": {
+      "en": "wound",
+      "icon": "🩹"
+    },
+    "doğrulmak": {
+      "en": "to get up, to stand up straight",
+      "icon": "🐴"
+    },
+    "sevinç": {
+      "en": "joy",
+      "icon": "😊"
+    },
+    "sakin": {
+      "en": "calm",
+      "icon": "😌"
+    },
+    "bakım": {
+      "en": "care",
+      "icon": "💗"
+    },
+    "komşu": {
+      "en": "neighbour",
+      "icon": "🏘️"
+    },
+    "kısrak": {
+      "en": "mare, a mother horse",
+      "icon": "🐎"
+    },
+    "yavru": {
+      "en": "baby animal",
+      "icon": "🐣"
+    },
+    "güvenli": {
+      "en": "safe",
+      "icon": "🛡️"
+    },
+    "koklamak": {
+      "en": "to sniff, to smell",
+      "icon": "👃"
+    },
+    "kişnemek": {
+      "en": "to neigh",
+      "icon": "🐴"
+    },
+    "rahatlamak": {
+      "en": "to feel relieved",
+      "icon": "😮‍💨"
+    },
+    "sahibi": {
+      "en": "its owner",
+      "icon": "🧑‍🌾"
+    },
+    "öneri": {
+      "en": "suggestion",
+      "icon": "💡"
+    },
+    "çizmek": {
+      "en": "to draw",
+      "icon": "✏️"
+    },
+    "kontrol": {
+      "en": "check-up",
+      "icon": "📋"
+    },
+    "vedalaşmak": {
+      "en": "to say goodbye",
+      "icon": "👋"
+    },
+    "teras": {
+      "en": "terrace",
+      "icon": "🏡"
+    },
+    "pembeleşmek": {
+      "en": "to turn pink",
+      "icon": "🌅"
+    },
+    "sarılmak": {
+      "en": "to hug",
+      "icon": "🤗"
+    },
+    "resim": {
+      "en": "picture, drawing",
+      "icon": "🖼️"
+    },
+    "tarih": {
+      "en": "date",
+      "icon": "📅"
+    },
+    "kapı": {
+      "en": "door",
+      "icon": "🚪"
+    },
+    "ağaç": {
+      "en": "tree",
+      "icon": "🌳"
+    },
+    "çit": {
+      "en": "fence",
+      "icon": "🪵"
+    },
+    "çayır": {
+      "en": "meadow",
+      "icon": "🌾"
+    },
+    "sedir": {
+      "en": "a low built-in sofa",
+      "icon": "🛋️"
+    },
+    "sehpa": {
+      "en": "coffee table",
+      "icon": "🪑"
+    },
+    "çaydanlık": {
+      "en": "teapot",
+      "icon": "🫖"
+    },
+    "çay": {
+      "en": "tea",
+      "icon": "🍵"
+    },
+    "veteriner çantası": {
+      "en": "the vet's bag",
+      "icon": "💼"
+    },
+    "su matarası": {
+      "en": "water bottle",
+      "icon": "🫗"
+    },
+    "telefon": {
+      "en": "phone",
+      "icon": "📱"
+    },
+    "boya kalemi": {
+      "en": "crayon",
+      "icon": "🖍️"
+    },
+    "duyarlılık": {
+      "en": "caring about others and the world",
+      "icon": "💚"
+    },
+    "merhamet": {
+      "en": "compassion",
+      "icon": "❤️"
+    }
+  },
+  "quiz": [
+    {
+      "q": {
+        "tr": "Can şapkalı kayaları neye benzetti?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Dev mantarlara",
+          "en": ""
+        },
+        {
+          "tr": "Balonlara",
+          "en": ""
+        },
+        {
+          "tr": "Kalelere",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "page": "p1"
+    },
+    {
+      "q": {
+        "tr": "Peri bacalarını ne aşındırmış?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Atlar",
+          "en": ""
+        },
+        {
+          "tr": "Yağmur ve rüzgâr",
+          "en": ""
+        },
+        {
+          "tr": "Balonlar",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "page": "p2"
+    },
+    {
+      "q": {
+        "tr": "Çocuklar yaralı tayı görünce kimden yardım istedi?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Balonculardan",
+          "en": ""
+        },
+        {
+          "tr": "Kimseden",
+          "en": ""
+        },
+        {
+          "tr": "Mustafa amcadan",
+          "en": ""
+        }
+      ],
+      "answer": 2,
+      "page": "p3"
+    },
+    {
+      "q": {
+        "tr": "Tayın ayağını telden kim kurtardı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Veteriner Ayten Hanım",
+          "en": ""
+        },
+        {
+          "tr": "Can",
+          "en": ""
+        },
+        {
+          "tr": "Zeynep",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "page": "p5"
+    },
+    {
+      "q": {
+        "tr": "Taya hangi ad verildi?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Rüzgâr",
+          "en": ""
+        },
+        {
+          "tr": "Balon",
+          "en": ""
+        },
+        {
+          "tr": "Peri",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "page": "p7"
+    }
+  ],
+  "valueHunt": [
+    {
+      "page": "p3",
+      "answer": "duyarlilik",
+      "options": [
+        "duyarlilik",
+        "estetik",
+        "tasarruf"
+      ],
+      "why": {
+        "tr": "Çocuklar yaralı tayı görünce onu korkutmadan beklediler ve hemen bir yetişkine haber verdiler.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p5",
+      "answer": "merhamet",
+      "options": [
+        "adalet",
+        "merhamet",
+        "cesaret"
+      ],
+      "why": {
+        "tr": "Ayten Hanım ve Mustafa amca tayın yarasıyla şefkatle ilgilendi; çocuklar da ona yol açtı.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p6",
+      "answer": "merhamet",
+      "options": [
+        "merhamet",
+        "vatanseverlik",
+        "temizlik"
+      ],
+      "why": {
+        "tr": "Komşu kadın kısrağı getirdi; yaralı tay annesine kavuştu.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p8",
+      "answer": "duyarlilik",
+      "options": [
+        "sabir",
+        "duyarlilik",
+        "durustluk"
+      ],
+      "why": {
+        "tr": "Babası, bazen yardım etmenin uzakta durup doğru kişiyi çağırmak olduğunu anlattı.",
+        "en": ""
+      }
+    }
+  ],
+  "family": {
+    "task": {
+      "tr": "Birlikte yakınınızdaki bir hayvan barınağını, veteriner kliniğini ya da çiftliği araştırın. Bir hayvana yardım gerektiğinde arayabileceğiniz numarayı not edin ve buzdolabının üstüne asın.",
+      "en": ""
+    },
+    "talk": [
+      {
+        "tr": "Çocuklar yaralı tayı görünce kimden yardım istedi?",
+        "en": ""
+      },
+      {
+        "tr": "Çocukların taya dokunmadan beklemesi neden yardımcı oldu?",
+        "en": ""
+      },
+      {
+        "tr": "Yardım gerektiren bir hayvan görsen güvendiğin bir yetişkine neler söylersin? Yerini de tarif et.",
+        "en": ""
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "p1",
+      "title": {
+        "tr": "Balonların altında",
+        "en": ""
+      },
+      "text": {
+        "tr": "Elif ile Can anne ve babalarıyla {Kapadokya’ya|Kapadokya} gelmişti. Sabah renkli {balonlar|balon} gökyüzünde {süzülüyordu|süzülmek}. Can {şapkalı} {kayaları|kaya} gösterdi. “Dev {mantarlara|mantar} benziyorlar!” dedi. Elif “Onlara {peri bacası} deniyor.” diye anlattı. {Pansiyonun|pansiyon} bahçesinden {at} sesleri geliyordu. İki {kardeş} {merakla|merak} dinledi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Kapadokya, Türkiye'nin ortasında, Nevşehir çevresinde bir bölgedir. Sabahları gökyüzü yüzlerce sıcak hava balonuyla renklenir. Adının eski bir dilde “güzel atlar ülkesi” anlamına geldiği söylenir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p1-arka.webp",
+          "floor": "art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "peri bacası",
+              "rect": [
+                0.26,
+                0.5,
+                0.16,
+                0.14
+              ]
+            },
+            {
+              "word": "peri bacası",
+              "rect": [
+                0.73,
+                0.5,
+                0.14,
+                0.14
+              ]
+            },
+            {
+              "word": "balon",
+              "rect": [
+                0.42,
+                0.42,
+                0.4,
+                0.1
+              ]
+            },
+            {
+              "word": "pansiyon",
+              "rect": [
+                0.0,
+                0.18,
+                0.2,
+                0.68
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.88,
+                0.55,
+                0.12,
+                0.3
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "birds",
+      "models": [
+        {
+          "src": "/models/culture/balon.glb",
+          "id": "balon1",
+          "x": -0.3,
+          "z": 0.03,
+          "y": 0.5,
+          "h": 0.12,
+          "rotY": 0,
+          "word": "balon",
+          "fx": "bob"
+        },
+        {
+          "src": "/models/culture/balon.glb",
+          "id": "balon2",
+          "x": 0.06,
+          "z": 0.02,
+          "y": 0.64,
+          "h": 0.09,
+          "rotY": 30,
+          "word": "balon",
+          "fx": "bob"
+        },
+        {
+          "src": "/models/culture/balon.glb",
+          "id": "balon3",
+          "x": 0.34,
+          "z": 0.05,
+          "y": 0.44,
+          "h": 0.1,
+          "rotY": -20,
+          "word": "balon",
+          "fx": "bob"
+        }
+      ],
+      "cast": [
+        {
+          "id": "baba",
+          "x": -0.38,
+          "z": 0.4,
+          "rotY": 25,
+          "look": "reader"
+        },
+        {
+          "id": "anne",
+          "x": -0.22,
+          "z": 0.34,
+          "rotY": 15,
+          "look": "baba"
+        },
+        {
+          "id": "elif",
+          "x": -0.02,
+          "z": 0.62,
+          "rotY": -10,
+          "look": "can"
+        },
+        {
+          "id": "can",
+          "x": 0.18,
+          "z": 0.7,
+          "rotY": -20,
+          "look": "elif"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "anne"
+          ],
+          "who": "anne",
+          "do": "wave",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "babalarıyla"
+          ],
+          "who": "baba",
+          "do": "nod",
+          "look": "anne"
+        },
+        {
+          "cue": [
+            "kapadokya’ya"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kapadokya’ya"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "reader",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "balonlar"
+          ],
+          "who": "balon1",
+          "do": "lift",
+          "to": [
+            0.02,
+            0.05,
+            0
+          ],
+          "len": 2.4,
+          "face": 0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "balonlar"
+          ],
+          "who": "balon2",
+          "do": "lift",
+          "to": [
+            -0.03,
+            0.04,
+            0
+          ],
+          "len": 2.4,
+          "face": 0,
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "balonlar"
+          ],
+          "who": "balon3",
+          "do": "lift",
+          "to": [
+            0.02,
+            0.05,
+            0
+          ],
+          "len": 2.4,
+          "face": 0,
+          "wait": 0.8
+        },
+        {
+          "cue": [
+            "süzülüyordu"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "balon2",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "süzülüyordu"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "balon1",
+          "len": 1.8,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "balon3",
+          "look": "up",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "dev"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "elif",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "benziyorlar"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "can",
+          "len": 2.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "pansiyonun"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 80,
+          "look": "reader",
+          "sound": "kisneme"
+        },
+        {
+          "cue": [
+            "pansiyonun"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 80,
+          "look": "reader",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "merakla"
+          ],
+          "who": "elif",
+          "do": "lookAround",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "dinledi"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "elif"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "title": {
+        "tr": "Zeynep ile vadide",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Pansiyon|pansiyon} sahibinin kızı Zeynep Elif’le {yaşıttı|yaşıt}. Babası Mustafa amca onlarla {vadiye|vadi} yürüdü. “{Yağmur|yağmur} ve {rüzgâr} {volkanik} kayaları uzun zamanda {aşındırmış|aşındırmak}.” dedi. Eski {kaya evlerini|kaya evi} gösterdi. Çocuklar {patikadan|patika} ayrılmadı. Zeynep’in bildiği {gölgeli} yerde {dinlenip|dinlenmek} su içtiler.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Peri bacaları, milyonlarca yıl önce yanardağlardan çıkan kül ve lavların taşlaşmasıyla oluşan yumuşak kayalardan doğdu. Yağmur, rüzgâr ve sel bu kayaları yavaş yavaş aşındırdı; üstteki sert taş şapka gibi kaldı. İnsanlar yumuşak kayayı oyarak ev, ahır ve kilise yaptı.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p2-arka.webp",
+          "floor": "art/p2-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "kaya evi",
+              "rect": [
+                0.6,
+                0.06,
+                0.38,
+                0.4
+              ]
+            },
+            {
+              "word": "peri bacası",
+              "rect": [
+                0.3,
+                0.12,
+                0.26,
+                0.38
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.0,
+                0.0,
+                0.3,
+                0.62
+              ]
+            },
+            {
+              "word": "patika",
+              "rect": [
+                0.35,
+                0.5,
+                0.3,
+                0.16
+              ]
+            },
+            {
+              "word": "vadi",
+              "rect": [
+                0.28,
+                0.3,
+                0.7,
+                0.2
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "birds",
+      "models": [
+        {
+          "src": "/models/culture/peri-bacasi.glb",
+          "id": "peri1",
+          "x": 0.36,
+          "z": 0.08,
+          "h": 0.46,
+          "rotY": 0,
+          "word": "peri bacası"
+        }
+      ],
+      "cast": [
+        {
+          "id": "mustafa",
+          "x": -0.02,
+          "z": 0.36,
+          "rotY": 0,
+          "look": "reader"
+        },
+        {
+          "id": "zeynep",
+          "x": -0.2,
+          "z": 0.46,
+          "rotY": 10,
+          "look": "elif",
+          "hold": "matara"
+        },
+        {
+          "id": "elif",
+          "x": 0.02,
+          "z": 0.56,
+          "rotY": -10,
+          "look": "zeynep"
+        },
+        {
+          "id": "can",
+          "x": 0.16,
+          "z": 0.62,
+          "rotY": -10,
+          "look": "mustafa"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "pansiyon"
+          ],
+          "who": "zeynep",
+          "do": "wave",
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yaşıttı"
+          ],
+          "who": "elif",
+          "do": "wave",
+          "look": "zeynep"
+        },
+        {
+          "cue": [
+            "mustafa"
+          ],
+          "who": "mustafa",
+          "do": "walkTo",
+          "to": [
+            -0.04,
+            0,
+            0.098
+          ],
+          "face": -10,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "vadiye"
+          ],
+          "who": "zeynep",
+          "do": "walkTo",
+          "to": [
+            0.0,
+            0,
+            0.098
+          ],
+          "face": 10,
+          "look": "mustafa",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "vadiye"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.0,
+            0,
+            0.098
+          ],
+          "face": -10,
+          "look": "mustafa",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "vadiye"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.02,
+            0,
+            0.098
+          ],
+          "face": -10,
+          "look": "mustafa",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "yağmur"
+          ],
+          "who": "mustafa",
+          "do": "talk",
+          "look": "elif",
+          "len": 3.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "aşındırmış"
+          ],
+          "who": "peri1",
+          "do": "lift",
+          "to": [
+            0,
+            0.02,
+            0.02
+          ],
+          "len": 1.6,
+          "face": 0
+        },
+        {
+          "cue": [
+            "eski"
+          ],
+          "who": "mustafa",
+          "do": "point",
+          "target": "peri1",
+          "look": "peri1",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "gösterdi"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "peri1",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "patikadan"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            -0.06,
+            0,
+            0.195
+          ],
+          "face": -20,
+          "look": "zeynep"
+        },
+        {
+          "cue": [
+            "patikadan"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.1,
+            0,
+            0.195
+          ],
+          "face": -20,
+          "look": "elif",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "gölgeli"
+          ],
+          "who": "zeynep",
+          "do": "walkTo",
+          "to": [
+            -0.16,
+            0,
+            0.293
+          ],
+          "face": -60,
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "gölgeli"
+          ],
+          "who": "mustafa",
+          "do": "walkTo",
+          "to": [
+            -0.4,
+            0,
+            0.244
+          ],
+          "face": 60,
+          "look": "zeynep",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "dinlenip"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": -70,
+          "look": "zeynep"
+        },
+        {
+          "cue": [
+            "su"
+          ],
+          "who": "zeynep",
+          "do": "give",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "su"
+          ],
+          "who": "elif",
+          "do": "receive",
+          "target": "matara",
+          "look": "zeynep",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "içtiler"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "elif"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "title": {
+        "tr": "Kayanın gölgesinde",
+        "en": ""
+      },
+      "text": {
+        "tr": "Kayanın yanından ses geldi. Bir {tayın|tay} ayağı {tele|tel} takılmıştı. Can yaklaşıp durdu. “Mustafa amca, {yaralı} bir tay var!” diye seslendi. {Yetişkinler|yetişkin} çocukları geride tuttu. Zeynep “{Korkmuş|korkmak} olabilir.” dedi. Üçü taya dokunmadan, çevresini sarmadan {sessizce} bekledi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Yaralı ya da korkmuş bir hayvan, kendini korumak için tekmeleyebilir veya ısırabilir. Bu yüzden ona dokunmadan, uzaktan ve sessizce beklemek, sonra bir yetişkinden yardım istemek en doğrusudur.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p3-arka.webp",
+          "floor": "art/p3-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "kaya",
+              "rect": [
+                0.2,
+                0.0,
+                0.8,
+                0.5
+              ]
+            },
+            {
+              "word": "çit",
+              "rect": [
+                0.84,
+                0.3,
+                0.12,
+                0.28
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "birds",
+      "models": [
+        {
+          "proc": "tayYatan",
+          "id": "tayYatan",
+          "x": 0.24,
+          "z": 0.36,
+          "h": 0.2,
+          "rotY": -30,
+          "word": "tay"
+        },
+        {
+          "proc": "tel",
+          "id": "tel",
+          "x": 0.096,
+          "z": 0.503,
+          "h": 0.05,
+          "rotY": -30,
+          "word": "tel"
+        }
+      ],
+      "cast": [
+        {
+          "id": "mustafa",
+          "x": -0.4,
+          "z": 0.34,
+          "rotY": 30,
+          "look": "baba"
+        },
+        {
+          "id": "baba",
+          "x": -0.26,
+          "z": 0.3,
+          "rotY": -30,
+          "look": "mustafa"
+        },
+        {
+          "id": "elif",
+          "x": -0.42,
+          "z": 0.66,
+          "rotY": 40,
+          "look": "can"
+        },
+        {
+          "id": "can",
+          "x": -0.26,
+          "z": 0.72,
+          "rotY": 40,
+          "look": "elif"
+        },
+        {
+          "id": "zeynep",
+          "x": -0.14,
+          "z": 0.82,
+          "rotY": 30,
+          "look": "can"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "ses"
+          ],
+          "who": "tayYatan",
+          "do": "lift",
+          "to": [
+            0,
+            0.006,
+            0
+          ],
+          "len": 0.6,
+          "face": 0,
+          "sound": "tayKisneme",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ses"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 131,
+          "look": "tayYatan",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "ses"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 119,
+          "look": "tayYatan",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "ses"
+          ],
+          "who": "zeynep",
+          "do": "turn",
+          "face": 146,
+          "look": "tayYatan",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "tayın"
+          ],
+          "who": "tel",
+          "do": "lift",
+          "to": [
+            0,
+            0.01,
+            0.01
+          ],
+          "len": 1.6,
+          "face": 0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "yaklaşıp"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.14,
+            0,
+            -0.122
+          ],
+          "face": 131,
+          "look": "tayYatan"
+        },
+        {
+          "cue": [
+            "durdu"
+          ],
+          "who": "can",
+          "do": "rest",
+          "look": "tayYatan"
+        },
+        {
+          "cue": [
+            "mustafa"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -141,
+          "look": "mustafa",
+          "focus": true
+        },
+        {
+          "cue": [
+            "seslendi"
+          ],
+          "who": "can",
+          "do": "wave",
+          "look": "mustafa"
+        },
+        {
+          "cue": [
+            "yetişkinler"
+          ],
+          "who": "mustafa",
+          "do": "walkTo",
+          "to": [
+            0.42,
+            0,
+            0.195
+          ],
+          "face": 128,
+          "look": "tayYatan",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yetişkinler"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            0.16,
+            0,
+            0.39
+          ],
+          "face": -60,
+          "look": "can",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "tuttu"
+          ],
+          "who": "baba",
+          "do": "raise",
+          "look": "can",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "tuttu"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.0,
+            0,
+            0.024
+          ],
+          "face": 133,
+          "look": "tayYatan",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "zeynep"
+          ],
+          "who": "zeynep",
+          "do": "talk",
+          "look": "elif",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "korkmuş"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "zeynep"
+        },
+        {
+          "cue": [
+            "sessizce"
+          ],
+          "who": "zeynep",
+          "do": "rest",
+          "look": "tayYatan"
+        },
+        {
+          "cue": [
+            "bekledi"
+          ],
+          "who": "elif",
+          "do": "rest",
+          "look": "tayYatan"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "title": {
+        "tr": "Yardım geliyor",
+        "en": ""
+      },
+      "text": {
+        "tr": "Mustafa amca {veteriner hekim} Ayten Hanım’ı arayıp yerlerini anlattı. Elif’in babası Kenan Bey de yanında kaldı. Çocuklar uzaktan bekledi. Can “Su götürelim mi?” diye sordu. Babası “Önce {veterinerin|veteriner} ne önerdiğini öğrenelim.” dedi. {Yardım|yardım} yoldaydı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Veteriner hekim, hayvanların sağlığıyla ilgilenen doktordur. Yaralı bir hayvana ne yapılacağını en iyi o bilir. Kapadokya'da atlar hâlâ çiftliklerde bakılır ve gezilerde kullanılır; düzenli veteriner kontrolünden geçerler.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p3-arka.webp",
+          "floor": "art/p3-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "kaya",
+              "rect": [
+                0.2,
+                0.0,
+                0.8,
+                0.5
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "birds",
+      "models": [
+        {
+          "proc": "tayYatan",
+          "id": "tayYatan",
+          "x": 0.24,
+          "z": 0.36,
+          "h": 0.2,
+          "rotY": -30,
+          "word": "tay"
+        },
+        {
+          "proc": "tel",
+          "id": "tel",
+          "x": 0.096,
+          "z": 0.503,
+          "h": 0.05,
+          "rotY": -30,
+          "word": "tel"
+        }
+      ],
+      "cast": [
+        {
+          "id": "mustafa",
+          "x": 0.0,
+          "z": 0.52,
+          "rotY": 0,
+          "look": "reader",
+          "hold": "telefon"
+        },
+        {
+          "id": "baba",
+          "x": -0.2,
+          "z": 0.44,
+          "rotY": 20,
+          "look": "mustafa"
+        },
+        {
+          "id": "elif",
+          "x": -0.4,
+          "z": 0.76,
+          "rotY": 40,
+          "look": "tayYatan"
+        },
+        {
+          "id": "can",
+          "x": -0.24,
+          "z": 0.82,
+          "rotY": 30,
+          "look": "baba",
+          "hold": "matara"
+        },
+        {
+          "id": "zeynep",
+          "x": -0.08,
+          "z": 0.88,
+          "rotY": 20,
+          "look": "tayYatan"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "mustafa"
+          ],
+          "who": "mustafa",
+          "do": "talk",
+          "look": "reader",
+          "len": 3.2,
+          "sound": "telefon",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yerlerini"
+          ],
+          "who": "mustafa",
+          "do": "point",
+          "target": "tayYatan",
+          "look": "tayYatan",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "kenan"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            0.06,
+            0,
+            0.049
+          ],
+          "face": 40,
+          "look": "mustafa",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kaldı"
+          ],
+          "who": "baba",
+          "do": "nod",
+          "look": "mustafa"
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "elif",
+          "do": "rest",
+          "look": "tayYatan"
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "tayYatan",
+          "do": "lift",
+          "to": [
+            0,
+            0.006,
+            0
+          ],
+          "len": 0.6,
+          "face": 0,
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "su"
+          ],
+          "who": "can",
+          "do": "offer",
+          "look": "baba",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "babası"
+          ],
+          "who": "baba",
+          "do": "turn",
+          "face": -13,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "önce"
+          ],
+          "who": "baba",
+          "do": "talk",
+          "look": "can",
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "öğrenelim"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "baba"
+        },
+        {
+          "cue": [
+            "yardım"
+          ],
+          "who": "zeynep",
+          "do": "point",
+          "look": "reader",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "yoldaydı"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "zeynep"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "title": {
+        "tr": "Ayten Hanım’ın çantası",
+        "en": ""
+      },
+      "text": {
+        "tr": "Ayten Hanım geldi. Tayın durumuna baktı. Mustafa amcanın yardımıyla ayağını telden kurtarıp {yarasıyla|yara} ilgilendi. Çocuklar yolu açık tuttu. Tay yavaşça {doğruldu|doğrulmak}. Can {sevinçle|sevinç} gülümsedi. Ayten Hanım “{Sakin|sakin} kalmanız iyi oldu. Şimdi dinlenmeye ve {bakıma|bakım} ihtiyacı var.” dedi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Veteriner hekimler yaralı hayvanın önce durumuna bakar, yarasını temizler ve sarar. İyileşen bir tayın dinlenmesi, annesinin yanında kalması ve birkaç gün sonra yeniden kontrol edilmesi gerekir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p3-arka.webp",
+          "floor": "art/p3-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "kaya",
+              "rect": [
+                0.2,
+                0.0,
+                0.8,
+                0.5
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "birds",
+      "models": [
+        {
+          "proc": "tayYatan",
+          "id": "tayYatan",
+          "x": 0.24,
+          "z": 0.36,
+          "h": 0.2,
+          "rotY": -30,
+          "word": "tay"
+        },
+        {
+          "proc": "tel",
+          "id": "tel",
+          "x": 0.096,
+          "z": 0.503,
+          "h": 0.05,
+          "rotY": -30,
+          "word": "tel"
+        },
+        {
+          "proc": "tayAyakta",
+          "id": "tayAyakta",
+          "x": 0.24,
+          "z": 0.38,
+          "h": 0.42,
+          "rotY": -40,
+          "word": "tay",
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "ayten",
+          "x": -0.44,
+          "z": 0.56,
+          "rotY": 70,
+          "look": "tayYatan",
+          "hold": "vetCantasi"
+        },
+        {
+          "id": "mustafa",
+          "x": 0.02,
+          "z": 0.22,
+          "rotY": 60,
+          "look": "tayYatan"
+        },
+        {
+          "id": "elif",
+          "x": -0.34,
+          "z": 0.84,
+          "rotY": 20,
+          "look": "ayten"
+        },
+        {
+          "id": "can",
+          "x": -0.2,
+          "z": 0.88,
+          "rotY": 20,
+          "look": "ayten"
+        },
+        {
+          "id": "zeynep",
+          "x": -0.06,
+          "z": 0.92,
+          "rotY": 10,
+          "look": "ayten"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "ayten"
+          ],
+          "who": "ayten",
+          "do": "walkTo",
+          "to": [
+            0.46,
+            0,
+            -0.122
+          ],
+          "face": 119,
+          "look": "tayYatan",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ayten"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": -30,
+          "look": "ayten",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "durumuna"
+          ],
+          "who": "ayten",
+          "do": "put",
+          "look": "tayYatan"
+        },
+        {
+          "cue": [
+            "baktı"
+          ],
+          "who": "ayten",
+          "do": "nod",
+          "look": "tayYatan"
+        },
+        {
+          "cue": [
+            "mustafa"
+          ],
+          "who": "mustafa",
+          "do": "walkTo",
+          "to": [
+            0.08,
+            0,
+            0.073
+          ],
+          "face": 55,
+          "look": "tayYatan",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kurtarıp"
+          ],
+          "who": "tel",
+          "do": "vanish",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ilgilendi"
+          ],
+          "who": "ayten",
+          "do": "talk",
+          "look": "tayYatan",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "açık"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            -0.06,
+            0,
+            0.049
+          ],
+          "face": 20,
+          "look": "tayYatan"
+        },
+        {
+          "cue": [
+            "açık"
+          ],
+          "who": "zeynep",
+          "do": "walkTo",
+          "to": [
+            0.08,
+            0,
+            0.0
+          ],
+          "face": -10,
+          "look": "tayYatan",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "doğruldu"
+          ],
+          "who": "tayYatan",
+          "do": "vanish",
+          "focus": true
+        },
+        {
+          "cue": [
+            "doğruldu"
+          ],
+          "who": "tayAyakta",
+          "do": "appear",
+          "wait": 0.25,
+          "sound": "tayKisneme"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "tayAyakta",
+          "focus": true
+        },
+        {
+          "cue": [
+            "gülümsedi"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "sakin"
+          ],
+          "who": "ayten",
+          "do": "turn",
+          "face": 150,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "sakin"
+          ],
+          "who": "ayten",
+          "do": "talk",
+          "look": "elif",
+          "len": 3.4,
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "bakıma"
+          ],
+          "who": "tayAyakta",
+          "do": "lift",
+          "to": [
+            0,
+            0.01,
+            0.01
+          ],
+          "len": 1.0,
+          "face": 0
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "title": {
+        "tr": "Annesinin sesi",
+        "en": ""
+      },
+      "text": {
+        "tr": "Mustafa amca {komşusuna|komşu} haber verdi. Komşusu “Bu tay bizim {kısrağın|kısrak} {yavrusu|yavru}!” dedi. Annesini yakındaki {güvenli} alana getirdi. Kısrak yavrusunu {kokladı|koklamak}. Tay ince ince {kişnedi|kişnemek}. Elif {rahatladı|rahatlamak}. Ayten Hanım bakımını yetişkinlerle konuşurken çocuklar onları uzaktan izledi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Atların yavrusuna tay, dişi ata kısrak denir. Tay doğduktan birkaç saat sonra ayağa kalkar ve aylarca annesinin yanından ayrılmaz. Kısrak yavrusunu kokusundan ve sesinden tanır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p6-arka.webp",
+          "floor": "art/p6-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "çit",
+              "rect": [
+                0.0,
+                0.48,
+                1.0,
+                0.1
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.6,
+                0.12,
+                0.3,
+                0.5
+              ]
+            },
+            {
+              "word": "peri bacası",
+              "rect": [
+                0.02,
+                0.2,
+                0.2,
+                0.26
+              ]
+            },
+            {
+              "word": "çayır",
+              "rect": [
+                0.0,
+                0.6,
+                1.0,
+                0.4
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "birds",
+      "models": [],
+      "cast": [
+        {
+          "id": "tay",
+          "x": 0.04,
+          "z": 0.46,
+          "rotY": -60,
+          "look": null
+        },
+        {
+          "id": "kisrak",
+          "x": 0.42,
+          "z": 0.2,
+          "rotY": -90,
+          "look": null
+        },
+        {
+          "id": "at-sahibi",
+          "x": 0.36,
+          "z": 0.4,
+          "rotY": -90,
+          "look": "mustafa"
+        },
+        {
+          "id": "mustafa",
+          "x": -0.22,
+          "z": 0.3,
+          "rotY": 30,
+          "look": "reader",
+          "hold": "telefon"
+        },
+        {
+          "id": "ayten",
+          "x": -0.36,
+          "z": 0.38,
+          "rotY": 30,
+          "look": "tay"
+        },
+        {
+          "id": "elif",
+          "x": -0.4,
+          "z": 0.72,
+          "rotY": 40,
+          "look": "tay"
+        },
+        {
+          "id": "can",
+          "x": -0.26,
+          "z": 0.8,
+          "rotY": 30,
+          "look": "tay"
+        },
+        {
+          "id": "zeynep",
+          "x": -0.12,
+          "z": 0.86,
+          "rotY": 20,
+          "look": "tay"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "mustafa"
+          ],
+          "who": "mustafa",
+          "do": "talk",
+          "look": "reader",
+          "len": 2.0,
+          "sound": "telefon",
+          "focus": true
+        },
+        {
+          "cue": [
+            "komşusu"
+          ],
+          "who": "at-sahibi",
+          "do": "walkTo",
+          "to": [
+            -0.1,
+            0,
+            0.024
+          ],
+          "face": -90,
+          "look": "tay",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yavrusu"
+          ],
+          "who": "at-sahibi",
+          "do": "cheer",
+          "look": "mustafa"
+        },
+        {
+          "cue": [
+            "annesini"
+          ],
+          "who": "at-sahibi",
+          "do": "turn",
+          "face": 90,
+          "look": "kisrak"
+        },
+        {
+          "cue": [
+            "güvenli"
+          ],
+          "who": "kisrak",
+          "do": "walkTo",
+          "to": [
+            -0.2,
+            0,
+            0.098
+          ],
+          "face": -100,
+          "look": null,
+          "sound": "nal",
+          "focus": true
+        },
+        {
+          "cue": [
+            "güvenli"
+          ],
+          "who": "at-sahibi",
+          "do": "walkTo",
+          "to": [
+            -0.02,
+            0,
+            0.146
+          ],
+          "face": -120,
+          "look": "kisrak",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "kokladı"
+          ],
+          "who": "kisrak",
+          "do": "nod",
+          "look": "tay",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kokladı"
+          ],
+          "who": "tay",
+          "do": "turn",
+          "face": 60,
+          "look": "kisrak",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "kişnedi"
+          ],
+          "who": "tay",
+          "do": "hop",
+          "look": "kisrak",
+          "sound": "tayKisneme",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "tay",
+          "focus": true
+        },
+        {
+          "cue": [
+            "rahatladı"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "ayten"
+          ],
+          "who": "ayten",
+          "do": "walkTo",
+          "to": [
+            0.18,
+            0,
+            0.049
+          ],
+          "face": 70,
+          "look": "at-sahibi",
+          "focus": true
+        },
+        {
+          "cue": [
+            "konuşurken"
+          ],
+          "who": "ayten",
+          "do": "talk",
+          "look": "at-sahibi",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "konuşurken"
+          ],
+          "who": "mustafa",
+          "do": "nod",
+          "look": "ayten",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "izledi"
+          ],
+          "who": "zeynep",
+          "do": "lookAt",
+          "target": "kisrak",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "izledi"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "tay",
+          "len": 1.6,
+          "wait": 0.3
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "title": {
+        "tr": "Adı Balon olsun",
+        "en": ""
+      },
+      "text": {
+        "tr": "Tayın {sahibi} “Henüz adı yok. Bir {öneriniz|öneri} var mı?” diye sordu. Can gökteki {balonu|balon} gösterdi. “Balon olsun!” dedi. Zeynep adı beğendi. Elif bir tay {çizdi|çizmek}. {Veteriner|veteriner} yeniden {kontrole|kontrol} gelecekti. Çocuklar {vedalaşırken|vedalaşmak} seslerini alçalttı. Sahibi {atların|at} yanında kaldı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Türk kültüründe atın özel bir yeri vardır; atlara güzel ve anlamlı adlar verilir. Kapadokya'nın küçük, güçlü ve sabırlı atları yüzyıllardır bu vadilerde yaşar.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p6-arka.webp",
+          "floor": "art/p6-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "çit",
+              "rect": [
+                0.0,
+                0.48,
+                1.0,
+                0.1
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.6,
+                0.12,
+                0.3,
+                0.5
+              ]
+            },
+            {
+              "word": "balon",
+              "rect": [
+                0.0,
+                0.0,
+                0.7,
+                0.12
+              ]
+            },
+            {
+              "word": "çayır",
+              "rect": [
+                0.0,
+                0.6,
+                1.0,
+                0.4
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "birds",
+      "models": [
+        {
+          "src": "/models/culture/balon.glb",
+          "id": "gokBalon",
+          "x": -0.2,
+          "z": 0.04,
+          "y": 0.62,
+          "h": 0.12,
+          "rotY": 0,
+          "word": "balon",
+          "fx": "bob"
+        },
+        {
+          "proc": "sheet",
+          "id": "cizim",
+          "decal": "/books/kapadokya/resim/tay-resmi.webp",
+          "x": -0.34,
+          "z": 0.86,
+          "w": 0.2,
+          "d": 0.13,
+          "h": 0.01,
+          "paper": true,
+          "word": "resim",
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "kisrak",
+          "x": 0.22,
+          "z": 0.3,
+          "rotY": -70,
+          "look": null
+        },
+        {
+          "id": "tay",
+          "x": 0.06,
+          "z": 0.42,
+          "rotY": -40,
+          "look": null
+        },
+        {
+          "id": "at-sahibi",
+          "x": 0.3,
+          "z": 0.5,
+          "rotY": -60,
+          "look": "can"
+        },
+        {
+          "id": "ayten",
+          "x": 0.26,
+          "z": 0.7,
+          "rotY": -70,
+          "look": "at-sahibi",
+          "hold": "vetCantasi"
+        },
+        {
+          "id": "elif",
+          "x": -0.36,
+          "z": 0.74,
+          "rotY": 30,
+          "look": "tay",
+          "hold": "kalem"
+        },
+        {
+          "id": "can",
+          "x": -0.18,
+          "z": 0.72,
+          "rotY": 20,
+          "look": "at-sahibi"
+        },
+        {
+          "id": "zeynep",
+          "x": -0.04,
+          "z": 0.82,
+          "rotY": 10,
+          "look": "can"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "tayın"
+          ],
+          "who": "at-sahibi",
+          "do": "talk",
+          "look": "can",
+          "len": 2.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "öneriniz"
+          ],
+          "who": "at-sahibi",
+          "do": "point",
+          "target": "tay",
+          "look": "tay",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "gokBalon",
+          "look": "gokBalon",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "balonu"
+          ],
+          "who": "gokBalon",
+          "do": "lift",
+          "to": [
+            0.02,
+            0.04,
+            0
+          ],
+          "len": 2.0,
+          "face": 0
+        },
+        {
+          "cue": [
+            "olsun"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "tay"
+        },
+        {
+          "cue": [
+            "zeynep"
+          ],
+          "who": "zeynep",
+          "do": "cheer",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "beğendi"
+          ],
+          "who": "tay",
+          "do": "hop",
+          "look": "can",
+          "sound": "tayKisneme"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "put",
+          "look": "cizim",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çizdi"
+          ],
+          "who": "cizim",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "veteriner"
+          ],
+          "who": "ayten",
+          "do": "wave",
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kontrole"
+          ],
+          "who": "ayten",
+          "do": "walkTo",
+          "to": [
+            0.04,
+            0,
+            -0.122
+          ],
+          "face": -60,
+          "look": "at-sahibi"
+        },
+        {
+          "cue": [
+            "vedalaşırken"
+          ],
+          "who": "can",
+          "do": "wave",
+          "look": "tay",
+          "focus": true
+        },
+        {
+          "cue": [
+            "vedalaşırken"
+          ],
+          "who": "zeynep",
+          "do": "wave",
+          "look": "at-sahibi",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "vedalaşırken"
+          ],
+          "who": "elif",
+          "do": "wave",
+          "look": "tay",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "sahibi"
+          ],
+          "who": "at-sahibi",
+          "do": "walkTo",
+          "to": [
+            -0.12,
+            0,
+            -0.146
+          ],
+          "face": -30,
+          "look": "kisrak",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kaldı"
+          ],
+          "who": "kisrak",
+          "do": "nod",
+          "look": "tay"
+        }
+      ]
+    },
+    {
+      "id": "p8",
+      "title": {
+        "tr": "Taş terasta akşam",
+        "en": ""
+      },
+      "text": {
+        "tr": "Akşam taş {terasta|teras} oturdular. {Peri bacaları|peri bacası} {pembeleşmişti|pembeleşmek}. Can “Tayı görünce {sarılmak} istedim.” dedi. Babası “Bazen {yardım} etmek, uzakta durup doğru kişiyi çağırmaktır.” diye anlattı. Zeynep tay {resmine|resim} bir balon ekledi. Elif altına {tarihi|tarih} yazdı. O günü unutmayacaklardı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Kapadokya'da gün batarken peri bacaları pembe ve turuncuya boyanır. Bu güzel manzarayı izlemek için insanlar tepelere ve teraslara çıkar. Bir hayvana yardım etmenin en güvenli yolu, onu korkutmadan doğru kişiye haber vermektir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p8-arka.webp",
+          "floor": "art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "peri bacası",
+              "rect": [
+                0.62,
+                0.4,
+                0.3,
+                0.2
+              ]
+            },
+            {
+              "word": "peri bacası",
+              "rect": [
+                0.1,
+                0.48,
+                0.12,
+                0.12
+              ]
+            },
+            {
+              "word": "pansiyon",
+              "rect": [
+                0.0,
+                0.18,
+                0.2,
+                0.68
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.88,
+                0.55,
+                0.12,
+                0.3
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "crickets",
+      "models": [
+        {
+          "src": "/models/masal/sedir.glb",
+          "x": 0.0,
+          "z": 0.3,
+          "h": 0.2,
+          "w": 0.62,
+          "word": "sedir"
+        },
+        {
+          "src": "/models/kenney/tableCoffee.glb",
+          "x": 0.34,
+          "z": 0.58,
+          "h": 0.08,
+          "w": 0.2,
+          "word": "sehpa",
+          "tint": "#9A6B43",
+          "top": 1
+        },
+        {
+          "src": "/models/culture/caydanlik.glb",
+          "x": 0.31,
+          "z": 0.57,
+          "y": 0.08,
+          "h": 0.07,
+          "word": "çaydanlık",
+          "steam": true
+        },
+        {
+          "src": "/models/culture/cay.glb",
+          "x": 0.38,
+          "z": 0.6,
+          "y": 0.08,
+          "h": 0.04,
+          "word": "çay"
+        },
+        {
+          "src": "/models/culture/cay.glb",
+          "x": 0.4,
+          "z": 0.55,
+          "y": 0.08,
+          "h": 0.04,
+          "word": "çay"
+        },
+        {
+          "proc": "sheet",
+          "id": "resim",
+          "decal": "/books/kapadokya/resim/tay-resmi.webp",
+          "x": 0.04,
+          "z": 0.84,
+          "w": 0.3,
+          "d": 0.2,
+          "h": 0.01,
+          "paper": true,
+          "pitch": 62,
+          "word": "resim"
+        },
+        {
+          "proc": "sheet",
+          "id": "balonKatmani",
+          "decal": "/books/kapadokya/resim/balon-katmani.webp",
+          "x": 0.04,
+          "z": 0.846,
+          "w": 0.3,
+          "d": 0.2,
+          "h": 0.01,
+          "paper": true,
+          "layer": true,
+          "pitch": 62,
+          "word": "balon",
+          "hidden": true
+        },
+        {
+          "proc": "writing",
+          "id": "tarih",
+          "label": "14 Haziran",
+          "color": "#2B4C9A",
+          "x": 0.04,
+          "z": 0.852,
+          "w": 0.3,
+          "d": 0.2,
+          "h": 0.01,
+          "pitch": 62,
+          "word": "tarih",
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "anne",
+          "x": -0.24,
+          "z": 0.56,
+          "rotY": 0,
+          "look": "baba"
+        },
+        {
+          "id": "baba",
+          "x": -0.08,
+          "z": 0.58,
+          "rotY": 0,
+          "look": "can"
+        },
+        {
+          "id": "can",
+          "x": 0.06,
+          "z": 0.6,
+          "rotY": 0,
+          "look": "baba"
+        },
+        {
+          "id": "elif",
+          "x": 0.2,
+          "z": 0.6,
+          "rotY": 0,
+          "look": "can",
+          "hold": "kalem"
+        },
+        {
+          "id": "zeynep",
+          "x": -0.2,
+          "z": 0.76,
+          "rotY": 40,
+          "look": "resim"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "akşam"
+          ],
+          "who": "anne",
+          "do": "sit",
+          "to": [
+            0.04,
+            -0.11,
+            -0.226
+          ],
+          "face": 0,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "akşam"
+          ],
+          "who": "baba",
+          "do": "sit",
+          "to": [
+            0.02,
+            -0.13,
+            -0.25
+          ],
+          "face": 0,
+          "look": "anne",
+          "wait": 0.25
+        },
+        {
+          "cue": [
+            "terasta"
+          ],
+          "who": "can",
+          "do": "sit",
+          "to": [
+            0.01,
+            -0.046,
+            -0.275
+          ],
+          "face": 0,
+          "look": "baba"
+        },
+        {
+          "cue": [
+            "terasta"
+          ],
+          "who": "elif",
+          "do": "sit",
+          "to": [
+            0.0,
+            -0.068,
+            -0.275
+          ],
+          "face": 0,
+          "look": "can",
+          "wait": 0.25
+        },
+        {
+          "cue": [
+            "peri"
+          ],
+          "who": "elif",
+          "do": "point",
+          "look": "reader",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "baba",
+          "len": 2.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "sarılmak"
+          ],
+          "who": "can",
+          "do": "hug",
+          "target": "baba"
+        },
+        {
+          "cue": [
+            "babası"
+          ],
+          "who": "baba",
+          "do": "talk",
+          "look": "can",
+          "len": 3.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "çağırmaktır"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "baba"
+        },
+        {
+          "cue": [
+            "zeynep"
+          ],
+          "who": "zeynep",
+          "do": "put",
+          "look": "resim",
+          "focus": true
+        },
+        {
+          "cue": [
+            "balon"
+          ],
+          "who": "balonKatmani",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "stand",
+          "to": [
+            -0.02,
+            0,
+            0.195
+          ],
+          "look": "resim",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yazdı"
+          ],
+          "who": "elif",
+          "do": "put",
+          "look": "resim"
+        },
+        {
+          "cue": [
+            "yazdı"
+          ],
+          "who": "tarih",
+          "do": "appear",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "unutmayacaklardı"
+          ],
+          "who": "zeynep",
+          "do": "cheer",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "unutmayacaklardı"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "zeynep",
+          "wait": 0.3
+        }
+      ]
+    }
+  ]
+}

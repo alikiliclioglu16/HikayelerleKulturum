@@ -267,6 +267,37 @@ function speechBubble(label: string, color: string, h: number) {
   return grp;
 }
 
+/**
+ * Words written by a child's hand on a picture (a see-through layer of w × d page widths): crayon-like letters
+ * at the bottom right corner, e.g. the date under a drawing.
+ */
+function crayonWriting(label: string, color: string, w: number, d: number) {
+  const c = document.createElement('canvas');
+  c.width = 1200;
+  c.height = Math.round((1200 * d) / w);
+  const g = c.getContext('2d')!;
+  const size = Math.round(c.height * 0.1);
+  g.font = `600 ${size}px "DynaPuff", system-ui`;
+  g.textAlign = 'right';
+  g.textBaseline = 'alphabetic';
+  const x = c.width * 0.95;
+  const y = c.height * 0.93;
+  g.fillStyle = color;
+  // a few slightly shifted strokes, like a crayon going over the letters twice
+  g.globalAlpha = 0.55;
+  for (const [dx, dy] of [[0, 0], [2, -1], [-1, 2], [1, 1]]) g.fillText(label, x + dx, y + dy);
+  g.globalAlpha = 1;
+  // the paper's grain shows through the wax
+  g.globalCompositeOperation = 'destination-out';
+  for (let i = 0; i < 2600; i++) {
+    g.fillStyle = `rgba(0,0,0,${0.25 + Math.random() * 0.5})`;
+    g.fillRect(x - size * 6 + Math.random() * size * 6.2, y - size * 1.1 + Math.random() * size * 1.4, 1 + Math.random() * 2.5, 1 + Math.random() * 1.5);
+  }
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  return pictureSheet(tex, w, d, false, true);
+}
+
 /** A flag waving: the cloth's points move in a travelling wave that grows away from the pole (left edge). */
 function waveCloth(root: THREE.Object3D, t: number, ph: number) {
   root.traverse((n) => {
@@ -314,11 +345,12 @@ function loadPicture(url: string) {
 }
 
 /** A flat picture lying face up (w wide, d deep): an ebru pattern on the water of the tekne, or on paper. */
-function pictureSheet(tex: THREE.Texture, w: number, d: number, wet = false) {
+function pictureSheet(tex: THREE.Texture, w: number, d: number, wet = false, layer = false) {
   const m = new THREE.Mesh(
     new THREE.PlaneGeometry(w, d),
-    // a little of the picture's own light keeps its colours clear when the sheet stands in shade
-    new THREE.MeshStandardMaterial({ map: tex, emissive: '#FFFFFF', emissiveMap: tex, emissiveIntensity: 0.35, roughness: wet ? 0.22 : 0.8, metalness: 0, polygonOffset: true, polygonOffsetFactor: -2 }),
+    // a little of the picture's own light keeps its colours clear when the sheet stands in shade; a layer is a
+    // see-through picture over another one (only what is drawn on it shows)
+    new THREE.MeshStandardMaterial({ map: tex, emissive: '#FFFFFF', emissiveMap: tex, emissiveIntensity: 0.35, roughness: wet ? 0.22 : 0.8, metalness: 0, polygonOffset: true, polygonOffsetFactor: layer ? -4 : -2, transparent: layer, alphaTest: layer ? 0.04 : 0 }),
   );
   m.rotation.x = -Math.PI / 2;
   m.position.y = 0.0006;
@@ -1721,7 +1753,9 @@ export class BookScene {
         try {
           actor =
             spec.proc === 'sheet'
-              ? procActorFrom(pictureSheet(await loadPicture(spec.decal!), spec.w ?? 0.2, spec.d ?? spec.w ?? 0.2, true))
+              ? procActorFrom(pictureSheet(await loadPicture(spec.decal!), spec.w ?? 0.2, spec.d ?? spec.w ?? 0.2, !spec.paper, !!spec.layer))
+              : spec.proc === 'writing'
+              ? procActorFrom(crayonWriting(spec.label ?? '', spec.color ?? '#2B4C9A', spec.w ?? 0.2, spec.d ?? spec.w ?? 0.2))
               : spec.proc === 'tablet'
               ? procActorFrom(this.tablet())
               : spec.proc === 'bubble'

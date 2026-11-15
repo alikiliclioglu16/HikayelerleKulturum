@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { tulip } from '../art/kit';
 import { Pen } from '../art/pen';
 import { loadGltf } from '../home3d/actors';
+import { HORSE_HELD, HORSE_PROPS } from './horses';
 
 /**
  * A thing from a GLB file to hold in the hands. The group is returned at once and the model drops in when it
@@ -253,6 +254,8 @@ export const PROPS: Record<string, () => THREE.Object3D> = {
   nightstand,
   bench: () => bench(),
   photo,
+  // Kapadokya'nın Güzel Atları
+  ...HORSE_PROPS,
 };
 
 /* ---------------- things the characters hold ---------------- */
@@ -279,6 +282,8 @@ function tray(w: number, color = '#C9CED6') {
 
 /** Each returns a group sized for a character about 0.4–0.55 tall; userData: word, hand ('R' for one hand), atHeight, ahead. */
 export const HELD: Record<string, () => THREE.Object3D> = {
+  // Kapadokya'nın Güzel Atları: the vet's bag, a water bottle, a phone
+  ...HORSE_HELD,
   // Mahalle Fırını
   /** The baker's long wooden peel, held level and pointing ahead. */
   kurek: () => glbHeld('/models/firin/firin-kuregi.glb', 0.0095, { word: 'kürek', atHeight: 0.45, ahead: 0.42 }),

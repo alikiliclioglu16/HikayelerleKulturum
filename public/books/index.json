@@ -438,7 +438,7 @@
     },
     {
       "id": "kapadokya",
-      "status": "soon",
+      "status": "ready",
       "title": "Kapadokya'nın Güzel Atları",
       "titleEn": "The Beautiful Horses of Cappadocia",
       "values": [
@@ -452,14 +452,17 @@
       "cover": {
         "art": "cover-soon",
         "color": "#C9773A",
-        "motif": "balon"
+        "motif": "balon",
+        "src": "kapak.webp",
+        "titled": false
       },
       "carpet": {
         "motif": "muska",
         "field": "#B0663A",
         "border": "#2A3A5C",
         "src": "/halilar/kapadokya.webp"
-      }
+      },
+      "pages": 8
     },
     {
       "id": "marti-simit",

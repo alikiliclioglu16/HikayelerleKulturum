@@ -123,6 +123,7 @@ const AMBIENCE_LEVEL: Record<string, number> = {
 };
 /** Each story sound evened out (measured), so a hop, a pop, a balloon or the applause are all heard alike. */
 const SCENE_LEVEL: Record<string, number> = {
+  kisneme: 1.6, tayKisneme: 1.8, nal: 1.5, telefon: 1.6,
   hop: 1.8, cheer: 1.35, pop: 1.7, greet: 1.7, balloon: 4, rain: 0.5, whirl: 1.5, knock: 1.1, angry: 0.85, put: 1.5,
   fly: 2, vanish: 1.6, lift: 1.8, damla: 1.5, cizgi: 1.6, kagit: 2, tek: 1.2, shutter: 1.4, rise: 1.6, sink: 1.7, clink: 1.3, alarm: 1.5, shine: 1.2, davul: 0.85, applause: 3.6, spin: 4.5,
 };
@@ -721,7 +722,74 @@ function endSession(a: AudioContext, ses: Session, fade: number) {
  * Sounds for what happens on a page: toy hops, knocks, magic things appearing, rain, a pot clinking.
  * `at` is the AudioContext time; each recipe is short and soft so it never covers the narration.
  */
+/**
+ * A horse's whinny: a high voice that flutters fast (the "e-he-he-he") while it slides down, over a low hum (a
+ * whinny has both at once), ending in a soft snort. `size` 1 is a grown mare; a foal is higher and shorter.
+ */
+function whinny(a: AudioContext, t: number, size = 1) {
+  const len = 0.75 + 0.55 * size;
+  const hi = a.createOscillator();
+  hi.type = 'sawtooth';
+  const n = 64;
+  const curve = new Float32Array(n);
+  const top = 1250 - 330 * size;
+  for (let i = 0; i < n; i++) {
+    const u = i / (n - 1);
+    const base = u < 0.1 ? top * (0.8 + 2 * u) : top * Math.pow(0.48, (u - 0.1) / 0.9);
+    curve[i] = base * (1 + 0.11 * Math.sin(2 * Math.PI * (11 + 3 * (1 - size)) * u * len));
+  }
+  hi.frequency.setValueCurveAtTime(curve, t, len);
+  const formant = a.createBiquadFilter();
+  formant.type = 'bandpass';
+  formant.frequency.value = 1500 - 200 * size;
+  formant.Q.value = 1.3;
+  const flutter = a.createGain();
+  flutter.gain.value = 0.55;
+  const lfo = a.createOscillator();
+  lfo.frequency.value = 11 + 3 * (1 - size);
+  const depth = a.createGain();
+  depth.gain.value = 0.45;
+  lfo.connect(depth).connect(flutter.gain);
+  hi.connect(formant).connect(flutter).connect(env(a, t, 0.5, 0.06, len, out()));
+  hi.start(t);
+  hi.stop(t + len + 0.05);
+  lfo.start(t);
+  lfo.stop(t + len + 0.05);
+  if (size > 0.6) {
+    // the low part of the voice
+    const lo = a.createOscillator();
+    lo.type = 'sawtooth';
+    lo.frequency.setValueAtTime(190, t);
+    lo.frequency.exponentialRampToValueAtTime(130, t + len);
+    const lp = a.createBiquadFilter();
+    lp.type = 'lowpass';
+    lp.frequency.value = 900;
+    lo.connect(lp).connect(env(a, t + 0.05, 0.16 * size, 0.1, len * 0.9, out()));
+    lo.start(t);
+    lo.stop(t + len + 0.05);
+  }
+  // a snort through the nose
+  hiss(a, 'lowpass', 900, 300, t + len * 0.92, 0.3 * size + 0.1, 0.22 * size, 0.7, 0.02);
+}
+
+/** Hooves walking: soft clip-clops in pairs, `steps` of them. */
+function hooves(a: AudioContext, t: number, steps = 8, gap = 0.27) {
+  for (let i = 0; i < steps; i++) {
+    const at = t + i * gap + (i % 2 ? 0.04 : 0);
+    const f = i % 2 ? 470 : 560;
+    tone(a, 'sine', f, f * 0.45, at, 0.07, 0.3, 0.001);
+    hiss(a, 'bandpass', 1700, 900, at, 0.04, 0.16, 2.2, 0.001);
+  }
+}
+
 const SCENE_SOUNDS: Record<string, (a: AudioContext, t: number) => void> = {
+  // Kapadokya: a mare's whinny, a foal's thin one, hooves on the ground, a phone ringing out
+  kisneme: (a, t) => whinny(a, t, 1),
+  tayKisneme: (a, t) => whinny(a, t, 0.35),
+  nal: (a, t) => hooves(a, t),
+  telefon: (a, t) => {
+    for (const d of [0, 0.55, 1.6, 2.15]) tone(a, 'sine', 440, 440, t + d, 0.4, 0.12, 0.02);
+  },
   // a wooden toy landing on paper
   hop: (a, t) => {
     tone(a, "sine", 330, 180, t, 0.09, 0.22, 0.002);

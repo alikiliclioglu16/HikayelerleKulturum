@@ -12,6 +12,8 @@ import { loadGltf } from '../home3d/actors';
  */
 export interface CharacterDef {
   src: string;
+  /** Drawn in code instead (three/horses.ts) until its model arrives; `src` is then the model to come. */
+  proc?: string;
   /** Height in page widths, in proportion to the others (Can 5, Elif and Maya 8 years old). */
   height: number;
   name: string;
@@ -53,6 +55,14 @@ export const CHARACTERS: Record<string, CharacterDef> = {
   kenji: { src: '/models/23-nisan/kenji.glb', height: 0.38, name: 'Kenji' },
   amara: { src: '/models/23-nisan/amara.glb', height: 0.385, name: 'Amara' },
   liam: { src: '/models/23-nisan/liam.glb', height: 0.4, name: 'Liam' },
+  // Kapadokya'nın Güzel Atları. Until the Meshy models come (public/models/kapadokya/…), the people are played
+  // by similar characters of other books and the horses are drawn in code.
+  zeynep: { src: '/models/aile/maya.glb', height: 0.395, name: 'Zeynep' },
+  mustafa: { src: '/models/masal/hasan-amca.glb', height: 0.567, name: 'Mustafa amca' },
+  ayten: { src: '/models/23-nisan/ogretmen.glb', height: 0.535, name: 'Ayten Hanım' },
+  'at-sahibi': { src: '/models/masal/koylu-kadin.glb', height: 0.55, name: 'Atın sahibi' },
+  tay: { src: '/models/kapadokya/tay-ayakta.glb', proc: 'tay', height: 0.42, name: 'Tay' },
+  kisrak: { src: '/models/kapadokya/kisrak.glb', proc: 'kisrak', height: 0.6, name: 'Kısrak' },
 };
 
 export type Euler3 = [number, number, number];

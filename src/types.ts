@@ -59,6 +59,10 @@ export interface PageModel {
   /** A picture laid on the model's top face (e.g. an ebru pattern on a blank sheet of paper), or the picture of a
    * `proc: "sheet"` (a flat picture lying on the page or floating on water). A path under /books/…. */
   decal?: string;
+  /** For `proc: "sheet"`: a drawing on paper (matte), not a wet ebru sheet. */
+  paper?: boolean;
+  /** For `proc: "sheet"`: a see-through picture laid over another sheet (only what is drawn on it shows). */
+  layer?: boolean;
   /** Tip the model forwards (degrees around its left–right axis): 90 stands a flat sheet up, facing the reader. */
   pitch?: number;
   /** Height above the page, e.g. a teapot standing on a table model. */
@@ -85,7 +89,8 @@ export interface PageModel {
   id?: string;
   /** With `id`: not there until a beat makes it appear or rise. */
   hidden?: boolean;
-  /** For `proc: "bubble"`: the words in a speech bubble (a greeting floating in the air), and its colour. */
+  /** For `proc: "bubble"`: the words in a speech bubble (a greeting floating in the air), and its colour; for
+   * `proc: "writing"`: words written in crayon at the bottom right of a w × d see-through layer (a date under a drawing). */
   label?: string;
   color?: string;
   /** With `id`: a magic thing (a story wonder): a golden glow behind it, twinkles, a sparkle trail when it moves. */

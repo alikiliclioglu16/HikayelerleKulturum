@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { loadGltf } from '../home3d/actors';
 import { CHARACTERS, Performer, PUT_DOWN, RELAXED, blendKey, cloneState, mergeKey, smooth, type CharacterDef, type Key, type RootState, type State } from './performer';
 import { NEUTRAL, POSES, runAct, type Beat, type ActResult } from './acts';
+import { horseModels } from './horses';
 import type { Pose } from './performer';
 
 /**
@@ -78,8 +79,7 @@ export class ToyPerformer {
       toy.inner = p;
       return toy;
     }
-    const gltf = await loadGltf(def.src);
-    const model = gltf.scene.clone(true);
+    const model = def.proc ? horseModels[def.proc as keyof typeof horseModels]() : (await loadGltf(def.src)).scene.clone(true);
     const box = new THREE.Box3().setFromObject(model);
     const s = h / (box.max.y - box.min.y);
     model.scale.setScalar(s);
