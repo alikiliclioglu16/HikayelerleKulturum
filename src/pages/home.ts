@@ -107,6 +107,8 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
 
   /* ---------- 3D ---------- */
   const scene = new HomeScene(sceneHost);
+  // testing aid in development only
+  if (import.meta.env.DEV) (window as unknown as { __ev: HomeScene }).__ev = scene;
   if (store.settings.calm) {
     scene.reducedMotion = true;
     scene.setCinematic(false);
@@ -134,10 +136,13 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
         meta.textContent = `${book.values.map((v) => valueById(v).name).join(', ')}`;
         return;
       }
-      const r = store.progress(book.id).read.length;
+      const prog = store.progress(book.id);
+      const r = prog.read.length;
       const n = book.pages ?? 0;
-      bar.style.width = `${n ? (r / n) * 100 : 0}%`;
-      meta.textContent = r ? `${r}/${n} sayfa okundu` : `${n} sayfa`;
+      const pct = n ? Math.round((r / n) * 100) : 0;
+      bar.style.width = `${pct}%`;
+      // where the reader is in the book, how long it is and how much is read
+      meta.textContent = r >= n && n ? `${n}/${n} sayfa · Bitti! %100` : r || prog.page ? `Sayfa ${Math.min(n, prog.page + 1)}/${n} · %${pct} okundu` : `${n} sayfa · Henüz başlanmadı`;
     });
   }
   function updateSound() {
@@ -334,12 +339,23 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     } else {
       const prog = store.progress(b.id);
       const started = prog.page > 0 && prog.page < (b.pages ?? 0);
+      // opening: the sheet closes and the book comes down off the shelf towards the reader, then it opens
+      const open = (e: Event) => {
+        e.preventDefault();
+        const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href')!;
+        backdrop.remove();
+        sheetClose = null;
+        sfx.slide();
+        // only the book is left on the screen while it comes down
+        for (const el of [cardLayer, dots, carPrev, carNext, hint, motifCap]) el.style.visibility = 'hidden';
+        void scene.flyBookOut(i).then(() => (location.hash = href));
+      };
       body.push(
         h(
           'div',
           { class: 'bs-actions' },
-          h('a', { class: 'btn', href: `#/kitap/${b.id}` }, icon.book(), started ? 'Kaldığın yerden oku' : 'Kitabı aç'),
-          started ? h('a', { class: 'btn light', href: `#/kitap/${b.id}/1` }, 'Baştan başla') : null,
+          h('a', { class: 'btn', href: `#/kitap/${b.id}`, onclick: open }, icon.book(), started ? 'Kaldığın yerden oku' : 'Kitabı aç'),
+          started ? h('a', { class: 'btn light', href: `#/kitap/${b.id}/1`, onclick: open }, 'Baştan başla') : null,
         ),
       );
     }
@@ -587,6 +603,25 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     }
   };
   shelfHint();
+
+  // back from a book: it goes up onto its place on the shelf again
+  const back = sessionStorage.getItem('hk:raf');
+  if (back) {
+    sessionStorage.removeItem('hk:raf');
+    const bi = list.findIndex((b) => b.id === back);
+    if (bi >= 0) {
+      const pg = scene.pageOfBook(bi);
+      if (pg !== scene.page) {
+        scene.setPage(pg);
+        renderDots();
+      }
+      scene.showCarpet(bi);
+      window.setTimeout(() => {
+        sfx.slide();
+        void scene.flyBookIn(bi);
+      }, 500);
+    }
+  }
 
   return () => {
     window.removeEventListener('keydown', onKey);

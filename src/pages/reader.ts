@@ -6,7 +6,7 @@ import { tokenize, estimateMarks, trLower, type Token } from '../text';
 import { Narrator } from '../narrator';
 import { BookScene } from '../three/bookScene';
 import { sceneLayers, buildProcLayer, buildImageLayer, type BuiltLayer } from '../art/scenes';
-import type { Book, PageData, TableModel } from '../types';
+import type { Book, PageAudio, PageData, TableModel } from '../types';
 import { sfx } from '../sfx';
 
 /** Culture objects on the reading table when a book does not choose its own. */
@@ -277,11 +277,31 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   }
 
   /** A word of the page: in the narrator's own voice when the page is recorded, otherwise the device's voice. */
+  /**
+   * Where a word is said in the book's recordings: the tapped word itself, or for a thing on the page the same
+   * word in this page's text, then in another page's, then a word of the text standing for it ({balonları|balon}).
+   */
+  function findSaid(text: string, wi?: number): { a: PageAudio; i: number } | null {
+    const here = page().audio;
+    if (wi !== undefined) return here ? { a: here, i: wi } : null;
+    const w = trLower(text);
+    const pages = [index, ...book.pages.map((_, j) => j).filter((j) => j !== index)];
+    for (const byLemma of [false, true])
+      for (const j of pages) {
+        const a = book.pages[j].audio;
+        if (!a?.ends) continue;
+        const toks = j === index ? tokens : tokenize(book.pages[j].text.tr).tokens;
+        const t = toks.find((t) => t.kind === 'word' && (trLower(t.text) === w || (byLemma && !!t.lemma && trLower(t.lemma) === w)));
+        if (t?.wi !== undefined) return { a, i: t.wi };
+      }
+    return null;
+  }
+
   function sayWord(text: string, wi?: number) {
-    const a = page().audio;
-    const i = wi ?? tokens.find((t) => t.kind === 'word' && trLower(t.text) === trLower(text))?.wi;
-    const from = i === undefined ? undefined : a?.marks[i];
-    const to = i === undefined ? undefined : a?.ends?.[i];
+    const said = findSaid(text, wi);
+    const a = said?.a;
+    const from = said ? a?.marks[said.i] : undefined;
+    const to = said ? a?.ends?.[said.i] : undefined;
     if (a && from !== undefined && to !== undefined) {
       narrator.stop();
       duckFor(1200 + (to - from) * 1000);
@@ -384,6 +404,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
 
   /** Match the page's play to the words of its text and start it from the beginning. */
   function prepareStage(withNarration: boolean) {
+    resumeAt = -1;
     const st = scene.stage;
     if (!st) return;
     scene.freeze(false);
@@ -396,9 +417,22 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     else st.playAuto();
   }
 
+  /** Where a paused reading goes on from (the word it stopped at), -1 to start the page from its beginning. */
+  let resumeAt = -1;
+  let lastWord = -1;
+
   function startReading() {
+    const from = resumeAt;
+    resumeAt = -1;
     playing = true;
-    prepareStage(true);
+    if (from > 0) {
+      // go on where the pause stopped: the characters carry on from the same moment
+      scene.freeze(false);
+      highlight(from);
+    } else {
+      lastWord = -1;
+      prepareStage(true);
+    }
     sfx.duck(true);
     setPlayUI();
     const p = page();
@@ -407,6 +441,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
       plain,
       {
         onWord: (wi) => {
+          lastWord = wi;
           highlight(wi);
           scene.stage?.word(wi);
         },
@@ -416,6 +451,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
           toast('Sesi başlatmak için “Bana oku” düğmesine dokun.');
         },
         onEnd: () => {
+          lastWord = -1;
           highlight(-1);
           if (index >= book.pages.length - 1 || !playing) sfx.duck(false);
           store.markRead(bookId, p.id);
@@ -433,16 +469,26 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
           } else {
             playing = false;
             setPlayUI();
-            toast('Kitap bitti, aferin! Sağ alttaki düğmeyle etkinliklere geç.');
+            toast('Kitap bitti, aferin! Birazdan rafına dönecek; etkinlikler için sağ alttaki düğmeye dokun.');
+            // the finished book closes by itself and goes back onto its shelf, unless the child does something
+            const stay = () => window.clearTimeout(closeTimer);
+            const closeTimer = window.setTimeout(() => {
+              window.removeEventListener('pointerdown', stay);
+              if (location.hash.startsWith(`#/kitap/${bookId}`)) location.hash = '#/';
+            }, 7000);
+            window.addEventListener('pointerdown', stay, { once: true });
           }
         },
       },
       p.audio,
+      Math.max(0, from),
     );
   }
 
   function pause() {
     const was = playing;
+    // a pause in the middle of the page: the next "Bana oku" goes on from this word
+    resumeAt = was && lastWord > 0 ? lastWord : -1;
     playing = false;
     sfx.duck(false);
     narrator.stop();
@@ -487,6 +533,8 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     busy = true;
     const dir = i > index ? 1 : -1;
     index = i;
+    resumeAt = -1;
+    lastWord = -1;
     narrator.preload(page().audio);
     store.setProgress(bookId, { page: index });
     history.replaceState(null, '', `#/kitap/${bookId}/${index + 1}`);
@@ -693,6 +741,12 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   window.setTimeout(() => book.pages.forEach((p) => scene.prefetch(p.models ?? [])), 1500);
 
   return () => {
+    // the home page puts this book back on its shelf
+    try {
+      sessionStorage.setItem('hk:raf', bookId);
+    } catch {
+      /* private mode */
+    }
     sfx.setAmbience(null);
     window.removeEventListener('keydown', onKey);
     document.removeEventListener('visibilitychange', onHide);

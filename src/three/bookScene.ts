@@ -1602,7 +1602,7 @@ export class BookScene {
       this.castBase.set(c.id, base);
       starts.set(c.id, {
         pose: { ...(POSES[c.pose ?? 'stand'] ?? POSES.stand) },
-        root: { x: 0, y: 0, z: 0, rotY: c.rotY ?? 0, lie: c.lie ?? 0 },
+        root: { x: 0, y: 0, z: 0, rotY: c.rotY ?? 0, lie: c.lie ?? 0, ...(c.hidden ? { show: 0 } : {}), ...(c.apron ? { apron: 1 } : {}) },
         eyes: c.eyes ?? 1,
         look: c.look ?? null,
         hold: c.hold ?? null,

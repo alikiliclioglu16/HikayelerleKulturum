@@ -578,6 +578,15 @@
           "rotY": -20,
           "word": "balon",
           "fx": "bob"
+        },
+        {
+          "proc": "spot",
+          "id": "kayalar",
+          "x": 0.2,
+          "z": 0.02,
+          "y": 0.26,
+          "h": 0.14,
+          "word": "peri bacası"
         }
       ],
       "cast": [
@@ -695,18 +704,18 @@
             "süzülüyordu"
           ],
           "who": "elif",
-          "do": "lookAt",
-          "target": "balon2",
-          "len": 1.8
+          "do": "turn",
+          "face": 174,
+          "look": "balon2"
         },
         {
           "cue": [
             "süzülüyordu"
           ],
           "who": "can",
-          "do": "lookAt",
-          "target": "balon1",
-          "len": 1.8,
+          "do": "turn",
+          "face": -150,
+          "look": "balon1",
           "wait": 0.3
         },
         {
@@ -714,11 +723,59 @@
             "can"
           ],
           "who": "can",
-          "do": "point",
-          "target": "balon3",
-          "look": "up",
-          "len": 1.8,
+          "do": "turn",
+          "face": 179,
+          "look": "kayalar",
           "focus": true
+        },
+        {
+          "cue": [
+            "şapkalı"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "kayalar",
+          "look": "kayalar",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "şapkalı"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "kayalar",
+          "len": 2.2,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "şapkalı"
+          ],
+          "who": "anne",
+          "do": "lookAt",
+          "target": "kayalar",
+          "len": 2.2,
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "şapkalı"
+          ],
+          "who": "baba",
+          "do": "lookAt",
+          "target": "kayalar",
+          "len": 2.2,
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "dev"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -60,
+          "look": "elif"
         },
         {
           "cue": [
@@ -736,6 +793,15 @@
           "who": "can",
           "do": "cheer",
           "look": "elif"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 60,
+          "look": "can"
         },
         {
           "cue": [
@@ -1194,8 +1260,8 @@
           "id": "baba",
           "x": -0.26,
           "z": 0.3,
-          "rotY": -30,
-          "look": "mustafa"
+          "rotY": 40,
+          "look": "tayYatan"
         },
         {
           "id": "elif",
@@ -1265,6 +1331,26 @@
           "face": 146,
           "look": "tayYatan",
           "wait": 0.6
+        },
+        {
+          "cue": [
+            "ses"
+          ],
+          "who": "baba",
+          "do": "turn",
+          "face": 82,
+          "look": "tayYatan",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "ses"
+          ],
+          "who": "mustafa",
+          "do": "turn",
+          "face": 88,
+          "look": "tayYatan",
+          "wait": 0.5
         },
         {
           "cue": [
@@ -1347,8 +1433,8 @@
             0,
             0.39
           ],
-          "face": -60,
-          "look": "can",
+          "face": 133,
+          "look": "tayYatan",
           "wait": 0.3
         },
         {
@@ -1694,7 +1780,8 @@
           "h": 0.42,
           "rotY": -40,
           "word": "tay",
-          "hidden": true
+          "hidden": true,
+          "fx": "breathe"
         }
       ],
       "cast": [
@@ -1791,6 +1878,26 @@
           "face": 55,
           "look": "tayYatan",
           "focus": true
+        },
+        {
+          "cue": [
+            "mustafa"
+          ],
+          "who": "ayten",
+          "do": "bend",
+          "look": "tayYatan",
+          "len": 2.6,
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "mustafa"
+          ],
+          "who": "mustafa",
+          "do": "bend",
+          "look": "tayYatan",
+          "len": 2.0,
+          "wait": 1.4
         },
         {
           "cue": [
@@ -1905,6 +2012,20 @@
           ],
           "len": 1.0,
           "face": 0
+        },
+        {
+          "cue": [
+            "dedi"
+          ],
+          "who": "tayAyakta",
+          "do": "lift",
+          "to": [
+            0.01,
+            0.006,
+            0.0
+          ],
+          "len": 0.8,
+          "face": 6
         }
       ]
     },
@@ -2077,6 +2198,14 @@
         },
         {
           "cue": [
+            "annesini"
+          ],
+          "who": "tay",
+          "do": "nod",
+          "look": "at-sahibi"
+        },
+        {
+          "cue": [
             "güvenli"
           ],
           "who": "kisrak",
@@ -2180,10 +2309,28 @@
           "cue": [
             "konuşurken"
           ],
+          "who": "tay",
+          "do": "turn",
+          "face": 20,
+          "look": "kisrak",
+          "wait": 0.8
+        },
+        {
+          "cue": [
+            "konuşurken"
+          ],
           "who": "mustafa",
           "do": "nod",
           "look": "ayten",
           "wait": 0.6
+        },
+        {
+          "cue": [
+            "izledi"
+          ],
+          "who": "tay",
+          "do": "nod",
+          "look": "kisrak"
         },
         {
           "cue": [
@@ -2329,7 +2476,7 @@
           "id": "elif",
           "x": -0.36,
           "z": 0.74,
-          "rotY": 30,
+          "rotY": 133,
           "look": "tay",
           "hold": "kalem"
         },
@@ -2337,15 +2484,15 @@
           "id": "can",
           "x": -0.18,
           "z": 0.72,
-          "rotY": 20,
-          "look": "at-sahibi"
+          "rotY": 147,
+          "look": "tay"
         },
         {
           "id": "zeynep",
           "x": -0.04,
           "z": 0.82,
-          "rotY": 10,
-          "look": "can"
+          "rotY": 168,
+          "look": "tay"
         }
       ],
       "beats": [
@@ -2358,6 +2505,15 @@
           "look": "can",
           "len": 2.6,
           "focus": true
+        },
+        {
+          "cue": [
+            "tayın"
+          ],
+          "who": "tay",
+          "do": "nod",
+          "look": "at-sahibi",
+          "wait": 1.0
         },
         {
           "cue": [
@@ -2393,6 +2549,15 @@
           ],
           "len": 2.0,
           "face": 0
+        },
+        {
+          "cue": [
+            "olsun"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 147,
+          "look": "tay"
         },
         {
           "cue": [
@@ -2474,7 +2639,7 @@
           ],
           "who": "zeynep",
           "do": "wave",
-          "look": "at-sahibi",
+          "look": "tay",
           "wait": 0.3
         },
         {
@@ -2508,6 +2673,15 @@
           "who": "kisrak",
           "do": "nod",
           "look": "tay"
+        },
+        {
+          "cue": [
+            "kaldı"
+          ],
+          "who": "tay",
+          "do": "hop",
+          "look": "kisrak",
+          "wait": 0.6
         }
       ]
     },
@@ -2778,6 +2952,15 @@
           "look": "baba",
           "len": 2.2,
           "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "baba",
+          "do": "lookAt",
+          "target": "can",
+          "len": 6.0
         },
         {
           "cue": [

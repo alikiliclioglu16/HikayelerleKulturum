@@ -135,6 +135,10 @@ export interface CastMember {
   hold?: string;
   /** Acts inside the tablet screen (a video call) instead of on the page. */
   screen?: boolean;
+  /** Not there until a beat brings it in ("enter": comes out of a door, behind something). Toy characters. */
+  hidden?: boolean;
+  /** Wears an apron from the start (toy characters; the "wearApron" act puts it on). */
+  apron?: boolean;
 }
 
 export interface PageAudio {

@@ -3,8 +3,10 @@ import { h } from './ui/dom';
 import { page } from './ui/shell';
 import { renderEnd, renderQuiz, renderHunt, renderFamily } from './pages/activities';
 import { renderChest, renderParents } from './pages/info';
+import { startStarTrail } from './ui/starTrail';
 
 const app = document.getElementById('app')!;
+startStarTrail();
 let cleanup: (() => void) | null = null;
 let routeId = 0;
 

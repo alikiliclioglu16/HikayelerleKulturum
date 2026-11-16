@@ -295,13 +295,22 @@ export class HomeScene {
     const moulding = std('#6E4024', { roughness: 0.5 });
     for (const y of [BAND_Y0 - 0.017, BAND_Y0 + BAND_H + 0.017]) this.scene.add(mesh(new THREE.BoxGeometry(44, 0.034, 0.03), moulding, [0, y, 0.015]));
 
-    // sideboard the books stand on
+    // the wall shelf the books stand on (under the shelf of culture objects): a thick board on carved brackets
     const top = std('#ffffff', { roughness: 0.55, map: woodTexture('#8A5530', [8, 1.2], 4) });
-    const front = std('#ffffff', { roughness: 0.6, map: woodTexture('#6A3D20', [10, 1.4], 8) });
-    const plain = std('#5C351C', { roughness: 0.6 });
-    this.scene.add(mesh(new THREE.BoxGeometry(44, 0.05, SIDE_DEPTH + 0.05), [plain, plain, top, plain, std('#7A4728', { roughness: 0.5 }), plain], [0, -0.025, (SIDE_DEPTH + 0.05) / 2]));
-    this.scene.add(mesh(new THREE.BoxGeometry(44, 2.4, SIDE_DEPTH), [plain, plain, plain, plain, front, plain], [0, -1.25, SIDE_DEPTH / 2]));
-    this.scene.add(mesh(new THREE.BoxGeometry(44, 0.012, 0.006), std('#C99A42', { metalness: 0.8, roughness: 0.35 }), [0, -0.13, SIDE_DEPTH + 0.003]));
+    const edge = std('#7A4728', { roughness: 0.5 });
+    this.scene.add(mesh(new RoundedBoxGeometry(44, 0.09, SIDE_DEPTH, 2, 0.016), [edge, edge, top, edge, edge, edge], [0, -0.045, SIDE_DEPTH / 2]));
+    this.scene.add(mesh(new THREE.BoxGeometry(44, 0.012, 0.006), std('#C99A42', { metalness: 0.8, roughness: 0.35 }), [0, -0.05, SIDE_DEPTH + 0.003]));
+    const br = new THREE.Shape();
+    br.moveTo(0, 0);
+    br.lineTo(SIDE_DEPTH * 0.82, 0);
+    br.lineTo(SIDE_DEPTH * 0.82, -0.06);
+    br.bezierCurveTo(SIDE_DEPTH * 0.5, -0.08, 0.12, -0.3, 0.1, -0.78);
+    br.lineTo(0, -0.78);
+    br.closePath();
+    const brGeo = new THREE.ExtrudeGeometry(br, { depth: 0.07, bevelEnabled: true, bevelThickness: 0.01, bevelSize: 0.01, bevelSegments: 2 });
+    brGeo.rotateY(-Math.PI / 2);
+    brGeo.translate(0.035, 0, 0);
+    for (let x = -21; x <= 21; x += 2.9) this.scene.add(mesh(brGeo, edge, [x, -0.09, 0]));
   }
 
   private buildShelf(L: number) {
@@ -835,6 +844,68 @@ export class HomeScene {
       }, ease.out);
     });
     this.invalidate();
+  }
+
+  /** Where a book is when it has come down off the shelf to be read: in front of the camera, a little low. */
+  private readingPose(i: number) {
+    this.camera.updateMatrixWorld(true);
+    this.booksGroup.updateMatrixWorld(true);
+    const dir = this.camera.getWorldDirection(new THREE.Vector3());
+    const at = this.camera.position.clone().add(dir.multiplyScalar(2.6));
+    const local = this.booksGroup.worldToLocal(at);
+    local.y -= BOOK_H * 0.62;
+    return { pos: local, from: this.books[i].group.position.clone() };
+  }
+
+  /**
+   * Opening a book: it hops up off its shelf, then comes down and towards the reader, growing, until it fills
+   * the view. Resolves when it is there (then the reader page opens).
+   */
+  flyBookOut(i: number): Promise<void> {
+    const b = this.books[i];
+    if (!b) return Promise.resolve();
+    b.pulled = true;
+    const slot = new THREE.Vector3(i * BOOK_SP, 0, BOOK_Z);
+    const { pos } = this.readingPose(i);
+    const g = b.group;
+    const r0 = g.rotation.y;
+    this.sparkle('book', i, 1.2);
+    const done = this.tweens.add(this.reducedMotion ? 0 : 900, 0, 1, (k) => {
+      g.position.lerpVectors(slot, pos, ease.inOut(Math.max(0, (k - 0.15) / 0.85)));
+      g.position.y += Math.sin(Math.min(1, k / 0.45) * Math.PI) * 0.35;
+      g.rotation.y = r0 * (1 - k);
+      g.rotation.x = -0.12 * Math.sin(k * Math.PI);
+      g.scale.setScalar(1 + 0.25 * k);
+      this.invalidate();
+    }, (k) => k);
+    this.invalidate();
+    return done;
+  }
+
+  /** Closing a book: it comes back from the reader's hands and goes up onto its place on the shelf. */
+  flyBookIn(i: number): Promise<void> {
+    const b = this.books[i];
+    if (!b) return Promise.resolve();
+    const slot = new THREE.Vector3(i * BOOK_SP, 0, BOOK_Z);
+    const { pos } = this.readingPose(i);
+    const g = b.group;
+    g.position.copy(pos);
+    g.scale.setScalar(1.25);
+    g.rotation.y = 0;
+    const done = this.tweens.add(this.reducedMotion ? 0 : 1000, 0, 1, (k) => {
+      g.position.lerpVectors(pos, slot, ease.inOut(k));
+      g.position.y += Math.sin(k * Math.PI) * 0.4;
+      g.rotation.y = b.baseRotY * k;
+      g.rotation.x = 0.1 * Math.sin(k * Math.PI);
+      g.scale.setScalar(1.25 - 0.25 * k);
+      this.invalidate();
+    }, (k) => k).then(() => {
+      b.pulled = false;
+      g.rotation.x = 0;
+      this.sparkle('book', i, 1.4);
+    });
+    this.invalidate();
+    return done;
   }
 
   /** Pull a book off the shelf towards the reader (or put it back). */

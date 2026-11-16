@@ -27,6 +27,12 @@ export interface Beat {
   len?: number;
   /** Seconds to wait after the cue before starting (e.g. sprouts coming up one after another). */
   wait?: number;
+  /** useTool: how the thing in the hands is used ("tap", "shake", "draw", "lay", "lift"). */
+  style?: string;
+  /** useTool: what the hands hold from halfway through (a blank paper lifted with its pattern). */
+  swap?: string;
+  /** useTool: stays where it ended (the paper held up) instead of going back. */
+  keep?: boolean;
   /** A story sound instead of the act's own (see sfx.ts → SCENE_SOUNDS), or null for none. */
   sound?: string | null;
 }
@@ -242,6 +248,14 @@ const ACTS: Record<string, Act> = {
     const end = t0 + steps * stepT;
     keys.push(key(end, 0.4, { pose: merge(NEUTRAL), root: { x: to[0], z: to[2], rotY: b.face ?? dir }, look: b.look ?? s.look }));
     return { keys, dur: end - t + 0.4 };
+  },
+
+  /** Comes in through a door where it was hidden (cast `hidden`): shows up, then walks to `to` if given. */
+  enter: (s, b, t) => {
+    const keys: Key[] = [key(t, 0.3, { root: { show: 1 }, look: b.look ?? s.look })];
+    if (!b.to) return { keys, dur: 0.4 };
+    const walk = ACTS.walkTo({ ...s, root: { ...s.root, show: 1 } }, b, t + 0.3);
+    return { keys: [...keys, ...walk.keys], dur: walk.dur + 0.3 };
   },
 
   /** Holds a hand out to be kissed (an elder at Bayram). */

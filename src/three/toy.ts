@@ -26,7 +26,10 @@ export class ToyPerformer {
   current!: State;
   private base = new THREE.Vector3();
   private lookYaw = 0;
-  private held: { name: string; obj: THREE.Object3D } | null = null;
+  private held: { name: string; obj: THREE.Object3D; grip: THREE.Group } | null = null;
+  /** An apron over the front of the body (Ebru: everyone in the workshop wears one). */
+  private apronMesh: THREE.Object3D | null = null;
+  private front = 0;
   private heldName: string | null = null;
   private dropped: THREE.Object3D[] = [];
   private phase = Math.random() * 6;
@@ -53,6 +56,8 @@ export class ToyPerformer {
   ) {
     this.root.add(this.body);
     this.body.add(model);
+    // how far the body reaches in front (for an apron), measured while it still faces +z at the origin
+    this.front = Math.max(0, new THREE.Box3().setFromObject(model).max.z);
     model.traverse((o) => {
       const m = o as THREE.Mesh;
       if (m.isMesh) {
@@ -146,6 +151,10 @@ export class ToyPerformer {
   private apply(s: State, dt: number, snap: boolean, t: number) {
     const r = s.root as RootState;
     this.root.position.set(this.base.x + r.x, this.base.y + r.y, this.base.z + r.z);
+    // not there yet (comes in later through a door) or growing into view
+    const show = r.show ?? 1;
+    this.root.visible = show > 0.02;
+    this.root.scale.setScalar(Math.max(0.001, Math.min(1, show)));
     // turning towards what it looks at (the whole figure, a little)
     let want = 0;
     const target = s.look ? this.targets(s.look) : null;
@@ -153,7 +162,8 @@ export class ToyPerformer {
       const d = target.clone().sub(this.root.position);
       let yaw = Math.atan2(d.x, d.z) - r.rotY * D2R;
       yaw = Math.atan2(Math.sin(yaw), Math.cos(yaw));
-      want = THREE.MathUtils.clamp(yaw, -0.6, 0.6);
+      // far enough to really face the one it looks at (someone talking beside it), not only glance over
+      want = THREE.MathUtils.clamp(yaw, -1.1, 1.1);
     }
     const k = snap || this.calm ? 1 : 1 - Math.exp(-dt * 4);
     this.lookYaw += (want - this.lookYaw) * k;
@@ -165,6 +175,12 @@ export class ToyPerformer {
     const side = 1 / Math.sqrt(Math.max(0.3, sq));
     this.body.scale.set(side, sq, side);
     this.setHeld(s.hold ?? null);
+    if (this.held) {
+      const home = this.held.grip.userData.home as THREE.Vector3;
+      this.held.grip.position.set(home.x + (r.tx ?? 0) * this.height, home.y + (r.ty ?? 0) * this.height, home.z + (r.tz ?? 0) * this.height);
+      this.held.grip.rotation.set((r.tp ?? 0) * D2R, 0, (r.tr ?? 0) * D2R);
+    }
+    this.setApron((r.apron ?? 0) > 0.5);
     // a family member: arms, legs and head move with the act; it sits with bent legs, carries things in both
     // arms, turns its head to what it looks at before the body follows, and blinks now and then
     if (this.inner) {
@@ -200,7 +216,9 @@ export class ToyPerformer {
     const H = this.height;
     if (this.held && name === PUT_DOWN) {
       const o = this.held.obj;
+      const grip = this.held.grip;
       this.held = null;
+      grip.parent?.remove(grip);
       const host = this.root.parent;
       if (host) {
         host.attach(o);
@@ -218,16 +236,61 @@ export class ToyPerformer {
       const o = this.held.obj;
       this.onRelease?.(o.getWorldPosition(new THREE.Vector3()), o);
       o.parent?.remove(o);
+      this.held.grip.parent?.remove(this.held.grip);
       this.held = null;
     }
     if (name === PUT_DOWN || !name || !this.makeProp) return;
     const obj = this.makeProp(name);
     if (!obj) return;
     const small = obj.userData.hand === 'R';
-    obj.position.set(small ? -0.24 * H : 0, H * (small ? 0.4 : (obj.userData.atHeight ?? 0.45)), H * (small ? 0.14 : Math.max(0.22, obj.userData.ahead ?? 0.22)));
-    this.body.add(obj);
-    this.held = { name, obj };
+    // the grip is where the hands hold it; the thing moves inside it when it is used (tx…tr)
+    const grip = new THREE.Group();
+    grip.position.set(small ? -0.24 * H : 0, H * (small ? 0.4 : (obj.userData.atHeight ?? 0.45)), H * (small ? 0.14 : Math.max(0.22, obj.userData.ahead ?? 0.22)));
+    grip.userData.home = grip.position.clone();
+    grip.add(obj);
+    this.body.add(grip);
+    this.held = { name, obj, grip };
     this.onTake?.(obj);
+  }
+
+  /** Puts the apron on (or takes it off): a cloth panel from the chest to the knees, just in front of the body. */
+  private setApron(on: boolean) {
+    if (!on) {
+      if (this.apronMesh) this.apronMesh.visible = false;
+      return;
+    }
+    if (!this.apronMesh) {
+      const H = this.height;
+      const front = THREE.MathUtils.clamp(this.front * 0.72, 0.06 * H, 0.12 * H);
+      // a canvas apron wrapped round the front of the body, with a coloured trim and pocket
+      const trims: Record<string, string> = { dede: '#8A5A36', elif: '#D2504A', can: '#3A78C0' };
+      const trim = trims[this.id] ?? '#5E8C61';
+      const cloth = new THREE.MeshStandardMaterial({ color: '#EADCC0', roughness: 0.95, side: THREE.DoubleSide });
+      const band = new THREE.MeshStandardMaterial({ color: trim, roughness: 0.85, side: THREE.DoubleSide });
+      const g = new THREE.Group();
+      const top = 0.68 * H;
+      const bottom = 0.28 * H;
+      const r = Math.max(0.07 * H, front) + 0.006 * H;
+      const arc = 1.7;
+      const panel = new THREE.Mesh(new THREE.CylinderGeometry(r, r * 1.08, top - bottom, 18, 1, true, -arc / 2, arc), cloth);
+      panel.position.y = (top + bottom) / 2;
+      g.add(panel);
+      const hem = new THREE.Mesh(new THREE.CylinderGeometry(r * 1.085, r * 1.09, 0.03 * H, 18, 1, true, -arc / 2, arc), band);
+      hem.position.y = bottom + 0.015 * H;
+      g.add(hem);
+      const pocket = new THREE.Mesh(new THREE.CylinderGeometry(r * 1.07, r * 1.075, 0.08 * H, 8, 1, true, -0.35, 0.7), band);
+      pocket.position.y = bottom + (top - bottom) * 0.32;
+      g.add(pocket);
+      // the neck strap
+      const strap = new THREE.Mesh(new THREE.TorusGeometry(r * 0.55, 0.009 * H, 6, 16, Math.PI), band);
+      strap.position.set(0, top, r * 0.5);
+      strap.rotation.x = -0.6;
+      g.add(strap);
+      g.traverse((n) => ((n as THREE.Mesh).castShadow = true));
+      this.body.add(g);
+      this.apronMesh = g;
+    }
+    this.apronMesh.visible = true;
   }
 
   get heldWord() {
@@ -260,6 +323,16 @@ const BODY_UP: Pose = { spine: [0, 0, 0], chest: [0, 0, 0], head: [0, 0, 0] };
  * arms back down. (s, b, start, how long the toy act lasts) → pose keys.
  */
 const GESTURES: Record<string, (s: State, b: Beat, t: number, dur: number) => Key[]> = {
+  /** Reaching down with both hands. */
+  bend: (_s, _b, t, dur) => [
+    pk(t, 0.4, { upper_arm_L: [-70, 0, -10], upper_arm_R: [-70, 0, 10], forearm_L: [-20, 0, 0], forearm_R: [-20, 0, 0], head: [20, 0, 0] }),
+    pk(t + dur - 0.5, 0.5, { ...ARMS_DOWN, head: [0, 0, 0] }),
+  ],
+  /** Both arms reach forwards to the thing being used. */
+  useTool: (_s, b, t, dur) => [
+    pk(t, 0.35, { upper_arm_L: [-55, 0, -12], upper_arm_R: [-62, 0, 12], forearm_L: [-30, 0, 0], forearm_R: [-34, 0, 0], head: [14, 0, 0] }),
+    ...(b.keep ? [] : [pk(t + dur - 0.45, 0.45, { ...ARMS_DOWN, head: [0, 0, 0] })]),
+  ],
   /** Waves with the right hand held up in front of the shoulder. */
   wave: (_s, _b, t, dur) => {
     const up: Pose = { upper_arm_R: [-112, 0, 4], forearm_R: [-52, 0, 0] };
@@ -619,6 +692,70 @@ export const TOY_ACTS: Record<string, ToyAct> = {
     return { keys, dur: len + 0.35 };
   },
 
+  /**
+   * Uses the thing in its hands over `to` ([sideways, up, forwards] in its heights, from where it holds it):
+   * `style` "tap" (a brush tapped over the water: drops), "shake" (shaken hard from side to side), "draw" (small
+   * strokes with the biz), "lay" (a paper laid flat on the water, then held there), "lift" (raised up to show,
+   * tipped towards the reader). `swap` changes what it holds halfway (the blank paper comes up with the pattern).
+   */
+  useTool: (_s, b, t) => {
+    const to = b.to ?? [0.24, 0, 0.32];
+    const style = b.style ?? 'tap';
+    const len = b.len ?? 1.6;
+    const at = { tx: to[0], ty: to[1], tz: to[2] };
+    const keys: Key[] = [key(t, 0.4, { root: { ...at, lean: style === 'lift' ? 0 : 10, tp: style === 'lift' ? 70 : style === 'lay' ? 0 : 15 }, look: b.look ?? (style === 'lift' ? 'reader' : 'down') })];
+    const t0 = t + 0.4;
+    if (style === 'tap') {
+      const n = Math.max(2, Math.round(len / 0.32));
+      for (let i = 0; i < n; i++) {
+        keys.push(key(t0 + i * 0.32, 0.12, { root: { ty: to[1] - 0.05, tp: 28 }, minor: true }));
+        keys.push(key(t0 + i * 0.32 + 0.12, 0.2, { root: { ty: to[1], tp: 15 }, minor: true }));
+      }
+    } else if (style === 'shake') {
+      const n = Math.max(3, Math.round(len / 0.13));
+      for (let i = 0; i < n; i++) keys.push(key(t0 + i * 0.13, 0.13, { root: { tx: to[0] + (i % 2 ? -0.07 : 0.07), tr: i % 2 ? -30 : 30 }, minor: true }));
+      keys.push(key(t0 + n * 0.13, 0.15, { root: { tx: to[0], tr: 0 } }));
+    } else if (style === 'draw') {
+      const n = Math.max(2, Math.round(len / 0.35));
+      for (let i = 0; i < n; i++) keys.push(key(t0 + i * 0.35, 0.35, { root: { tx: to[0] + (i % 2 ? -0.05 : 0.05), tz: to[2] + (i % 3 === 1 ? -0.04 : 0.02) }, minor: true }));
+    } else if (style === 'lay') {
+      keys.push(key(t0, 0.5, { root: { ty: to[1] - 0.04 } }));
+    }
+    if (b.swap) keys.push(key(t0 + len * 0.5, 0.05, { hold: b.swap }));
+    const end = t0 + len;
+    if (!b.keep) keys.push(key(end, 0.45, { root: { tx: 0, ty: 0, tz: 0, tp: 0, tr: 0, lean: 0 }, look: b.look ?? null }));
+    return { keys, dur: end - t + (b.keep ? 0 : 0.45) };
+  },
+  /** Bends down low over something on the ground (freeing a foal's leg) for `len` seconds, then stands up. */
+  bend: (s, b, t) => {
+    const len = b.len ?? 2;
+    return {
+      keys: [
+        key(t, 0.5, { root: { lean: 34, sq: 0.86 }, look: b.look ?? 'down' }),
+        key(t + 0.6, 0.4, { root: { lean: 28 }, minor: true }),
+        key(t + 1.0, 0.4, { root: { lean: 36 }, minor: true }),
+        key(t + 0.5 + len, 0.5, { root: { lean: 0, sq: 1 }, look: b.look ?? s.look }),
+      ],
+      dur: len + 1,
+    };
+  },
+  /** Puts on an apron: a little hop and it is on. */
+  wearApron: (s, b, t, H) => ({ keys: [key(t, 0.3, { look: b.look ?? s.look }), key(t + 0.25, 0.05, { root: { apron: 1 } }), ...hopKeys(s, t + 0.2, 0.05 * H)], dur: 0.8 }),
+
+  /**
+   * Comes in: steps out from behind a door or a wall where it was hidden (cast `hidden`), with a little hop,
+   * then walks to `to` if given.
+   */
+  enter: (s, b, t, H) => {
+    const keys: Key[] = [key(t, 0.35, { root: { show: 1 }, look: b.look ?? s.look }), ...hopKeys(s, t + 0.1, 0.05 * H)];
+    let dur = 0.6;
+    if (b.to) {
+      const walk = TOY_ACTS.walkTo({ ...s, root: { ...s.root, show: 1 } }, b, t + 0.6, H);
+      keys.push(...walk.keys);
+      dur += walk.dur;
+    }
+    return { keys, dur };
+  },
   /**
    * Sits down on a seat: hops onto it (`to`: the place, its y the seat's height above the page minus the hips'
    * height), turns to `face` and sits. Without `to` it sits where it is.

@@ -3,6 +3,7 @@ import { tulip } from '../art/kit';
 import { Pen } from '../art/pen';
 import { loadGltf } from '../home3d/actors';
 import { HORSE_HELD, HORSE_PROPS } from './horses';
+import { ROOM_PROPS } from './room';
 
 /**
  * A thing from a GLB file to hold in the hands. The group is returned at once and the model drops in when it
@@ -256,6 +257,8 @@ export const PROPS: Record<string, () => THREE.Object3D> = {
   photo,
   // Kapadokya'nın Güzel Atları
   ...HORSE_PROPS,
+  // a door that opens, an invisible spot to tap
+  ...ROOM_PROPS,
 };
 
 /* ---------------- things the characters hold ---------------- */
@@ -281,7 +284,44 @@ function tray(w: number, color = '#C9CED6') {
 }
 
 /** Each returns a group sized for a character about 0.4–0.55 tall; userData: word, hand ('R' for one hand), atHeight, ahead. */
+/** A sheet of ebru paper held flat in both hands (w wide), blank or with its pattern (a picture under /books/…). */
+function heldPaper(word: string, pattern?: string) {
+  const g = new THREE.Group();
+  const w = 0.13;
+  const paper = new THREE.Mesh(new THREE.BoxGeometry(w, 0.002, w * 0.66), new THREE.MeshStandardMaterial({ color: '#F4ECD8', roughness: 0.85 }));
+  paper.castShadow = true;
+  g.add(paper);
+  if (pattern) {
+    const tex = new THREE.TextureLoader().load(pattern);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    for (const side of [1, -1]) {
+      const pic = new THREE.Mesh(new THREE.PlaneGeometry(w * 0.96, w * 0.64), new THREE.MeshStandardMaterial({ map: tex, emissive: '#FFFFFF', emissiveMap: tex, emissiveIntensity: 0.3, roughness: 0.6 }));
+      pic.rotation.x = -side * Math.PI / 2;
+      pic.position.y = side * 0.0012;
+      g.add(pic);
+    }
+  }
+  Object.assign(g.userData, { word, atHeight: 0.44, ahead: 0.24 });
+  return g;
+}
+
 export const HELD: Record<string, () => THREE.Object3D> = {
+  // Ebrunun Renkleri: the tools in the hands
+  /** The horsehair brush, its hairs down and forwards, for dripping paint on the water. */
+  firca: () => glbHeld('/models/ebru/at-kili-firca.glb', 0.075, { word: 'fırça', hand: 'R' }),
+  /** The biz (a long needle in a handle), point down, for drawing in the paint. */
+  biz: () => {
+    const g = new THREE.Group();
+    const inner = glbHeld('/models/ebru/ebru-bizi.glb', 0.07, { word: 'biz' });
+    inner.rotation.x = Math.PI;
+    inner.position.y = 0.07;
+    g.add(inner);
+    Object.assign(g.userData, { word: 'biz', hand: 'R' });
+    return g;
+  },
+  kagit: () => heldPaper('kâğıt'),
+  kagitLale: () => heldPaper('ebru', '/books/ebru/desen/lale.webp'),
+  kagitKarisik: () => heldPaper('ebru', '/books/ebru/desen/karisik.webp'),
   // Kapadokya'nın Güzel Atları: the vet's bag, a water bottle, a phone
   ...HORSE_HELD,
   // Mahalle Fırını

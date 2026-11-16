@@ -86,6 +86,18 @@ export interface RootState {
   spin?: number;
   /** Toy family characters: sitting (1) on a seat, legs bent, or standing (0). */
   sit?: number;
+  /**
+   * Toy characters: the thing in the hands moves (a brush tapped over the water, a paper lifted): offsets from
+   * where it is normally held, in the character's heights (tx sideways, ty up, tz forwards), and its tip
+   * forwards (tp) and roll sideways (tr) in degrees.
+   */
+  tx?: number;
+  ty?: number;
+  tz?: number;
+  tp?: number;
+  tr?: number;
+  /** Toy characters: wearing an apron (1) or not (0). */
+  apron?: number;
 }
 
 export interface State {
@@ -339,6 +351,10 @@ export class Performer {
     const r = s.root;
     this.root.position.set(this.base.x + r.x, this.base.y + r.y, this.base.z + r.z);
     this.root.rotation.set(0, r.rotY * D2R, 0);
+    // not there yet (comes in through a door later): see the cast's `hidden` and the "enter" act
+    const show = r.show ?? 1;
+    this.root.visible = show > 0.02;
+    this.root.scale.setScalar(Math.max(0.001, Math.min(1, show)));
     const lie = new THREE.Quaternion().setFromRotationMatrix(
       new THREE.Matrix4().makeBasis(new THREE.Vector3(0, 0, -1), new THREE.Vector3(-1, 0, 0), new THREE.Vector3(0, 1, 0)),
     );
