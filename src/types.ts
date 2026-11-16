@@ -100,7 +100,7 @@ export interface PageModel {
   /** A table: things put down above it land on its top, this far up its height (0..1). */
   top?: number;
   /** Gentle life for still objects: trees sway, a pot wobbles, a lantern swings, a plant breathes. */
-  fx?: 'sway' | 'wobble' | 'swing' | 'breathe' | 'bob' | 'spin' | 'grow' | 'wave';
+  fx?: 'sway' | 'wobble' | 'swing' | 'breathe' | 'bob' | 'spin' | 'grow' | 'wave' | 'glide' | 'float';
 }
 
 /** A 3D object on the reading table, around the book (world units, the book is 2 wide). */
@@ -166,7 +166,7 @@ export interface PageData {
   /** Named spots the characters can look at or walk to: [x, y, z] in page coordinates (like models). */
   spots?: Record<string, [number, number, number]>;
   /** Soft sounds of the place under the page: birds (morning, a village) or crickets (night). */
-  ambience?: 'birds' | 'crickets' | 'home' | 'kitchen' | 'village' | 'market' | 'school' | 'hall';
+  ambience?: 'birds' | 'crickets' | 'home' | 'kitchen' | 'village' | 'market' | 'school' | 'hall' | 'sea';
   /** Optional recorded narration. */
   audio?: PageAudio;
 }

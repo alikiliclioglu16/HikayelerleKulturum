@@ -4,6 +4,7 @@ import { Pen } from '../art/pen';
 import { loadGltf } from '../home3d/actors';
 import { HORSE_HELD, HORSE_PROPS } from './horses';
 import { ROOM_PROPS } from './room';
+import { VAPUR_HELD, VAPUR_PROPS } from './vapur';
 
 /**
  * A thing from a GLB file to hold in the hands. The group is returned at once and the model drops in when it
@@ -257,6 +258,8 @@ export const PROPS: Record<string, () => THREE.Object3D> = {
   photo,
   // Kapadokya'nın Güzel Atları
   ...HORSE_PROPS,
+  // Martı ile Simit
+  ...VAPUR_PROPS,
   // a door that opens, an invisible spot to tap
   ...ROOM_PROPS,
 };
@@ -324,6 +327,8 @@ export const HELD: Record<string, () => THREE.Object3D> = {
   kagitKarisik: () => heldPaper('ebru', '/books/ebru/desen/karisik.webp'),
   // Kapadokya'nın Güzel Atları: the vet's bag, a water bottle, a phone
   ...HORSE_HELD,
+  // Martı ile Simit: a simit, the simit bag, a bottle of water, a napkin
+  ...VAPUR_HELD,
   // Mahalle Fırını
   /** The baker's long wooden peel, held level and pointing ahead. */
   kurek: () => glbHeld('/models/firin/firin-kuregi.glb', 0.0095, { word: 'kürek', atHeight: 0.45, ahead: 0.42 }),

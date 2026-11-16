@@ -63,7 +63,8 @@ export const TREASURES: Treasure[] = [
       "raf",
       "bayram-sabahi",
       "keloglan-tohum",
-      "nasreddin-hoca-kazan"
+      "nasreddin-hoca-kazan",
+      "marti-simit"
     ]
   },
   {
@@ -80,7 +81,8 @@ export const TREASURES: Treasure[] = [
       "raf",
       "bayram-sabahi",
       "keloglan-tohum",
-      "nasreddin-hoca-kazan"
+      "nasreddin-hoca-kazan",
+      "marti-simit"
     ]
   },
   {
@@ -295,7 +297,8 @@ export const TREASURES: Treasure[] = [
     ],
     "fact": "Galata Kulesi İstanbul'dadır. Yüzyıllardır şehri ve denizi tepeden seyreder.",
     "found": [
-      "raf"
+      "raf",
+      "marti-simit"
     ]
   },
   {
@@ -309,7 +312,8 @@ export const TREASURES: Treasure[] = [
     ],
     "fact": "Kız Kulesi, İstanbul Boğazı'nda küçük bir adacığın üstünde durur. Efsaneleriyle ve manzarasıyla İstanbul’un simgelerinden biridir.",
     "found": [
-      "raf"
+      "raf",
+      "marti-simit"
     ]
   },
   {

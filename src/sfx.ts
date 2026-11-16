@@ -120,10 +120,11 @@ const AMBIENCE_LEVEL: Record<string, number> = {
   market: 18,
   school: 18,
   hall: 16,
+  sea: 12,
 };
 /** Each story sound evened out (measured), so a hop, a pop, a balloon or the applause are all heard alike. */
 const SCENE_LEVEL: Record<string, number> = {
-  kisneme: 1.6, tayKisneme: 1.8, nal: 1.5, telefon: 1.6,
+  kisneme: 1.6, tayKisneme: 1.8, nal: 1.5, telefon: 1.6, duduk: 1.3, marti: 1.6,
   hop: 1.8, cheer: 1.35, pop: 1.7, greet: 1.7, balloon: 4, rain: 0.5, whirl: 1.5, knock: 1.1, angry: 0.85, put: 1.5,
   fly: 2, vanish: 1.6, lift: 1.8, damla: 1.5, cizgi: 1.6, kagit: 2, tek: 1.2, shutter: 1.4, rise: 1.6, sink: 1.7, clink: 1.3, alarm: 1.5, shine: 1.2, davul: 0.85, applause: 3.6, spin: 4.5,
 };
@@ -787,6 +788,15 @@ const SCENE_SOUNDS: Record<string, (a: AudioContext, t: number) => void> = {
   kisneme: (a, t) => whinny(a, t, 1),
   tayKisneme: (a, t) => whinny(a, t, 0.35),
   nal: (a, t) => hooves(a, t),
+  // Martı ile Simit: the ferry's deep horn, a seagull calling
+  duduk: (a, t) => {
+    tone(a, "sawtooth", 147, 145, t, 1.6, 0.16, 0.08);
+    tone(a, "sawtooth", 220, 218, t, 1.6, 0.08, 0.08);
+    tone(a, "sine", 73, 73, t, 1.6, 0.2, 0.1);
+  },
+  marti: (a, t) => {
+    for (const [d, f] of [[0, 1800], [0.24, 1700], [0.5, 1600]] as const) warble(a, f, f * 0.65, t + d, 0.2, 0.14, 22, 90, "triangle");
+  },
   telefon: (a, t) => {
     for (const d of [0, 0.55, 1.6, 2.15]) tone(a, 'sine', 440, 440, t + d, 0.4, 0.12, 0.02);
   },
@@ -1093,6 +1103,12 @@ function ambienceTick() {
       murmur(a, t, 0.9);
       if (r < 0.35)
         bell(a, 1900 + Math.random() * 600, t + 0.4, 0.3, 0.01, [1, 2.6]);
+    } else if (k === "sea") {
+      // on the ferry's deck: a wave against the hull, gulls calling, the engine's low hum
+      if (r < 0.5) hiss(a, "lowpass", 380, 1400, t, 1.4, 0.3, 0.7, 0.5);
+      else if (r < 0.85)
+        for (const d of [0, 0.22]) warble(a, 1650 + Math.random() * 200, 1100, t + d, 0.22, 0.1, 20, 80, "triangle");
+      else tone(a, "sawtooth", 62, 60, t, 1.5, 0.03, 0.4);
     } else if (k === "school" || k === "hall") {
       // children talking and laughing nearby (a hall is fuller; a school yard has birds)
       murmur(a, t, k === "hall" ? 1.1 : 0.8);
@@ -1290,6 +1306,7 @@ export const sfx = {
       market: 0.6,
       school: 0.55,
       hall: 0.6,
+      sea: 0.55,
     };
     ambience = {
       kind,

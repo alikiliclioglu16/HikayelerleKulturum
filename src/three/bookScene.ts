@@ -933,6 +933,27 @@ export class BookScene {
         case 'spin':
           g.rotation.y += dt * 0.6;
           break;
+        case 'glide': {
+          // a gull on the wind: wide slow loops, banking into the turns, now and then a few wing beats
+          const a = t * 0.45 + ph;
+          // an ellipse seen from the front: it turns smoothly at both ends instead of flipping round
+          g.position.set(Math.sin(a) * 0.09, Math.sin(a * 1.7) * 0.025, Math.cos(a) * 0.035);
+          g.rotation.y = Math.atan2(Math.cos(a) * 0.09, -Math.sin(a) * 0.035);
+          g.rotation.z = Math.sin(a) * 0.3;
+          const k = (t + ph) % 4.5;
+          const flap = k < 1.2 ? Math.sin(k * 14) * 0.6 : Math.sin(t * 1.3 + ph) * 0.06;
+          const l = g.getObjectByName('wingL');
+          const r = g.getObjectByName('wingR');
+          if (l) l.rotation.z = -flap;
+          if (r) r.rotation.z = flap;
+          break;
+        }
+        case 'float':
+          // something floating on small waves
+          g.position.y = Math.sin(t * 1.6 + ph) * 0.006;
+          g.rotation.z = Math.sin(t * 1.2 + ph) * 0.08;
+          g.rotation.x = Math.sin(t * 0.9 + ph * 2) * 0.06;
+          break;
         case 'wave':
           waveCloth(g, t, ph);
           break;

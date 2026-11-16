@@ -63,6 +63,8 @@ export const CHARACTERS: Record<string, CharacterDef> = {
   'at-sahibi': { src: '/models/masal/koylu-kadin.glb', height: 0.55, name: 'Atın sahibi' },
   tay: { src: '/models/kapadokya/tay-ayakta.glb', proc: 'tay', height: 0.42, name: 'Tay' },
   kisrak: { src: '/models/kapadokya/kisrak.glb', proc: 'kisrak', height: 0.6, name: 'Kısrak' },
+  // Martı ile Simit: the ferry attendant (stands in until public/models/vapur/vapur-gorevlisi.glb comes)
+  gorevli: { src: '/models/firin/askidan-ekmek-alan-adam.glb', height: 0.567, name: 'Görevli' },
 };
 
 export type Euler3 = [number, number, number];

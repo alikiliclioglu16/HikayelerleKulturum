@@ -1,0 +1,3197 @@
+{
+  "id": "marti-simit",
+  "title": "Martı ile Simit",
+  "titleEn": "The Seagull and the Simit",
+  "culture": {
+    "tr": "İstanbul vapurları, Boğaz, simit, ince belli çay bardağı ve Kız Kulesi",
+    "en": "Istanbul ferries, the Bosphorus, simit, tulip-shaped tea glasses and the Maiden's Tower"
+  },
+  "summary": {
+    "tr": "İstanbul vapurunda simit yiyen Elif ile Can, martıları ve Kız Kulesi’ni izliyor. Denizde gördükleri bir poşet, çevreye özen göstermenin önemini hatırlatıyor.",
+    "en": ""
+  },
+  "values": [
+    "duyarlilik",
+    "temizlik",
+    "sorumluluk"
+  ],
+  "music": {
+    "src": "/books/marti-simit/muzik.mp3",
+    "loop": 40.5,
+    "gain": 0.75
+  },
+  "toyCast": true,
+  "glossary": {
+    "babaanne": {
+      "en": "grandma (father's mother)",
+      "icon": "👵"
+    },
+    "dede": {
+      "en": "grandpa",
+      "icon": "👴"
+    },
+    "Eminönü İskelesi": {
+      "en": "Eminönü pier, a ferry stop in Istanbul",
+      "icon": "⚓"
+    },
+    "vapur": {
+      "en": "ferry",
+      "icon": "⛴️"
+    },
+    "düdük": {
+      "en": "horn, whistle",
+      "icon": "📯"
+    },
+    "simit": {
+      "en": "simit, a sesame bread ring",
+      "icon": "🥯"
+    },
+    "ince belli bardak": {
+      "en": "a tulip-shaped tea glass",
+      "icon": "🍵"
+    },
+    "çay": {
+      "en": "tea",
+      "icon": "🍵"
+    },
+    "su": {
+      "en": "water",
+      "icon": "💧"
+    },
+    "iskele": {
+      "en": "pier, landing stage",
+      "icon": "⚓"
+    },
+    "uzaklaşmak": {
+      "en": "to move away",
+      "icon": "↔️"
+    },
+    "kahvaltı": {
+      "en": "breakfast",
+      "icon": "🍳"
+    },
+    "manzara": {
+      "en": "view",
+      "icon": "🌅"
+    },
+    "Boğaz": {
+      "en": "the Bosphorus, the strait through Istanbul",
+      "icon": "🌊"
+    },
+    "martı": {
+      "en": "seagull",
+      "icon": "🕊️"
+    },
+    "uçmak": {
+      "en": "to fly",
+      "icon": "🕊️"
+    },
+    "acıkmak": {
+      "en": "to get hungry",
+      "icon": "😋"
+    },
+    "yiyecek": {
+      "en": "food",
+      "icon": "🍞"
+    },
+    "kuş": {
+      "en": "bird",
+      "icon": "🐦"
+    },
+    "dönüş": {
+      "en": "turn",
+      "icon": "🔄"
+    },
+    "kanat": {
+      "en": "wing",
+      "icon": "🪽"
+    },
+    "rüzgâr": {
+      "en": "wind",
+      "icon": "🌬️"
+    },
+    "süzülmek": {
+      "en": "to glide",
+      "icon": "🕊️"
+    },
+    "Pamuk Kanat": {
+      "en": "Cotton Wing, the gull's name",
+      "icon": "🕊️"
+    },
+    "göğüs": {
+      "en": "chest, breast",
+      "icon": "🤍"
+    },
+    "bembeyaz": {
+      "en": "snow-white",
+      "icon": "🤍"
+    },
+    "gülümsemek": {
+      "en": "to smile",
+      "icon": "😊"
+    },
+    "yükselmek": {
+      "en": "to rise",
+      "icon": "⬆️"
+    },
+    "alçalmak": {
+      "en": "to go down",
+      "icon": "⬇️"
+    },
+    "kol": {
+      "en": "arm",
+      "icon": "💪"
+    },
+    "yorulmak": {
+      "en": "to get tired",
+      "icon": "😮‍💨"
+    },
+    "adacık": {
+      "en": "islet, a tiny island",
+      "icon": "🏝️"
+    },
+    "Kız Kulesi": {
+      "en": "the Maiden's Tower in Istanbul",
+      "icon": "🗼"
+    },
+    "gemi": {
+      "en": "ship",
+      "icon": "🚢"
+    },
+    "fener": {
+      "en": "lighthouse lamp",
+      "icon": "🗼"
+    },
+    "deniz": {
+      "en": "sea",
+      "icon": "🌊"
+    },
+    "lamba": {
+      "en": "lamp",
+      "icon": "💡"
+    },
+    "fısıldamak": {
+      "en": "to whisper",
+      "icon": "🤫"
+    },
+    "kule": {
+      "en": "tower",
+      "icon": "🗼"
+    },
+    "çizmek": {
+      "en": "to draw",
+      "icon": "✏️"
+    },
+    "biçim": {
+      "en": "shape",
+      "icon": "🔷"
+    },
+    "nokta": {
+      "en": "dot",
+      "icon": "⚪"
+    },
+    "plastik": {
+      "en": "plastic",
+      "icon": "🧴"
+    },
+    "poşet": {
+      "en": "plastic bag",
+      "icon": "🛍️"
+    },
+    "yüzmek": {
+      "en": "to float, to swim",
+      "icon": "🌊"
+    },
+    "çöp": {
+      "en": "rubbish, trash",
+      "icon": "🗑️"
+    },
+    "canlı": {
+      "en": "living thing",
+      "icon": "🐟"
+    },
+    "zarar": {
+      "en": "harm",
+      "icon": "⚠️"
+    },
+    "uzanmak": {
+      "en": "to reach out",
+      "icon": "🤚"
+    },
+    "uyarmak": {
+      "en": "to warn",
+      "icon": "☝️"
+    },
+    "görevli": {
+      "en": "attendant, staff member",
+      "icon": "🧑‍✈️"
+    },
+    "parmak": {
+      "en": "finger",
+      "icon": "👉"
+    },
+    "ekip": {
+      "en": "team, crew",
+      "icon": "👥"
+    },
+    "simit poşeti": {
+      "en": "the paper bag of simits",
+      "icon": "🛍️"
+    },
+    "ağız": {
+      "en": "mouth; the opening of a bag",
+      "icon": "👄"
+    },
+    "şişe": {
+      "en": "bottle",
+      "icon": "🍼"
+    },
+    "kapak": {
+      "en": "lid, cap",
+      "icon": "🔵"
+    },
+    "uçuşmak": {
+      "en": "to flutter about",
+      "icon": "🍃"
+    },
+    "peçete": {
+      "en": "napkin",
+      "icon": "🧻"
+    },
+    "yolcu": {
+      "en": "passenger",
+      "icon": "🧳"
+    },
+    "Üsküdar": {
+      "en": "Üsküdar, a district on the Asian side of Istanbul",
+      "icon": "🕌"
+    },
+    "yaklaşmak": {
+      "en": "to come near",
+      "icon": "➡️"
+    },
+    "ambalaj": {
+      "en": "wrapper, packaging",
+      "icon": "📦"
+    },
+    "çöp kutusu": {
+      "en": "rubbish bin",
+      "icon": "🗑️"
+    },
+    "kırık": {
+      "en": "broken",
+      "icon": "💔"
+    },
+    "bardak": {
+      "en": "glass",
+      "icon": "🥛"
+    },
+    "toplamak": {
+      "en": "to pick up, to collect",
+      "icon": "🧺"
+    },
+    "şehir": {
+      "en": "city",
+      "icon": "🏙️"
+    },
+    "güzelleşmek": {
+      "en": "to become beautiful",
+      "icon": "✨"
+    },
+    "onaylamak": {
+      "en": "to agree, to nod yes",
+      "icon": "👍"
+    },
+    "sıra": {
+      "en": "line, turn",
+      "icon": "🧍"
+    },
+    "el sallamak": {
+      "en": "to wave",
+      "icon": "👋"
+    },
+    "akşam": {
+      "en": "evening",
+      "icon": "🌇"
+    },
+    "defter": {
+      "en": "notebook",
+      "icon": "📓"
+    },
+    "gezi": {
+      "en": "trip",
+      "icon": "🎒"
+    },
+    "matara": {
+      "en": "water bottle (reusable)",
+      "icon": "🫗"
+    },
+    "küpeşte": {
+      "en": "the rail along the side of a boat",
+      "icon": "🛳️"
+    },
+    "can simidi": {
+      "en": "life ring",
+      "icon": "🛟"
+    },
+    "bank": {
+      "en": "bench",
+      "icon": "🪑"
+    },
+    "cami": {
+      "en": "mosque",
+      "icon": "🕌"
+    },
+    "Galata Kulesi": {
+      "en": "Galata Tower in Istanbul",
+      "icon": "🗼"
+    },
+    "gökyüzü": {
+      "en": "sky",
+      "icon": "☁️"
+    },
+    "güneş": {
+      "en": "sun",
+      "icon": "☀️"
+    }
+  },
+  "quiz": [
+    {
+      "q": {
+        "tr": "Elif ile Can vapura hangi iskeleden bindi?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Eminönü İskelesi’nden",
+          "en": ""
+        },
+        {
+          "tr": "Üsküdar İskelesi’nden",
+          "en": ""
+        },
+        {
+          "tr": "Kadıköy İskelesi’nden",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "Hikâyenin başında aile, Eminönü İskelesi’nden vapura bindi.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Can martıya hangi adı vermek istedi?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Beyaz Kuş",
+          "en": ""
+        },
+        {
+          "tr": "Pamuk Kanat",
+          "en": ""
+        },
+        {
+          "tr": "Simitçi",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Martının göğsü bembeyazdı; Can ona Pamuk Kanat demek istedi.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Dedeye göre eskiden Kız Kulesi’nde ne kullanılmış?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Büyük bir saat",
+          "en": ""
+        },
+        {
+          "tr": "Gemilere yol gösteren bir fener",
+          "en": ""
+        },
+        {
+          "tr": "Bir değirmen",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Dede, kulede gemilere yol gösteren bir fener kullanıldığını anlattı.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Elif denizde gördüğü poşeti kime bildirdi?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Babaannesine",
+          "en": ""
+        },
+        {
+          "tr": "Görevliye",
+          "en": ""
+        },
+        {
+          "tr": "Hiç kimseye",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Elif poşete uzanmak yerine görevliye söylemeyi önerdi ve poşetin yerini gösterdi.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Çocuklar kırık bardağı görünce ne yaptı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Bardağı topladılar",
+          "en": ""
+        },
+        {
+          "tr": "Bardağa dokunmadan görevliye haber verdiler",
+          "en": ""
+        },
+        {
+          "tr": "Bardağı denize attılar",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Kırık bardak eli kesebilir; çocuklar ona dokunmadan görevliye haber verdi.",
+        "en": ""
+      }
+    }
+  ],
+  "valueHunt": [
+    {
+      "page": "p2",
+      "answer": "duyarlilik",
+      "options": [
+        "mutevazilik",
+        "duyarlilik",
+        "vatanseverlik"
+      ],
+      "why": {
+        "tr": "Dede, martının kendi yiyeceğini aramasının ona daha iyi geleceğini düşündü. Martıyı beslemek yerine uzaktan izlediler.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p5",
+      "answer": "duyarlilik",
+      "options": [
+        "duyarlilik",
+        "estetik",
+        "tasarruf"
+      ],
+      "why": {
+        "tr": "Elif, martıların poşeti yiyecek sanabileceğini düşündü ve denizdeki canlılar için endişelendi.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p6",
+      "answer": "sorumluluk",
+      "options": [
+        "adalet",
+        "sorumluluk",
+        "ozgurluk"
+      ],
+      "why": {
+        "tr": "Aile, kendi poşetlerinin ve şişelerinin denize düşmemesi için önlem aldı.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p7",
+      "answer": "temizlik",
+      "options": [
+        "temizlik",
+        "sabir",
+        "dostluk"
+      ],
+      "why": {
+        "tr": "Çocuklar ambalajlarını çöp kutusuna attı ve şehirlerin temiz kalmasını konuştu.",
+        "en": ""
+      }
+    }
+  ],
+  "family": {
+    "task": {
+      "tr": "Bir sonraki gezinize matara ve bez çanta götürün. Gezinin sonunda çöplerinizi birlikte toplayın; denizi ve parkları temiz tutmak için neler yaptığınızı konuşun.",
+      "en": ""
+    },
+    "talk": [
+      {
+        "tr": "Elif denizde gördüğü poşeti kime bildirdi?",
+        "en": ""
+      },
+      {
+        "tr": "Kendi çöplerimizi toplamak denizdeki canlılara nasıl yardımcı olabilir?",
+        "en": ""
+      },
+      {
+        "tr": "Vapur yolculuğunu önce, sonra ve en sonunda sözlerini kullanarak üç adımda anlat.",
+        "en": ""
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "p1",
+      "title": {
+        "tr": "Vapurda simit",
+        "en": ""
+      },
+      "text": {
+        "tr": "Elif ile Can {babaanneleri|babaanne} ve {dedeleriyle|dede} {Eminönü İskelesi’nden|Eminönü İskelesi} {vapura|vapur} bindi. {Düdük|düdük} çalınca Can güldü. Dedeleri {simitleri|simit} çıkardı. Babaanneleri büyüklere {ince belli bardaklarda|ince belli bardak} {çay}, çocuklara {su} aldı. Vapur {iskeleden|iskele} {uzaklaştı|uzaklaşmak}. Can “Bu {kahvaltının|kahvaltı} {manzarası|manzara} da var!” dedi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "İstanbul’da vapurlar yüz yılı aşkın bir süredir iki yaka arasında yolcu taşıyor. Eminönü, Karaköy, Üsküdar ve Kadıköy en bilinen iskelelerdendir. Vapurda çay içip simit yemek birçok İstanbullunun sevdiği bir alışkanlıktır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p1-arka.webp",
+          "floor": "art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "cami",
+              "rect": [
+                0.05,
+                0.16,
+                0.27,
+                0.48
+              ]
+            },
+            {
+              "word": "iskele",
+              "rect": [
+                0.3,
+                0.52,
+                0.46,
+                0.16
+              ]
+            },
+            {
+              "word": "Galata Kulesi",
+              "rect": [
+                0.84,
+                0.36,
+                0.09,
+                0.22
+              ]
+            },
+            {
+              "word": "deniz",
+              "rect": [
+                0.0,
+                0.7,
+                1.0,
+                0.3
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "sea",
+      "models": [
+        {
+          "proc": "korkuluk",
+          "x": 0.0,
+          "z": 0.1,
+          "h": 0.31,
+          "word": "küpeşte"
+        },
+        {
+          "proc": "canSimidi",
+          "x": 0.36,
+          "z": 0.125,
+          "y": 0.06,
+          "h": 0.2,
+          "word": "can simidi"
+        },
+        {
+          "proc": "vapurSirasi",
+          "x": 0.2,
+          "z": 0.32,
+          "h": 0.28,
+          "word": "bank"
+        },
+        {
+          "proc": "marti",
+          "id": "marti",
+          "x": -0.3,
+          "z": 0.05,
+          "y": 0.6,
+          "h": 0.064,
+          "rotY": 0,
+          "word": "martı",
+          "fx": "glide"
+        },
+        {
+          "proc": "spot",
+          "id": "iskele",
+          "x": 0.06,
+          "z": 0.03,
+          "y": 0.4,
+          "h": 0.14,
+          "word": "iskele"
+        },
+        {
+          "proc": "suSisesiYerde",
+          "id": "su1",
+          "x": 0.14,
+          "z": 0.34,
+          "y": 0.151,
+          "h": 0.06,
+          "word": "su",
+          "hidden": true
+        },
+        {
+          "proc": "suSisesiYerde",
+          "id": "su2",
+          "x": 0.22,
+          "z": 0.34,
+          "y": 0.151,
+          "h": 0.06,
+          "word": "su",
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "dede",
+          "x": -0.42,
+          "z": 0.5,
+          "rotY": 40,
+          "look": "reader",
+          "hold": "simitPoseti"
+        },
+        {
+          "id": "babaanne",
+          "x": -0.3,
+          "z": 0.62,
+          "rotY": 40,
+          "look": "dede"
+        },
+        {
+          "id": "elif",
+          "x": -0.16,
+          "z": 0.7,
+          "rotY": 40,
+          "look": "can"
+        },
+        {
+          "id": "can",
+          "x": -0.02,
+          "z": 0.76,
+          "rotY": 40,
+          "look": "elif"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.12,
+            0,
+            -0.098
+          ],
+          "face": 0,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.14,
+            0,
+            -0.122
+          ],
+          "face": -10,
+          "look": "elif",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "babaanne",
+          "do": "walkTo",
+          "to": [
+            0.1,
+            0,
+            -0.073
+          ],
+          "face": 10,
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "dedeleriyle"
+          ],
+          "who": "dede",
+          "do": "walkTo",
+          "to": [
+            0.1,
+            0,
+            -0.049
+          ],
+          "face": 20,
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "vapura"
+          ],
+          "who": "elif",
+          "do": "lookAround",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "düdük"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "reader",
+          "sound": "duduk",
+          "focus": true
+        },
+        {
+          "cue": [
+            "güldü"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "dedeleri"
+          ],
+          "who": "dede",
+          "do": "offer",
+          "look": "can",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "simitleri"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "simit",
+          "look": "dede"
+        },
+        {
+          "cue": [
+            "simitleri"
+          ],
+          "who": "elif",
+          "do": "receive",
+          "target": "simit",
+          "look": "dede",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "babaanne",
+          "do": "receive",
+          "target": "cayTepsisi",
+          "look": "dede",
+          "focus": true
+        },
+        {
+          "cue": [
+            "büyüklere"
+          ],
+          "who": "babaanne",
+          "do": "offer",
+          "look": "dede",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "su"
+          ],
+          "who": "su1",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "su"
+          ],
+          "who": "su2",
+          "do": "appear",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "su"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "babaanne"
+        },
+        {
+          "cue": [
+            "vapur"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 180,
+          "look": "iskele",
+          "focus": true
+        },
+        {
+          "cue": [
+            "iskeleden"
+          ],
+          "who": "elif",
+          "do": "wave",
+          "look": "iskele"
+        },
+        {
+          "cue": [
+            "iskeleden"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 180,
+          "look": "iskele",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "uzaklaştı"
+          ],
+          "who": "marti",
+          "do": "lift",
+          "to": [
+            0.3,
+            0.03,
+            0
+          ],
+          "len": 3.0,
+          "face": 0
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -30,
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "bu"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "manzarası"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 20,
+          "look": "can"
+        },
+        {
+          "cue": [
+            "manzarası"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "reader"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "title": {
+        "tr": "Boğaz’ın yolcuları",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Boğaz’ın|Boğaz} üzerinde {martılar|martı} {uçuyordu|uçmak}. Can bir {martıyı|martı} gösterdi. “Acaba {acıktı|acıkmak} mı?” diye sordu. Dedesi “Kendi {yiyeceğini|yiyecek} ararken izleyebiliriz. {Simidimizi|simit} biz yiyelim.” dedi. Elif {kuşun|kuş} {dönüşlerini|dönüş} izledi. Martı {kanatlarını|kanat} pek az hareket ettirerek {rüzgârda|rüzgâr} {süzülüyordu|süzülmek}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "İstanbul Boğazı, Karadeniz’i Marmara Denizi’ne bağlayan yaklaşık 30 kilometrelik bir su yoludur. Şehri Avrupa ve Asya yakası olarak ikiye ayırır. Martılar rüzgârdan yararlanarak kanat çırpmadan uzun süre süzülebilir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p2-arka.webp",
+          "floor": "art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "Boğaz",
+              "rect": [
+                0.0,
+                0.48,
+                1.0,
+                0.5
+              ]
+            },
+            {
+              "word": "gökyüzü",
+              "rect": [
+                0.0,
+                0.0,
+                1.0,
+                0.38
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "sea",
+      "models": [
+        {
+          "proc": "korkuluk",
+          "x": 0.0,
+          "z": 0.1,
+          "h": 0.31,
+          "word": "küpeşte"
+        },
+        {
+          "proc": "canSimidi",
+          "x": -0.38,
+          "z": 0.125,
+          "y": 0.06,
+          "h": 0.2,
+          "word": "can simidi"
+        },
+        {
+          "proc": "marti",
+          "id": "marti",
+          "x": 0.14,
+          "z": 0.05,
+          "y": 0.52,
+          "h": 0.08,
+          "rotY": 0,
+          "word": "martı",
+          "fx": "glide"
+        },
+        {
+          "proc": "marti",
+          "id": "marti2",
+          "x": -0.24,
+          "z": 0.05,
+          "y": 0.66,
+          "h": 0.048,
+          "rotY": 0,
+          "word": "martı",
+          "fx": "glide"
+        }
+      ],
+      "cast": [
+        {
+          "id": "babaanne",
+          "x": -0.4,
+          "z": 0.62,
+          "rotY": 20,
+          "look": "dede"
+        },
+        {
+          "id": "dede",
+          "x": -0.24,
+          "z": 0.52,
+          "rotY": 20,
+          "look": "can"
+        },
+        {
+          "id": "elif",
+          "x": 0.02,
+          "z": 0.6,
+          "rotY": -10,
+          "look": "marti",
+          "hold": "simit"
+        },
+        {
+          "id": "can",
+          "x": 0.18,
+          "z": 0.66,
+          "rotY": -20,
+          "look": "marti",
+          "hold": "simit"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "boğaz’ın"
+          ],
+          "who": "marti",
+          "do": "lift",
+          "to": [
+            -0.1,
+            0.04,
+            0
+          ],
+          "len": 2.4,
+          "face": 0,
+          "sound": "marti",
+          "focus": true
+        },
+        {
+          "cue": [
+            "martılar"
+          ],
+          "who": "marti2",
+          "do": "lift",
+          "to": [
+            0.12,
+            -0.03,
+            0
+          ],
+          "len": 2.4,
+          "face": 0
+        },
+        {
+          "cue": [
+            "uçuyordu"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "marti",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "uçuyordu"
+          ],
+          "who": "babaanne",
+          "do": "lookAt",
+          "target": "marti2",
+          "len": 1.8,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "marti",
+          "look": "marti",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "acaba"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -60,
+          "look": "dede"
+        },
+        {
+          "cue": [
+            "acaba"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "dede",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "dedesi"
+          ],
+          "who": "dede",
+          "do": "turn",
+          "face": 40,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kendi"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "can",
+          "len": 3.2
+        },
+        {
+          "cue": [
+            "simidimizi"
+          ],
+          "who": "dede",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "simidimizi"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "dede",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "marti",
+          "len": 3.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "dönüşlerini"
+          ],
+          "who": "marti",
+          "do": "lift",
+          "to": [
+            0.16,
+            0.02,
+            0
+          ],
+          "len": 2.6,
+          "face": 0
+        },
+        {
+          "cue": [
+            "martı"
+          ],
+          "who": "marti",
+          "do": "lift",
+          "to": [
+            -0.08,
+            0.03,
+            0
+          ],
+          "len": 3.2,
+          "face": 0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "süzülüyordu"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "marti"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "title": {
+        "tr": "Pamuk Kanat",
+        "en": ""
+      },
+      "text": {
+        "tr": "Can “Adı {Pamuk Kanat} olsun mu?” diye sordu. Martının {göğsü|göğüs} {bembeyazdı|bembeyaz}. Elif {gülümsedi|gülümsemek}. {Kuşu|kuş} oturdukları yerden izlediler. Pamuk Kanat {yükselip|yükselmek} {alçalıyordu|alçalmak}. Can {kollarını|kol} açtı. “Benim kanatlarım çabuk {yoruldu|yorulmak}!” dedi. Dedeleri güldü. Martı rüzgârla yoluna devam etti.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Martılar deniz kıyısında yaşayan kuşlardır. Yiyeceklerini denizde ve kıyıda kendileri arar. İnsan yiyecekleri onların sağlığına iyi gelmeyebilir; bu yüzden martıları beslemek yerine uzaktan izlemek daha doğrudur.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p2-arka.webp",
+          "floor": "art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "deniz",
+              "rect": [
+                0.0,
+                0.48,
+                1.0,
+                0.5
+              ]
+            },
+            {
+              "word": "gökyüzü",
+              "rect": [
+                0.0,
+                0.0,
+                1.0,
+                0.38
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "sea",
+      "models": [
+        {
+          "proc": "korkuluk",
+          "x": 0.0,
+          "z": 0.1,
+          "h": 0.31,
+          "word": "küpeşte"
+        },
+        {
+          "proc": "canSimidi",
+          "x": 0.4,
+          "z": 0.125,
+          "y": 0.06,
+          "h": 0.2,
+          "word": "can simidi"
+        },
+        {
+          "proc": "vapurSirasi",
+          "x": -0.04,
+          "z": 0.38,
+          "h": 0.28,
+          "word": "bank"
+        },
+        {
+          "proc": "marti",
+          "id": "marti",
+          "x": 0.1,
+          "z": 0.05,
+          "y": 0.56,
+          "h": 0.096,
+          "rotY": 0,
+          "word": "martı",
+          "fx": "glide"
+        }
+      ],
+      "cast": [
+        {
+          "id": "babaanne",
+          "x": -0.25,
+          "z": 0.5800000000000001,
+          "rotY": 0,
+          "look": "marti"
+        },
+        {
+          "id": "dede",
+          "x": -0.11,
+          "z": 0.5800000000000001,
+          "rotY": 0,
+          "look": "marti"
+        },
+        {
+          "id": "elif",
+          "x": 0.03,
+          "z": 0.5800000000000001,
+          "rotY": 0,
+          "look": "marti"
+        },
+        {
+          "id": "can",
+          "x": 0.16,
+          "z": 0.5800000000000001,
+          "rotY": 0,
+          "look": "marti"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -40,
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "adı"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "elif",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "pamuk"
+          ],
+          "who": "marti",
+          "do": "lift",
+          "to": [
+            0.04,
+            0.02,
+            0
+          ],
+          "len": 1.6,
+          "face": 0,
+          "sound": "marti"
+        },
+        {
+          "cue": [
+            "göğsü"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "marti",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "gülümsedi"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "kuşu"
+          ],
+          "who": "babaanne",
+          "do": "sit",
+          "to": [
+            0,
+            -0.057,
+            -0.256
+          ],
+          "face": 0,
+          "look": "marti"
+        },
+        {
+          "cue": [
+            "kuşu"
+          ],
+          "who": "dede",
+          "do": "sit",
+          "to": [
+            0,
+            -0.072,
+            -0.256
+          ],
+          "face": 0,
+          "look": "marti",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "oturdukları"
+          ],
+          "who": "elif",
+          "do": "sit",
+          "to": [
+            0,
+            -0.017,
+            -0.256
+          ],
+          "face": 0,
+          "look": "marti"
+        },
+        {
+          "cue": [
+            "oturdukları"
+          ],
+          "who": "can",
+          "do": "sit",
+          "to": [
+            0,
+            0.006,
+            -0.256
+          ],
+          "face": 0,
+          "look": "marti",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "izlediler"
+          ],
+          "who": "dede",
+          "do": "lookAt",
+          "target": "marti",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "yükselip"
+          ],
+          "who": "marti",
+          "do": "lift",
+          "to": [
+            0.02,
+            0.09,
+            0
+          ],
+          "len": 1.6,
+          "face": 0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "alçalıyordu"
+          ],
+          "who": "marti",
+          "do": "lift",
+          "to": [
+            -0.02,
+            -0.08,
+            0
+          ],
+          "len": 1.6,
+          "face": 0
+        },
+        {
+          "cue": [
+            "kollarını"
+          ],
+          "who": "can",
+          "do": "stand",
+          "to": [
+            0.04,
+            0,
+            0.195
+          ],
+          "look": "marti",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kollarını"
+          ],
+          "who": "can",
+          "do": "raise",
+          "look": "marti",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "benim"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -30,
+          "look": "dede"
+        },
+        {
+          "cue": [
+            "benim"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "dede",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "güldü"
+          ],
+          "who": "dede",
+          "do": "cheer",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "güldü"
+          ],
+          "who": "babaanne",
+          "do": "nod",
+          "look": "can",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "martı"
+          ],
+          "who": "marti",
+          "do": "lift",
+          "to": [
+            0.34,
+            0.05,
+            0
+          ],
+          "len": 3.4,
+          "face": 0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "devam"
+          ],
+          "who": "can",
+          "do": "wave",
+          "look": "marti"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "title": {
+        "tr": "Kız Kulesi",
+        "en": ""
+      },
+      "text": {
+        "tr": "Küçük bir {adacıktaki|adacık} {Kız Kulesi} göründü. Dedeleri “Eskiden burada {gemilere|gemi} yol gösteren bir {fener} kullanılmış.” dedi. Can “{Denizin|deniz} içinde bir {lamba}!” diye {fısıldadı|fısıldamak}. Elif {kuleyi|kule} {çizmek} için {biçimine|biçim} dikkat etti. Pamuk Kanat uzakta beyaz bir {nokta} gibiydi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Kız Kulesi, Üsküdar kıyısına yakın küçük bir adacığın üzerindedir. Uzun yıllar gemilere yol gösteren bir deniz feneri olarak kullanıldı. Hakkında anlatılan efsaneler de vardır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p4-arka.webp",
+          "floor": "art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "Kız Kulesi",
+              "rect": [
+                0.6,
+                0.22,
+                0.16,
+                0.38
+              ]
+            },
+            {
+              "word": "adacık",
+              "rect": [
+                0.38,
+                0.56,
+                0.46,
+                0.1
+              ]
+            },
+            {
+              "word": "deniz",
+              "rect": [
+                0.0,
+                0.68,
+                1.0,
+                0.32
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "sea",
+      "models": [
+        {
+          "proc": "korkuluk",
+          "x": 0.0,
+          "z": 0.1,
+          "h": 0.31,
+          "word": "küpeşte"
+        },
+        {
+          "proc": "canSimidi",
+          "x": -0.4,
+          "z": 0.125,
+          "y": 0.06,
+          "h": 0.2,
+          "word": "can simidi"
+        },
+        {
+          "proc": "spot",
+          "id": "kule",
+          "x": 0.18,
+          "z": 0.03,
+          "y": 0.36,
+          "h": 0.14,
+          "word": "Kız Kulesi"
+        },
+        {
+          "proc": "marti",
+          "id": "marti",
+          "x": 0.4,
+          "z": 0.05,
+          "y": 0.66,
+          "h": 0.036,
+          "rotY": 0,
+          "word": "martı",
+          "fx": "glide"
+        }
+      ],
+      "cast": [
+        {
+          "id": "babaanne",
+          "x": -0.42,
+          "z": 0.62,
+          "rotY": 160,
+          "look": "kule"
+        },
+        {
+          "id": "dede",
+          "x": -0.26,
+          "z": 0.52,
+          "rotY": 160,
+          "look": "kule"
+        },
+        {
+          "id": "elif",
+          "x": 0.0,
+          "z": 0.58,
+          "rotY": 170,
+          "look": "kule",
+          "hold": "kagit"
+        },
+        {
+          "id": "can",
+          "x": 0.16,
+          "z": 0.64,
+          "rotY": 180,
+          "look": "kule"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "küçük"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "kule",
+          "look": "kule",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "kız"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "kule",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "dedeleri"
+          ],
+          "who": "dede",
+          "do": "turn",
+          "face": 60,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "eskiden"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "can",
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "fener"
+          ],
+          "who": "dede",
+          "do": "point",
+          "target": "kule",
+          "look": "kule",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -60,
+          "look": "dede",
+          "focus": true
+        },
+        {
+          "cue": [
+            "denizin"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "dede",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "fısıldadı"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 170,
+          "look": "kule"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "kule",
+          "len": 3.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "biçimine"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "kule"
+        },
+        {
+          "cue": [
+            "pamuk"
+          ],
+          "who": "marti",
+          "do": "lift",
+          "to": [
+            -0.06,
+            0.02,
+            0
+          ],
+          "len": 3.0,
+          "face": 0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "nokta"
+          ],
+          "who": "babaanne",
+          "do": "lookAt",
+          "target": "marti",
+          "len": 1.8
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "title": {
+        "tr": "Denizdeki poşet",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Denizde|deniz} {plastik} bir {poşet} {yüzüyordu|yüzmek}. Elif “Ya martılar yiyecek sanırsa?” diye sordu. Dedesi “{Çöpler|çöp} {canlılara|canlı} {zarar} verebilir.” dedi. Can poşeti almak istedi. Babaannesi “Buradan {uzanamayız|uzanmak}.” diye {uyardı|uyarmak}. Elif “{Görevliye|görevli} söyleyelim.” dedi. Poşetin yerini {parmağıyla|parmak} gösterdi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Denize karışan plastikler yıllarca kaybolmadan kalabilir. Balıklar, kaplumbağalar ve kuşlar onları yiyecek sanabilir. Denizde bir çöp görünce ona uzanmak yerine bir görevliye haber vermek en güvenlisidir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p5-arka.webp",
+          "floor": "art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "deniz",
+              "rect": [
+                0.0,
+                0.34,
+                1.0,
+                0.66
+              ]
+            },
+            {
+              "word": "gökyüzü",
+              "rect": [
+                0.0,
+                0.0,
+                1.0,
+                0.26
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "sea",
+      "models": [
+        {
+          "proc": "korkuluk",
+          "x": 0.0,
+          "z": 0.1,
+          "h": 0.31,
+          "word": "küpeşte"
+        },
+        {
+          "proc": "canSimidi",
+          "x": -0.4,
+          "z": 0.125,
+          "y": 0.06,
+          "h": 0.2,
+          "word": "can simidi"
+        },
+        {
+          "proc": "plastikPoset",
+          "id": "poset",
+          "x": 0.22,
+          "z": 0.03,
+          "y": 0.38,
+          "h": 0.045,
+          "word": "poşet",
+          "fx": "float"
+        }
+      ],
+      "cast": [
+        {
+          "id": "babaanne",
+          "x": -0.4,
+          "z": 0.62,
+          "rotY": 20,
+          "look": "can"
+        },
+        {
+          "id": "dede",
+          "x": -0.22,
+          "z": 0.52,
+          "rotY": 20,
+          "look": "elif"
+        },
+        {
+          "id": "elif",
+          "x": 0.02,
+          "z": 0.56,
+          "rotY": 170,
+          "look": "poset"
+        },
+        {
+          "id": "can",
+          "x": 0.18,
+          "z": 0.62,
+          "rotY": 180,
+          "look": "poset"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "denizde"
+          ],
+          "who": "poset",
+          "do": "lift",
+          "to": [
+            -0.02,
+            0.0,
+            0
+          ],
+          "len": 2.0,
+          "face": 0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "poşet"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "poset",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "ya"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": -60,
+          "look": "dede",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ya"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "dede",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "dedesi"
+          ],
+          "who": "dede",
+          "do": "turn",
+          "face": 50,
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çöpler"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "zarar"
+          ],
+          "who": "dede",
+          "do": "point",
+          "target": "poset",
+          "look": "poset",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.02,
+            0,
+            -0.244
+          ],
+          "face": 180,
+          "look": "poset",
+          "focus": true
+        },
+        {
+          "cue": [
+            "almak"
+          ],
+          "who": "can",
+          "do": "bend",
+          "look": "poset",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "babaannesi"
+          ],
+          "who": "babaanne",
+          "do": "walkTo",
+          "to": [
+            0.3,
+            0,
+            -0.073
+          ],
+          "face": 60,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "buradan"
+          ],
+          "who": "babaanne",
+          "do": "talk",
+          "look": "can",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "uyardı"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.0,
+            0,
+            0.146
+          ],
+          "face": -80,
+          "look": "babaanne"
+        },
+        {
+          "cue": [
+            "uyardı"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "babaanne"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "babaanne",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "poşetin"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 170,
+          "look": "poset"
+        },
+        {
+          "cue": [
+            "parmağıyla"
+          ],
+          "who": "elif",
+          "do": "point",
+          "target": "poset",
+          "look": "poset",
+          "len": 2.0
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "title": {
+        "tr": "Deniz hepimizin",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Görevli|görevli} ilgili {ekibe|ekip} haber vereceğini söyledi. Ahmet dede {simit poşetini|simit poşeti} gösterdi. “Bizimkiler de denize düşmesin.” dedi. Can poşetin {ağzını|ağız} kapattı. Elif {şişesinin|şişe} {kapağını|kapak} sıkıca kapattı. Babaanneleri {uçuşan|uçuşmak} {peçeteyi|peçete} yakaladı. “Bu da {yolcu} oluyordu!” deyince güldüler.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Vapurlarda ve iskelelerde denizin temiz kalması için görevliler çalışır. Yolcular da çöplerini kapalı tutarak ve çöp kutusuna atarak denize yardım edebilir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p5-arka.webp",
+          "floor": "art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "deniz",
+              "rect": [
+                0.0,
+                0.34,
+                1.0,
+                0.66
+              ]
+            },
+            {
+              "word": "gökyüzü",
+              "rect": [
+                0.0,
+                0.0,
+                1.0,
+                0.26
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "sea",
+      "models": [
+        {
+          "proc": "korkuluk",
+          "x": 0.0,
+          "z": 0.1,
+          "h": 0.31,
+          "word": "küpeşte"
+        },
+        {
+          "proc": "canSimidi",
+          "x": -0.4,
+          "z": 0.125,
+          "y": 0.06,
+          "h": 0.2,
+          "word": "can simidi"
+        },
+        {
+          "proc": "plastikPoset",
+          "id": "poset",
+          "x": 0.2,
+          "z": 0.03,
+          "y": 0.38,
+          "h": 0.045,
+          "word": "poşet",
+          "fx": "float"
+        },
+        {
+          "proc": "peceteUcan",
+          "id": "pecete",
+          "x": 0.36,
+          "z": 0.5,
+          "y": 0.34,
+          "h": 0.04,
+          "word": "peçete",
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "gorevli",
+          "x": 0.36,
+          "z": 0.48,
+          "rotY": -40,
+          "look": "elif"
+        },
+        {
+          "id": "babaanne",
+          "x": -0.4,
+          "z": 0.62,
+          "rotY": 30,
+          "look": "gorevli"
+        },
+        {
+          "id": "dede",
+          "x": -0.24,
+          "z": 0.52,
+          "rotY": 30,
+          "look": "gorevli",
+          "hold": "simitPoseti"
+        },
+        {
+          "id": "elif",
+          "x": 0.04,
+          "z": 0.62,
+          "rotY": 40,
+          "look": "gorevli",
+          "hold": "suSisesi"
+        },
+        {
+          "id": "can",
+          "x": 0.18,
+          "z": 0.7,
+          "rotY": 20,
+          "look": "gorevli"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "görevli"
+          ],
+          "who": "gorevli",
+          "do": "nod",
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ilgili"
+          ],
+          "who": "gorevli",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "haber"
+          ],
+          "who": "gorevli",
+          "do": "point",
+          "target": "poset",
+          "look": "poset",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "ahmet"
+          ],
+          "who": "dede",
+          "do": "offer",
+          "look": "can",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "bizimkiler"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "can",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "dede",
+          "do": "give",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "simitPoseti",
+          "look": "dede",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "kapattı"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "dede"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "useTool",
+          "style": "tap",
+          "look": "down",
+          "len": 1.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "sıkıca"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "pecete",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "uçuşan"
+          ],
+          "who": "pecete",
+          "do": "lift",
+          "to": [
+            -0.52,
+            0.04,
+            0.0
+          ],
+          "len": 1.8,
+          "face": 0
+        },
+        {
+          "cue": [
+            "uçuşan"
+          ],
+          "who": "babaanne",
+          "do": "walkTo",
+          "to": [
+            0.12,
+            0,
+            -0.049
+          ],
+          "face": 40,
+          "look": "pecete",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "yakaladı"
+          ],
+          "who": "pecete",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "yakaladı"
+          ],
+          "who": "babaanne",
+          "do": "receive",
+          "target": "pecete",
+          "look": "pecete"
+        },
+        {
+          "cue": [
+            "bu"
+          ],
+          "who": "babaanne",
+          "do": "talk",
+          "look": "reader",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "güldüler"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "babaanne"
+        },
+        {
+          "cue": [
+            "güldüler"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "babaanne",
+          "wait": 0.25
+        },
+        {
+          "cue": [
+            "güldüler"
+          ],
+          "who": "dede",
+          "do": "nod",
+          "look": "babaanne",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "güldüler"
+          ],
+          "who": "gorevli",
+          "do": "nod",
+          "look": "babaanne",
+          "wait": 0.5
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "title": {
+        "tr": "Küçük denizciler",
+        "en": ""
+      },
+      "text": {
+        "tr": "Vapur {Üsküdar’a|Üsküdar} {yaklaşırken|yaklaşmak} {ambalajlarını|ambalaj} {çöp kutusuna|çöp kutusu} attılar. {Kırık|kırık} {bardağa|bardak} dokunmadan görevliye haber verdiler. Can “Herkes {çöpünü|çöp} {toplasa|toplamak} {şehirlerimiz|şehir} {güzelleşir|güzelleşmek}.” dedi. Elif başıyla {onayladı|onaylamak}. İnerken {sıralarını|sıra} beklediler. Arkalarında vapurun {düdüğü|düdük} duyuldu. Pamuk Kanat uzakta süzülüyordu.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Üsküdar, İstanbul’un Asya yakasındaki en eski semtlerden biridir. İskelenin hemen yanındaki Mihrimah Sultan Camii’ni Mimar Sinan yaptı.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p7-arka.webp",
+          "floor": "art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "cami",
+              "rect": [
+                0.55,
+                0.2,
+                0.44,
+                0.52
+              ]
+            },
+            {
+              "word": "iskele",
+              "rect": [
+                0.02,
+                0.5,
+                0.5,
+                0.2
+              ]
+            },
+            {
+              "word": "deniz",
+              "rect": [
+                0.0,
+                0.74,
+                1.0,
+                0.26
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "sea",
+      "models": [
+        {
+          "proc": "korkuluk",
+          "x": 0.0,
+          "z": 0.1,
+          "h": 0.31,
+          "word": "küpeşte"
+        },
+        {
+          "proc": "copKutusu",
+          "id": "kutu",
+          "x": 0.38,
+          "z": 0.38,
+          "h": 0.29,
+          "word": "çöp kutusu"
+        },
+        {
+          "proc": "kirikBardak",
+          "id": "bardak",
+          "x": -0.3,
+          "z": 0.84,
+          "h": 0.03,
+          "word": "bardak"
+        },
+        {
+          "proc": "marti",
+          "id": "marti",
+          "x": -0.34,
+          "z": 0.05,
+          "y": 0.66,
+          "h": 0.036,
+          "rotY": 0,
+          "word": "martı",
+          "fx": "glide"
+        }
+      ],
+      "cast": [
+        {
+          "id": "gorevli",
+          "x": -0.44,
+          "z": 0.56,
+          "rotY": 30,
+          "look": "reader"
+        },
+        {
+          "id": "babaanne",
+          "x": -0.16,
+          "z": 0.5,
+          "rotY": 20,
+          "look": "can"
+        },
+        {
+          "id": "dede",
+          "x": -0.02,
+          "z": 0.48,
+          "rotY": 10,
+          "look": "babaanne"
+        },
+        {
+          "id": "elif",
+          "x": 0.12,
+          "z": 0.62,
+          "rotY": 30,
+          "look": "kutu",
+          "hold": "suSisesi"
+        },
+        {
+          "id": "can",
+          "x": 0.24,
+          "z": 0.7,
+          "rotY": 30,
+          "look": "kutu",
+          "hold": "simitPoseti"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "vapur"
+          ],
+          "who": "dede",
+          "do": "point",
+          "look": "reader",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "ambalajlarını"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.02,
+            0,
+            -0.293
+          ],
+          "face": 129,
+          "look": "kutu",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ambalajlarını"
+          ],
+          "who": "can",
+          "do": "put",
+          "look": "kutu"
+        },
+        {
+          "cue": [
+            "çöp"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.12,
+            0,
+            -0.073
+          ],
+          "face": 147,
+          "look": "kutu"
+        },
+        {
+          "cue": [
+            "attılar"
+          ],
+          "who": "elif",
+          "do": "put",
+          "look": "kutu"
+        },
+        {
+          "cue": [
+            "kırık"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": -58,
+          "look": "bardak",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kırık"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -50,
+          "look": "bardak",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "dokunmadan"
+          ],
+          "who": "elif",
+          "do": "point",
+          "target": "bardak",
+          "look": "bardak",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "görevliye"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": -90,
+          "look": "gorevli"
+        },
+        {
+          "cue": [
+            "görevliye"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "gorevli",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "haber"
+          ],
+          "who": "gorevli",
+          "do": "walkTo",
+          "to": [
+            0.06,
+            0,
+            0.195
+          ],
+          "face": 29,
+          "look": "bardak",
+          "focus": true
+        },
+        {
+          "cue": [
+            "verdiler"
+          ],
+          "who": "gorevli",
+          "do": "bend",
+          "look": "bardak",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -60,
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "herkes"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "onayladı"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "inerken"
+          ],
+          "who": "babaanne",
+          "do": "walkTo",
+          "to": [
+            0.0,
+            0,
+            -0.146
+          ],
+          "face": -90,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "inerken"
+          ],
+          "who": "dede",
+          "do": "walkTo",
+          "to": [
+            0.0,
+            0,
+            -0.122
+          ],
+          "face": -90,
+          "look": "babaanne",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "sıralarını"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            -0.14,
+            0,
+            -0.171
+          ],
+          "face": -90,
+          "look": "dede"
+        },
+        {
+          "cue": [
+            "sıralarını"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.04,
+            0,
+            -0.024
+          ],
+          "face": -90,
+          "look": "elif",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "arkalarında"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 150,
+          "look": "reader",
+          "sound": "duduk",
+          "focus": true
+        },
+        {
+          "cue": [
+            "düdüğü"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 150,
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "pamuk"
+          ],
+          "who": "marti",
+          "do": "lift",
+          "to": [
+            0.2,
+            0.02,
+            0
+          ],
+          "len": 3.0,
+          "face": 0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "süzülüyordu"
+          ],
+          "who": "can",
+          "do": "wave",
+          "look": "marti"
+        }
+      ]
+    },
+    {
+      "id": "p8",
+      "title": {
+        "tr": "Pamuk Kanat’a veda",
+        "en": ""
+      },
+      "text": {
+        "tr": "Bir martı başlarının üstünden geçti. Can {el sallayıp|el sallamak} “Pamuk Kanat mı?” diye sordu. Elif “Belki!” dedi. {Akşam|akşam} {defterine|defter} vapuru, kuleyi ve martıyı çizdi. Altına “Deniz hepimizin” yazdı. Can bir çöp kutusu ekledi. Sonraki {gezide|gezi} {mataralarını|matara} alacaklardı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Tek kullanımlık şişe ve ambalajlar çabucak çöpe dönüşür. Geziye matara ve bez çanta götürmek atığı azaltır; böylece denizler ve parklar daha temiz kalır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p8-arka.webp",
+          "floor": "art/p8-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "Kız Kulesi",
+              "rect": [
+                0.6,
+                0.4,
+                0.3,
+                0.24
+              ]
+            },
+            {
+              "word": "güneş",
+              "rect": [
+                0.42,
+                0.4,
+                0.14,
+                0.12
+              ]
+            },
+            {
+              "word": "deniz",
+              "rect": [
+                0.0,
+                0.6,
+                1.0,
+                0.2
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "sea",
+      "models": [
+        {
+          "proc": "vapurSirasi",
+          "x": -0.12,
+          "z": 0.34,
+          "h": 0.28,
+          "word": "bank"
+        },
+        {
+          "proc": "marti",
+          "id": "marti",
+          "x": 0.46,
+          "z": 0.05,
+          "y": 0.5,
+          "h": 0.08,
+          "rotY": -90,
+          "word": "martı"
+        },
+        {
+          "proc": "sheet",
+          "id": "defter",
+          "decal": "/books/marti-simit/resim/defter-resmi.webp",
+          "x": 0.26,
+          "z": 0.86,
+          "w": 0.3,
+          "d": 0.2,
+          "h": 0.01,
+          "paper": true,
+          "pitch": 62,
+          "word": "defter",
+          "hidden": true
+        },
+        {
+          "proc": "sheet",
+          "id": "kutuKatmani",
+          "decal": "/books/marti-simit/resim/cop-kutusu-katmani.webp",
+          "x": 0.26,
+          "z": 0.866,
+          "w": 0.3,
+          "d": 0.2,
+          "h": 0.01,
+          "paper": true,
+          "layer": true,
+          "pitch": 62,
+          "word": "çöp kutusu",
+          "hidden": true
+        },
+        {
+          "proc": "writing",
+          "id": "yazi",
+          "label": "Deniz hepimizin",
+          "color": "#2B4C9A",
+          "x": 0.26,
+          "z": 0.872,
+          "w": 0.3,
+          "d": 0.2,
+          "h": 0.01,
+          "pitch": 62,
+          "word": "deniz",
+          "hidden": true
+        },
+        {
+          "proc": "matara",
+          "id": "matara1",
+          "x": 0.36,
+          "z": 0.5,
+          "h": 0.07,
+          "word": "matara",
+          "hidden": true
+        },
+        {
+          "proc": "matara",
+          "id": "matara2",
+          "x": 0.42,
+          "z": 0.54,
+          "h": 0.07,
+          "word": "matara",
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "babaanne",
+          "x": -0.3,
+          "z": 0.53,
+          "rotY": 0,
+          "look": "dede"
+        },
+        {
+          "id": "dede",
+          "x": -0.14,
+          "z": 0.53,
+          "rotY": 0,
+          "look": "can"
+        },
+        {
+          "id": "can",
+          "x": 0.0,
+          "z": 0.62,
+          "rotY": 0,
+          "look": "marti",
+          "hold": "kalem"
+        },
+        {
+          "id": "elif",
+          "x": 0.14,
+          "z": 0.66,
+          "rotY": 20,
+          "look": "marti",
+          "hold": "kalem"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "bir"
+          ],
+          "who": "babaanne",
+          "do": "sit",
+          "to": [
+            0,
+            -0.057,
+            -0.256
+          ],
+          "face": 0,
+          "look": "dede"
+        },
+        {
+          "cue": [
+            "bir"
+          ],
+          "who": "dede",
+          "do": "sit",
+          "to": [
+            0,
+            -0.072,
+            -0.256
+          ],
+          "face": 0,
+          "look": "babaanne",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "bir"
+          ],
+          "who": "marti",
+          "do": "lift",
+          "to": [
+            -0.9,
+            0.06,
+            0.1
+          ],
+          "len": 4.0,
+          "face": -90,
+          "sound": "marti",
+          "focus": true
+        },
+        {
+          "cue": [
+            "martı"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "marti",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "martı"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "marti",
+          "len": 2.4,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "el"
+          ],
+          "who": "can",
+          "do": "wave",
+          "look": "marti",
+          "focus": true
+        },
+        {
+          "cue": [
+            "pamuk"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "elif",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": -40,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "belki"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "can",
+          "len": 1.0
+        },
+        {
+          "cue": [
+            "akşam"
+          ],
+          "who": "defter",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "akşam"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.06,
+            0,
+            0.146
+          ],
+          "face": 60,
+          "look": "defter"
+        },
+        {
+          "cue": [
+            "defterine"
+          ],
+          "who": "elif",
+          "do": "useTool",
+          "style": "draw",
+          "look": "defter",
+          "len": 3.0
+        },
+        {
+          "cue": [
+            "altına"
+          ],
+          "who": "elif",
+          "do": "useTool",
+          "style": "draw",
+          "look": "defter",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "yazdı"
+          ],
+          "who": "yazi",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.12,
+            0,
+            0.195
+          ],
+          "face": 80,
+          "look": "defter",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ekledi"
+          ],
+          "who": "can",
+          "do": "useTool",
+          "style": "draw",
+          "look": "defter",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "ekledi"
+          ],
+          "who": "kutuKatmani",
+          "do": "appear",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "sonraki"
+          ],
+          "who": "matara1",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "sonraki"
+          ],
+          "who": "matara2",
+          "do": "appear",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "alacaklardı"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "alacaklardı"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "can",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "alacaklardı"
+          ],
+          "who": "dede",
+          "do": "nod",
+          "look": "babaanne",
+          "wait": 0.4
+        }
+      ]
+    }
+  ]
+}

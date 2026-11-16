@@ -466,27 +466,31 @@
     },
     {
       "id": "marti-simit",
-      "status": "soon",
+      "status": "ready",
       "title": "Martı ile Simit",
       "titleEn": "The Seagull and the Simit",
       "values": [
+        "duyarlilik",
         "temizlik",
-        "merhamet"
+        "sorumluluk"
       ],
       "blurb": {
-        "tr": "İstanbul vapurunda simit, Kız Kulesi ve simit isteyen bir martı: iki kardeş denizi temiz tutmaya söz veriyor.",
+        "tr": "İstanbul vapurunda simit yiyen Elif ile Can, martıları ve Kız Kulesi’ni izliyor. Denizde gördükleri bir poşet, çevreye özen göstermenin önemini hatırlatıyor.",
         "en": ""
       },
       "cover": {
         "art": "cover-soon",
         "color": "#2F7FC1",
-        "motif": "marti"
+        "motif": "marti",
+        "src": "kapak.webp",
+        "titled": false
       },
       "carpet": {
         "motif": "su-yolu",
         "field": "#1F4E6E",
         "src": "/halilar/marti-simit.webp"
-      }
+      },
+      "pages": 8
     },
     {
       "id": "davulcu-dede",
