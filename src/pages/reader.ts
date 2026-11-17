@@ -395,11 +395,16 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   narrator.ready.then(setPlayUI);
 
   let nowEl: HTMLElement | null = null;
+  let pulsed = '';
   function highlight(wi: number) {
     nowEl?.classList.remove('now');
     nowEl = wordEls[wi] ?? null;
     nowEl?.classList.add('now');
     scene.highlightWord(wi);
+    // the thing the word names jumps and sparkles in the pop-up as it is read
+    const lemma = nowEl?.dataset.lemma;
+    if (lemma && lemma !== pulsed) scene.pulseWord(lemma);
+    pulsed = lemma ?? (wi < 0 ? '' : pulsed);
   }
 
   /** Match the page's play to the words of its text and start it from the beginning. */

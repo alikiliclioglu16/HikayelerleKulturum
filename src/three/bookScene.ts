@@ -16,6 +16,7 @@ import { Rain } from './rain';
 import { PageText, pageLogo, type PageTextSpec } from './pageText';
 import { Sparkles } from '../home3d/sparkles';
 import { Party } from './party';
+import { LIFE_BY_AMBIENCE, Life, type LifeKind } from './life';
 import type { PageData } from '../types';
 import { WallCarpet, type CarpetDesign } from '../home3d/carpet';
 import type { BuiltLayer } from '../art/scenes';
@@ -396,6 +397,8 @@ export class BookScene {
   private party = new Party();
   /** Rain from a magic cloud. */
   private rain = new Rain();
+  /** Butterflies, birds, fireflies, dust in the sun: the page's little lives (see life.ts). */
+  private life = new Life();
   /** Where the last thing left a character's hands (or a magic thing vanished), so the next one taken flies from there. */
   private lastRelease: { at: THREE.Vector3; time: number; word: string } | null = null;
   /** Something a character has just taken, waiting (hidden) for the other one to let go of it. */
@@ -500,7 +503,7 @@ export class BookScene {
   private buildWorld() {
     const r = this.renderer;
     const hemi = new THREE.HemisphereLight('#FFF7EC', '#9C7A5E', 2.1);
-    this.scene.add(hemi, this.sparkles.points, this.rain.points, this.party.group);
+    this.scene.add(hemi, this.sparkles.points, this.rain.points, this.party.group, this.life.group);
     this.party.floor = PAGE_TOP;
     const light = new THREE.DirectionalLight('#FFF1DC', 1.9);
     light.position.set(-2.2, 4.2, 2.6);
@@ -863,6 +866,7 @@ export class BookScene {
       this.party.setScale(this.renderer.domElement.height / (2 * Math.tan(THREE.MathUtils.degToRad(cam.fov / 2))));
       alive = true;
     }
+    if (!this.reducedMotion && !this.frozen && this.stage && this.life.update(dt)) alive = true;
     if (!this.reducedMotion && this.models.length && !this.frozen) {
       this.updateModels(dt);
       alive = true;
@@ -1096,6 +1100,42 @@ export class BookScene {
     if (wi === this.textNow || !this.textSpec) return;
     this.textNow = wi;
     this.drawLeft();
+  }
+
+  /**
+   * The narrator has just read a word that names something in the pop-up: that thing gives a little jump and
+   * sparkles, so the children see what the word means as they hear it.
+   */
+  pulseWord(lemma: string) {
+    if (this.reducedMotion || this.seeking) return;
+    const key = lemma.toLocaleLowerCase('tr');
+    const v = new THREE.Vector3();
+    let n = 0;
+    for (const m of this.models) {
+      const w = (m.spec.word ?? '').toLocaleLowerCase('tr');
+      if (!w || w !== key || n >= 3) continue;
+      const root = m.actor.root;
+      if (!root.visible || !root.parent) continue;
+      let hidden = false;
+      root.traverseAncestors((a) => (hidden ||= !a.visible));
+      if (hidden) continue;
+      n++;
+      const size = Math.min(0.12, this.sizeOf(root));
+      this.sparkles.burst(root.getWorldPosition(v).add(new THREE.Vector3(0, size * 0.6, 0)), new THREE.Vector3(size, size, 0.03), 16, 0.9);
+      if (m.spec.fx || m.spec.id) continue;
+      const fx = m.fx;
+      const y0 = fx.position.y;
+      const s0 = fx.scale.x;
+      void this.tweens.add(this.dur(560), 0, 1, (k) => {
+        const j = Math.sin(Math.PI * k);
+        fx.position.y = y0 + j * size * 0.35;
+        fx.scale.setScalar(s0 * (1 + j * 0.12));
+      }).then(() => {
+        fx.position.y = y0;
+        fx.scale.setScalar(s0);
+      });
+    }
+    if (n) this.invalidate();
   }
 
   /** Light up words for a moment (after a tap on the word or on its thing in the pop-up). */
@@ -1589,6 +1629,7 @@ export class BookScene {
   async setCast(page: PageData) {
     const session = ++this.castSession;
     this.stage = null;
+    this.life.clear();
     this.focusWho = null;
     for (const p of this.performers.values()) {
       p.leave();
@@ -1663,6 +1704,11 @@ export class BookScene {
     this.lastRelease = null;
     this.pendingTake = null;
     this.stage = new Stage(actors, starts, page.beats ?? []);
+    // the page's little lives: from its own list, or from its sound
+    const kinds = (page.life ?? LIFE_BY_AMBIENCE[page.ambience ?? ''] ?? []) as LifeKind[];
+    const a = this.pagePoint(-0.46, 0.06);
+    const b = this.pagePoint(0.46, 0.95);
+    this.life.set(this.reducedMotion ? [] : kinds, { x0: a.x, x1: b.x, z0: a.z, z1: b.z, y: PAGE_TOP, sky: 0.82 });
     this.stage.onFocus = (who) => this.focus(who);
     this.stage.onBeat = (b, t, res, now) => {
       this.beatSound(b, t, res, now);

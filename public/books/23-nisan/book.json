@@ -590,6 +590,17 @@
           "word": "dünya küresi",
           "id": "kure",
           "magic": true
+        },
+        {
+          "src": "/models/culture/bayrak.glb",
+          "id": "wow_bayrak",
+          "word": "Türk bayrağı",
+          "x": 0.1,
+          "z": 0.36,
+          "y": 0.2,
+          "h": 0.12,
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -655,6 +666,45 @@
           "do": "talk",
           "look": "reader",
           "len": 2.6
+        },
+        {
+          "cue": [
+            "şenli"
+          ],
+          "who": "zara",
+          "do": "hop",
+          "look": "ogretmen",
+          "wow": true
+        },
+        {
+          "cue": [
+            "şenli"
+          ],
+          "who": "kenji",
+          "do": "hop",
+          "look": "ogretmen",
+          "wait": 0.2,
+          "wow": true
+        },
+        {
+          "cue": [
+            "şenli"
+          ],
+          "who": "amara",
+          "do": "hop",
+          "look": "ogretmen",
+          "wait": 0.4,
+          "wow": true
+        },
+        {
+          "cue": [
+            "şenli"
+          ],
+          "who": "liam",
+          "do": "hop",
+          "look": "ogretmen",
+          "wait": 0.6,
+          "wow": true
         },
         {
           "cue": [
@@ -766,6 +816,14 @@
         },
         {
           "cue": [
+            "türkiye"
+          ],
+          "who": "wow_bayrak",
+          "do": "rise",
+          "wow": true
+        },
+        {
+          "cue": [
             "buldu"
           ],
           "who": "elif",
@@ -773,6 +831,16 @@
           "look": "reader",
           "focus": true,
           "wait": 1.5
+        },
+        {
+          "cue": [
+            "buldu"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "reader",
+          "wait": 0.6,
+          "wow": true
         }
       ],
       "audio": {
@@ -1060,6 +1128,35 @@
           "who": "meclis",
           "do": "shine",
           "len": 1.2
+        },
+        {
+          "cue": [
+            "armağan"
+          ],
+          "who": "meclis",
+          "do": "shine",
+          "wow": true
+        },
+        {
+          "cue": [
+            "kutlu",
+            "sevin"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "reader",
+          "wow": true
+        },
+        {
+          "cue": [
+            "kutlu",
+            "sevin"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "elif",
+          "wait": 0.3,
+          "wow": true
         },
         {
           "cue": [
@@ -1657,6 +1754,27 @@
           "do": "cheer",
           "look": "reader",
           "wait": 0.2
+        },
+        {
+          "cue": [
+            "hazırdı",
+            "oluyordu"
+          ],
+          "who": "elif",
+          "do": "spin",
+          "look": "reader",
+          "wow": true
+        },
+        {
+          "cue": [
+            "hazırdı",
+            "oluyordu"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "reader",
+          "wait": 0.3,
+          "wow": true
         }
       ],
       "audio": {
@@ -1736,7 +1854,11 @@
           19.87,
           20.52
         ]
-      }
+      },
+      "life": [
+        "motes",
+        "petals"
+      ]
     },
     {
       "id": "p4",
@@ -2467,6 +2589,38 @@
         },
         {
           "cue": [
+            "tekrar",
+            "söyledi"
+          ],
+          "who": "zara",
+          "do": "cheer",
+          "look": "elif",
+          "wow": true
+        },
+        {
+          "cue": [
+            "tekrar",
+            "söyledi"
+          ],
+          "who": "liam",
+          "do": "cheer",
+          "look": "elif",
+          "wait": 0.3,
+          "wow": true
+        },
+        {
+          "cue": [
+            "tekrar",
+            "söyledi"
+          ],
+          "who": "amara",
+          "do": "hop",
+          "look": "elif",
+          "wait": 0.5,
+          "wow": true
+        },
+        {
+          "cue": [
             "atatürk"
           ],
           "who": "bub_ark",
@@ -3085,7 +3239,12 @@
           18.83,
           19.45
         ]
-      }
+      },
+      "life": [
+        "butterflies",
+        "petals",
+        "birds"
+      ]
     },
     {
       "id": "p7",
@@ -3193,6 +3352,18 @@
           "tint": "#E3262E",
           "id": "b_amara",
           "hidden": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Birlikte tutalım.",
+          "color": "#2B4C9A",
+          "x": 0.09,
+          "z": 0.7,
+          "y": 0.47,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -3396,12 +3567,27 @@
         },
         {
           "cue": [
+            "Birlikte"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "tutalım"
           ],
           "who": "can",
           "do": "cheer",
           "look": "liam",
           "wait": 1.0
+        },
+        {
+          "cue": [
+            "bırakmadan"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -3672,6 +3858,25 @@
           "do": "cheer",
           "look": "can",
           "wait": 0.2
+        },
+        {
+          "cue": [
+            "bahçe"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "reader",
+          "wow": true
+        },
+        {
+          "cue": [
+            "bahçe"
+          ],
+          "who": "liam",
+          "do": "cheer",
+          "look": "can",
+          "wait": 0.3,
+          "wow": true
         }
       ],
       "culture": {
@@ -3753,7 +3958,11 @@
           19.84,
           20.48
         ]
-      }
+      },
+      "life": [
+        "butterflies",
+        "birds"
+      ]
     },
     {
       "id": "p8",
@@ -4099,6 +4308,25 @@
           "who": "resimDuvar",
           "do": "shine",
           "len": 1.2
+        },
+        {
+          "cue": [
+            "hatıra"
+          ],
+          "who": "elif",
+          "do": "spin",
+          "look": "reader",
+          "wow": true
+        },
+        {
+          "cue": [
+            "hatıra"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "reader",
+          "wait": 0.3,
+          "wow": true
         }
       ],
       "audio": {

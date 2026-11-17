@@ -587,6 +587,30 @@
           "y": 0.26,
           "h": 0.14,
           "word": "peri bacası"
+        },
+        {
+          "proc": "bubble",
+          "label": "Dev mantarlara benziyorlar!",
+          "color": "#2F6DC4",
+          "x": 0.18,
+          "z": 0.7,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Onlara peri bacası deniyor.",
+          "color": "#7B4BB7",
+          "x": -0.02,
+          "z": 0.62,
+          "y": 0.465,
+          "h": 0.08,
+          "id": "say_1",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -701,6 +725,25 @@
         },
         {
           "cue": [
+            "balonlar"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "balon2",
+          "wow": true
+        },
+        {
+          "cue": [
+            "balonlar"
+          ],
+          "who": "elif",
+          "do": "hop",
+          "look": "balon1",
+          "wait": 0.3,
+          "wow": true
+        },
+        {
+          "cue": [
             "süzülüyordu"
           ],
           "who": "elif",
@@ -788,6 +831,13 @@
         },
         {
           "cue": [
+            "Dev"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "benziyorlar"
           ],
           "who": "can",
@@ -815,6 +865,31 @@
         },
         {
           "cue": [
+            "Onlara"
+          ],
+          "who": "say_1",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "peri"
+          ],
+          "who": "elif",
+          "do": "spin",
+          "look": "reader",
+          "wait": 0.6,
+          "wow": true
+        },
+        {
+          "cue": [
+            "peri bacası"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
             "pansiyonun"
           ],
           "who": "elif",
@@ -832,6 +907,14 @@
           "face": 80,
           "look": "reader",
           "wait": 0.3
+        },
+        {
+          "cue": [
+            "bahçesinden"
+          ],
+          "who": "say_1",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -974,6 +1057,25 @@
           "do": "wave",
           "look": "elif",
           "focus": true
+        },
+        {
+          "cue": [
+            "zeynep"
+          ],
+          "who": "zeynep",
+          "do": "wave",
+          "look": "elif",
+          "wow": true
+        },
+        {
+          "cue": [
+            "zeynep"
+          ],
+          "who": "elif",
+          "do": "wave",
+          "look": "zeynep",
+          "wait": 0.3,
+          "wow": true
         },
         {
           "cue": [
@@ -1246,6 +1348,18 @@
           "h": 0.05,
           "rotY": -30,
           "word": "tel"
+        },
+        {
+          "proc": "bubble",
+          "label": "Korkmuş olabilir.",
+          "color": "#2B4C9A",
+          "x": -0.14,
+          "z": 0.82,
+          "y": 0.465,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -1481,6 +1595,21 @@
         },
         {
           "cue": [
+            "Korkmuş"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "dokunmadan"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
             "sessizce"
           ],
           "who": "zeynep",
@@ -1551,6 +1680,18 @@
           "h": 0.05,
           "rotY": -30,
           "word": "tel"
+        },
+        {
+          "proc": "bubble",
+          "label": "Su götürelim mi?",
+          "color": "#1F8A70",
+          "x": -0.14,
+          "z": 0.48,
+          "y": 0.62,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -1678,6 +1819,13 @@
         },
         {
           "cue": [
+            "Su"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "babası"
           ],
           "who": "baba",
@@ -1694,6 +1842,14 @@
           "do": "talk",
           "look": "can",
           "len": 2.6
+        },
+        {
+          "cue": [
+            "Önce"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -1970,6 +2126,26 @@
         },
         {
           "cue": [
+            "doğruldu"
+          ],
+          "who": "elif",
+          "do": "hop",
+          "look": "tayAyakta",
+          "wait": 0.6,
+          "wow": true
+        },
+        {
+          "cue": [
+            "doğruldu"
+          ],
+          "who": "zeynep",
+          "do": "hop",
+          "look": "tayAyakta",
+          "wait": 0.9,
+          "wow": true
+        },
+        {
+          "cue": [
             "can"
           ],
           "who": "can",
@@ -2098,7 +2274,20 @@
         }
       ],
       "ambience": "birds",
-      "models": [],
+      "models": [
+        {
+          "proc": "bubble",
+          "label": "Bu tay bizim kısrağın yavrusu!",
+          "color": "#2B4C9A",
+          "x": 0.26,
+          "z": 0.42,
+          "y": 0.62,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
+        }
+      ],
       "cast": [
         {
           "id": "tay",
@@ -2193,6 +2382,13 @@
         },
         {
           "cue": [
+            "Bu"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "yavrusu"
           ],
           "who": "at-sahibi",
@@ -2249,6 +2445,14 @@
         },
         {
           "cue": [
+            "güvenli"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
             "kokladı"
           ],
           "who": "kisrak",
@@ -2265,6 +2469,16 @@
           "face": 60,
           "look": "kisrak",
           "wait": 0.3
+        },
+        {
+          "cue": [
+            "kokladı"
+          ],
+          "who": "zeynep",
+          "do": "cheer",
+          "look": "tay",
+          "wait": 0.6,
+          "wow": true
         },
         {
           "cue": [
@@ -2292,6 +2506,16 @@
           "who": "can",
           "do": "nod",
           "look": "elif"
+        },
+        {
+          "cue": [
+            "rahatladı"
+          ],
+          "who": "elif",
+          "do": "hug",
+          "look": "zeynep",
+          "len": 1.6,
+          "wow": true
         },
         {
           "cue": [
@@ -2452,6 +2676,18 @@
           "paper": true,
           "word": "resim",
           "hidden": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Balon olsun!",
+          "color": "#2F6DC4",
+          "x": -0.18,
+          "z": 0.72,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -2564,6 +2800,21 @@
         },
         {
           "cue": [
+            "balon"
+          ],
+          "who": "gokBalon",
+          "do": "spin",
+          "wow": true
+        },
+        {
+          "cue": [
+            "Balon"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "olsun"
           ],
           "who": "can",
@@ -2596,6 +2847,33 @@
           "do": "hop",
           "look": "can",
           "sound": "tayKisneme"
+        },
+        {
+          "cue": [
+            "beğendi"
+          ],
+          "who": "zeynep",
+          "do": "cheer",
+          "look": "can",
+          "wow": true
+        },
+        {
+          "cue": [
+            "beğendi"
+          ],
+          "who": "can",
+          "do": "spin",
+          "look": "reader",
+          "wait": 0.4,
+          "wow": true
+        },
+        {
+          "cue": [
+            "beğendi"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -2845,6 +3123,18 @@
           "pitch": 62,
           "word": "tarih",
           "hidden": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Tayı görünce sarılmak istedim.",
+          "color": "#2F6DC4",
+          "x": 0.07,
+          "z": 0.375,
+          "y": 0.289,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -2976,11 +3266,29 @@
         },
         {
           "cue": [
+            "Tayı"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "sarılmak"
           ],
           "who": "can",
           "do": "hug",
           "target": "baba"
+        },
+        {
+          "cue": [
+            "sarılmak"
+          ],
+          "who": "anne",
+          "do": "hug",
+          "look": "can",
+          "len": 1.8,
+          "wait": 0.6,
+          "wow": true
         },
         {
           "cue": [
@@ -2991,6 +3299,14 @@
           "look": "can",
           "len": 3.6,
           "focus": true
+        },
+        {
+          "cue": [
+            "yardım"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -3062,6 +3378,16 @@
           "do": "cheer",
           "look": "zeynep",
           "wait": 0.3
+        },
+        {
+          "cue": [
+            "unutmayacak"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "reader",
+          "wait": 0.6,
+          "wow": true
         }
       ]
     }

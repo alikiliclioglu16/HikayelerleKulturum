@@ -784,6 +784,16 @@
         },
         {
           "cue": [
+            "bindi"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "reader",
+          "wait": 1.0,
+          "wow": true
+        },
+        {
+          "cue": [
             "düdük"
           ],
           "who": "can",
@@ -1033,6 +1043,18 @@
           "rotY": 0,
           "word": "martı",
           "fx": "glide"
+        },
+        {
+          "proc": "bubble",
+          "label": "Acaba acıktı mı?",
+          "color": "#2F6DC4",
+          "x": 0.18,
+          "z": 0.66,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -1148,6 +1170,13 @@
         },
         {
           "cue": [
+            "Acaba"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "dedesi"
           ],
           "who": "dede",
@@ -1164,6 +1193,14 @@
           "do": "talk",
           "look": "can",
           "len": 3.2
+        },
+        {
+          "cue": [
+            "Kendi"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -1286,14 +1323,14 @@
         },
         {
           "proc": "canSimidi",
-          "x": 0.4,
+          "x": 0.42,
           "z": 0.125,
           "y": 0.06,
           "h": 0.2,
           "word": "can simidi"
         },
         {
-          "proc": "vapurSirasi",
+          "proc": "vapurSirasiUzun",
           "x": -0.04,
           "z": 0.38,
           "h": 0.28,
@@ -1309,33 +1346,45 @@
           "rotY": 0,
           "word": "martı",
           "fx": "glide"
+        },
+        {
+          "proc": "bubble",
+          "label": "Adı Pamuk Kanat olsun mu?",
+          "color": "#2F6DC4",
+          "x": 0.23,
+          "z": 0.58,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
         {
           "id": "babaanne",
-          "x": -0.25,
+          "x": -0.34,
           "z": 0.5800000000000001,
           "rotY": 0,
           "look": "marti"
         },
         {
           "id": "dede",
-          "x": -0.11,
+          "x": -0.12,
           "z": 0.5800000000000001,
           "rotY": 0,
           "look": "marti"
         },
         {
           "id": "elif",
-          "x": 0.03,
+          "x": 0.08,
           "z": 0.5800000000000001,
           "rotY": 0,
           "look": "marti"
         },
         {
           "id": "can",
-          "x": 0.16,
+          "x": 0.23,
           "z": 0.5800000000000001,
           "rotY": 0,
           "look": "marti"
@@ -1363,6 +1412,13 @@
         },
         {
           "cue": [
+            "Adı"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "pamuk"
           ],
           "who": "marti",
@@ -1385,6 +1441,14 @@
           "target": "marti",
           "len": 1.8,
           "focus": true
+        },
+        {
+          "cue": [
+            "göğsü"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -1663,6 +1727,18 @@
           "rotY": 0,
           "word": "martı",
           "fx": "glide"
+        },
+        {
+          "proc": "bubble",
+          "label": "Denizin içinde bir lamba!",
+          "color": "#2F6DC4",
+          "x": 0.16,
+          "z": 0.64,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -1719,6 +1795,14 @@
         },
         {
           "cue": [
+            "kız"
+          ],
+          "who": "kule",
+          "do": "shine",
+          "wow": true
+        },
+        {
+          "cue": [
             "dedeleri"
           ],
           "who": "dede",
@@ -1748,6 +1832,14 @@
         },
         {
           "cue": [
+            "fener"
+          ],
+          "who": "kule",
+          "do": "shine",
+          "wow": true
+        },
+        {
+          "cue": [
             "can"
           ],
           "who": "can",
@@ -1767,6 +1859,13 @@
         },
         {
           "cue": [
+            "Denizin"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "fısıldadı"
           ],
           "who": "can",
@@ -1783,6 +1882,14 @@
           "target": "kule",
           "len": 3.0,
           "focus": true
+        },
+        {
+          "cue": [
+            "kuleyi"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -1888,6 +1995,42 @@
           "h": 0.045,
           "word": "poşet",
           "fx": "float"
+        },
+        {
+          "proc": "bubble",
+          "label": "Ya martılar yiyecek sanırsa?",
+          "color": "#7B4BB7",
+          "x": 0.02,
+          "z": 0.56,
+          "y": 0.465,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Buradan uzanamayız.",
+          "color": "#C2185B",
+          "x": -0.1,
+          "z": 0.56,
+          "y": 0.56,
+          "h": 0.08,
+          "id": "say_1",
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Görevliye söyleyelim.",
+          "color": "#C2185B",
+          "x": -0.1,
+          "z": 0.56,
+          "y": 0.56,
+          "h": 0.08,
+          "id": "say_2",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -1966,6 +2109,13 @@
         },
         {
           "cue": [
+            "Ya"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "dedesi"
           ],
           "who": "dede",
@@ -1982,6 +2132,14 @@
           "do": "talk",
           "look": "elif",
           "len": 2.0
+        },
+        {
+          "cue": [
+            "Çöpler"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -2043,6 +2201,13 @@
         },
         {
           "cue": [
+            "Buradan"
+          ],
+          "who": "say_1",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "uyardı"
           ],
           "who": "can",
@@ -2075,6 +2240,21 @@
         },
         {
           "cue": [
+            "Görevliye"
+          ],
+          "who": "say_1",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "Görevliye"
+          ],
+          "who": "say_2",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "poşetin"
           ],
           "who": "elif",
@@ -2091,6 +2271,14 @@
           "target": "poset",
           "look": "poset",
           "len": 2.0
+        },
+        {
+          "cue": [
+            "parmağıyla"
+          ],
+          "who": "say_2",
+          "do": "vanish",
+          "wait": 0.6
         }
       ]
     },
@@ -2174,6 +2362,30 @@
           "h": 0.04,
           "word": "peçete",
           "hidden": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Bizimkiler de denize düşmesin.",
+          "color": "#8A5A2B",
+          "x": -0.24,
+          "z": 0.52,
+          "y": 0.595,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Bu da yolcu oluyordu!",
+          "color": "#C2185B",
+          "x": -0.28,
+          "z": 0.58,
+          "y": 0.56,
+          "h": 0.08,
+          "id": "say_1",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -2265,6 +2477,13 @@
         },
         {
           "cue": [
+            "Bizimkiler"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "can"
           ],
           "who": "dede",
@@ -2281,6 +2500,14 @@
           "target": "simitPoseti",
           "look": "dede",
           "wait": 0.3
+        },
+        {
+          "cue": [
+            "ağzını"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -2374,6 +2601,13 @@
         },
         {
           "cue": [
+            "Bu"
+          ],
+          "who": "say_1",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "güldüler"
           ],
           "who": "can",
@@ -2406,6 +2640,14 @@
           "do": "nod",
           "look": "babaanne",
           "wait": 0.5
+        },
+        {
+          "cue": [
+            "güldüler"
+          ],
+          "who": "say_1",
+          "do": "vanish",
+          "wait": 0.6
         }
       ]
     },
@@ -2687,6 +2929,16 @@
         },
         {
           "cue": [
+            "güzelleşir"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "can",
+          "wait": 0.6,
+          "wow": true
+        },
+        {
+          "cue": [
             "onayladı"
           ],
           "who": "elif",
@@ -2930,26 +3182,62 @@
           "h": 0.07,
           "word": "matara",
           "hidden": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Pamuk Kanat mı?",
+          "color": "#2F6DC4",
+          "x": 0.04,
+          "z": 0.62,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Belki!",
+          "color": "#7B4BB7",
+          "x": 0.22,
+          "z": 0.66,
+          "y": 0.465,
+          "h": 0.08,
+          "id": "say_1",
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Deniz hepimizin",
+          "color": "#7B4BB7",
+          "x": 0.28,
+          "z": 0.78,
+          "y": 0.465,
+          "h": 0.08,
+          "id": "say_2",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
         {
           "id": "babaanne",
-          "x": -0.3,
+          "x": -0.35,
           "z": 0.53,
           "rotY": 0,
           "look": "dede"
         },
         {
           "id": "dede",
-          "x": -0.14,
+          "x": -0.05,
           "z": 0.53,
           "rotY": 0,
           "look": "can"
         },
         {
           "id": "can",
-          "x": 0.0,
+          "x": 0.04,
           "z": 0.62,
           "rotY": 0,
           "look": "marti",
@@ -2957,7 +3245,7 @@
         },
         {
           "id": "elif",
-          "x": 0.14,
+          "x": 0.22,
           "z": 0.66,
           "rotY": 20,
           "look": "marti",
@@ -3049,6 +3337,13 @@
         },
         {
           "cue": [
+            "Pamuk"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "elif"
           ],
           "who": "elif",
@@ -3065,6 +3360,21 @@
           "do": "talk",
           "look": "can",
           "len": 1.0
+        },
+        {
+          "cue": [
+            "Belki"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "Belki"
+          ],
+          "who": "say_1",
+          "do": "appear"
         },
         {
           "cue": [
@@ -3100,6 +3410,14 @@
         },
         {
           "cue": [
+            "vapuru"
+          ],
+          "who": "say_1",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
             "altına"
           ],
           "who": "elif",
@@ -3108,6 +3426,13 @@
           "look": "defter",
           "len": 1.6,
           "focus": true
+        },
+        {
+          "cue": [
+            "Deniz"
+          ],
+          "who": "say_2",
+          "do": "appear"
         },
         {
           "cue": [
@@ -3130,6 +3455,14 @@
           "face": 80,
           "look": "defter",
           "focus": true
+        },
+        {
+          "cue": [
+            "çöp"
+          ],
+          "who": "say_2",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [

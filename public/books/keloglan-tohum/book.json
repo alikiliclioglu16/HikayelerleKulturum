@@ -88,6 +88,18 @@
           "z": 0.3,
           "h": 0.2,
           "word": "sıra"
+        },
+        {
+          "proc": "bubble",
+          "label": "Hemen filizlenir mi?",
+          "color": "#2F6DC4",
+          "x": 0.28,
+          "z": 0.62,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -149,6 +161,22 @@
         },
         {
           "cue": [
+            "Hemen"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "filiz"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "anne",
+          "wow": true
+        },
+        {
+          "cue": [
             "büyümek"
           ],
           "who": "anne",
@@ -156,6 +184,14 @@
           "look": "can",
           "len": 2.4,
           "focus": true
+        },
+        {
+          "cue": [
+            "Büyümek"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -242,6 +278,16 @@
           "who": "tohum",
           "do": "spin",
           "wait": 0.6
+        },
+        {
+          "cue": [
+            "masal"
+          ],
+          "who": "elif",
+          "do": "spin",
+          "look": "reader",
+          "wait": 0.6,
+          "wow": true
         },
         {
           "cue": [
@@ -460,6 +506,18 @@
           "magic": true,
           "hidden": true,
           "fx": "bob"
+        },
+        {
+          "src": "/models/bayram/gunes.glb",
+          "id": "wow_gunes",
+          "word": "güneş",
+          "x": 0.3,
+          "z": 0.03,
+          "y": 0.6,
+          "h": 0.14,
+          "hidden": true,
+          "fx": "spin",
+          "magic": true
         }
       ],
       "cast": [
@@ -477,6 +535,16 @@
         }
       ],
       "beats": [
+        {
+          "cue": [
+            "zaman"
+          ],
+          "who": "keloglan",
+          "do": "cheer",
+          "look": "keloglan-anasi",
+          "wait": 0.8,
+          "wow": true
+        },
         {
           "cue": [
             "saman",
@@ -509,12 +577,29 @@
         },
         {
           "cue": [
+            "keloğlan"
+          ],
+          "who": "keloglan",
+          "do": "hop",
+          "look": "reader",
+          "wow": true
+        },
+        {
+          "cue": [
             "tarlalar",
             "kurumuş"
           ],
           "who": "keloglan",
           "do": "bow",
           "look": "down"
+        },
+        {
+          "cue": [
+            "kurumuş"
+          ],
+          "who": "wow_gunes",
+          "do": "rise",
+          "wow": true
         },
         {
           "cue": [
@@ -824,6 +909,27 @@
           "hidden": true,
           "y": 0.03,
           "magic": true
+        },
+        {
+          "src": "/models/kenney/bucket.glb",
+          "id": "wow_kova",
+          "word": "kova",
+          "x": 0.0,
+          "z": 0.8,
+          "h": 0.07,
+          "hidden": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Emek olmadan yemek olmaz.",
+          "color": "#2B4C9A",
+          "x": -0.38,
+          "z": 0.44,
+          "y": 0.54,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -965,6 +1071,14 @@
         },
         {
           "cue": [
+            "su"
+          ],
+          "who": "wow_kova",
+          "do": "appear",
+          "wow": true
+        },
+        {
+          "cue": [
             "getirmişler"
           ],
           "who": "keloglan",
@@ -997,6 +1111,19 @@
         },
         {
           "cue": [
+            "sulamış"
+          ],
+          "who": "wow_kova",
+          "do": "lift",
+          "to": [
+            0,
+            0.03,
+            0
+          ],
+          "wow": true
+        },
+        {
+          "cue": [
             "yorulunca",
             "dinlenmiş"
           ],
@@ -1025,11 +1152,36 @@
         },
         {
           "cue": [
+            "Emek"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "gün"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
             "ilgilenmiş"
           ],
           "who": "keloglan",
           "do": "nod",
           "look": "keloglan-anasi"
+        },
+        {
+          "cue": [
+            "ilgilen",
+            "görmüş"
+          ],
+          "who": "keloglan",
+          "do": "cheer",
+          "look": "reader",
+          "wow": true
         }
       ],
       "ambience": "village",
@@ -1212,6 +1364,18 @@
           "id": "filiz3",
           "hidden": true,
           "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Onlara nasıl bakıyorsun?",
+          "color": "#2B4C9A",
+          "x": 0.42,
+          "z": 0.46,
+          "y": 0.54,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -1282,6 +1446,16 @@
         },
         {
           "cue": [
+            "filiz"
+          ],
+          "who": "koylu-cocuk",
+          "do": "hop",
+          "look": "filiz2",
+          "wait": 1.2,
+          "wow": true
+        },
+        {
+          "cue": [
             "hasan"
           ],
           "who": "keloglan",
@@ -1335,6 +1509,13 @@
         },
         {
           "cue": [
+            "Onlara"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "sıcakta",
             "nasıl"
           ],
@@ -1353,6 +1534,14 @@
           "do": "lookAt",
           "target": "koylu-kadin",
           "len": 2.2
+        },
+        {
+          "cue": [
+            "toprağın"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -1401,6 +1590,16 @@
           "do": "nod",
           "look": "keloglan",
           "wait": 0.3
+        },
+        {
+          "cue": [
+            "sevin"
+          ],
+          "who": "koylu-cocuk",
+          "do": "cheer",
+          "look": "keloglan",
+          "wait": 0.4,
+          "wow": true
         }
       ],
       "ambience": "village",
@@ -1584,6 +1783,18 @@
           "id": "filiz2",
           "hidden": true,
           "magic": true
+        },
+        {
+          "src": "/models/bayram/gunes.glb",
+          "id": "wow_gunes",
+          "word": "güneş",
+          "x": 0.3,
+          "z": 0.03,
+          "y": 0.62,
+          "h": 0.14,
+          "hidden": true,
+          "fx": "spin",
+          "magic": true
         }
       ],
       "cast": [
@@ -1609,6 +1820,14 @@
         }
       ],
       "beats": [
+        {
+          "cue": [
+            "kurak"
+          ],
+          "who": "wow_gunes",
+          "do": "rise",
+          "wow": true
+        },
         {
           "cue": [],
           "who": "hasan-amca",
@@ -1749,6 +1968,14 @@
           "do": "cheer",
           "look": "reader",
           "focus": true
+        },
+        {
+          "cue": [
+            "yardım"
+          ],
+          "who": "wow_gunes",
+          "do": "shine",
+          "wow": true
         }
       ],
       "ambience": "village",
@@ -2445,6 +2672,16 @@
         },
         {
           "cue": [
+            "paylaşmış"
+          ],
+          "who": "koylu-cocuk",
+          "do": "dance",
+          "look": "reader",
+          "len": 2.4,
+          "wow": true
+        },
+        {
+          "cue": [
             "mısırından",
             "tohumları"
           ],
@@ -2574,6 +2811,17 @@
           "do": "wave",
           "look": "reader",
           "optional": true
+        },
+        {
+          "cue": [
+            "bitmiş",
+            "sona"
+          ],
+          "who": "keloglan",
+          "do": "dance",
+          "look": "reader",
+          "len": 2.6,
+          "wow": true
         }
       ],
       "ambience": "village",
@@ -2797,6 +3045,18 @@
           "id": "foto",
           "hidden": true,
           "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Bunu büyürken görmüştüm!",
+          "color": "#2F6DC4",
+          "x": -0.12,
+          "z": 0.649,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -2980,6 +3240,23 @@
         },
         {
           "cue": [
+            "Bunu"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "büyürken"
+          ],
+          "who": "can",
+          "do": "spin",
+          "look": "reader",
+          "wait": 1.0,
+          "wow": true
+        },
+        {
+          "cue": [
             "fotoğrafını"
           ],
           "who": "can",
@@ -3030,6 +3307,14 @@
           "who": "foto",
           "do": "vanish",
           "wait": 1.6
+        },
+        {
+          "cue": [
+            "dedeye"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [

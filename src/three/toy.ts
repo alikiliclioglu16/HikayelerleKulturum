@@ -168,7 +168,9 @@ export class ToyPerformer {
     const k = snap || this.calm ? 1 : 1 - Math.exp(-dt * 4);
     this.lookYaw += (want - this.lookYaw) * k;
     this.root.rotation.set(0, (r.rotY + (r.spin ?? 0)) * D2R + this.lookYaw, 0);
-    this.body.rotation.set((r.lean ?? 0) * D2R, 0, (r.tilt ?? 0) * D2R, 'XYZ');
+    // never quite still: a slow sway from foot to foot (not in calm mode, not while paused)
+    const sway = this.calm || dt <= 0 ? 0 : Math.sin(t * 0.85 + this.phase * 1.7) * 0.035;
+    this.body.rotation.set((r.lean ?? 0) * D2R + sway * 0.25, 0, (r.tilt ?? 0) * D2R + sway, 'XYZ');
     // squash and stretch keep the volume; a soft breath while standing (not in calm mode, not while paused)
     const breath = this.calm || dt <= 0 ? 0 : Math.sin(t * 2.1 + this.phase) * 0.008;
     const sq = (r.sq ?? 1) + breath;

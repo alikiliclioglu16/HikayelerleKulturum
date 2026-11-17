@@ -45,10 +45,13 @@ export class Stage {
     let from = 0;
     this.cueWord = this.beats.map((b) => {
       if (!b.cue?.length) return Math.min(words.length - 1, from);
-      const stems = b.cue.map(trLower);
+      // a cue of two words ("iyi bayram") matches two words in a row
+      // (a marked phrase is one word of the text, so a two-word cue may also fit inside one word)
+      const stems = b.cue.map((c) => trLower(c).split(/\s+/).filter(Boolean));
+      const at = (i: number, parts: string[]) =>
+        trLower(words[i].text).startsWith(parts.join(' ')) || parts.every((s, j) => i + j < words.length && trLower(words[i + j].text).startsWith(s));
       for (let i = from; i < words.length; i++) {
-        const w = trLower(words[i].text);
-        if (stems.some((s) => w.startsWith(s))) {
+        if (stems.some((parts) => parts.length > 0 && at(i, parts))) {
           from = i;
           return i;
         }

@@ -167,6 +167,8 @@ export interface PageData {
   spots?: Record<string, [number, number, number]>;
   /** Soft sounds of the place under the page: birds (morning, a village) or crickets (night). */
   ambience?: 'birds' | 'crickets' | 'home' | 'kitchen' | 'village' | 'market' | 'school' | 'hall' | 'sea';
+  /** Little lives on the page (see three/life.ts); without it they come from the ambience. An empty list: none. */
+  life?: ('butterflies' | 'birds' | 'fireflies' | 'motes' | 'gulls' | 'petals' | 'leaves')[];
   /** Optional recorded narration. */
   audio?: PageAudio;
 }

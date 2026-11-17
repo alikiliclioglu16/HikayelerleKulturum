@@ -77,6 +77,27 @@
           "h": 0.06,
           "y": 0.09,
           "word": "çay"
+        },
+        {
+          "src": "/models/masal/dede-kitap.glb",
+          "id": "wow_kitap",
+          "word": "kitap",
+          "x": -0.1,
+          "z": 0.8,
+          "y": 0.09,
+          "h": 0.05,
+          "hidden": true
+        },
+        {
+          "src": "/models/masal/hoca.glb",
+          "id": "wow_hoca",
+          "word": "Nasreddin Hoca",
+          "x": 0.06,
+          "z": 0.8,
+          "y": 0.11,
+          "h": 0.14,
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -122,6 +143,14 @@
           "do": "offer",
           "look": "elif",
           "len": 1.8
+        },
+        {
+          "cue": [
+            "kitab"
+          ],
+          "who": "wow_kitap",
+          "do": "appear",
+          "wow": true
         },
         {
           "cue": [
@@ -182,6 +211,19 @@
         },
         {
           "cue": [
+            "nasreddin"
+          ],
+          "who": "wow_hoca",
+          "do": "rise",
+          "to": [
+            0,
+            0.0,
+            0
+          ],
+          "wow": true
+        },
+        {
+          "cue": [
             "güldürürken"
           ],
           "who": "dede",
@@ -210,12 +252,28 @@
         },
         {
           "cue": [
+            "sarıklı"
+          ],
+          "who": "wow_hoca",
+          "do": "spin",
+          "wow": true
+        },
+        {
+          "cue": [
             "merak"
           ],
           "who": "elif",
           "do": "nod",
           "look": "dede",
           "wait": 0.3
+        },
+        {
+          "cue": [
+            "merak"
+          ],
+          "who": "wow_hoca",
+          "do": "shine",
+          "wow": true
         }
       ],
       "ambience": "crickets",
@@ -529,6 +587,15 @@
         },
         {
           "cue": [
+            "ödünç"
+          ],
+          "who": "hoca",
+          "do": "hop",
+          "look": "kapi",
+          "wow": true
+        },
+        {
+          "cue": [
             "biliyormuş"
           ],
           "who": "hoca",
@@ -746,6 +813,30 @@
           "hidden": true,
           "fx": "bob",
           "steam": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Hoş geldin, Hocam!",
+          "color": "#B5651D",
+          "x": 0.2,
+          "z": 0.48,
+          "y": 0.59,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Güle güle kullan.",
+          "color": "#B5651D",
+          "x": 0.2,
+          "z": 0.48,
+          "y": 0.59,
+          "h": 0.08,
+          "id": "say_1",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -776,6 +867,13 @@
         },
         {
           "cue": [
+            "Hoş"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "kazanını"
           ],
           "who": "hoca",
@@ -783,6 +881,14 @@
           "look": "komsu",
           "focus": true,
           "len": 2.2
+        },
+        {
+          "cue": [
+            "birkaç"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -852,6 +958,13 @@
         },
         {
           "cue": [
+            "Güle"
+          ],
+          "who": "say_1",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "teşekkür"
           ],
           "who": "hoca",
@@ -875,12 +988,30 @@
         },
         {
           "cue": [
+            "etmiş"
+          ],
+          "who": "say_1",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
             "pilav"
           ],
           "who": "pilav",
           "do": "appear",
           "len": 1.4,
           "focus": true
+        },
+        {
+          "cue": [
+            "pişirmiş",
+            "yemişler"
+          ],
+          "who": "hoca",
+          "do": "cheer",
+          "look": "reader",
+          "wow": true
         },
         {
           "cue": [
@@ -1147,6 +1278,15 @@
         },
         {
           "cue": [
+            "doğurdu"
+          ],
+          "who": "tencere",
+          "do": "spin",
+          "wait": 1.2,
+          "wow": true
+        },
+        {
+          "cue": [
             "şaşırmış"
           ],
           "who": "komsu",
@@ -1161,6 +1301,16 @@
           "who": "komsu",
           "do": "cheer",
           "look": "tencere"
+        },
+        {
+          "cue": [
+            "hoşuna"
+          ],
+          "who": "komsu",
+          "do": "hop",
+          "look": "tencere",
+          "wait": 1.0,
+          "wow": true
         },
         {
           "cue": [
@@ -1498,6 +1648,16 @@
         },
         {
           "cue": [
+            "belki"
+          ],
+          "who": "komsu",
+          "do": "cheer",
+          "look": "tencere",
+          "wait": 2.0,
+          "wow": true
+        },
+        {
+          "cue": [
             "teşekkür"
           ],
           "who": "komsu",
@@ -1692,6 +1852,54 @@
           "id": "kazan",
           "magic": true,
           "hidden": true
+        },
+        {
+          "src": "/models/bayram/hilal-acik.glb",
+          "id": "wow_ay",
+          "word": "ay",
+          "x": 0.34,
+          "z": 0.03,
+          "y": 0.6,
+          "h": 0.12,
+          "hidden": true,
+          "fx": "bob",
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Hocam, kazanım nerede?",
+          "color": "#B5651D",
+          "x": 0.22,
+          "z": 0.587,
+          "y": 0.59,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Kazanınız öldü.",
+          "color": "#B5651D",
+          "x": 0.22,
+          "z": 0.587,
+          "y": 0.59,
+          "h": 0.08,
+          "id": "say_1",
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Hiç kazan ölür mü?",
+          "color": "#5B3A8E",
+          "x": -0.16,
+          "z": 0.5,
+          "y": 0.6,
+          "h": 0.08,
+          "id": "say_2",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -1711,6 +1919,14 @@
       "beats": [
         {
           "cue": [
+            "günler"
+          ],
+          "who": "wow_ay",
+          "do": "rise",
+          "wow": true
+        },
+        {
+          "cue": [
             "komşu"
           ],
           "who": "komsu",
@@ -1723,6 +1939,13 @@
           "face": -55,
           "look": "hoca",
           "focus": true
+        },
+        {
+          "cue": [
+            "Hocam"
+          ],
+          "who": "say_0",
+          "do": "appear"
         },
         {
           "cue": [
@@ -1742,6 +1965,21 @@
           "who": "hoca",
           "do": "bow",
           "look": "komsu"
+        },
+        {
+          "cue": [
+            "şakasını"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "Kazanınız"
+          ],
+          "who": "say_1",
+          "do": "appear"
         },
         {
           "cue": [
@@ -1784,6 +2022,15 @@
         },
         {
           "cue": [
+            "öldü"
+          ],
+          "who": "wow_ay",
+          "do": "shine",
+          "wait": 1.5,
+          "wow": true
+        },
+        {
+          "cue": [
             "komşusu"
           ],
           "who": "komsu",
@@ -1798,6 +2045,13 @@
         },
         {
           "cue": [
+            "Hiç"
+          ],
+          "who": "say_2",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "ölür",
             "karşı"
           ],
@@ -1806,6 +2060,22 @@
           "target": "hoca",
           "focus": true,
           "len": 1.6
+        },
+        {
+          "cue": [
+            "ölür"
+          ],
+          "who": "say_1",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "Ahmet"
+          ],
+          "who": "say_2",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -2143,6 +2413,26 @@
         },
         {
           "cue": [
+            "gülmüşler"
+          ],
+          "who": "aksehirli-teyze",
+          "do": "spin",
+          "look": "reader",
+          "wait": 0.5,
+          "wow": true
+        },
+        {
+          "cue": [
+            "gülmüşler"
+          ],
+          "who": "pazarci",
+          "do": "hop",
+          "look": "hoca",
+          "wait": 0.8,
+          "wow": true
+        },
+        {
+          "cue": [
             "temiz"
           ],
           "who": "hoca",
@@ -2396,6 +2686,18 @@
           "y": 0.09,
           "word": "kitap",
           "rotY": -15
+        },
+        {
+          "proc": "bubble",
+          "label": "Kazan ölmez ki!",
+          "color": "#2F6DC4",
+          "x": 0.27,
+          "z": 0.64,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -2437,6 +2739,13 @@
         },
         {
           "cue": [
+            "Kazan"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "ölmez"
           ],
           "who": "kazan",
@@ -2461,6 +2770,14 @@
           "look": "can",
           "len": 3.0,
           "focus": true
+        },
+        {
+          "cue": [
+            "Fıkra"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -2496,6 +2813,16 @@
           "who": "elif",
           "do": "nod",
           "look": "can"
+        },
+        {
+          "cue": [
+            "dinledi"
+          ],
+          "who": "elif",
+          "do": "hug",
+          "look": "can",
+          "len": 1.6,
+          "wow": true
         },
         {
           "cue": [
@@ -2571,6 +2898,17 @@
           "look": "reader",
           "focus": true,
           "wait": 2.5
+        },
+        {
+          "cue": [
+            "açtılar",
+            "denediler"
+          ],
+          "who": "elif",
+          "do": "spin",
+          "look": "reader",
+          "wait": 1.2,
+          "wow": true
         }
       ],
       "ambience": "crickets",

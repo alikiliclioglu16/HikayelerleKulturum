@@ -510,7 +510,20 @@
         }
       ],
       "ambience": "village",
-      "models": [],
+      "models": [
+        {
+          "proc": "bubble",
+          "label": "Günaydın!",
+          "color": "#2B4C9A",
+          "x": 0.29,
+          "z": 0.48,
+          "y": 0.6,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
+        }
+      ],
       "cast": [
         {
           "id": "babaanne",
@@ -650,6 +663,16 @@
         },
         {
           "cue": [
+            "kapıyı"
+          ],
+          "who": "ali",
+          "do": "receive",
+          "target": "somun",
+          "look": "can",
+          "wow": true
+        },
+        {
+          "cue": [
             "günaydın"
           ],
           "who": "ali",
@@ -667,6 +690,13 @@
         },
         {
           "cue": [
+            "Günaydın"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "burnunu"
           ],
           "who": "can",
@@ -674,6 +704,23 @@
           "look": "up",
           "len": 1.2,
           "focus": true
+        },
+        {
+          "cue": [
+            "burnunu"
+          ],
+          "who": "can",
+          "do": "raise",
+          "look": "ali",
+          "wow": true
+        },
+        {
+          "cue": [
+            "kaldırdı"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -691,6 +738,25 @@
           "do": "cheer",
           "look": "can",
           "wait": 0.3
+        },
+        {
+          "cue": [
+            "güldü"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "elif",
+          "wow": true
+        },
+        {
+          "cue": [
+            "güldü"
+          ],
+          "who": "elif",
+          "do": "hop",
+          "look": "can",
+          "wait": 0.3,
+          "wow": true
         }
       ],
       "audio": {
@@ -874,6 +940,18 @@
           "w": 0.042,
           "rotY": 20,
           "word": "simit"
+        },
+        {
+          "proc": "bubble",
+          "label": "Ne zaman uyursunuz?",
+          "color": "#2F6DC4",
+          "x": -0.03,
+          "z": 0.74,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -988,6 +1066,22 @@
         },
         {
           "cue": [
+            "Ne"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "uyursunuz"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "ali",
+          "wow": true
+        },
+        {
+          "cue": [
             "nöbetleşe"
           ],
           "who": "ali",
@@ -1004,6 +1098,14 @@
           "do": "nod",
           "look": "ali",
           "wait": 1.5
+        },
+        {
+          "cue": [
+            "çalışır"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -1036,6 +1138,15 @@
           "who": "elif",
           "do": "nod",
           "look": "ali"
+        },
+        {
+          "cue": [
+            "emeği"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "ali",
+          "wow": true
         }
       ],
       "audio": {
@@ -1353,6 +1464,32 @@
         },
         {
           "cue": [
+            "askıda"
+          ],
+          "who": "poset1",
+          "do": "shine",
+          "wow": true
+        },
+        {
+          "cue": [
+            "askıda"
+          ],
+          "who": "poset2",
+          "do": "shine",
+          "wait": 0.2,
+          "wow": true
+        },
+        {
+          "cue": [
+            "askıda"
+          ],
+          "who": "poset3",
+          "do": "shine",
+          "wait": 0.4,
+          "wow": true
+        },
+        {
+          "cue": [
             "babaanneleri"
           ],
           "who": "babaanne",
@@ -1570,6 +1707,18 @@
           "word": "ekmek",
           "id": "bayat3",
           "tint": "#C8955A"
+        },
+        {
+          "proc": "bubble",
+          "label": "Bunlar ne olacak?",
+          "color": "#2F6DC4",
+          "x": -0.28,
+          "z": 0.64,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -1635,6 +1784,21 @@
           "do": "talk",
           "look": "ali",
           "len": 1.6
+        },
+        {
+          "cue": [
+            "Bunlar"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "amca"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -1713,6 +1877,26 @@
           "face": 139,
           "look": "ali",
           "wait": 0.2
+        },
+        {
+          "cue": [
+            "ekmek tatlı"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "ali",
+          "wait": 0.6,
+          "wow": true
+        },
+        {
+          "cue": [
+            "ekmek tatlı"
+          ],
+          "who": "elif",
+          "do": "spin",
+          "look": "reader",
+          "wait": 0.9,
+          "wow": true
         },
         {
           "cue": [
@@ -1877,7 +2061,8 @@
           "w": 0.124,
           "word": "tepsi",
           "id": "tepsi",
-          "tint": "#8C9198"
+          "tint": "#8C9198",
+          "steam": true
         },
         {
           "src": "/models/firin/ekmek-somun.glb",
@@ -2507,6 +2692,16 @@
           "do": "talk",
           "look": "babaanne",
           "len": 2.4
+        },
+        {
+          "cue": [
+            "dönüşebiliyor"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "can",
+          "wait": 0.8,
+          "wow": true
         }
       ],
       "audio": {
@@ -2736,6 +2931,18 @@
           "h": 0.52,
           "rotY": 90,
           "word": "kapı"
+        },
+        {
+          "proc": "bubble",
+          "label": "Biri bize, biri askıya.",
+          "color": "#2F6DC4",
+          "x": -0.05,
+          "z": 0.62,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -2879,6 +3086,23 @@
         },
         {
           "cue": [
+            "Biri"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "askıya"
+          ],
+          "who": "elif",
+          "do": "hop",
+          "look": "can",
+          "wait": 0.6,
+          "wow": true
+        },
+        {
+          "cue": [
             "ali"
           ],
           "who": "ali",
@@ -2891,6 +3115,14 @@
           "face": 150,
           "look": "aski1",
           "focus": true
+        },
+        {
+          "cue": [
+            "ekmeği"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -2944,6 +3176,17 @@
           "face": -80,
           "wait": 1.4,
           "sound": null
+        },
+        {
+          "cue": [
+            "açık"
+          ],
+          "who": "babaanne",
+          "do": "hug",
+          "look": "can",
+          "len": 1.6,
+          "wait": 0.8,
+          "wow": true
         },
         {
           "cue": [
@@ -3504,6 +3747,18 @@
           "word": "ekmek",
           "id": "kalan",
           "hidden": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Paylaşmak çok güzel!",
+          "color": "#2F6DC4",
+          "x": 0.22,
+          "z": 0.46,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -3667,6 +3922,31 @@
         },
         {
           "cue": [
+            "paylaşmak"
+          ],
+          "who": "kutu",
+          "do": "shine",
+          "wow": true
+        },
+        {
+          "cue": [
+            "paylaşmak"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "can",
+          "wait": 0.6,
+          "wow": true
+        },
+        {
+          "cue": [
+            "Paylaşmak"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "akşam"
           ],
           "who": "can",
@@ -3674,6 +3954,14 @@
           "face": 60,
           "look": "anne",
           "focus": true
+        },
+        {
+          "cue": [
+            "kadar"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [

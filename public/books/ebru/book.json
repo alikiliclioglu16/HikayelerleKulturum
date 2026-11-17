@@ -618,6 +618,18 @@
           "word": "boya",
           "id": "rafBoya5",
           "tint": "#8A4FC2"
+        },
+        {
+          "proc": "bubble",
+          "label": "Resim suyun üstünde mi olacak?",
+          "color": "#2F6DC4",
+          "x": 0.33,
+          "z": 0.56,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -681,6 +693,25 @@
           "who": "dede",
           "do": "wave",
           "look": "elif"
+        },
+        {
+          "cue": [
+            "atölye"
+          ],
+          "who": "dede",
+          "do": "wave",
+          "look": "elif",
+          "wow": true
+        },
+        {
+          "cue": [
+            "atölye"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "dede",
+          "wait": 0.4,
+          "wow": true
         },
         {
           "cue": [
@@ -925,11 +956,26 @@
         },
         {
           "cue": [
+            "Resim"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "sordu"
           ],
           "who": "dede",
           "do": "nod",
           "look": "can"
+        },
+        {
+          "cue": [
+            "sordu"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         }
       ],
       "audio": {
@@ -1346,6 +1392,26 @@
         },
         {
           "cue": [
+            "açıldı"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "tekne",
+          "wait": 0.4,
+          "wow": true
+        },
+        {
+          "cue": [
+            "açıldı"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "tekne",
+          "wait": 0.7,
+          "wow": true
+        },
+        {
+          "cue": [
             "renkleri"
           ],
           "who": "can",
@@ -1656,6 +1722,18 @@
           "w": 0.12,
           "word": "kâğıt",
           "id": "kagit"
+        },
+        {
+          "proc": "bubble",
+          "label": "Yapamadım.",
+          "color": "#2F6DC4",
+          "x": 0.33,
+          "z": 0.56,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -1756,12 +1834,27 @@
         },
         {
           "cue": [
+            "Yapamadım"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "dedesi"
           ],
           "who": "dede",
           "do": "talk",
           "look": "can",
           "len": 3.2
+        },
+        {
+          "cue": [
+            "denemede"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -1800,6 +1893,16 @@
           ],
           "face": 70,
           "look": "tekne"
+        },
+        {
+          "cue": [
+            "yaklaştı"
+          ],
+          "who": "elif",
+          "do": "hug",
+          "look": "can",
+          "len": 1.6,
+          "wow": true
         },
         {
           "cue": [
@@ -2241,12 +2344,31 @@
         },
         {
           "cue": [
+            "tıp"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "tekne",
+          "wow": true
+        },
+        {
+          "cue": [
             "halkalar"
           ],
           "who": "can",
           "do": "cheer",
           "look": "tekne",
           "focus": true
+        },
+        {
+          "cue": [
+            "halka"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "tekne",
+          "wait": 0.5,
+          "wow": true
         },
         {
           "cue": [
@@ -2656,6 +2778,16 @@
         },
         {
           "cue": [
+            "belirdi"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "tekne",
+          "wait": 0.4,
+          "wow": true
+        },
+        {
+          "cue": [
             "ebruda"
           ],
           "who": "dede",
@@ -2730,6 +2862,16 @@
           "do": "appear",
           "len": 0.8,
           "wait": 2.0
+        },
+        {
+          "cue": [
+            "karanfil"
+          ],
+          "who": "elif",
+          "do": "spin",
+          "look": "reader",
+          "wait": 0.8,
+          "wow": true
         },
         {
           "cue": [
@@ -3057,6 +3199,18 @@
           "decal": "/books/ebru/desen/lale.webp",
           "hidden": true,
           "pitch": 65
+        },
+        {
+          "proc": "bubble",
+          "label": "Sihir gibi!",
+          "color": "#2F6DC4",
+          "x": 0.33,
+          "z": 0.56,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -3166,12 +3320,47 @@
         },
         {
           "cue": [
+            "sihir"
+          ],
+          "who": "can",
+          "do": "spin",
+          "look": "reader",
+          "wait": 0.4,
+          "wow": true
+        },
+        {
+          "cue": [
+            "sihir"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "can",
+          "wait": 0.8,
+          "wow": true
+        },
+        {
+          "cue": [
+            "Sihir"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "dedesi"
           ],
           "who": "dede",
           "do": "talk",
           "look": "can",
           "len": 3.4
+        },
+        {
+          "cue": [
+            "ve"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -3340,7 +3529,8 @@
           "id": "ip_lale",
           "decal": "/books/ebru/desen/lale.webp",
           "hidden": true,
-          "pitch": 90
+          "pitch": 90,
+          "fx": "sway"
         },
         {
           "src": "/models/ebru/ebru-kagidi.glb",
@@ -3353,7 +3543,8 @@
           "id": "ip_karanfil",
           "decal": "/books/ebru/desen/karanfil.webp",
           "hidden": true,
-          "pitch": 90
+          "pitch": 90,
+          "fx": "sway"
         },
         {
           "src": "/models/ebru/ebru-kagidi.glb",
@@ -3366,7 +3557,8 @@
           "id": "ip_halka",
           "decal": "/books/ebru/desen/halka.webp",
           "hidden": true,
-          "pitch": 90
+          "pitch": 90,
+          "fx": "sway"
         },
         {
           "src": "/models/ebru/ebru-kagidi.glb",
@@ -3379,7 +3571,20 @@
           "id": "ip_karisik",
           "decal": "/books/ebru/desen/karisik.webp",
           "hidden": true,
-          "pitch": 90
+          "pitch": 90,
+          "fx": "sway"
+        },
+        {
+          "proc": "bubble",
+          "label": "Çok boya kullanmıştım.",
+          "color": "#2F6DC4",
+          "x": 0.12,
+          "z": 0.64,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true
         }
       ],
       "cast": [
@@ -3546,6 +3751,16 @@
         },
         {
           "cue": [
+            "şaşırdınız"
+          ],
+          "who": "babaanne",
+          "do": "cheer",
+          "look": "elif",
+          "wait": 0.6,
+          "wow": true
+        },
+        {
+          "cue": [
             "ilk"
           ],
           "who": "can",
@@ -3589,6 +3804,13 @@
         },
         {
           "cue": [
+            "Çok"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
             "elif"
           ],
           "who": "elif",
@@ -3596,6 +3818,14 @@
           "target": "ip_karanfil",
           "len": 1.4,
           "focus": true
+        },
+        {
+          "cue": [
+            "kâğıdındaki"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -4026,6 +4256,25 @@
         },
         {
           "cue": [
+            "açıkladı"
+          ],
+          "who": "zara",
+          "do": "cheer",
+          "look": "can",
+          "wow": true
+        },
+        {
+          "cue": [
+            "açıkladı"
+          ],
+          "who": "kenji",
+          "do": "hop",
+          "look": "can",
+          "wait": 0.3,
+          "wow": true
+        },
+        {
+          "cue": [
             "ilk"
           ],
           "who": "pano_karisik",
@@ -4082,6 +4331,16 @@
           "do": "nod",
           "look": "can",
           "wait": 0.3
+        },
+        {
+          "cue": [
+            "hatırlatıyor"
+          ],
+          "who": "can",
+          "do": "spin",
+          "look": "reader",
+          "wait": 0.8,
+          "wow": true
         }
       ],
       "audio": {

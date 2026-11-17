@@ -225,6 +225,7 @@ function simit() {
 export const VAPUR_PROPS: Record<string, () => THREE.Object3D> = {
   korkuluk: () => onPage(railing()),
   vapurSirasi: () => onPage(ferryBench()),
+  vapurSirasiUzun: () => onPage(ferryBench(2.5)),
   canSimidi: () => onPage(lifeRing()),
   marti: () => onPage(gull()),
   plastikPoset: () => onPage(floatingBag()),
