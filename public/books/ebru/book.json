@@ -629,7 +629,8 @@
           "h": 0.08,
           "id": "say_0",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         }
       ],
       "cast": [
@@ -1733,7 +1734,8 @@
           "h": 0.08,
           "id": "say_0",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         }
       ],
       "cast": [
@@ -3210,7 +3212,8 @@
           "h": 0.08,
           "id": "say_0",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         }
       ],
       "cast": [
@@ -3584,7 +3587,8 @@
           "h": 0.08,
           "id": "say_0",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         }
       ],
       "cast": [

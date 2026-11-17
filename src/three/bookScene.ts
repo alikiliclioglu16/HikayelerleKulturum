@@ -232,7 +232,7 @@ function tileCanvas(): HTMLCanvasElement {
  * A speech bubble in the air (a greeting in a child's own language): a rounded white cloud with a coloured
  * edge and a little tail, always facing the camera. `h` is its height in page widths.
  */
-function speechBubble(label: string, color: string, h: number) {
+function speechBubble(label: string, color: string, h: number, tail = false, right = false) {
   const c = document.createElement('canvas');
   const g = c.getContext('2d')!;
   const font = '600 64px "DynaPuff", system-ui';
@@ -253,13 +253,15 @@ function speechBubble(label: string, color: string, h: number) {
   g.lineWidth = 7;
   g.beginPath();
   g.roundRect(4, 4, w, bh, 52);
-  g.moveTo(w * 0.3, bh);
-  g.lineTo(w * 0.24, bh + 32);
-  g.lineTo(w * 0.42, bh);
+  // the tail: near the left end, or near the right end for someone standing on the right of the page
+  const [t0, tip, t1] = right ? [0.58, 0.76, 0.7] : [0.3, 0.24, 0.42];
+  g.moveTo(w * t0, bh);
+  g.lineTo(w * tip, bh + 32);
+  g.lineTo(w * t1, bh);
   g.fill();
   g.stroke();
   g.fillStyle = '#FFFFFF';
-  g.fillRect(w * 0.3 + 4, bh - 4, w * 0.12 - 8, 10);
+  g.fillRect(w * t0 + 4, bh - 4, w * (t1 - t0) - 8, 10);
   g.fillStyle = color;
   g.textAlign = 'center';
   g.textBaseline = 'middle';
@@ -270,7 +272,9 @@ function speechBubble(label: string, color: string, h: number) {
   sprite.renderOrder = 4;
   const aspect = c.width / c.height;
   sprite.scale.set(h * aspect, h, 1);
-  sprite.position.y = h / 2;
+  // the tip of the tail sits on the bubble's place (just over the speaker's head), so it points at the one talking
+  if (tail) sprite.center.set((w * tip) / c.width, 1 - (bh + 32) / c.height);
+  else sprite.position.y = h / 2;
   const grp = new THREE.Group();
   grp.add(sprite);
   return grp;
@@ -1834,7 +1838,7 @@ export class BookScene {
               : spec.proc === 'tablet'
               ? procActorFrom(this.tablet())
               : spec.proc === 'bubble'
-                ? procActorFrom(speechBubble(spec.label ?? '', spec.color ?? '#1C3F8C', spec.h))
+                ? procActorFrom(speechBubble(spec.label ?? '', spec.color ?? '#1C3F8C', spec.h, !!spec.tail, !!spec.tail && spec.x > 0.15))
                 : spec.proc
                   ? procActor(spec.proc)
                   : await loadActor(spec.src!, spec.h, spec.w);

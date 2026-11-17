@@ -598,7 +598,8 @@
           "h": 0.08,
           "id": "say_0",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         },
         {
           "proc": "bubble",
@@ -610,7 +611,8 @@
           "h": 0.08,
           "id": "say_1",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         }
       ],
       "cast": [
@@ -1359,7 +1361,8 @@
           "h": 0.08,
           "id": "say_0",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         }
       ],
       "cast": [
@@ -1684,14 +1687,15 @@
         {
           "proc": "bubble",
           "label": "Su götürelim mi?",
-          "color": "#1F8A70",
-          "x": -0.14,
-          "z": 0.48,
-          "y": 0.62,
+          "color": "#2F6DC4",
+          "x": -0.24,
+          "z": 0.82,
+          "y": 0.41,
           "h": 0.08,
           "id": "say_0",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         }
       ],
       "cast": [
@@ -2285,7 +2289,8 @@
           "h": 0.08,
           "id": "say_0",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         }
       ],
       "cast": [
@@ -2687,7 +2692,8 @@
           "h": 0.08,
           "id": "say_0",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         }
       ],
       "cast": [
@@ -3134,7 +3140,8 @@
           "h": 0.08,
           "id": "say_0",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         }
       ],
       "cast": [

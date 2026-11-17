@@ -89,6 +89,8 @@ export interface PageModel {
   id?: string;
   /** With `id`: not there until a beat makes it appear or rise. */
   hidden?: boolean;
+  /** For `proc: "bubble"`: true when x, y is the speaker's head, so the tail's tip sits there and points at them. */
+  tail?: boolean;
   /** For `proc: "bubble"`: the words in a speech bubble (a greeting floating in the air), and its colour; for
    * `proc: "writing"`: words written in crayon at the bottom right of a w × d see-through layer (a date under a drawing). */
   label?: string;

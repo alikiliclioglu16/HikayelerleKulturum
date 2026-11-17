@@ -824,7 +824,8 @@
           "h": 0.08,
           "id": "say_0",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         },
         {
           "proc": "bubble",
@@ -836,7 +837,8 @@
           "h": 0.08,
           "id": "say_1",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         }
       ],
       "cast": [
@@ -1875,31 +1877,34 @@
           "h": 0.08,
           "id": "say_0",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         },
         {
           "proc": "bubble",
           "label": "Kazanınız öldü.",
-          "color": "#B5651D",
-          "x": 0.22,
-          "z": 0.587,
-          "y": 0.59,
-          "h": 0.08,
-          "id": "say_1",
-          "hidden": true,
-          "magic": true
-        },
-        {
-          "proc": "bubble",
-          "label": "Hiç kazan ölür mü?",
           "color": "#5B3A8E",
           "x": -0.16,
           "z": 0.5,
           "y": 0.6,
           "h": 0.08,
+          "id": "say_1",
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Hiç kazan ölür mü?",
+          "color": "#B5651D",
+          "x": 0.32,
+          "z": 0.62,
+          "y": 0.59,
+          "h": 0.08,
           "id": "say_2",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         }
       ],
       "cast": [
@@ -2697,7 +2702,8 @@
           "h": 0.08,
           "id": "say_0",
           "hidden": true,
-          "magic": true
+          "magic": true,
+          "tail": true
         }
       ],
       "cast": [
