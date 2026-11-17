@@ -190,9 +190,15 @@ export class ToyPerformer {
       this.carry += ((big ? 1 : 0) - this.carry) * kk;
       const pose: Pose = { ...RELAXED, ...s.pose, ...(sitting ? POSES.sit : {}) };
       if (this.carry > 0.01) {
+        // the hands stay on the thing when it is used: reaching forward to lay a paper on the water, up to show it
+        const ty = r.ty ?? 0;
+        const tz = r.tz ?? 0;
+        const up = THREE.MathUtils.clamp(-91 * ty - 73 * tz, -80, 40);
+        const fore = THREE.MathUtils.clamp(-46 * ty + 227 * tz, -10, 72);
         for (const b of ['upper_arm_L', 'upper_arm_R', 'forearm_L', 'forearm_R']) {
           const from = pose[b] ?? [0, 0, 0];
-          const to = CARRY[b];
+          const c = CARRY[b];
+          const to: [number, number, number] = [c[0] + (b.startsWith('upper') ? up : fore), c[1], c[2]];
           pose[b] = [from[0] + (to[0] - from[0]) * this.carry, from[1] + (to[1] - from[1]) * this.carry, from[2] + (to[2] - from[2]) * this.carry];
         }
       }
@@ -696,7 +702,7 @@ export const TOY_ACTS: Record<string, ToyAct> = {
    * Uses the thing in its hands over `to` ([sideways, up, forwards] in its heights, from where it holds it):
    * `style` "tap" (a brush tapped over the water: drops), "shake" (shaken hard from side to side), "draw" (small
    * strokes with the biz), "lay" (a paper laid flat on the water, then held there), "lift" (raised up to show,
-   * tipped towards the reader). `swap` changes what it holds halfway (the blank paper comes up with the pattern).
+   * tipped towards the reader), "ear" (a phone held up to the ear). `swap` changes what it holds halfway (the blank paper comes up with the pattern).
    */
   useTool: (_s, b, t) => {
     const to = b.to ?? [0.24, 0, 0.32];
@@ -720,6 +726,9 @@ export const TOY_ACTS: Record<string, ToyAct> = {
       for (let i = 0; i < n; i++) keys.push(key(t0 + i * 0.35, 0.35, { root: { tx: to[0] + (i % 2 ? -0.05 : 0.05), tz: to[2] + (i % 3 === 1 ? -0.04 : 0.02) }, minor: true }));
     } else if (style === 'lay') {
       keys.push(key(t0, 0.5, { root: { ty: to[1] - 0.04 } }));
+    } else if (style === 'ear') {
+      // a phone held to the ear while talking
+      keys[0] = key(t, 0.4, { root: { ...at, lean: 0, tp: 0, tr: 0 }, look: b.look ?? 'reader' });
     }
     if (b.swap) keys.push(key(t0 + len * 0.5, 0.05, { hold: b.swap }));
     const end = t0 + len;

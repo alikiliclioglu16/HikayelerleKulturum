@@ -1407,14 +1407,32 @@
           "h": 0.2,
           "rotY": -35,
           "anim": "none"
+        },
+        {
+          "proc": "kapiCercevesi",
+          "x": -0.44,
+          "z": 0.3,
+          "h": 0.55,
+          "rotY": 90,
+          "word": "kapı"
+        },
+        {
+          "proc": "kapiKanadi",
+          "id": "kapi",
+          "x": -0.44,
+          "z": 0.398,
+          "h": 0.52,
+          "rotY": 90,
+          "word": "kapı"
         }
       ],
       "cast": [
         {
           "id": "ayse",
-          "x": -0.46,
+          "x": -0.56,
           "z": 0.3,
-          "rotY": 40
+          "rotY": 90,
+          "hidden": true
         },
         {
           "id": "baba",
@@ -1449,6 +1467,15 @@
           "cue": [
             "açtı"
           ],
+          "who": "kapi",
+          "do": "turn",
+          "face": -80,
+          "sound": null
+        },
+        {
+          "cue": [
+            "açtı"
+          ],
           "who": "baba",
           "do": "walkTo",
           "to": [
@@ -1465,9 +1492,9 @@
             "komşu"
           ],
           "who": "ayse",
-          "do": "walkTo",
+          "do": "enter",
           "to": [
-            0.31,
+            0.41,
             0,
             0.3
           ],

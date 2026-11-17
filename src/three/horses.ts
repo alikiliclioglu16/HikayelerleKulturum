@@ -279,7 +279,8 @@ export const HORSE_HELD: Record<string, () => THREE.Object3D> = {
     return g;
   },
   telefon: () => {
-    const g = onPage(phone());
+    // a little bigger than life, so it shows beside the toy's big head when held to the ear
+    const g = onPage(phone(), PAGE * 1.5);
     g.rotation.x = -0.3;
     Object.assign(g.userData, { word: 'telefon', hand: 'R' });
     return g;

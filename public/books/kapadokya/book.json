@@ -1598,7 +1598,13 @@
             "mustafa"
           ],
           "who": "mustafa",
-          "do": "talk",
+          "do": "useTool",
+          "style": "ear",
+          "to": [
+            0.15,
+            0.42,
+            -0.05
+          ],
           "look": "reader",
           "len": 3.2,
           "sound": "telefon",
@@ -2158,9 +2164,15 @@
             "mustafa"
           ],
           "who": "mustafa",
-          "do": "talk",
+          "do": "useTool",
+          "style": "ear",
+          "to": [
+            0.15,
+            0.42,
+            -0.05
+          ],
           "look": "reader",
-          "len": 2.0,
+          "len": 2.4,
           "sound": "telefon",
           "focus": true
         },

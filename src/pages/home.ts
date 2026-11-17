@@ -64,15 +64,25 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     const soon = b.status === 'soon';
     const bar = h('i', null);
     const meta = h('span', null);
+    // a little table under the title: the page the reader is on, how much is read, the activities done
+    const cell = (label: string) => {
+      const v = h('b', null);
+      return { el: h('span', { class: 'bs-cell' }, v, h('small', null, label)), v };
+    };
+    const cPage = cell('Sayfa');
+    const cRead = cell('Okundu');
+    const cAct = cell('Etkinlik');
+    const table = h('span', { class: 'book-stats', 'aria-hidden': 'true' }, cPage.el, cRead.el, cAct.el);
     const card = h(
       'button',
       { class: `book-card${soon ? ' soon' : ''}`, type: 'button', 'aria-label': `${b.title}${soon ? ', yakında' : ''}` },
       h('span', { class: 't' }, b.title),
+      soon ? null : table,
       h('span', { class: 'bar' }, bar),
       h('span', { class: 'meta' }, meta, soon ? h('span', { class: 'soon-badge' }, 'Yakında') : null),
     );
     card.addEventListener('click', () => openBook(i));
-    return { card, bar, meta, book: b };
+    return { card, bar, meta, book: b, cells: { page: cPage.v, read: cRead.v, act: cAct.v } };
   });
   const cardLayer = h('div', { class: 'card-layer' }, ...cards.map((c) => c.card));
 
@@ -130,7 +140,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     stats.setAttribute('aria-label', `${total} sayfanın ${read} tanesi okundu, sandıkta ${words} kültür hazinesi, kültür rafında ${culture.length} nesneden ${store.culture.length} tanesi keşfedildi`);
     stats.title = 'Okunan sayfalar, sandıktaki kültür hazineleri, keşfedilen raf nesneleri';
     chestBadge.textContent = String(words);
-    cards.forEach(({ book, bar, meta }) => {
+    cards.forEach(({ book, bar, meta, card, cells }) => {
       if (book.status === 'soon') {
         bar.style.width = '0%';
         meta.textContent = `${book.values.map((v) => valueById(v).name).join(', ')}`;
@@ -141,8 +151,16 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
       const n = book.pages ?? 0;
       const pct = n ? Math.round((r / n) * 100) : 0;
       bar.style.width = `${pct}%`;
-      // where the reader is in the book, how long it is and how much is read
-      meta.textContent = r >= n && n ? `${n}/${n} sayfa · Bitti! %100` : r || prog.page ? `Sayfa ${Math.min(n, prog.page + 1)}/${n} · %${pct} okundu` : `${n} sayfa · Henüz başlanmadı`;
+      // where the reader is in the book, how long it is, how much is read and which activities are done
+      const done = r >= n && n > 0;
+      const page = done ? n : r || prog.page ? Math.min(n, prog.page + 1) : 0;
+      const acts = (prog.quiz !== undefined ? 1 : 0) + (prog.hunt ? 1 : 0);
+      cells.page.textContent = `${page}/${n}`;
+      cells.read.textContent = `%${pct}`;
+      cells.act.textContent = `${acts}/2`;
+      meta.textContent = done ? 'Bitti!' : r || prog.page ? 'Okumaya devam' : 'Henüz başlanmadı';
+      card.classList.toggle('done', done);
+      card.setAttribute('aria-label', `${book.title}. Sayfa ${page} / ${n}, yüzde ${pct} okundu, ${acts} / 2 etkinlik.`);
     });
   }
   function updateSound() {
@@ -413,7 +431,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     compact = H < 560;
     shell.classList.toggle('compact', compact);
     shell.classList.toggle('narrow', W < 640);
-    cardH = compact ? 44 : 118;
+    cardH = compact ? 44 : 130;
     // the interface floats over the room, like a toy shelf seen up close
     const top = compact ? 50 : W < 640 ? 104 : 40;
     const bottom = cardH + (compact ? 22 : 40);

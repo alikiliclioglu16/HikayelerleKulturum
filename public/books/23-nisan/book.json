@@ -1971,7 +1971,7 @@
           ],
           "who": "amara",
           "do": "talk",
-          "look": "reader",
+          "look": "ogretmen",
           "len": 2.0
         },
         {
@@ -1999,7 +1999,7 @@
           ],
           "who": "elif",
           "do": "wave",
-          "look": "reader",
+          "look": "ogretmen",
           "focus": true
         },
         {

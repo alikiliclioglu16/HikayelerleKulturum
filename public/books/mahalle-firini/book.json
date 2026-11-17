@@ -2281,6 +2281,26 @@
           "cue": [
             "tepsiyi"
           ],
+          "who": "elif",
+          "do": "turn",
+          "face": 160,
+          "look": "tepsi",
+          "wait": 1.0
+        },
+        {
+          "cue": [
+            "tepsiyi"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -170,
+          "look": "tepsi",
+          "wait": 1.2
+        },
+        {
+          "cue": [
+            "tepsiyi"
+          ],
           "who": "tepsi",
           "do": "rise",
           "to": [
@@ -2440,6 +2460,25 @@
           "face": 0,
           "look": "reader",
           "wait": 1.6
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": -94,
+          "look": "babaanne"
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -73,
+          "look": "babaanne",
+          "wait": 0.25
         },
         {
           "cue": [
@@ -2873,6 +2912,16 @@
         },
         {
           "cue": [
+            "astı"
+          ],
+          "who": "ali",
+          "do": "turn",
+          "face": -19,
+          "look": "babaanne",
+          "wait": 1.6
+        },
+        {
+          "cue": [
             "kapıyı"
           ],
           "who": "can",
@@ -2934,6 +2983,15 @@
           "face": -90,
           "look": "babaanne",
           "wait": 1.6
+        },
+        {
+          "cue": [
+            "tuttu"
+          ],
+          "who": "ali",
+          "do": "wave",
+          "look": "can",
+          "wait": 0.6
         }
       ],
       "audio": {

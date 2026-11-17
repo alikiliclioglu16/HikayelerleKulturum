@@ -125,8 +125,7 @@
         },
         {
           "cue": [
-            "elif",
-            "sedire"
+            "oturdu"
           ],
           "who": "elif",
           "do": "sit",
@@ -141,8 +140,7 @@
         },
         {
           "cue": [
-            "elif",
-            "sedire"
+            "oturdu"
           ],
           "who": "can",
           "do": "sit",
@@ -436,6 +434,14 @@
           "x": -0.42,
           "z": 0.58,
           "rotY": 90
+        },
+        {
+          "id": "komsu",
+          "x": 0.2,
+          "z": 0.24,
+          "rotY": 0,
+          "hidden": true,
+          "look": "hoca"
         }
       ],
       "beats": [
@@ -553,6 +559,40 @@
           "do": "knock",
           "target": "kapi",
           "focus": true
+        },
+        {
+          "cue": [
+            "biliyormuş"
+          ],
+          "who": "komsu",
+          "do": "enter",
+          "to": [
+            0.04,
+            0,
+            0.18
+          ],
+          "face": -60,
+          "look": "hoca",
+          "wait": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "biliyormuş"
+          ],
+          "who": "komsu",
+          "do": "wave",
+          "look": "hoca",
+          "wait": 2.4
+        },
+        {
+          "cue": [
+            "biliyormuş"
+          ],
+          "who": "hoca",
+          "do": "bow",
+          "look": "komsu",
+          "wait": 2.6
         }
       ],
       "ambience": "village",

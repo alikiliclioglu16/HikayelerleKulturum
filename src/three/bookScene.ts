@@ -60,6 +60,14 @@ const DESK_DECOR: TableModel[] = [
   { src: C('lale'), word: 'lale', x: 2.75, z: -0.3, h: 0.4 },
   { src: C('mangala'), word: 'mangala', x: 0.25, z: -1.25, h: 0.12, w: 0.5, rotY: -6 },
   { src: C('baglama'), word: 'bağlama', x: 3.1, z: -0.45, h: 0.5, rotY: -30 },
+  // more of them close around the book, so the table looks lived in
+  { src: C('galata'), word: 'Galata Kulesi', x: -1.75, z: -1.38, h: 0.44, rotY: 12 },
+  { src: C('karagoz'), word: 'Karagöz', x: -0.32, z: -1.45, h: 0.36, rotY: 4 },
+  { src: C('kiz-kulesi'), word: 'Kız Kulesi', x: 1.0, z: -1.4, h: 0.34, rotY: -12 },
+  { src: C('davul'), word: 'davul', x: 1.78, z: -1.15, h: 0.24, rotY: 20 },
+  { src: C('balon'), word: 'balon', x: -2.1, z: 0.62, h: 0.34, rotY: 0 },
+  { src: C('peri-bacasi'), word: 'peri bacası', x: 2.3, z: 0.35, h: 0.36, rotY: -15 },
+  { src: C('bayrak'), word: 'bayrak', x: -2.35, z: -0.95, h: 0.42, rotY: 30 },
 ];
 
 export interface Region {

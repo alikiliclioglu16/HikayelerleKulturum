@@ -1313,6 +1313,42 @@ input[type='checkbox'].switch:checked::after {
   line-height: 1.15;
   color: var(--cobalt);
 }
+.book-card .book-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1.5px solid #d9c49c;
+  border-radius: 10px;
+  background: #fffdf6;
+  overflow: hidden;
+}
+.book-card .bs-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3px 2px 2px;
+  line-height: 1.1;
+}
+.book-card .bs-cell + .bs-cell {
+  border-left: 1.5px solid #e6d7b8;
+}
+.book-card .bs-cell b {
+  font-size: 15px;
+  color: var(--cobalt);
+}
+.book-card .bs-cell small {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.book-card.done .bs-cell b {
+  color: #1f8a5b;
+}
+.book-card:not(.soon) .meta {
+  display: none;
+}
+.book-card.compact .book-stats {
+  display: none;
+}
 .book-card .bar {
   flex: none;
   height: 8px;
