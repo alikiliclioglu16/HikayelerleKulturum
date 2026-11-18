@@ -68,6 +68,9 @@ export const CHARACTERS: Record<string, CharacterDef> = {
   // a neighbour in Davulcu Dede (the market man's model)
   mahalleli: { src: '/models/masal/pazarci.glb', height: 0.53, name: 'Komşu' },
   huseyin: { src: '/models/masal/komsu.glb', height: 0.551, name: 'Hüseyin Dede' },
+  // Mangala Turnuvası: stand-ins until the Meshy models come (public/models/mangala/hande.glb, hakem.glb)
+  hande: { src: '/models/23-nisan/zara.glb', height: 0.39, name: 'Hande' },
+  hakem: { src: '/models/firin/askidan-ekmek-alan-adam.glb', height: 0.55, name: 'Hakem' },
   gorevli: { src: '/models/firin/askidan-ekmek-alan-adam.glb', height: 0.567, name: 'Görevli' },
 };
 

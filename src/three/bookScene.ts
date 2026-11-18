@@ -5,6 +5,7 @@ import { loadActor, loadGltf, play, type Actor } from '../home3d/actors';
 import type { PageModel, TableModel } from '../types';
 import { ReaderCinema, type Pose } from './readerCinema';
 import { PROPS, HELD } from './props';
+import { mangalaProp } from './mangala';
 import { clockTower } from '../art/kit';
 import { Performer, type State } from './performer';
 import { POSES } from './acts';
@@ -366,7 +367,7 @@ function waveCloth(root: THREE.Object3D, t: number, ph: number) {
 
 /** A set piece built in code, wrapped like a loaded model. */
 function procActor(name: string): Actor {
-  return procActorFrom((PROPS[name] ?? (() => new THREE.Group()))());
+  return procActorFrom(PROPS[name]?.() ?? mangalaProp(name) ?? new THREE.Group());
 }
 
 const textures = new Map<string, Promise<THREE.Texture>>();

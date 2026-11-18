@@ -7,6 +7,7 @@ import { ROOM_PROPS } from './room';
 import { VAPUR_HELD, VAPUR_PROPS } from './vapur';
 import { DAVULCU_HELD, DAVULCU_PROPS } from './davulcu';
 import { KARAGOZ_HELD, KARAGOZ_PROPS } from './karagoz';
+import { MANGALA_PROPS } from './mangala';
 
 /**
  * A thing from a GLB file to hold in the hands. The group is returned at once and the model drops in when it
@@ -266,6 +267,8 @@ export const PROPS: Record<string, () => THREE.Object3D> = {
   ...DAVULCU_PROPS,
   // Karagöz ile Hacivat'ın Gölgesi
   ...KARAGOZ_PROPS,
+  // Mangala Turnuvası
+  ...MANGALA_PROPS,
   // a door that opens, an invisible spot to tap
   ...ROOM_PROPS,
 };

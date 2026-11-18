@@ -551,7 +551,7 @@
     },
     {
       "id": "mangala",
-      "status": "soon",
+      "status": "ready",
       "title": "Mangala Turnuvası",
       "titleEn": "The Mangala Tournament",
       "values": [
@@ -560,19 +560,22 @@
         "sabir"
       ],
       "blurb": {
-        "tr": "Dedenin getirdiği mangala, Türk Kültür Derneği'nin turnuvasına uzanıyor: Can kaybetmeyi, rakibini kutlamayı ve sabırla oynamayı öğreniyor.",
+        "tr": "Dedenin getirdiği mangala, Türk Amerikan Derneği’nin turnuvasına uzanıyor: Can kaybetmeyi, rakibini kutlamayı ve sabırla oynamayı öğreniyor.",
         "en": ""
       },
       "cover": {
         "art": "cover-soon",
         "color": "#8A5530",
-        "motif": "mangala"
+        "motif": "mangala",
+        "src": "kapak.webp",
+        "titled": false
       },
       "carpet": {
         "motif": "pitrak",
         "field": "#3E4A2C",
         "src": "/halilar/mangala.webp"
-      }
+      },
+      "pages": 8
     },
     {
       "id": "koyde-imece",

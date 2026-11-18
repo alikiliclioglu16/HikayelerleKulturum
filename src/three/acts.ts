@@ -582,6 +582,21 @@ Object.assign(THING_ACTS, {
   lean: (_s: State, b: Beat, t: number) => ({ keys: [key(t, b.len ?? 0.6, { root: { tilt: -(b.face ?? 40) } })], dur: b.len ?? 0.6 }),
   /** Turns round to face the other way (a puppet on the screen shows its other side). */
   flip: (s: State, _b: Beat, t: number) => ({ keys: [key(t, 0.5, { root: { rotY: s.root.rotY + 180 } })], dur: 0.5 }),
+  /** Hops in an arc to `to` (offsets from its place) in `len` seconds, `face` high (a mangala stone sown into a pit). */
+  hopTo: (s: State, b: Beat, t: number) => {
+    const to = b.to ?? [s.root.x, s.root.y, s.root.z];
+    const len = b.len ?? 0.45;
+    const h = (b.face ?? 40) / 1000;
+    const mid = { x: (s.root.x + to[0]) / 2, z: (s.root.z + to[2]) / 2, y: Math.max(s.root.y, to[1]) + h };
+    return {
+      keys: [
+        key(t, 0.05, { root: { show: 1 } }),
+        key(t, len / 2, { root: mid }),
+        key(t + len / 2, len / 2, { root: { x: to[0], y: to[1], z: to[2] } }),
+      ],
+      dur: len,
+    };
+  },
   /** Comes on at once, without swelling (a light switched on). */
   switchOn: (_s: State, b: Beat, t: number) => ({ keys: [key(t, 0.05, { root: { show: 1, glow: 1 }, burst: b.len ?? 0.4 }), key(t + 0.05, 1, { root: { glow: 0.45 } })], dur: 0.3 }),
   /** Goes off at once. */
