@@ -35,6 +35,8 @@ export interface LayerSpec {
   full?: boolean;
   /** Colour multiplied over the floor picture (e.g. a dark blue for a night street). */
   floorTint?: string;
+  /** Colour multiplied over the backdrop picture too (an evening room with the lights down). */
+  tint?: string;
   floor?: string;
 }
 
@@ -91,6 +93,14 @@ export interface PageModel {
   id?: string;
   /** With `id`: not there until a beat makes it appear or rise. */
   hidden?: boolean;
+  /** For `proc: "panel"`: "bottom" turns and tilts it about the middle of its bottom edge (a shadow puppet), not the left edge. */
+  pivot?: 'left' | 'bottom';
+  /** For `proc: "panel"`: not shaded by the lights, glowing as if lit from behind (a puppet on the lit screen). */
+  unlit?: boolean;
+  /** For `proc: "panel"`: stretch the picture's height by this much (a strip of soil made taller). */
+  sy?: number;
+  /** For `proc: "panel"`: a thin stick down from its middle (a shadow puppet held in the hand). */
+  stick?: boolean;
   /** For `proc: "bubble"`: true when x, y is the speaker's head, so the tail's tip sits there and points at them. */
   tail?: boolean;
   /** For `proc: "bubble"`: the words in a speech bubble (a greeting floating in the air), and its colour; for

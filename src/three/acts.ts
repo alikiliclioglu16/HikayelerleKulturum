@@ -543,6 +543,51 @@ Object.assign(THING_ACTS, {
     }),
 });
 
+/* ---------------- shadow puppets on the lit screen (Karagöz ile Hacivat) ---------------- */
+
+Object.assign(THING_ACTS, {
+  /**
+   * A puppet walks along the screen to `to` (offsets from its place) in `len` seconds, bobbing at every step
+   * and rocking a little, the way a puppeteer moves the stick.
+   */
+  slide: (s: State, b: Beat, t: number) => {
+    const to = b.to ?? [s.root.x + 0.1, s.root.y, s.root.z];
+    const len = b.len ?? 1.6;
+    const n = Math.max(2, Math.round(len / 0.22));
+    const ks: Key[] = [key(t, len, { root: { x: to[0], z: to[2] } })];
+    for (let i = 0; i < n; i++) ks.push(key(t + i * (len / n), len / n, { root: { y: to[1] + (i % 2 ? 0 : 0.014), tilt: i % 2 ? -3 : 3 }, minor: true }));
+    ks.push(key(t + len, 0.25, { root: { y: to[1], tilt: 0 } }));
+    return { keys: ks, dur: len + 0.25 };
+  },
+  /** A puppet talks: little jerks of the stick for `len` seconds, then still. */
+  jiggle: (s: State, b: Beat, t: number) => {
+    const len = b.len ?? 1.8;
+    const n = Math.max(2, Math.round(len / 0.18));
+    const ks: Key[] = [];
+    for (let i = 0; i < n; i++)
+      ks.push(key(t + i * 0.18, 0.18, { root: { tilt: (s.root.tilt ?? 0) + (i % 2 ? -4 : 4), y: s.root.y + (i % 3 === 0 ? 0.008 : 0) }, minor: true }));
+    ks.push(key(t + n * 0.18, 0.2, { root: { tilt: s.root.tilt ?? 0, y: s.root.y } }));
+    return { keys: ks, dur: n * 0.18 + 0.2 };
+  },
+  /** Leans over by `face` degrees (default 28: a bow to the audience) and comes back up after `len` seconds. */
+  tip: (s: State, b: Beat, t: number) => {
+    const a = b.face ?? 28;
+    const len = b.len ?? 0.8;
+    return {
+      keys: [key(t, 0.45, { root: { tilt: (s.root.tilt ?? 0) - a } }), key(t + 0.45 + len, 0.5, { root: { tilt: s.root.tilt ?? 0 } })],
+      dur: 0.95 + len,
+    };
+  },
+  /** Tips over by `face` degrees and stays (a bucket pouring), or back to `face` 0. */
+  lean: (_s: State, b: Beat, t: number) => ({ keys: [key(t, b.len ?? 0.6, { root: { tilt: -(b.face ?? 40) } })], dur: b.len ?? 0.6 }),
+  /** Turns round to face the other way (a puppet on the screen shows its other side). */
+  flip: (s: State, _b: Beat, t: number) => ({ keys: [key(t, 0.5, { root: { rotY: s.root.rotY + 180 } })], dur: 0.5 }),
+  /** Comes on at once, without swelling (a light switched on). */
+  switchOn: (_s: State, b: Beat, t: number) => ({ keys: [key(t, 0.05, { root: { show: 1, glow: 1 }, burst: b.len ?? 0.4 }), key(t + 0.05, 1, { root: { glow: 0.45 } })], dur: 0.3 }),
+  /** Goes off at once. */
+  switchOff: (_s: State, _b: Beat, t: number) => ({ keys: [key(t, 0.05, { root: { show: 0 } })], dur: 0.1 }),
+});
+
 export function runAct(s: State, b: Beat, t: number): ActResult {
   const a = ACTS[b.do] ?? THING_ACTS[b.do];
   if (!a) {

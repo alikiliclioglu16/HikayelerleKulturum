@@ -1,0 +1,4283 @@
+{
+  "id": "karagoz-hacivat",
+  "title": "Karagöz ile Hacivat'ın Gölgesi",
+  "titleEn": "The Shadows of Karagöz and Hacivat",
+  "culture": {
+    "tr": "Karagöz geleneği, deri tasvirler, hayal perdesi, söz oyunu ve kapanış sözü",
+    "en": "The Karagöz shadow play: leather puppets, the lit screen, word play and the closing words"
+  },
+  "summary": {
+    "tr": "Hayal perdesinde Karagöz ile Hacivat bir bahçe kuruyor. Kelimeler karışıyor, kahkahalar yükseliyor; iki arkadaş birbirinden yeni şeyler öğreniyor.",
+    "en": ""
+  },
+  "values": [
+    "dostluk",
+    "mutevazilik",
+    "estetik"
+  ],
+  "music": {
+    "src": "/books/karagoz-hacivat/muzik.mp3",
+    "loop": 51.84,
+    "gain": 0.9
+  },
+  "toyCast": true,
+  "glossary": {
+    "babaanne": {
+      "en": "grandma (father's mother)",
+      "icon": "👵"
+    },
+    "İzmir": {
+      "en": "İzmir, a city on the Aegean coast of Türkiye",
+      "icon": "🏙️"
+    },
+    "paket": {
+      "en": "parcel",
+      "icon": "📦"
+    },
+    "göndermek": {
+      "en": "to send",
+      "icon": "📮"
+    },
+    "deri": {
+      "en": "leather",
+      "icon": "🟫"
+    },
+    "tasvir": {
+      "en": "a shadow-play puppet",
+      "icon": "🎭"
+    },
+    "anne": {
+      "en": "mum",
+      "icon": "👩"
+    },
+    "gölge oyunu": {
+      "en": "shadow play",
+      "icon": "🎭"
+    },
+    "figür": {
+      "en": "figure",
+      "icon": "🧍"
+    },
+    "Karagöz": {
+      "en": "Karagöz, the plain-spoken hero of the shadow play",
+      "icon": "🎭"
+    },
+    "Hacivat": {
+      "en": "Hacivat, Karagöz's well-read friend",
+      "icon": "📚"
+    },
+    "gelenek": {
+      "en": "tradition",
+      "icon": "🏛️"
+    },
+    "Bursa": {
+      "en": "Bursa, a city in north-west Türkiye",
+      "icon": "🏙️"
+    },
+    "yaşatmak": {
+      "en": "to keep alive",
+      "icon": "🌱"
+    },
+    "çubuk": {
+      "en": "stick, rod",
+      "icon": "🥢"
+    },
+    "yürümek": {
+      "en": "to walk",
+      "icon": "🚶"
+    },
+    "akşam": {
+      "en": "evening",
+      "icon": "🌆"
+    },
+    "perde": {
+      "en": "screen, curtain",
+      "icon": "🖼️"
+    },
+    "kurmak": {
+      "en": "to set up",
+      "icon": "🛠️"
+    },
+    "baba": {
+      "en": "dad",
+      "icon": "👨"
+    },
+    "arka": {
+      "en": "back, behind",
+      "icon": "↩️"
+    },
+    "lamba": {
+      "en": "lamp",
+      "icon": "🪔"
+    },
+    "yerleştirmek": {
+      "en": "to place",
+      "icon": "📍"
+    },
+    "yaklaştırmak": {
+      "en": "to bring close",
+      "icon": "🤏"
+    },
+    "ışık": {
+      "en": "light",
+      "icon": "💡"
+    },
+    "geçmek": {
+      "en": "to pass through",
+      "icon": "➡️"
+    },
+    "renk": {
+      "en": "colour",
+      "icon": "🎨"
+    },
+    "yelek": {
+      "en": "waistcoat",
+      "icon": "🦺"
+    },
+    "fısıldamak": {
+      "en": "to whisper",
+      "icon": "🤫"
+    },
+    "bahçe": {
+      "en": "garden",
+      "icon": "🌷"
+    },
+    "oyun": {
+      "en": "play, game",
+      "icon": "🎲"
+    },
+    "oda": {
+      "en": "room",
+      "icon": "🛋️"
+    },
+    "kararmak": {
+      "en": "to get dark",
+      "icon": "🌑"
+    },
+    "hayal perdesi": {
+      "en": "the shadow-play screen (“screen of dreams”)",
+      "icon": "🖼️"
+    },
+    "belirmek": {
+      "en": "to appear",
+      "icon": "✨"
+    },
+    "Hay Hak": {
+      "en": "Hacivat's famous greeting",
+      "icon": "🙌"
+    },
+    "bahçecilik": {
+      "en": "gardening",
+      "icon": "🧑‍🌾"
+    },
+    "kocaman": {
+      "en": "huge",
+      "icon": "🐘"
+    },
+    "kitap": {
+      "en": "book",
+      "icon": "📖"
+    },
+    "sığmak": {
+      "en": "to fit in",
+      "icon": "📦"
+    },
+    "gülmek": {
+      "en": "to laugh",
+      "icon": "😂"
+    },
+    "kova": {
+      "en": "bucket",
+      "icon": "🪣"
+    },
+    "sallamak": {
+      "en": "to swing",
+      "icon": "↔️"
+    },
+    "fidan": {
+      "en": "sapling, young tree",
+      "icon": "🌱"
+    },
+    "dikmek": {
+      "en": "to plant",
+      "icon": "🪴"
+    },
+    "paylaşmak": {
+      "en": "to share",
+      "icon": "🤝"
+    },
+    "bilgi": {
+      "en": "knowledge",
+      "icon": "💡"
+    },
+    "toprak": {
+      "en": "soil",
+      "icon": "🟤"
+    },
+    "tesviye": {
+      "en": "levelling (making flat)",
+      "icon": "📏"
+    },
+    "düzlemek": {
+      "en": "to flatten",
+      "icon": "📏"
+    },
+    "tespih": {
+      "en": "prayer beads",
+      "icon": "📿"
+    },
+    "boncuk": {
+      "en": "bead",
+      "icon": "🔴"
+    },
+    "dizmek": {
+      "en": "to string, line up",
+      "icon": "🧵"
+    },
+    "benzer": {
+      "en": "similar",
+      "icon": "🟰"
+    },
+    "duyulmak": {
+      "en": "to sound",
+      "icon": "👂"
+    },
+    "kelime": {
+      "en": "word",
+      "icon": "🔤"
+    },
+    "düz": {
+      "en": "flat, straight",
+      "icon": "➖"
+    },
+    "çizgi": {
+      "en": "line",
+      "icon": "📏"
+    },
+    "anlamak": {
+      "en": "to understand",
+      "icon": "💡"
+    },
+    "söz": {
+      "en": "word, saying",
+      "icon": "💬"
+    },
+    "sormak": {
+      "en": "to ask",
+      "icon": "❓"
+    },
+    "tutmak": {
+      "en": "to hold",
+      "icon": "✋"
+    },
+    "kök": {
+      "en": "root",
+      "icon": "🌿"
+    },
+    "incitmek": {
+      "en": "to hurt",
+      "icon": "🩹"
+    },
+    "doldurmak": {
+      "en": "to fill",
+      "icon": "🫙"
+    },
+    "güneş": {
+      "en": "sun",
+      "icon": "☀️"
+    },
+    "ihtiyaç": {
+      "en": "need",
+      "icon": "🙏"
+    },
+    "su": {
+      "en": "water",
+      "icon": "💧"
+    },
+    "dökmek": {
+      "en": "to pour",
+      "icon": "🫗"
+    },
+    "oynatmak": {
+      "en": "to move (a puppet), to make play",
+      "icon": "🎭"
+    },
+    "yardımlaşmak": {
+      "en": "to help each other",
+      "icon": "🤝"
+    },
+    "okumak": {
+      "en": "to read",
+      "icon": "📖"
+    },
+    "sanmak": {
+      "en": "to think, suppose",
+      "icon": "🤔"
+    },
+    "gölge": {
+      "en": "shade, shadow",
+      "icon": "🌳"
+    },
+    "sevmek": {
+      "en": "to like, love",
+      "icon": "❤️"
+    },
+    "karşılık vermek": {
+      "en": "to answer",
+      "icon": "💬"
+    },
+    "öğrenmek": {
+      "en": "to learn",
+      "icon": "🎓"
+    },
+    "malzeme": {
+      "en": "material",
+      "icon": "✂️"
+    },
+    "seyirci": {
+      "en": "audience",
+      "icon": "👥"
+    },
+    "selamlamak": {
+      "en": "to greet",
+      "icon": "👋"
+    },
+    "kapanış sözü": {
+      "en": "closing words",
+      "icon": "🎬"
+    },
+    "sürçülisan": {
+      "en": "a slip of the tongue (old word)",
+      "icon": "👅"
+    },
+    "affola": {
+      "en": "may it be forgiven (old word)",
+      "icon": "🙏"
+    },
+    "anlam": {
+      "en": "meaning",
+      "icon": "💡"
+    },
+    "hata": {
+      "en": "mistake",
+      "icon": "❌"
+    },
+    "bağışlamak": {
+      "en": "to forgive",
+      "icon": "🤗"
+    },
+    "açıklamak": {
+      "en": "to explain",
+      "icon": "🗣️"
+    },
+    "karışmak": {
+      "en": "to get mixed up",
+      "icon": "🔀"
+    },
+    "taklit etmek": {
+      "en": "to imitate",
+      "icon": "🪞"
+    },
+    "karton": {
+      "en": "cardboard",
+      "icon": "📦"
+    },
+    "koyu": {
+      "en": "dark",
+      "icon": "⬛"
+    },
+    "oluşturmak": {
+      "en": "to make, form",
+      "icon": "🧩"
+    },
+    "unutmak": {
+      "en": "to forget",
+      "icon": "🤭"
+    },
+    "beklemek": {
+      "en": "to wait",
+      "icon": "⏳"
+    },
+    "selam": {
+      "en": "greeting, a bow",
+      "icon": "🙇"
+    },
+    "eğmek": {
+      "en": "to bend, bow",
+      "icon": "🙇"
+    },
+    "aile": {
+      "en": "family",
+      "icon": "👨‍👩‍👧‍👦"
+    },
+    "alkışlamak": {
+      "en": "to clap",
+      "icon": "👏"
+    },
+    "kardeş": {
+      "en": "brother or sister",
+      "icon": "👫"
+    },
+    "gülümsemek": {
+      "en": "to smile",
+      "icon": "😊"
+    },
+    "pencere": {
+      "en": "window",
+      "icon": "🪟"
+    },
+    "Saat Kulesi": {
+      "en": "the Clock Tower of İzmir",
+      "icon": "🕰️"
+    },
+    "kanepe": {
+      "en": "sofa",
+      "icon": "🛋️"
+    },
+    "halı": {
+      "en": "carpet",
+      "icon": "🟥"
+    },
+    "ağaç": {
+      "en": "tree",
+      "icon": "🌳"
+    },
+    "çit": {
+      "en": "fence",
+      "icon": "🚧"
+    },
+    "çiçek": {
+      "en": "flower",
+      "icon": "🌼"
+    }
+  },
+  "quiz": [
+    {
+      "q": {
+        "tr": "Babaannenin paketinden ne çıktı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "İki deri tasvir",
+          "en": ""
+        },
+        {
+          "tr": "Bir kitap",
+          "en": ""
+        },
+        {
+          "tr": "Bir fidan",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "Paketten gölge oyununun iki kahramanı Karagöz ile Hacivat’ın deri tasvirleri çıktı.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Gölge oyunu oynanırken lamba nereye konur?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Seyircilerin önüne",
+          "en": ""
+        },
+        {
+          "tr": "Perdenin arkasına",
+          "en": ""
+        },
+        {
+          "tr": "Perdenin üstüne",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Babaları lambayı perdenin arkasına yerleştirdi; ışık deriden geçince renkler perdede göründü.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Karagöz “tesviye” kelimesini neyle karıştırdı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Tespih",
+          "en": ""
+        },
+        {
+          "tr": "Tencere",
+          "en": ""
+        },
+        {
+          "tr": "Teşekkür",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "Benzer duyulan iki kelimeyi karıştırdı; Hacivat da “tesviye”nin düzlemek demek olduğunu gösterdi.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Hacivat ile Karagöz birbirlerinden ne öğrendi?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Hiçbir şey öğrenmediler",
+          "en": ""
+        },
+        {
+          "tr": "Hacivat uygulamayı, Karagöz kitaptaki bilgiyi öğrendi",
+          "en": ""
+        },
+        {
+          "tr": "Sadece şarkı söylemeyi öğrendiler",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Karagöz fidanı dikmeyi gösterdi; Hacivat da kitaptan fidanın gölgeyi sevdiğini buldu. İkisi de birbirinden öğrendi.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Deri tasvirlerle karton figürlerin perdedeki görüntüleri nasıl farklıydı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "İkisi de aynı renkliydi",
+          "en": ""
+        },
+        {
+          "tr": "Deri tasvirler renkli, kartonlar koyu gölge oluşturdu",
+          "en": ""
+        },
+        {
+          "tr": "Kartonlar daha renkliydi",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Işık ince deriden geçip renkleri gösterir; karton ışığı geçirmediği için koyu gölge oluşur.",
+        "en": ""
+      }
+    }
+  ],
+  "valueHunt": [
+    {
+      "page": "p3",
+      "answer": "dostluk",
+      "options": [
+        "dostluk",
+        "tasarruf",
+        "adalet"
+      ],
+      "why": {
+        "tr": "Karagöz ile Hacivat farklı olsalar da bahçeyi birlikte kurmaya başladılar.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p4",
+      "answer": "saygi",
+      "options": [
+        "saygi",
+        "vatanseverlik",
+        "sorumluluk"
+      ],
+      "why": {
+        "tr": "Hacivat, kelimeyi karıştıran Karagöz’le alay etmedi; sabırla anlattı.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p6",
+      "answer": "mutevazilik",
+      "options": [
+        "ozgurluk",
+        "mutevazilik",
+        "estetik"
+      ],
+      "why": {
+        "tr": "Hacivat okumakla her şeyi bilemeyeceğini kabul etti.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p8",
+      "answer": "estetik",
+      "options": [
+        "estetik",
+        "saglikli-yasam",
+        "adalet"
+      ],
+      "why": {
+        "tr": "Çocuklar kendi figürlerini yapıp perdede güzel bir gösteri hazırladı.",
+        "en": ""
+      }
+    }
+  ],
+  "family": {
+    "task": {
+      "tr": "Evde bir çarşaf ve bir lamba ile küçük bir gölge perdesi kurun. Kartondan iki figür kesip birbirinden bir şey öğrenen iki arkadaşın kısa oyununu oynayın.",
+      "en": ""
+    },
+    "talk": [
+      {
+        "tr": "Deri tasvirlerle karton figürlerin perdedeki görüntüleri nasıl farklıydı?",
+        "en": ""
+      },
+      {
+        "tr": "Hacivat ile Karagöz birbirlerinden ne öğrendi?",
+        "en": ""
+      },
+      {
+        "tr": "Bir sözü yanlış duyan iki arkadaş için kısa ve kimseyi incitmeyen bir konuşma yaz veya canlandır.",
+        "en": ""
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "p1",
+      "title": {
+        "tr": "Babaannenin paketi",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Babaanneleri|babaanne} {İzmir’den|İzmir} {paket} {göndermişti|göndermek}. İçinden iki {deri} {tasvir} çıktı. {Anneleri|anne} “Tasvir {gölge oyunundaki|gölge oyunu} {figürün|figür} adıdır. Bunlar {Karagöz} ile {Hacivat}. Bu {gelenek} {Bursa’da|Bursa} da {yaşatılıyor|yaşatmak}.” dedi. Can {çubuklara|çubuk} baktı. “Nasıl {yürüyecekler|yürümek}?” diye sordu. {Akşam|akşam} {perdeyi|perde} {kurunca|kurmak} göreceklerdi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Karagöz oyununun tasvirleri, ışık geçirecek kadar inceltilmiş deve ya da manda derisinden kesilir ve bitkisel boyalarla renklendirilir. Rivayete göre Karagöz ile Hacivat Bursa’da yaşamıştır; bu gelenek bugün de Bursa’da yaşatılıyor.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "../bayram-sabahi/art/p4-arka.webp",
+          "floor": "../bayram-sabahi/art/p4-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.18,
+                0.0,
+                0.5,
+                0.32
+              ]
+            },
+            {
+              "word": "Saat Kulesi",
+              "rect": [
+                0.68,
+                0.07,
+                0.19,
+                0.32
+              ]
+            },
+            {
+              "word": "kanepe",
+              "rect": [
+                0.01,
+                0.37,
+                0.69,
+                0.3
+              ]
+            },
+            {
+              "word": "halı",
+              "rect": [
+                0.0,
+                0.66,
+                0.98,
+                0.22
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "paket",
+          "id": "paket",
+          "word": "paket",
+          "x": 0.02,
+          "z": 0.56,
+          "h": 0.085
+        },
+        {
+          "proc": "panel",
+          "id": "karagoz",
+          "decal": "/books/karagoz-hacivat/art/karagoz.webp",
+          "x": -0.045,
+          "z": 0.56,
+          "y": 0.11,
+          "h": 0.2,
+          "w": 0.131,
+          "pivot": "bottom",
+          "word": "Karagöz",
+          "stick": true,
+          "hidden": true,
+          "magic": true,
+          "from": [
+            0,
+            -0.1,
+            0
+          ]
+        },
+        {
+          "proc": "panel",
+          "id": "hacivat",
+          "decal": "/books/karagoz-hacivat/art/hacivat.webp",
+          "x": 0.085,
+          "z": 0.56,
+          "y": 0.11,
+          "h": 0.2,
+          "w": 0.109,
+          "pivot": "bottom",
+          "word": "Hacivat",
+          "stick": true,
+          "hidden": true,
+          "magic": true,
+          "from": [
+            0,
+            -0.1,
+            0
+          ]
+        },
+        {
+          "proc": "bubble",
+          "id": "b_can",
+          "label": "Nasıl yürüyecekler?",
+          "color": "#2F6DC4",
+          "x": -0.2,
+          "z": 0.72,
+          "y": 0.42,
+          "h": 0.088,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "anne",
+          "x": 0.3,
+          "z": 0.46,
+          "rotY": -50,
+          "look": "paket"
+        },
+        {
+          "id": "elif",
+          "x": 0.24,
+          "z": 0.76,
+          "rotY": -110,
+          "look": "paket"
+        },
+        {
+          "id": "can",
+          "x": -0.2,
+          "z": 0.72,
+          "rotY": 70,
+          "look": "paket"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "paket",
+          "do": "ring",
+          "focus": true
+        },
+        {
+          "cue": [
+            "paket"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "paket"
+        },
+        {
+          "cue": [
+            "içinden"
+          ],
+          "who": "karagoz",
+          "do": "rise",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "focus": true
+        },
+        {
+          "cue": [
+            "içinden"
+          ],
+          "who": "hacivat",
+          "do": "rise",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "çıktı"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "hacivat"
+        },
+        {
+          "cue": [
+            "anneleri"
+          ],
+          "who": "anne",
+          "do": "talk",
+          "look": "can",
+          "len": 3.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "bunlar"
+          ],
+          "who": "anne",
+          "do": "point",
+          "target": "karagoz",
+          "look": "karagoz",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "karagöz"
+          ],
+          "who": "karagoz",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "hacivat",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "bursa’da"
+          ],
+          "who": "anne",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "çubuklara"
+          ],
+          "who": "can",
+          "do": "bend",
+          "look": "karagoz",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "nasıl"
+          ],
+          "who": "b_can",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "nasıl"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "anne",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "nasıl"
+          ],
+          "who": "karagoz",
+          "do": "jiggle",
+          "len": 1.2,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "akşam"
+          ],
+          "who": "b_can",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "akşam"
+          ],
+          "who": "anne",
+          "do": "nod",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "göreceklerdi"
+          ],
+          "who": "hacivat",
+          "do": "jiggle",
+          "len": 1.2
+        }
+      ],
+      "audio": {
+        "src": "/books/karagoz-hacivat/ses/p1.mp3",
+        "marks": [
+          0.26,
+          1.1,
+          1.64,
+          1.98,
+          3.18,
+          3.8,
+          4.04,
+          4.32,
+          4.78,
+          5.56,
+          6.46,
+          7.0,
+          7.96,
+          8.4,
+          9.06,
+          9.48,
+          9.92,
+          10.08,
+          11.0,
+          11.12,
+          11.6,
+          12.02,
+          12.14,
+          12.98,
+          13.84,
+          14.12,
+          14.66,
+          15.5,
+          15.86,
+          16.78,
+          17.06,
+          17.9,
+          18.32,
+          18.76,
+          19.2,
+          20.15
+        ],
+        "ends": [
+          1.09,
+          1.63,
+          1.97,
+          2.8,
+          3.76,
+          4.03,
+          4.31,
+          4.77,
+          5.19,
+          6.21,
+          6.99,
+          7.95,
+          8.39,
+          8.93,
+          9.47,
+          9.91,
+          10.07,
+          10.54,
+          11.11,
+          11.53,
+          12.01,
+          12.13,
+          12.87,
+          13.3,
+          14.11,
+          14.65,
+          15.11,
+          15.85,
+          16.71,
+          17.05,
+          17.55,
+          18.31,
+          18.75,
+          19.19,
+          20.1
+        ]
+      }
+    },
+    {
+      "id": "p2",
+      "title": {
+        "tr": "Işıklı perde",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Babaları|baba} beyaz {perdenin|perde} {arkasına|arka} {lamba} {yerleştirdi|yerleştirmek}. Anneleri tasvirleri {çubuklarından|çubuk} tutup perdeye {yaklaştırdı|yaklaştırmak}. {Işık|ışık} {deriden|deri} {geçince|geçmek} {renkler|renk} göründü. Elif “Kırmızı {yeleği|yelek} görünüyor!” diye {fısıldadı|fısıldamak}. Anneleri “Size bir {bahçe} {oyunu|oyun} oynatacağız.” dedi. {Oda|oda} {karardı|kararmak}. {Hayal perdesinde|hayal perdesi} Hacivat {belirdi|belirmek}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Karagöz oyunu “hayal perdesi” denen beyaz bir perdede oynanır. Perdenin arkasındaki ışık, renkli deri tasvirlerden geçerek görüntüyü perdeye düşürür; oyunu oynatan sanatçıya “hayalî” ya da “Karagözcü” denir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "../bayram-sabahi/art/p4-arka.webp",
+          "floor": "../bayram-sabahi/art/p4-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.18,
+                0.0,
+                0.5,
+                0.32
+              ]
+            },
+            {
+              "word": "Saat Kulesi",
+              "rect": [
+                0.68,
+                0.07,
+                0.19,
+                0.32
+              ]
+            },
+            {
+              "word": "kanepe",
+              "rect": [
+                0.01,
+                0.37,
+                0.69,
+                0.3
+              ]
+            }
+          ],
+          "tint": "#76699C",
+          "floorTint": "#76699C"
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "hayalPerdesiSonuk",
+          "word": "perde",
+          "x": 0.0,
+          "z": 0.3,
+          "h": 0.55
+        },
+        {
+          "proc": "perdeIsigi",
+          "id": "isik",
+          "x": 0.0,
+          "z": 0.3,
+          "h": 0.35,
+          "hidden": true
+        },
+        {
+          "proc": "panel",
+          "id": "karagoz",
+          "decal": "/books/karagoz-hacivat/art/karagoz.webp",
+          "x": -0.08,
+          "z": 0.312,
+          "y": 0.19,
+          "h": 0.24,
+          "w": 0.157,
+          "pivot": "bottom",
+          "word": "Karagöz",
+          "unlit": true,
+          "hidden": true
+        },
+        {
+          "proc": "panel",
+          "id": "hacivat",
+          "decal": "/books/karagoz-hacivat/art/hacivat.webp",
+          "x": 0.08,
+          "z": 0.312,
+          "y": 0.19,
+          "h": 0.24,
+          "w": 0.13,
+          "pivot": "bottom",
+          "word": "Hacivat",
+          "unlit": true,
+          "hidden": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_elif",
+          "label": "Kırmızı yeleği görünüyor!",
+          "color": "#7B4BB7",
+          "x": -0.2,
+          "z": 0.78,
+          "y": 0.475,
+          "h": 0.088,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "baba",
+          "x": 0.36,
+          "z": 0.58,
+          "rotY": -40,
+          "look": "reader",
+          "hold": "lamba"
+        },
+        {
+          "id": "anne",
+          "x": -0.36,
+          "z": 0.56,
+          "rotY": 40,
+          "look": "baba"
+        },
+        {
+          "id": "elif",
+          "x": -0.2,
+          "z": 0.78,
+          "rotY": 170,
+          "look": "isik"
+        },
+        {
+          "id": "can",
+          "x": 0.14,
+          "z": 0.8,
+          "rotY": 190,
+          "look": "isik"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "babaları"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            -0.22,
+            0,
+            -0.512
+          ],
+          "face": 180,
+          "look": "isik",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yerleştirdi"
+          ],
+          "who": "isik",
+          "do": "switchOn",
+          "sound": "shine"
+        },
+        {
+          "cue": [
+            "yerleştirdi"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "isik",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "anneleri"
+          ],
+          "who": "anne",
+          "do": "walkTo",
+          "to": [
+            0.24,
+            0,
+            -0.488
+          ],
+          "face": 180,
+          "look": "isik",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ışık"
+          ],
+          "who": "karagoz",
+          "do": "switchOn",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ışık"
+          ],
+          "who": "hacivat",
+          "do": "switchOn",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "renkler"
+          ],
+          "who": "karagoz",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "renkler"
+          ],
+          "who": "hacivat",
+          "do": "jiggle",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "b_elif",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "point",
+          "target": "karagoz",
+          "look": "karagoz",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "anneleri"
+          ],
+          "who": "b_elif",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "size"
+          ],
+          "who": "karagoz",
+          "do": "tip",
+          "face": 20
+        },
+        {
+          "cue": [
+            "oda"
+          ],
+          "who": "karagoz",
+          "do": "switchOff"
+        },
+        {
+          "cue": [
+            "oda"
+          ],
+          "who": "hacivat",
+          "do": "switchOff",
+          "wait": 0.1
+        },
+        {
+          "cue": [
+            "oda"
+          ],
+          "who": "hacivat",
+          "do": "slide",
+          "to": [
+            0.14,
+            0,
+            0
+          ],
+          "len": 0.3,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "karardı"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "isik",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "hacivat",
+          "do": "switchOn",
+          "focus": true
+        },
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "hacivat",
+          "do": "slide",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "belirdi"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "hacivat",
+          "wait": 0.6
+        }
+      ],
+      "audio": {
+        "src": "/books/karagoz-hacivat/ses/p2.mp3",
+        "marks": [
+          0.27,
+          0.85,
+          1.21,
+          1.71,
+          2.27,
+          2.61,
+          3.77,
+          4.39,
+          5.01,
+          5.77,
+          6.11,
+          6.61,
+          7.91,
+          8.21,
+          8.65,
+          9.25,
+          9.77,
+          10.71,
+          11.31,
+          11.83,
+          12.19,
+          13.07,
+          13.33,
+          14.37,
+          15.29,
+          15.57,
+          15.69,
+          16.05,
+          16.33,
+          17.25,
+          17.89,
+          18.17,
+          19.13,
+          20.29,
+          20.85,
+          21.43
+        ],
+        "ends": [
+          0.84,
+          1.2,
+          1.7,
+          2.26,
+          2.6,
+          3.4,
+          4.38,
+          5.0,
+          5.76,
+          6.08,
+          6.6,
+          7.45,
+          8.2,
+          8.64,
+          9.24,
+          9.76,
+          10.29,
+          11.1,
+          11.82,
+          12.18,
+          12.9,
+          13.32,
+          14.01,
+          15.02,
+          15.56,
+          15.68,
+          16.04,
+          16.32,
+          17.0,
+          17.58,
+          18.16,
+          18.78,
+          20.28,
+          20.8,
+          21.38
+        ]
+      }
+    },
+    {
+      "id": "p3",
+      "title": {
+        "tr": "Hacivat’ın bahçesi",
+        "en": ""
+      },
+      "text": {
+        "tr": "Hacivat “{Hay Hak}! {Bahçecilik|bahçecilik} hakkında {kocaman} bir {kitap} okudum!” dedi. Karagöz “Bahçe de içine {sığar mı|sığmak}?” diye sordu. Can {güldü|gülmek}. Hacivat “Kitap bahçe kurmayı anlatıyor.” dedi. Karagöz {kovasını|kova} {salladı|sallamak}. “Ben de {fidan} {dikmiştim|dikmek}. Başlayalım!” İkisinin de {paylaşacak|paylaşmak} {bilgisi|bilgi} vardı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Hacivat kitap bilgisiyle konuşan, süslü sözler seven bir karakterdir; Karagöz ise halktan, sözünü dolandırmayan, hayatın içinden öğrenmiş biridir. Oyunun güldüren yanı, bu iki farklı arkadaşın konuşmasından doğar.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/perde-arka.webp",
+          "floor": "../bayram-sabahi/art/p4-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "perde",
+              "rect": [
+                0.14,
+                0.06,
+                0.72,
+                0.5
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.0,
+                0.03,
+                0.12,
+                0.92
+              ]
+            },
+            {
+              "word": "çit",
+              "rect": [
+                0.86,
+                0.78,
+                0.12,
+                0.17
+              ]
+            }
+          ],
+          "floorTint": "#6E6488"
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "panel",
+          "id": "toprak_engebeli",
+          "decal": "/books/karagoz-hacivat/art/toprak-engebeli.webp",
+          "x": 0.0,
+          "z": 0.018000000000000002,
+          "y": 0.045,
+          "h": 0.11164242424242427,
+          "w": 0.52,
+          "pivot": "bottom",
+          "word": "toprak",
+          "unlit": true,
+          "sy": 2.6
+        },
+        {
+          "proc": "panel",
+          "id": "karagoz",
+          "decal": "/books/karagoz-hacivat/art/karagoz.webp",
+          "x": -0.2,
+          "z": 0.014,
+          "y": 0.098,
+          "h": 0.44,
+          "w": 0.288,
+          "pivot": "bottom",
+          "word": "Karagöz",
+          "unlit": true,
+          "hidden": true,
+          "from": [
+            -0.3,
+            0,
+            0
+          ]
+        },
+        {
+          "proc": "panel",
+          "id": "hacivat",
+          "decal": "/books/karagoz-hacivat/art/hacivat.webp",
+          "x": 0.2,
+          "z": 0.014,
+          "y": 0.098,
+          "h": 0.44,
+          "w": 0.239,
+          "pivot": "bottom",
+          "word": "Hacivat",
+          "unlit": true
+        },
+        {
+          "proc": "panel",
+          "id": "kitap",
+          "decal": "/books/karagoz-hacivat/art/kitap.webp",
+          "x": 0.05000000000000002,
+          "z": 0.018000000000000002,
+          "y": 0.28,
+          "h": 0.12,
+          "w": 0.167,
+          "pivot": "bottom",
+          "word": "kitap",
+          "unlit": true,
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "panel",
+          "id": "kova",
+          "decal": "/books/karagoz-hacivat/art/kova.webp",
+          "x": -0.07,
+          "z": 0.018000000000000002,
+          "y": 0.2,
+          "h": 0.13,
+          "w": 0.101,
+          "pivot": "bottom",
+          "word": "kova",
+          "unlit": true,
+          "hidden": true,
+          "from": [
+            -0.3,
+            0,
+            0
+          ]
+        },
+        {
+          "proc": "bubble",
+          "id": "b_h1",
+          "label": "Hay Hak!",
+          "color": "#2E7D32",
+          "x": 0.18,
+          "z": 0.042,
+          "y": 0.578,
+          "h": 0.1,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_k1",
+          "label": "Bahçe de içine sığar mı?",
+          "color": "#B71C1C",
+          "x": -0.18,
+          "z": 0.042,
+          "y": 0.578,
+          "h": 0.1,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_k2",
+          "label": "Başlayalım!",
+          "color": "#B71C1C",
+          "x": -0.18,
+          "z": 0.042,
+          "y": 0.578,
+          "h": 0.1,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.3,
+          "z": 0.84,
+          "rotY": 160,
+          "look": "hacivat"
+        },
+        {
+          "id": "can",
+          "x": 0.3,
+          "z": 0.84,
+          "rotY": 200,
+          "look": "karagoz"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "b_h1",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "hacivat",
+          "do": "jiggle",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "kocaman"
+          ],
+          "who": "kitap",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "okudum"
+          ],
+          "who": "hacivat",
+          "do": "tip",
+          "face": -12,
+          "len": 0.6
+        },
+        {
+          "cue": [
+            "dedi"
+          ],
+          "who": "b_h1",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "karagöz"
+          ],
+          "who": "kitap",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "karagöz"
+          ],
+          "who": "karagoz",
+          "do": "switchOn",
+          "focus": true
+        },
+        {
+          "cue": [
+            "karagöz"
+          ],
+          "who": "kova",
+          "do": "switchOn"
+        },
+        {
+          "cue": [
+            "karagöz"
+          ],
+          "who": "karagoz",
+          "do": "slide",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "karagöz"
+          ],
+          "who": "kova",
+          "do": "slide",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "bahçe"
+          ],
+          "who": "b_k1",
+          "do": "appear",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "bahçe"
+          ],
+          "who": "karagoz",
+          "do": "jiggle",
+          "len": 1.6,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "b_k1",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "karagoz",
+          "focus": true
+        },
+        {
+          "cue": [
+            "güldü"
+          ],
+          "who": "elif",
+          "do": "hop",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "hacivat",
+          "do": "jiggle",
+          "len": 2.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "anlatıyor"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "hacivat"
+        },
+        {
+          "cue": [
+            "kovasını"
+          ],
+          "who": "kova",
+          "do": "ring",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kovasını"
+          ],
+          "who": "karagoz",
+          "do": "jiggle",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "ben"
+          ],
+          "who": "karagoz",
+          "do": "jiggle",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "başlayalım"
+          ],
+          "who": "b_k2",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "başlayalım"
+          ],
+          "who": "karagoz",
+          "do": "slide",
+          "to": [
+            0.04,
+            0,
+            0
+          ],
+          "len": 0.6
+        },
+        {
+          "cue": [
+            "başlayalım"
+          ],
+          "who": "kova",
+          "do": "slide",
+          "to": [
+            0.04,
+            0,
+            0
+          ],
+          "len": 0.6
+        },
+        {
+          "cue": [
+            "ikisinin"
+          ],
+          "who": "b_k2",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "ikisinin"
+          ],
+          "who": "karagoz",
+          "do": "tip",
+          "face": 12,
+          "len": 0.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "ikisinin"
+          ],
+          "who": "hacivat",
+          "do": "tip",
+          "face": -12,
+          "len": 0.6,
+          "wait": 0.2
+        }
+      ],
+      "audio": {
+        "src": "/books/karagoz-hacivat/ses/p3.mp3",
+        "marks": [
+          0.25,
+          1.13,
+          2.19,
+          2.79,
+          3.29,
+          3.87,
+          3.99,
+          4.31,
+          4.97,
+          5.71,
+          6.59,
+          6.97,
+          7.11,
+          7.45,
+          8.25,
+          8.53,
+          9.37,
+          9.69,
+          10.43,
+          11.21,
+          11.61,
+          11.97,
+          12.41,
+          13.21,
+          13.87,
+          14.41,
+          14.93,
+          15.69,
+          15.91,
+          16.03,
+          16.37,
+          17.21,
+          18.13,
+          18.65,
+          18.81,
+          19.47,
+          19.91,
+          20.41
+        ],
+        "ends": [
+          0.75,
+          1.73,
+          2.78,
+          3.28,
+          3.86,
+          3.98,
+          4.3,
+          4.76,
+          5.31,
+          6.31,
+          6.96,
+          7.1,
+          7.44,
+          8.07,
+          8.52,
+          9.01,
+          9.68,
+          10.17,
+          10.92,
+          11.6,
+          11.96,
+          12.4,
+          13.1,
+          13.55,
+          14.4,
+          14.92,
+          15.47,
+          15.9,
+          16.02,
+          16.36,
+          16.95,
+          17.85,
+          18.64,
+          18.8,
+          19.46,
+          19.9,
+          20.36
+        ]
+      }
+    },
+    {
+      "id": "p4",
+      "title": {
+        "tr": "Tesviye mi tespih mi",
+        "en": ""
+      },
+      "text": {
+        "tr": "Hacivat “{Toprağı|toprak} {tesviye} edelim, yani {düzleyelim|düzlemek}.” dedi. Karagöz “{Tespih|tespih} mi? Toprağa {boncuk} mu {dizeceğiz|dizmek}?” diye sordu. Hacivat güldü. “{Benzer|benzer} {duyuluyorlar|duyulmak} ama farklı {kelimeler|kelime}!” dedi. Eliyle {düz} {çizgi} yaptı. Karagöz {anladı|anlamak}. Elif de anlamadığı {sözleri|söz} yeniden {sorabileceğini|sormak} düşündü.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Karagöz oyunlarında kahkahanın büyük kısmı yanlış anlamalardan doğar: Hacivat’ın süslü bir kelimesini Karagöz benzer sesli başka bir kelimeyle karıştırır. Bu söz oyunları dinleyenlere kelimeleri dikkatle dinlemeyi de öğretir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/perde-arka.webp",
+          "floor": "../bayram-sabahi/art/p4-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "perde",
+              "rect": [
+                0.14,
+                0.06,
+                0.72,
+                0.5
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.0,
+                0.03,
+                0.12,
+                0.92
+              ]
+            },
+            {
+              "word": "çit",
+              "rect": [
+                0.86,
+                0.78,
+                0.12,
+                0.17
+              ]
+            }
+          ],
+          "floorTint": "#6E6488"
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "panel",
+          "id": "toprak_engebeli",
+          "decal": "/books/karagoz-hacivat/art/toprak-engebeli.webp",
+          "x": 0.0,
+          "z": 0.018000000000000002,
+          "y": 0.045,
+          "h": 0.11164242424242427,
+          "w": 0.52,
+          "pivot": "bottom",
+          "word": "toprak",
+          "unlit": true,
+          "sy": 2.6
+        },
+        {
+          "proc": "panel",
+          "id": "toprak_duz",
+          "decal": "/books/karagoz-hacivat/art/toprak-duz.webp",
+          "x": 0.0,
+          "z": 0.018000000000000002,
+          "y": 0.045,
+          "h": 0.08296363636363636,
+          "w": 0.52,
+          "pivot": "bottom",
+          "word": "toprak",
+          "unlit": true,
+          "hidden": true,
+          "sy": 2.6
+        },
+        {
+          "proc": "panel",
+          "id": "karagoz",
+          "decal": "/books/karagoz-hacivat/art/karagoz.webp",
+          "x": -0.2,
+          "z": 0.014,
+          "y": 0.098,
+          "h": 0.44,
+          "w": 0.288,
+          "pivot": "bottom",
+          "word": "Karagöz",
+          "unlit": true
+        },
+        {
+          "proc": "panel",
+          "id": "hacivat",
+          "decal": "/books/karagoz-hacivat/art/hacivat.webp",
+          "x": 0.2,
+          "z": 0.014,
+          "y": 0.098,
+          "h": 0.44,
+          "w": 0.239,
+          "pivot": "bottom",
+          "word": "Hacivat",
+          "unlit": true
+        },
+        {
+          "proc": "panel",
+          "id": "kova",
+          "decal": "/books/karagoz-hacivat/art/kova.webp",
+          "x": -0.37,
+          "z": 0.018000000000000002,
+          "y": 0.095,
+          "h": 0.13,
+          "w": 0.101,
+          "pivot": "bottom",
+          "word": "kova",
+          "unlit": true
+        },
+        {
+          "proc": "panel",
+          "id": "tespih",
+          "decal": "/books/karagoz-hacivat/art/tespih.webp",
+          "x": 0.0,
+          "z": 0.032,
+          "y": 0.458,
+          "h": 0.07,
+          "w": 0.222,
+          "pivot": "bottom",
+          "word": "tespih",
+          "unlit": true,
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_h1",
+          "label": "Toprağı tesviye edelim",
+          "color": "#2E7D32",
+          "x": 0.18,
+          "z": 0.042,
+          "y": 0.578,
+          "h": 0.1,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_k1",
+          "label": "Tespih mi?",
+          "color": "#B71C1C",
+          "x": -0.18,
+          "z": 0.042,
+          "y": 0.578,
+          "h": 0.1,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.3,
+          "z": 0.84,
+          "rotY": 160,
+          "look": "hacivat"
+        },
+        {
+          "id": "can",
+          "x": 0.3,
+          "z": 0.84,
+          "rotY": 200,
+          "look": "karagoz"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "b_h1",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "hacivat",
+          "do": "jiggle",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "tesviye"
+          ],
+          "who": "toprak_engebeli",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "dedi"
+          ],
+          "who": "b_h1",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "karagöz"
+          ],
+          "who": "b_k1",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "karagöz"
+          ],
+          "who": "karagoz",
+          "do": "jiggle",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "tespih"
+          ],
+          "who": "tespih",
+          "do": "appear",
+          "sound": "shine"
+        },
+        {
+          "cue": [
+            "boncuk"
+          ],
+          "who": "tespih",
+          "do": "spin"
+        },
+        {
+          "cue": [
+            "boncuk"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "tespih"
+        },
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "b_k1",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "hacivat",
+          "do": "tip",
+          "face": -16,
+          "len": 0.5,
+          "focus": true
+        },
+        {
+          "cue": [
+            "güldü"
+          ],
+          "who": "elif",
+          "do": "hop",
+          "look": "hacivat"
+        },
+        {
+          "cue": [
+            "benzer"
+          ],
+          "who": "tespih",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "benzer"
+          ],
+          "who": "hacivat",
+          "do": "jiggle",
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "eliyle"
+          ],
+          "who": "hacivat",
+          "do": "slide",
+          "to": [
+            0.1,
+            0,
+            0
+          ],
+          "len": 0.9,
+          "focus": true
+        },
+        {
+          "cue": [
+            "çizgi"
+          ],
+          "who": "hacivat",
+          "do": "slide",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "len": 0.9
+        },
+        {
+          "cue": [
+            "çizgi"
+          ],
+          "who": "toprak_engebeli",
+          "do": "switchOff",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "çizgi"
+          ],
+          "who": "toprak_duz",
+          "do": "switchOn",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "karagöz"
+          ],
+          "who": "karagoz",
+          "do": "tip",
+          "face": 18,
+          "len": 0.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "anladı"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "karagoz"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 125,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "sorabileceğini"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "düşündü"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "elif"
+        }
+      ],
+      "audio": {
+        "src": "/books/karagoz-hacivat/ses/p4.mp3",
+        "marks": [
+          0.25,
+          1.09,
+          1.57,
+          2.09,
+          2.73,
+          3.07,
+          3.93,
+          4.59,
+          5.43,
+          5.95,
+          6.43,
+          6.87,
+          7.29,
+          7.39,
+          8.17,
+          8.43,
+          9.19,
+          9.73,
+          10.43,
+          10.97,
+          11.67,
+          12.01,
+          12.37,
+          13.19,
+          13.79,
+          14.29,
+          14.55,
+          14.91,
+          15.61,
+          16.17,
+          16.95,
+          17.25,
+          17.59,
+          18.17,
+          18.73,
+          19.19,
+          19.95,
+          20.53
+        ],
+        "ends": [
+          0.71,
+          1.56,
+          2.08,
+          2.52,
+          3.06,
+          3.73,
+          4.26,
+          5.2,
+          5.94,
+          6.2,
+          6.86,
+          7.28,
+          7.38,
+          7.94,
+          8.42,
+          8.91,
+          9.72,
+          10.2,
+          10.96,
+          11.66,
+          11.99,
+          12.36,
+          13.09,
+          13.54,
+          14.28,
+          14.54,
+          14.9,
+          15.34,
+          16.16,
+          16.65,
+          17.24,
+          17.57,
+          18.16,
+          18.72,
+          19.18,
+          19.94,
+          20.48
+        ]
+      }
+    },
+    {
+      "id": "p5",
+      "title": {
+        "tr": "Karagöz’ün elleri",
+        "en": ""
+      },
+      "text": {
+        "tr": "Hacivat fidanı nasıl {tutacağını|tutmak} bilemedi. Karagöz {köklerini|kök} {incitmeden|incitmek} {yerleştirmeyi|yerleştirmek} gösterdi. “{Toprakla|toprak} {dolduralım|doldurmak}.” dedi. Hacivat kitabından fidanın {güneş} {ihtiyacına|ihtiyaç} baktı. Birlikte {su} {döktüler|dökmek}. Perde arkasında anneleriyle babaları çubukları {oynatıyordu|oynatmak}. Küçük bahçe kurulurken çocuklar iki arkadaşın {yardımlaşmasını|yardımlaşmak} izledi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Gölge oyununda tasvirler, arkasına takılan uzun çubuklarla oynatılır. Usta bir hayalî, perdenin arkasında birçok tasviri ve bütün karakterlerin seslerini tek başına yönetebilir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/perde-arka.webp",
+          "floor": "../bayram-sabahi/art/p4-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "perde",
+              "rect": [
+                0.14,
+                0.06,
+                0.72,
+                0.5
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.0,
+                0.03,
+                0.12,
+                0.92
+              ]
+            },
+            {
+              "word": "çit",
+              "rect": [
+                0.86,
+                0.78,
+                0.12,
+                0.17
+              ]
+            }
+          ],
+          "floorTint": "#6E6488"
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "panel",
+          "id": "toprak_duz",
+          "decal": "/books/karagoz-hacivat/art/toprak-duz.webp",
+          "x": 0.0,
+          "z": 0.018000000000000002,
+          "y": 0.045,
+          "h": 0.08296363636363636,
+          "w": 0.52,
+          "pivot": "bottom",
+          "word": "toprak",
+          "unlit": true,
+          "sy": 2.6
+        },
+        {
+          "proc": "panel",
+          "id": "karagoz",
+          "decal": "/books/karagoz-hacivat/art/karagoz.webp",
+          "x": -0.2,
+          "z": 0.014,
+          "y": 0.098,
+          "h": 0.44,
+          "w": 0.288,
+          "pivot": "bottom",
+          "word": "Karagöz",
+          "unlit": true
+        },
+        {
+          "proc": "panel",
+          "id": "hacivat",
+          "decal": "/books/karagoz-hacivat/art/hacivat.webp",
+          "x": 0.2,
+          "z": 0.014,
+          "y": 0.098,
+          "h": 0.44,
+          "w": 0.239,
+          "pivot": "bottom",
+          "word": "Hacivat",
+          "unlit": true
+        },
+        {
+          "proc": "panel",
+          "id": "fidan",
+          "decal": "/books/karagoz-hacivat/art/fidan.webp",
+          "x": 0.08000000000000002,
+          "z": 0.02,
+          "y": 0.218,
+          "h": 0.22,
+          "w": 0.109,
+          "pivot": "bottom",
+          "word": "fidan",
+          "unlit": true,
+          "from": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "proc": "panel",
+          "id": "kova",
+          "decal": "/books/karagoz-hacivat/art/kova.webp",
+          "x": -0.37,
+          "z": 0.018000000000000002,
+          "y": 0.095,
+          "h": 0.13,
+          "w": 0.101,
+          "pivot": "bottom",
+          "word": "kova",
+          "unlit": true
+        },
+        {
+          "proc": "panel",
+          "id": "kitap",
+          "decal": "/books/karagoz-hacivat/art/kitap.webp",
+          "x": 0.05000000000000002,
+          "z": 0.022,
+          "y": 0.3,
+          "h": 0.12,
+          "w": 0.167,
+          "pivot": "bottom",
+          "word": "kitap",
+          "unlit": true,
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "panel",
+          "id": "su",
+          "decal": "/books/karagoz-hacivat/art/su.webp",
+          "x": 0.03,
+          "z": 0.024,
+          "y": 0.13,
+          "h": 0.1,
+          "w": 0.135,
+          "pivot": "bottom",
+          "word": "su",
+          "unlit": true,
+          "hidden": true
+        },
+        {
+          "proc": "panel",
+          "id": "cicek",
+          "decal": "/books/karagoz-hacivat/art/cicek.webp",
+          "x": 0.15,
+          "z": 0.015,
+          "y": 0.075,
+          "h": 0.12,
+          "w": 0.089,
+          "pivot": "bottom",
+          "word": "çiçek",
+          "unlit": true,
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_k1",
+          "label": "Toprakla dolduralım.",
+          "color": "#B71C1C",
+          "x": -0.18,
+          "z": 0.042,
+          "y": 0.578,
+          "h": 0.1,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.3,
+          "z": 0.84,
+          "rotY": 160,
+          "look": "hacivat"
+        },
+        {
+          "id": "can",
+          "x": 0.3,
+          "z": 0.84,
+          "rotY": 200,
+          "look": "karagoz"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "fidan",
+          "do": "lean",
+          "face": 35,
+          "len": 0.5,
+          "focus": true
+        },
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "hacivat",
+          "do": "jiggle",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "bilemedi"
+          ],
+          "who": "fidan",
+          "do": "lean",
+          "face": -25,
+          "len": 0.5
+        },
+        {
+          "cue": [
+            "karagöz"
+          ],
+          "who": "karagoz",
+          "do": "slide",
+          "to": [
+            0.05,
+            0,
+            0
+          ],
+          "len": 1.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "köklerini"
+          ],
+          "who": "fidan",
+          "do": "lean",
+          "face": 0,
+          "len": 0.4
+        },
+        {
+          "cue": [
+            "köklerini"
+          ],
+          "who": "fidan",
+          "do": "slide",
+          "to": [
+            -0.08000000000000002,
+            -0.152,
+            0
+          ],
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "gösterdi"
+          ],
+          "who": "fidan",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "toprakla"
+          ],
+          "who": "b_k1",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "toprakla"
+          ],
+          "who": "karagoz",
+          "do": "jiggle",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "b_k1",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "kitap",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "güneş"
+          ],
+          "who": "hacivat",
+          "do": "tip",
+          "face": -12,
+          "len": 0.8
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "kitap",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "kova",
+          "do": "slide",
+          "to": [
+            0.31,
+            0.155,
+            0
+          ],
+          "len": 0.9,
+          "focus": true
+        },
+        {
+          "cue": [
+            "döktüler"
+          ],
+          "who": "kova",
+          "do": "lean",
+          "face": 55,
+          "len": 0.5
+        },
+        {
+          "cue": [
+            "döktüler"
+          ],
+          "who": "su",
+          "do": "appear",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "perde"
+          ],
+          "who": "su",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "perde"
+          ],
+          "who": "kova",
+          "do": "lean",
+          "face": 0,
+          "len": 0.4
+        },
+        {
+          "cue": [
+            "perde"
+          ],
+          "who": "can",
+          "do": "lookAround",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "küçük"
+          ],
+          "who": "cicek",
+          "do": "grow",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "cicek"
+        },
+        {
+          "cue": [
+            "izledi"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "karagoz",
+          "wait": 0.3
+        }
+      ],
+      "audio": {
+        "src": "/books/karagoz-hacivat/ses/p5.mp3",
+        "marks": [
+          0.25,
+          0.71,
+          1.19,
+          1.49,
+          2.07,
+          3.01,
+          3.63,
+          4.25,
+          4.93,
+          5.69,
+          6.65,
+          7.19,
+          8.03,
+          8.71,
+          9.25,
+          9.95,
+          10.37,
+          10.73,
+          11.33,
+          12.03,
+          12.51,
+          12.65,
+          13.63,
+          14.01,
+          14.81,
+          15.45,
+          15.95,
+          16.47,
+          17.51,
+          17.85,
+          18.19,
+          18.93,
+          19.55,
+          19.79,
+          20.37,
+          21.29,
+          21.81
+        ],
+        "ends": [
+          0.7,
+          1.18,
+          1.48,
+          2.06,
+          2.65,
+          3.62,
+          4.24,
+          4.92,
+          5.68,
+          6.35,
+          7.18,
+          7.8,
+          8.36,
+          9.24,
+          9.94,
+          10.36,
+          10.72,
+          11.32,
+          11.76,
+          12.5,
+          12.64,
+          13.29,
+          14.0,
+          14.8,
+          15.44,
+          15.94,
+          16.46,
+          17.26,
+          17.83,
+          18.18,
+          18.92,
+          19.54,
+          19.78,
+          20.36,
+          21.28,
+          21.76
+        ]
+      }
+    },
+    {
+      "id": "p6",
+      "title": {
+        "tr": "Birbirinden öğrenmek",
+        "en": ""
+      },
+      "text": {
+        "tr": "Hacivat “{Okuyunca|okumak} her şeyi yapabileceğimi {sandım|sanmak}.” dedi. Karagöz “Ben de bu fidanın {gölgeyi|gölge} {sevdiğini|sevmek} bilmiyordum. İyi ki baktın.” diye {karşılık verdi|karşılık vermek}. İkisi de birbirinden {öğrenmişti|öğrenmek}. Can Elif’e döndü. “Biz de oyun {kuralım|kurmak}.” dedi. Hangi {malzemeleri|malzeme} kullanacaklarını düşündüler.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Karagöz ile Hacivat sık sık anlaşamaz ama hiçbir zaman birbirini bırakmaz. Oyunun sonunda ikisi de bir şey öğrenmiş olur: biri kitaptan, öteki hayattan bildiğini paylaşır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/perde-arka.webp",
+          "floor": "../bayram-sabahi/art/p4-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "perde",
+              "rect": [
+                0.14,
+                0.06,
+                0.72,
+                0.5
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.0,
+                0.03,
+                0.12,
+                0.92
+              ]
+            },
+            {
+              "word": "çit",
+              "rect": [
+                0.86,
+                0.78,
+                0.12,
+                0.17
+              ]
+            }
+          ],
+          "floorTint": "#6E6488"
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "panel",
+          "id": "toprak_duz",
+          "decal": "/books/karagoz-hacivat/art/toprak-duz.webp",
+          "x": 0.0,
+          "z": 0.018000000000000002,
+          "y": 0.045,
+          "h": 0.08296363636363636,
+          "w": 0.52,
+          "pivot": "bottom",
+          "word": "toprak",
+          "unlit": true,
+          "sy": 2.6
+        },
+        {
+          "proc": "panel",
+          "id": "karagoz",
+          "decal": "/books/karagoz-hacivat/art/karagoz.webp",
+          "x": -0.2,
+          "z": 0.014,
+          "y": 0.098,
+          "h": 0.44,
+          "w": 0.288,
+          "pivot": "bottom",
+          "word": "Karagöz",
+          "unlit": true
+        },
+        {
+          "proc": "panel",
+          "id": "hacivat",
+          "decal": "/books/karagoz-hacivat/art/hacivat.webp",
+          "x": 0.2,
+          "z": 0.014,
+          "y": 0.098,
+          "h": 0.44,
+          "w": 0.239,
+          "pivot": "bottom",
+          "word": "Hacivat",
+          "unlit": true
+        },
+        {
+          "proc": "panel",
+          "id": "fidan",
+          "decal": "/books/karagoz-hacivat/art/fidan.webp",
+          "x": 0.0,
+          "z": 0.015,
+          "y": 0.066,
+          "h": 0.22,
+          "w": 0.109,
+          "pivot": "bottom",
+          "word": "fidan",
+          "unlit": true
+        },
+        {
+          "proc": "panel",
+          "id": "cicek",
+          "decal": "/books/karagoz-hacivat/art/cicek.webp",
+          "x": 0.15,
+          "z": 0.015,
+          "y": 0.075,
+          "h": 0.12,
+          "w": 0.089,
+          "pivot": "bottom",
+          "word": "çiçek",
+          "unlit": true
+        },
+        {
+          "proc": "panel",
+          "id": "kova",
+          "decal": "/books/karagoz-hacivat/art/kova.webp",
+          "x": -0.37,
+          "z": 0.018000000000000002,
+          "y": 0.095,
+          "h": 0.13,
+          "w": 0.101,
+          "pivot": "bottom",
+          "word": "kova",
+          "unlit": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_k1",
+          "label": "İyi ki baktın.",
+          "color": "#B71C1C",
+          "x": -0.18,
+          "z": 0.042,
+          "y": 0.578,
+          "h": 0.1,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_can",
+          "label": "Biz de oyun kuralım.",
+          "color": "#2F6DC4",
+          "x": 0.3,
+          "z": 0.84,
+          "y": 0.42,
+          "h": 0.088,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.3,
+          "z": 0.84,
+          "rotY": 160,
+          "look": "hacivat"
+        },
+        {
+          "id": "can",
+          "x": 0.3,
+          "z": 0.84,
+          "rotY": 200,
+          "look": "karagoz"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "hacivat",
+          "do": "jiggle",
+          "len": 2.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "sandım"
+          ],
+          "who": "hacivat",
+          "do": "tip",
+          "face": -18,
+          "len": 1.0
+        },
+        {
+          "cue": [
+            "karagöz"
+          ],
+          "who": "karagoz",
+          "do": "jiggle",
+          "len": 3.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "gölgeyi"
+          ],
+          "who": "fidan",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "iyi"
+          ],
+          "who": "b_k1",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "iyi"
+          ],
+          "who": "karagoz",
+          "do": "tip",
+          "face": 15,
+          "len": 0.6
+        },
+        {
+          "cue": [
+            "ikisi"
+          ],
+          "who": "b_k1",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "ikisi"
+          ],
+          "who": "karagoz",
+          "do": "slide",
+          "to": [
+            0.06,
+            0,
+            0
+          ],
+          "len": 0.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "ikisi"
+          ],
+          "who": "hacivat",
+          "do": "slide",
+          "to": [
+            -0.06,
+            0,
+            0
+          ],
+          "len": 0.8
+        },
+        {
+          "cue": [
+            "öğrenmişti"
+          ],
+          "who": "karagoz",
+          "do": "tip",
+          "face": 20,
+          "len": 0.8
+        },
+        {
+          "cue": [
+            "öğrenmişti"
+          ],
+          "who": "hacivat",
+          "do": "tip",
+          "face": -20,
+          "len": 0.8,
+          "wait": 0.15
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -95,
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "biz"
+          ],
+          "who": "b_can",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "biz"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "elif",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "biz"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 95,
+          "look": "can",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "hangi"
+          ],
+          "who": "b_can",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "hangi"
+          ],
+          "who": "elif",
+          "do": "lookAround",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "düşündüler"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "elif"
+        }
+      ],
+      "audio": {
+        "src": "/books/karagoz-hacivat/ses/p6.mp3",
+        "marks": [
+          0.25,
+          1.15,
+          1.81,
+          2.05,
+          2.29,
+          3.03,
+          3.77,
+          4.53,
+          5.47,
+          5.69,
+          5.81,
+          5.93,
+          6.41,
+          6.87,
+          7.37,
+          8.35,
+          8.53,
+          8.65,
+          9.35,
+          9.61,
+          10.91,
+          11.29,
+          11.45,
+          12.11,
+          13.27,
+          13.61,
+          13.95,
+          14.73,
+          14.93,
+          15.07,
+          15.31,
+          15.93,
+          16.59,
+          16.89,
+          17.51,
+          18.43,
+          19.24
+        ],
+        "ends": [
+          0.73,
+          1.8,
+          2.04,
+          2.28,
+          3.02,
+          3.54,
+          4.11,
+          5.17,
+          5.68,
+          5.8,
+          5.92,
+          6.4,
+          6.86,
+          7.36,
+          8.04,
+          8.52,
+          8.64,
+          9.18,
+          9.6,
+          10.53,
+          11.28,
+          11.44,
+          12.1,
+          12.85,
+          13.6,
+          13.94,
+          14.38,
+          14.92,
+          15.06,
+          15.3,
+          15.75,
+          16.27,
+          16.88,
+          17.5,
+          18.42,
+          19.19
+        ]
+      }
+    },
+    {
+      "id": "p7",
+      "title": {
+        "tr": "Perde kapanıyor",
+        "en": ""
+      },
+      "text": {
+        "tr": "Karagöz {seyircileri|seyirci} {selamladı|selamlamak}. Anneleri {kapanış sözünü|kapanış sözü} söyledi: “Her ne kadar {sürçülisan} ettikse {affola}!” Çocuklar {anlamını|anlam} sordu. Babaları “Bir {hata} yaptıysak bizi {bağışlayın|bağışlamak} anlamına geliyor.” diye {açıkladı|açıklamak}. Elif {karışan|karışmak} kelimelere gülmüştü. Can boş kovayı sallayan Karagöz’ü {taklit etti|taklit etmek}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Karagöz oyunu, Karagöz’ün seyirciye söylediği geleneksel bir sözle kapanır: “Her ne kadar sürçülisan ettikse affola!” Bu söz, “Konuşurken bir yanlış yaptıysak bağışlayın.” demektir. 2009’da Karagöz, UNESCO’nun yaşayan kültürel miras listesine alındı.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "../bayram-sabahi/art/p4-arka.webp",
+          "floor": "../bayram-sabahi/art/p4-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.18,
+                0.0,
+                0.5,
+                0.32
+              ]
+            },
+            {
+              "word": "Saat Kulesi",
+              "rect": [
+                0.68,
+                0.07,
+                0.19,
+                0.32
+              ]
+            },
+            {
+              "word": "kanepe",
+              "rect": [
+                0.01,
+                0.37,
+                0.69,
+                0.3
+              ]
+            }
+          ],
+          "tint": "#76699C",
+          "floorTint": "#76699C"
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "hayalPerdesi",
+          "word": "perde",
+          "x": 0.0,
+          "z": 0.3,
+          "h": 0.55
+        },
+        {
+          "proc": "panel",
+          "id": "karagoz",
+          "decal": "/books/karagoz-hacivat/art/karagoz.webp",
+          "x": -0.08,
+          "z": 0.312,
+          "y": 0.19,
+          "h": 0.24,
+          "w": 0.157,
+          "pivot": "bottom",
+          "word": "Karagöz",
+          "unlit": true
+        },
+        {
+          "proc": "panel",
+          "id": "hacivat",
+          "decal": "/books/karagoz-hacivat/art/hacivat.webp",
+          "x": 0.1,
+          "z": 0.312,
+          "y": 0.19,
+          "h": 0.24,
+          "w": 0.13,
+          "pivot": "bottom",
+          "word": "Hacivat",
+          "unlit": true
+        },
+        {
+          "proc": "panel",
+          "id": "kova",
+          "decal": "/books/karagoz-hacivat/art/kova.webp",
+          "x": -0.015,
+          "z": 0.314,
+          "y": 0.23,
+          "h": 0.065,
+          "w": 0.05,
+          "pivot": "bottom",
+          "word": "kova",
+          "unlit": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_anne",
+          "label": "Her ne kadar sürçülisan ettikse affola!",
+          "color": "#D2372C",
+          "x": -0.36,
+          "z": 0.5,
+          "y": 0.58,
+          "h": 0.088,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "anne",
+          "x": -0.1,
+          "z": 0.18,
+          "rotY": 0,
+          "look": "reader"
+        },
+        {
+          "id": "baba",
+          "x": 0.12,
+          "z": 0.18,
+          "rotY": 0,
+          "look": "reader"
+        },
+        {
+          "id": "elif",
+          "x": -0.18,
+          "z": 0.8,
+          "rotY": 170,
+          "look": "karagoz"
+        },
+        {
+          "id": "can",
+          "x": 0.16,
+          "z": 0.8,
+          "rotY": 190,
+          "look": "karagoz"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "karagöz"
+          ],
+          "who": "karagoz",
+          "do": "tip",
+          "face": 30,
+          "len": 1.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "selamladı"
+          ],
+          "who": "hacivat",
+          "do": "tip",
+          "face": -25,
+          "len": 0.8
+        },
+        {
+          "cue": [
+            "selamladı"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "karagoz",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "anneleri"
+          ],
+          "who": "anne",
+          "do": "walkTo",
+          "to": [
+            -0.26,
+            0,
+            0.39
+          ],
+          "face": 30,
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "her"
+          ],
+          "who": "b_anne",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "her"
+          ],
+          "who": "anne",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "b_anne",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 200,
+          "look": "anne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "anne",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "babaları"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            0.24,
+            0,
+            0.366
+          ],
+          "face": -30,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "bir"
+          ],
+          "who": "baba",
+          "do": "talk",
+          "look": "can",
+          "len": 3.0
+        },
+        {
+          "cue": [
+            "bağışlayın"
+          ],
+          "who": "baba",
+          "do": "bow",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "anne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 0,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kovayı"
+          ],
+          "who": "kova",
+          "do": "ring"
+        },
+        {
+          "cue": [
+            "kovayı"
+          ],
+          "who": "can",
+          "do": "wave",
+          "look": "reader",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "taklit"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "anne"
+        },
+        {
+          "cue": [
+            "taklit"
+          ],
+          "who": "anne",
+          "do": "cheer",
+          "look": "can",
+          "wait": 0.3
+        }
+      ],
+      "audio": {
+        "src": "/books/karagoz-hacivat/ses/p7.mp3",
+        "marks": [
+          0.25,
+          0.81,
+          1.47,
+          2.53,
+          3.09,
+          3.91,
+          4.77,
+          4.99,
+          5.11,
+          5.49,
+          6.27,
+          7.03,
+          7.99,
+          8.65,
+          9.15,
+          9.99,
+          10.93,
+          11.07,
+          11.43,
+          12.13,
+          12.35,
+          12.93,
+          13.37,
+          13.97,
+          14.27,
+          15.27,
+          15.63,
+          16.11,
+          16.69,
+          17.69,
+          18.05,
+          18.31,
+          18.69,
+          19.23,
+          19.73,
+          20.57
+        ],
+        "ends": [
+          0.8,
+          1.46,
+          2.15,
+          3.08,
+          3.9,
+          4.46,
+          4.98,
+          5.1,
+          5.48,
+          6.26,
+          6.91,
+          7.6,
+          8.64,
+          9.14,
+          9.65,
+          10.63,
+          11.06,
+          11.42,
+          12.12,
+          12.34,
+          12.92,
+          13.36,
+          13.9,
+          14.26,
+          14.89,
+          15.62,
+          16.1,
+          16.68,
+          17.37,
+          18.04,
+          18.3,
+          18.68,
+          19.22,
+          19.72,
+          20.52
+        ]
+      }
+    },
+    {
+      "id": "p8",
+      "title": {
+        "tr": "Kardeşlerin oyunu",
+        "en": ""
+      },
+      "text": {
+        "tr": "Çocuklar annelerinin yardımıyla {kartondan|karton} iki {figür} yaptı. Babaları perdeyi ve ışığı {kurdu|kurmak}. Kartonlar {koyu} gölgeler {oluşturdu|oluşturmak}. Elif Hacivat’ı, Can Karagöz’ü oynattı. Sözlerini {unutunca|unutmak} birbirlerini {beklediler|beklemek}. Can {selam} vermeyi unuttu. Karagöz’ü geri getirip {eğdi|eğmek}. {Aileleri|aile} {alkışladı|alkışlamak}. {Kardeşler|kardeş} perde arkasında {gülümsedi|gülümsemek}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Gölge oyunu evde de kurulabilir: bir beyaz çarşaf, arkasında bir lamba ve kartondan kesilmiş figürler yeter. Karton ışığı geçirmediği için perdede koyu gölgeler oluşur; deri tasvirler ise ışığı geçirip renkli görünür.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "../bayram-sabahi/art/p4-arka.webp",
+          "floor": "../bayram-sabahi/art/p4-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.18,
+                0.0,
+                0.5,
+                0.32
+              ]
+            },
+            {
+              "word": "Saat Kulesi",
+              "rect": [
+                0.68,
+                0.07,
+                0.19,
+                0.32
+              ]
+            },
+            {
+              "word": "kanepe",
+              "rect": [
+                0.01,
+                0.37,
+                0.69,
+                0.3
+              ]
+            }
+          ],
+          "tint": "#76699C",
+          "floorTint": "#76699C"
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "hayalPerdesiSonuk",
+          "word": "perde",
+          "x": 0.0,
+          "z": 0.3,
+          "h": 0.55
+        },
+        {
+          "proc": "perdeIsigi",
+          "id": "isik",
+          "x": 0.0,
+          "z": 0.3,
+          "h": 0.35,
+          "hidden": true
+        },
+        {
+          "proc": "panel",
+          "id": "elKarton1",
+          "decal": "/books/karagoz-hacivat/art/karton-hacivat.webp",
+          "x": 0.1,
+          "z": 0.68,
+          "y": 0.17,
+          "h": 0.13,
+          "w": 0.071,
+          "pivot": "bottom",
+          "word": "karton",
+          "stick": true,
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "panel",
+          "id": "elKarton2",
+          "decal": "/books/karagoz-hacivat/art/karton-karagoz.webp",
+          "x": -0.2,
+          "z": 0.68,
+          "y": 0.17,
+          "h": 0.13,
+          "w": 0.085,
+          "pivot": "bottom",
+          "word": "karton",
+          "stick": true,
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "panel",
+          "id": "hacivat",
+          "decal": "/books/karagoz-hacivat/art/karton-hacivat.webp",
+          "x": 0.1,
+          "z": 0.312,
+          "y": 0.19,
+          "h": 0.24,
+          "w": 0.13,
+          "pivot": "bottom",
+          "word": "Hacivat",
+          "unlit": true,
+          "hidden": true,
+          "from": [
+            0.12,
+            0,
+            0
+          ]
+        },
+        {
+          "proc": "panel",
+          "id": "karagoz",
+          "decal": "/books/karagoz-hacivat/art/karton-karagoz.webp",
+          "x": -0.1,
+          "z": 0.312,
+          "y": 0.19,
+          "h": 0.24,
+          "w": 0.157,
+          "pivot": "bottom",
+          "word": "Karagöz",
+          "unlit": true,
+          "hidden": true,
+          "from": [
+            -0.12,
+            0,
+            0
+          ]
+        }
+      ],
+      "cast": [
+        {
+          "id": "anne",
+          "x": -0.36,
+          "z": 0.6,
+          "rotY": 50,
+          "look": "elKarton1"
+        },
+        {
+          "id": "can",
+          "x": -0.16,
+          "z": 0.76,
+          "rotY": -30,
+          "look": "anne"
+        },
+        {
+          "id": "elif",
+          "x": 0.06,
+          "z": 0.76,
+          "rotY": -50,
+          "look": "anne"
+        },
+        {
+          "id": "baba",
+          "x": 0.4,
+          "z": 0.5,
+          "rotY": -60,
+          "look": "anne",
+          "hold": "lamba"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "anne",
+          "do": "bend",
+          "look": "elKarton1",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "kartondan"
+          ],
+          "who": "elKarton1",
+          "do": "appear",
+          "sound": "shine"
+        },
+        {
+          "cue": [
+            "kartondan"
+          ],
+          "who": "elKarton2",
+          "do": "appear",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "yaptı"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "elKarton1"
+        },
+        {
+          "cue": [
+            "babaları"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            -0.3,
+            0,
+            -0.39
+          ],
+          "face": 180,
+          "look": "isik",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ışığı"
+          ],
+          "who": "baba",
+          "do": "put",
+          "look": "down"
+        },
+        {
+          "cue": [
+            "ışığı"
+          ],
+          "who": "isik",
+          "do": "switchOn",
+          "sound": "shine",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "kartonlar"
+          ],
+          "who": "elKarton1",
+          "do": "vanish",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kartonlar"
+          ],
+          "who": "elKarton2",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "kartonlar"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.04,
+            0,
+            -0.708
+          ],
+          "face": 180,
+          "look": "isik"
+        },
+        {
+          "cue": [
+            "kartonlar"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.06,
+            0,
+            -0.708
+          ],
+          "face": 180,
+          "look": "isik",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "kartonlar"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            -0.12,
+            0,
+            0.195
+          ],
+          "face": -20,
+          "look": "isik",
+          "wait": 1.2
+        },
+        {
+          "cue": [
+            "kartonlar"
+          ],
+          "who": "anne",
+          "do": "turn",
+          "face": 160,
+          "look": "isik",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "koyu"
+          ],
+          "who": "hacivat",
+          "do": "switchOn"
+        },
+        {
+          "cue": [
+            "koyu"
+          ],
+          "who": "karagoz",
+          "do": "switchOn",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "hacivat",
+          "do": "slide",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "karagoz",
+          "do": "slide",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "sözlerini"
+          ],
+          "who": "hacivat",
+          "do": "jiggle",
+          "len": 1.0
+        },
+        {
+          "cue": [
+            "beklediler"
+          ],
+          "who": "karagoz",
+          "do": "jiggle",
+          "len": 1.0
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "karagoz",
+          "do": "slide",
+          "to": [
+            -0.12,
+            0,
+            0
+          ],
+          "len": 0.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "unuttu"
+          ],
+          "who": "karagoz",
+          "do": "switchOff"
+        },
+        {
+          "cue": [
+            "karagöz’ü"
+          ],
+          "who": "karagoz",
+          "do": "switchOn"
+        },
+        {
+          "cue": [
+            "karagöz’ü"
+          ],
+          "who": "karagoz",
+          "do": "slide",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "len": 1.0
+        },
+        {
+          "cue": [
+            "eğdi"
+          ],
+          "who": "karagoz",
+          "do": "tip",
+          "face": 30,
+          "len": 1.0
+        },
+        {
+          "cue": [
+            "aileleri"
+          ],
+          "who": "anne",
+          "do": "cheer",
+          "look": "karagoz",
+          "focus": true
+        },
+        {
+          "cue": [
+            "aileleri"
+          ],
+          "who": "baba",
+          "do": "cheer",
+          "look": "karagoz",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "kardeşler"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.28,
+            0,
+            -0.439
+          ],
+          "face": -20,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kardeşler"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.2,
+            0,
+            -0.439
+          ],
+          "face": 20,
+          "look": "reader",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "gülümsedi"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "anne"
+        },
+        {
+          "cue": [
+            "gülümsedi"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "baba",
+          "wait": 0.3
+        }
+      ],
+      "audio": {
+        "src": "/books/karagoz-hacivat/ses/p8.mp3",
+        "marks": [
+          0.25,
+          1.01,
+          1.71,
+          2.47,
+          3.23,
+          3.45,
+          3.81,
+          4.55,
+          5.13,
+          5.67,
+          5.85,
+          6.23,
+          7.03,
+          7.71,
+          8.03,
+          8.57,
+          9.53,
+          9.87,
+          10.79,
+          11.09,
+          11.65,
+          12.55,
+          13.13,
+          13.73,
+          14.37,
+          15.47,
+          15.75,
+          16.11,
+          16.57,
+          17.25,
+          17.81,
+          18.07,
+          18.57,
+          19.31,
+          19.95,
+          20.91,
+          21.69,
+          22.09,
+          22.69,
+          23.38
+        ],
+        "ends": [
+          0.97,
+          1.7,
+          2.46,
+          3.22,
+          3.44,
+          3.8,
+          4.24,
+          5.12,
+          5.66,
+          5.84,
+          6.22,
+          6.65,
+          7.7,
+          8.02,
+          8.56,
+          9.23,
+          9.86,
+          10.73,
+          11.08,
+          11.64,
+          12.22,
+          13.12,
+          13.72,
+          14.36,
+          15.09,
+          15.74,
+          16.1,
+          16.56,
+          17.05,
+          17.8,
+          18.06,
+          18.49,
+          18.97,
+          19.94,
+          20.66,
+          21.68,
+          22.08,
+          22.68,
+          23.33
+        ]
+      }
+    }
+  ]
+}

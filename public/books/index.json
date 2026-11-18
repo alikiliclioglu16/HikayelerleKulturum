@@ -523,27 +523,31 @@
     },
     {
       "id": "karagoz-hacivat",
-      "status": "soon",
+      "status": "ready",
       "title": "Karagöz ile Hacivat'ın Gölgesi",
       "titleEn": "The Shadows of Karagöz and Hacivat",
       "values": [
         "dostluk",
-        "mutevazilik"
+        "mutevazilik",
+        "estetik"
       ],
       "blurb": {
-        "tr": "Babaannenin paketinden Hacivat ile Karagöz çıkıyor; evde kurulan ışıklı perdede kahkahalarla dolu bir gölge oyunu.",
+        "tr": "Hayal perdesinde Karagöz ile Hacivat bir bahçe kuruyor. Kelimeler karışıyor, kahkahalar yükseliyor; iki arkadaş birbirinden yeni şeyler öğreniyor.",
         "en": ""
       },
       "cover": {
         "art": "cover-soon",
         "color": "#7B4FA0",
-        "motif": "karagoz"
+        "motif": "karagoz",
+        "src": "kapak.webp",
+        "titled": false
       },
       "carpet": {
         "motif": "goz",
         "field": "#5A2E2E",
         "src": "/halilar/karagoz-hacivat.webp"
-      }
+      },
+      "pages": 8
     },
     {
       "id": "mangala",

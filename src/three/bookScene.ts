@@ -232,15 +232,26 @@ function tileCanvas(): HTMLCanvasElement {
  * A flat cut-out standing up (a door leaf painted on paper): `w` wide, its height from the picture; its hinge, the
  * left edge, is the origin, so turning it opens it like a door.
  */
-function picturePanel(tex: THREE.Texture, w: number) {
+function picturePanel(tex: THREE.Texture, w: number, opt: { pivot?: 'left' | 'bottom'; unlit?: boolean; stick?: boolean; sy?: number } = {}) {
   const img = tex.image as { width: number; height: number };
-  const h = (w * img.height) / img.width;
+  const h = ((w * img.height) / img.width) * (opt.sy ?? 1);
   const geo = new THREE.PlaneGeometry(w, h);
-  geo.translate(w / 2, h / 2, 0);
-  const m = new THREE.Mesh(geo, new THREE.MeshLambertMaterial({ map: tex, transparent: true, alphaTest: 0.4, side: THREE.DoubleSide }));
-  m.castShadow = true;
+  geo.translate(opt.pivot === 'bottom' ? 0 : w / 2, h / 2, 0);
+  const mat = opt.unlit
+    ? new THREE.MeshBasicMaterial({ map: tex, transparent: true, alphaTest: 0.4, side: THREE.DoubleSide })
+    : new THREE.MeshLambertMaterial({ map: tex, transparent: true, alphaTest: 0.4, side: THREE.DoubleSide });
+  const m = new THREE.Mesh(geo, mat);
+  m.castShadow = !opt.unlit;
   const g = new THREE.Group();
   g.add(m);
+  if (opt.stick) {
+    // the puppet's stick, from its middle down and a little behind it
+    const len = h * 0.85;
+    const st = new THREE.Mesh(new THREE.CylinderGeometry(0.0035, 0.0035, len, 6), new THREE.MeshStandardMaterial({ color: '#7A5230', roughness: 0.7 }));
+    st.position.set(opt.pivot === 'bottom' ? 0 : w / 2, h * 0.5 - len / 2, -0.006);
+    st.castShadow = true;
+    g.add(st);
+  }
   return g;
 }
 
@@ -1852,7 +1863,7 @@ export class BookScene {
               : spec.proc === 'writing'
               ? procActorFrom(crayonWriting(spec.label ?? '', spec.color ?? '#2B4C9A', spec.w ?? 0.2, spec.d ?? spec.w ?? 0.2))
               : spec.proc === 'panel'
-              ? procActorFrom(picturePanel(await loadPicture(spec.decal!), spec.w ?? 0.3))
+              ? procActorFrom(picturePanel(await loadPicture(spec.decal!), spec.w ?? 0.3, { pivot: spec.pivot, unlit: spec.unlit, stick: spec.stick, sy: spec.sy }))
               : spec.proc === 'tablet'
               ? procActorFrom(this.tablet())
               : spec.proc === 'bubble'

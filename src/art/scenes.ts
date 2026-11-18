@@ -563,6 +563,14 @@ async function buildFullLayer(spec: LayerSpec, baseUrl: string, px: number): Pro
     g.fillRect(0, 0, floor.width, floor.height);
     g.globalCompositeOperation = 'source-over';
   }
+  if (spec.tint) {
+    // an evening room: the whole backdrop darkened with the evening's colour
+    const g = canvas.getContext('2d')!;
+    g.globalCompositeOperation = 'multiply';
+    g.fillStyle = spec.tint;
+    g.fillRect(0, 0, canvas.width, canvas.height);
+    g.globalCompositeOperation = 'source-over';
+  }
   return { spec, canvas, alpha: new Uint8Array([255]), aw: 1, ah: 1, hotspots: spec.hotspots ?? [], floor };
 }
 
