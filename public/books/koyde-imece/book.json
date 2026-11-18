@@ -1,0 +1,3335 @@
+{
+  "id": "koyde-imece",
+  "title": "Dedemin Köyünde İmece",
+  "titleEn": "Imece in Grandpa's Village",
+  "culture": {
+    "tr": "İmece, buğday hasadı, türkü, su değirmeni ve tandır ekmeği",
+    "en": "Imece (working together), the wheat harvest, folk songs, the water mill and tandır bread"
+  },
+  "summary": {
+    "tr": "Dedenin köyünde ayağını burkan Osman amcanın tarlası imeceyle biçiliyor; ardından su değirmeni ve tandır ekmeği.",
+    "en": ""
+  },
+  "values": [
+    "yardimseverlik",
+    "caliskanlik",
+    "aile-butunlugu"
+  ],
+  "music": {
+    "src": "/books/koyde-imece/muzik.mp3",
+    "loop": 43.2,
+    "gain": 0.6
+  },
+  "toyCast": true,
+  "glossary": {
+    "dede": {
+      "en": "grandpa",
+      "icon": "👴"
+    },
+    "torun": {
+      "en": "grandchild",
+      "icon": "🧒"
+    },
+    "doğmak": {
+      "en": "to be born",
+      "icon": "👶"
+    },
+    "köy": {
+      "en": "village",
+      "icon": "🏡"
+    },
+    "götürmek": {
+      "en": "to take (somewhere)",
+      "icon": "🚗"
+    },
+    "yol": {
+      "en": "road, way",
+      "icon": "🛣️"
+    },
+    "dağ": {
+      "en": "mountain",
+      "icon": "⛰️"
+    },
+    "kıvrılmak": {
+      "en": "to wind, curve",
+      "icon": "〰️"
+    },
+    "tavuk": {
+      "en": "hen, chicken",
+      "icon": "🐔"
+    },
+    "ağaç": {
+      "en": "tree",
+      "icon": "🌳"
+    },
+    "taş ev": {
+      "en": "stone house",
+      "icon": "🏠"
+    },
+    "masal": {
+      "en": "fairy tale",
+      "icon": "📖"
+    },
+    "meydan": {
+      "en": "village square",
+      "icon": "⛲"
+    },
+    "arkadaş": {
+      "en": "friend",
+      "icon": "🧒"
+    },
+    "oyun": {
+      "en": "game",
+      "icon": "🎲"
+    },
+    "araba": {
+      "en": "car; cart",
+      "icon": "🚗"
+    },
+    "inmek": {
+      "en": "to get out (of a car)",
+      "icon": "⬇️"
+    },
+    "hikâye": {
+      "en": "story",
+      "icon": "📚"
+    },
+    "Osman amca": {
+      "en": "Osman amca, a farmer in the village",
+      "icon": "👨‍🌾"
+    },
+    "avlu": {
+      "en": "courtyard",
+      "icon": "🏡"
+    },
+    "karşılamak": {
+      "en": "to welcome",
+      "icon": "🤗"
+    },
+    "ayak": {
+      "en": "foot",
+      "icon": "🦶"
+    },
+    "sargılı": {
+      "en": "bandaged",
+      "icon": "🩹"
+    },
+    "doktor": {
+      "en": "doctor",
+      "icon": "🧑‍⚕️"
+    },
+    "dinlenmek": {
+      "en": "to rest",
+      "icon": "😌"
+    },
+    "buğday": {
+      "en": "wheat",
+      "icon": "🌾"
+    },
+    "biçmek": {
+      "en": "to reap, cut",
+      "icon": "🌾"
+    },
+    "yardım etmek": {
+      "en": "to help",
+      "icon": "🤝"
+    },
+    "önermek": {
+      "en": "to suggest",
+      "icon": "💡"
+    },
+    "komşu": {
+      "en": "neighbour",
+      "icon": "🏘️"
+    },
+    "iş bölümü": {
+      "en": "sharing out the work",
+      "icon": "🧩"
+    },
+    "kelime": {
+      "en": "word",
+      "icon": "🔤"
+    },
+    "imece": {
+      "en": "imece, doing a job together as volunteers",
+      "icon": "🤝"
+    },
+    "merak etmek": {
+      "en": "to wonder",
+      "icon": "🤔"
+    },
+    "gönüllü": {
+      "en": "volunteer, willing",
+      "icon": "🙋"
+    },
+    "sabah": {
+      "en": "morning",
+      "icon": "🌅"
+    },
+    "görev": {
+      "en": "task",
+      "icon": "📋"
+    },
+    "seçmek": {
+      "en": "to choose",
+      "icon": "👆"
+    },
+    "büyük": {
+      "en": "grown-up",
+      "icon": "🧑"
+    },
+    "tarla": {
+      "en": "field",
+      "icon": "🌾"
+    },
+    "araç": {
+      "en": "tool",
+      "icon": "🛠️"
+    },
+    "ilgilenmek": {
+      "en": "to deal with",
+      "icon": "👐"
+    },
+    "çocuk": {
+      "en": "child",
+      "icon": "🧒"
+    },
+    "yetişkin": {
+      "en": "grown-up",
+      "icon": "🧑"
+    },
+    "su": {
+      "en": "water",
+      "icon": "💧"
+    },
+    "sepet": {
+      "en": "basket",
+      "icon": "🧺"
+    },
+    "taşımak": {
+      "en": "to carry",
+      "icon": "📦"
+    },
+    "gölge": {
+      "en": "shade",
+      "icon": "🌳"
+    },
+    "sohbet etmek": {
+      "en": "to chat",
+      "icon": "💬"
+    },
+    "yardım": {
+      "en": "help",
+      "icon": "🤝"
+    },
+    "teşekkür etmek": {
+      "en": "to thank",
+      "icon": "🙏"
+    },
+    "güvenli": {
+      "en": "safe",
+      "icon": "🛡️"
+    },
+    "bölüm": {
+      "en": "part, area",
+      "icon": "🧩"
+    },
+    "bardak": {
+      "en": "glass",
+      "icon": "🥛"
+    },
+    "dizmek": {
+      "en": "to line up",
+      "icon": "📏"
+    },
+    "türkü": {
+      "en": "türkü, a Turkish folk song",
+      "icon": "🎶"
+    },
+    "duyulmak": {
+      "en": "to be heard",
+      "icon": "👂"
+    },
+    "bilmek": {
+      "en": "to know",
+      "icon": "💡"
+    },
+    "eşlik etmek": {
+      "en": "to join in (singing)",
+      "icon": "🎤"
+    },
+    "mola": {
+      "en": "break",
+      "icon": "⏸️"
+    },
+    "ilerlemek": {
+      "en": "to move on",
+      "icon": "➡️"
+    },
+    "akşam": {
+      "en": "evening",
+      "icon": "🌆"
+    },
+    "kurumak": {
+      "en": "to dry",
+      "icon": "☀️"
+    },
+    "başak": {
+      "en": "ear of wheat",
+      "icon": "🌾"
+    },
+    "tane": {
+      "en": "grain",
+      "icon": "🌰"
+    },
+    "harman": {
+      "en": "threshing floor, where grain is separated",
+      "icon": "🌾"
+    },
+    "ayrılmak": {
+      "en": "to come apart",
+      "icon": "↔️"
+    },
+    "temizlemek": {
+      "en": "to clean",
+      "icon": "🧹"
+    },
+    "çuvallamak": {
+      "en": "to put into sacks",
+      "icon": "🛍️"
+    },
+    "çuval": {
+      "en": "sack",
+      "icon": "🛍️"
+    },
+    "Duman": {
+      "en": "Duman, the grey horse (duman: smoke)",
+      "icon": "🐴"
+    },
+    "at": {
+      "en": "horse",
+      "icon": "🐴"
+    },
+    "dengeli": {
+      "en": "balanced",
+      "icon": "⚖️"
+    },
+    "yük": {
+      "en": "load",
+      "icon": "📦"
+    },
+    "aile": {
+      "en": "family",
+      "icon": "👨‍👩‍👧‍👦"
+    },
+    "değirmen": {
+      "en": "mill",
+      "icon": "🏭"
+    },
+    "dinlendirmek": {
+      "en": "to let rest",
+      "icon": "😌"
+    },
+    "ekmek": {
+      "en": "bread",
+      "icon": "🍞"
+    },
+    "çark": {
+      "en": "wheel",
+      "icon": "☸️"
+    },
+    "döndürmek": {
+      "en": "to turn",
+      "icon": "🔄"
+    },
+    "Değirmenci": {
+      "en": "miller",
+      "icon": "🧑‍🌾"
+    },
+    "taş": {
+      "en": "stone",
+      "icon": "🪨"
+    },
+    "öğütmek": {
+      "en": "to grind",
+      "icon": "⚙️"
+    },
+    "belirlemek": {
+      "en": "to mark out",
+      "icon": "📍"
+    },
+    "izlemek": {
+      "en": "to watch",
+      "icon": "👀"
+    },
+    "un": {
+      "en": "flour",
+      "icon": "🌾"
+    },
+    "birikmek": {
+      "en": "to pile up",
+      "icon": "⛰️"
+    },
+    "yolculuk": {
+      "en": "journey",
+      "icon": "🧭"
+    },
+    "hamur": {
+      "en": "dough",
+      "icon": "🥟"
+    },
+    "sürmek": {
+      "en": "to go on",
+      "icon": "➡️"
+    },
+    "sofra": {
+      "en": "meal spread, table",
+      "icon": "🍽️"
+    },
+    "babaanne": {
+      "en": "grandma (father's mother)",
+      "icon": "👵"
+    },
+    "yoğurmak": {
+      "en": "to knead",
+      "icon": "👐"
+    },
+    "tandır": {
+      "en": "tandır, a clay oven",
+      "icon": "🔥"
+    },
+    "pişirmek": {
+      "en": "to bake, cook",
+      "icon": "🍞"
+    },
+    "masa": {
+      "en": "table",
+      "icon": "🪑"
+    },
+    "kaşık": {
+      "en": "spoon",
+      "icon": "🥄"
+    },
+    "peçete": {
+      "en": "napkin",
+      "icon": "🧻"
+    },
+    "yemek": {
+      "en": "food, dish",
+      "icon": "🍲"
+    },
+    "koklamak": {
+      "en": "to smell",
+      "icon": "👃"
+    },
+    "hatırlamak": {
+      "en": "to remember",
+      "icon": "💭"
+    },
+    "dönüş": {
+      "en": "the way back",
+      "icon": "↩️"
+    },
+    "çocukluk": {
+      "en": "childhood",
+      "icon": "🧒"
+    },
+    "anı": {
+      "en": "memory",
+      "icon": "📷"
+    },
+    "mahalle": {
+      "en": "neighbourhood",
+      "icon": "🏘️"
+    },
+    "ihtiyaç duymak": {
+      "en": "to need",
+      "icon": "🙏"
+    },
+    "ortak bahçe": {
+      "en": "shared garden",
+      "icon": "🌳"
+    },
+    "yaprak": {
+      "en": "leaf",
+      "icon": "🍂"
+    },
+    "danışmak": {
+      "en": "to ask, consult",
+      "icon": "💬"
+    },
+    "yaklaşmak": {
+      "en": "to come close",
+      "icon": "🤏"
+    },
+    "sıradaki": {
+      "en": "the next",
+      "icon": "⏭️"
+    },
+    "çeşme": {
+      "en": "fountain",
+      "icon": "⛲"
+    },
+    "kapı": {
+      "en": "door",
+      "icon": "🚪"
+    },
+    "asma": {
+      "en": "grapevine",
+      "icon": "🍇"
+    },
+    "sedir": {
+      "en": "a low bench, a sedir",
+      "icon": "🛋️"
+    },
+    "pencere": {
+      "en": "window",
+      "icon": "🪟"
+    },
+    "dere": {
+      "en": "stream",
+      "icon": "🏞️"
+    },
+    "kütük": {
+      "en": "log",
+      "icon": "🪵"
+    },
+    "baston": {
+      "en": "walking stick",
+      "icon": "🦯"
+    },
+    "orak": {
+      "en": "sickle",
+      "icon": "🌙"
+    },
+    "testi": {
+      "en": "water jug",
+      "icon": "🏺"
+    },
+    "demet": {
+      "en": "sheaf",
+      "icon": "🌾"
+    },
+    "bağlama": {
+      "en": "bağlama, a long-necked lute",
+      "icon": "🪕"
+    },
+    "değirmen taşı": {
+      "en": "millstone",
+      "icon": "🪨"
+    },
+    "çit": {
+      "en": "fence",
+      "icon": "🚧"
+    }
+  },
+  "quiz": [
+    {
+      "q": {
+        "tr": "Osman amca neden tarlasını biçemiyordu?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Ayağı sargılıydı, dinlenmesi gerekiyordu",
+          "en": ""
+        },
+        {
+          "tr": "Orağı kırılmıştı",
+          "en": ""
+        },
+        {
+          "tr": "Şehre gitmişti",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "Osman amcanın ayağı sargılıydı; doktor dinlenmesini istemişti.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "İmece ne demektir?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Tek başına çalışmak",
+          "en": ""
+        },
+        {
+          "tr": "Bir işi gönüllü olarak birlikte yapmak",
+          "en": ""
+        },
+        {
+          "tr": "Para karşılığı iş yapmak",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Dede, imecenin bir işi gönüllü olarak birlikte yapmak olduğunu anlattı.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Buğdayın biçildikten sonra una dönüşmesine kadar hangi işler yapıldı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Harman, çuvallama, değirmende öğütme",
+          "en": ""
+        },
+        {
+          "tr": "Yalnızca pişirme",
+          "en": ""
+        },
+        {
+          "tr": "Tohum ekme",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "Taneler harmanda ayrıldı, temizlenip çuvallandı, sonra değirmende öğütülüp un oldu.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Değirmenin büyük çarkını ne döndürüyordu?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Rüzgâr",
+          "en": ""
+        },
+        {
+          "tr": "Su",
+          "en": ""
+        },
+        {
+          "tr": "Duman adlı at",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Su değirmeninde akan su büyük çarkı döndürür.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "İmeceye katılanların aynı işi yapması neden gerekmiyordu?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Herkes yapabileceği görevi seçtiği için",
+          "en": ""
+        },
+        {
+          "tr": "Kimse çalışmak istemediği için",
+          "en": ""
+        },
+        {
+          "tr": "Araç yetmediği için",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "İmecede herkes gücüne göre bir görev seçer: büyükler biçer, çocuklar su ve sepet taşır.",
+        "en": ""
+      }
+    }
+  ],
+  "valueHunt": [
+    {
+      "page": "p2",
+      "answer": "yardimseverlik",
+      "options": [
+        "yardimseverlik",
+        "estetik",
+        "adalet"
+      ],
+      "why": {
+        "tr": "Ahmet dede, ayağı sargılı Osman amcaya yardım etmeyi önerdi.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p4",
+      "answer": "caliskanlik",
+      "options": [
+        "ozgurluk",
+        "caliskanlik",
+        "mahremiyet"
+      ],
+      "why": {
+        "tr": "Herkes tarlada görevini yaptı; iş molalarla akşama kadar sürdü.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p7",
+      "answer": "aile-butunlugu",
+      "options": [
+        "aile-butunlugu",
+        "tasarruf",
+        "vatanseverlik"
+      ],
+      "why": {
+        "tr": "Aileler ve komşular aynı sofrada buluşup emeklerini paylaştı.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p8",
+      "answer": "duyarlilik",
+      "options": [
+        "duyarlilik",
+        "estetik",
+        "sabir"
+      ],
+      "why": {
+        "tr": "Can, kendi mahallesinde de komşulara nasıl yardım edebileceklerini düşündü.",
+        "en": ""
+      }
+    }
+  ],
+  "family": {
+    "task": {
+      "tr": "Ailenizle ya da komşularınızla yapabileceğiniz küçük bir ortak iş seçin. Kimin hangi görevi yapacağını birlikte belirleyip bir görev tablosu çizin.",
+      "en": ""
+    },
+    "talk": [
+      {
+        "tr": "Buğdayın biçildikten sonra una dönüşmesine kadar hangi işler yapıldı?",
+        "en": ""
+      },
+      {
+        "tr": "İmeceye katılanların aynı işi yapması neden gerekmiyordu?",
+        "en": ""
+      },
+      {
+        "tr": "Aileniz veya komşularınızla yapabileceğiniz küçük bir ortak iş için görev paylaşımı öner.",
+        "en": ""
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "p1",
+      "title": {
+        "tr": "Masal gibi bir köy",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Ahmet dede|dede} {torunlarını|torun} {doğduğu|doğmak} {köye|köy} {götürdü|götürmek}. {Yol|yol} {dağların|dağ} arasından {kıvrılıyordu|kıvrılmak}. Can {tavukları|tavuk}, {ağaçları|ağaç} ve {taş evleri|taş ev} gördü. “{Masallardaki|masal} köy gibi!” dedi. Dedesi “Bu {meydanda|meydan} {arkadaşlarımla|arkadaş} oynardım.” diye anlattı. Elif sevdiği {oyunları|oyun} sordu. Daha {arabadan|araba} {inmeden|inmek} {hikâyeler|hikâye} başlamıştı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Anadolu köylerinde evler çoğunlukla yöredeki taştan yapılır. Köy meydanı; çeşmesi, kahvesi ve büyük ağacıyla köylülerin buluştuğu, çocukların oyun oynadığı yerdir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/koy-arka.webp",
+          "floor": "art/koy-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "çeşme",
+              "rect": [
+                0.03,
+                0.42,
+                0.2,
+                0.22
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.0,
+                0.0,
+                0.2,
+                0.42
+              ]
+            },
+            {
+              "word": "taş ev",
+              "rect": [
+                0.72,
+                0.3,
+                0.28,
+                0.4
+              ]
+            },
+            {
+              "word": "dağ",
+              "rect": [
+                0.3,
+                0.28,
+                0.42,
+                0.2
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "village",
+      "models": [
+        {
+          "proc": "araba",
+          "id": "araba",
+          "word": "araba",
+          "x": 0.1,
+          "z": 0.56,
+          "h": 0.2,
+          "rotY": 180,
+          "from": [
+            0.62,
+            0,
+            0
+          ]
+        },
+        {
+          "proc": "tavuk",
+          "word": "tavuk",
+          "x": -0.3,
+          "z": 0.5,
+          "h": 0.06,
+          "rotY": 40,
+          "fx": "peck"
+        },
+        {
+          "proc": "tavukKahve",
+          "word": "tavuk",
+          "x": -0.18,
+          "z": 0.42,
+          "h": 0.06,
+          "rotY": -30,
+          "fx": "peck"
+        },
+        {
+          "proc": "tavuk",
+          "word": "tavuk",
+          "x": -0.36,
+          "z": 0.66,
+          "h": 0.06,
+          "rotY": 120,
+          "fx": "peck"
+        },
+        {
+          "proc": "bubble",
+          "id": "b_can",
+          "label": "Masallardaki köy gibi!",
+          "color": "#2F6DC4",
+          "x": 0.02,
+          "z": 0.62,
+          "y": 0.36,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_dede",
+          "label": "Bu meydanda oynardım.",
+          "color": "#8A5A2B",
+          "x": 0.2,
+          "z": 0.62,
+          "y": 0.4,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "dede",
+          "x": 0.24000000000000002,
+          "z": 0.66,
+          "rotY": 0,
+          "hidden": true,
+          "look": "reader"
+        },
+        {
+          "id": "can",
+          "x": -0.01999999999999999,
+          "z": 0.66,
+          "rotY": 0,
+          "hidden": true,
+          "look": "reader"
+        },
+        {
+          "id": "elif",
+          "x": 0.08,
+          "z": 0.66,
+          "rotY": 0,
+          "hidden": true,
+          "look": "reader"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "ahmet"
+          ],
+          "who": "araba",
+          "do": "slide",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "len": 3.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "tavukları"
+          ],
+          "who": "araba",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "masallardaki"
+          ],
+          "who": "b_can",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "dedesi"
+          ],
+          "who": "b_can",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "dedesi"
+          ],
+          "who": "b_dede",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "b_dede",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "inmeden"
+          ],
+          "who": "can",
+          "do": "enter",
+          "to": [
+            -0.12,
+            0,
+            0.146
+          ],
+          "face": -30,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "inmeden"
+          ],
+          "who": "elif",
+          "do": "enter",
+          "to": [
+            -0.04,
+            0,
+            0.244
+          ],
+          "face": -10,
+          "look": "can",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "inmeden"
+          ],
+          "who": "dede",
+          "do": "enter",
+          "to": [
+            0.02,
+            0,
+            0.171
+          ],
+          "face": -30,
+          "look": "can",
+          "wait": 0.8
+        },
+        {
+          "cue": [
+            "başlamıştı"
+          ],
+          "who": "dede",
+          "do": "point",
+          "target": "left",
+          "look": "reader",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "başlamıştı"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "dede",
+          "wait": 0.4
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "title": {
+        "tr": "Osman amcanın tarlası",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Osman amca} onları {avluda|avlu} {karşıladı|karşılamak}. {Ayağı|ayak} {sargılıydı|sargılı}. “{Doktor|doktor} {dinlenmemi|dinlenmek} istedi. {Buğdaylar|buğday} {biçilecek|biçmek} hâle geldi.” dedi. Ahmet dede {yardım etmeyi|yardım etmek} {önerdi|önermek}. {Komşularla|komşu} konuşup {iş bölümü} yapacaklardı. Elif yeni bir {kelime} duydu: {imece}. Bunun nasıl yapıldığını {merak etti|merak etmek}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Köylerde biri hastalanınca ya da işi yetiştiremeyince komşular yardıma koşar. Buğday hasadı gibi büyük işler zamanında yapılmazsa ürün tarlada kalabilir; bu yüzden herkes el verir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/avlu-arka.webp",
+          "floor": "art/avlu-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "kapı",
+              "rect": [
+                0.22,
+                0.27,
+                0.12,
+                0.27
+              ]
+            },
+            {
+              "word": "asma",
+              "rect": [
+                0.55,
+                0.05,
+                0.45,
+                0.35
+              ]
+            },
+            {
+              "word": "sedir",
+              "rect": [
+                0.72,
+                0.58,
+                0.25,
+                0.16
+              ]
+            },
+            {
+              "word": "pencere",
+              "rect": [
+                0.45,
+                0.33,
+                0.1,
+                0.12
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "village",
+      "models": [
+        {
+          "proc": "kutuk",
+          "word": "kütük",
+          "x": 0.3,
+          "z": 0.33999999999999997,
+          "h": 0.11
+        },
+        {
+          "proc": "baston",
+          "id": "baston",
+          "word": "baston",
+          "x": 0.44999999999999996,
+          "z": 0.36,
+          "h": 0.3
+        },
+        {
+          "proc": "bubble",
+          "id": "b_osman",
+          "label": "Doktor dinlenmemi istedi.",
+          "color": "#2E7D32",
+          "x": 0.3,
+          "z": 0.36,
+          "y": 0.45,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_elif",
+          "label": "İmece?",
+          "color": "#7B4BB7",
+          "x": -0.2,
+          "z": 0.72,
+          "y": 0.465,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "osman",
+          "x": 0.3,
+          "z": 0.36,
+          "y": -0.102,
+          "rotY": -30,
+          "pose": "sit",
+          "look": "dede"
+        },
+        {
+          "id": "dede",
+          "x": -0.42,
+          "z": 0.5,
+          "rotY": 70,
+          "look": "osman"
+        },
+        {
+          "id": "elif",
+          "x": -0.36,
+          "z": 0.72,
+          "rotY": 70,
+          "look": "osman"
+        },
+        {
+          "id": "can",
+          "x": -0.45,
+          "z": 0.64,
+          "rotY": 70,
+          "look": "osman"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "osman"
+          ],
+          "who": "osman",
+          "do": "wave",
+          "look": "dede",
+          "focus": true
+        },
+        {
+          "cue": [
+            "karşıladı"
+          ],
+          "who": "dede",
+          "do": "walkTo",
+          "to": [
+            0.42,
+            0,
+            -0.049
+          ],
+          "face": 112,
+          "look": "osman"
+        },
+        {
+          "cue": [
+            "karşıladı"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.25,
+            0,
+            0.049
+          ],
+          "face": 128,
+          "look": "osman",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "karşıladı"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.16,
+            0,
+            0.0
+          ],
+          "face": 131,
+          "look": "osman",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "ayağı"
+          ],
+          "who": "baston",
+          "do": "shine",
+          "focus": true
+        },
+        {
+          "cue": [
+            "doktor"
+          ],
+          "who": "b_osman",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "doktor"
+          ],
+          "who": "osman",
+          "do": "talk",
+          "look": "dede",
+          "len": 3.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "ahmet"
+          ],
+          "who": "b_osman",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "ahmet"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "osman",
+          "len": 2.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "önerdi"
+          ],
+          "who": "osman",
+          "do": "nod",
+          "look": "dede"
+        },
+        {
+          "cue": [
+            "komşularla"
+          ],
+          "who": "dede",
+          "do": "point",
+          "target": "left",
+          "look": "osman",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "dede",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "imece"
+          ],
+          "who": "b_elif",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "merak"
+          ],
+          "who": "elif",
+          "do": "hop",
+          "look": "dede"
+        },
+        {
+          "cue": [
+            "merak"
+          ],
+          "who": "b_elif",
+          "do": "vanish",
+          "wait": 1.8
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "title": {
+        "tr": "El birliği",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Dedeleri|dede} “İmece bir işi {gönüllü} olarak birlikte yapmaktır.” dedi. {Sabah|sabah} komşular geldi. Herkes yapabileceği {görevi|görev} {seçti|seçmek}. {Büyükler|büyük} {tarladaki|tarla} {araçlarla|araç} {ilgilendi|ilgilenmek}. {Çocuklar|çocuk} {yetişkinlerle|yetişkin} {su} ve boş {sepet} {taşıyacaktı|taşımak}. Osman amca {gölgede|gölge} oturdu. Gelenlerle {sohbet edip|sohbet etmek} {yardımları|yardım} için {teşekkür etti|teşekkür etmek}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "İmece, köylerde tarla, harman, ev yapımı ya da kış hazırlığı gibi büyük işlerin herkesin gönüllü katılımıyla, el birliğiyle yapılmasıdır. Bugün de birçok köyde ve mahallede yaşatılan güzel bir dayanışma geleneğidir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/avlu-arka.webp",
+          "floor": "art/avlu-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "kapı",
+              "rect": [
+                0.22,
+                0.27,
+                0.12,
+                0.27
+              ]
+            },
+            {
+              "word": "asma",
+              "rect": [
+                0.55,
+                0.05,
+                0.45,
+                0.35
+              ]
+            },
+            {
+              "word": "sedir",
+              "rect": [
+                0.72,
+                0.58,
+                0.25,
+                0.16
+              ]
+            },
+            {
+              "word": "pencere",
+              "rect": [
+                0.45,
+                0.33,
+                0.1,
+                0.12
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "village",
+      "models": [
+        {
+          "proc": "kutuk",
+          "word": "kütük",
+          "x": 0.3,
+          "z": 0.33999999999999997,
+          "h": 0.11
+        },
+        {
+          "proc": "baston",
+          "word": "baston",
+          "x": 0.44999999999999996,
+          "z": 0.36,
+          "h": 0.3
+        },
+        {
+          "proc": "orakYerde",
+          "id": "orak1",
+          "word": "orak",
+          "x": -0.38,
+          "z": 0.4,
+          "h": 0.02
+        },
+        {
+          "proc": "orakYerde",
+          "id": "orak2",
+          "word": "orak",
+          "x": -0.3,
+          "z": 0.42,
+          "h": 0.02
+        },
+        {
+          "proc": "sepetBos",
+          "id": "sepetY",
+          "word": "sepet",
+          "x": -0.06,
+          "z": 0.48,
+          "h": 0.07
+        },
+        {
+          "proc": "testi",
+          "id": "testiY",
+          "word": "testi",
+          "x": 0.04,
+          "z": 0.46,
+          "h": 0.11
+        },
+        {
+          "proc": "bubble",
+          "id": "b_dede",
+          "label": "İmece: birlikte yapmak!",
+          "color": "#8A5A2B",
+          "x": -0.05,
+          "z": 0.62,
+          "y": 0.595,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "osman",
+          "x": 0.3,
+          "z": 0.36,
+          "y": -0.102,
+          "rotY": -30,
+          "pose": "sit",
+          "look": "dede"
+        },
+        {
+          "id": "dede",
+          "x": -0.05,
+          "z": 0.62,
+          "rotY": -20,
+          "look": "elif"
+        },
+        {
+          "id": "elif",
+          "x": -0.2,
+          "z": 0.74,
+          "rotY": 30,
+          "look": "dede"
+        },
+        {
+          "id": "can",
+          "x": 0.1,
+          "z": 0.76,
+          "rotY": -30,
+          "look": "dede"
+        },
+        {
+          "id": "komsuAdam",
+          "x": -0.62,
+          "z": 0.5,
+          "rotY": 90,
+          "look": "dede",
+          "hidden": true
+        },
+        {
+          "id": "komsuKadin",
+          "x": -0.62,
+          "z": 0.62,
+          "rotY": 90,
+          "look": "dede",
+          "hidden": true
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "dedeleri"
+          ],
+          "who": "b_dede",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "dedeleri"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "elif",
+          "len": 3.0
+        },
+        {
+          "cue": [
+            "sabah"
+          ],
+          "who": "b_dede",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "sabah"
+          ],
+          "who": "komsuAdam",
+          "do": "enter",
+          "to": [
+            0.3,
+            0,
+            -0.098
+          ],
+          "face": 60,
+          "look": "dede",
+          "focus": true
+        },
+        {
+          "cue": [
+            "sabah"
+          ],
+          "who": "komsuKadin",
+          "do": "enter",
+          "to": [
+            0.26,
+            0,
+            0.024
+          ],
+          "face": 60,
+          "look": "dede",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "geldi"
+          ],
+          "who": "osman",
+          "do": "wave",
+          "look": "komsuAdam"
+        },
+        {
+          "cue": [
+            "herkes"
+          ],
+          "who": "komsuAdam",
+          "do": "bend",
+          "look": "orak1",
+          "len": 1.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "seçti"
+          ],
+          "who": "orak1",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "seçti"
+          ],
+          "who": "komsuAdam",
+          "do": "receive",
+          "target": "orak",
+          "look": "orak1"
+        },
+        {
+          "cue": [
+            "büyükler"
+          ],
+          "who": "dede",
+          "do": "walkTo",
+          "to": [
+            -0.25,
+            0,
+            -0.22
+          ],
+          "face": -120,
+          "look": "orak2",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ilgilendi"
+          ],
+          "who": "orak2",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "ilgilendi"
+          ],
+          "who": "dede",
+          "do": "receive",
+          "target": "orak",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.12,
+            0,
+            -0.293
+          ],
+          "face": -100,
+          "look": "sepetY",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.2,
+            0,
+            -0.317
+          ],
+          "face": 60,
+          "look": "testiY",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "taşıyacaktı"
+          ],
+          "who": "sepetY",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "taşıyacaktı"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "sepet",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "taşıyacaktı"
+          ],
+          "who": "testiY",
+          "do": "vanish",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "taşıyacaktı"
+          ],
+          "who": "elif",
+          "do": "receive",
+          "target": "testiEl",
+          "look": "reader",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "osman"
+          ],
+          "who": "osman",
+          "do": "nod",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "teşekkür"
+          ],
+          "who": "osman",
+          "do": "talk",
+          "look": "komsuKadin",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "teşekkür"
+          ],
+          "who": "komsuKadin",
+          "do": "bow",
+          "look": "osman",
+          "wait": 0.6
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "title": {
+        "tr": "Tarlada türkü",
+        "en": ""
+      },
+      "text": {
+        "tr": "Büyükler buğday biçerken çocuklar {güvenli} {bölümdeydi|bölüm}. Elif {bardakları|bardak} {dizdi|dizmek}, Can boş sepetleri taşıdı. Bir {türkü} {duyuldu|duyulmak}. {Bilenler|bilmek} {eşlik etti|eşlik etmek}. Can “{Dinlenmek|dinlenmek} istiyorum.” dedi. Dedesi yanına oturdu. Su içtiler. İş {molalarla|mola} {ilerledi|ilerlemek}. {Akşam|akşam} tarlanın büyük bölümü biçilmişti.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Tarlada çalışırken söylenen türkülere iş türküleri denir. Türkü, ritmiyle işi hafifletir; orak sallayanlar aynı ezgiyle birlikte hareket eder. Sıcakta düzenli mola vermek ve su içmek de çok önemlidir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/tarla-arka.webp",
+          "floor": "art/tarla-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "ağaç",
+              "rect": [
+                0.0,
+                0.0,
+                0.35,
+                0.75
+              ]
+            },
+            {
+              "word": "tarla",
+              "rect": [
+                0.35,
+                0.5,
+                0.65,
+                0.18
+              ]
+            },
+            {
+              "word": "dağ",
+              "rect": [
+                0.3,
+                0.3,
+                0.5,
+                0.15
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "birds",
+      "models": [
+        {
+          "proc": "bugdayTarlasi",
+          "id": "bugday",
+          "word": "buğday",
+          "x": 0.2,
+          "z": 0.3,
+          "h": 0.28
+        },
+        {
+          "proc": "bugdayDemetleri",
+          "id": "demetler",
+          "word": "demet",
+          "x": 0.2,
+          "z": 0.32,
+          "h": 0.25,
+          "hidden": true
+        },
+        {
+          "proc": "kutuk",
+          "word": "kütük",
+          "x": -0.3,
+          "z": 0.5,
+          "h": 0.11
+        },
+        {
+          "proc": "bardaklar",
+          "id": "bardaklar",
+          "word": "bardak",
+          "x": -0.12,
+          "z": 0.72,
+          "h": 0.04,
+          "hidden": true
+        },
+        {
+          "proc": "sepetBos",
+          "word": "sepet",
+          "x": -0.4,
+          "z": 0.7,
+          "h": 0.07
+        },
+        {
+          "src": "/models/culture/baglama.glb",
+          "id": "baglama",
+          "word": "bağlama",
+          "x": 0.0,
+          "z": 0.45,
+          "y": 0.32,
+          "h": 0.12,
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_can",
+          "label": "Dinlenmek istiyorum.",
+          "color": "#2F6DC4",
+          "x": 0.06,
+          "z": 0.76,
+          "y": 0.41,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "komsuAdam",
+          "x": 0.12,
+          "z": 0.42,
+          "rotY": 160,
+          "look": "bugday",
+          "hold": "orak"
+        },
+        {
+          "id": "dede",
+          "x": 0.34,
+          "z": 0.44,
+          "rotY": 170,
+          "look": "bugday",
+          "hold": "orak"
+        },
+        {
+          "id": "komsuKadin",
+          "x": 0.42,
+          "z": 0.58,
+          "rotY": -150,
+          "look": "bugday"
+        },
+        {
+          "id": "elif",
+          "x": -0.2,
+          "z": 0.78,
+          "rotY": 20,
+          "look": "bardaklar"
+        },
+        {
+          "id": "can",
+          "x": 0.06,
+          "z": 0.76,
+          "rotY": -40,
+          "look": "reader",
+          "hold": "sepet"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "büyükler"
+          ],
+          "who": "komsuAdam",
+          "do": "useTool",
+          "style": "shake",
+          "look": "bugday",
+          "len": 2.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "büyükler"
+          ],
+          "who": "dede",
+          "do": "useTool",
+          "style": "shake",
+          "look": "bugday",
+          "len": 2.4,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "güvenli"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "dede",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "bend",
+          "look": "bardaklar",
+          "len": 1.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "dizdi"
+          ],
+          "who": "bardaklar",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.38,
+            0,
+            -0.049
+          ],
+          "face": -90,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "türkü"
+          ],
+          "who": "baglama",
+          "do": "appear",
+          "sound": "shine",
+          "focus": true
+        },
+        {
+          "cue": [
+            "bilenler"
+          ],
+          "who": "komsuKadin",
+          "do": "talk",
+          "look": "dede",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "bilenler"
+          ],
+          "who": "komsuAdam",
+          "do": "nod",
+          "look": "komsuKadin"
+        },
+        {
+          "cue": [
+            "bilenler"
+          ],
+          "who": "dede",
+          "do": "dance",
+          "look": "komsuAdam",
+          "len": 1.6,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "bilenler"
+          ],
+          "who": "baglama",
+          "do": "vanish",
+          "wait": 2.4
+        },
+        {
+          "cue": [
+            "dinlenmek"
+          ],
+          "who": "b_can",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "dinlenmek"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "dede",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "dedesi"
+          ],
+          "who": "b_can",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "dedesi"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.42,
+            0,
+            -0.317
+          ],
+          "face": 10,
+          "look": "dede",
+          "focus": true
+        },
+        {
+          "cue": [
+            "dedesi"
+          ],
+          "who": "dede",
+          "do": "walkTo",
+          "to": [
+            -0.58,
+            0,
+            0.073
+          ],
+          "face": -20,
+          "look": "can",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "su"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            -0.04,
+            0,
+            -0.171
+          ],
+          "face": -60,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "su"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "ilerledi"
+          ],
+          "who": "komsuAdam",
+          "do": "useTool",
+          "style": "shake",
+          "look": "bugday",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "akşam"
+          ],
+          "who": "bugday",
+          "do": "sink",
+          "to": [
+            0,
+            -0.1,
+            0
+          ],
+          "focus": true
+        },
+        {
+          "cue": [
+            "akşam"
+          ],
+          "who": "demetler",
+          "do": "appear",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "biçilmişti"
+          ],
+          "who": "komsuKadin",
+          "do": "cheer",
+          "look": "demetler"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "title": {
+        "tr": "Duman’ın arabası",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Kuruyan|kurumak} {başaklardan|başak} {taneler|tane} {harmanda|harman} {ayrıldı|ayrılmak}. {Temizlenip|temizlemek} {çuvallandı|çuvallamak}. {Çuvallar|çuval} {Duman} adlı {atın|at} arabasına {dengeli} yerleştirildi. Büyükler {yükü|yük} kontrol etti. Çocuklar {aileleriyle|aile} {değirmene|değirmen} gitti. Duman yolda {dinlendirildi|dinlendirmek}. Can çuvallara bakıp “{Ekmek|ekmek} olmak için daha {yolunuz|yol} var!” dedi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Harman, biçilen ekinin dövülüp tanelerinin saptan ayrıldığı yerdir. Eskiden harmanda döven çekilir, taneler rüzgârda savrularak temizlenirdi. Temiz buğday çuvallara doldurulup değirmene götürülür.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/koy-arka.webp",
+          "floor": "art/koy-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "çeşme",
+              "rect": [
+                0.03,
+                0.42,
+                0.2,
+                0.22
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.0,
+                0.0,
+                0.2,
+                0.42
+              ]
+            },
+            {
+              "word": "taş ev",
+              "rect": [
+                0.72,
+                0.3,
+                0.28,
+                0.4
+              ]
+            },
+            {
+              "word": "dağ",
+              "rect": [
+                0.3,
+                0.28,
+                0.42,
+                0.2
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "village",
+      "models": [
+        {
+          "proc": "harman",
+          "id": "harman",
+          "word": "harman",
+          "x": -0.36,
+          "z": 0.34,
+          "h": 0.12
+        },
+        {
+          "proc": "cuvallar",
+          "id": "cuvallar",
+          "word": "çuval",
+          "x": -0.14,
+          "z": 0.62,
+          "h": 0.15,
+          "hidden": true
+        },
+        {
+          "src": "/models/masal/hasat-arabasi.glb",
+          "id": "arabaK",
+          "word": "araba",
+          "x": 0.3,
+          "z": 0.5,
+          "h": 0.2,
+          "rotY": -90
+        },
+        {
+          "proc": "cuvallar",
+          "id": "yuk",
+          "word": "çuval",
+          "x": 0.3,
+          "z": 0.5,
+          "y": 0.1,
+          "h": 0.15,
+          "hidden": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_can",
+          "label": "Daha yolunuz var!",
+          "color": "#2F6DC4",
+          "x": -0.2,
+          "z": 0.78,
+          "y": 0.41,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "duman",
+          "x": 0.0,
+          "z": 0.5,
+          "rotY": -90,
+          "look": "reader"
+        },
+        {
+          "id": "komsuAdam",
+          "x": -0.16,
+          "z": 0.42,
+          "rotY": -70,
+          "look": "harman"
+        },
+        {
+          "id": "dede",
+          "x": -0.02,
+          "z": 0.74,
+          "rotY": 20,
+          "look": "duman"
+        },
+        {
+          "id": "can",
+          "x": -0.24,
+          "z": 0.8,
+          "rotY": 30,
+          "look": "cuvallar"
+        },
+        {
+          "id": "elif",
+          "x": -0.4,
+          "z": 0.74,
+          "rotY": 40,
+          "look": "harman"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "kuruyan"
+          ],
+          "who": "harman",
+          "do": "shine",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kuruyan"
+          ],
+          "who": "komsuAdam",
+          "do": "useTool",
+          "style": "shake",
+          "look": "harman",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "temizlenip"
+          ],
+          "who": "cuvallar",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çuvallandı"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "cuvallar"
+        },
+        {
+          "cue": [
+            "çuvallar"
+          ],
+          "who": "cuvallar",
+          "do": "vanish",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çuvallar"
+          ],
+          "who": "yuk",
+          "do": "appear",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "duman"
+          ],
+          "who": "duman",
+          "do": "nod",
+          "look": "reader",
+          "sound": "kisneme"
+        },
+        {
+          "cue": [
+            "büyükler"
+          ],
+          "who": "dede",
+          "do": "walkTo",
+          "to": [
+            0.18,
+            0,
+            -0.098
+          ],
+          "face": 60,
+          "look": "yuk",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kontrol"
+          ],
+          "who": "dede",
+          "do": "point",
+          "target": "yuk",
+          "look": "yuk",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "duman",
+          "do": "walkTo",
+          "to": [
+            -0.3,
+            0,
+            0
+          ],
+          "face": -90,
+          "look": "reader",
+          "sound": "nal",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "arabaK",
+          "do": "slide",
+          "to": [
+            -0.3,
+            0,
+            0
+          ],
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "yuk",
+          "do": "slide",
+          "to": [
+            -0.3,
+            0,
+            0
+          ],
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.12,
+            0,
+            -0.049
+          ],
+          "face": -80,
+          "look": "duman",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "dinlendirildi"
+          ],
+          "who": "duman",
+          "do": "nod",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "dinlendirildi"
+          ],
+          "who": "elif",
+          "do": "wave",
+          "look": "duman"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "yuk",
+          "len": 1.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "ekmek"
+          ],
+          "who": "b_can",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "ekmek"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "yuk",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "yolunuz"
+          ],
+          "who": "yuk",
+          "do": "shine"
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "title": {
+        "tr": "Su değirmeni",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Değirmende|değirmen} su büyük {çarkı|çark} {döndürüyordu|döndürmek}. {Değirmenci} buğdayın {taşlar|taş} arasında nasıl {öğütüldüğünü|öğütmek} gösterdi. Çocuklar {belirlenen|belirlemek} yerden {izledi|izlemek}. {Çuvalda|çuval} {un} {birikiyordu|birikmek}. Elif “Başaktan buraya gelmesi günler sürdü.” dedi. Dedesi unu aldı. Buğdayın {yolculuğu|yolculuk} şimdi {hamur} olarak {sürecekti|sürmek}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Su değirmeninde akan su büyük bir çarkı döndürür; çark da içerideki ağır değirmen taşını çevirir. Buğday iki taşın arasında ezilerek una dönüşür. Anadolu’da yüzlerce yıl kullanılan su değirmenlerinin bazıları bugün hâlâ çalışır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/degirmen-arka.webp",
+          "floor": "art/degirmen-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "değirmen",
+              "rect": [
+                0.0,
+                0.2,
+                0.98,
+                0.5
+              ]
+            },
+            {
+              "word": "dere",
+              "rect": [
+                0.12,
+                0.7,
+                0.88,
+                0.12
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.12,
+                0.43,
+                0.09,
+                0.2
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "birds",
+      "models": [
+        {
+          "proc": "panel",
+          "id": "cark",
+          "decal": "/books/koyde-imece/art/cark.webp",
+          "x": 0.37,
+          "z": 0.03,
+          "y": 0.39,
+          "h": 0.32,
+          "w": 0.32,
+          "pivot": "center",
+          "word": "çark",
+          "fx": "wheel"
+        },
+        {
+          "proc": "degirmenTasi",
+          "word": "değirmen taşı",
+          "x": -0.14,
+          "z": 0.5,
+          "h": 0.42
+        },
+        {
+          "proc": "degirmenUstTasi",
+          "id": "ustTas",
+          "word": "değirmen taşı",
+          "x": -0.14,
+          "z": 0.5,
+          "y": 0.214,
+          "h": 0.05,
+          "fx": "spin"
+        },
+        {
+          "proc": "unCuvali",
+          "id": "cuval",
+          "word": "çuval",
+          "x": -0.14,
+          "z": 0.7,
+          "h": 0.2
+        },
+        {
+          "proc": "unYigini",
+          "id": "un",
+          "word": "un",
+          "x": -0.14,
+          "z": 0.7,
+          "y": 0.19,
+          "h": 0.04,
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "cit",
+          "word": "çit",
+          "x": 0.16,
+          "z": 0.62,
+          "h": 0.18,
+          "rotY": 90
+        },
+        {
+          "proc": "bubble",
+          "id": "b_elif",
+          "label": "Günler sürdü!",
+          "color": "#7B4BB7",
+          "x": 0.3,
+          "z": 0.62,
+          "y": 0.465,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "degirmenci",
+          "x": -0.34,
+          "z": 0.54,
+          "rotY": 60,
+          "look": "ustTas"
+        },
+        {
+          "id": "can",
+          "x": 0.26,
+          "z": 0.74,
+          "rotY": -70,
+          "look": "ustTas"
+        },
+        {
+          "id": "elif",
+          "x": 0.3,
+          "z": 0.62,
+          "rotY": -80,
+          "look": "ustTas"
+        },
+        {
+          "id": "dede",
+          "x": 0.42,
+          "z": 0.72,
+          "rotY": -80,
+          "look": "cark"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "değirmende"
+          ],
+          "who": "cark",
+          "do": "shine",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çarkı"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "cark",
+          "look": "cark",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "değirmenci"
+          ],
+          "who": "degirmenci",
+          "do": "point",
+          "target": "ustTas",
+          "look": "can",
+          "len": 2.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "öğütüldüğünü"
+          ],
+          "who": "ustTas",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "öğütüldüğünü"
+          ],
+          "who": "degirmenci",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "ustTas",
+          "focus": true
+        },
+        {
+          "cue": [
+            "izledi"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "degirmenci"
+        },
+        {
+          "cue": [
+            "çuvalda"
+          ],
+          "who": "un",
+          "do": "grow",
+          "focus": true
+        },
+        {
+          "cue": [
+            "birikiyordu"
+          ],
+          "who": "cuval",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "b_elif",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "dede",
+          "len": 2.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "dedesi"
+          ],
+          "who": "b_elif",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "dedesi"
+          ],
+          "who": "dede",
+          "do": "walkTo",
+          "to": [
+            -0.3,
+            0,
+            -0.049
+          ],
+          "face": -100,
+          "look": "cuval",
+          "focus": true
+        },
+        {
+          "cue": [
+            "aldı"
+          ],
+          "who": "un",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "aldı"
+          ],
+          "who": "dede",
+          "do": "receive",
+          "target": "unCuvaliEl",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "hamur"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "dede"
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "title": {
+        "tr": "Tandır başında",
+        "en": ""
+      },
+      "text": {
+        "tr": "Osman amcanın avlusunda {sofra} kuruldu. {Babaanneleri|babaanne} hamur {yoğurdu|yoğurmak}. {Tandırı|tandır} kullanmayı bilen büyükler {ekmekleri|ekmek} {pişirdi|pişirmek}. Çocuklar uzaktaki {masaya|masa} {kaşık} ve {peçete} koydu. Komşular {yemek} getirdi. Osman amca teşekkür etti. Can ekmeği {kokladı|koklamak}. Tarlayı, değirmeni ve birlikte çalışanları {hatırladı|hatırlamak}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Tandır, toprağa ya da kil gövdeye yapılmış derin bir ocaktır. Hamur tandırın sıcak duvarına yapıştırılarak pişirilir. İmece sonunda emeği geçenlerle birlikte kurulan sofra, işin en sevilen bölümüdür.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/avlu-arka.webp",
+          "floor": "art/avlu-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "kapı",
+              "rect": [
+                0.22,
+                0.27,
+                0.12,
+                0.27
+              ]
+            },
+            {
+              "word": "asma",
+              "rect": [
+                0.55,
+                0.05,
+                0.45,
+                0.35
+              ]
+            },
+            {
+              "word": "sedir",
+              "rect": [
+                0.72,
+                0.58,
+                0.25,
+                0.16
+              ]
+            },
+            {
+              "word": "pencere",
+              "rect": [
+                0.45,
+                0.33,
+                0.1,
+                0.12
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "village",
+      "models": [
+        {
+          "proc": "tandir",
+          "word": "tandır",
+          "x": 0.28,
+          "z": 0.36,
+          "h": 0.25,
+          "steam": true
+        },
+        {
+          "proc": "hamurTeknesi",
+          "word": "hamur",
+          "x": 0.02,
+          "z": 0.34,
+          "h": 0.2
+        },
+        {
+          "src": "/models/masal/koy-sofrasi.glb",
+          "word": "sofra",
+          "x": -0.18,
+          "z": 0.6,
+          "h": 0.07,
+          "w": 0.4
+        },
+        {
+          "proc": "tandirEkmekleri",
+          "id": "ekmekler",
+          "word": "ekmek",
+          "x": -0.13,
+          "z": 0.6,
+          "y": 0.07,
+          "h": 0.03,
+          "hidden": true,
+          "steam": true
+        },
+        {
+          "proc": "peceteUcan",
+          "id": "peceteler",
+          "word": "peçete",
+          "x": -0.3,
+          "z": 0.65,
+          "y": 0.07,
+          "h": 0.01,
+          "pitch": -80,
+          "hidden": true
+        },
+        {
+          "proc": "peceteUcan",
+          "id": "pecete2",
+          "word": "peçete",
+          "x": -0.18,
+          "z": 0.6699999999999999,
+          "y": 0.07,
+          "h": 0.01,
+          "pitch": -80,
+          "hidden": true
+        },
+        {
+          "src": "/models/masal/pilav.glb",
+          "id": "pilav",
+          "word": "yemek",
+          "x": -0.06,
+          "z": 0.58,
+          "y": 0.07,
+          "h": 0.05,
+          "hidden": true
+        },
+        {
+          "src": "/models/masal/tencere.glb",
+          "id": "tencere",
+          "word": "yemek",
+          "x": -0.19999999999999998,
+          "z": 0.5499999999999999,
+          "y": 0.07,
+          "h": 0.05,
+          "hidden": true,
+          "steam": true
+        },
+        {
+          "proc": "kutuk",
+          "word": "kütük",
+          "x": 0.42,
+          "z": 0.62,
+          "h": 0.11,
+          "rotY": 90
+        }
+      ],
+      "cast": [
+        {
+          "id": "babaanne",
+          "x": 0.02,
+          "z": 0.24,
+          "rotY": 0,
+          "look": "down"
+        },
+        {
+          "id": "komsuKadin",
+          "x": 0.26,
+          "z": 0.19999999999999998,
+          "rotY": 0,
+          "look": "down"
+        },
+        {
+          "id": "osman",
+          "x": 0.42,
+          "z": 0.64,
+          "y": -0.102,
+          "rotY": -90,
+          "pose": "sit",
+          "look": "babaanne"
+        },
+        {
+          "id": "komsuAdam",
+          "x": -0.6,
+          "z": 0.5,
+          "rotY": 90,
+          "look": "osman",
+          "hidden": true
+        },
+        {
+          "id": "can",
+          "x": -0.3,
+          "z": 0.78,
+          "rotY": 30,
+          "look": "peceteler"
+        },
+        {
+          "id": "elif",
+          "x": -0.06,
+          "z": 0.78,
+          "rotY": -30,
+          "look": "peceteler"
+        },
+        {
+          "id": "dede",
+          "x": -0.42,
+          "z": 0.44,
+          "rotY": 60,
+          "look": "babaanne"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "osman"
+          ],
+          "who": "dede",
+          "do": "nod",
+          "look": "osman",
+          "focus": true
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "babaanne",
+          "do": "useTool",
+          "style": "tap",
+          "to": [
+            0.0,
+            -0.05,
+            0.3
+          ],
+          "look": "down",
+          "len": 2.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "tandırı"
+          ],
+          "who": "komsuKadin",
+          "do": "useTool",
+          "style": "lay",
+          "look": "down",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "pişirdi"
+          ],
+          "who": "ekmekler",
+          "do": "appear",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "can",
+          "do": "bend",
+          "look": "peceteler",
+          "len": 1.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "elif",
+          "do": "bend",
+          "look": "peceteler",
+          "len": 1.0,
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "koydu"
+          ],
+          "who": "peceteler",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "koydu"
+          ],
+          "who": "pecete2",
+          "do": "appear",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "komşular"
+          ],
+          "who": "komsuAdam",
+          "do": "enter",
+          "to": [
+            0.24,
+            0,
+            0.0
+          ],
+          "face": 90,
+          "look": "osman",
+          "focus": true
+        },
+        {
+          "cue": [
+            "getirdi"
+          ],
+          "who": "komsuAdam",
+          "do": "offer",
+          "look": "pilav",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "getirdi"
+          ],
+          "who": "pilav",
+          "do": "appear",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "getirdi"
+          ],
+          "who": "tencere",
+          "do": "appear",
+          "wait": 0.8
+        },
+        {
+          "cue": [
+            "osman"
+          ],
+          "who": "osman",
+          "do": "bow",
+          "look": "komsuAdam",
+          "focus": true
+        },
+        {
+          "cue": [
+            "teşekkür"
+          ],
+          "who": "osman",
+          "do": "talk",
+          "look": "babaanne",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "bend",
+          "look": "ekmekler",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "kokladı"
+          ],
+          "who": "ekmekler",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "hatırladı"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "dede"
+        },
+        {
+          "cue": [
+            "hatırladı"
+          ],
+          "who": "dede",
+          "do": "nod",
+          "look": "can",
+          "wait": 0.3
+        }
+      ]
+    },
+    {
+      "id": "p8",
+      "title": {
+        "tr": "Bizim mahallemizde",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Dönüşte|dönüş} Elif dedesinin {çocukluk} {anılarını|anı} dinledi. Can “Bizim {mahallede|mahalle} imece olur mu?” diye sordu. Dedesi “Önce {komşularınıza|komşu} hangi işte {yardıma|yardım} {ihtiyaç duyduklarını|ihtiyaç duymak} sorun.” dedi. Çocuklar {ortak bahçedeki|ortak bahçe} {yaprakları|yaprak} düşündü. Eve dönünce {danışacaklardı|danışmak}. Elif dedesine {yaklaşıp|yaklaşmak} {sıradaki|sıradaki} hikâyeyi dinledi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "İmece yalnız köylere özgü değildir. Şehirde de komşular ortak bahçeyi temizlemek, yaşlı bir komşunun alışverişine yardım etmek ya da mahalle şenliği hazırlamak için el birliği yapabilir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/koy-arka.webp",
+          "floor": "art/koy-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "çeşme",
+              "rect": [
+                0.03,
+                0.42,
+                0.2,
+                0.22
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.0,
+                0.0,
+                0.2,
+                0.42
+              ]
+            },
+            {
+              "word": "taş ev",
+              "rect": [
+                0.72,
+                0.3,
+                0.28,
+                0.4
+              ]
+            },
+            {
+              "word": "dağ",
+              "rect": [
+                0.3,
+                0.28,
+                0.42,
+                0.2
+              ]
+            }
+          ],
+          "tint": "#E3B59A",
+          "floorTint": "#E3B59A"
+        }
+      ],
+      "ambience": "crickets",
+      "models": [
+        {
+          "proc": "araba",
+          "word": "araba",
+          "x": 0.26,
+          "z": 0.5,
+          "h": 0.2,
+          "rotY": 0
+        },
+        {
+          "proc": "yapraklar",
+          "id": "yapraklar",
+          "word": "yaprak",
+          "x": -0.2,
+          "z": 0.4,
+          "y": 0.34,
+          "h": 0.1,
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "kutuk",
+          "word": "kütük",
+          "x": -0.02,
+          "z": 0.7,
+          "h": 0.11
+        },
+        {
+          "proc": "bubble",
+          "id": "b_can",
+          "label": "Bizim mahallede imece olur mu?",
+          "color": "#2F6DC4",
+          "x": -0.32,
+          "z": 0.76,
+          "y": 0.41,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "dede",
+          "x": -0.02,
+          "z": 0.72,
+          "y": -0.113,
+          "rotY": 0,
+          "pose": "sit",
+          "look": "elif"
+        },
+        {
+          "id": "elif",
+          "x": 0.22,
+          "z": 0.78,
+          "rotY": -60,
+          "look": "dede"
+        },
+        {
+          "id": "can",
+          "x": -0.32,
+          "z": 0.76,
+          "rotY": 50,
+          "look": "dede"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "dönüşte"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "elif",
+          "len": 3.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "anılarını"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "dede"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "b_can",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "dede",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "dedesi"
+          ],
+          "who": "b_can",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "dedesi"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "can",
+          "len": 3.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "yapraklar",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "yapraklar",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "yapraklar",
+          "len": 1.8,
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "danışacaklardı"
+          ],
+          "who": "yapraklar",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "danışacaklardı"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            -0.1,
+            0,
+            -0.049
+          ],
+          "face": -80,
+          "look": "dede",
+          "focus": true
+        },
+        {
+          "cue": [
+            "dinledi"
+          ],
+          "who": "dede",
+          "do": "nod",
+          "look": "elif"
+        }
+      ]
+    }
+  ]
+}

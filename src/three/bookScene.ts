@@ -233,11 +233,11 @@ function tileCanvas(): HTMLCanvasElement {
  * A flat cut-out standing up (a door leaf painted on paper): `w` wide, its height from the picture; its hinge, the
  * left edge, is the origin, so turning it opens it like a door.
  */
-function picturePanel(tex: THREE.Texture, w: number, opt: { pivot?: 'left' | 'bottom'; unlit?: boolean; stick?: boolean; sy?: number } = {}) {
+function picturePanel(tex: THREE.Texture, w: number, opt: { pivot?: 'left' | 'bottom' | 'center'; unlit?: boolean; stick?: boolean; sy?: number } = {}) {
   const img = tex.image as { width: number; height: number };
   const h = ((w * img.height) / img.width) * (opt.sy ?? 1);
   const geo = new THREE.PlaneGeometry(w, h);
-  geo.translate(opt.pivot === 'bottom' ? 0 : w / 2, h / 2, 0);
+  geo.translate(opt.pivot === 'bottom' || opt.pivot === 'center' ? 0 : w / 2, opt.pivot === 'center' ? 0 : h / 2, 0);
   const mat = opt.unlit
     ? new THREE.MeshBasicMaterial({ map: tex, transparent: true, alphaTest: 0.4, side: THREE.DoubleSide })
     : new THREE.MeshLambertMaterial({ map: tex, transparent: true, alphaTest: 0.4, side: THREE.DoubleSide });
@@ -992,6 +992,17 @@ export class BookScene {
           if (r) r.rotation.z = flap;
           break;
         }
+        case 'peck': {
+          // a hen pecking: now and then a quick dip of the head, a little turn
+          const k = (t + ph) % 2.6;
+          g.rotation.x = k < 0.5 ? Math.sin((k / 0.5) * Math.PI) * 0.55 : 0;
+          g.rotation.y = Math.sin(t * 0.4 + ph) * 0.6;
+          break;
+        }
+        case 'wheel':
+          // a water wheel turning slowly
+          g.rotation.z -= dt * 0.7;
+          break;
         case 'float':
           // something floating on small waves
           g.position.y = Math.sin(t * 1.6 + ph) * 0.006;

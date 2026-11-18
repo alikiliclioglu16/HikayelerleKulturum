@@ -94,7 +94,7 @@ export interface PageModel {
   /** With `id`: not there until a beat makes it appear or rise. */
   hidden?: boolean;
   /** For `proc: "panel"`: "bottom" turns and tilts it about the middle of its bottom edge (a shadow puppet), not the left edge. */
-  pivot?: 'left' | 'bottom';
+  pivot?: 'left' | 'bottom' | 'center';
   /** For `proc: "panel"`: not shaded by the lights, glowing as if lit from behind (a puppet on the lit screen). */
   unlit?: boolean;
   /** For `proc: "panel"`: stretch the picture's height by this much (a strip of soil made taller). */
@@ -114,7 +114,7 @@ export interface PageModel {
   /** A table: things put down above it land on its top, this far up its height (0..1). */
   top?: number;
   /** Gentle life for still objects: trees sway, a pot wobbles, a lantern swings, a plant breathes. */
-  fx?: 'sway' | 'wobble' | 'swing' | 'breathe' | 'bob' | 'spin' | 'grow' | 'wave' | 'glide' | 'float';
+  fx?: 'sway' | 'wobble' | 'swing' | 'breathe' | 'bob' | 'spin' | 'grow' | 'wave' | 'glide' | 'float' | 'peck' | 'wheel';
 }
 
 /** A 3D object on the reading table, around the book (world units, the book is 2 wide). */

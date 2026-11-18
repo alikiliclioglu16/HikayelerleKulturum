@@ -579,7 +579,7 @@
     },
     {
       "id": "koyde-imece",
-      "status": "soon",
+      "status": "ready",
       "title": "Dedemin Köyünde İmece",
       "titleEn": "Working Together in Grandpa's Village",
       "values": [
@@ -594,14 +594,17 @@
       "cover": {
         "art": "cover-soon",
         "color": "#5C8F3E",
-        "motif": "imece"
+        "motif": "imece",
+        "src": "kapak.webp",
+        "titled": false
       },
       "carpet": {
         "motif": "hayat-agaci",
         "field": "#7A5A24",
         "border": "#2F3F5C",
         "src": "/halilar/koyde-imece.webp"
-      }
+      },
+      "pages": 8
     },
     {
       "id": "yolcu-misafir",

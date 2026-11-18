@@ -172,6 +172,8 @@ const MARE: HorseLook = { shoulder: 1.5, bodyR: 0.33, bodyLen: 0.85, legR: 0.07,
 export const horseModels = {
   tay: () => horse({ ...FOAL, bandage: true }),
   kisrak: () => horse(MARE),
+  /** Duman, the grey horse of the village (Dedemin Köyünde İmece). */
+  duman: () => horse({ ...MARE, coat: '#A9ADB2', mane: '#5E6166', muzzle: '#E2E2E2', blaze: false }),
   tayYatan: () => horse({ ...FOAL, lying: true }),
 };
 
