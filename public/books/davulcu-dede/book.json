@@ -1,0 +1,3251 @@
+{
+  "id": "davulcu-dede",
+  "title": "Davulcu Dede",
+  "titleEn": "The Ramadan Drummer",
+  "culture": {
+    "tr": "Ramazan davulcusu, sahur, mâni, iftar ve mahalle dayanışması",
+    "en": "The Ramadan drummer, sahur, mâni, iftar and neighbours helping each other"
+  },
+  "summary": {
+    "tr": "Ramazan’da İzmir’de sahura kaldıran Hüseyin dedenin dizleri ağrıyınca Can ve mahalleli ona eşlik ediyor. Can fener taşıyor ama yorulunca bunu söylemeyi de öğreniyor.",
+    "en": ""
+  },
+  "values": [
+    "sorumluluk",
+    "saglikli-yasam",
+    "yardimseverlik"
+  ],
+  "music": {
+    "src": "/books/davulcu-dede/muzik.mp3",
+    "loop": 45.6,
+    "gain": 0.9
+  },
+  "toyCast": true,
+  "glossary": {
+    "Ramazan": {
+      "en": "Ramadan, the month of fasting",
+      "icon": "🌙"
+    },
+    "İzmir": {
+      "en": "İzmir, a city on the Aegean coast of Türkiye",
+      "icon": "🏙️"
+    },
+    "gece": {
+      "en": "night",
+      "icon": "🌃"
+    },
+    "davul": {
+      "en": "drum",
+      "icon": "🥁"
+    },
+    "uyanmak": {
+      "en": "to wake up",
+      "icon": "⏰"
+    },
+    "babaanne": {
+      "en": "grandma (father's mother)",
+      "icon": "👵"
+    },
+    "sahur": {
+      "en": "the meal before dawn in Ramadan",
+      "icon": "🍞"
+    },
+    "vakit": {
+      "en": "time (of day)",
+      "icon": "🕰️"
+    },
+    "hatırlatmak": {
+      "en": "to remind",
+      "icon": "🔔"
+    },
+    "oruç": {
+      "en": "fasting",
+      "icon": "🌙"
+    },
+    "pencere": {
+      "en": "window",
+      "icon": "🪟"
+    },
+    "uzaklaşmak": {
+      "en": "to move away",
+      "icon": "↔️"
+    },
+    "yatak": {
+      "en": "bed",
+      "icon": "🛏️"
+    },
+    "mâni": {
+      "en": "mâni, a short four-line folk poem",
+      "icon": "📜"
+    },
+    "halk şiiri": {
+      "en": "folk poem",
+      "icon": "📜"
+    },
+    "gökyüzü": {
+      "en": "sky",
+      "icon": "🌌"
+    },
+    "sofra": {
+      "en": "dinner table, a meal spread",
+      "icon": "🍽️"
+    },
+    "diz": {
+      "en": "knee",
+      "icon": "🦵"
+    },
+    "ritim": {
+      "en": "rhythm",
+      "icon": "🎵"
+    },
+    "bank": {
+      "en": "bench",
+      "icon": "🪑"
+    },
+    "dinlenmek": {
+      "en": "to rest",
+      "icon": "😌"
+    },
+    "ağrımak": {
+      "en": "to ache",
+      "icon": "🤕"
+    },
+    "yürüyüş": {
+      "en": "walk",
+      "icon": "🚶"
+    },
+    "kısaltmak": {
+      "en": "to shorten",
+      "icon": "✂️"
+    },
+    "komşu": {
+      "en": "neighbour",
+      "icon": "🏘️"
+    },
+    "eşlik etmek": {
+      "en": "to go along with",
+      "icon": "🤝"
+    },
+    "yetişkin": {
+      "en": "grown-up",
+      "icon": "🧑"
+    },
+    "uyku": {
+      "en": "sleep",
+      "icon": "😴"
+    },
+    "ihtiyaç": {
+      "en": "need",
+      "icon": "🙏"
+    },
+    "erken": {
+      "en": "early",
+      "icon": "🌅"
+    },
+    "mahalle": {
+      "en": "neighbourhood",
+      "icon": "🏘️"
+    },
+    "ziyaret": {
+      "en": "visit",
+      "icon": "🚪"
+    },
+    "baba": {
+      "en": "dad",
+      "icon": "👨"
+    },
+    "renkli camlı fener": {
+      "en": "lantern with coloured glass",
+      "icon": "🏮"
+    },
+    "pilli ışık": {
+      "en": "battery light",
+      "icon": "🔋"
+    },
+    "düğme": {
+      "en": "button, switch",
+      "icon": "🔘"
+    },
+    "duvar": {
+      "en": "wall",
+      "icon": "🧱"
+    },
+    "benek": {
+      "en": "spot (of light)",
+      "icon": "🔴"
+    },
+    "rengârenk": {
+      "en": "full of colours",
+      "icon": "🌈"
+    },
+    "kapı": {
+      "en": "door",
+      "icon": "🚪"
+    },
+    "yavaş": {
+      "en": "slow",
+      "icon": "🐢"
+    },
+    "yürümek": {
+      "en": "to walk",
+      "icon": "🚶"
+    },
+    "fener": {
+      "en": "lantern",
+      "icon": "🏮"
+    },
+    "iz": {
+      "en": "trace, mark",
+      "icon": "✨"
+    },
+    "selamlaşmak": {
+      "en": "to greet each other",
+      "icon": "👋"
+    },
+    "sokak": {
+      "en": "street",
+      "icon": "🛣️"
+    },
+    "köşe": {
+      "en": "corner",
+      "icon": "📐"
+    },
+    "göz": {
+      "en": "eye",
+      "icon": "👁️"
+    },
+    "ağırlaşmak": {
+      "en": "to get heavy",
+      "icon": "😪"
+    },
+    "yorulmak": {
+      "en": "to get tired",
+      "icon": "😮‍💨"
+    },
+    "haber vermek": {
+      "en": "to let someone know",
+      "icon": "📣"
+    },
+    "iyi geceler": {
+      "en": "good night",
+      "icon": "🌙"
+    },
+    "uzanmak": {
+      "en": "to lie down",
+      "icon": "🛌"
+    },
+    "mahalleli": {
+      "en": "the people of the neighbourhood",
+      "icon": "🏘️"
+    },
+    "iftar": {
+      "en": "the evening meal that ends the fast",
+      "icon": "🍲"
+    },
+    "çorba": {
+      "en": "soup",
+      "icon": "🥣"
+    },
+    "pide": {
+      "en": "pide, a flat bread",
+      "icon": "🥖"
+    },
+    "güllaç": {
+      "en": "güllaç, a Ramadan dessert of thin layers and milk",
+      "icon": "🍮"
+    },
+    "peçete": {
+      "en": "napkin",
+      "icon": "🧻"
+    },
+    "ezan": {
+      "en": "the call to prayer",
+      "icon": "🕌"
+    },
+    "buluşmak": {
+      "en": "to meet",
+      "icon": "🤗"
+    },
+    "davulcu": {
+      "en": "drummer",
+      "icon": "🥁"
+    },
+    "bahşiş": {
+      "en": "tip, a little gift of money",
+      "icon": "🪙"
+    },
+    "teşekkür etmek": {
+      "en": "to thank",
+      "icon": "🙏"
+    },
+    "bayram": {
+      "en": "festival, holiday",
+      "icon": "🎉"
+    },
+    "Amerika": {
+      "en": "America",
+      "icon": "🇺🇸"
+    },
+    "fenerli yürüyüş": {
+      "en": "the lantern walk",
+      "icon": "🏮"
+    },
+    "arkadaş": {
+      "en": "friend",
+      "icon": "🧒"
+    },
+    "tokmak": {
+      "en": "drumstick",
+      "icon": "🥁"
+    },
+    "ay": {
+      "en": "moon",
+      "icon": "🌙"
+    },
+    "cumba": {
+      "en": "bay window of an old house",
+      "icon": "🏠"
+    },
+    "ağaç": {
+      "en": "tree",
+      "icon": "🌳"
+    },
+    "saksı": {
+      "en": "flowerpot",
+      "icon": "🪴"
+    },
+    "yorgan": {
+      "en": "quilt",
+      "icon": "🛏️"
+    },
+    "sokak lambası": {
+      "en": "street lamp",
+      "icon": "💡"
+    },
+    "minare": {
+      "en": "minaret",
+      "icon": "🕌"
+    },
+    "ışık zinciri": {
+      "en": "string of lights",
+      "icon": "💡"
+    },
+    "güneş": {
+      "en": "sun",
+      "icon": "☀️"
+    },
+    "kitap": {
+      "en": "book",
+      "icon": "📖"
+    }
+  },
+  "quiz": [
+    {
+      "q": {
+        "tr": "Can gece neyin sesiyle uyandı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Davul sesiyle",
+          "en": ""
+        },
+        {
+          "tr": "Saat sesiyle",
+          "en": ""
+        },
+        {
+          "tr": "Kuş sesiyle",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "Hüseyin dede davul çalarak sahur vaktini hatırlatıyordu.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Hüseyin dedenin okuduğu kısa halk şiirlerine ne denir?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Masal",
+          "en": ""
+        },
+        {
+          "tr": "Mâni",
+          "en": ""
+        },
+        {
+          "tr": "Bilmece",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Hüseyin dede bunların mâni denen kısa halk şiirleri olduğunu söyledi.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Hüseyin dede gece yürüyüşünü neden kısaltmak istedi?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Davulu kırıldığı için",
+          "en": ""
+        },
+        {
+          "tr": "Dizleri ağrıdığı için",
+          "en": ""
+        },
+        {
+          "tr": "Yağmur yağdığı için",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Hüseyin dede dizlerinin ağrıdığını söyledi; komşular da ona eşlik etmeye karar verdi.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Can, yürüyüşte yorulunca ne yaptı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Sessizce yürümeye devam etti",
+          "en": ""
+        },
+        {
+          "tr": "Yorulduğunu söyleyip eve dönmek istedi",
+          "en": ""
+        },
+        {
+          "tr": "Feneri yere bıraktı",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Can yorulduğunu babasına söyledi; babası haber vermesinin iyi olduğunu belirtti.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Elif okurken Can ne yaptı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Davulu daha yüksek çaldı",
+          "en": ""
+        },
+        {
+          "tr": "Tokmağı bıraktı ve sonra birlikte çalmayı önerdi",
+          "en": ""
+        },
+        {
+          "tr": "Odadan çıktı",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Can, Elif’in okuduğunu duyunca tokmağı bıraktı ve sonra birlikte çalabileceklerini söyledi.",
+        "en": ""
+      }
+    }
+  ],
+  "valueHunt": [
+    {
+      "page": "p3",
+      "answer": "yardimseverlik",
+      "options": [
+        "yardimseverlik",
+        "estetik",
+        "tasarruf"
+      ],
+      "why": {
+        "tr": "Kenan Bey ve komşular, dizleri ağrıyan Hüseyin dedeye eşlik etmeyi önerdi.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p4",
+      "answer": "sorumluluk",
+      "options": [
+        "ozgurluk",
+        "sorumluluk",
+        "adalet"
+      ],
+      "why": {
+        "tr": "Can feneri taşıma görevini üstlendi ve onu dikkatle taşıdı.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p6",
+      "answer": "saglikli-yasam",
+      "options": [
+        "saglikli-yasam",
+        "vatanseverlik",
+        "estetik"
+      ],
+      "why": {
+        "tr": "Can yorulduğunu fark edip söyledi ve dinlenmek için eve döndü.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p8",
+      "answer": "saygi",
+      "options": [
+        "dostluk",
+        "saygi",
+        "mutevazilik"
+      ],
+      "why": {
+        "tr": "Can, okuyan ablasını rahatsız etmemek için davulu sonra çalmayı kabul etti.",
+        "en": ""
+      }
+    }
+  ],
+  "family": {
+    "task": {
+      "tr": "Bir akşam evde birlikte kısa bir mâni yazın. Ardından ailece kimin neye ihtiyacı olduğunu konuşun: kim dinlenmeli, kime yardım edilebilir?",
+      "en": ""
+    },
+    "talk": [
+      {
+        "tr": "Can, yürüyüşte yorulunca ne yaptı?",
+        "en": ""
+      },
+      {
+        "tr": "Can’ın önceden anlaşılan kısa bir yürüyüşe katılması neden uygundu?",
+        "en": ""
+      },
+      {
+        "tr": "Bir yardım görevini tamamlayamayacak kadar yorulsan bunu nasıl söylersin? Bir konuşma canlandır.",
+        "en": ""
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "p1",
+      "title": {
+        "tr": "Gece gelen ses",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Ramazanın|Ramazan} ilk günlerini {İzmir’de|İzmir} geçiriyorlardı. Can {gece} {davul} sesiyle {uyandı|uyanmak}. Dum, dum, dum! {Babaannesi|babaanne} yanına geldi. “Hüseyin dede {sahur} {vaktini|vakit} {hatırlatıyor|hatırlatmak}. {Oruç|oruç} başlamadan önce sahur yemeği yenir.” dedi. Can {pencereye|pencere} baktı. Davul {uzaklaşınca|uzaklaşmak} yeniden {yatağına|yatak} döndü.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Ramazan ayında davulcular gece sokakları dolaşıp sahur vaktini haber verir. Davulun sesi ve okunan mâniler, birçok mahallede Ramazan’ın en sevilen seslerindendir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p1-arka.webp",
+          "floor": "art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.5,
+                0.04,
+                0.45,
+                0.58
+              ]
+            },
+            {
+              "word": "ay",
+              "rect": [
+                0.84,
+                0.08,
+                0.08,
+                0.1
+              ]
+            },
+            {
+              "word": "yatak",
+              "rect": [
+                0.0,
+                0.45,
+                0.3,
+                0.45
+              ]
+            }
+          ],
+          "floorTint": "#7C82B0"
+        }
+      ],
+      "ambience": "crickets",
+      "models": [
+        {
+          "proc": "bed",
+          "word": "yatak",
+          "x": -0.18,
+          "z": 0.55,
+          "h": 0.2,
+          "rotY": -60
+        },
+        {
+          "proc": "blanket",
+          "word": "yorgan",
+          "x": -0.15,
+          "z": 0.5930000000000001,
+          "h": 0.05,
+          "y": 0.165,
+          "rotY": -60
+        },
+        {
+          "proc": "spot",
+          "id": "pencere",
+          "x": 0.22,
+          "z": 0.03,
+          "y": 0.5,
+          "h": 0.14,
+          "word": "pencere"
+        }
+      ],
+      "cast": [
+        {
+          "id": "can",
+          "x": -0.11199999999999999,
+          "z": 0.646,
+          "y": 0.14,
+          "rotY": -60,
+          "lie": 1,
+          "eyes": 0
+        },
+        {
+          "id": "babaanne",
+          "x": 0.56,
+          "z": 0.62,
+          "rotY": -90,
+          "hidden": true,
+          "look": "can"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "davul"
+          ],
+          "who": "pencere",
+          "do": "shine",
+          "sound": "davul",
+          "focus": true
+        },
+        {
+          "cue": [
+            "uyandı"
+          ],
+          "who": "can",
+          "do": "wake",
+          "look": "pencere"
+        },
+        {
+          "cue": [
+            "dum"
+          ],
+          "who": "pencere",
+          "do": "shine",
+          "sound": "davul"
+        },
+        {
+          "cue": [
+            "dum"
+          ],
+          "who": "pencere",
+          "do": "shine",
+          "sound": "davul",
+          "wait": 0.55
+        },
+        {
+          "cue": [
+            "dum"
+          ],
+          "who": "pencere",
+          "do": "shine",
+          "sound": "davul",
+          "wait": 1.1
+        },
+        {
+          "cue": [
+            "babaannesi"
+          ],
+          "who": "babaanne",
+          "do": "enter",
+          "to": [
+            -0.42,
+            0,
+            -0.03
+          ],
+          "face": -80,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "hüseyin"
+          ],
+          "who": "babaanne",
+          "do": "talk",
+          "look": "can",
+          "len": 3.0
+        },
+        {
+          "cue": [
+            "oruç"
+          ],
+          "who": "babaanne",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "pencereye"
+          ],
+          "who": "can",
+          "do": "hopOut",
+          "to": [
+            0.24,
+            0,
+            0.0
+          ],
+          "face": 150,
+          "look": "pencere",
+          "focus": true
+        },
+        {
+          "cue": [
+            "baktı"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "pencere",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "uzaklaşınca"
+          ],
+          "who": "pencere",
+          "do": "shine",
+          "sound": "davul"
+        },
+        {
+          "cue": [
+            "yatağına"
+          ],
+          "who": "can",
+          "do": "lieDown",
+          "to": [
+            0,
+            0.14,
+            0
+          ],
+          "face": -60,
+          "focus": true
+        },
+        {
+          "cue": [
+            "döndü"
+          ],
+          "who": "babaanne",
+          "do": "nod",
+          "look": "can",
+          "wait": 1.0
+        }
+      ],
+      "audio": {
+        "src": "/books/davulcu-dede/ses/p1.mp3",
+        "marks": [
+          0.25,
+          0.91,
+          1.11,
+          1.79,
+          2.29,
+          3.63,
+          4.03,
+          4.37,
+          4.69,
+          5.17,
+          5.91,
+          6.47,
+          6.99,
+          7.83,
+          8.51,
+          8.89,
+          9.57,
+          9.99,
+          10.27,
+          10.61,
+          10.99,
+          12.09,
+          12.41,
+          13.03,
+          13.37,
+          13.73,
+          14.09,
+          14.73,
+          15.45,
+          15.75,
+          16.31,
+          17.11,
+          17.45,
+          18.41,
+          18.87,
+          19.35,
+          19.83
+        ],
+        "ends": [
+          0.9,
+          1.09,
+          1.78,
+          2.28,
+          3.23,
+          4.02,
+          4.36,
+          4.68,
+          5.16,
+          5.67,
+          6.46,
+          6.98,
+          7.54,
+          8.5,
+          8.88,
+          9.32,
+          9.98,
+          10.26,
+          10.6,
+          10.98,
+          11.81,
+          12.33,
+          13.02,
+          13.36,
+          13.72,
+          14.08,
+          14.52,
+          15.05,
+          15.74,
+          16.3,
+          16.75,
+          17.44,
+          18.4,
+          18.86,
+          19.34,
+          19.78
+        ]
+      }
+    },
+    {
+      "id": "p2",
+      "title": {
+        "tr": "Davulcunun mânisi",
+        "en": ""
+      },
+      "text": {
+        "tr": "Can Hüseyin dedeye geceki sözleri sordu. Hüseyin dede “Bunlar {mâni} denen kısa {halk şiirleri|halk şiiri}.” dedi. Sonra okudu: “{Davulum|davul} dum dum çalar,\nAy {gökyüzünde|gökyüzü} parlar.\nSahur vakti gelince\n{Sofralar|sofra} ışık saçar.” Can {dizlerine|diz} hafifçe vurarak {ritim} tuttu.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Mâni, çoğunlukla dört dizeden oluşan kısa bir halk şiiridir. Ramazan davulcuları sahurda kapı kapı dolaşırken mâni okur, bayramda da aynı kapıları çalıp bahşişlerini alırlardı.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p2-arka.webp",
+          "floor": "art/p2-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "cumba",
+              "rect": [
+                0.12,
+                0.08,
+                0.22,
+                0.32
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.85,
+                0.0,
+                0.15,
+                0.75
+              ]
+            },
+            {
+              "word": "saksı",
+              "rect": [
+                0.17,
+                0.62,
+                0.1,
+                0.12
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.06,
+                0.46,
+                0.08,
+                0.3
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "birds",
+      "models": [
+        {
+          "proc": "bench",
+          "word": "bank",
+          "x": 0.3,
+          "z": 0.3,
+          "h": 0.12,
+          "rotY": -20
+        }
+      ],
+      "cast": [
+        {
+          "id": "huseyin",
+          "x": 0.2,
+          "z": 0.5,
+          "rotY": -40,
+          "look": "can",
+          "hold": "ramazanDavulu"
+        },
+        {
+          "id": "can",
+          "x": -0.2,
+          "z": 0.62,
+          "rotY": 50,
+          "look": "huseyin"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.16,
+            0,
+            -0.049
+          ],
+          "face": 112,
+          "look": "huseyin",
+          "focus": true
+        },
+        {
+          "cue": [
+            "sordu"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "huseyin",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "hüseyin"
+          ],
+          "who": "huseyin",
+          "do": "talk",
+          "look": "can",
+          "len": 2.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "mâni"
+          ],
+          "who": "huseyin",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "sonra"
+          ],
+          "who": "huseyin",
+          "do": "turn",
+          "face": -10,
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "davulum"
+          ],
+          "who": "huseyin",
+          "do": "drum",
+          "look": "reader",
+          "len": 8.0,
+          "sound": "davul",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ay"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "huseyin"
+        },
+        {
+          "cue": [
+            "sofralar"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "huseyin"
+        },
+        {
+          "cue": [
+            "dizlerine"
+          ],
+          "who": "can",
+          "do": "dance",
+          "look": "huseyin",
+          "len": 2.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "ritim"
+          ],
+          "who": "huseyin",
+          "do": "cheer",
+          "look": "can"
+        }
+      ],
+      "audio": {
+        "src": "/books/davulcu-dede/ses/p2.mp3",
+        "marks": [
+          0.3,
+          0.56,
+          0.98,
+          1.48,
+          1.9,
+          2.38,
+          3.22,
+          3.66,
+          4.38,
+          4.96,
+          5.38,
+          5.76,
+          6.08,
+          7.18,
+          7.94,
+          8.34,
+          9.16,
+          9.82,
+          10.1,
+          10.38,
+          11.24,
+          11.48,
+          12.24,
+          13.2,
+          13.56,
+          13.92,
+          14.74,
+          15.46,
+          15.78,
+          16.82,
+          17.2,
+          17.78,
+          18.26,
+          18.78,
+          19.1,
+          19.58
+        ],
+        "ends": [
+          0.55,
+          0.97,
+          1.47,
+          1.89,
+          2.37,
+          2.82,
+          3.65,
+          4.07,
+          4.95,
+          5.37,
+          5.75,
+          6.07,
+          6.96,
+          7.51,
+          8.33,
+          8.74,
+          9.81,
+          10.09,
+          10.37,
+          11.04,
+          11.47,
+          12.23,
+          12.88,
+          13.55,
+          13.91,
+          14.66,
+          15.45,
+          15.75,
+          16.36,
+          17.19,
+          17.77,
+          18.25,
+          18.73,
+          19.09,
+          19.53
+        ]
+      }
+    },
+    {
+      "id": "p3",
+      "title": {
+        "tr": "Birlikte çözüm",
+        "en": ""
+      },
+      "text": {
+        "tr": "Hüseyin dede {bankta|bank} {dinleniyordu|dinlenmek}. “{Dizlerim|diz} {ağrıyor|ağrımak}. Gece {yürüyüşünü|yürüyüş} {kısaltmalıyım|kısaltmak}.” dedi. Can’ın babası Kenan Bey {komşularla|komşu} ona {eşlik etmeyi|eşlik etmek} önerdi. Babaanneleri dinleneceği yeri hazırlayacaktı. Can “Ben de gelebilir miyim?” diye sordu. {Yetişkinler|yetişkin} onun {uyku} {ihtiyacını|ihtiyaç} ve katılabileceği süreyi düşündü.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Ramazan’da komşular birbirine destek olur: yaşlı komşuların işlerine yardım eder, iftara davet eder, ihtiyacı olana sahip çıkar. Yardım ederken herkesin sağlığını ve dinlenme ihtiyacını düşünmek de önemlidir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p2-arka.webp",
+          "floor": "art/p2-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "cumba",
+              "rect": [
+                0.12,
+                0.08,
+                0.22,
+                0.32
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.85,
+                0.0,
+                0.15,
+                0.75
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.06,
+                0.46,
+                0.08,
+                0.3
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "birds",
+      "models": [
+        {
+          "proc": "bench",
+          "word": "bank",
+          "x": 0.26,
+          "z": 0.34,
+          "h": 0.12,
+          "rotY": -20
+        },
+        {
+          "proc": "ramazanDavulu",
+          "word": "davul",
+          "x": 0.42000000000000004,
+          "z": 0.4,
+          "h": 0.09,
+          "rotY": 30
+        },
+        {
+          "proc": "bubble",
+          "label": "Ben de gelebilir miyim?",
+          "color": "#2F6DC4",
+          "x": 0.08,
+          "z": 0.7,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "huseyin",
+          "x": 0.26,
+          "z": 0.37,
+          "y": -0.134,
+          "rotY": -20,
+          "pose": "sit",
+          "look": "baba"
+        },
+        {
+          "id": "baba",
+          "x": -0.06,
+          "z": 0.5,
+          "rotY": 60,
+          "look": "huseyin"
+        },
+        {
+          "id": "babaanne",
+          "x": -0.3,
+          "z": 0.58,
+          "rotY": 50,
+          "look": "huseyin"
+        },
+        {
+          "id": "can",
+          "x": 0.08,
+          "z": 0.7,
+          "rotY": 30,
+          "look": "huseyin"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "hüseyin"
+          ],
+          "who": "huseyin",
+          "do": "bend",
+          "look": "down",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "dizlerim"
+          ],
+          "who": "huseyin",
+          "do": "talk",
+          "look": "baba",
+          "len": 3.0
+        },
+        {
+          "cue": [
+            "kenan"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            0.08,
+            0,
+            -0.073
+          ],
+          "face": 117,
+          "look": "huseyin",
+          "focus": true
+        },
+        {
+          "cue": [
+            "eşlik"
+          ],
+          "who": "baba",
+          "do": "talk",
+          "look": "huseyin",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "eşlik"
+          ],
+          "who": "huseyin",
+          "do": "nod",
+          "look": "baba",
+          "wait": 1.6
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "babaanne",
+          "do": "point",
+          "target": "left",
+          "look": "huseyin",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "hazırlayacaktı"
+          ],
+          "who": "babaanne",
+          "do": "nod",
+          "look": "huseyin"
+        },
+        {
+          "cue": [
+            "ben"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "baba",
+          "focus": true
+        },
+        {
+          "cue": [
+            "Ben"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "gelebilir"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "baba",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "yetişkinler"
+          ],
+          "who": "baba",
+          "do": "turn",
+          "face": 11,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yetişkinler"
+          ],
+          "who": "babaanne",
+          "do": "lookAt",
+          "target": "can",
+          "len": 2.0,
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "onun"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "düşündü"
+          ],
+          "who": "huseyin",
+          "do": "nod",
+          "look": "can"
+        }
+      ],
+      "audio": {
+        "src": "/books/davulcu-dede/ses/p3.mp3",
+        "marks": [
+          0.25,
+          0.71,
+          1.13,
+          1.53,
+          2.69,
+          3.29,
+          4.13,
+          4.41,
+          4.89,
+          5.95,
+          6.65,
+          6.97,
+          7.39,
+          7.77,
+          8.09,
+          8.79,
+          8.99,
+          9.71,
+          10.51,
+          11.23,
+          11.85,
+          12.07,
+          13.35,
+          14.03,
+          14.25,
+          14.35,
+          14.83,
+          15.37,
+          15.65,
+          16.43,
+          17.25,
+          17.57,
+          17.89,
+          18.67,
+          18.85,
+          19.67,
+          20.01,
+          20.63
+        ],
+        "ends": [
+          0.7,
+          1.12,
+          1.52,
+          2.37,
+          3.28,
+          4.11,
+          4.4,
+          4.88,
+          5.73,
+          6.28,
+          6.96,
+          7.38,
+          7.76,
+          8.08,
+          8.78,
+          8.98,
+          9.7,
+          10.21,
+          11.22,
+          11.84,
+          12.06,
+          12.95,
+          13.74,
+          14.24,
+          14.34,
+          14.82,
+          15.19,
+          15.64,
+          16.11,
+          17.24,
+          17.56,
+          17.88,
+          18.66,
+          18.84,
+          19.66,
+          20.0,
+          20.58
+        ]
+      }
+    },
+    {
+      "id": "p4",
+      "title": {
+        "tr": "Fener taşıyıcısı",
+        "en": ""
+      },
+      "text": {
+        "tr": "Hüseyin dede {erkenden|erken} kısa bir {mahalle} {ziyaretine|ziyaret} çıkacaktı. Can da babasıyla katılacaktı. Bütün gece yürümesi beklenmiyordu. {Babası|baba} {renkli camlı fenere|renkli camlı fener} {pilli ışık|pilli ışık} yerleştirdi. Can {düğmeye|düğme} bastı. {Duvara|duvar} renkli {benekler|benek} düştü. “Yolumuz {rengârenk|rengârenk}!” dedi. Birlikte {kapıya|kapı} yöneldiler.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Eskiden sokak lambası olmayan gecelerde insanlar yollarını fenerle bulurdu. Renkli camlı fenerler, Türk el sanatlarının en güzel örneklerindendir; içindeki ışık her rengi duvara yansıtır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p4-arka.webp",
+          "floor": "art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.03,
+                0.12,
+                0.22,
+                0.42
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.35,
+                0.13,
+                0.32,
+                0.63
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "panel",
+          "id": "kapi",
+          "decal": "/books/davulcu-dede/art/p4-kapi.png",
+          "x": -0.15,
+          "z": 0.012,
+          "y": 0.216,
+          "w": 0.32,
+          "h": 0.56,
+          "word": "kapı"
+        },
+        {
+          "proc": "fenerBenekleri",
+          "id": "benekler",
+          "x": -0.3,
+          "z": 0.015,
+          "y": 0.0,
+          "h": 0.4,
+          "hidden": true,
+          "magic": true,
+          "word": "benek"
+        },
+        {
+          "proc": "bubble",
+          "label": "Yolumuz rengârenk!",
+          "color": "#2F6DC4",
+          "x": 0.28,
+          "z": 0.62,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "baba",
+          "x": 0.08,
+          "z": 0.56,
+          "rotY": -20,
+          "look": "down",
+          "hold": "fener"
+        },
+        {
+          "id": "can",
+          "x": 0.28,
+          "z": 0.62,
+          "rotY": -40,
+          "look": "baba"
+        },
+        {
+          "id": "babaanne",
+          "x": -0.34,
+          "z": 0.66,
+          "rotY": 40,
+          "look": "can"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "hüseyin"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "baba",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "baba",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "bütün"
+          ],
+          "who": "babaanne",
+          "do": "talk",
+          "look": "can",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "babası"
+          ],
+          "who": "baba",
+          "do": "useTool",
+          "style": "tap",
+          "look": "down",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "yerleştirdi"
+          ],
+          "who": "baba",
+          "do": "give",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "yerleştirdi"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "fener",
+          "look": "baba",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "düğmeye"
+          ],
+          "who": "can",
+          "do": "useTool",
+          "style": "tap",
+          "look": "down",
+          "len": 1.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "bastı"
+          ],
+          "who": "benekler",
+          "do": "appear",
+          "sound": "shine"
+        },
+        {
+          "cue": [
+            "duvara"
+          ],
+          "who": "benekler",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "duvara"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -110,
+          "look": "benekler"
+        },
+        {
+          "cue": [
+            "yolumuz"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "baba",
+          "focus": true
+        },
+        {
+          "cue": [
+            "Yolumuz"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "kapi",
+          "do": "turn",
+          "face": -95,
+          "sound": "door",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yöneldiler"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            -0.12,
+            0,
+            -0.39
+          ],
+          "face": 180,
+          "look": "kapi"
+        },
+        {
+          "cue": [
+            "yöneldiler"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.22,
+            0,
+            -0.366
+          ],
+          "face": 180,
+          "look": "kapi",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "yöneldiler"
+          ],
+          "who": "babaanne",
+          "do": "wave",
+          "look": "can",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "yöneldiler"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
+        }
+      ],
+      "audio": {
+        "src": "/books/davulcu-dede/ses/p4.mp3",
+        "marks": [
+          0.25,
+          0.71,
+          1.21,
+          1.85,
+          2.13,
+          2.29,
+          2.71,
+          3.29,
+          4.31,
+          4.57,
+          4.75,
+          5.29,
+          6.35,
+          6.67,
+          6.93,
+          7.37,
+          8.67,
+          9.19,
+          10.41,
+          11.05,
+          12.19,
+          12.51,
+          12.95,
+          13.77,
+          14.23,
+          14.59,
+          15.17,
+          15.93,
+          16.47,
+          17.59,
+          18.29,
+          18.81,
+          19.21,
+          20.04
+        ],
+        "ends": [
+          0.7,
+          1.2,
+          1.84,
+          2.12,
+          2.28,
+          2.7,
+          3.28,
+          3.94,
+          4.56,
+          4.74,
+          5.28,
+          6.07,
+          6.66,
+          6.92,
+          7.36,
+          8.28,
+          9.18,
+          10.39,
+          11.02,
+          11.84,
+          12.5,
+          12.94,
+          13.39,
+          14.22,
+          14.58,
+          15.16,
+          15.6,
+          16.46,
+          17.27,
+          17.95,
+          18.8,
+          19.2,
+          19.99
+        ]
+      }
+    },
+    {
+      "id": "p5",
+      "title": {
+        "tr": "Işıklı sokak",
+        "en": ""
+      },
+      "text": {
+        "tr": "Can, babası ve Hüseyin dede {yavaşça|yavaş} {yürüdü|yürümek}. {Fener|fener} duvarda renkli {izler|iz} oluşturuyordu. Can babasının yanında kaldı. Hüseyin dede {komşusuyla|komşu} {selamlaştı|selamlaşmak}. “Geceki sahur yürüyüşünde başka komşular eşlik edecek.” dedi. Can feneri iki eliyle tutup {sokağın|sokak} {köşesine|köşe} taşıdı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Davulcular yüzyıllardır mahallenin bir parçasıdır. Sahur yürüyüşünde komşular onlara eşlik eder, pencereden selam verir; böylece mahallede herkes birbirini tanır ve kollar.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p5-arka.webp",
+          "floor": "art/p2-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "ay",
+              "rect": [
+                0.39,
+                0.15,
+                0.07,
+                0.09
+              ]
+            },
+            {
+              "word": "cumba",
+              "rect": [
+                0.12,
+                0.08,
+                0.22,
+                0.32
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.85,
+                0.0,
+                0.15,
+                0.75
+              ]
+            },
+            {
+              "word": "sokak",
+              "rect": [
+                0.3,
+                0.6,
+                0.4,
+                0.35
+              ]
+            }
+          ],
+          "floorTint": "#7C82B0"
+        }
+      ],
+      "ambience": "crickets",
+      "models": [
+        {
+          "proc": "fenerBenekleri",
+          "id": "izler",
+          "x": -0.05,
+          "z": 0.015,
+          "y": 0.0,
+          "h": 0.4,
+          "hidden": true,
+          "magic": true,
+          "word": "iz"
+        }
+      ],
+      "cast": [
+        {
+          "id": "huseyin",
+          "x": -0.3,
+          "z": 0.48,
+          "rotY": 70,
+          "look": "reader",
+          "hold": "ramazanDavulu"
+        },
+        {
+          "id": "baba",
+          "x": -0.42,
+          "z": 0.62,
+          "rotY": 70,
+          "look": "can"
+        },
+        {
+          "id": "can",
+          "x": -0.36,
+          "z": 0.74,
+          "rotY": 70,
+          "look": "reader",
+          "hold": "fenerIkiEl"
+        },
+        {
+          "id": "mahalleli",
+          "x": 0.36,
+          "z": 0.44,
+          "rotY": -60,
+          "look": "huseyin",
+          "hidden": true
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "huseyin",
+          "do": "walkTo",
+          "to": [
+            0.22,
+            0,
+            -0.024
+          ],
+          "face": 70,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            0.26,
+            0,
+            0.0
+          ],
+          "face": 70,
+          "look": "can",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.3,
+            0,
+            -0.024
+          ],
+          "face": 70,
+          "look": "reader",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "fener"
+          ],
+          "who": "izler",
+          "do": "appear",
+          "sound": "shine",
+          "focus": true
+        },
+        {
+          "cue": [
+            "oluşturuyordu"
+          ],
+          "who": "izler",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "oluşturuyordu"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 150,
+          "look": "izler"
+        },
+        {
+          "cue": [
+            "babasının"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -60,
+          "look": "baba",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kaldı"
+          ],
+          "who": "baba",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "komşusuyla"
+          ],
+          "who": "mahalleli",
+          "do": "enter",
+          "to": [
+            -0.06,
+            0,
+            0.049
+          ],
+          "face": -70,
+          "look": "huseyin",
+          "focus": true
+        },
+        {
+          "cue": [
+            "selamlaştı"
+          ],
+          "who": "huseyin",
+          "do": "wave",
+          "look": "mahalleli"
+        },
+        {
+          "cue": [
+            "selamlaştı"
+          ],
+          "who": "mahalleli",
+          "do": "wave",
+          "look": "huseyin",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "geceki"
+          ],
+          "who": "huseyin",
+          "do": "talk",
+          "look": "mahalleli",
+          "len": 3.0
+        },
+        {
+          "cue": [
+            "geceki"
+          ],
+          "who": "mahalleli",
+          "do": "nod",
+          "look": "huseyin",
+          "wait": 2.0
+        },
+        {
+          "cue": [
+            "iki"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.6,
+            0,
+            -0.122
+          ],
+          "face": 60,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "taşıdı"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "baba"
+        }
+      ],
+      "audio": {
+        "src": "/books/davulcu-dede/ses/p5.mp3",
+        "marks": [
+          0.33,
+          0.85,
+          1.35,
+          1.53,
+          1.99,
+          2.33,
+          2.87,
+          3.75,
+          4.13,
+          4.73,
+          5.13,
+          5.45,
+          6.75,
+          7.07,
+          7.59,
+          8.01,
+          8.83,
+          9.25,
+          9.59,
+          10.27,
+          11.35,
+          11.79,
+          12.15,
+          12.87,
+          13.19,
+          13.69,
+          14.01,
+          14.67,
+          15.45,
+          15.81,
+          16.29,
+          16.55,
+          16.93,
+          17.39,
+          17.85,
+          18.37,
+          18.92
+        ],
+        "ends": [
+          0.74,
+          1.34,
+          1.52,
+          1.98,
+          2.32,
+          2.86,
+          3.32,
+          4.12,
+          4.72,
+          5.12,
+          5.44,
+          6.3,
+          7.06,
+          7.58,
+          8.0,
+          8.46,
+          9.24,
+          9.58,
+          10.26,
+          11.06,
+          11.78,
+          12.14,
+          12.86,
+          13.18,
+          13.68,
+          13.99,
+          14.39,
+          15.02,
+          15.8,
+          16.28,
+          16.54,
+          16.92,
+          17.27,
+          17.84,
+          18.36,
+          18.87
+        ]
+      }
+    },
+    {
+      "id": "p6",
+      "title": {
+        "tr": "Dinlenme zamanı",
+        "en": ""
+      },
+      "text": {
+        "tr": "Can’ın {gözleri|göz} {ağırlaştı|ağırlaşmak}. “{Yoruldum|yorulmak}. Eve dönebilir miyiz?” diye sordu. Babası feneri aldı. “Elbette. {Haber vermen|haber vermek} iyi oldu.” dedi. Hüseyin dede {iyi geceler} diledi. Can babaannesiyle eve döndü. Babası komşularla kaldı. Can yatağına {uzandı|uzanmak}. {Dinlenmeye|dinlenmek} {ihtiyacı|ihtiyaç} vardı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Çocukların büyümesi ve sağlıklı kalması için gece uykusu çok önemlidir. Yorulduğunu fark edip bunu söylemek, kendine iyi bakmanın bir parçasıdır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p5-arka.webp",
+          "floor": "art/p2-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "ay",
+              "rect": [
+                0.39,
+                0.15,
+                0.07,
+                0.09
+              ]
+            },
+            {
+              "word": "sokak",
+              "rect": [
+                0.3,
+                0.6,
+                0.4,
+                0.35
+              ]
+            }
+          ],
+          "floorTint": "#7C82B0"
+        }
+      ],
+      "ambience": "crickets",
+      "models": [
+        {
+          "proc": "bubble",
+          "label": "Yoruldum. Eve dönebilir miyiz?",
+          "color": "#2F6DC4",
+          "x": 0.06,
+          "z": 0.7,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "huseyin",
+          "x": 0.12,
+          "z": 0.44,
+          "rotY": -20,
+          "look": "can",
+          "hold": "ramazanDavulu"
+        },
+        {
+          "id": "baba",
+          "x": -0.06,
+          "z": 0.56,
+          "rotY": 30,
+          "look": "can"
+        },
+        {
+          "id": "can",
+          "x": 0.06,
+          "z": 0.7,
+          "rotY": -30,
+          "look": "baba",
+          "hold": "fenerIkiEl"
+        },
+        {
+          "id": "babaanne",
+          "x": -0.6,
+          "z": 0.7,
+          "rotY": 90,
+          "look": "can",
+          "hidden": true
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "gözleri"
+          ],
+          "who": "can",
+          "do": "bow",
+          "look": "down",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yoruldum"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "baba",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "Yoruldum"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "babası"
+          ],
+          "who": "can",
+          "do": "give",
+          "look": "baba",
+          "focus": true
+        },
+        {
+          "cue": [
+            "babası"
+          ],
+          "who": "baba",
+          "do": "receive",
+          "target": "fenerIkiEl",
+          "look": "can",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "feneri"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "elbette"
+          ],
+          "who": "baba",
+          "do": "talk",
+          "look": "can",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "haber"
+          ],
+          "who": "baba",
+          "do": "hug",
+          "look": "can",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "hüseyin"
+          ],
+          "who": "huseyin",
+          "do": "wave",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "babaanne",
+          "do": "enter",
+          "to": [
+            0.4,
+            0,
+            -0.049
+          ],
+          "face": 90,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "babaannesiyle"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.3,
+            0,
+            0.0
+          ],
+          "face": -90,
+          "look": "babaanne"
+        },
+        {
+          "cue": [
+            "babası"
+          ],
+          "who": "baba",
+          "do": "wave",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "uzandı"
+          ],
+          "who": "babaanne",
+          "do": "walkTo",
+          "to": [
+            -0.25,
+            0,
+            0.049
+          ],
+          "face": -90,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "uzandı"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.62,
+            0,
+            0.0
+          ],
+          "face": -90,
+          "look": "babaanne",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "dinlenmeye"
+          ],
+          "who": "huseyin",
+          "do": "nod",
+          "look": "baba"
+        }
+      ],
+      "audio": {
+        "src": "/books/davulcu-dede/ses/p6.mp3",
+        "marks": [
+          0.32,
+          0.68,
+          1.2,
+          2.56,
+          3.62,
+          3.82,
+          4.3,
+          4.98,
+          5.26,
+          6.22,
+          6.66,
+          7.12,
+          7.84,
+          8.7,
+          9.4,
+          9.62,
+          10.18,
+          11.02,
+          11.48,
+          11.84,
+          12.52,
+          13.32,
+          13.66,
+          14.52,
+          14.72,
+          15.48,
+          15.92,
+          16.62,
+          17.48,
+          17.78,
+          18.3,
+          19.14,
+          19.78,
+          20.32,
+          20.82
+        ],
+        "ends": [
+          0.67,
+          1.19,
+          2.11,
+          3.22,
+          3.81,
+          4.29,
+          4.81,
+          5.25,
+          5.72,
+          6.65,
+          7.11,
+          7.44,
+          8.52,
+          9.39,
+          9.61,
+          10.03,
+          10.49,
+          11.47,
+          11.83,
+          12.51,
+          12.94,
+          13.65,
+          14.51,
+          14.71,
+          15.15,
+          15.91,
+          16.61,
+          17.05,
+          17.77,
+          18.29,
+          18.89,
+          19.77,
+          20.31,
+          20.77
+        ]
+      }
+    },
+    {
+      "id": "p7",
+      "title": {
+        "tr": "Mahallenin iftarı",
+        "en": ""
+      },
+      "text": {
+        "tr": "Ramazanın sonunda {mahalleli|mahalleli} {iftar} {sofrası|sofra} hazırladı. Kimi {çorba}, kimi {pide}, kimi {güllaç} getirdi. Çocuklar {peçeteleri|peçete} yerleştirdi. {Ezanla|ezan} oruçlar açıldı. Herkes aynı sofrada {buluştu|buluşmak}. İsteyenler {davulcuya|davulcu} {bahşiş} verdi. Hüseyin dede yürüyüşte ona eşlik edenlere {teşekkür etti|teşekkür etmek}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Ramazan’da iftar sofraları paylaşmanın ve birlikteliğin simgesidir. Bayramda davulcular kapıları dolaşıp mâni okur; komşular da onlara gönüllerinden geldiği kadar bahşiş verir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/p7-arka.webp",
+          "floor": "art/p2-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "minare",
+              "rect": [
+                0.41,
+                0.36,
+                0.05,
+                0.16
+              ]
+            },
+            {
+              "word": "ışık zinciri",
+              "rect": [
+                0.3,
+                0.17,
+                0.36,
+                0.1
+              ]
+            },
+            {
+              "word": "cumba",
+              "rect": [
+                0.12,
+                0.08,
+                0.22,
+                0.36
+              ]
+            },
+            {
+              "word": "güneş",
+              "rect": [
+                0.45,
+                0.44,
+                0.06,
+                0.06
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "village",
+      "models": [
+        {
+          "proc": "iftarMasasiKisa",
+          "word": "sofra",
+          "x": 0.0,
+          "z": 0.46,
+          "h": 0.25
+        },
+        {
+          "proc": "corbaKasesi",
+          "id": "corba",
+          "word": "çorba",
+          "x": -0.2,
+          "z": 0.42,
+          "y": 0.244,
+          "h": 0.03,
+          "hidden": true,
+          "steam": true
+        },
+        {
+          "proc": "pide",
+          "id": "pide",
+          "word": "pide",
+          "x": 0.0,
+          "z": 0.48,
+          "y": 0.244,
+          "h": 0.03,
+          "hidden": true
+        },
+        {
+          "proc": "gullacTepsisi",
+          "id": "gullac",
+          "word": "güllaç",
+          "x": 0.2,
+          "z": 0.43,
+          "y": 0.244,
+          "h": 0.03,
+          "hidden": true
+        },
+        {
+          "proc": "peceteUcan",
+          "id": "pecete1",
+          "word": "peçete",
+          "x": -0.1,
+          "z": 0.53,
+          "y": 0.224,
+          "h": 0.01,
+          "pitch": -25,
+          "hidden": true
+        },
+        {
+          "proc": "peceteUcan",
+          "id": "pecete2",
+          "word": "peçete",
+          "x": 0.1,
+          "z": 0.53,
+          "y": 0.224,
+          "h": 0.01,
+          "pitch": -25,
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "mahalleli",
+          "x": -0.36,
+          "z": 0.3,
+          "rotY": 30,
+          "look": "reader"
+        },
+        {
+          "id": "huseyin",
+          "x": -0.12,
+          "z": 0.26,
+          "rotY": 0,
+          "look": "reader"
+        },
+        {
+          "id": "babaanne",
+          "x": 0.12,
+          "z": 0.26,
+          "rotY": 0,
+          "look": "reader"
+        },
+        {
+          "id": "baba",
+          "x": 0.36,
+          "z": 0.3,
+          "rotY": -30,
+          "look": "reader"
+        },
+        {
+          "id": "can",
+          "x": -0.14,
+          "z": 0.74,
+          "rotY": 160,
+          "look": "corba"
+        },
+        {
+          "id": "elif",
+          "x": 0.14,
+          "z": 0.74,
+          "rotY": 200,
+          "look": "gullac"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "mahalleli"
+          ],
+          "who": "huseyin",
+          "do": "wave",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kimi"
+          ],
+          "who": "mahalleli",
+          "do": "offer",
+          "look": "corba",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "kimi"
+          ],
+          "who": "corba",
+          "do": "appear",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "pide"
+          ],
+          "who": "baba",
+          "do": "offer",
+          "look": "pide",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "pide"
+          ],
+          "who": "pide",
+          "do": "appear",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "güllaç"
+          ],
+          "who": "babaanne",
+          "do": "offer",
+          "look": "gullac",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "güllaç"
+          ],
+          "who": "gullac",
+          "do": "appear",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "can",
+          "do": "bend",
+          "look": "corba",
+          "len": 1.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "elif",
+          "do": "bend",
+          "look": "gullac",
+          "len": 1.2,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "peçeteleri"
+          ],
+          "who": "pecete1",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "peçeteleri"
+          ],
+          "who": "pecete2",
+          "do": "appear",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "ezanla"
+          ],
+          "who": "huseyin",
+          "do": "nod",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "herkes"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "herkes"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "can",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "herkes"
+          ],
+          "who": "babaanne",
+          "do": "nod",
+          "look": "huseyin",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "isteyenler"
+          ],
+          "who": "mahalleli",
+          "do": "give",
+          "target": "harclik",
+          "look": "huseyin",
+          "focus": true
+        },
+        {
+          "cue": [
+            "bahşiş"
+          ],
+          "who": "huseyin",
+          "do": "receive",
+          "target": "harclik",
+          "look": "mahalleli"
+        },
+        {
+          "cue": [
+            "hüseyin"
+          ],
+          "who": "huseyin",
+          "do": "bow",
+          "look": "baba",
+          "focus": true
+        },
+        {
+          "cue": [
+            "teşekkür"
+          ],
+          "who": "huseyin",
+          "do": "talk",
+          "look": "can",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "teşekkür"
+          ],
+          "who": "baba",
+          "do": "nod",
+          "look": "huseyin",
+          "wait": 1.0
+        }
+      ],
+      "audio": {
+        "src": "/books/davulcu-dede/ses/p7.mp3",
+        "marks": [
+          0.25,
+          0.83,
+          1.47,
+          2.09,
+          2.45,
+          2.93,
+          3.85,
+          4.17,
+          4.83,
+          5.17,
+          5.75,
+          6.03,
+          6.49,
+          7.35,
+          7.91,
+          8.53,
+          9.67,
+          10.27,
+          10.79,
+          11.55,
+          12.17,
+          12.45,
+          12.91,
+          13.75,
+          14.41,
+          14.97,
+          15.43,
+          16.13,
+          16.59,
+          16.99,
+          17.57,
+          17.79,
+          18.13,
+          18.63,
+          19.6
+        ],
+        "ends": [
+          0.82,
+          1.46,
+          2.08,
+          2.44,
+          2.92,
+          3.53,
+          4.16,
+          4.82,
+          5.16,
+          5.71,
+          6.02,
+          6.48,
+          7.0,
+          7.9,
+          8.52,
+          9.37,
+          10.26,
+          10.78,
+          11.27,
+          12.15,
+          12.44,
+          12.9,
+          13.43,
+          14.4,
+          14.96,
+          15.42,
+          15.86,
+          16.58,
+          16.98,
+          17.56,
+          17.78,
+          18.12,
+          18.62,
+          19.55
+        ]
+      }
+    },
+    {
+      "id": "p8",
+      "title": {
+        "tr": "Küçük davul",
+        "en": ""
+      },
+      "text": {
+        "tr": "Hüseyin dede {bayramda|bayram} küçük bir davul getirdi. “Mânileri hatırlamanız için.” dedi. {Amerika’ya|Amerika} dönünce Can {fenerli yürüyüşü|fenerli yürüyüş} {arkadaşına|arkadaş} anlattı. Davula hafifçe vurdu. Elif “Okuyorum. Biraz sonra çalar mısın?” diye sordu. Can {tokmağı|tokmak} bıraktı. “Tamam, sonra birlikte çalarız.” dedi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Ramazan Bayramı’nda büyükler küçüklere hediye verir, çocuklar el öper. Birlikte yaşarken başkalarının ihtiyacını gözetmek, örneğin okuyan birini rahatsız etmemek, saygının bir parçasıdır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "../bayram-sabahi/art/p6-arka.webp",
+          "floor": "../bayram-sabahi/art/p6-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.0,
+                0.0,
+                0.42,
+                0.6
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "src": "/models/culture/davul.glb",
+          "id": "kucukDavul",
+          "word": "davul",
+          "x": -0.05,
+          "z": 0.6,
+          "h": 0.1,
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Mânileri hatırlamanız için.",
+          "color": "#2F6DC4",
+          "x": 0.04,
+          "z": 0.64,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_0",
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "label": "Tamam, sonra birlikte çalarız.",
+          "color": "#2F6DC4",
+          "x": 0.04,
+          "z": 0.64,
+          "y": 0.41,
+          "h": 0.08,
+          "id": "say_1",
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.32,
+          "z": 0.48,
+          "rotY": 30,
+          "look": "down",
+          "hold": "kitap"
+        },
+        {
+          "id": "can",
+          "x": 0.04,
+          "z": 0.64,
+          "rotY": 20,
+          "look": "reader"
+        },
+        {
+          "id": "liam",
+          "x": 0.28,
+          "z": 0.6,
+          "rotY": -40,
+          "look": "can"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "hüseyin"
+          ],
+          "who": "kucukDavul",
+          "do": "appear",
+          "sound": "shine",
+          "focus": true
+        },
+        {
+          "cue": [
+            "küçük"
+          ],
+          "who": "kucukDavul",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "mânileri"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "kucukDavul"
+        },
+        {
+          "cue": [
+            "Mânileri"
+          ],
+          "who": "say_0",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "amerika’ya"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 60,
+          "look": "liam",
+          "focus": true
+        },
+        {
+          "cue": [
+            "Can"
+          ],
+          "who": "say_0",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "anlattı"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "liam",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "anlattı"
+          ],
+          "who": "liam",
+          "do": "nod",
+          "look": "can",
+          "wait": 1.4
+        },
+        {
+          "cue": [
+            "davula"
+          ],
+          "who": "can",
+          "do": "bend",
+          "look": "kucukDavul",
+          "len": 1.2,
+          "sound": "davul",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 70,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "okuyorum"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "can",
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -60,
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "bıraktı"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "tamam"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "Tamam"
+          ],
+          "who": "say_1",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "çalarız"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "çalarız"
+          ],
+          "who": "liam",
+          "do": "hop",
+          "look": "can",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "dedi"
+          ],
+          "who": "say_1",
+          "do": "vanish",
+          "wait": 0.6
+        }
+      ],
+      "audio": {
+        "src": "/books/davulcu-dede/ses/p8.mp3",
+        "marks": [
+          0.25,
+          0.69,
+          1.15,
+          1.75,
+          2.09,
+          2.23,
+          2.55,
+          3.49,
+          4.07,
+          4.79,
+          5.35,
+          6.17,
+          6.73,
+          7.39,
+          7.75,
+          8.73,
+          9.35,
+          10.27,
+          10.73,
+          11.29,
+          12.11,
+          12.81,
+          13.55,
+          13.87,
+          14.15,
+          14.49,
+          15.11,
+          15.39,
+          16.27,
+          16.59,
+          17.05,
+          17.91,
+          18.51,
+          18.79,
+          19.19,
+          19.95,
+          20.33
+        ],
+        "ends": [
+          0.68,
+          1.11,
+          1.74,
+          2.07,
+          2.22,
+          2.54,
+          3.1,
+          4.06,
+          4.78,
+          5.16,
+          5.69,
+          6.72,
+          7.38,
+          7.74,
+          8.72,
+          9.34,
+          9.9,
+          10.72,
+          11.28,
+          11.7,
+          12.47,
+          13.35,
+          13.86,
+          14.14,
+          14.48,
+          14.92,
+          15.38,
+          15.85,
+          16.58,
+          17.04,
+          17.57,
+          18.35,
+          18.78,
+          19.18,
+          19.71,
+          20.28
+        ]
+      }
+    }
+  ]
+}

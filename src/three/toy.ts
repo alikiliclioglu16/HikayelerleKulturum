@@ -170,7 +170,9 @@ export class ToyPerformer {
     this.root.rotation.set(0, (r.rotY + (r.spin ?? 0)) * D2R + this.lookYaw, 0);
     // never quite still: a slow sway from foot to foot (not in calm mode, not while paused)
     const sway = this.calm || dt <= 0 ? 0 : Math.sin(t * 0.85 + this.phase * 1.7) * 0.035;
-    this.body.rotation.set((r.lean ?? 0) * D2R + sway * 0.25, 0, (r.tilt ?? 0) * D2R + sway, 'XYZ');
+    // lying in bed (lie 1): the toy tips over backwards from its feet onto its back
+    const lie = r.lie ?? 0;
+    this.body.rotation.set((r.lean ?? 0) * D2R + (lie > 0.01 ? 0 : sway * 0.25) - lie * (Math.PI / 2), 0, (r.tilt ?? 0) * D2R + (lie > 0.01 ? 0 : sway), 'XYZ');
     // squash and stretch keep the volume; a soft breath while standing (not in calm mode, not while paused)
     const breath = this.calm || dt <= 0 ? 0 : Math.sin(t * 2.1 + this.phase) * 0.008;
     const sq = (r.sq ?? 1) + breath;
@@ -494,6 +496,44 @@ function near(from: number, to: number) {
 }
 
 export const TOY_ACTS: Record<string, ToyAct> = {
+  /** Asleep in bed: lying on its back, eyes closed. */
+  sleep: (_s, _b, t) => ({ keys: [key(t, 0.01, { root: { lie: 1 }, eyes: 0 })], dur: 0.01 }),
+  /** Wakes up in bed: eyes open with a sleepy blink, lifts its head a little and looks around. */
+  wake: (_s, b, t) => ({
+    keys: [
+      key(t, 0.5, { eyes: 0.5 }),
+      key(t + 0.55, 0.2, { eyes: 0.1 }),
+      key(t + 0.8, 0.4, { eyes: 1, look: b.look ?? 'up' }),
+      key(t + 1.2, 0.8, { root: { lie: 0.8 } }),
+    ],
+    dur: 2.2,
+  }),
+  /** Jumps out of bed and lands standing beside it (`to`: where, `face`: which way). */
+  hopOut: (s, b, t, H) => {
+    const to = b.to ?? [s.root.x, 0, s.root.z + 0.15];
+    return {
+      keys: [
+        key(t, 0.3, { root: { lie: 0.6 } }),
+        key(t + 0.3, 0.35, { root: { x: (s.root.x + to[0]) / 2, y: Math.max(s.root.y, to[1]) + 0.12 * H, z: (s.root.z + to[2]) / 2, lie: 0.2 } }),
+        key(t + 0.65, 0.3, { root: { x: to[0], y: to[1], z: to[2], lie: 0, rotY: b.face ?? s.root.rotY, sq: 0.9 }, eyes: 1, look: b.look ?? 'reader' }),
+        key(t + 0.95, 0.2, { root: { sq: 1 } }),
+      ],
+      dur: 1.3,
+    };
+  },
+  /** Climbs into bed and lies down (`to`: on the mattress, `face`: which way), then closes its eyes. */
+  lieDown: (s, b, t, H) => {
+    const to = b.to ?? [s.root.x, 0.1, s.root.z];
+    return {
+      keys: [
+        key(t, 0.35, { root: { x: (s.root.x + to[0]) / 2, y: Math.max(s.root.y, to[1]) + 0.1 * H, z: (s.root.z + to[2]) / 2, rotY: b.face ?? s.root.rotY } }),
+        key(t + 0.35, 0.4, { root: { x: to[0], y: to[1], z: to[2] } }),
+        key(t + 0.8, 0.8, { root: { lie: 1 } }),
+        key(t + 1.8, 1.0, { eyes: 0 }),
+      ],
+      dur: 2.8,
+    };
+  },
   /** A happy little hop. */
   hop: (s, b, t, H) => ({ keys: [...hopKeys(s, t, 0.08 * H), key(t + 0.3, 0.3, { look: b.look ?? s.look })], dur: 0.6 }),
 

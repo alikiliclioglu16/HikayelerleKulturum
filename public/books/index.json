@@ -494,28 +494,32 @@
     },
     {
       "id": "davulcu-dede",
-      "status": "soon",
+      "status": "ready",
       "title": "Davulcu Dede",
       "titleEn": "The Ramadan Drummer",
       "values": [
         "sorumluluk",
-        "sabir"
+        "saglikli-yasam",
+        "yardimseverlik"
       ],
       "blurb": {
-        "tr": "Ramazan'da İzmir'de sahura kaldıran Hüseyin Dede'nin dizi ağrıyınca Can, her gece onun fenerini taşımaya söz veriyor.",
+        "tr": "Ramazan’da İzmir’de sahura kaldıran Hüseyin dedenin dizleri ağrıyınca Can ve mahalleli ona eşlik ediyor. Can fener taşıyor ama yorulunca bunu söylemeyi de öğreniyor.",
         "en": ""
       },
       "cover": {
         "art": "cover-soon",
         "color": "#2B2F5A",
-        "motif": "davul"
+        "motif": "davul",
+        "src": "kapak.webp",
+        "titled": false
       },
       "carpet": {
         "motif": "yildiz",
         "field": "#3A2E5A",
         "border": "#8E2B24",
         "src": "/halilar/davulcu-dede.webp"
-      }
+      },
+      "pages": 8
     },
     {
       "id": "karagoz-hacivat",

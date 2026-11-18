@@ -555,6 +555,14 @@ async function loadCanvas(url: string, maxW: number) {
 /** A full-page backdrop (square, no paper outline) and the ground printed in front of it. */
 async function buildFullLayer(spec: LayerSpec, baseUrl: string, px: number): Promise<BuiltLayer> {
   const [canvas, floor] = await Promise.all([loadCanvas(baseUrl + spec.src, px), spec.floor ? loadCanvas(baseUrl + spec.floor, px) : Promise.resolve(undefined)]);
+  if (floor && spec.floorTint) {
+    // a night page: the ground darkened with the night's colour (the painted backdrop is dark already)
+    const g = floor.getContext('2d')!;
+    g.globalCompositeOperation = 'multiply';
+    g.fillStyle = spec.floorTint;
+    g.fillRect(0, 0, floor.width, floor.height);
+    g.globalCompositeOperation = 'source-over';
+  }
   return { spec, canvas, alpha: new Uint8Array([255]), aw: 1, ah: 1, hotspots: spec.hotspots ?? [], floor };
 }
 

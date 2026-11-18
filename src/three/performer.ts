@@ -64,6 +64,10 @@ export const CHARACTERS: Record<string, CharacterDef> = {
   tay: { src: '/models/kapadokya/tay-ayakta.glb', proc: 'tay', height: 0.42, name: 'Tay' },
   kisrak: { src: '/models/kapadokya/kisrak.glb', proc: 'kisrak', height: 0.6, name: 'Kısrak' },
   // Martı ile Simit: the ferry attendant (stands in until public/models/vapur/vapur-gorevlisi.glb comes)
+  // Davulcu Dede: the drummer (stands in until public/models/davulcu/huseyin-dede.glb comes)
+  // a neighbour in Davulcu Dede (the market man's model)
+  mahalleli: { src: '/models/masal/pazarci.glb', height: 0.53, name: 'Komşu' },
+  huseyin: { src: '/models/masal/komsu.glb', height: 0.551, name: 'Hüseyin Dede' },
   gorevli: { src: '/models/firin/askidan-ekmek-alan-adam.glb', height: 0.567, name: 'Görevli' },
 };
 

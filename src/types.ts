@@ -33,6 +33,8 @@ export interface LayerSpec {
    * the page with square corners, and `floor` (an image) is printed flat on the page in front of it as the scene's ground.
    */
   full?: boolean;
+  /** Colour multiplied over the floor picture (e.g. a dark blue for a night street). */
+  floorTint?: string;
   floor?: string;
 }
 

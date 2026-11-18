@@ -229,6 +229,22 @@ function tileCanvas(): HTMLCanvasElement {
 }
 
 /**
+ * A flat cut-out standing up (a door leaf painted on paper): `w` wide, its height from the picture; its hinge, the
+ * left edge, is the origin, so turning it opens it like a door.
+ */
+function picturePanel(tex: THREE.Texture, w: number) {
+  const img = tex.image as { width: number; height: number };
+  const h = (w * img.height) / img.width;
+  const geo = new THREE.PlaneGeometry(w, h);
+  geo.translate(w / 2, h / 2, 0);
+  const m = new THREE.Mesh(geo, new THREE.MeshLambertMaterial({ map: tex, transparent: true, alphaTest: 0.4, side: THREE.DoubleSide }));
+  m.castShadow = true;
+  const g = new THREE.Group();
+  g.add(m);
+  return g;
+}
+
+/**
  * A speech bubble in the air (a greeting in a child's own language): a rounded white cloud with a coloured
  * edge and a little tail, always facing the camera. `h` is its height in page widths.
  */
@@ -1835,6 +1851,8 @@ export class BookScene {
               ? procActorFrom(pictureSheet(await loadPicture(spec.decal!), spec.w ?? 0.2, spec.d ?? spec.w ?? 0.2, !spec.paper, !!spec.layer))
               : spec.proc === 'writing'
               ? procActorFrom(crayonWriting(spec.label ?? '', spec.color ?? '#2B4C9A', spec.w ?? 0.2, spec.d ?? spec.w ?? 0.2))
+              : spec.proc === 'panel'
+              ? procActorFrom(picturePanel(await loadPicture(spec.decal!), spec.w ?? 0.3))
               : spec.proc === 'tablet'
               ? procActorFrom(this.tablet())
               : spec.proc === 'bubble'
