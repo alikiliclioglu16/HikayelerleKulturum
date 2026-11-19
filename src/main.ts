@@ -1,8 +1,6 @@
 import './styles.css';
 import { h } from './ui/dom';
 import { page } from './ui/shell';
-import { renderEnd, renderQuiz, renderHunt, renderFamily } from './pages/activities';
-import { renderChest, renderParents } from './pages/info';
 import { startStarTrail } from './ui/starTrail';
 
 const app = document.getElementById('app')!;
@@ -20,10 +18,11 @@ async function route() {
     if (parts[0] === 'kitap' && parts[1]) {
       const bookId = parts[1];
       const sub = parts[2];
-      if (sub === 'bitti') return await renderEnd(app, bookId);
-      if (sub === 'quiz') return await renderQuiz(app, bookId);
-      if (sub === 'degerler') return await renderHunt(app, bookId);
-      if (sub === 'aile') return await renderFamily(app, bookId);
+      // the activities after a book are gone: those addresses lead back to the shelf
+      if (sub && !/^\d+$/.test(sub)) {
+        location.replace('#/');
+        return;
+      }
       const n = sub ? Number.parseInt(sub, 10) - 1 : undefined;
       const { renderReader } = await import('./pages/reader');
       document.title = 'Okuyorum | Hikâyelerle Kültürüm';
@@ -33,11 +32,11 @@ async function route() {
       return;
     }
     document.title = 'Hikâyelerle Kültürüm';
-    if (parts[0] === 'sandik') {
-      cleanup = renderChest(app);
+    // the word chest and the parents' page are gone
+    if (parts[0] === 'sandik' || parts[0] === 'ebeveyn') {
+      location.replace('#/');
       return;
     }
-    if (parts[0] === 'ebeveyn') return renderParents(app);
     document.title = 'Hikâyelerle Kültürüm | Türk kültürüyle büyüyen resimli kitaplar';
     const { renderHome } = await import('./pages/home');
     const disposeHome = await renderHome(app);

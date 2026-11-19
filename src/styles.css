@@ -2245,3 +2245,175 @@ button.t-card:hover .t-stage img {
   color: #101018;
   white-space: nowrap;
 }
+
+/* ---------- the book's title card (a tapped book on the shelf) ---------- */
+.story-card-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: radial-gradient(ellipse at center, rgba(8, 24, 30, 0.25), rgba(8, 24, 30, 0.6));
+  animation: fade 0.25s ease-out;
+}
+.story-card-backdrop.leaving {
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+.story-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: min(430px, 100%);
+  max-height: calc(100% - 16px);
+  overflow-y: auto;
+  padding: 30px 30px 22px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fff8e6 0%, #fbefd2 100%);
+  border: 3px solid #1c3f8c;
+  box-shadow:
+    inset 0 0 0 6px #fff8e6,
+    inset 0 0 0 8px #d9b25a,
+    0 30px 70px -20px rgba(0, 0, 0, 0.65);
+  text-align: center;
+  animation: card-rise 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.15);
+}
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.92);
+  }
+}
+.sc-corner {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 3px solid #d9b25a;
+  pointer-events: none;
+}
+.sc-corner::after {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d2372c;
+}
+.sc-corner.tl {
+  top: 14px;
+  left: 14px;
+  border-right: 0;
+  border-bottom: 0;
+  border-top-left-radius: 12px;
+}
+.sc-corner.tr {
+  top: 14px;
+  right: 14px;
+  border-left: 0;
+  border-bottom: 0;
+  border-top-right-radius: 12px;
+}
+.sc-corner.bl {
+  bottom: 14px;
+  left: 14px;
+  border-right: 0;
+  border-top: 0;
+  border-bottom-left-radius: 12px;
+}
+.sc-corner.br {
+  bottom: 14px;
+  right: 14px;
+  border-left: 0;
+  border-top: 0;
+  border-bottom-right-radius: 12px;
+}
+.sc-corner.tl::after,
+.sc-corner.tr::after {
+  top: -5px;
+}
+.sc-corner.bl::after,
+.sc-corner.br::after {
+  bottom: -5px;
+}
+.sc-corner.tl::after,
+.sc-corner.bl::after {
+  left: -5px;
+}
+.sc-corner.tr::after,
+.sc-corner.br::after {
+  right: -5px;
+}
+.story-card .bs-cover {
+  width: min(210px, 52vw);
+  margin-top: 4px;
+}
+.sc-title {
+  margin: 4px 0 0;
+  font-size: clamp(26px, 3.4vw, 34px);
+  line-height: 1.1;
+  color: var(--cobalt);
+}
+.sc-sum {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.sc-soon {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: var(--r-m);
+  background: var(--turq-soft);
+  font-weight: 700;
+}
+.sc-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 78%;
+}
+.sc-bar {
+  display: block;
+  width: 100%;
+  height: 10px;
+  border-radius: 99px;
+  background: #ead9b0;
+  overflow: hidden;
+}
+.sc-bar i {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #d9b25a, #f2b33d);
+  transition: width 0.3s ease-out;
+}
+.sc-status {
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.sc-progress.done {
+  display: none;
+}
+.sc-actions:empty {
+  display: none;
+}
+.sc-read {
+  min-width: 190px;
+  justify-content: center;
+  font-size: 22px;
+  animation: pop 0.3s ease-out;
+}
+.sc-back {
+  margin-top: 2px;
+}
+.reader-controls.leaving,
+.reader .reader-bar.leaving {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}

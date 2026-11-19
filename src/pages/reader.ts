@@ -1,7 +1,7 @@
 import { h, icon } from '../ui/dom';
 import { loadBook, loadListing, coverCanvas, fonts } from '../content';
 import { store } from '../store';
-import { treasureFor, type Treasure } from '../treasures';
+import type { Treasure } from '../treasures';
 import { tokenize, estimateMarks, trLower, type Token } from '../text';
 import { Narrator } from '../narrator';
 import { BookScene } from '../three/bookScene';
@@ -42,15 +42,11 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   const sceneHost = h('div', { class: 'scene-host' });
   const titleEl = h('strong', null, book.title);
   const pageNoEl = h('span', null, '');
-  const chestCount = h('span', { class: 'count' }, String(store.treasureCount));
-  const chestLink = h('a', { class: 'btn light small chest-link', href: '#/sandik', 'aria-label': 'Kelime Sandığım', title: 'Kelime Sandığım' }, icon.chest(), chestCount);
-  const settingsBtn = h('button', { class: 'btn light small icon-only', type: 'button', 'aria-label': 'Ayarlar' }, icon.gear());
   const bar = h(
     'header',
     { class: 'reader-bar' },
     h('a', { class: 'btn light small', href: '#/', 'aria-label': 'Kitaplara dön' }, icon.home()),
     h('div', { class: 'reader-title' }, titleEl, pageNoEl),
-    h('div', { class: 'bar-actions' }, chestLink, settingsBtn),
   );
 
   const textEl = h('section', { class: 'page-text', 'aria-live': 'polite' });
@@ -244,16 +240,9 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     popTimer = window.setTimeout(() => shell.querySelectorAll('.word-pop, .tag3d').forEach((e) => e.remove()), found ? 4800 : 3200);
   }
 
-  /** A word or a thing of the page was tapped: a culture treasure goes into the chest (the treasure, the first time). */
-  function collect(word: string): Treasure | null {
-    const t = treasureFor(word);
-    if (!t || !store.addTreasure(t.id, book.id)) return null;
-    chestCount.textContent = String(store.treasureCount);
-    chestLink.classList.remove('got');
-    void chestLink.offsetWidth;
-    chestLink.classList.add('got');
-    sfx.chime();
-    return t;
+  /** A word or a thing of the page was tapped (there is no word chest any more: only its name shows). */
+  function collect(_word: string): Treasure | null {
+    return null;
   }
 
   function flashWords(lemma: string) {
@@ -472,16 +461,8 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
             };
             window.setTimeout(turn, 900);
           } else {
-            playing = false;
-            setPlayUI();
-            toast('Kitap bitti, aferin! Birazdan rafına dönecek; etkinlikler için sağ alttaki düğmeye dokun.');
-            // the finished book closes by itself and goes back onto its shelf, unless the child does something
-            const stay = () => window.clearTimeout(closeTimer);
-            const closeTimer = window.setTimeout(() => {
-              window.removeEventListener('pointerdown', stay);
-              if (location.hash.startsWith(`#/kitap/${bookId}`)) location.hash = '#/';
-            }, 7000);
-            window.addEventListener('pointerdown', stay, { once: true });
+            // the last page is read: the book closes and goes back onto its shelf
+            window.setTimeout(() => void finishBook(), 1200);
           }
         },
       },
@@ -528,8 +509,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   async function goTo(i: number, autoplay = false) {
     if (busy || i === index || i < 0) return;
     if (i >= book.pages.length) {
-      store.setProgress(bookId, { done: true, page: book.pages.length - 1 });
-      location.hash = `#/kitap/${bookId}/bitti`;
+      void finishBook();
       return;
     }
     if (!autoplay) pause();
@@ -570,6 +550,38 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
       getLayers(book.pages[index + 1]);
       scene.prefetch(book.pages[index + 1].models ?? []);
     }
+  }
+
+  /**
+   * The end of the book: no activities page any more. The pop-up folds down, the characters leave, the book closes
+   * and the camera rises; then the home page puts the book slowly back on its shelf.
+   */
+  let finishing = false;
+  async function finishBook() {
+    if (finishing) return;
+    finishing = true;
+    busy = true;
+    if (playing) pause();
+    playing = false;
+    narrator.stop();
+    store.markRead(bookId, page().id);
+    store.setProgress(bookId, { done: true, page: 0 });
+    shell.querySelectorAll('.word-pop, .tag3d, .hover-tag, .toast, .sheet-backdrop').forEach((e) => e.remove());
+    textEl.style.transition = 'opacity .4s';
+    textEl.style.opacity = '0';
+    controls.classList.add('leaving');
+    bar.classList.add('leaving');
+    sfx.setAmbience(null);
+    scene.shot('wide', 1200, angleFor(index));
+    void scene.setModels([]);
+    void scene.setCast({ ...page(), cast: [], beats: [], models: [] });
+    await scene.showPage([], 0);
+    scene.setLeftPage({ title: book.title, sub: '' });
+    window.setTimeout(() => sfx.pageTurn(), scene.reducedMotion ? 0 : 300);
+    await scene.close();
+    scene.shot('overhead', 1500);
+    await new Promise((r) => window.setTimeout(r, scene.reducedMotion ? 0 : 1300));
+    if (location.hash.startsWith(`#/kitap/${bookId}`)) location.hash = '#/';
   }
 
   prevBtn.addEventListener('click', () => goTo(index - 1));
@@ -620,7 +632,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
         'Kayıtlı anlatıcı sesi',
         onClose,
         h('p', null, 'Bu kitap, kayıtlı bir anlatıcı sesiyle okunuyor. Okunan kelime parlar, sahnedeki hareketler sesi izler.'),
-        h('p', null, 'Bir kelimeye dokunursanız o kelimeyi anlatıcının sesinden yeniden duyarsınız. Okuma hızını Ayarlar’dan değiştirebilirsiniz.'),
+        h('p', null, 'Bir kelimeye dokunursanız o kelimeyi anlatıcının sesinden yeniden duyarsınız.'),
       );
       return;
     }
@@ -633,62 +645,6 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
       v ? h('span') : h('p', null, 'Türkçe sesli okuma için Safari (iPhone, iPad, Mac), Microsoft Edge ya da Android’de Chrome kullanın. Windows’ta Ayarlar > Saat ve dil > Konuşma bölümünden Türkçe ses de ekleyebilirsiniz.'),
     );
   }
-
-  settingsBtn.addEventListener('click', () => {
-    pause();
-    const s = store.settings;
-    const rate = h('input', { type: 'range', min: '0.6', max: '1.2', step: '0.05', value: String(s.rate), 'aria-label': 'Okuma hızı' });
-    rate.addEventListener('input', () => {
-      narrator.rate = Number(rate.value);
-      store.setSettings({ rate: narrator.rate });
-    });
-    const seg = (pressed: boolean, label: string, on: () => void) => {
-      const b = h('button', { type: 'button', 'aria-pressed': String(pressed) }, label);
-      b.addEventListener('click', () => {
-        on();
-        b.parentElement?.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-      });
-      return b;
-    };
-    const size = h(
-      'div',
-      { class: 'seg', role: 'group', 'aria-label': 'Yazı boyutu' },
-      seg(!s.big, 'Normal', () => {
-        store.setSettings({ big: false });
-        layout();
-      }),
-      seg(s.big, 'Büyük', () => {
-        store.setSettings({ big: true });
-        layout();
-      }),
-    );
-    const calm = h('input', { type: 'checkbox', class: 'switch', checked: s.calm, 'aria-label': 'Sakin hareket' });
-    calm.addEventListener('change', () => {
-      store.setSettings({ calm: (calm as HTMLInputElement).checked });
-      scene.setCalm((calm as HTMLInputElement).checked);
-    });
-    const music = h('input', { type: 'checkbox', class: 'switch', checked: s.music && s.sound, 'aria-label': 'Arka plan müziği' });
-    music.addEventListener('change', () => {
-      const on = (music as HTMLInputElement).checked;
-      store.setSettings(on ? { music: true, sound: true } : { music: false });
-      if (on) sfx.startMusic();
-      else sfx.stopMusic();
-    });
-    const recorded = !!page().audio;
-    const voiceBtn = h('button', { class: 'btn light small', type: 'button' }, recorded || narrator.voice ? 'Ses bilgisi' : 'Türkçe ses yok');
-    voiceBtn.addEventListener('click', () => {
-      (shell.querySelector('.sheet-backdrop') as (HTMLElement & { close?: () => void }) | null)?.close?.();
-      voiceSheet();
-    });
-    sheet(
-      'Ayarlar',
-      h('div', { class: 'row' }, h('label', null, 'Okuma hızı', h('small', null, 'Yavaştan hızlıya')), rate),
-      h('div', { class: 'row' }, h('label', null, 'Yazı boyutu'), size),
-      h('div', { class: 'row' }, h('label', null, 'Arka plan müziği', h('small', null, 'Kitabın kendi müziği')), music),
-      h('div', { class: 'row' }, h('label', null, 'Sakin hareket', h('small', null, 'Kamera ve ışık hareketleri durur, animasyonlar kısalır')), calm),
-      h('div', { class: 'row' }, h('label', null, 'Anlatıcı sesi', h('small', null, recorded ? 'Kayıtlı anlatıcı sesi' : narrator.voice ? narrator.voice.name : 'Cihazda Türkçe ses bulunamadı')), voiceBtn),
-    );
-  });
 
   let toastTimer = 0;
   function toast(msg: string) {

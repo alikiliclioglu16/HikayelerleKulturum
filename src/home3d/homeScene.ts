@@ -3,7 +3,7 @@ import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment
 import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js';
 import { Tweens, ease } from '../three/tween';
 import { CULTURE_BUILDERS, placeholder } from './culture';
-import { woodTexture, tileBandTexture, mosaicLamp } from './room';
+import { woodTexture, tileBandTexture } from './room';
 import { motifIndex } from './kilim';
 import { WallCarpet, type CarpetDesign } from './carpet';
 import { fitToSlot, disposeObject, std, mesh, tex, canvas, V3 } from './kit3d';
@@ -203,13 +203,12 @@ export class HomeScene {
     this.scene.add(this.carpet.group);
     this.buildRoom();
     this.scene.add(this.shelf, this.booksGroup, this.sparkles.points);
-    this.lamp = mosaicLamp();
+    // beside the books: our Turkish flag on its stand (the same flag as on the culture shelf)
+    this.lamp = new THREE.Group();
     this.lamp.position.set(-4, 0, 0.74);
     this.scene.add(this.lamp);
-    let lampLight: THREE.PointLight | null = null;
-    this.lamp.traverse((o) => {
-      if ((o as THREE.PointLight).isPointLight) lampLight = o as THREE.PointLight;
-    });
+    void this.loadFlag();
+    const lampLight: THREE.PointLight | null = null;
     this.cinema = new Cinema(
       { camera: this.camera, key: this.key, hemi: this.hemi, lampLight, focus: () => this.focusPoints() },
       1.4,
@@ -379,6 +378,40 @@ export class HomeScene {
   }
 
   /** Swap placeholders for GLB models listed in items.json. */
+  /** The Turkish flag standing beside the books, where the lamp used to be: the GLB, or the drawn one until it loads. */
+  private async loadFlag() {
+    const FLAG_H = 0.9;
+    const place = (o: THREE.Object3D) => {
+      const box = new THREE.Box3().setFromObject(o);
+      const size = box.getSize(new THREE.Vector3());
+      const k = FLAG_H / Math.max(0.001, size.y);
+      o.scale.multiplyScalar(k);
+      const b2 = new THREE.Box3().setFromObject(o);
+      const c = b2.getCenter(new THREE.Vector3());
+      o.position.x -= c.x;
+      o.position.z -= c.z;
+      o.position.y -= b2.min.y;
+      o.traverse((n) => ((n as THREE.Mesh).castShadow = true));
+      this.lamp.clear();
+      this.lamp.add(o);
+      this.invalidate();
+    };
+    const built = CULTURE_BUILDERS.bayrak?.build();
+    if (built) place(built);
+    try {
+      const { loadGltf } = await import('./actors');
+      const gltf = await loadGltf('/models/culture/bayrak.glb');
+      const model = gltf.scene.clone(true);
+      // the flag faces the room a little turned, so its crescent and star show
+      model.rotation.y = -0.35;
+      const wrap = new THREE.Group();
+      wrap.add(model);
+      place(wrap);
+    } catch {
+      /* the drawn flag stays */
+    }
+  }
+
   private async loadModels() {
     const withModels = this.items.filter((it) => it.def.model);
     if (!withModels.length) return;
@@ -892,7 +925,8 @@ export class HomeScene {
     g.position.copy(pos);
     g.scale.setScalar(1.25);
     g.rotation.y = 0;
-    const done = this.tweens.add(this.reducedMotion ? 0 : 1000, 0, 1, (k) => {
+    // slowly, so the finished book is seen going home
+    const done = this.tweens.add(this.reducedMotion ? 0 : 2200, 0, 1, (k) => {
       g.position.lerpVectors(pos, slot, ease.inOut(k));
       g.position.y += Math.sin(k * Math.PI) * 0.4;
       g.rotation.y = b.baseRotY * k;

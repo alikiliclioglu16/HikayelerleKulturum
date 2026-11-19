@@ -1251,6 +1251,14 @@ export class BookScene {
     this.invalidate();
   }
 
+  /** The book closes: the left half (its cover underneath) turns over onto the right page. */
+  async close() {
+    this.pageShown = false;
+    this.tweens.add(this.dur(1300), this.leftGroup.rotation.z, -Math.PI, (v) => (this.leftGroup.rotation.z = v), ease.inOut);
+    this.invalidate();
+    await this.wait(this.dur(1300));
+  }
+
   async open(fromClosed: boolean) {
     if (!fromClosed) {
       this.leftGroup.rotation.z = 0;

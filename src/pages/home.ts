@@ -1,5 +1,5 @@
-import { h, icon, chip, tulipLogo } from '../ui/dom';
-import { loadListing, loadCulture, coverCanvas, cloneCanvas, fonts } from '../content';
+import { h, icon, tulipLogo } from '../ui/dom';
+import { loadListing, loadCulture, loadBook, coverCanvas, cloneCanvas, fonts } from '../content';
 import { store } from '../store';
 import { valueById } from '../values';
 import { Narrator } from '../narrator';
@@ -24,12 +24,10 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   const vignette = h('div', { class: 'vignette', 'aria-hidden': 'true' });
 
   const statPages = h('span', null);
-  const statChest = h('span', null);
   const statCulture = h('span', null);
-  const stats = h('a', { class: 'home-stats', href: '#/sandik' }, statPages, statChest, statCulture);
+  const stats = h('div', { class: 'home-stats' }, statPages, statCulture);
   const soundBtn = h('button', { class: 'round-btn', type: 'button' });
   const musicBtn = h('button', { class: 'round-btn', type: 'button' });
-  const chestBadge = h('span', { class: 'badge' }, '0');
   const hud = h(
     'header',
     { class: 'home-hud' },
@@ -44,8 +42,6 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
       { class: 'home-actions', 'aria-label': 'Menü' },
       musicBtn,
       soundBtn,
-      h('a', { class: 'round-btn', href: '#/sandik', 'aria-label': 'Kelime Sandığım', title: 'Kelime Sandığım' }, icon.chest(), chestBadge),
-      h('a', { class: 'round-btn', href: '#/ebeveyn', 'aria-label': 'Ebeveynler için', title: 'Ebeveynler için' }, icon.parents()),
     ),
   );
 
@@ -71,8 +67,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     };
     const cPage = cell('Sayfa');
     const cRead = cell('Okundu');
-    const cAct = cell('Etkinlik');
-    const table = h('span', { class: 'book-stats', 'aria-hidden': 'true' }, cPage.el, cRead.el, cAct.el);
+    const table = h('span', { class: 'book-stats', 'aria-hidden': 'true' }, cPage.el, cRead.el);
     const card = h(
       'button',
       { class: `book-card${soon ? ' soon' : ''}`, type: 'button', 'aria-label': `${b.title}${soon ? ', yakında' : ''}` },
@@ -82,7 +77,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
       h('span', { class: 'meta' }, meta, soon ? h('span', { class: 'soon-badge' }, 'Yakında') : null),
     );
     card.addEventListener('click', () => openBook(i));
-    return { card, bar, meta, book: b, cells: { page: cPage.v, read: cRead.v, act: cAct.v } };
+    return { card, bar, meta, book: b, cells: { page: cPage.v, read: cRead.v } };
   });
   const cardLayer = h('div', { class: 'card-layer' }, ...cards.map((c) => c.card));
 
@@ -133,13 +128,10 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     const ready = list.filter((b) => b.status === 'ready');
     const total = ready.reduce((a, b) => a + (b.pages ?? 0), 0);
     const read = ready.reduce((a, b) => a + store.progress(b.id).read.length, 0);
-    const words = store.treasureCount;
     statPages.replaceChildren(icon.star(), `${read}/${total}`);
-    statChest.replaceChildren(icon.chest(), String(words));
     statCulture.replaceChildren(icon.tulip(), `${store.culture.length}/${culture.length}`);
-    stats.setAttribute('aria-label', `${total} sayfanın ${read} tanesi okundu, sandıkta ${words} kültür hazinesi, kültür rafında ${culture.length} nesneden ${store.culture.length} tanesi keşfedildi`);
-    stats.title = 'Okunan sayfalar, sandıktaki kültür hazineleri, keşfedilen raf nesneleri';
-    chestBadge.textContent = String(words);
+    stats.setAttribute('aria-label', `${total} sayfanın ${read} tanesi okundu, kültür rafında ${culture.length} nesneden ${store.culture.length} tanesi keşfedildi`);
+    stats.title = 'Okunan sayfalar, keşfedilen raf nesneleri';
     cards.forEach(({ book, bar, meta, card, cells }) => {
       if (book.status === 'soon') {
         bar.style.width = '0%';
@@ -154,13 +146,11 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
       // where the reader is in the book, how long it is, how much is read and which activities are done
       const done = r >= n && n > 0;
       const page = done ? n : r || prog.page ? Math.min(n, prog.page + 1) : 0;
-      const acts = (prog.quiz !== undefined ? 1 : 0) + (prog.hunt ? 1 : 0);
       cells.page.textContent = `${page}/${n}`;
       cells.read.textContent = `%${pct}`;
-      cells.act.textContent = `${acts}/2`;
-      meta.textContent = done ? 'Bitti!' : r || prog.page ? 'Okumaya devam' : 'Henüz başlanmadı';
+      meta.textContent = done ? 'Bitti!' : r || prog.page ? 'Yarım kaldı' : 'Henüz okunmadı';
       card.classList.toggle('done', done);
-      card.setAttribute('aria-label', `${book.title}. Sayfa ${page} / ${n}, yüzde ${pct} okundu, ${acts} / 2 etkinlik.`);
+      card.setAttribute('aria-label', `${book.title}. Sayfa ${page} / ${n}, yüzde ${pct} okundu.`);
     });
   }
   function updateSound() {
@@ -220,7 +210,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
       say,
       h('div', { class: 'cp-head' }, c.icon ? h('span', { class: 'cp-ico', 'aria-hidden': 'true' }, c.icon) : null, h('span', { class: 'cp-name', lang: 'tr' }, c.name)),
       h('p', { class: 'cp-fact', lang: 'tr' }, c.fact.tr),
-      isNew ? h('span', { class: 'cp-new' }, 'Yeni keşif! Sandığına eklendi') : null,
+      isNew ? h('span', { class: 'cp-new' }, 'Yeni keşif!') : null,
     );
     shell.append(popEl);
     popIndex = i;
@@ -325,7 +315,12 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     return wrap;
   }
 
-  /* ---------- book sheet ---------- */
+  /* ---------- book card ---------- */
+  /**
+   * A tapped book comes off the shelf and a card opens in the middle of the room, like a book's title page: its
+   * cover, a few words about it and a bar that fills while the book's first page, voice and music are fetched.
+   * Then "Oku" opens it from the first page, or "Rafa dön" puts it back.
+   */
   let sheetClose: (() => void) | null = null;
   function openBook(i: number) {
     const b = list[i];
@@ -338,57 +333,89 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     sheetClose?.();
     const soon = b.status === 'soon';
     const cover = cloneCanvas(covers[i], `${b.title} kitabının kapağı`);
+    let alive = true;
     const close = () => {
-      backdrop.remove();
+      alive = false;
+      backdrop.classList.add('leaving');
+      window.setTimeout(() => backdrop.remove(), 220);
       scene.pullBook(null);
       sheetClose = null;
       cards[i].card.focus({ preventScroll: true });
     };
-    const closeBtn = h('button', { class: 'btn light small icon-only sheet-x', type: 'button', 'aria-label': 'Kapat' }, icon.close());
-    closeBtn.addEventListener('click', close);
-    const body: Node[] = [
-      h('h2', { class: 'bs-title' }, b.title),
-      h('div', { class: 'bs-chips' }, ...b.values.map((v) => chip(valueById(v).name, valueById(v).group))),
-      h('p', { class: 'bs-sum', lang: 'tr' }, b.blurb.tr),
-    ];
-    if (soon) {
-      body.push(h('p', { class: 'bs-soon' }, 'Bu kitap yakında rafta olacak. Şimdilik raftaki hazır kitaplardan birini okuyabilirsin.'));
-      body.push(h('div', { class: 'bs-actions' }, h('button', { class: 'btn light', type: 'button', onclick: close }, 'Kapat')));
-    } else {
-      const prog = store.progress(b.id);
-      const started = prog.page > 0 && prog.page < (b.pages ?? 0);
-      // opening: the sheet closes and the book comes down off the shelf towards the reader, then it opens
-      const open = (e: Event) => {
-        e.preventDefault();
-        const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href')!;
-        backdrop.remove();
-        sheetClose = null;
-        sfx.slide();
-        // only the book is left on the screen while it comes down
-        for (const el of [cardLayer, dots, carPrev, carNext, hint, motifCap]) el.style.visibility = 'hidden';
-        void scene.flyBookOut(i).then(() => (location.hash = href));
-      };
-      body.push(
-        h(
-          'div',
-          { class: 'bs-actions' },
-          h('a', { class: 'btn', href: `#/kitap/${b.id}`, onclick: open }, icon.book(), started ? 'Kaldığın yerden oku' : 'Kitabı aç'),
-          started ? h('a', { class: 'btn light', href: `#/kitap/${b.id}/1`, onclick: open }, 'Baştan başla') : null,
-        ),
-      );
-    }
-    const sheet = h(
-      'div',
-      { class: 'book-sheet', role: 'dialog', 'aria-modal': 'true', 'aria-label': b.title },
-      closeBtn,
-      liveCover(cover),
-      h('div', { class: 'bs-body' }, ...body),
-    );
-    const backdrop = h('div', { class: 'book-sheet-backdrop' }, sheet);
+    const backBtn = h('button', { class: 'btn light small sc-back', type: 'button' }, icon.back(), 'Rafa dön');
+    backBtn.addEventListener('click', close);
+    const fill = h('i', null);
+    const status = h('span', { class: 'sc-status', role: 'status' }, soon ? '' : 'Kitap hazırlanıyor…');
+    const progress = h('div', { class: 'sc-progress', hidden: soon }, h('span', { class: 'sc-bar' }, fill), status);
+    const actions = h('div', { class: 'sc-actions' });
+    const body: Node[] = [liveCover(cover), h('h2', { class: 'sc-title' }, b.title), h('p', { class: 'sc-sum', lang: 'tr' }, b.blurb.tr)];
+    if (soon) body.push(h('p', { class: 'sc-soon' }, 'Bu kitap yakında rafta olacak.'));
+    body.push(progress, actions, backBtn);
+    const corners = ['tl', 'tr', 'bl', 'br'].map((c) => h('span', { class: `sc-corner ${c}`, 'aria-hidden': 'true' }));
+    const card = h('div', { class: 'story-card', role: 'dialog', 'aria-modal': 'true', 'aria-label': b.title }, ...corners, ...body);
+    const backdrop = h('div', { class: 'story-card-backdrop' }, card);
     backdrop.addEventListener('click', (e) => e.target === backdrop && close());
     shell.append(backdrop);
     sheetClose = close;
-    (sheet.querySelector('a.btn, button.btn:not(.sheet-x)') as HTMLElement | null)?.focus({ preventScroll: true });
+    backBtn.focus({ preventScroll: true });
+    if (soon) return;
+
+    // opening: the card goes and the book comes down off the shelf towards the reader, then it opens at page 1
+    const read = h('a', { class: 'btn sc-read', href: `#/kitap/${b.id}/1` }, icon.book(), 'Oku');
+    read.addEventListener('click', (e) => {
+      e.preventDefault();
+      backdrop.remove();
+      sheetClose = null;
+      sfx.slide();
+      for (const el of [cardLayer, dots, carPrev, carNext, hint, motifCap]) el.style.visibility = 'hidden';
+      void scene.flyBookOut(i).then(() => (location.hash = `#/kitap/${b.id}/1`));
+    });
+    const ready = () => {
+      if (!alive) return;
+      fill.style.width = '100%';
+      status.textContent = 'Hazır';
+      progress.classList.add('done');
+      actions.replaceChildren(read);
+      read.focus({ preventScroll: true });
+    };
+    void preload(b.id, (n, total) => {
+      if (!alive) return;
+      fill.style.width = `${Math.round((n / Math.max(1, total)) * 100)}%`;
+      status.textContent = `Kitap hazırlanıyor… ${n}/${total}`;
+    })
+      .catch(() => undefined)
+      .then(ready);
+  }
+
+  /** Fetch what the book needs to open smoothly: its first page's pictures, voice and 3D models, and its music. */
+  async function preload(id: string, onProgress: (n: number, total: number) => void) {
+    const book = await loadBook(id);
+    const p = book.pages[0];
+    const base = `/books/${id}/`;
+    const abs = (u: string) => (u.startsWith('/') ? u : base + u);
+    const urls = new Set<string>();
+    for (const l of p.layers ?? []) {
+      if (l.src) urls.add(abs(l.src));
+      if (l.floor) urls.add(abs(l.floor));
+    }
+    if (p.audio?.src) urls.add(abs(p.audio.src));
+    if (book.music?.src) urls.add(abs(book.music.src));
+    for (const m of p.models ?? []) if (m.src) urls.add(abs(m.src));
+    const list = [...urls];
+    let n = 0;
+    onProgress(0, list.length);
+    const started = performance.now();
+    await Promise.all(
+      list.map((u) =>
+        fetch(u)
+          .then((r) => r.arrayBuffer())
+          .catch(() => null)
+          .then(() => onProgress(++n, list.length)),
+      ),
+    );
+    // let the bar be seen filling, even when everything was already here
+    const left = 700 - (performance.now() - started);
+    if (left > 0) await new Promise((r) => window.setTimeout(r, left));
   }
 
   /* ---------- carousel ---------- */

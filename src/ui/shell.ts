@@ -1,8 +1,6 @@
 import { h, tulipLogo, icon } from './dom';
-import { store } from '../store';
 
 export function header(active: 'home' | 'chest' | 'parents' | 'none' = 'none') {
-  const count = store.treasureCount;
   const link = (href: string, label: string, key: string, extra?: Node) =>
     h('a', { href, 'aria-current': active === key ? 'page' : undefined }, label, extra ?? null);
   return h(
@@ -13,8 +11,6 @@ export function header(active: 'home' | 'chest' | 'parents' | 'none' = 'none') {
       'nav',
       { class: 'site-nav', 'aria-label': 'Ana menü' },
       link('#/', 'Kitaplar', 'home'),
-      link('#/sandik', 'Kelime Sandığım', 'chest', h('span', { class: 'count', 'aria-label': `${count} kültür hazinesi` }, String(count))),
-      link('#/ebeveyn', 'Ebeveynler için', 'parents'),
     ),
   );
 }
@@ -23,7 +19,7 @@ export function footer() {
   return h(
     'footer',
     { class: 'site-footer' },
-    h('p', null, 'Hesap yok, çerez yok, reklam yok. Okuma ilerlemesi ve Kelime Sandığı yalnızca bu cihazda saklanır.'),
+    h('p', null, 'Hesap yok, çerez yok, reklam yok. Okuma ilerlemesi yalnızca bu cihazda saklanır.'),
   );
 }
 
