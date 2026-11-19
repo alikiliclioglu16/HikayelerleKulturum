@@ -50,7 +50,7 @@ const printShare = (t: number) => (t - (FAR / 2) * t * t) / (1 - FAR / 2);
 const printDepth = (s: number) => (1 - Math.sqrt(1 - 2 * FAR * s * (1 - FAR / 2))) / FAR;
 
 /** Camera shots: from high above, the closed book, the whole open book, and close on the pop-up. */
-export type ShotKind = 'overhead' | 'cover' | 'wide' | 'close';
+export type ShotKind = 'overhead' | 'cover' | 'wide' | 'close' | 'zoom';
 
 /** Things that always stand on the reading table, around the book: culture objects from the home shelf. */
 const C = (id: string) => `/models/culture/${id}.glb`;
@@ -104,8 +104,13 @@ interface ModelObj {
 
 interface PropObj {
   object: THREE.Object3D;
+  /** The model inside `object`, which spins and squashes when touched. */
+  inner: THREE.Object3D;
   word: string;
   anchor: THREE.Vector3;
+  /** The culture object's id (its file name), for its own sound. */
+  id: string;
+  busy?: boolean;
 }
 
 export interface PickResult {
@@ -728,7 +733,8 @@ export class BookScene {
           g.add(inner);
           this.scene.add(g);
           this.tableObjs.push(g);
-          if (spec.word) this.props.push({ object: g, word: spec.word, anchor: new THREE.Vector3(spec.x, spec.h + lift + 0.04, spec.z) });
+          const id = /\/([\w-]+)\.glb$/.exec(spec.src ?? '')?.[1] ?? spec.word ?? '';
+          if (spec.word) this.props.push({ object: g, inner, word: spec.word, anchor: new THREE.Vector3(spec.x, spec.h + lift + 0.04, spec.z), id });
           this.invalidate();
         } catch (e) {
           console.warn('Masa nesnesi yüklenemedi', spec.src, e);
@@ -788,6 +794,8 @@ export class BookScene {
       overhead: { min: V(-2.1, 0, -1.4), max: V(2.2, 0.3, 1.5), cy: 0, el: 82, az: -28, reg: this.regions.wide, lim: 0.98 },
       cover: { min: V(-0.05, 0, -0.75), max: V(1.1, 0.12, 0.75), cy: 0.05, el: 50, az: 18, reg: this.regions.wide, lim: 0.5 },
       wide: { min: V(-1.12, 0, -0.8), max: V(1.12, 0.4, 0.8), cy: 0.12, el: 52, az: this.shotAz * 0.5, reg: this.regions.wide, lim: 0.9 },
+      // "Yakından bak": only the pop-up on the right page, close up
+      zoom: { min: V(0.22, 0.04, -0.4), max: V(0.86, 0.56, 0.28), cy: 0.26, el: 15, az: this.shotAz * 0.6, reg: this.regions.wide, lim: 1.0 },
       close: this.textOnPage
         ? // both pages seen from low in front, like a stage: the text card on the left and the pop-up on the right stand
           // up facing the reader, so the words read clearly and the characters and the backdrop are seen whole
@@ -797,11 +805,11 @@ export class BookScene {
     const center = cfg.min.clone().add(cfg.max).multiplyScalar(0.5);
     center.y = cfg.cy;
     let tighten = 1;
-    const hp = kind === 'close' ? this.focusPoint() : null;
+    const hp = kind === 'close' || kind === 'zoom' ? this.focusPoint() : null;
     if (hp) {
       // lean towards the character who acts or speaks (or the magic thing), keeping the others in the picture
       // with the text on the page the lean is small, so the whole book stays in the picture
-      const k = this.textOnPage ? 0.14 : 1;
+      const k = this.textOnPage && kind === 'close' ? 0.14 : kind === 'zoom' ? 0.6 : 1;
       center.x += (hp.x - center.x) * 0.45 * k;
       center.z += (hp.z - center.z) * 0.35 * k;
       center.y += (hp.y * 0.85 - center.y) * 0.4 * k;
@@ -1234,6 +1242,20 @@ export class BookScene {
     return { wi: b.wi, ...this.toScreen(p) };
   }
 
+  /** Whether the point is on the text card standing on the left page (but not necessarily on a word). */
+  onTextCard(clientX: number, clientY: number) {
+    if (!this.textSpec || !this.cardUp) return false;
+    const rect = this.renderer.domElement.getBoundingClientRect();
+    const ndc = new THREE.Vector2(((clientX - rect.left) / rect.width) * 2 - 1, -((clientY - rect.top) / rect.height) * 2 + 1);
+    this.raycaster.setFromCamera(ndc, this.camera);
+    return this.raycaster.intersectObject(this.cardMesh, false).length > 0;
+  }
+
+  /** The shot the camera is in now. */
+  get currentShot() {
+    return this.shotKind;
+  }
+
   setCover(canvas: HTMLCanvasElement) {
     const tex = canvasTexture(canvas, this.renderer);
     tex.center.set(0.5, 0.5);
@@ -1443,7 +1465,7 @@ export class BookScene {
   focus(who: string | null) {
     if (who === this.focusWho) return;
     this.focusWho = who;
-    if (this.shotKind === 'close') this.shot('close', 1600);
+    if (this.shotKind === 'close' || this.shotKind === 'zoom') this.shot(this.shotKind, 1600);
   }
 
   /** Where the camera leans in the close shot: the head of the character in focus, or the magic thing. */
@@ -1842,7 +1864,7 @@ export class BookScene {
     this.rain.update(0.5);
     this.rain.setScale(this.pxScale());
     // a still frame is shown in the close shot, already leaning towards what is in focus
-    this.shot('close', 0);
+    this.shot(this.shotKind === 'zoom' ? 'zoom' : 'close', 0);
     this.frozen = true;
     this.invalidate();
   }
@@ -1855,7 +1877,7 @@ export class BookScene {
     this.stage.reset(this.castBase);
     this.seeking = false;
     this.focusWho = null;
-    if (this.shotKind === 'close') this.shot('close', 900);
+    if (this.shotKind === 'close' || this.shotKind === 'zoom') this.shot(this.shotKind, 900);
     this.invalidate();
   }
 
@@ -2238,10 +2260,55 @@ export class BookScene {
     this.invalidate();
   }
 
+  /** A table object was touched: it plays its sound, jumps high with a squash, spins round once and sparkles. */
+  onPropTap: ((id: string) => void) | null = null;
   private hopProp(p: PropObj) {
-    if (this.reducedMotion) return;
-    const y0 = 0;
-    this.tweens.add(480, 0, 1, (k) => (p.object.position.y = y0 + ease.hop(k) * 0.08), ease.linear);
+    this.onPropTap?.(p.id);
+    this.sparkles.burst(p.anchor.clone(), new THREE.Vector3(0.18, 0.18, 0.18), 18, 1);
+    if (this.reducedMotion || p.busy) {
+      this.invalidate();
+      return;
+    }
+    p.busy = true;
+    const r0 = p.inner.rotation.y;
+    const s0 = p.inner.scale.clone();
+    void this.tweens
+      .add(780, 0, 1, (k) => {
+        p.object.position.y = ease.hop(Math.min(1, k / 0.8)) * 0.22;
+        p.inner.rotation.y = r0 + Math.PI * 2 * ease.inOut(Math.min(1, k / 0.8));
+        // squash before the jump and on landing, stretch in the air
+        const sq = k < 0.12 ? -Math.sin((k / 0.12) * Math.PI) * 0.16 : k > 0.8 ? -Math.sin(((k - 0.8) / 0.2) * Math.PI) * 0.12 : Math.sin(((k - 0.12) / 0.68) * Math.PI) * 0.08;
+        p.inner.scale.set(s0.x * (1 - sq * 0.5), s0.y * (1 + sq), s0.z * (1 - sq * 0.5));
+      }, ease.linear)
+      .then(() => {
+        p.inner.rotation.y = r0;
+        p.inner.scale.copy(s0);
+        p.object.position.y = 0;
+        p.busy = false;
+      });
+    this.invalidate();
+  }
+
+  /** Now and then one of the table's objects gives a little wiggle, as if it wanted to be touched. */
+  wiggleTableProp() {
+    if (this.reducedMotion || !this.props.length) return;
+    const p = this.props[Math.floor(Math.random() * this.props.length)];
+    if (p.busy) return;
+    // only one the camera sees
+    const v = p.anchor.clone().project(this.camera);
+    if (Math.abs(v.x) > 0.95 || Math.abs(v.y) > 0.95 || v.z > 1) return;
+    p.busy = true;
+    void this.tweens
+      .add(900, 0, 1, (k) => {
+        p.inner.rotation.z = Math.sin(k * Math.PI * 4) * 0.12 * (1 - k);
+        p.object.position.y = Math.sin(k * Math.PI) * 0.03;
+      }, ease.linear)
+      .then(() => {
+        p.inner.rotation.z = 0;
+        p.object.position.y = 0;
+        p.busy = false;
+      });
+    this.sparkles.burst(p.anchor.clone(), new THREE.Vector3(0.1, 0.1, 0.1), 6, 0.7);
     this.invalidate();
   }
 

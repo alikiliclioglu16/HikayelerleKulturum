@@ -44,6 +44,8 @@ export const icon = {
   close: () => svg(S('<path d="M6 6l12 12M18 6L6 18"/>')),
   star: () => svg(S('<path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 17l-5.2 2.7 1-5.9-4.3-4.1 5.9-.8z" fill="currentColor" stroke-width="1.4"/>')),
   check: () => svg(S('<path d="M5 12.5l4.5 4.5L19 7.5"/>')),
+  search: () => svg(S('<circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21M8 10.5h5M10.5 8v5"/>')),
+  searchOut: () => svg(S('<circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21M8 10.5h5"/>')),
   light: () => svg(S('<path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0012 3z"/>')),
   chest: () =>
     svg(

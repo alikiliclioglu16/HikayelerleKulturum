@@ -2417,3 +2417,7 @@ button.t-card:hover .t-stage img {
   pointer-events: none;
   transition: opacity 0.4s;
 }
+.reader-controls .btn.on {
+  --bg: var(--saffron);
+  --edge-c: #c98a1c;
+}

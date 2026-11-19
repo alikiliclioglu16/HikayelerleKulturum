@@ -58,7 +58,8 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   const replayBtn = h('button', { class: 'btn light icon-only', type: 'button', 'aria-label': 'Sahneyi tekrar oynat', title: 'Tekrar oynat' }, icon.replay());
   const cultureBtn = h('button', { class: 'btn light icon-only', type: 'button', 'aria-label': 'Biliyor musun?', title: 'Biliyor musun?' }, icon.light());
   cultureBtn.addEventListener('click', () => page().culture && cultureSheet(page()));
-  const controls = h('nav', { class: 'reader-controls', 'aria-label': 'Okuma kontrolleri' }, prevBtn, playBtn, replayBtn, cultureBtn, nextBtn);
+  const zoomBtn = h('button', { class: 'btn light icon-only', type: 'button', 'aria-label': 'Yakından bak', title: 'Yakından bak', 'aria-pressed': 'false' }, icon.search());
+  const controls = h('nav', { class: 'reader-controls', 'aria-label': 'Okuma kontrolleri' }, prevBtn, playBtn, replayBtn, cultureBtn, zoomBtn, nextBtn);
   const castWait = h('div', { class: 'cast-wait', role: 'status', hidden: true }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), h('span', { class: 'cw-text' }, 'Karakterler sahneye geliyor…'));
 
   shell.replaceChildren(sceneHost, bar, textEl, controls, castWait);
@@ -71,6 +72,10 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   scene.setCalm(store.settings.calm);
   // the sounds of each page's play: hops, knocks, magic, rain
   scene.onSound = (kind, delay, seconds) => sfx.scene(kind, delay, seconds);
+  // a touched object on the table plays its own sound (the çay glass clinks, the drum booms…)
+  scene.onPropTap = (id) => sfx.item(id);
+  // now and then something on the table wiggles, inviting a touch
+  const wiggleTimer = window.setInterval(() => !busy && scene.wiggleTableProp(), 7000);
   scene.onCastProgress = (n, total) => {
     castWait.hidden = total === 0 || n >= total;
     castWait.querySelector('.cw-text')!.textContent = `Karakterler sahneye geliyor… ${n}/${total}`;
@@ -324,6 +329,11 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     downAt = null;
     // a word printed on the left page
     const pw = scene.pickPageWord(e.clientX, e.clientY);
+    if (!pw && scene.onTextCard(e.clientX, e.clientY)) {
+      // the printed text, between the words: it grows (or goes back to its size)
+      toggleBig();
+      return;
+    }
     if (pw) {
       const tok = tokens.find((t) => t.kind === 'word' && t.wi === pw.wi);
       if (tok) {
@@ -505,6 +515,37 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     startReading();
   });
 
+  /* ---------- look closer, bigger text ---------- */
+  let zoomed = false;
+  function setZoom(on: boolean, move = true) {
+    zoomed = on;
+    zoomBtn.replaceChildren(on ? icon.searchOut() : icon.search());
+    zoomBtn.setAttribute('aria-pressed', String(on));
+    zoomBtn.setAttribute('aria-label', on ? 'Uzaklaş' : 'Yakından bak');
+    zoomBtn.title = on ? 'Uzaklaş' : 'Yakından bak';
+    zoomBtn.classList.toggle('on', on);
+    if (move) scene.shot(on ? 'zoom' : 'close', 1300, angleFor(index));
+  }
+  zoomBtn.addEventListener('click', () => {
+    if (busy) return;
+    sfx.tap();
+    setZoom(!zoomed);
+  });
+
+  /** The story text grows big for easier reading, or goes back to its size. */
+  function toggleBig() {
+    sfx.tap();
+    store.setSettings({ big: !store.settings.big });
+    layout();
+    toast(store.settings.big ? 'Yazı büyüdü. Küçültmek için yazıya yeniden dokun.' : 'Yazı eski boyutunda.');
+  }
+  // in the text card (tall screens) a tap between the words does the same
+  textEl.addEventListener('click', (e) => {
+    const t = e.target as HTMLElement;
+    if (t.closest('.w, button, a')) return;
+    toggleBig();
+  });
+
   /* ---------- navigation ---------- */
   async function goTo(i: number, autoplay = false) {
     if (busy || i === index || i < 0) return;
@@ -517,6 +558,8 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     scene.freeze(false);
     busy = true;
     const dir = i > index ? 1 : -1;
+    // a new page starts in the usual shot, where the text can be read
+    if (zoomed) setZoom(false, false);
     index = i;
     resumeAt = -1;
     lastWord = -1;
@@ -698,6 +741,15 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   void scene.setCast(page()).then(() => prepareStage(false));
   store.setProgress(bookId, { page: index });
   if (index + 1 < book.pages.length) getLayers(book.pages[index + 1]);
+  // the first time in a visit: how the text works
+  try {
+    if (!sessionStorage.getItem('hk:ipucu')) {
+      sessionStorage.setItem('hk:ipucu', '1');
+      window.setTimeout(() => toast('Kelimelere dokun, dinle. Yazıya dokun, büyüsün. Büyüteçle sahneye yakından bak.'), 1200);
+    }
+  } catch {
+    /* private mode */
+  }
   // download the 3D models of the whole book in the background
   window.setTimeout(() => book.pages.forEach((p) => scene.prefetch(p.models ?? [])), 1500);
 
@@ -710,6 +762,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     }
     sfx.setAmbience(null);
     window.removeEventListener('keydown', onKey);
+    window.clearInterval(wiggleTimer);
     document.removeEventListener('visibilitychange', onHide);
     window.clearTimeout(duckTimer);
     sfx.duck(false);
