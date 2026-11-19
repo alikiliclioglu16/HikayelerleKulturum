@@ -1,0 +1,2759 @@
+{
+  "id": "turk-marketi",
+  "title": "Türk Marketinde Bir Gün",
+  "titleEn": "A Day at the Turkish Grocery",
+  "culture": {
+    "tr": "ABD’de Türk marketi, Türkçe selamlaşma, geleneksel ürünler ve aile sofrası",
+    "en": "A Turkish grocery in the USA, Turkish greetings, traditional foods and the family table"
+  },
+  "summary": {
+    "tr": "Elif ile Can yirmi dolar ve bir listeyle Türk marketine gidiyor. Bütçe yapmayı, birim fiyatı ve fazla verilen para üstünü geri vermeyi öğreniyorlar.",
+    "en": ""
+  },
+  "values": [
+    "tasarruf",
+    "durustluk",
+    "vatanseverlik"
+  ],
+  "music": {
+    "src": "/books/turk-marketi/muzik.mp3",
+    "loop": 30.4,
+    "gain": 0.6
+  },
+  "toyCast": true,
+  "glossary": {
+    "Cumartesi": {
+      "en": "Saturday",
+      "icon": "📅"
+    },
+    "alışveriş listesi": {
+      "en": "shopping list",
+      "icon": "📝"
+    },
+    "Peynir": {
+      "en": "cheese",
+      "icon": "🧀"
+    },
+    "zeytin": {
+      "en": "olive",
+      "icon": "🫒"
+    },
+    "simit": {
+      "en": "simit, a sesame bread ring",
+      "icon": "🥯"
+    },
+    "çay": {
+      "en": "tea",
+      "icon": "🍵"
+    },
+    "mercimek": {
+      "en": "lentil",
+      "icon": "🫘"
+    },
+    "anne": {
+      "en": "mum",
+      "icon": "👩"
+    },
+    "Huriye Hanım": {
+      "en": "Huriye Hanım, Can and Elif's mum",
+      "icon": "👩"
+    },
+    "yirmi": {
+      "en": "twenty",
+      "icon": "2️⃣"
+    },
+    "dolar": {
+      "en": "dollar",
+      "icon": "💵"
+    },
+    "baba": {
+      "en": "dad",
+      "icon": "👨"
+    },
+    "fiyat": {
+      "en": "price",
+      "icon": "🏷️"
+    },
+    "miktar": {
+      "en": "amount",
+      "icon": "⚖️"
+    },
+    "ayarlamak": {
+      "en": "to adjust",
+      "icon": "🎚️"
+    },
+    "çanta": {
+      "en": "bag",
+      "icon": "👜"
+    },
+    "malzeme": {
+      "en": "ingredient, supply",
+      "icon": "🧺"
+    },
+    "hatırlatmak": {
+      "en": "to remind",
+      "icon": "🔔"
+    },
+    "market": {
+      "en": "grocery shop",
+      "icon": "🏪"
+    },
+    "ekmek": {
+      "en": "bread",
+      "icon": "🍞"
+    },
+    "baharat": {
+      "en": "spice",
+      "icon": "🌶️"
+    },
+    "koku": {
+      "en": "smell",
+      "icon": "👃"
+    },
+    "raf": {
+      "en": "shelf",
+      "icon": "🗄️"
+    },
+    "tarhana": {
+      "en": "tarhana, a dried soup mix",
+      "icon": "🥣"
+    },
+    "lokum": {
+      "en": "Turkish delight",
+      "icon": "🍬"
+    },
+    "Hatice teyze": {
+      "en": "Hatice teyze, the shopkeeper",
+      "icon": "👩‍🍳"
+    },
+    "Hoş geldiniz": {
+      "en": "welcome!",
+      "icon": "👋"
+    },
+    "Hoş bulduk": {
+      "en": "glad to be here! (the answer to “hoş geldiniz”)",
+      "icon": "🤗"
+    },
+    "İngilizce": {
+      "en": "English",
+      "icon": "🇬🇧"
+    },
+    "müşteri": {
+      "en": "customer",
+      "icon": "🧍"
+    },
+    "babaanne": {
+      "en": "grandma",
+      "icon": "👵"
+    },
+    "Tanıdık": {
+      "en": "familiar",
+      "icon": "💛"
+    },
+    "tat": {
+      "en": "taste, flavour",
+      "icon": "😋"
+    },
+    "çikolata": {
+      "en": "chocolate",
+      "icon": "🍫"
+    },
+    "Kenan Bey": {
+      "en": "Kenan Bey, Can and Elif's dad",
+      "icon": "👨"
+    },
+    "ihtiyaç": {
+      "en": "need",
+      "icon": "📋"
+    },
+    "bütçe": {
+      "en": "budget",
+      "icon": "💰"
+    },
+    "kontrol etmek": {
+      "en": "to check",
+      "icon": "✅"
+    },
+    "paket": {
+      "en": "packet",
+      "icon": "📦"
+    },
+    "sepet": {
+      "en": "basket",
+      "icon": "🧺"
+    },
+    "karar vermek": {
+      "en": "to decide",
+      "icon": "✔️"
+    },
+    "ayırmak": {
+      "en": "to set aside",
+      "icon": "📥"
+    },
+    "Sıra": {
+      "en": "turn",
+      "icon": "🔁"
+    },
+    "karşılaştırmak": {
+      "en": "to compare",
+      "icon": "⚖️"
+    },
+    "Büyük": {
+      "en": "big",
+      "icon": "🔼"
+    },
+    "birim fiyat": {
+      "en": "unit price",
+      "icon": "🏷️"
+    },
+    "düşük": {
+      "en": "low",
+      "icon": "⬇️"
+    },
+    "zaman": {
+      "en": "time",
+      "icon": "⏰"
+    },
+    "Küçük": {
+      "en": "small",
+      "icon": "🔽"
+    },
+    "seçmek": {
+      "en": "to choose",
+      "icon": "👆"
+    },
+    "ezilmek": {
+      "en": "to be squashed",
+      "icon": "🥴"
+    },
+    "ürün": {
+      "en": "product",
+      "icon": "📦"
+    },
+    "on dört": {
+      "en": "fourteen",
+      "icon": "1️⃣4️⃣"
+    },
+    "tutmak": {
+      "en": "to come to (a total)",
+      "icon": "🧾"
+    },
+    "para üstü": {
+      "en": "change (money back)",
+      "icon": "🪙"
+    },
+    "uzatmak": {
+      "en": "to hold out",
+      "icon": "🤲"
+    },
+    "saymak": {
+      "en": "to count",
+      "icon": "🔢"
+    },
+    "Altı": {
+      "en": "six",
+      "icon": "6️⃣"
+    },
+    "on altı": {
+      "en": "sixteen",
+      "icon": "1️⃣6️⃣"
+    },
+    "çıkmak": {
+      "en": "to be taken away (in subtraction)",
+      "icon": "➖"
+    },
+    "fazla": {
+      "en": "too much, extra",
+      "icon": "➕"
+    },
+    "kasa": {
+      "en": "till, checkout",
+      "icon": "🧾"
+    },
+    "sıra": {
+      "en": "turn, queue",
+      "icon": "🔁"
+    },
+    "tezgâh": {
+      "en": "counter",
+      "icon": "🪵"
+    },
+    "fiş": {
+      "en": "receipt",
+      "icon": "🧾"
+    },
+    "yanlışlık": {
+      "en": "mistake",
+      "icon": "❌"
+    },
+    "bildirmek": {
+      "en": "to report, let know",
+      "icon": "📣"
+    },
+    "hesap": {
+      "en": "bill, sum",
+      "icon": "🧮"
+    },
+    "tamamlanmak": {
+      "en": "to be completed",
+      "icon": "✔️"
+    },
+    "teşekkür etmek": {
+      "en": "to thank",
+      "icon": "🙏"
+    },
+    "cüzdan": {
+      "en": "wallet",
+      "icon": "👛"
+    },
+    "yerleştirmek": {
+      "en": "to put away",
+      "icon": "📥"
+    },
+    "taşımak": {
+      "en": "to carry",
+      "icon": "👜"
+    },
+    "beklemek": {
+      "en": "to look forward to (seeing you)",
+      "icon": "⏳"
+    },
+    "seslenmek": {
+      "en": "to call out",
+      "icon": "📣"
+    },
+    "iyi günler": {
+      "en": "have a nice day",
+      "icon": "☀️"
+    },
+    "sofra": {
+      "en": "table (set for a meal)",
+      "icon": "🍽️"
+    },
+    "büyük": {
+      "en": "grown-up",
+      "icon": "🧑"
+    },
+    "tabak": {
+      "en": "plate",
+      "icon": "🍽️"
+    },
+    "Türkçe": {
+      "en": "Turkish (language)",
+      "icon": "🇹🇷"
+    },
+    "ülke": {
+      "en": "country",
+      "icon": "🌍"
+    },
+    "dil": {
+      "en": "language",
+      "icon": "🗣️"
+    },
+    "kültür": {
+      "en": "culture",
+      "icon": "🎨"
+    },
+    "sahip çıkmak": {
+      "en": "to look after, keep alive",
+      "icon": "🤲"
+    },
+    "pencere": {
+      "en": "window",
+      "icon": "🪟"
+    },
+    "çaydanlık": {
+      "en": "double teapot",
+      "icon": "🫖"
+    },
+    "çini": {
+      "en": "tile",
+      "icon": "🔷"
+    },
+    "vitrin": {
+      "en": "display case",
+      "icon": "🪟"
+    },
+    "tabela": {
+      "en": "sign",
+      "icon": "🪧"
+    },
+    "kapı": {
+      "en": "door",
+      "icon": "🚪"
+    },
+    "masa": {
+      "en": "table",
+      "icon": "🪑"
+    },
+    "liste": {
+      "en": "list",
+      "icon": "📝"
+    },
+    "para": {
+      "en": "money",
+      "icon": "💵"
+    }
+  },
+  "quiz": [
+    {
+      "q": {
+        "tr": "Elif’e kaç dolar para üstü verilmeliydi ve kaç dolar fazla verilmişti?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "6 dolar verilmeliydi, 10 dolar fazla verilmişti",
+          "en": ""
+        },
+        {
+          "tr": "16 dolar verilmeliydi",
+          "en": ""
+        },
+        {
+          "tr": "Hiç fazla verilmemişti",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "20 − 14 = 6. Elif’e 16 dolar verilmişti; 10 dolar fazlaydı.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "“Hoş geldiniz!” diyene ne deriz?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Güle güle!",
+          "en": ""
+        },
+        {
+          "tr": "Hoş bulduk!",
+          "en": ""
+        },
+        {
+          "tr": "Afiyet olsun!",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Hatice teyze “Hoş geldiniz!” deyince Elif “Hoş bulduk!” diye karşılık verdi.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Çocuklar çikolatayı neden almadı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Paralarını ihtiyaçlarına ayırmışlardı",
+          "en": ""
+        },
+        {
+          "tr": "Çikolata kalmamıştı",
+          "en": ""
+        },
+        {
+          "tr": "Çikolatayı sevmiyorlardı",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "Babaları önce ihtiyaçları ve bütçeyi kontrol etmelerini söyledi; paraları ihtiyaçlarına ayrılmıştı.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Birim fiyatı düşük olsa da büyük paketi almamaları neden yerinde bir seçim olabilir?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Hepsini zamanında yiyemezlerse israf olurdu",
+          "en": ""
+        },
+        {
+          "tr": "Büyük paket ağırdı",
+          "en": ""
+        },
+        {
+          "tr": "Küçük paket daha güzeldi",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "O hafta az zeytin gerekiyordu; büyük paket bozulup israf olabilirdi.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Fazla verilen parayı ne yaptılar?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Sakladılar",
+          "en": ""
+        },
+        {
+          "tr": "Hatice teyzeye geri verdiler",
+          "en": ""
+        },
+        {
+          "tr": "Çikolata aldılar",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Fazla para onların değildi; yanlışlığı bildirip parayı tezgâha koydular.",
+        "en": ""
+      }
+    }
+  ],
+  "valueHunt": [
+    {
+      "page": "p3",
+      "answer": "tasarruf",
+      "options": [
+        "tasarruf",
+        "estetik",
+        "ozgurluk"
+      ],
+      "why": {
+        "tr": "Paralarını ihtiyaçlarına ayırıp çikolatayı almamaya karar verdiler.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p4",
+      "answer": "tasarruf",
+      "options": [
+        "sabir",
+        "tasarruf",
+        "adalet"
+      ],
+      "why": {
+        "tr": "Yiyebilecekleri kadar zeytin alarak israfı önlediler.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p6",
+      "answer": "durustluk",
+      "options": [
+        "durustluk",
+        "dostluk",
+        "temizlik"
+      ],
+      "why": {
+        "tr": "Fazla verilen on doları geri verdiler.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p8",
+      "answer": "vatanseverlik",
+      "options": [
+        "vatanseverlik",
+        "mahremiyet",
+        "sabir"
+      ],
+      "why": {
+        "tr": "Başka ülkede de Türkçe konuşup kültürlerine sahip çıktılar.",
+        "en": ""
+      }
+    }
+  ],
+  "family": {
+    "task": {
+      "tr": "Birlikte bir alışveriş listesi ve küçük bir bütçe hazırlayın. Markette iki paketin birim fiyatını karşılaştırın ve para üstünü birlikte sayın.",
+      "en": ""
+    },
+    "talk": [
+      {
+        "tr": "Elif’e kaç dolar para üstü verilmeliydi ve kaç dolar fazla verilmişti?",
+        "en": ""
+      },
+      {
+        "tr": "Birim fiyatı düşük olsa da büyük paketi almamaları neden yerinde bir seçim olabilir?",
+        "en": ""
+      },
+      {
+        "tr": "Bir markette Türkçe selamlaşma, ürün sorma ve teşekkür etme içeren kısa bir konuşma yap.",
+        "en": ""
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "p1",
+      "title": {
+        "tr": "Alışveriş listesi",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Cumartesi} {alışveriş listesi} yaptılar. {Peynir}, {zeytin}, {simit}, {çay} ve {mercimek} gerekiyordu. {Anneleri|anne} {Huriye Hanım} Elif’e listeyle {yirmi} {dolar} verdi. “{Babanızla|baba} {fiyatlara|fiyat} bakıp {miktarları|miktar} {ayarlayın|ayarlamak}.” dedi. Can {çantayı|çanta} aldı. Elif listeyi okudu. Can evdeki {malzemeleri|malzeme} {hatırlattı|hatırlatmak}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Alışverişe çıkmadan önce liste yapmak, ihtiyacımız olmayan şeyleri almamamıza ve paramızı planlı kullanmamıza yardım eder. Evde ne olduğuna bakmak da aynı şeyi iki kez almayı önler.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "../bayram-sabahi/art/p3-arka.webp",
+          "floor": "../bayram-sabahi/art/p3-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.09,
+                0.0,
+                0.33,
+                0.33
+              ]
+            },
+            {
+              "word": "çaydanlık",
+              "rect": [
+                0.6,
+                0.13,
+                0.11,
+                0.12
+              ]
+            },
+            {
+              "word": "çini",
+              "rect": [
+                0.0,
+                0.31,
+                1.0,
+                0.13
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "kitchen",
+      "models": [
+        {
+          "proc": "turnuvaMasasi",
+          "word": "masa",
+          "x": 0.0,
+          "z": 0.5,
+          "h": 0.24
+        },
+        {
+          "proc": "liste",
+          "id": "liste",
+          "word": "liste",
+          "x": -0.05,
+          "z": 0.5,
+          "y": 0.235,
+          "h": 0.05,
+          "pitch": -75
+        },
+        {
+          "proc": "canta",
+          "id": "canta",
+          "word": "çanta",
+          "x": 0.15,
+          "z": 0.48,
+          "y": 0.235,
+          "h": 0.12
+        },
+        {
+          "proc": "bubble",
+          "id": "b_anne",
+          "label": "Fiyatlara bakın!",
+          "color": "#D2372C",
+          "x": -0.2,
+          "z": 0.36,
+          "y": 0.57,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "anne",
+          "x": -0.2,
+          "z": 0.36,
+          "rotY": 30,
+          "look": "elif",
+          "hold": "paraEl"
+        },
+        {
+          "id": "elif",
+          "x": 0.18,
+          "z": 0.66,
+          "rotY": -150,
+          "look": "liste"
+        },
+        {
+          "id": "can",
+          "x": -0.1,
+          "z": 0.74,
+          "rotY": 160,
+          "look": "liste"
+        },
+        {
+          "id": "baba",
+          "x": 0.34,
+          "z": 0.42,
+          "rotY": -60,
+          "look": "anne"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "cumartesi"
+          ],
+          "who": "liste",
+          "do": "shine",
+          "focus": true
+        },
+        {
+          "cue": [
+            "cumartesi"
+          ],
+          "who": "elif",
+          "do": "bend",
+          "look": "liste",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "peynir"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "anneleri"
+          ],
+          "who": "anne",
+          "do": "walkTo",
+          "to": [
+            0.18,
+            0,
+            0.146
+          ],
+          "face": 42,
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "verdi"
+          ],
+          "who": "anne",
+          "do": "give",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "verdi"
+          ],
+          "who": "liste",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "verdi"
+          ],
+          "who": "elif",
+          "do": "receive",
+          "target": "listeEl",
+          "look": "anne",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "babanızla"
+          ],
+          "who": "b_anne",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "babanızla"
+          ],
+          "who": "anne",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "b_anne",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "canta",
+          "do": "vanish",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "cantaEl",
+          "look": "canta"
+        },
+        {
+          "cue": [
+            "okudu"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "hatırlattı"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "right",
+          "look": "elif",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "hatırlattı"
+          ],
+          "who": "baba",
+          "do": "nod",
+          "look": "can",
+          "wait": 0.6
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "title": {
+        "tr": "Tanıdık sözler",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Markette|market} {ekmek} ve {baharat} {kokusu|koku} vardı. {Raflarda|raf} çay, {tarhana} ve {lokum} diziliydi. {Hatice teyze} “{Hoş geldiniz}!” dedi. Elif “{Hoş bulduk}!” diye karşılık verdi. {İngilizce} konuşan bir {müşteriye|müşteri} de yardım edildi. Can {babaannesinin|babaanne} kullandığı tarhanayı gösterdi. {Tanıdık} {tatları|tat} seviyordu.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Yurt dışındaki Türk marketleri, Türk ailelerinin özlediği tatları bulduğu ve Türkçe konuşabildiği buluşma yerleridir. “Hoş geldiniz!” diyene “Hoş bulduk!” diye karşılık veririz.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/market-arka.webp",
+          "floor": "art/market-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "raf",
+              "rect": [
+                0.16,
+                0.1,
+                0.7,
+                0.45
+              ]
+            },
+            {
+              "word": "simit",
+              "rect": [
+                0.0,
+                0.42,
+                0.16,
+                0.18
+              ]
+            },
+            {
+              "word": "vitrin",
+              "rect": [
+                0.82,
+                0.35,
+                0.18,
+                0.3
+              ]
+            },
+            {
+              "word": "tabela",
+              "rect": [
+                0.75,
+                0.02,
+                0.18,
+                0.08
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "market",
+      "models": [
+        {
+          "proc": "tarhanaPaketi",
+          "id": "tarhana",
+          "word": "tarhana",
+          "x": 0.05,
+          "z": 0.06,
+          "y": 0.29,
+          "h": 0.08,
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_hatice",
+          "label": "Hoş geldiniz!",
+          "color": "#B5651D",
+          "x": 0.32,
+          "z": 0.36,
+          "y": 0.54,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_elif",
+          "label": "Hoş bulduk!",
+          "color": "#7B4BB7",
+          "x": -0.02,
+          "z": 0.66,
+          "y": 0.465,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_musteri",
+          "label": "Welcome!",
+          "color": "#B5651D",
+          "x": 0.32,
+          "z": 0.36,
+          "y": 0.54,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "hatice",
+          "x": 0.32,
+          "z": 0.36,
+          "rotY": -40,
+          "look": "elif"
+        },
+        {
+          "id": "musteri",
+          "x": -0.3,
+          "z": 0.38,
+          "rotY": 60,
+          "look": "hatice"
+        },
+        {
+          "id": "elif",
+          "x": -0.5,
+          "z": 0.7,
+          "rotY": 90,
+          "look": "hatice",
+          "hidden": true,
+          "hold": "listeEl"
+        },
+        {
+          "id": "can",
+          "x": -0.5,
+          "z": 0.8,
+          "rotY": 90,
+          "look": "hatice",
+          "hidden": true,
+          "hold": "cantaEl"
+        },
+        {
+          "id": "baba",
+          "x": -0.5,
+          "z": 0.6,
+          "rotY": 90,
+          "look": "hatice",
+          "hidden": true,
+          "hold": "sepetMarket"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "markette"
+          ],
+          "who": "elif",
+          "do": "enter",
+          "to": [
+            0.48,
+            0,
+            -0.049
+          ],
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "markette"
+          ],
+          "who": "can",
+          "do": "enter",
+          "to": [
+            0.66,
+            0,
+            -0.024
+          ],
+          "look": "reader",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "markette"
+          ],
+          "who": "baba",
+          "do": "enter",
+          "to": [
+            0.3,
+            0,
+            0.0
+          ],
+          "look": "reader",
+          "wait": 0.8
+        },
+        {
+          "cue": [
+            "raflarda"
+          ],
+          "who": "can",
+          "do": "lookAround",
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "hatice"
+          ],
+          "who": "b_hatice",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "hatice"
+          ],
+          "who": "hatice",
+          "do": "wave",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "b_hatice",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "b_elif",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "wave",
+          "look": "hatice"
+        },
+        {
+          "cue": [
+            "ingilizce"
+          ],
+          "who": "b_elif",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "ingilizce"
+          ],
+          "who": "b_musteri",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ingilizce"
+          ],
+          "who": "hatice",
+          "do": "talk",
+          "look": "musteri",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "müşteriye"
+          ],
+          "who": "musteri",
+          "do": "nod",
+          "look": "hatice"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "b_musteri",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "tarhana",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "tarhana",
+          "look": "tarhana",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "tanıdık"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "baba"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "title": {
+        "tr": "Listeye bakınca",
+        "en": ""
+      },
+      "text": {
+        "tr": "Can {çikolata} kutusunu gösterdi. “Alabilir miyiz?” diye sordu. Babası {Kenan Bey} önce {ihtiyaçları|ihtiyaç} ve {bütçeyi|bütçe} {kontrol etmelerini|kontrol etmek} söyledi. Elif mercimeği bulmak için yardım istedi. Can {paketi|paket} {sepete|sepet} koydu. Çikolatayı almamaya {karar verdiler|karar vermek}. Paralarını ihtiyaçlarına {ayırmışlardı|ayırmak}. {Sıra} zeytindeydi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Bütçe, harcayacağımız paranın planıdır. Önce ihtiyaçlarımızı, sonra isteklerimizi düşünürüz. Bir şeyi istemek ile ona ihtiyaç duymak arasındaki farkı bilmek tasarrufun ilk adımıdır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/market-arka.webp",
+          "floor": "art/market-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "raf",
+              "rect": [
+                0.16,
+                0.1,
+                0.7,
+                0.45
+              ]
+            },
+            {
+              "word": "simit",
+              "rect": [
+                0.0,
+                0.42,
+                0.16,
+                0.18
+              ]
+            },
+            {
+              "word": "vitrin",
+              "rect": [
+                0.82,
+                0.35,
+                0.18,
+                0.3
+              ]
+            },
+            {
+              "word": "tabela",
+              "rect": [
+                0.75,
+                0.02,
+                0.18,
+                0.08
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "market",
+      "models": [
+        {
+          "proc": "zeytinStandi",
+          "word": "masa",
+          "x": -0.32,
+          "z": 0.36,
+          "h": 0.23
+        },
+        {
+          "proc": "cikolataKutusu",
+          "id": "cikolata",
+          "word": "çikolata",
+          "x": -0.32,
+          "z": 0.36,
+          "y": 0.228,
+          "h": 0.07
+        },
+        {
+          "proc": "bubble",
+          "id": "b_can",
+          "label": "Alabilir miyiz?",
+          "color": "#2F6DC4",
+          "x": -0.22,
+          "z": 0.6,
+          "y": 0.41,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "hatice",
+          "x": 0.3,
+          "z": 0.34,
+          "rotY": -40,
+          "look": "elif"
+        },
+        {
+          "id": "elif",
+          "x": -0.02,
+          "z": 0.62,
+          "rotY": 20,
+          "look": "can",
+          "hold": "listeEl"
+        },
+        {
+          "id": "can",
+          "x": -0.22,
+          "z": 0.6,
+          "rotY": -140,
+          "look": "cikolata",
+          "hold": "cantaEl"
+        },
+        {
+          "id": "baba",
+          "x": 0.14,
+          "z": 0.7,
+          "rotY": -30,
+          "look": "can",
+          "hold": "sepetMarket"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "cikolata",
+          "look": "cikolata",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "cikolata",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "alabilir"
+          ],
+          "who": "b_can",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "alabilir"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 71,
+          "look": "baba"
+        },
+        {
+          "cue": [
+            "babası"
+          ],
+          "who": "b_can",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "babası"
+          ],
+          "who": "baba",
+          "do": "talk",
+          "look": "can",
+          "len": 3.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.18,
+            0,
+            -0.171
+          ],
+          "face": 141,
+          "look": "hatice",
+          "focus": true
+        },
+        {
+          "cue": [
+            "istedi"
+          ],
+          "who": "hatice",
+          "do": "give",
+          "target": "mercimekEl",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "istedi"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "mercimekEl",
+          "look": "hatice",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "sepete"
+          ],
+          "who": "can",
+          "do": "give",
+          "look": "baba",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çikolatayı"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "baba",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ayırmışlardı"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "sıra"
+          ],
+          "who": "baba",
+          "do": "point",
+          "target": "right",
+          "look": "elif",
+          "len": 1.4
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "title": {
+        "tr": "Uygun paketi seçmek",
+        "en": ""
+      },
+      "text": {
+        "tr": "Babaları zeytin {paketlerinin|paket} fiyatlarını ve miktarlarını gösterdi. Aynı miktarın fiyatını {karşılaştırdılar|karşılaştırmak}. {Büyük} paketin {birim fiyatı|birim fiyat} {düşüktü|düşük}. Elif “Hepsini {zamanında|zaman} yiyebilir miyiz?” diye sordu. O hafta az zeytin gerekiyordu. {Küçük} paketi {seçtiler|seçmek}. Can sepette {ezilmeyeceği|ezilmek} yere koydu.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Birim fiyat, bir ürünün aynı miktarının (örneğin 100 gramının) fiyatıdır. Büyük paketler çoğu zaman daha ucuzdur; ama yiyemeyeceğimiz kadarını alırsak bozulur ve israf olur.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/market-arka.webp",
+          "floor": "art/market-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "raf",
+              "rect": [
+                0.16,
+                0.1,
+                0.7,
+                0.45
+              ]
+            },
+            {
+              "word": "simit",
+              "rect": [
+                0.0,
+                0.42,
+                0.16,
+                0.18
+              ]
+            },
+            {
+              "word": "vitrin",
+              "rect": [
+                0.82,
+                0.35,
+                0.18,
+                0.3
+              ]
+            },
+            {
+              "word": "tabela",
+              "rect": [
+                0.75,
+                0.02,
+                0.18,
+                0.08
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "market",
+      "models": [
+        {
+          "proc": "zeytinStandi",
+          "word": "masa",
+          "x": 0.02,
+          "z": 0.4,
+          "h": 0.23
+        },
+        {
+          "proc": "zeytinBuyuk",
+          "id": "buyuk",
+          "word": "zeytin",
+          "x": -0.06,
+          "z": 0.4,
+          "y": 0.228,
+          "h": 0.1
+        },
+        {
+          "proc": "zeytinKucuk",
+          "id": "kucuk",
+          "word": "zeytin",
+          "x": 0.11,
+          "z": 0.4,
+          "y": 0.228,
+          "h": 0.06
+        },
+        {
+          "proc": "bubble",
+          "id": "b_elif",
+          "label": "Hepsini yiyebilir miyiz?",
+          "color": "#7B4BB7",
+          "x": -0.16,
+          "z": 0.62,
+          "y": 0.465,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.16,
+          "z": 0.62,
+          "rotY": 150,
+          "look": "buyuk",
+          "hold": "listeEl"
+        },
+        {
+          "id": "can",
+          "x": 0.18,
+          "z": 0.66,
+          "rotY": -160,
+          "look": "kucuk",
+          "hold": "cantaEl"
+        },
+        {
+          "id": "baba",
+          "x": 0.3,
+          "z": 0.44,
+          "rotY": -100,
+          "look": "buyuk",
+          "hold": "sepetMarket"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "babaları"
+          ],
+          "who": "baba",
+          "do": "point",
+          "target": "buyuk",
+          "look": "buyuk",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "fiyatlarını"
+          ],
+          "who": "buyuk",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "miktarlarını"
+          ],
+          "who": "kucuk",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "karşılaştırdılar"
+          ],
+          "who": "elif",
+          "do": "bend",
+          "look": "buyuk",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "karşılaştırdılar"
+          ],
+          "who": "can",
+          "do": "bend",
+          "look": "kucuk",
+          "len": 1.2,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "büyük"
+          ],
+          "who": "buyuk",
+          "do": "spin",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "b_elif",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "baba",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "o"
+          ],
+          "who": "b_elif",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "o"
+          ],
+          "who": "baba",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "küçük"
+          ],
+          "who": "kucuk",
+          "do": "vanish",
+          "focus": true
+        },
+        {
+          "cue": [
+            "küçük"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "zeytinEl",
+          "look": "kucuk"
+        },
+        {
+          "cue": [
+            "ezilmeyeceği"
+          ],
+          "who": "can",
+          "do": "give",
+          "look": "baba",
+          "focus": true
+        },
+        {
+          "cue": [
+            "koydu"
+          ],
+          "who": "baba",
+          "do": "nod",
+          "look": "can"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "title": {
+        "tr": "Para üstü",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Ürünler|ürün} {on dört} dolar {tuttu|tutmak}. Elif yirmi dolar verdi. Hatice teyze {para üstünü|para üstü} {uzattı|uzatmak}. Elif babasıyla {saydı|saymak}. {Altı} yerine {on altı} dolar vardı. Can “Yirmiden on dört {çıkınca|çıkmak} altı kalır. On dolar {fazla}!” dedi. {Kasaya|kasa} geri döndüler.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Para üstünü kasadan ayrılmadan saymak iyi bir alışkanlıktır. Çıkarma işlemini kafadan yapmak da alışverişte çok işe yarar: 20 − 14 = 6.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/kasa-arka.webp",
+          "floor": "art/kasa-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "kapı",
+              "rect": [
+                0.69,
+                0.08,
+                0.22,
+                0.48
+              ]
+            },
+            {
+              "word": "vitrin",
+              "rect": [
+                0.33,
+                0.07,
+                0.33,
+                0.3
+              ]
+            },
+            {
+              "word": "raf",
+              "rect": [
+                0.0,
+                0.0,
+                0.15,
+                0.6
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "market",
+      "models": [
+        {
+          "proc": "tezgah",
+          "word": "tezgâh",
+          "x": -0.06,
+          "z": 0.24,
+          "h": 0.32
+        },
+        {
+          "proc": "sepetDoluMarket",
+          "id": "sepet",
+          "word": "sepet",
+          "x": 0.08000000000000002,
+          "z": 0.26,
+          "y": 0.255,
+          "h": 0.07
+        },
+        {
+          "proc": "paraTezgah",
+          "id": "para",
+          "word": "para",
+          "x": -0.12,
+          "z": 0.3,
+          "y": 0.255,
+          "h": 0.01,
+          "hidden": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_can",
+          "label": "On dolar fazla!",
+          "color": "#2F6DC4",
+          "x": 0.26,
+          "z": 0.74,
+          "y": 0.41,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "hatice",
+          "x": -0.039999999999999994,
+          "z": 0.1,
+          "rotY": 0,
+          "look": "elif"
+        },
+        {
+          "id": "elif",
+          "x": -0.08,
+          "z": 0.5,
+          "rotY": 180,
+          "look": "hatice",
+          "hold": "paraEl"
+        },
+        {
+          "id": "can",
+          "x": 0.1,
+          "z": 0.56,
+          "rotY": 180,
+          "look": "hatice",
+          "hold": "cantaEl"
+        },
+        {
+          "id": "baba",
+          "x": 0.3,
+          "z": 0.5,
+          "rotY": -140,
+          "look": "elif"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "ürünler"
+          ],
+          "who": "sepet",
+          "do": "shine",
+          "focus": true
+        },
+        {
+          "cue": [
+            "tuttu"
+          ],
+          "who": "hatice",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "give",
+          "look": "hatice",
+          "focus": true
+        },
+        {
+          "cue": [
+            "verdi"
+          ],
+          "who": "para",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "hatice"
+          ],
+          "who": "hatice",
+          "do": "offer",
+          "look": "elif",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "uzattı"
+          ],
+          "who": "elif",
+          "do": "receive",
+          "target": "paraEl",
+          "look": "hatice"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.3,
+            0,
+            0.268
+          ],
+          "face": 60,
+          "look": "baba",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.16,
+            0,
+            0.22
+          ],
+          "face": -60,
+          "look": "elif",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "saydı"
+          ],
+          "who": "elif",
+          "do": "bend",
+          "look": "down",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "saydı"
+          ],
+          "who": "baba",
+          "do": "bend",
+          "look": "elif",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "altı"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "baba",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "b_can",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "kasaya"
+          ],
+          "who": "b_can",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "kasaya"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.0,
+            0,
+            0
+          ],
+          "face": 180,
+          "look": "hatice",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kasaya"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.0,
+            0,
+            0
+          ],
+          "face": 180,
+          "look": "hatice",
+          "wait": 0.3
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "title": {
+        "tr": "Fazla verilen para",
+        "en": ""
+      },
+      "text": {
+        "tr": "Elif {sırasını|sıra} bekledi. Hatice teyzeye “Para üstünü kontrol edebilir miyiz? On dolar fazla verdiniz.” dedi. Parayı {tezgâha|tezgâh} koydu. Hatice teyze yeniden saydı. Can {fişi|fiş} uzattı. Fazla para onların değildi. {Yanlışlığı|yanlışlık} {bildirmişlerdi|bildirmek}. Babaları yanlarında {hesabın|hesap} {tamamlanmasını|tamamlanmak} bekledi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Bize fazladan verilen bir şeyi sahibine geri vermek dürüstlüktür. Fiş, ne aldığımızı ve ne kadar ödediğimizi gösterir; bir yanlışlık olduğunda kontrol etmek için işe yarar.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/kasa-arka.webp",
+          "floor": "art/kasa-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "kapı",
+              "rect": [
+                0.69,
+                0.08,
+                0.22,
+                0.48
+              ]
+            },
+            {
+              "word": "vitrin",
+              "rect": [
+                0.33,
+                0.07,
+                0.33,
+                0.3
+              ]
+            },
+            {
+              "word": "raf",
+              "rect": [
+                0.0,
+                0.0,
+                0.15,
+                0.6
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "market",
+      "models": [
+        {
+          "proc": "tezgah",
+          "word": "tezgâh",
+          "x": -0.06,
+          "z": 0.24,
+          "h": 0.32
+        },
+        {
+          "proc": "sepetDoluMarket",
+          "word": "sepet",
+          "x": 0.08000000000000002,
+          "z": 0.26,
+          "y": 0.255,
+          "h": 0.07
+        },
+        {
+          "proc": "paraTezgah",
+          "id": "para",
+          "word": "para",
+          "x": -0.12,
+          "z": 0.3,
+          "y": 0.255,
+          "h": 0.01,
+          "hidden": true
+        },
+        {
+          "proc": "fis",
+          "id": "fis",
+          "word": "fiş",
+          "x": -0.039999999999999994,
+          "z": 0.31,
+          "y": 0.255,
+          "h": 0.05,
+          "hidden": true,
+          "pitch": -70
+        },
+        {
+          "id": "musteri2",
+          "proc": "bubble",
+          "label": "On dolar fazla verdiniz.",
+          "color": "#7B4BB7",
+          "x": -0.08,
+          "z": 0.5,
+          "y": 0.465,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "hatice",
+          "x": -0.039999999999999994,
+          "z": 0.1,
+          "rotY": 0,
+          "look": "elif"
+        },
+        {
+          "id": "elif",
+          "x": -0.08,
+          "z": 0.5,
+          "rotY": 180,
+          "look": "hatice",
+          "hold": "paraEl"
+        },
+        {
+          "id": "can",
+          "x": 0.1,
+          "z": 0.56,
+          "rotY": 180,
+          "look": "hatice",
+          "hold": "fisEl"
+        },
+        {
+          "id": "baba",
+          "x": 0.3,
+          "z": 0.5,
+          "rotY": -140,
+          "look": "elif"
+        },
+        {
+          "id": "musteri",
+          "x": 0.44,
+          "z": 0.76,
+          "rotY": -140,
+          "look": "hatice"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "hatice",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "hatice"
+          ],
+          "who": "musteri2",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "hatice"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "hatice",
+          "len": 3.0
+        },
+        {
+          "cue": [
+            "parayı"
+          ],
+          "who": "musteri2",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "parayı"
+          ],
+          "who": "elif",
+          "do": "give",
+          "look": "hatice"
+        },
+        {
+          "cue": [
+            "parayı"
+          ],
+          "who": "para",
+          "do": "appear",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "hatice"
+          ],
+          "who": "hatice",
+          "do": "bend",
+          "look": "para",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "give",
+          "look": "hatice",
+          "focus": true
+        },
+        {
+          "cue": [
+            "uzattı"
+          ],
+          "who": "fis",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "fazla"
+          ],
+          "who": "para",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "bildirmişlerdi"
+          ],
+          "who": "baba",
+          "do": "nod",
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "bekledi"
+          ],
+          "who": "hatice",
+          "do": "nod",
+          "look": "baba"
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "title": {
+        "tr": "Teşekkür ederim",
+        "en": ""
+      },
+      "text": {
+        "tr": "Hatice teyze “Haber verdiğiniz için {teşekkür ederim|teşekkür etmek}.” dedi. Fazla on doları kasaya koydu. Elif altı doları {cüzdanına|cüzdan} {yerleştirdi|yerleştirmek}. Can çantayı {taşıdı|taşımak}. Hatice teyze “Yine {beklerim|beklemek}!” diye {seslendi|seslenmek}. Çocuklar {iyi günler} diledi. Babalarıyla listeyi kontrol ettiler. İhtiyaçlarını almışlardı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Türkçede alışveriş sonunda “Yine bekleriz!”, “Hayırlı işler!”, “İyi günler!” gibi güzel dilekler söylenir. Teşekkür etmek ve iyi dileklerde bulunmak, hem satıcıyı hem müşteriyi mutlu eder.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/kasa-arka.webp",
+          "floor": "art/kasa-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "kapı",
+              "rect": [
+                0.69,
+                0.08,
+                0.22,
+                0.48
+              ]
+            },
+            {
+              "word": "vitrin",
+              "rect": [
+                0.33,
+                0.07,
+                0.33,
+                0.3
+              ]
+            },
+            {
+              "word": "raf",
+              "rect": [
+                0.0,
+                0.0,
+                0.15,
+                0.6
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "market",
+      "models": [
+        {
+          "proc": "tezgah",
+          "word": "tezgâh",
+          "x": -0.06,
+          "z": 0.24,
+          "h": 0.32
+        },
+        {
+          "proc": "paraTezgah",
+          "id": "para",
+          "word": "para",
+          "x": -0.12,
+          "z": 0.3,
+          "y": 0.255,
+          "h": 0.01
+        },
+        {
+          "proc": "canta",
+          "id": "canta",
+          "word": "çanta",
+          "x": 0.08000000000000002,
+          "z": 0.26,
+          "y": 0.255,
+          "h": 0.12
+        },
+        {
+          "proc": "bubble",
+          "id": "b_hatice",
+          "label": "Teşekkür ederim!",
+          "color": "#B5651D",
+          "x": -0.04,
+          "z": 0.1,
+          "y": 0.54,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_hatice2",
+          "label": "Yine beklerim!",
+          "color": "#B5651D",
+          "x": -0.04,
+          "z": 0.1,
+          "y": 0.54,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "hatice",
+          "x": -0.039999999999999994,
+          "z": 0.1,
+          "rotY": 0,
+          "look": "elif"
+        },
+        {
+          "id": "elif",
+          "x": -0.08,
+          "z": 0.5,
+          "rotY": 180,
+          "look": "hatice",
+          "hold": "listeEl"
+        },
+        {
+          "id": "can",
+          "x": 0.1,
+          "z": 0.56,
+          "rotY": 180,
+          "look": "hatice"
+        },
+        {
+          "id": "baba",
+          "x": 0.3,
+          "z": 0.5,
+          "rotY": -140,
+          "look": "elif"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "hatice"
+          ],
+          "who": "b_hatice",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "hatice"
+          ],
+          "who": "hatice",
+          "do": "bow",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "fazla"
+          ],
+          "who": "b_hatice",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "fazla"
+          ],
+          "who": "para",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "fazla"
+          ],
+          "who": "hatice",
+          "do": "bend",
+          "look": "down",
+          "len": 1.0
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "receive",
+          "target": "cuzdanEl",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "canta",
+          "do": "vanish",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "cantaDolu",
+          "look": "canta"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.3,
+            0,
+            0.268
+          ],
+          "face": -120,
+          "look": "hatice",
+          "wait": 1.6
+        },
+        {
+          "cue": [
+            "hatice"
+          ],
+          "who": "b_hatice2",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "hatice"
+          ],
+          "who": "hatice",
+          "do": "wave",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "b_hatice2",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "elif",
+          "do": "wave",
+          "look": "hatice",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "can",
+          "do": "wave",
+          "look": "hatice",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "babalarıyla"
+          ],
+          "who": "elif",
+          "do": "receive",
+          "target": "listeEl",
+          "look": "baba",
+          "focus": true
+        },
+        {
+          "cue": [
+            "babalarıyla"
+          ],
+          "who": "baba",
+          "do": "bend",
+          "look": "elif",
+          "len": 1.4,
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "almışlardı"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "baba"
+        }
+      ]
+    },
+    {
+      "id": "p8",
+      "title": {
+        "tr": "Sofrada Türkçe",
+        "en": ""
+      },
+      "text": {
+        "tr": "Evde {ürünleri|ürün} yerleştirip para üstünü annelerine verdiler. Can {hesaptaki|hesap} yanlışlığı anlattı. {Sofraya|sofra} oturdular. {Büyüklerin|büyük} çayı ve bir {tabak} lokum vardı. Elif babaannesini arayıp {Türkçe} alışveriş yaptıklarını anlattı. Can tarhanayı gösterdi. Başka {ülkede|ülke} de {dillerine|dil} ve {kültürlerine|kültür} {sahip çıkıyorlardı|sahip çıkmak}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Başka bir ülkede yaşayan aileler, evde Türkçe konuşarak, Türk mutfağının tatlarını yaşatarak ve büyükleriyle sık sık konuşarak dillerine ve kültürlerine sahip çıkar.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "../bayram-sabahi/art/p3-arka.webp",
+          "floor": "../bayram-sabahi/art/p3-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.09,
+                0.0,
+                0.33,
+                0.33
+              ]
+            },
+            {
+              "word": "çaydanlık",
+              "rect": [
+                0.6,
+                0.13,
+                0.11,
+                0.12
+              ]
+            },
+            {
+              "word": "çini",
+              "rect": [
+                0.0,
+                0.31,
+                1.0,
+                0.13
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "kitchen",
+      "models": [
+        {
+          "proc": "turnuvaMasasi",
+          "word": "masa",
+          "x": 0.0,
+          "z": 0.5,
+          "h": 0.24
+        },
+        {
+          "proc": "canta",
+          "word": "çanta",
+          "x": 0.14,
+          "z": 0.48,
+          "y": 0.235,
+          "h": 0.12
+        },
+        {
+          "src": "/models/culture/cay.glb",
+          "id": "cay1",
+          "word": "çay",
+          "x": -0.1,
+          "z": 0.52,
+          "y": 0.235,
+          "h": 0.035,
+          "hidden": true
+        },
+        {
+          "src": "/models/culture/cay.glb",
+          "id": "cay2",
+          "word": "çay",
+          "x": -0.04,
+          "z": 0.46,
+          "y": 0.235,
+          "h": 0.035,
+          "hidden": true
+        },
+        {
+          "src": "/models/culture/lokum.glb",
+          "id": "lokum",
+          "word": "lokum",
+          "x": 0.04,
+          "z": 0.53,
+          "y": 0.235,
+          "h": 0.04,
+          "hidden": true,
+          "magic": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "anne",
+          "x": -0.24,
+          "z": 0.38,
+          "rotY": 40,
+          "look": "elif"
+        },
+        {
+          "id": "baba",
+          "x": 0.3,
+          "z": 0.38,
+          "rotY": -40,
+          "look": "can"
+        },
+        {
+          "id": "elif",
+          "x": 0.24,
+          "z": 0.66,
+          "rotY": -150,
+          "look": "anne",
+          "hold": "cuzdanEl"
+        },
+        {
+          "id": "can",
+          "x": -0.08,
+          "z": 0.74,
+          "rotY": 160,
+          "look": "anne",
+          "hold": "tarhanaEl"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "evde"
+          ],
+          "who": "elif",
+          "do": "give",
+          "look": "anne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "evde"
+          ],
+          "who": "anne",
+          "do": "receive",
+          "target": "cuzdanEl",
+          "look": "elif",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "anne",
+          "len": 2.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "anne",
+          "do": "nod",
+          "look": "can",
+          "wait": 1.2
+        },
+        {
+          "cue": [
+            "sofraya"
+          ],
+          "who": "cay1",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "sofraya"
+          ],
+          "who": "cay2",
+          "do": "appear",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "lokum"
+          ],
+          "who": "lokum",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "receive",
+          "target": "telefon",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "arayıp"
+          ],
+          "who": "elif",
+          "do": "useTool",
+          "style": "ear",
+          "to": [
+            0.0,
+            0.04,
+            0.08
+          ],
+          "look": "reader",
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "raise",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çıkıyorlardı"
+          ],
+          "who": "baba",
+          "do": "cheer",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "çıkıyorlardı"
+          ],
+          "who": "anne",
+          "do": "cheer",
+          "look": "elif",
+          "wait": 0.3
+        }
+      ]
+    }
+  ]
+}

@@ -666,7 +666,7 @@
     },
     {
       "id": "turk-marketi",
-      "status": "soon",
+      "status": "ready",
       "title": "Türk Marketinde Bir Gün",
       "titleEn": "A Day at the Turkish Market",
       "values": [
@@ -681,13 +681,16 @@
       "cover": {
         "art": "cover-soon",
         "color": "#1C7A5A",
-        "motif": "market"
+        "motif": "market",
+        "src": "kapak.webp",
+        "titled": false
       },
       "carpet": {
         "motif": "kocboynuzu",
         "field": "#7E2622",
         "src": "/halilar/turk-marketi.webp"
-      }
+      },
+      "pages": 8
     }
   ]
 }
