@@ -1006,6 +1006,13 @@ export class BookScene {
             if (map) map.offset.y += dt * 1.9;
           });
           break;
+        case 'scrollX':
+          // the view from a moving train: the landscape strip slides by
+          g.traverse((o) => {
+            const map = ((o as THREE.Mesh).material as THREE.MeshBasicMaterial | undefined)?.map;
+            if (map) map.offset.x += dt * 0.045;
+          });
+          break;
         case 'wheel':
           // a water wheel turning slowly
           g.rotation.z -= dt * 0.7;

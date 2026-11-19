@@ -538,6 +538,12 @@ export const TOY_ACTS: Record<string, ToyAct> = {
   hop: (s, b, t, H) => ({ keys: [...hopKeys(s, t, 0.08 * H), key(t + 0.3, 0.3, { look: b.look ?? s.look })], dur: 0.6 }),
 
   /** Hops along to a place (`to`), facing where it goes, then turns to `face`. */
+  /** Glides to `to` in `len` seconds keeping its pose (riding a sled down the slope). */
+  glideTo: (s, b, t) => {
+    const to = b.to ?? [s.root.x, s.root.y, s.root.z];
+    const len = b.len ?? 2;
+    return { keys: [key(t, len, { root: { x: to[0], z: to[2] }, look: b.look ?? s.look })], dur: len };
+  },
   /** Walks to `to` (if given) and is gone (into a car, out through a door). */
   exit: (s, b, t, H) => {
     const keys: Key[] = [];

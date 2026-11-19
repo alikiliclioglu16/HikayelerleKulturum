@@ -1,0 +1,3393 @@
+{
+  "id": "dogu-ekspresi",
+  "title": "Doğu Ekspresi ile Kars'a",
+  "titleEn": "To Kars on the Eastern Express",
+  "culture": {
+    "tr": "Doğu Ekspresi, Anadolu manzaraları, Kars, kızak, salep ve Ani",
+    "en": "The Eastern Express, Anatolian landscapes, Kars, sledding, salep and Ani"
+  },
+  "summary": {
+    "tr": "Elif ile Can, Doğu Ekspresi’yle Kars’a gidiyor. Trende Kerem’le arkadaş oluyor, karlı Kars’ta kızak kayıp salep içiyor, Ani’yi geziyorlar.",
+    "en": ""
+  },
+  "values": [
+    "saglikli-yasam",
+    "sabir",
+    "dostluk",
+    "vatanseverlik"
+  ],
+  "music": {
+    "src": "/books/dogu-ekspresi/muzik.mp3",
+    "loop": 33.44,
+    "gain": 0.8
+  },
+  "toyCast": true,
+  "glossary": {
+    "Ankara Garı": {
+      "en": "Ankara railway station",
+      "icon": "🚉"
+    },
+    "Doğu Ekspresi": {
+      "en": "the Eastern Express, a sleeper train to Kars",
+      "icon": "🚆"
+    },
+    "Kars": {
+      "en": "Kars, a city in eastern Türkiye",
+      "icon": "🏔️"
+    },
+    "kompartıman": {
+      "en": "train compartment",
+      "icon": "🚪"
+    },
+    "yerleşmek": {
+      "en": "to settle in",
+      "icon": "🧳"
+    },
+    "yolcu": {
+      "en": "passenger",
+      "icon": "🧳"
+    },
+    "koltuk": {
+      "en": "seat",
+      "icon": "💺"
+    },
+    "yatak": {
+      "en": "bed",
+      "icon": "🛏️"
+    },
+    "dönüşmek": {
+      "en": "to turn into",
+      "icon": "🔄"
+    },
+    "katlanmak": {
+      "en": "to fold",
+      "icon": "📐"
+    },
+    "masa": {
+      "en": "table",
+      "icon": "🪑"
+    },
+    "tekerlekli": {
+      "en": "on wheels",
+      "icon": "🛞"
+    },
+    "defter": {
+      "en": "notebook, sketchbook",
+      "icon": "📓"
+    },
+    "çizmek": {
+      "en": "to draw",
+      "icon": "✏️"
+    },
+    "Tren": {
+      "en": "train",
+      "icon": "🚆"
+    },
+    "hareket etmek": {
+      "en": "to move off",
+      "icon": "▶️"
+    },
+    "baba": {
+      "en": "dad",
+      "icon": "👨"
+    },
+    "gece": {
+      "en": "night",
+      "icon": "🌙"
+    },
+    "Beklemek": {
+      "en": "to wait",
+      "icon": "⏳"
+    },
+    "anne": {
+      "en": "mum",
+      "icon": "👩"
+    },
+    "oyun": {
+      "en": "game",
+      "icon": "🎲"
+    },
+    "pencere": {
+      "en": "window",
+      "icon": "🪟"
+    },
+    "şekil": {
+      "en": "shape",
+      "icon": "🔺"
+    },
+    "köprü": {
+      "en": "bridge",
+      "icon": "🌉"
+    },
+    "tepe": {
+      "en": "hill",
+      "icon": "⛰️"
+    },
+    "Zaman": {
+      "en": "time",
+      "icon": "⏰"
+    },
+    "Kerem": {
+      "en": "Kerem, a boy on the train",
+      "icon": "👦"
+    },
+    "dede": {
+      "en": "grandpa",
+      "icon": "👴"
+    },
+    "babaanne": {
+      "en": "grandma",
+      "icon": "👵"
+    },
+    "Can": {
+      "en": "Can",
+      "icon": "👦"
+    },
+    "yaşıt": {
+      "en": "the same age",
+      "icon": "🧒"
+    },
+    "kutu oyunu": {
+      "en": "board game",
+      "icon": "🎲"
+    },
+    "dürbün": {
+      "en": "binoculars",
+      "icon": "🔭"
+    },
+    "tanışmak": {
+      "en": "to meet",
+      "icon": "🤝"
+    },
+    "uzatmak": {
+      "en": "to hold out",
+      "icon": "🤲"
+    },
+    "sıra": {
+      "en": "turn",
+      "icon": "🔁"
+    },
+    "yamaç": {
+      "en": "slope",
+      "icon": "🏔️"
+    },
+    "ağaç": {
+      "en": "tree",
+      "icon": "🌳"
+    },
+    "dağ": {
+      "en": "mountain",
+      "icon": "⛰️"
+    },
+    "kar": {
+      "en": "snow",
+      "icon": "❄️"
+    },
+    "Yemek": {
+      "en": "meal",
+      "icon": "🍽️"
+    },
+    "temizlemek": {
+      "en": "to clean",
+      "icon": "🧼"
+    },
+    "hazırlamak": {
+      "en": "to prepare",
+      "icon": "🧺"
+    },
+    "sandviç": {
+      "en": "sandwich",
+      "icon": "🥪"
+    },
+    "elma": {
+      "en": "apple",
+      "icon": "🍎"
+    },
+    "pişi": {
+      "en": "pişi, fried dough bread",
+      "icon": "🥯"
+    },
+    "paylaşmak": {
+      "en": "to share",
+      "icon": "🤝"
+    },
+    "su": {
+      "en": "water",
+      "icon": "💧"
+    },
+    "saklama kabı": {
+      "en": "food container",
+      "icon": "🥡"
+    },
+    "manzaralı": {
+      "en": "with a view",
+      "icon": "🏞️"
+    },
+    "piknik": {
+      "en": "picnic",
+      "icon": "🧺"
+    },
+    "peçete": {
+      "en": "napkin",
+      "icon": "🧻"
+    },
+    "toplamak": {
+      "en": "to collect",
+      "icon": "🧹"
+    },
+    "aile": {
+      "en": "family",
+      "icon": "👨‍👩‍👧‍👦"
+    },
+    "koridor": {
+      "en": "corridor",
+      "icon": "🚪"
+    },
+    "yol vermek": {
+      "en": "to let pass",
+      "icon": "↔️"
+    },
+    "tutunmak": {
+      "en": "to hold on",
+      "icon": "🤚"
+    },
+    "ilerlemek": {
+      "en": "to move along",
+      "icon": "➡️"
+    },
+    "esnemek": {
+      "en": "to yawn",
+      "icon": "🥱"
+    },
+    "sabah": {
+      "en": "morning",
+      "icon": "🌅"
+    },
+    "örtü": {
+      "en": "cover, blanket",
+      "icon": "🛌"
+    },
+    "düzeltmek": {
+      "en": "to straighten",
+      "icon": "✋"
+    },
+    "Tıkıdık": {
+      "en": "clickety-clack (the train's sound)",
+      "icon": "🚆"
+    },
+    "Karanlık": {
+      "en": "dark",
+      "icon": "🌑"
+    },
+    "cam": {
+      "en": "glass, window pane",
+      "icon": "🪟"
+    },
+    "yansıma": {
+      "en": "reflection",
+      "icon": "🪞"
+    },
+    "ninni": {
+      "en": "lullaby",
+      "icon": "🎶"
+    },
+    "sürmek": {
+      "en": "to go on",
+      "icon": "➡️"
+    },
+    "Kahvaltı": {
+      "en": "breakfast",
+      "icon": "🍳"
+    },
+    "Kars Garı": {
+      "en": "Kars railway station",
+      "icon": "🚉"
+    },
+    "ulaşmak": {
+      "en": "to reach",
+      "icon": "🏁"
+    },
+    "karşılamak": {
+      "en": "to meet, welcome",
+      "icon": "🤗"
+    },
+    "anlaşmak": {
+      "en": "to agree",
+      "icon": "🤝"
+    },
+    "meydan": {
+      "en": "square",
+      "icon": "⛲"
+    },
+    "atlı kızak": {
+      "en": "horse-drawn sled",
+      "icon": "🛷"
+    },
+    "nefes": {
+      "en": "breath",
+      "icon": "😮‍💨"
+    },
+    "buhar": {
+      "en": "steam, vapour",
+      "icon": "💨"
+    },
+    "manzara": {
+      "en": "view, landscape",
+      "icon": "🏞️"
+    },
+    "Sarıkamış": {
+      "en": "Sarıkamış, a ski resort near Kars",
+      "icon": "🎿"
+    },
+    "kızak": {
+      "en": "sled",
+      "icon": "🛷"
+    },
+    "kaymak": {
+      "en": "to slide",
+      "icon": "🛷"
+    },
+    "ayırmak": {
+      "en": "to set aside",
+      "icon": "🚧"
+    },
+    "Kardan adam": {
+      "en": "snowman",
+      "icon": "⛄"
+    },
+    "üşümek": {
+      "en": "to feel cold",
+      "icon": "🥶"
+    },
+    "tarçın": {
+      "en": "cinnamon",
+      "icon": "🟤"
+    },
+    "salep": {
+      "en": "salep, a hot milky drink",
+      "icon": "☕"
+    },
+    "ılınmak": {
+      "en": "to cool a little",
+      "icon": "🌡️"
+    },
+    "fincan": {
+      "en": "cup",
+      "icon": "☕"
+    },
+    "bugün": {
+      "en": "today",
+      "icon": "📅"
+    },
+    "gezi": {
+      "en": "trip",
+      "icon": "🧭"
+    },
+    "Ani": {
+      "en": "Ani, an ancient city near Kars",
+      "icon": "🏛️"
+    },
+    "yapı": {
+      "en": "building",
+      "icon": "🏛️"
+    },
+    "topluluk": {
+      "en": "community",
+      "icon": "👥"
+    },
+    "belirlemek": {
+      "en": "to mark out",
+      "icon": "📍"
+    },
+    "ayrılmak": {
+      "en": "to leave, part",
+      "icon": "👋"
+    },
+    "zarar": {
+      "en": "harm",
+      "icon": "⚠️"
+    },
+    "resim": {
+      "en": "drawing",
+      "icon": "🖼️"
+    },
+    "çanta": {
+      "en": "bag",
+      "icon": "🎒"
+    },
+    "haberleşmek": {
+      "en": "to keep in touch",
+      "icon": "✉️"
+    },
+    "karar vermek": {
+      "en": "to decide",
+      "icon": "✔️"
+    },
+    "bagaj rafı": {
+      "en": "luggage rack",
+      "icon": "🧳"
+    },
+    "perde": {
+      "en": "curtain",
+      "icon": "🪟"
+    },
+    "gar": {
+      "en": "station",
+      "icon": "🚉"
+    },
+    "çam": {
+      "en": "pine tree",
+      "icon": "🌲"
+    },
+    "kızak yolu": {
+      "en": "sled run",
+      "icon": "🛷"
+    },
+    "katedral": {
+      "en": "cathedral",
+      "icon": "⛪"
+    },
+    "sur": {
+      "en": "city wall",
+      "icon": "🧱"
+    },
+    "yol": {
+      "en": "path",
+      "icon": "🛤️"
+    },
+    "sini": {
+      "en": "low round tray table",
+      "icon": "🟤"
+    },
+    "kardan adam": {
+      "en": "snowman",
+      "icon": "⛄"
+    }
+  },
+  "quiz": [
+    {
+      "q": {
+        "tr": "Doğu Ekspresi nereden nereye gidiyordu?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Ankara’dan Kars’a",
+          "en": ""
+        },
+        {
+          "tr": "İzmir’den Bursa’ya",
+          "en": ""
+        },
+        {
+          "tr": "Kars’tan İstanbul’a",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "Elif’in ailesi Ankara Garı’ndan Doğu Ekspresi’ne binip Kars’a gitti.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Yolculuk uzun gelince zaman nasıl hızlı geçti?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Pencereden şekil arama oyunuyla",
+          "en": ""
+        },
+        {
+          "tr": "Uyuyarak",
+          "en": ""
+        },
+        {
+          "tr": "Trenden inerek",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "Anneleri oyun gösterdi; pencereden üç farklı şekil aradılar.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Kerem, Elif ve Can yolculukta birlikte neler yaptı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Dürbünle yamaçlara baktılar, piknik yaptılar, kızak kaydılar",
+          "en": ""
+        },
+        {
+          "tr": "Sadece uyudular",
+          "en": ""
+        },
+        {
+          "tr": "Hiç konuşmadılar",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "Trende dürbünle baktılar ve piknik yaptılar; Sarıkamış’ta kızak kaydılar.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Ani’yi gezerken nelere dikkat ettiler?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Belirlenmiş yollardan ayrılmadılar, yapılara zarar vermediler",
+          "en": ""
+        },
+        {
+          "tr": "Taşları topladılar",
+          "en": ""
+        },
+        {
+          "tr": "Duvarlara tırmandılar",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "Ören yerlerinde belirlenmiş yollardan yürüyüp yapılara zarar vermeden gezeriz.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Arkadaşların yeniden görüşmek istemesinde birlikte geçirdikleri zamanın nasıl bir etkisi vardı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Birlikte güzel anılar biriktirdiler",
+          "en": ""
+        },
+        {
+          "tr": "Hiç etkisi olmadı",
+          "en": ""
+        },
+        {
+          "tr": "Birbirlerinden sıkıldılar",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "Yolculukta paylaştıkları oyun, yemek ve geziler onları arkadaş yaptı.",
+        "en": ""
+      }
+    }
+  ],
+  "valueHunt": [
+    {
+      "page": "p2",
+      "answer": "sabir",
+      "options": [
+        "sabir",
+        "estetik",
+        "adalet"
+      ],
+      "why": {
+        "tr": "Uzun yolu oyunla bekleyerek geçirdiler.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p4",
+      "answer": "saglikli-yasam",
+      "options": [
+        "tasarruf",
+        "saglikli-yasam",
+        "ozgurluk"
+      ],
+      "why": {
+        "tr": "Yemekten önce ellerini temizlediler, yiyecekleri kadar aldılar ve su içtiler.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p3",
+      "answer": "dostluk",
+      "options": [
+        "dostluk",
+        "temizlik",
+        "mahremiyet"
+      ],
+      "why": {
+        "tr": "Kerem dürbününü paylaştı; çocuklar yolculukta arkadaş oldu.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p8",
+      "answer": "vatanseverlik",
+      "options": [
+        "vatanseverlik",
+        "sabir",
+        "estetik"
+      ],
+      "why": {
+        "tr": "Ani’nin eski yapılarına zarar vermeden gezerek ülkemizin mirasını korudular.",
+        "en": ""
+      }
+    }
+  ],
+  "family": {
+    "task": {
+      "tr": "Bir yolculuğunuzu ya da hayalinizdeki bir tren yolculuğunu üç resimle çizin: yola çıkarken, yolda ve vardığınızda.",
+      "en": ""
+    },
+    "talk": [
+      {
+        "tr": "Kerem, Elif ve Can yolculukta birlikte neler yaptı?",
+        "en": ""
+      },
+      {
+        "tr": "Arkadaşların yeniden görüşmek istemesinde birlikte geçirdikleri zamanın nasıl bir etkisi vardı?",
+        "en": ""
+      },
+      {
+        "tr": "Bir yolculuğu anlatmak için önce, yol boyunca ve sonunda sözleriyle üç cümle kur.",
+        "en": ""
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "p1",
+      "title": {
+        "tr": "Yatağı olan tren",
+        "en": ""
+      },
+      "text": {
+        "tr": "Elif’in ailesi {Ankara Garı’na|Ankara Garı} geldi. {Doğu Ekspresi} ile {Kars’a|Kars} gideceklerdi. {Kompartımanlarına|kompartıman} {yerleştiler|yerleşmek}. Bu küçük {yolcu} odasındaki {koltuklar|koltuk} {yatağa|yatak} {dönüşebiliyordu|dönüşmek}. Can {katlanan|katlanmak} {masaya|masa} baktı. “{Tekerlekli|tekerlekli} bir ev gibi!” dedi. Elif {defterini|defter} çıkardı. Yol boyunca gördüklerini {çizecekti|çizmek}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Doğu Ekspresi, Ankara ile Kars arasında yaklaşık bir buçuk günde 1300 kilometreden uzun yol alan bir yolcu trenidir. Yataklı kompartımanlarında yolcular gece uyur, gündüz pencereden Anadolu’nun değişen manzarasını izler.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/kompartiman-arka.webp",
+          "floor": "art/kompartiman-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.2,
+                0.14,
+                0.6,
+                0.33
+              ]
+            },
+            {
+              "word": "bagaj rafı",
+              "rect": [
+                0.0,
+                0.1,
+                0.16,
+                0.12
+              ]
+            },
+            {
+              "word": "perde",
+              "rect": [
+                0.16,
+                0.12,
+                0.05,
+                0.32
+              ]
+            },
+            {
+              "word": "koltuk",
+              "rect": [
+                0.0,
+                0.47,
+                0.18,
+                0.3
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "pencereBozkir",
+          "x": -0.0015,
+          "z": 0.004,
+          "y": 0.6225,
+          "h": 0.27,
+          "word": "manzara"
+        },
+        {
+          "proc": "koltuk",
+          "word": "koltuk",
+          "x": -0.4,
+          "z": 0.21,
+          "h": 0.2,
+          "rotY": 0,
+          "id": "koltuk0"
+        },
+        {
+          "proc": "koltuk",
+          "word": "koltuk",
+          "x": 0.4,
+          "z": 0.21,
+          "h": 0.2,
+          "rotY": 180,
+          "id": "koltuk1"
+        },
+        {
+          "proc": "trenMasasi",
+          "id": "masa",
+          "word": "masa",
+          "x": 0.0,
+          "z": 0.2,
+          "h": 0.23
+        },
+        {
+          "proc": "defter",
+          "id": "defter",
+          "word": "defter",
+          "x": -0.07,
+          "z": 0.22,
+          "y": 0.24,
+          "h": 0.01,
+          "hidden": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_can",
+          "label": "Tekerlekli bir ev gibi!",
+          "color": "#2F6DC4",
+          "x": 0.05,
+          "z": 0.42,
+          "y": 0.41,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "baba",
+          "x": -0.6,
+          "z": 0.7,
+          "rotY": 90,
+          "look": "reader",
+          "hidden": true
+        },
+        {
+          "id": "anne",
+          "x": -0.6,
+          "z": 0.8,
+          "rotY": 90,
+          "look": "reader",
+          "hidden": true
+        },
+        {
+          "id": "elif",
+          "x": -0.6,
+          "z": 0.62,
+          "rotY": 90,
+          "look": "reader",
+          "hidden": true
+        },
+        {
+          "id": "can",
+          "x": -0.6,
+          "z": 0.84,
+          "rotY": 90,
+          "look": "reader",
+          "hidden": true
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "elif’in"
+          ],
+          "who": "baba",
+          "do": "enter",
+          "to": [
+            0.82,
+            0,
+            -0.049
+          ],
+          "face": -30,
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif’in"
+          ],
+          "who": "anne",
+          "do": "enter",
+          "to": [
+            0.66,
+            0,
+            -0.098
+          ],
+          "face": -10,
+          "look": "baba",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "elif’in"
+          ],
+          "who": "elif",
+          "do": "enter",
+          "to": [
+            0.3,
+            0,
+            -0.122
+          ],
+          "face": 60,
+          "look": "reader",
+          "wait": 0.9
+        },
+        {
+          "cue": [
+            "elif’in"
+          ],
+          "who": "can",
+          "do": "enter",
+          "to": [
+            0.5,
+            0,
+            -0.049
+          ],
+          "face": 0,
+          "look": "reader",
+          "wait": 1.3
+        },
+        {
+          "cue": [
+            "kompartımanlarına"
+          ],
+          "who": "elif",
+          "do": "sit",
+          "to": [
+            0.24,
+            -0.006,
+            -0.586
+          ],
+          "face": 90,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "koltuklar"
+          ],
+          "who": "koltuk0",
+          "do": "shine",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yatağa"
+          ],
+          "who": "koltuk1",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.65,
+            0,
+            -0.512
+          ],
+          "face": 180,
+          "look": "masa",
+          "focus": true
+        },
+        {
+          "cue": [
+            "masaya"
+          ],
+          "who": "masa",
+          "do": "shine"
+        },
+        {
+          "cue": [
+            "tekerlekli"
+          ],
+          "who": "b_can",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "tekerlekli"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "b_can",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "defter",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çizecekti"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "defter"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "title": {
+        "tr": "Yolculukta beklemek",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Tren} {hareket etti|hareket etmek}. {Babaları|baba} {geceyi|gece} trende geçireceklerini anlattı. Can “Daha gelmedik mi?” diye sordu. {Beklemek} uzun gelmişti. {Anneleri|anne} {oyunları|oyun} gösterdi. {Pencereden|pencere} üç farklı {şekil} aradılar. Elif {köprüyü|köprü}, Can {tepeyi|tepe} buldu. Sonra birbirlerinin gösterdiklerine baktılar. {Zaman} oyunla daha hızlı geçti.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Uzun yolculuklarda beklemek kolay değildir. Pencereden şekil aramak, kelime oyunları oynamak ve gördüklerimizi çizmek, yolu hem kısaltır hem de manzarayı dikkatle izlememizi sağlar.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/kompartiman-arka.webp",
+          "floor": "art/kompartiman-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.2,
+                0.14,
+                0.6,
+                0.33
+              ]
+            },
+            {
+              "word": "bagaj rafı",
+              "rect": [
+                0.0,
+                0.1,
+                0.16,
+                0.12
+              ]
+            },
+            {
+              "word": "perde",
+              "rect": [
+                0.16,
+                0.12,
+                0.05,
+                0.32
+              ]
+            },
+            {
+              "word": "koltuk",
+              "rect": [
+                0.0,
+                0.47,
+                0.18,
+                0.3
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "pencereBozkir",
+          "x": -0.0015,
+          "z": 0.004,
+          "y": 0.6225,
+          "h": 0.27,
+          "word": "manzara",
+          "id": "durgun"
+        },
+        {
+          "proc": "pencereBozkir",
+          "x": -0.0015,
+          "z": 0.004,
+          "y": 0.6225,
+          "h": 0.27,
+          "word": "manzara",
+          "id": "akan",
+          "fx": "scrollX",
+          "hidden": true
+        },
+        {
+          "proc": "koltuk",
+          "word": "koltuk",
+          "x": -0.4,
+          "z": 0.21,
+          "h": 0.2,
+          "rotY": 0
+        },
+        {
+          "proc": "koltuk",
+          "word": "koltuk",
+          "x": 0.4,
+          "z": 0.21,
+          "h": 0.2,
+          "rotY": 180
+        },
+        {
+          "proc": "trenMasasi",
+          "id": "masa",
+          "word": "masa",
+          "x": 0.0,
+          "z": 0.2,
+          "h": 0.23
+        },
+        {
+          "proc": "defter",
+          "word": "defter",
+          "x": -0.07,
+          "z": 0.22,
+          "y": 0.24,
+          "h": 0.01
+        },
+        {
+          "proc": "bubble",
+          "id": "b_can",
+          "label": "Daha gelmedik mi?",
+          "color": "#2F6DC4",
+          "x": 0.36,
+          "z": 0.14,
+          "y": 0.332,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_kopru",
+          "label": "köprü!",
+          "color": "#7B4BB7",
+          "x": -0.28,
+          "z": 0.2,
+          "y": 0.66,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": false
+        },
+        {
+          "proc": "bubble",
+          "id": "b_tepe",
+          "label": "tepe!",
+          "color": "#2F6DC4",
+          "x": 0.2,
+          "z": 0.2,
+          "y": 0.7,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": false
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.36,
+          "z": 0.14,
+          "y": -0.006,
+          "rotY": 90,
+          "pose": "sit",
+          "look": "pencere"
+        },
+        {
+          "id": "anne",
+          "x": -0.36,
+          "z": 0.28,
+          "y": -0.05,
+          "rotY": 90,
+          "pose": "sit",
+          "look": "can"
+        },
+        {
+          "id": "can",
+          "x": 0.36,
+          "z": 0.14,
+          "y": 0.017,
+          "rotY": -90,
+          "pose": "sit",
+          "look": "baba"
+        },
+        {
+          "id": "baba",
+          "x": 0.36,
+          "z": 0.28,
+          "y": -0.072,
+          "rotY": -90,
+          "pose": "sit",
+          "look": "can"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "tren"
+          ],
+          "who": "durgun",
+          "do": "switchOff",
+          "sound": "nal",
+          "focus": true
+        },
+        {
+          "cue": [
+            "tren"
+          ],
+          "who": "akan",
+          "do": "switchOn"
+        },
+        {
+          "cue": [
+            "hareket"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "akan"
+        },
+        {
+          "cue": [
+            "babaları"
+          ],
+          "who": "baba",
+          "do": "talk",
+          "look": "can",
+          "len": 2.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "b_can",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "baba",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "beklemek"
+          ],
+          "who": "b_can",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "beklemek"
+          ],
+          "who": "can",
+          "do": "bow",
+          "look": "down"
+        },
+        {
+          "cue": [
+            "anneleri"
+          ],
+          "who": "anne",
+          "do": "point",
+          "target": "akan",
+          "look": "akan",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "pencereden"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "akan",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "pencereden"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "akan",
+          "len": 2.0,
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "köprüyü"
+          ],
+          "who": "b_kopru",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "köprüyü"
+          ],
+          "who": "elif",
+          "do": "point",
+          "target": "akan",
+          "look": "akan",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "tepeyi"
+          ],
+          "who": "b_tepe",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "tepeyi"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "akan",
+          "look": "akan",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "sonra"
+          ],
+          "who": "b_kopru",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "sonra"
+          ],
+          "who": "b_tepe",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "baktılar"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "zaman"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "elif",
+          "focus": true
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "title": {
+        "tr": "Yan kompartımandaki çocuk",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Kerem} {annesiyle|anne} yan kompartımandan çıktı. Kars’taki {dedesiyle|dede} {babaannesine|babaanne} gidiyordu. {Can’la|Can} {yaşıttı|yaşıt}. Yanında bir {kutu oyunu} ve {dürbün} vardı. Aileler {tanışınca|tanışmak} birlikte oturdular. Kerem dürbününü {uzattı|uzatmak}. {Sırayla|sıra} {yamaçlara|yamaç} baktılar. Elif küçük evi anlattı. Can yanındaki {ağacı|ağaç} buldu.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Trende yan yana kompartımanlarda yolculuk edenler kısa sürede tanışır. Yolculukta paylaşılan bir oyun ya da manzara, birbirini tanımayan insanları kolayca arkadaş yapar.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/koridor-arka.webp",
+          "floor": "art/kompartiman-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "koridor",
+              "rect": [
+                0.35,
+                0.3,
+                0.2,
+                0.5
+              ]
+            },
+            {
+              "word": "kompartıman",
+              "rect": [
+                0.0,
+                0.08,
+                0.2,
+                0.85
+              ]
+            },
+            {
+              "word": "pencere",
+              "rect": [
+                0.72,
+                0.15,
+                0.2,
+                0.4
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "kutuOyunu",
+          "id": "oyun",
+          "word": "kutu oyunu",
+          "x": -0.26,
+          "z": 0.6,
+          "h": 0.02,
+          "hidden": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_ev",
+          "label": "küçük ev!",
+          "color": "#7B4BB7",
+          "x": 0.32,
+          "z": 0.4,
+          "y": 0.66,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": false
+        },
+        {
+          "proc": "bubble",
+          "id": "b_agac",
+          "label": "ağaç!",
+          "color": "#2F6DC4",
+          "x": 0.38,
+          "z": 0.5,
+          "y": 0.6,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": false
+        }
+      ],
+      "cast": [
+        {
+          "id": "kerem",
+          "x": -0.62,
+          "z": 0.5,
+          "rotY": 90,
+          "look": "can",
+          "hidden": true,
+          "hold": "durbun"
+        },
+        {
+          "id": "keremAnne",
+          "x": -0.62,
+          "z": 0.4,
+          "rotY": 90,
+          "look": "anne",
+          "hidden": true
+        },
+        {
+          "id": "can",
+          "x": 0.12,
+          "z": 0.72,
+          "rotY": -60,
+          "look": "reader"
+        },
+        {
+          "id": "elif",
+          "x": 0.26,
+          "z": 0.62,
+          "rotY": -60,
+          "look": "reader"
+        },
+        {
+          "id": "anne",
+          "x": 0.3,
+          "z": 0.42,
+          "rotY": -70,
+          "look": "reader"
+        },
+        {
+          "id": "baba",
+          "x": 0.4,
+          "z": 0.84,
+          "rotY": -60,
+          "look": "reader"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "kerem"
+          ],
+          "who": "keremAnne",
+          "do": "enter",
+          "to": [
+            0.4,
+            0,
+            0.0
+          ],
+          "face": 70,
+          "look": "anne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kerem"
+          ],
+          "who": "kerem",
+          "do": "enter",
+          "to": [
+            0.38,
+            0,
+            0.122
+          ],
+          "face": 70,
+          "look": "can",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "gidiyordu"
+          ],
+          "who": "keremAnne",
+          "do": "talk",
+          "look": "anne",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "gidiyordu"
+          ],
+          "who": "anne",
+          "do": "nod",
+          "look": "keremAnne",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "yaşıttı"
+          ],
+          "who": "can",
+          "do": "wave",
+          "look": "kerem",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yaşıttı"
+          ],
+          "who": "kerem",
+          "do": "wave",
+          "look": "can",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "kutu"
+          ],
+          "who": "oyun",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "tanışınca"
+          ],
+          "who": "baba",
+          "do": "talk",
+          "look": "keremAnne",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "tanışınca"
+          ],
+          "who": "keremAnne",
+          "do": "bow",
+          "look": "baba"
+        },
+        {
+          "cue": [
+            "uzattı"
+          ],
+          "who": "kerem",
+          "do": "give",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "uzattı"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "durbun",
+          "look": "kerem",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "sırayla"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": 90,
+          "look": "pencere",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yamaçlara"
+          ],
+          "who": "can",
+          "do": "useTool",
+          "style": "ear",
+          "to": [
+            0.0,
+            0.08,
+            0.1
+          ],
+          "look": "pencere",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "b_ev",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "point",
+          "target": "right",
+          "look": "pencere",
+          "len": 1.4
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "b_ev",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "ağacı"
+          ],
+          "who": "b_agac",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "ağacı"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "kerem"
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "title": {
+        "tr": "Trende piknik",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Dağlarda|dağ} {kar} görünüyordu. {Yemek} zamanı ellerini {temizleyip|temizlemek} masayı {hazırladılar|hazırlamak}. {Sandviçler|sandviç}, {elmalar|elma} ve Kerem’in annesinin {pişileri|pişi} vardı. {Paylaşmadan|paylaşmak} önce birbirlerine sordular. Herkes yiyeceği kadar aldı. Can {su} içip kalan sandviçini {saklama kabına|saklama kabı} koydu. Elif “{Manzaralı|manzaralı} {piknikteyiz|piknik}!” dedi. Kerem {peçeteleri|peçete} {topladı|toplamak}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Pişi, mayalı hamurun yağda kızartılmasıyla yapılan, Anadolu’nun her yerinde sevilen bir kahvaltılıktır. Yolculukta yiyecekleri paylaşmak sofra kültürümüzün parçasıdır; israf etmemek için yalnız yiyeceğimiz kadar alırız.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/kompartiman-arka.webp",
+          "floor": "art/kompartiman-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.2,
+                0.14,
+                0.6,
+                0.33
+              ]
+            },
+            {
+              "word": "bagaj rafı",
+              "rect": [
+                0.0,
+                0.1,
+                0.16,
+                0.12
+              ]
+            },
+            {
+              "word": "perde",
+              "rect": [
+                0.16,
+                0.12,
+                0.05,
+                0.32
+              ]
+            },
+            {
+              "word": "koltuk",
+              "rect": [
+                0.0,
+                0.47,
+                0.18,
+                0.3
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "pencereKarli",
+          "x": -0.0015,
+          "z": 0.004,
+          "y": 0.6225,
+          "h": 0.27,
+          "word": "manzara",
+          "fx": "scrollX"
+        },
+        {
+          "proc": "koltuk",
+          "word": "koltuk",
+          "x": -0.4,
+          "z": 0.21,
+          "h": 0.2,
+          "rotY": 0
+        },
+        {
+          "proc": "koltuk",
+          "word": "koltuk",
+          "x": 0.4,
+          "z": 0.21,
+          "h": 0.2,
+          "rotY": 180
+        },
+        {
+          "proc": "trenMasasi",
+          "id": "masa",
+          "word": "masa",
+          "x": 0.0,
+          "z": 0.2,
+          "h": 0.23
+        },
+        {
+          "proc": "piknik",
+          "id": "piknik",
+          "word": "piknik",
+          "x": 0.0,
+          "z": 0.2,
+          "y": 0.24,
+          "h": 0.03,
+          "hidden": true
+        },
+        {
+          "proc": "saklamaKabi",
+          "id": "kap",
+          "word": "saklama kabı",
+          "x": 0.08,
+          "z": 0.24,
+          "y": 0.24,
+          "h": 0.02,
+          "hidden": true
+        },
+        {
+          "proc": "peceteUcan",
+          "id": "pecete1",
+          "word": "peçete",
+          "x": -0.08,
+          "z": 0.24,
+          "y": 0.24,
+          "h": 0.01,
+          "pitch": -80
+        },
+        {
+          "proc": "peceteUcan",
+          "id": "pecete2",
+          "word": "peçete",
+          "x": 0.04,
+          "z": 0.25,
+          "y": 0.24,
+          "h": 0.01,
+          "pitch": -80
+        },
+        {
+          "proc": "bubble",
+          "id": "b_elif",
+          "label": "Manzaralı piknikteyiz!",
+          "color": "#7B4BB7",
+          "x": -0.36,
+          "z": 0.14,
+          "y": 0.376,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": -0.36,
+          "z": 0.14,
+          "y": -0.006,
+          "rotY": 90,
+          "pose": "sit",
+          "look": "pencere"
+        },
+        {
+          "id": "can",
+          "x": -0.36,
+          "z": 0.28,
+          "y": 0.017,
+          "rotY": 90,
+          "pose": "sit",
+          "look": "pencere"
+        },
+        {
+          "id": "kerem",
+          "x": 0.36,
+          "z": 0.14,
+          "y": 0.005,
+          "rotY": -90,
+          "pose": "sit",
+          "look": "can"
+        },
+        {
+          "id": "keremAnne",
+          "x": 0.36,
+          "z": 0.28,
+          "y": -0.046,
+          "rotY": -90,
+          "pose": "sit",
+          "look": "kerem"
+        },
+        {
+          "id": "anne",
+          "x": -0.4,
+          "z": 0.72,
+          "rotY": 150,
+          "look": "piknik"
+        },
+        {
+          "id": "baba",
+          "x": 0.42,
+          "z": 0.74,
+          "rotY": -150,
+          "look": "piknik"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "dağlarda"
+          ],
+          "who": "kerem",
+          "do": "point",
+          "target": "pencere",
+          "look": "pencere",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "yemek"
+          ],
+          "who": "elif",
+          "do": "useTool",
+          "style": "tap",
+          "look": "down",
+          "len": 1.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "yemek"
+          ],
+          "who": "kerem",
+          "do": "useTool",
+          "style": "tap",
+          "look": "down",
+          "len": 1.2,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "hazırladılar"
+          ],
+          "who": "piknik",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "sandviçler"
+          ],
+          "who": "piknik",
+          "do": "shine",
+          "focus": true
+        },
+        {
+          "cue": [
+            "pişileri"
+          ],
+          "who": "keremAnne",
+          "do": "nod",
+          "look": "piknik"
+        },
+        {
+          "cue": [
+            "paylaşmadan"
+          ],
+          "who": "can",
+          "do": "talk",
+          "look": "kerem",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "paylaşmadan"
+          ],
+          "who": "kerem",
+          "do": "nod",
+          "look": "can",
+          "wait": 0.8
+        },
+        {
+          "cue": [
+            "herkes"
+          ],
+          "who": "anne",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "piknik",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "saklama"
+          ],
+          "who": "kap",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "b_elif",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "pencere"
+        },
+        {
+          "cue": [
+            "kerem"
+          ],
+          "who": "b_elif",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "kerem"
+          ],
+          "who": "pecete1",
+          "do": "vanish",
+          "focus": true
+        },
+        {
+          "cue": [
+            "topladı"
+          ],
+          "who": "pecete2",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "topladı"
+          ],
+          "who": "kerem",
+          "do": "nod",
+          "look": "elif"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "title": {
+        "tr": "Tıkıdık ninnisi",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Aileleriyle|aile} {koridorda|koridor} yürüdüler. {Yolculara|yolcu} {yol verip|yol vermek} {tutunarak|tutunmak} {ilerlediler|ilerlemek}. Kompartımana dönünce {yataklarını|yatak} hazırladılar. Can {esniyordu|esnemek}. Kerem’le {sabah} görüşeceklerdi. Babası {örtüyü|örtü} {düzeltti|düzeltmek}. {Tıkıdık}, tıkıdık… Elif defterini kapattı. {Karanlık} {camda|cam} {yansımasını|yansıma} gördü. Trenin sesi {ninni} gibiydi. Gözlerini kapadı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Trenin raylar üzerindeki “tıkıdık tıkıdık” sesi, ray eklerinden geçen tekerleklerin çıkardığı düzenli bir sestir. Birçok yolcu bu sesi ninni gibi dinlendirici bulur.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/kompartiman-arka.webp",
+          "floor": "art/kompartiman-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.2,
+                0.14,
+                0.6,
+                0.33
+              ]
+            },
+            {
+              "word": "bagaj rafı",
+              "rect": [
+                0.0,
+                0.1,
+                0.16,
+                0.12
+              ]
+            },
+            {
+              "word": "perde",
+              "rect": [
+                0.16,
+                0.12,
+                0.05,
+                0.32
+              ]
+            },
+            {
+              "word": "koltuk",
+              "rect": [
+                0.0,
+                0.47,
+                0.18,
+                0.3
+              ]
+            }
+          ],
+          "tint": "#6E739E",
+          "floorTint": "#6E739E"
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "pencereGece",
+          "x": -0.0015,
+          "z": 0.004,
+          "y": 0.6225,
+          "h": 0.27,
+          "word": "manzara",
+          "fx": "scrollX"
+        },
+        {
+          "proc": "koltuk",
+          "word": "koltuk",
+          "x": -0.4,
+          "z": 0.21,
+          "h": 0.2,
+          "rotY": 0,
+          "id": "koltuk0"
+        },
+        {
+          "proc": "koltuk",
+          "word": "koltuk",
+          "x": 0.4,
+          "z": 0.21,
+          "h": 0.2,
+          "rotY": 180,
+          "id": "koltuk1"
+        },
+        {
+          "proc": "koltukYatak",
+          "id": "yatak0",
+          "word": "yatak",
+          "x": -0.4,
+          "z": 0.21,
+          "h": 0.2,
+          "hidden": true
+        },
+        {
+          "proc": "koltukYatak",
+          "id": "yatak1",
+          "word": "yatak",
+          "x": 0.4,
+          "z": 0.21,
+          "h": 0.2,
+          "rotY": 180,
+          "hidden": true
+        },
+        {
+          "proc": "bubble",
+          "id": "t1",
+          "label": "tıkıdık",
+          "color": "#3A4A7A",
+          "x": -0.12,
+          "z": 0.1,
+          "y": 0.7,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": false
+        },
+        {
+          "proc": "bubble",
+          "id": "t2",
+          "label": "tıkıdık…",
+          "color": "#3A4A7A",
+          "x": 0.14,
+          "z": 0.1,
+          "y": 0.62,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": false
+        }
+      ],
+      "cast": [
+        {
+          "id": "baba",
+          "x": 0.1,
+          "z": 0.84,
+          "rotY": 180,
+          "look": "reader"
+        },
+        {
+          "id": "can",
+          "x": -0.1,
+          "z": 0.76,
+          "rotY": 160,
+          "look": "reader"
+        },
+        {
+          "id": "elif",
+          "x": -0.24,
+          "z": 0.84,
+          "rotY": 160,
+          "look": "reader",
+          "hold": "defterEl"
+        },
+        {
+          "id": "anne",
+          "x": 0.3,
+          "z": 0.86,
+          "rotY": -160,
+          "look": "reader"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "aileleriyle"
+          ],
+          "who": "can",
+          "do": "lookAround",
+          "len": 2.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "yolculara"
+          ],
+          "who": "anne",
+          "do": "bow",
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "kompartımana"
+          ],
+          "who": "koltuk0",
+          "do": "switchOff",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kompartımana"
+          ],
+          "who": "koltuk1",
+          "do": "switchOff"
+        },
+        {
+          "cue": [
+            "kompartımana"
+          ],
+          "who": "yatak0",
+          "do": "switchOn"
+        },
+        {
+          "cue": [
+            "kompartımana"
+          ],
+          "who": "yatak1",
+          "do": "switchOn"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "bend",
+          "look": "down",
+          "len": 1.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "kerem’le"
+          ],
+          "who": "can",
+          "do": "lieDown",
+          "to": [
+            0.48,
+            0.182,
+            -0.671
+          ],
+          "face": 180
+        },
+        {
+          "cue": [
+            "babası"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            0.1,
+            0,
+            -0.22
+          ],
+          "face": 90,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "düzeltti"
+          ],
+          "who": "baba",
+          "do": "bend",
+          "look": "can",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "tıkıdık"
+          ],
+          "who": "t1",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "tıkıdık"
+          ],
+          "who": "t2",
+          "do": "appear",
+          "wait": 0.7
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "give",
+          "look": "down",
+          "focus": true
+        },
+        {
+          "cue": [
+            "karanlık"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "pencere",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "ninni"
+          ],
+          "who": "t1",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "ninni"
+          ],
+          "who": "t2",
+          "do": "vanish",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "kapadı"
+          ],
+          "who": "elif",
+          "do": "lieDown",
+          "to": [
+            -0.14,
+            0.182,
+            -0.769
+          ],
+          "face": 180,
+          "focus": true
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "title": {
+        "tr": "Bembeyaz Kars",
+        "en": ""
+      },
+      "text": {
+        "tr": "Sabah yolculuk {sürüyordu|sürmek}. {Kahvaltı} yapıp beyaz yamaçları izlediler. Sonunda {Kars Garı’na|Kars Garı} {ulaştılar|ulaşmak}. Kerem’in dedesi onu ve annesini {karşıladı|karşılamak}. Aileler yeniden görüşmek üzere {anlaştı|anlaşmak}. {Meydanda|meydan} {atlı kızak} gördüler. Can’ın {nefesi|nefes} {buhar} oldu. Artık {manzaranın|manzara} içindeydiler.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Kars, kışları çok soğuk ve karlı geçen bir sınır şehridir. Taş binaları, tarihî garı ve kışın şehirde dolaşan atlı kızaklarıyla bilinir. Soğukta nefesimiz buhar olur; bu yüzden sıkı giyinmek önemlidir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/kars-arka.webp",
+          "floor": "art/kars-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "gar",
+              "rect": [
+                0.0,
+                0.12,
+                0.38,
+                0.47
+              ]
+            },
+            {
+              "word": "dağ",
+              "rect": [
+                0.35,
+                0.2,
+                0.6,
+                0.12
+              ]
+            },
+            {
+              "word": "kar",
+              "rect": [
+                0.3,
+                0.6,
+                0.7,
+                0.38
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "birds",
+      "models": [
+        {
+          "proc": "atliKizak",
+          "id": "kizak",
+          "word": "atlı kızak",
+          "x": -0.62,
+          "z": 0.3,
+          "h": 0.25,
+          "rotY": 90
+        },
+        {
+          "proc": "nefes",
+          "id": "nefes",
+          "word": "buhar",
+          "x": 0.12000000000000001,
+          "z": 0.72,
+          "y": 0.27,
+          "h": 0.03,
+          "hidden": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "duman",
+          "x": -0.38,
+          "z": 0.3,
+          "rotY": 90,
+          "look": "reader"
+        },
+        {
+          "id": "keremDede",
+          "x": 0.22,
+          "z": 0.46,
+          "rotY": -120,
+          "look": "kerem"
+        },
+        {
+          "id": "kerem",
+          "x": -0.36,
+          "z": 0.6,
+          "rotY": 90,
+          "look": "keremDede",
+          "hidden": true
+        },
+        {
+          "id": "keremAnne",
+          "x": -0.4,
+          "z": 0.5,
+          "rotY": 90,
+          "look": "keremDede",
+          "hidden": true
+        },
+        {
+          "id": "can",
+          "x": -0.3,
+          "z": 0.74,
+          "rotY": 90,
+          "look": "reader",
+          "hidden": true
+        },
+        {
+          "id": "elif",
+          "x": -0.36,
+          "z": 0.84,
+          "rotY": 90,
+          "look": "reader",
+          "hidden": true
+        },
+        {
+          "id": "anne",
+          "x": -0.42,
+          "z": 0.7,
+          "rotY": 90,
+          "look": "reader",
+          "hidden": true
+        },
+        {
+          "id": "baba",
+          "x": -0.44,
+          "z": 0.84,
+          "rotY": 90,
+          "look": "reader",
+          "hidden": true
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "sonunda"
+          ],
+          "who": "kerem",
+          "do": "enter",
+          "to": [
+            0.4,
+            0,
+            -0.098
+          ],
+          "look": "keremDede",
+          "focus": true
+        },
+        {
+          "cue": [
+            "sonunda"
+          ],
+          "who": "keremAnne",
+          "do": "enter",
+          "to": [
+            0.32,
+            0,
+            -0.073
+          ],
+          "look": "keremDede",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "sonunda"
+          ],
+          "who": "can",
+          "do": "enter",
+          "to": [
+            0.4,
+            0,
+            -0.049
+          ],
+          "look": "reader",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "sonunda"
+          ],
+          "who": "elif",
+          "do": "enter",
+          "to": [
+            0.3,
+            0,
+            -0.073
+          ],
+          "look": "reader",
+          "wait": 0.9
+        },
+        {
+          "cue": [
+            "sonunda"
+          ],
+          "who": "anne",
+          "do": "enter",
+          "to": [
+            0.22,
+            0,
+            0.0
+          ],
+          "look": "reader",
+          "wait": 1.2
+        },
+        {
+          "cue": [
+            "sonunda"
+          ],
+          "who": "baba",
+          "do": "enter",
+          "to": [
+            0.2,
+            0,
+            -0.024
+          ],
+          "look": "reader",
+          "wait": 1.5
+        },
+        {
+          "cue": [
+            "karşıladı"
+          ],
+          "who": "keremDede",
+          "do": "wave",
+          "look": "kerem",
+          "focus": true
+        },
+        {
+          "cue": [
+            "karşıladı"
+          ],
+          "who": "kerem",
+          "do": "hop",
+          "look": "keremDede"
+        },
+        {
+          "cue": [
+            "anlaştı"
+          ],
+          "who": "baba",
+          "do": "wave",
+          "look": "keremDede"
+        },
+        {
+          "cue": [
+            "anlaştı"
+          ],
+          "who": "keremAnne",
+          "do": "nod",
+          "look": "anne"
+        },
+        {
+          "cue": [
+            "meydanda"
+          ],
+          "who": "duman",
+          "do": "walkTo",
+          "to": [
+            0.95,
+            0,
+            0
+          ],
+          "face": 90,
+          "look": "reader",
+          "sound": "nal",
+          "focus": true
+        },
+        {
+          "cue": [
+            "meydanda"
+          ],
+          "who": "kizak",
+          "do": "slide",
+          "to": [
+            0.95,
+            0,
+            0
+          ],
+          "len": 5.0
+        },
+        {
+          "cue": [
+            "atlı"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "kizak",
+          "look": "kizak",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "nefesi"
+          ],
+          "who": "nefes",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "buhar"
+          ],
+          "who": "nefes",
+          "do": "rise",
+          "to": [
+            0.03,
+            0.05,
+            0
+          ]
+        },
+        {
+          "cue": [
+            "oldu"
+          ],
+          "who": "nefes",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "oldu"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "içindeydiler"
+          ],
+          "who": "elif",
+          "do": "lookAround",
+          "len": 2.0
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "title": {
+        "tr": "Kızak ve salep",
+        "en": ""
+      },
+      "text": {
+        "tr": "Ertesi gün Kerem’in ailesiyle {Sarıkamış’ta|Sarıkamış} {kızak} {kaydılar|kaymak}. Sıralarını bekleyip kızağa {ayrılan|ayırmak} yoldan tek tek indiler. {Kardan adam} yaptılar. {Üşüyünce|üşümek} eve döndüler. Kerem’in babaannesi {tarçınlı|tarçın} {salep} getirdi. {Ilınmasını|ılınmak} beklediler. Can {fincanını|fincan} tuttu. Elif “{Bugünü|bugün} de çizeceğim!” dedi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Sarıkamış, sarı çam ormanlarıyla çevrili, kış sporlarıyla ünlü bir kayak merkezidir. Kızak kayarken sırayı beklemek ve kızağa ayrılan yolu kullanmak güvenliğimiz için önemlidir. Salep, kış akşamlarının sıcacık, tarçınlı içeceğidir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/sarikamis-arka.webp",
+          "floor": "art/sarikamis-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "çam",
+              "rect": [
+                0.0,
+                0.0,
+                0.22,
+                0.6
+              ]
+            },
+            {
+              "word": "çam",
+              "rect": [
+                0.75,
+                0.0,
+                0.25,
+                0.6
+              ]
+            },
+            {
+              "word": "kızak yolu",
+              "rect": [
+                0.12,
+                0.45,
+                0.45,
+                0.5
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "birds",
+      "models": [
+        {
+          "proc": "kizak",
+          "id": "kizak_can",
+          "word": "kızak",
+          "x": 0.02,
+          "z": 0.3,
+          "h": 0.07,
+          "rotY": -30
+        },
+        {
+          "proc": "kizak",
+          "id": "kizak_kerem",
+          "word": "kızak",
+          "x": 0.14,
+          "z": 0.3,
+          "h": 0.07,
+          "rotY": -30
+        },
+        {
+          "proc": "kizak",
+          "id": "kizak_elif",
+          "word": "kızak",
+          "x": 0.26,
+          "z": 0.3,
+          "h": 0.07,
+          "rotY": -30
+        },
+        {
+          "proc": "kardanAdam",
+          "id": "kardanAdam",
+          "word": "kardan adam",
+          "x": 0.3,
+          "z": 0.62,
+          "h": 0.38,
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "panel",
+          "id": "ev",
+          "decal": "/books/dogu-ekspresi/art/karsev-arka.webp",
+          "x": 0.0,
+          "z": 0.002,
+          "y": 0.0,
+          "w": 1.0,
+          "h": 0.9,
+          "pivot": "bottom",
+          "unlit": true,
+          "hidden": true
+        },
+        {
+          "proc": "panel",
+          "id": "evZemin",
+          "decal": "/books/dogu-ekspresi/art/karsev-zemin.webp",
+          "x": 0.0,
+          "z": 0.5,
+          "y": 0.002,
+          "w": 1.04,
+          "h": 1.3,
+          "pivot": "center",
+          "pitch": -90,
+          "sy": 1.85,
+          "hidden": true
+        },
+        {
+          "proc": "sini",
+          "id": "sini",
+          "word": "sini",
+          "x": 0.0,
+          "z": 0.5,
+          "h": 0.11,
+          "hidden": true
+        },
+        {
+          "proc": "salepTepsisi",
+          "id": "tepsi",
+          "word": "salep",
+          "x": 0.0,
+          "z": 0.5,
+          "y": 0.108,
+          "h": 0.03,
+          "hidden": true,
+          "steam": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_elif",
+          "label": "Bugünü de çizeceğim!",
+          "color": "#7B4BB7",
+          "x": -0.24,
+          "z": 0.72,
+          "y": 0.465,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "can",
+          "x": 0.02,
+          "z": 0.3,
+          "y": -0.08,
+          "rotY": -30,
+          "pose": "sit",
+          "look": "reader"
+        },
+        {
+          "id": "kerem",
+          "x": 0.14,
+          "z": 0.3,
+          "y": -0.092,
+          "rotY": -30,
+          "pose": "sit",
+          "look": "reader"
+        },
+        {
+          "id": "elif",
+          "x": 0.26,
+          "z": 0.3,
+          "y": -0.103,
+          "rotY": -30,
+          "pose": "sit",
+          "look": "reader"
+        },
+        {
+          "id": "baba",
+          "x": -0.4,
+          "z": 0.5,
+          "rotY": 60,
+          "look": "can"
+        },
+        {
+          "id": "keremAnne",
+          "x": 0.42,
+          "z": 0.72,
+          "rotY": -60,
+          "look": "kerem"
+        },
+        {
+          "id": "keremBabaanne",
+          "x": 0.6,
+          "z": 0.5,
+          "rotY": -90,
+          "look": "can",
+          "hidden": true,
+          "hold": "salepTepsisiEl"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "ertesi"
+          ],
+          "who": "kizak_can",
+          "do": "rise",
+          "to": [
+            -0.32,
+            0,
+            0.61
+          ],
+          "len": 2.4,
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "ertesi"
+          ],
+          "who": "can",
+          "do": "glideTo",
+          "to": [
+            -0.32,
+            0,
+            0.61
+          ],
+          "len": 2.4,
+          "look": "reader",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "sıralarını"
+          ],
+          "who": "baba",
+          "do": "cheer",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "sıralarını"
+          ],
+          "who": "kizak_kerem",
+          "do": "rise",
+          "to": [
+            -0.28,
+            0,
+            0.683
+          ],
+          "len": 2.4,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "sıralarını"
+          ],
+          "who": "kerem",
+          "do": "glideTo",
+          "to": [
+            -0.28,
+            0,
+            0.683
+          ],
+          "len": 2.4,
+          "look": "reader",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "tek"
+          ],
+          "who": "kizak_elif",
+          "do": "rise",
+          "to": [
+            -0.24000000000000002,
+            0,
+            0.61
+          ],
+          "len": 2.4,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "tek"
+          ],
+          "who": "elif",
+          "do": "glideTo",
+          "to": [
+            -0.24000000000000002,
+            0,
+            0.61
+          ],
+          "len": 2.4,
+          "look": "reader",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "kardan"
+          ],
+          "who": "can",
+          "do": "stand",
+          "look": "kardanAdam",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kardan"
+          ],
+          "who": "kerem",
+          "do": "stand",
+          "look": "kardanAdam"
+        },
+        {
+          "cue": [
+            "kardan"
+          ],
+          "who": "elif",
+          "do": "stand",
+          "look": "kardanAdam"
+        },
+        {
+          "cue": [
+            "kardan"
+          ],
+          "who": "kardanAdam",
+          "do": "grow",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "yaptılar"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "kardanAdam"
+        },
+        {
+          "cue": [
+            "üşüyünce"
+          ],
+          "who": "can",
+          "do": "useTool",
+          "style": "tap",
+          "look": "down",
+          "len": 1.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "eve"
+          ],
+          "who": "kardanAdam",
+          "do": "switchOff"
+        },
+        {
+          "cue": [
+            "eve"
+          ],
+          "who": "kizak_can",
+          "do": "switchOff"
+        },
+        {
+          "cue": [
+            "eve"
+          ],
+          "who": "kizak_kerem",
+          "do": "switchOff"
+        },
+        {
+          "cue": [
+            "eve"
+          ],
+          "who": "kizak_elif",
+          "do": "switchOff"
+        },
+        {
+          "cue": [
+            "eve"
+          ],
+          "who": "ev",
+          "do": "switchOn"
+        },
+        {
+          "cue": [
+            "eve"
+          ],
+          "who": "evZemin",
+          "do": "switchOn"
+        },
+        {
+          "cue": [
+            "eve"
+          ],
+          "who": "sini",
+          "do": "switchOn"
+        },
+        {
+          "cue": [
+            "kerem’in"
+          ],
+          "who": "keremBabaanne",
+          "do": "enter",
+          "to": [
+            -0.46,
+            0,
+            0.049
+          ],
+          "face": -100,
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "salep"
+          ],
+          "who": "keremBabaanne",
+          "do": "give",
+          "look": "sini"
+        },
+        {
+          "cue": [
+            "salep"
+          ],
+          "who": "tepsi",
+          "do": "appear",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "ılınmasını"
+          ],
+          "who": "kerem",
+          "do": "lookAt",
+          "target": "tepsi",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "receive",
+          "target": "salep",
+          "look": "tepsi",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "b_elif",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "can"
+        }
+      ]
+    },
+    {
+      "id": "p8",
+      "title": {
+        "tr": "Ani’de bir veda",
+        "en": ""
+      },
+      "text": {
+        "tr": "Sonraki {gezilerinde|gezi} {Ani’nin|Ani} eski taş {yapılarını|yapı} gördüler. Babaları burada farklı {toplulukların|topluluk} yaşadığını anlattı. {Belirlenmiş|belirlemek} yollardan {ayrılmadan|ayrılmak}, yapılara {zarar} vermeden gezdiler. {Ayrılırken|ayrılmak} Elif tren {resmini|resim} Kerem’e verdi. Kerem dürbününü {çantasına|çanta} koydu. Ailelerinin yardımıyla {haberleşmeye|haberleşmek} {karar verdiler|karar vermek}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Ani, Kars yakınlarında, yüzyıllar boyunca farklı toplulukların yaşadığı eski bir şehrin kalıntılarıdır; 2016’da UNESCO Dünya Mirası Listesi’ne girmiştir. Ören yerlerinde belirlenmiş yollardan yürümek ve taşlara dokunmamak, bu mirası korumanın yoludur.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/ani-arka.webp",
+          "floor": "art/ani-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "katedral",
+              "rect": [
+                0.0,
+                0.15,
+                0.48,
+                0.37
+              ]
+            },
+            {
+              "word": "sur",
+              "rect": [
+                0.55,
+                0.3,
+                0.45,
+                0.18
+              ]
+            },
+            {
+              "word": "yol",
+              "rect": [
+                0.12,
+                0.5,
+                0.6,
+                0.48
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "birds",
+      "models": [],
+      "cast": [
+        {
+          "id": "baba",
+          "x": -0.04,
+          "z": 0.4,
+          "rotY": 0,
+          "look": "reader"
+        },
+        {
+          "id": "anne",
+          "x": 0.12,
+          "z": 0.44,
+          "rotY": -20,
+          "look": "baba"
+        },
+        {
+          "id": "keremAnne",
+          "x": 0.3,
+          "z": 0.5,
+          "rotY": -40,
+          "look": "baba"
+        },
+        {
+          "id": "elif",
+          "x": -0.06,
+          "z": 0.62,
+          "rotY": 0,
+          "look": "baba",
+          "hold": "trenResmiEl"
+        },
+        {
+          "id": "can",
+          "x": 0.06,
+          "z": 0.7,
+          "rotY": -10,
+          "look": "baba"
+        },
+        {
+          "id": "kerem",
+          "x": 0.2,
+          "z": 0.74,
+          "rotY": -30,
+          "look": "elif",
+          "hold": "durbun"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "sonraki"
+          ],
+          "who": "baba",
+          "do": "point",
+          "target": "left",
+          "look": "reader",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "babaları"
+          ],
+          "who": "baba",
+          "do": "talk",
+          "look": "elif",
+          "len": 3.0
+        },
+        {
+          "cue": [
+            "babaları"
+          ],
+          "who": "can",
+          "do": "lookAround",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "belirlenmiş"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.0,
+            0,
+            0.122
+          ],
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "belirlenmiş"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.02,
+            0,
+            0.098
+          ],
+          "look": "reader",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "belirlenmiş"
+          ],
+          "who": "kerem",
+          "do": "walkTo",
+          "to": [
+            -0.02,
+            0,
+            0.049
+          ],
+          "look": "elif",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "ayrılırken"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 73,
+          "look": "kerem",
+          "focus": true
+        },
+        {
+          "cue": [
+            "verdi"
+          ],
+          "who": "elif",
+          "do": "give",
+          "look": "kerem"
+        },
+        {
+          "cue": [
+            "kerem"
+          ],
+          "who": "kerem",
+          "do": "give",
+          "look": "down",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kerem"
+          ],
+          "who": "kerem",
+          "do": "receive",
+          "target": "trenResmiEl",
+          "look": "elif",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "haberleşmeye"
+          ],
+          "who": "can",
+          "do": "wave",
+          "look": "kerem",
+          "focus": true
+        },
+        {
+          "cue": [
+            "haberleşmeye"
+          ],
+          "who": "kerem",
+          "do": "cheer",
+          "look": "elif",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "verdiler"
+          ],
+          "who": "keremAnne",
+          "do": "nod",
+          "look": "anne"
+        },
+        {
+          "cue": [
+            "verdiler"
+          ],
+          "who": "anne",
+          "do": "wave",
+          "look": "keremAnne",
+          "wait": 0.3
+        }
+      ]
+    }
+  ]
+}

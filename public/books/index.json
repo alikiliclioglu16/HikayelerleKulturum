@@ -636,13 +636,14 @@
     },
     {
       "id": "dogu-ekspresi",
-      "status": "soon",
+      "status": "ready",
       "title": "Doğu Ekspresi ile Kars'a",
       "titleEn": "The Eastern Express to Kars",
       "values": [
         "saglikli-yasam",
         "sabir",
-        "dostluk"
+        "dostluk",
+        "vatanseverlik"
       ],
       "blurb": {
         "tr": "Ankara'dan Kars'a Doğu Ekspresi: uzun yolda sabır, yeni arkadaş Kerem, karda kızak, sıcak sahlep ve Ani.",
@@ -651,14 +652,17 @@
       "cover": {
         "art": "cover-soon",
         "color": "#3B5C99",
-        "motif": "tren"
+        "motif": "tren",
+        "src": "kapak.webp",
+        "titled": false
       },
       "carpet": {
         "motif": "yildiz",
         "field": "#2E4A6E",
         "border": "#7E2622",
         "src": "/halilar/dogu-ekspresi.webp"
-      }
+      },
+      "pages": 8
     },
     {
       "id": "turk-marketi",

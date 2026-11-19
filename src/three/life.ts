@@ -7,7 +7,7 @@ import * as THREE from 'three';
  *
  * Which ones come is chosen from the page's `life` list, or from its `ambience` when it has none.
  */
-export type LifeKind = 'butterflies' | 'birds' | 'fireflies' | 'motes' | 'gulls' | 'petals' | 'leaves';
+export type LifeKind = 'butterflies' | 'birds' | 'fireflies' | 'motes' | 'gulls' | 'petals' | 'leaves' | 'snow';
 
 export const LIFE_BY_AMBIENCE: Record<string, LifeKind[]> = {
   birds: ['butterflies', 'birds'],
@@ -87,6 +87,7 @@ export class Life {
       if (k === 'motes') for (let i = 0; i < 22; i++) this.mote(i, '#FFF4D6', 0.004);
       if (k === 'petals') for (let i = 0; i < 14; i++) this.falling(i, ['#F7B7CB', '#FFFFFF', '#F28CB1'][i % 3], 0.012);
       if (k === 'leaves') for (let i = 0; i < 12; i++) this.falling(i, ['#E89A3A', '#C9542B', '#E8C33A'][i % 3], 0.014);
+      if (k === 'snow') for (let i = 0; i < 70; i++) this.flake(i);
     }
   }
 
@@ -233,6 +234,26 @@ export class Life {
         const y = ((t * rise + ph * 0.05) % 0.5) + b.y + 0.03;
         obj.position.set(cx + Math.sin(t * 0.2 + ph) * 0.03, y, cz + Math.cos(t * 0.17 + ph) * 0.02);
         m.opacity = (0.25 + 0.3 * Math.max(0, Math.sin(t * 0.8 + ph))) * Math.min(1, (0.5 - (y - b.y - 0.03)) * 6);
+      },
+    });
+  }
+
+  /** A snowflake drifting down, swaying, and starting again at the top. */
+  private flake(i: number) {
+    const b = this.box!;
+    const m = new THREE.MeshBasicMaterial({ color: '#FFFFFF', transparent: true, opacity: 0.85, depthWrite: false });
+    const obj = new THREE.Mesh(new THREE.SphereGeometry(0.0035 + Math.random() * 0.003, 6, 4), m);
+    const cx = THREE.MathUtils.lerp(b.x0, b.x1, Math.random());
+    const cz = THREE.MathUtils.lerp(b.z0, b.z1, Math.random());
+    const ph = Math.random() * 40 + i;
+    const fall = 0.035 + Math.random() * 0.03;
+    const top = Math.max(0.5, b.sky * 0.8);
+    this.add({
+      obj,
+      wings: [],
+      update: (t) => {
+        const y = top - ((t * fall + ph * 0.07) % top);
+        obj.position.set(cx + Math.sin(t * 0.7 + ph) * 0.02, b.y + y, cz + Math.cos(t * 0.5 + ph) * 0.015);
       },
     });
   }

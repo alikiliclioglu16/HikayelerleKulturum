@@ -10,6 +10,7 @@ import { KARAGOZ_HELD, KARAGOZ_PROPS } from './karagoz';
 import { MANGALA_PROPS } from './mangala';
 import { KOY_HELD, KOY_PROPS } from './koy';
 import { MISAFIR_HELD, MISAFIR_PROPS } from './misafir';
+import { TREN_HELD, TREN_PROPS } from './tren';
 
 /**
  * A thing from a GLB file to hold in the hands. The group is returned at once and the model drops in when it
@@ -275,6 +276,8 @@ export const PROPS: Record<string, () => THREE.Object3D> = {
   ...KOY_PROPS,
   // Kapıdaki Yolcu
   ...MISAFIR_PROPS,
+  // Doğu Ekspresi ile Kars'a
+  ...TREN_PROPS,
   // a door that opens, an invisible spot to tap
   ...ROOM_PROPS,
 };
@@ -349,6 +352,7 @@ export const HELD: Record<string, () => THREE.Object3D> = {
   ...KARAGOZ_HELD,
   ...KOY_HELD,
   ...MISAFIR_HELD,
+  ...TREN_HELD,
   // Mahalle Fırını
   /** The baker's long wooden peel, held level and pointing ahead. */
   kurek: () => glbHeld('/models/firin/firin-kuregi.glb', 0.0095, { word: 'kürek', atHeight: 0.45, ahead: 0.42 }),
