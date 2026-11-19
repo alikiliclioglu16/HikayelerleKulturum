@@ -74,6 +74,9 @@ export const CHARACTERS: Record<string, CharacterDef> = {
   komsuKadin: { src: '/models/masal/koylu-kadin.glb', height: 0.47, name: 'Komşu teyze' },
   komsuAdam: { src: '/models/masal/komsu.glb', height: 0.52, name: 'Komşu amca' },
   duman: { src: '/models/koy/duman.glb', proc: 'duman', height: 0.56, name: 'Duman' },
+  // Kapıdaki Yolcu: stand-ins until the Meshy models come (public/models/misafir/yolcu.glb, melek.glb)
+  yolcu: { src: '/models/masal/komsu.glb', height: 0.52, name: 'Yolcu' },
+  melek: { src: '/models/23-nisan/amara.glb', height: 0.38, name: 'Melek' },
   // Mangala Turnuvası: stand-ins until the Meshy models come (public/models/mangala/hande.glb, hakem.glb)
   hande: { src: '/models/23-nisan/zara.glb', height: 0.39, name: 'Hande' },
   hakem: { src: '/models/firin/askidan-ekmek-alan-adam.glb', height: 0.55, name: 'Hakem' },

@@ -999,6 +999,13 @@ export class BookScene {
           g.rotation.y = Math.sin(t * 0.4 + ph) * 0.6;
           break;
         }
+        case 'rainfall':
+          // rain falling: the streaks' tile slides down
+          g.traverse((o) => {
+            const map = ((o as THREE.Mesh).material as THREE.MeshBasicMaterial | undefined)?.map;
+            if (map) map.offset.y += dt * 1.9;
+          });
+          break;
         case 'wheel':
           // a water wheel turning slowly
           g.rotation.z -= dt * 0.7;

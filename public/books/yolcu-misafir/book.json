@@ -1,0 +1,3230 @@
+{
+  "id": "yolcu-misafir",
+  "title": "Kapıdaki Yolcu",
+  "titleEn": "The Traveller at the Door",
+  "culture": {
+    "tr": "Misafirperverlik, Tanrı misafiri sözü, evde ayakkabı çıkarma ve nazar boncuğu hatırası",
+    "en": "Hospitality, the “Tanrı misafiri” saying, taking shoes off at home and the evil-eye bead as a keepsake"
+  },
+  "summary": {
+    "tr": "Yağmurlu bir akşam babaannenin kapısını yolda kalan bir dede ile torunu çalıyor. Can ve Elif misafir ağırlamayı ve izin istemeyi öğreniyor.",
+    "en": ""
+  },
+  "values": [
+    "mahremiyet",
+    "yardimseverlik",
+    "saygi"
+  ],
+  "music": {
+    "src": "/books/yolcu-misafir/muzik.mp3",
+    "loop": 34.2,
+    "gain": 0.6
+  },
+  "toyCast": true,
+  "glossary": {
+    "kış": {
+      "en": "winter",
+      "icon": "❄️"
+    },
+    "akşam": {
+      "en": "evening",
+      "icon": "🌆"
+    },
+    "İzmir": {
+      "en": "İzmir, a city on the Aegean coast",
+      "icon": "🏙️"
+    },
+    "babaanne": {
+      "en": "grandma (father's mother)",
+      "icon": "👵"
+    },
+    "Yağmur": {
+      "en": "rain",
+      "icon": "🌧️"
+    },
+    "şakır şakır": {
+      "en": "pouring (the sound of heavy rain)",
+      "icon": "🌧️"
+    },
+    "yağmak": {
+      "en": "to rain",
+      "icon": "🌧️"
+    },
+    "aile": {
+      "en": "family",
+      "icon": "👨‍👩‍👧‍👦"
+    },
+    "kapı": {
+      "en": "door",
+      "icon": "🚪"
+    },
+    "çalınmak": {
+      "en": "to be knocked (a door)",
+      "icon": "✊"
+    },
+    "dede": {
+      "en": "grandpa",
+      "icon": "👴"
+    },
+    "pencere": {
+      "en": "window",
+      "icon": "🪟"
+    },
+    "aralamak": {
+      "en": "to open slightly",
+      "icon": "🚪"
+    },
+    "Yaşlı": {
+      "en": "old",
+      "icon": "👴"
+    },
+    "salon": {
+      "en": "living room",
+      "icon": "🛋️"
+    },
+    "konuşma": {
+      "en": "conversation",
+      "icon": "💬"
+    },
+    "Yolcu": {
+      "en": "traveller",
+      "icon": "🧳"
+    },
+    "torun": {
+      "en": "grandchild",
+      "icon": "🧒"
+    },
+    "Melek": {
+      "en": "Melek, the traveller's granddaughter",
+      "icon": "👧"
+    },
+    "araba": {
+      "en": "car",
+      "icon": "🚗"
+    },
+    "bozulmak": {
+      "en": "to break down",
+      "icon": "🔧"
+    },
+    "tanımak": {
+      "en": "to know (someone)",
+      "icon": "🤝"
+    },
+    "tamirci": {
+      "en": "mechanic",
+      "icon": "🧑‍🔧"
+    },
+    "aramak": {
+      "en": "to call (on the phone)",
+      "icon": "📞"
+    },
+    "haber vermek": {
+      "en": "to let know",
+      "icon": "📣"
+    },
+    "misafir": {
+      "en": "guest",
+      "icon": "🧳"
+    },
+    "ağırlamak": {
+      "en": "to host, look after (a guest)",
+      "icon": "🫖"
+    },
+    "buyurmak": {
+      "en": "“buyurun”: please, come in",
+      "icon": "🙏"
+    },
+    "ısınmak": {
+      "en": "to get warm",
+      "icon": "🔥"
+    },
+    "tanıtmak": {
+      "en": "to introduce",
+      "icon": "👋"
+    },
+    "koltuk": {
+      "en": "armchair, sofa",
+      "icon": "🛋️"
+    },
+    "göstermek": {
+      "en": "to show",
+      "icon": "👉"
+    },
+    "ayakkabı": {
+      "en": "shoe",
+      "icon": "👟"
+    },
+    "çıkarmak": {
+      "en": "to take off",
+      "icon": "👟"
+    },
+    "terlik": {
+      "en": "slipper",
+      "icon": "🩴"
+    },
+    "ıslak": {
+      "en": "wet",
+      "icon": "💧"
+    },
+    "arkadaş": {
+      "en": "friend",
+      "icon": "🧒"
+    },
+    "kural": {
+      "en": "rule",
+      "icon": "📏"
+    },
+    "sormak": {
+      "en": "to ask",
+      "icon": "❓"
+    },
+    "palto": {
+      "en": "coat",
+      "icon": "🧥"
+    },
+    "asmak": {
+      "en": "to hang",
+      "icon": "🪝"
+    },
+    "yerleşmek": {
+      "en": "to settle in",
+      "icon": "🛋️"
+    },
+    "sohbet": {
+      "en": "chat",
+      "icon": "💬"
+    },
+    "baba": {
+      "en": "dad",
+      "icon": "👨"
+    },
+    "çorba": {
+      "en": "soup",
+      "icon": "🥣"
+    },
+    "ısıtmak": {
+      "en": "to warm up",
+      "icon": "🔥"
+    },
+    "yemek": {
+      "en": "to eat",
+      "icon": "🍽️"
+    },
+    "mercimek": {
+      "en": "lentil",
+      "icon": "🫘"
+    },
+    "izin": {
+      "en": "permission",
+      "icon": "🙋"
+    },
+    "battaniye": {
+      "en": "blanket",
+      "icon": "🧣"
+    },
+    "çay": {
+      "en": "tea",
+      "icon": "🍵"
+    },
+    "su": {
+      "en": "water",
+      "icon": "💧"
+    },
+    "sofra": {
+      "en": "table (set for a meal)",
+      "icon": "🍽️"
+    },
+    "ekmek": {
+      "en": "bread",
+      "icon": "🍞"
+    },
+    "teşekkür etmek": {
+      "en": "to thank",
+      "icon": "🙏"
+    },
+    "Habersiz": {
+      "en": "without warning",
+      "icon": "❔"
+    },
+    "konuk": {
+      "en": "guest",
+      "icon": "🧳"
+    },
+    "Tanrı misafiri": {
+      "en": "an unexpected guest (“a guest sent by God”)",
+      "icon": "🧳"
+    },
+    "tanışmak": {
+      "en": "to meet, get to know",
+      "icon": "🤝"
+    },
+    "açıklamak": {
+      "en": "to explain",
+      "icon": "🗣️"
+    },
+    "Karşılık": {
+      "en": "something in return",
+      "icon": "🎁"
+    },
+    "beklemek": {
+      "en": "to expect, wait",
+      "icon": "⏳"
+    },
+    "açmak": {
+      "en": "to open",
+      "icon": "🚪"
+    },
+    "irkilmek": {
+      "en": "to be startled",
+      "icon": "😲"
+    },
+    "dışarı": {
+      "en": "outside",
+      "icon": "🚪"
+    },
+    "tıklatmak": {
+      "en": "to knock (tap)",
+      "icon": "✊"
+    },
+    "oynamak": {
+      "en": "to play",
+      "icon": "🎲"
+    },
+    "anne": {
+      "en": "mum",
+      "icon": "👩"
+    },
+    "Huriye Hanım": {
+      "en": "Huriye Hanım, Can and Elif's mum",
+      "icon": "👩"
+    },
+    "oda": {
+      "en": "room",
+      "icon": "🛏️"
+    },
+    "eşya": {
+      "en": "belongings, things",
+      "icon": "🧸"
+    },
+    "davet": {
+      "en": "invitation",
+      "icon": "💌"
+    },
+    "onarmak": {
+      "en": "to repair",
+      "icon": "🔧"
+    },
+    "hazırlanmak": {
+      "en": "to get ready",
+      "icon": "🧳"
+    },
+    "nazar boncuğu": {
+      "en": "the blue evil-eye bead",
+      "icon": "🧿"
+    },
+    "uzatmak": {
+      "en": "to hold out",
+      "icon": "🤲"
+    },
+    "hatıra": {
+      "en": "keepsake, memory",
+      "icon": "🎁"
+    },
+    "mavi": {
+      "en": "blue",
+      "icon": "🔵"
+    },
+    "boncuk": {
+      "en": "bead",
+      "icon": "🔵"
+    },
+    "Fatma babaanne": {
+      "en": "Fatma babaanne, Can and Elif's grandma",
+      "icon": "👵"
+    },
+    "kurabiye": {
+      "en": "cookie",
+      "icon": "🍪"
+    },
+    "hazırlamak": {
+      "en": "to prepare",
+      "icon": "🧺"
+    },
+    "Ahmet dede": {
+      "en": "Ahmet dede, Can and Elif's grandpa",
+      "icon": "👴"
+    },
+    "uğurlamak": {
+      "en": "to see off with good wishes",
+      "icon": "👋"
+    },
+    "el sallamak": {
+      "en": "to wave",
+      "icon": "👋"
+    },
+    "azalmak": {
+      "en": "to lessen",
+      "icon": "📉"
+    },
+    "kart": {
+      "en": "card",
+      "icon": "🪧"
+    },
+    "gülümsemek": {
+      "en": "to smile",
+      "icon": "😊"
+    },
+    "özel alan": {
+      "en": "private space",
+      "icon": "🚪"
+    },
+    "saygı duymak": {
+      "en": "to respect",
+      "icon": "🤝"
+    },
+    "rahatsız etmek": {
+      "en": "to bother, upset",
+      "icon": "😟"
+    },
+    "güvenmek": {
+      "en": "to trust",
+      "icon": "🤗"
+    },
+    "yetişkin": {
+      "en": "grown-up",
+      "icon": "🧑"
+    },
+    "Saat Kulesi": {
+      "en": "the Clock Tower of İzmir",
+      "icon": "🕰️"
+    },
+    "halı": {
+      "en": "carpet",
+      "icon": "🟥"
+    },
+    "çaydanlık": {
+      "en": "double teapot",
+      "icon": "🫖"
+    },
+    "çini": {
+      "en": "tile",
+      "icon": "🔷"
+    },
+    "oyuncak": {
+      "en": "toy",
+      "icon": "🧸"
+    },
+    "masa": {
+      "en": "table",
+      "icon": "🪑"
+    },
+    "ay": {
+      "en": "moon",
+      "icon": "🌙"
+    },
+    "cumba": {
+      "en": "bay window",
+      "icon": "🏠"
+    },
+    "ağaç": {
+      "en": "tree",
+      "icon": "🌳"
+    },
+    "sokak": {
+      "en": "street",
+      "icon": "🛣️"
+    },
+    "portmanto": {
+      "en": "coat stand",
+      "icon": "🧥"
+    },
+    "şemsiye": {
+      "en": "umbrella",
+      "icon": "☂️"
+    },
+    "sandalye": {
+      "en": "chair",
+      "icon": "🪑"
+    },
+    "telefon": {
+      "en": "phone",
+      "icon": "📱"
+    }
+  },
+  "quiz": [
+    {
+      "q": {
+        "tr": "Melek ile dedesi neden yardım istedi?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Arabaları bozulduğu için yağmurda kaldılar",
+          "en": ""
+        },
+        {
+          "tr": "Yollarını kaybettiler",
+          "en": ""
+        },
+        {
+          "tr": "Çorba içmek istediler",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "Yolcu, torunu Melek’le arabaları bozulduğu için yağmurda kaldıklarını anlattı.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Kapı çalındığında dede önce ne yaptı?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Hemen kapıyı açtı",
+          "en": ""
+        },
+        {
+          "tr": "Kimin geldiğini sordu ve pencereden baktı",
+          "en": ""
+        },
+        {
+          "tr": "Kapıyı hiç açmadı",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Dede önce kimin geldiğini sordu, pencereden bakıp sonra kapıyı araladı.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Habersiz gelen konuğa ne denir?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Yolcu",
+          "en": ""
+        },
+        {
+          "tr": "Tanrı misafiri",
+          "en": ""
+        },
+        {
+          "tr": "Komşu",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Dede, habersiz gelen konuğa “Tanrı misafiri” dendiğini anlattı.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Melek, Elif’e hatıra olarak ne verdi?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Bir kurabiye",
+          "en": ""
+        },
+        {
+          "tr": "Bir nazar boncuğu",
+          "en": ""
+        },
+        {
+          "tr": "Bir terlik",
+          "en": ""
+        }
+      ],
+      "answer": 1,
+      "why": {
+        "tr": "Melek “Tanışmamızın hatırası olsun.” diyerek Elif’e mavi bir nazar boncuğu uzattı.",
+        "en": ""
+      }
+    },
+    {
+      "q": {
+        "tr": "Can’ın kapıya astığı karta yetişkinlerin de uyması neden önemli?",
+        "en": ""
+      },
+      "options": [
+        {
+          "tr": "Çünkü herkesin özel alanına saygı duyulur",
+          "en": ""
+        },
+        {
+          "tr": "Çünkü kart çok güzel",
+          "en": ""
+        },
+        {
+          "tr": "Çünkü kapı bozuk",
+          "en": ""
+        }
+      ],
+      "answer": 0,
+      "why": {
+        "tr": "Annesi de kapıyı tıklatıp izin istedi; herkesin özel alanına saygı duyarız.",
+        "en": ""
+      }
+    }
+  ],
+  "valueHunt": [
+    {
+      "page": "p2",
+      "answer": "yardimseverlik",
+      "options": [
+        "yardimseverlik",
+        "estetik",
+        "tasarruf"
+      ],
+      "why": {
+        "tr": "Dede tamirciyi aradı; aile yolda kalan misafirleri evinde ağırladı.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p3",
+      "answer": "saygi",
+      "options": [
+        "ozgurluk",
+        "saygi",
+        "sabir"
+      ],
+      "why": {
+        "tr": "Misafirler evin kurallarını sordu ve ayakkabılarını çıkardı.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p6",
+      "answer": "mahremiyet",
+      "options": [
+        "mahremiyet",
+        "adalet",
+        "caliskanlik"
+      ],
+      "why": {
+        "tr": "Can, odaya girmeden önce kapıyı çalıp izin istemeyi öğrendi.",
+        "en": ""
+      }
+    },
+    {
+      "page": "p8",
+      "answer": "mahremiyet",
+      "options": [
+        "estetik",
+        "mahremiyet",
+        "vatanseverlik"
+      ],
+      "why": {
+        "tr": "Anne de Can’ın kapısını tıklatıp izin istedi; herkesin özel alanına saygı duyulur.",
+        "en": ""
+      }
+    }
+  ],
+  "family": {
+    "task": {
+      "tr": "Evinizin kapıları için birlikte “Lütfen kapıyı çalın” kartları hazırlayın. Bir hafta boyunca herkes bir odaya girerken kapıyı çalıp izin istesin.",
+      "en": ""
+    },
+    "talk": [
+      {
+        "tr": "Melek ile dedesi neden yardım istedi?",
+        "en": ""
+      },
+      {
+        "tr": "Can’ın kapıya astığı karta yetişkinlerin de uyması neden önemli?",
+        "en": ""
+      },
+      {
+        "tr": "Bir odaya girmek veya birinin eşyasını almak için nasıl izin istersin? İki kısa konuşma yap.",
+        "en": ""
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "p1",
+      "title": {
+        "tr": "Yağmurlu bir akşam",
+        "en": ""
+      },
+      "text": {
+        "tr": "Bir {kış} {akşamı|akşam} Elif ile Can {İzmir’de|İzmir} {babaannelerindeydi|babaanne}. {Yağmur} {şakır şakır} {yağıyordu|yağmak}. {Aileleriyle|aile} otururken {kapı} {çalındı|çalınmak}. {Dedeleri|dede} önce kimin geldiğini sordu. {Pencereden|pencere} bakıp kapıyı {araladı|aralamak}. {Yaşlı} bir adamla küçük bir kız vardı. Çocuklar {salonda|salon} {konuşmayı|konuşma} dinledi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "İzmir kışları ılık ama yağmurlu geçer. Kapı çalındığında önce kimin geldiğini sormak, pencereden bakmak ve tanımadığımız birine kapıyı büyüklerimiz açmak güvenliğimiz için önemlidir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "../davulcu-dede/art/p4-arka.webp",
+          "floor": "../davulcu-dede/art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.03,
+                0.12,
+                0.22,
+                0.42
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.35,
+                0.13,
+                0.32,
+                0.63
+              ]
+            }
+          ],
+          "tint": "#A49AC2",
+          "floorTint": "#A49AC2"
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "panel",
+          "id": "kapi",
+          "decal": "/books/davulcu-dede/art/p4-kapi.png",
+          "x": -0.15,
+          "z": 0.012,
+          "y": 0.216,
+          "w": 0.32,
+          "h": 0.56,
+          "word": "kapı"
+        },
+        {
+          "proc": "yagmurKapi",
+          "id": "yagmur",
+          "x": 0.01,
+          "z": 0.006,
+          "y": 0.216,
+          "h": 0.5,
+          "fx": "rainfall"
+        },
+        {
+          "proc": "yagmurPencere",
+          "x": -0.36,
+          "z": 0.006,
+          "y": 0.42,
+          "h": 0.36,
+          "fx": "rainfall"
+        },
+        {
+          "proc": "portmantoBos",
+          "word": "portmanto",
+          "x": 0.4,
+          "z": 0.12,
+          "h": 0.57
+        },
+        {
+          "proc": "bubble",
+          "id": "b_dede",
+          "label": "Kim o?",
+          "color": "#8A5A2B",
+          "x": 0.3,
+          "z": 0.5,
+          "y": 0.595,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "dede",
+          "x": 0.3,
+          "z": 0.5,
+          "rotY": -40,
+          "look": "reader"
+        },
+        {
+          "id": "babaanne",
+          "x": 0.42,
+          "z": 0.64,
+          "rotY": -40,
+          "look": "dede"
+        },
+        {
+          "id": "elif",
+          "x": 0.36,
+          "z": 0.84,
+          "rotY": -30,
+          "look": "kapi"
+        },
+        {
+          "id": "can",
+          "x": 0.22,
+          "z": 0.86,
+          "rotY": -20,
+          "look": "kapi"
+        },
+        {
+          "id": "yolcu",
+          "x": 0.0,
+          "z": 0.08,
+          "rotY": 0,
+          "look": "dede",
+          "hidden": true,
+          "hold": "semsiye"
+        },
+        {
+          "id": "melek",
+          "x": 0.12,
+          "z": 0.1,
+          "rotY": 0,
+          "look": "dede",
+          "hidden": true
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "yağmur"
+          ],
+          "who": "dede",
+          "do": "lookAt",
+          "target": "kapi",
+          "len": 1.4,
+          "sound": "rain"
+        },
+        {
+          "cue": [
+            "kapı"
+          ],
+          "who": "kapi",
+          "do": "shine",
+          "sound": "knock",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çalındı"
+          ],
+          "who": "dede",
+          "do": "turn",
+          "face": -137,
+          "look": "kapi"
+        },
+        {
+          "cue": [
+            "çalındı"
+          ],
+          "who": "can",
+          "do": "hop",
+          "look": "kapi",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "dedeleri"
+          ],
+          "who": "b_dede",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "dedeleri"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "kapi",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "pencereden"
+          ],
+          "who": "b_dede",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "pencereden"
+          ],
+          "who": "dede",
+          "do": "walkTo",
+          "to": [
+            -0.52,
+            0,
+            -0.171
+          ],
+          "face": -60,
+          "look": "kapi",
+          "focus": true
+        },
+        {
+          "cue": [
+            "araladı"
+          ],
+          "who": "kapi",
+          "do": "turn",
+          "face": -50
+        },
+        {
+          "cue": [
+            "araladı"
+          ],
+          "who": "yolcu",
+          "do": "enter",
+          "to": [
+            0.02,
+            0,
+            0.098
+          ],
+          "look": "dede",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "yaşlı"
+          ],
+          "who": "melek",
+          "do": "enter",
+          "to": [
+            0.0,
+            0,
+            0.122
+          ],
+          "look": "dede",
+          "focus": true
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "melek",
+          "len": 2.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "dinledi"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "yolcu"
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "title": {
+        "tr": "Kapıdaki misafirler",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Yolcu} {torunu|torun} {Melek’le|Melek} {arabaları|araba} {bozulduğu|bozulmak} için yağmurda kaldıklarını anlattı. Dedeleri {tanıdığı|tanımak} {tamirciyi|tamirci} {aradı|aramak}. Yolcunun ailesine {haber verdiler|haber vermek}. Tamirci gelene kadar {misafirlerini|misafir} {ağırlayacaklardı|ağırlamak}. Babaanneleri “{Buyurun|buyurmak}, {ısının|ısınmak}.” dedi. Melek kendini {tanıttı|tanıtmak}. Elif salondaki boş {koltuğu|koltuk} {gösterdi|göstermek}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Türk kültüründe yardıma ihtiyacı olan misafir güler yüzle karşılanır. “Buyurun” sözü hem içeri davet etmek hem de bir şey ikram etmek için kullanılır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "../davulcu-dede/art/p4-arka.webp",
+          "floor": "../davulcu-dede/art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.03,
+                0.12,
+                0.22,
+                0.42
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.35,
+                0.13,
+                0.32,
+                0.63
+              ]
+            }
+          ],
+          "tint": "#A49AC2",
+          "floorTint": "#A49AC2"
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "panel",
+          "id": "kapi",
+          "decal": "/books/davulcu-dede/art/p4-kapi.png",
+          "x": -0.15,
+          "z": 0.012,
+          "y": 0.216,
+          "w": 0.32,
+          "h": 0.56,
+          "word": "kapı",
+          "rotY": -95
+        },
+        {
+          "proc": "yagmurKapi",
+          "id": "yagmur",
+          "x": 0.01,
+          "z": 0.006,
+          "y": 0.216,
+          "h": 0.5,
+          "fx": "rainfall"
+        },
+        {
+          "proc": "yagmurPencere",
+          "x": -0.36,
+          "z": 0.006,
+          "y": 0.42,
+          "h": 0.36,
+          "fx": "rainfall"
+        },
+        {
+          "proc": "portmantoBos",
+          "word": "portmanto",
+          "x": 0.4,
+          "z": 0.12,
+          "h": 0.57
+        },
+        {
+          "proc": "semsiyeKapali",
+          "word": "şemsiye",
+          "x": -0.22,
+          "z": 0.2,
+          "h": 0.3
+        },
+        {
+          "proc": "bubble",
+          "id": "b_babaanne",
+          "label": "Buyurun, ısının.",
+          "color": "#C2185B",
+          "x": 0.36,
+          "z": 0.6,
+          "y": 0.56,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "yolcu",
+          "x": 0.02,
+          "z": 0.34,
+          "rotY": 30,
+          "look": "dede"
+        },
+        {
+          "id": "melek",
+          "x": 0.14,
+          "z": 0.4,
+          "rotY": 20,
+          "look": "elif"
+        },
+        {
+          "id": "dede",
+          "x": -0.26,
+          "z": 0.52,
+          "rotY": 70,
+          "look": "yolcu"
+        },
+        {
+          "id": "babaanne",
+          "x": 0.36,
+          "z": 0.6,
+          "rotY": -60,
+          "look": "melek"
+        },
+        {
+          "id": "elif",
+          "x": 0.2,
+          "z": 0.8,
+          "rotY": -20,
+          "look": "melek"
+        },
+        {
+          "id": "can",
+          "x": 0.36,
+          "z": 0.84,
+          "rotY": -30,
+          "look": "melek"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "yolcu"
+          ],
+          "who": "yolcu",
+          "do": "talk",
+          "look": "dede",
+          "len": 3.0,
+          "focus": true
+        },
+        {
+          "cue": [
+            "bozulduğu"
+          ],
+          "who": "melek",
+          "do": "nod",
+          "look": "dede"
+        },
+        {
+          "cue": [
+            "dedeleri"
+          ],
+          "who": "dede",
+          "do": "receive",
+          "target": "telefon",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "aradı"
+          ],
+          "who": "dede",
+          "do": "useTool",
+          "style": "ear",
+          "to": [
+            0.0,
+            0.04,
+            0.08
+          ],
+          "look": "reader",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "haber"
+          ],
+          "who": "yolcu",
+          "do": "nod",
+          "look": "dede"
+        },
+        {
+          "cue": [
+            "ağırlayacaklardı"
+          ],
+          "who": "dede",
+          "do": "give",
+          "look": "yolcu"
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "b_babaanne",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "babaanne",
+          "do": "offer",
+          "look": "yolcu",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "melek"
+          ],
+          "who": "b_babaanne",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "melek"
+          ],
+          "who": "melek",
+          "do": "wave",
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "tanıttı"
+          ],
+          "who": "elif",
+          "do": "wave",
+          "look": "melek"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "point",
+          "target": "right",
+          "look": "melek",
+          "len": 1.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "gösterdi"
+          ],
+          "who": "melek",
+          "do": "hop",
+          "look": "elif"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "title": {
+        "tr": "Kapıdaki ayakkabılar",
+        "en": ""
+      },
+      "text": {
+        "tr": "Babaanneleri “Evde {ayakkabılarımızı|ayakkabı} {çıkarıyoruz|çıkarmak}. Size {terlik} verebilirim.” dedi. Melek {ıslak} ayakkabılarını çıkardı. Can terlik getirdi. Elif {arkadaşlarının|arkadaş} evlerinde farklı {kurallar|kural} olabildiğini anlattı. Yolcu “Misafir olunca {sormak} iyi oluyor.” dedi. Babaanneleri {paltoları|palto} {astı|asmak}. Herkes {yerleşince|yerleşmek} {sohbet} başladı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Türk evlerinde içeri girerken ayakkabılar kapının önünde çıkarılır; misafire terlik uzatılır. Böylece ev temiz kalır. Farklı evlerin farklı kuralları olabilir; emin olmadığımızda sormak en güzel yoldur.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "../davulcu-dede/art/p4-arka.webp",
+          "floor": "../davulcu-dede/art/p1-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.03,
+                0.12,
+                0.22,
+                0.42
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.35,
+                0.13,
+                0.32,
+                0.63
+              ]
+            }
+          ],
+          "tint": "#A49AC2",
+          "floorTint": "#A49AC2"
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "panel",
+          "id": "kapi",
+          "decal": "/books/davulcu-dede/art/p4-kapi.png",
+          "x": -0.15,
+          "z": 0.012,
+          "y": 0.216,
+          "w": 0.32,
+          "h": 0.56,
+          "word": "kapı",
+          "rotY": -95
+        },
+        {
+          "proc": "yagmurKapi",
+          "id": "yagmur",
+          "x": 0.01,
+          "z": 0.006,
+          "y": 0.216,
+          "h": 0.5,
+          "fx": "rainfall"
+        },
+        {
+          "proc": "yagmurPencere",
+          "x": -0.36,
+          "z": 0.006,
+          "y": 0.42,
+          "h": 0.36,
+          "fx": "rainfall"
+        },
+        {
+          "proc": "portmantoBos",
+          "id": "portmantoBos",
+          "word": "portmanto",
+          "x": 0.4,
+          "z": 0.12,
+          "h": 0.57
+        },
+        {
+          "proc": "portmanto",
+          "id": "portmanto",
+          "word": "palto",
+          "x": 0.4,
+          "z": 0.12,
+          "h": 0.57,
+          "hidden": true
+        },
+        {
+          "proc": "semsiyeKapali",
+          "word": "şemsiye",
+          "x": -0.22,
+          "z": 0.2,
+          "h": 0.3
+        },
+        {
+          "proc": "ayakkabilarKirmizi",
+          "id": "ayakkabi",
+          "word": "ayakkabı",
+          "x": 0.04,
+          "z": 0.3,
+          "h": 0.03,
+          "hidden": true
+        },
+        {
+          "proc": "terliklerMavi",
+          "id": "terlik",
+          "word": "terlik",
+          "x": 0.16,
+          "z": 0.5,
+          "h": 0.03,
+          "hidden": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_babaanne",
+          "label": "Evde ayakkabı çıkarıyoruz.",
+          "color": "#C2185B",
+          "x": 0.36,
+          "z": 0.6,
+          "y": 0.56,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_yolcu",
+          "label": "Misafir olunca sormak iyi oluyor.",
+          "color": "#455A64",
+          "x": 0.02,
+          "z": 0.34,
+          "y": 0.59,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "yolcu",
+          "x": 0.02,
+          "z": 0.34,
+          "rotY": 30,
+          "look": "babaanne"
+        },
+        {
+          "id": "melek",
+          "x": 0.14,
+          "z": 0.4,
+          "rotY": 20,
+          "look": "babaanne"
+        },
+        {
+          "id": "babaanne",
+          "x": 0.36,
+          "z": 0.6,
+          "rotY": -60,
+          "look": "melek"
+        },
+        {
+          "id": "elif",
+          "x": 0.2,
+          "z": 0.8,
+          "rotY": -20,
+          "look": "melek"
+        },
+        {
+          "id": "can",
+          "x": 0.6,
+          "z": 0.72,
+          "rotY": -90,
+          "look": "melek",
+          "hold": "terlikEl"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "b_babaanne",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "babaanne",
+          "do": "talk",
+          "look": "melek",
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "melek"
+          ],
+          "who": "b_babaanne",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "melek"
+          ],
+          "who": "melek",
+          "do": "bend",
+          "look": "down",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "çıkardı"
+          ],
+          "who": "ayakkabi",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.36,
+            0,
+            -0.22
+          ],
+          "face": -120,
+          "look": "melek",
+          "focus": true
+        },
+        {
+          "cue": [
+            "getirdi"
+          ],
+          "who": "can",
+          "do": "put",
+          "look": "down"
+        },
+        {
+          "cue": [
+            "getirdi"
+          ],
+          "who": "terlik",
+          "do": "appear",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "getirdi"
+          ],
+          "who": "melek",
+          "do": "cheer",
+          "look": "can",
+          "wait": 0.8
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "melek",
+          "len": 2.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "yolcu"
+          ],
+          "who": "b_yolcu",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "yolcu"
+          ],
+          "who": "yolcu",
+          "do": "talk",
+          "look": "babaanne",
+          "len": 2.2
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "b_yolcu",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "babaanne",
+          "do": "walkTo",
+          "to": [
+            0.02,
+            0,
+            -0.464
+          ],
+          "face": 150,
+          "look": "portmanto",
+          "focus": true
+        },
+        {
+          "cue": [
+            "astı"
+          ],
+          "who": "portmantoBos",
+          "do": "switchOff"
+        },
+        {
+          "cue": [
+            "astı"
+          ],
+          "who": "portmanto",
+          "do": "switchOn"
+        },
+        {
+          "cue": [
+            "herkes"
+          ],
+          "who": "yolcu",
+          "do": "nod",
+          "look": "babaanne",
+          "focus": true
+        },
+        {
+          "cue": [
+            "sohbet"
+          ],
+          "who": "melek",
+          "do": "talk",
+          "look": "elif",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "sohbet"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "melek",
+          "wait": 0.4
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "title": {
+        "tr": "Sıcak bir tas çorba",
+        "en": ""
+      },
+      "text": {
+        "tr": "{Babaları|baba} {çorbayı|çorba} {ısıtırken|ısıtmak} babaanneleri misafirlerin {yiyemediği|yemek} bir şey olup olmadığını sordu. Melek {mercimek} çorbasını sevdiğini söyledi. Elif {izin} isteyip {battaniye} getirdi. Büyükler {çay}, çocuklar {su} içti. Can {sofraya|sofra} {ekmek} koydu. Melek {ısınınca|ısınmak} Elif’e okulda sevdiği bir oyunu anlattı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Mercimek çorbası Türk mutfağının en sevilen, en kolay ikram edilen yemeklerindendir. Misafire yemekten önce yiyemediği ya da alerjisi olan bir şey olup olmadığını sormak inceliktir.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "../bayram-sabahi/art/p3-arka.webp",
+          "floor": "../bayram-sabahi/art/p3-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.09,
+                0.0,
+                0.33,
+                0.33
+              ]
+            },
+            {
+              "word": "çaydanlık",
+              "rect": [
+                0.6,
+                0.13,
+                0.11,
+                0.12
+              ]
+            },
+            {
+              "word": "çini",
+              "rect": [
+                0.0,
+                0.31,
+                1.0,
+                0.13
+              ]
+            }
+          ],
+          "tint": "#8E86AE",
+          "floorTint": "#8E86AE"
+        }
+      ],
+      "ambience": "kitchen",
+      "models": [
+        {
+          "proc": "turnuvaMasasi",
+          "word": "masa",
+          "x": 0.0,
+          "z": 0.56,
+          "h": 0.24
+        },
+        {
+          "proc": "sandalye",
+          "word": "sandalye",
+          "x": -0.27,
+          "z": 0.56,
+          "h": 0.28,
+          "rotY": 90
+        },
+        {
+          "proc": "corbaKaseleri",
+          "id": "corba",
+          "word": "çorba",
+          "x": 0.0,
+          "z": 0.52,
+          "y": 0.235,
+          "h": 0.03,
+          "hidden": true,
+          "steam": true
+        },
+        {
+          "src": "/models/culture/cay.glb",
+          "id": "cay1",
+          "word": "çay",
+          "x": 0.1,
+          "z": 0.6200000000000001,
+          "y": 0.235,
+          "h": 0.035,
+          "hidden": true
+        },
+        {
+          "src": "/models/culture/cay.glb",
+          "id": "cay2",
+          "word": "çay",
+          "x": 0.15,
+          "z": 0.6000000000000001,
+          "y": 0.235,
+          "h": 0.035,
+          "hidden": true
+        },
+        {
+          "proc": "ekmekSepeti",
+          "id": "ekmek",
+          "word": "ekmek",
+          "x": -0.08,
+          "z": 0.6300000000000001,
+          "y": 0.235,
+          "h": 0.04,
+          "hidden": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_melek",
+          "label": "Mercimek çorbası!",
+          "color": "#E65100",
+          "x": -0.27,
+          "z": 0.56,
+          "y": 0.364,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "baba",
+          "x": 0.36,
+          "z": 0.24,
+          "rotY": 160,
+          "look": "down"
+        },
+        {
+          "id": "melek",
+          "x": -0.27,
+          "z": 0.56,
+          "y": -0.016,
+          "rotY": 90,
+          "pose": "sit",
+          "look": "babaanne"
+        },
+        {
+          "id": "babaanne",
+          "x": 0.0,
+          "z": 0.36,
+          "rotY": -20,
+          "look": "melek"
+        },
+        {
+          "id": "yolcu",
+          "x": 0.3,
+          "z": 0.62,
+          "rotY": -80,
+          "look": "melek"
+        },
+        {
+          "id": "elif",
+          "x": -0.5,
+          "z": 0.78,
+          "rotY": 60,
+          "look": "melek",
+          "hidden": true,
+          "hold": "battaniye"
+        },
+        {
+          "id": "can",
+          "x": 0.22,
+          "z": 0.84,
+          "rotY": -40,
+          "look": "melek",
+          "hold": "ekmekSepetiEl"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "babaları"
+          ],
+          "who": "baba",
+          "do": "useTool",
+          "style": "tap",
+          "look": "down",
+          "len": 2.2,
+          "focus": true
+        },
+        {
+          "cue": [
+            "çorbayı"
+          ],
+          "who": "corba",
+          "do": "appear",
+          "wait": 1.2
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "babaanne",
+          "do": "talk",
+          "look": "melek",
+          "len": 2.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "mercimek"
+          ],
+          "who": "b_melek",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "mercimek"
+          ],
+          "who": "melek",
+          "do": "nod",
+          "look": "babaanne"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "b_melek",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "enter",
+          "to": [
+            0.16,
+            0,
+            -0.122
+          ],
+          "face": 40,
+          "look": "melek",
+          "focus": true
+        },
+        {
+          "cue": [
+            "getirdi"
+          ],
+          "who": "elif",
+          "do": "give",
+          "look": "melek"
+        },
+        {
+          "cue": [
+            "getirdi"
+          ],
+          "who": "melek",
+          "do": "receive",
+          "target": "battaniye",
+          "look": "elif",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "büyükler"
+          ],
+          "who": "cay1",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "büyükler"
+          ],
+          "who": "cay2",
+          "do": "appear",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "çay"
+          ],
+          "who": "yolcu",
+          "do": "nod",
+          "look": "babaanne"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.2,
+            0,
+            -0.171
+          ],
+          "face": -20,
+          "look": "ekmek",
+          "focus": true
+        },
+        {
+          "cue": [
+            "koydu"
+          ],
+          "who": "can",
+          "do": "offer",
+          "look": "ekmek",
+          "len": 1.2
+        },
+        {
+          "cue": [
+            "koydu"
+          ],
+          "who": "can",
+          "do": "give"
+        },
+        {
+          "cue": [
+            "koydu"
+          ],
+          "who": "ekmek",
+          "do": "appear",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "melek"
+          ],
+          "who": "melek",
+          "do": "talk",
+          "look": "elif",
+          "len": 2.6,
+          "focus": true
+        },
+        {
+          "cue": [
+            "anlattı"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "melek"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "title": {
+        "tr": "Tanrı misafiri",
+        "en": ""
+      },
+      "text": {
+        "tr": "Yolcu {teşekkür etti|teşekkür etmek}. Dedeleri “{Habersiz} gelen {konuğa|konuk} {Tanrı misafiri} denir.” dedi. Can bu sözü ilk kez duyuyordu. Babaanneleri “Geleceğinizi bilmiyorduk, şimdi {tanıştık|tanışmak}.” diye {açıkladı|açıklamak}. {Karşılık} {beklemiyorlardı|beklemek}. Dedeleri tamirciyle konuştu. Melek {babasını|baba} arayıp nerede olduklarını anlattı.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Önceden haber vermeden gelen konuğa “Tanrı misafiri” denir. Anadolu’da böyle bir misafir bereket sayılır; ona karşılık beklemeden yer, yemek ve sıcak bir köşe sunulur.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "../bayram-sabahi/art/p4-arka.webp",
+          "floor": "../bayram-sabahi/art/p4-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.18,
+                0.0,
+                0.5,
+                0.32
+              ]
+            },
+            {
+              "word": "Saat Kulesi",
+              "rect": [
+                0.68,
+                0.07,
+                0.19,
+                0.32
+              ]
+            },
+            {
+              "word": "koltuk",
+              "rect": [
+                0.01,
+                0.37,
+                0.69,
+                0.3
+              ]
+            },
+            {
+              "word": "halı",
+              "rect": [
+                0.0,
+                0.66,
+                0.98,
+                0.22
+              ]
+            }
+          ],
+          "tint": "#A49AC2",
+          "floorTint": "#A49AC2"
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "bubble",
+          "id": "b_dede",
+          "label": "Tanrı misafiri!",
+          "color": "#8A5A2B",
+          "x": -0.28,
+          "z": 0.5,
+          "y": 0.595,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_can",
+          "label": "Tanrı misafiri?",
+          "color": "#2F6DC4",
+          "x": -0.08,
+          "z": 0.8,
+          "y": 0.41,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_babaanne",
+          "label": "Şimdi tanıştık.",
+          "color": "#C2185B",
+          "x": -0.4,
+          "z": 0.62,
+          "y": 0.56,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "yolcu",
+          "x": 0.24,
+          "z": 0.48,
+          "rotY": -60,
+          "look": "dede"
+        },
+        {
+          "id": "melek",
+          "x": 0.12,
+          "z": 0.66,
+          "rotY": -30,
+          "look": "dede",
+          "hold": "battaniye"
+        },
+        {
+          "id": "dede",
+          "x": -0.28,
+          "z": 0.5,
+          "rotY": 60,
+          "look": "yolcu"
+        },
+        {
+          "id": "babaanne",
+          "x": -0.4,
+          "z": 0.62,
+          "rotY": 60,
+          "look": "yolcu"
+        },
+        {
+          "id": "can",
+          "x": -0.08,
+          "z": 0.8,
+          "rotY": -10,
+          "look": "dede"
+        },
+        {
+          "id": "elif",
+          "x": 0.3,
+          "z": 0.8,
+          "rotY": -40,
+          "look": "melek"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "yolcu"
+          ],
+          "who": "yolcu",
+          "do": "bow",
+          "look": "dede",
+          "focus": true
+        },
+        {
+          "cue": [
+            "dedeleri"
+          ],
+          "who": "b_dede",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "dedeleri"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "can",
+          "len": 2.8
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "b_dede",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "b_can",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "dede",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "b_can",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "b_babaanne",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "babaanneleri"
+          ],
+          "who": "babaanne",
+          "do": "talk",
+          "look": "yolcu",
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "karşılık"
+          ],
+          "who": "b_babaanne",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "karşılık"
+          ],
+          "who": "yolcu",
+          "do": "nod",
+          "look": "babaanne"
+        },
+        {
+          "cue": [
+            "dedeleri"
+          ],
+          "who": "dede",
+          "do": "receive",
+          "target": "telefon",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "konuştu"
+          ],
+          "who": "dede",
+          "do": "useTool",
+          "style": "ear",
+          "to": [
+            0.0,
+            0.04,
+            0.08
+          ],
+          "look": "reader",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "melek"
+          ],
+          "who": "melek",
+          "do": "receive",
+          "target": "telefon",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "arayıp"
+          ],
+          "who": "melek",
+          "do": "useTool",
+          "style": "ear",
+          "to": [
+            0.0,
+            0.04,
+            0.08
+          ],
+          "look": "reader",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "anlattı"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "melek"
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "title": {
+        "tr": "Tık tık",
+        "en": ""
+      },
+      "text": {
+        "tr": "Elif ile Melek oynarken Can kapıyı {açtı|açmak}. İkisi {irkildi|irkilmek}. Elif “Önce kapıyı çalar mısın?” diye sordu. Can {dışarı} çıkıp kapıyı {tıklattı|tıklatmak}. “{Oynayabilir miyim|oynamak}?” dedi. {Annesi|anne} {Huriye Hanım} “{Odaya|oda} girerken, başkasının {eşyasını|eşya} kullanırken izin isteriz.” dedi. Can {daveti|davet} bekledi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Kapalı bir kapıyı çalıp “Girebilir miyim?” diye sormak, içerideki kişinin özel alanına saygıdır. Başkasının eşyasını kullanmadan önce izin istemek de aynı saygının parçasıdır.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/oda-arka.webp",
+          "floor": "art/oda-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.53,
+                0.12,
+                0.2,
+                0.36
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.08,
+                0.2,
+                0.23,
+                0.54
+              ]
+            },
+            {
+              "word": "oyuncak",
+              "rect": [
+                0.42,
+                0.55,
+                0.1,
+                0.12
+              ]
+            },
+            {
+              "word": "masa",
+              "rect": [
+                0.62,
+                0.56,
+                0.1,
+                0.1
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "panel",
+          "id": "kapi",
+          "decal": "/books/yolcu-misafir/art/oda-kapi.webp",
+          "x": -0.42,
+          "z": 0.012,
+          "y": 0.234,
+          "w": 0.226,
+          "h": 0.487,
+          "word": "kapı"
+        },
+        {
+          "proc": "oyuncaklar",
+          "id": "oyuncaklar",
+          "word": "oyuncak",
+          "x": 0.15,
+          "z": 0.7,
+          "h": 0.1
+        },
+        {
+          "proc": "bubble",
+          "id": "b_elif",
+          "label": "Önce kapıyı çalar mısın?",
+          "color": "#7B4BB7",
+          "x": 0.06,
+          "z": 0.6,
+          "y": 0.465,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_can",
+          "label": "Oynayabilir miyim?",
+          "color": "#2F6DC4",
+          "x": -0.25,
+          "z": 0.06,
+          "y": 0.5,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_anne",
+          "label": "İzin isteriz.",
+          "color": "#D2372C",
+          "x": 0.4,
+          "z": 0.42,
+          "y": 0.57,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "elif",
+          "x": 0.06,
+          "z": 0.6,
+          "rotY": 60,
+          "look": "oyuncaklar"
+        },
+        {
+          "id": "melek",
+          "x": 0.24,
+          "z": 0.6,
+          "rotY": -60,
+          "look": "oyuncaklar"
+        },
+        {
+          "id": "anne",
+          "x": 0.4,
+          "z": 0.42,
+          "rotY": -60,
+          "look": "elif"
+        },
+        {
+          "id": "can",
+          "x": -0.31,
+          "z": 0.08,
+          "rotY": 20,
+          "look": "elif",
+          "hidden": true
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "bend",
+          "look": "oyuncaklar",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "melek"
+          ],
+          "who": "melek",
+          "do": "bend",
+          "look": "oyuncaklar",
+          "len": 1.4,
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "açtı"
+          ],
+          "who": "kapi",
+          "do": "turn",
+          "face": -95,
+          "focus": true
+        },
+        {
+          "cue": [
+            "açtı"
+          ],
+          "who": "can",
+          "do": "enter",
+          "to": [
+            0.06,
+            0,
+            0.122
+          ],
+          "look": "elif",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "irkildi"
+          ],
+          "who": "elif",
+          "do": "hop",
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "irkildi"
+          ],
+          "who": "melek",
+          "do": "hop",
+          "look": "can",
+          "wait": 0.15
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "b_elif",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "can",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "b_elif",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "exit",
+          "to": [
+            -0.06,
+            0,
+            -0.146
+          ],
+          "focus": true
+        },
+        {
+          "cue": [
+            "çıkıp"
+          ],
+          "who": "kapi",
+          "do": "turn",
+          "face": 0,
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "tıklattı"
+          ],
+          "who": "kapi",
+          "do": "shine",
+          "sound": "knock"
+        },
+        {
+          "cue": [
+            "oynayabilir"
+          ],
+          "who": "b_can",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "annesi"
+          ],
+          "who": "b_can",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "annesi"
+          ],
+          "who": "b_anne",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "annesi"
+          ],
+          "who": "anne",
+          "do": "talk",
+          "look": "elif",
+          "len": 3.2
+        },
+        {
+          "cue": [
+            "bekledi"
+          ],
+          "who": "b_anne",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "bekledi"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "kapi",
+          "focus": true
+        },
+        {
+          "cue": [
+            "bekledi"
+          ],
+          "who": "melek",
+          "do": "wave",
+          "look": "kapi",
+          "wait": 0.5
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "title": {
+        "tr": "Yolunuz açık olsun",
+        "en": ""
+      },
+      "text": {
+        "tr": "Araba {onarılınca|onarmak} yolcu gitmeye {hazırlandı|hazırlanmak}. Melek Elif’e {nazar boncuğu} {uzattı|uzatmak}. “{Tanışmamızın|tanışmak} {hatırası|hatıra} olsun.” dedi. Elif {mavi} {boncuğa|boncuk} baktı. {Fatma babaanne} yolda yemeleri için {kurabiye} {hazırlamıştı|hazırlamak}. {Ahmet dede} “Yolunuz açık olsun!” diyerek {uğurladı|uğurlamak}. Melek arabadan {el salladı|el sallamak}. Yağmur {azalmıştı|azalmak}.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Nazar boncuğu, kötü bakışlardan koruduğuna inanılan mavi bir camdır; bugün çoğunlukla güzel bir hatıra olarak hediye edilir. Yola çıkanlar “Yolunuz açık olsun!” diye uğurlanır, arkalarından bazen su dökülür.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "../davulcu-dede/art/p5-arka.webp",
+          "floor": "../davulcu-dede/art/p2-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "ay",
+              "rect": [
+                0.39,
+                0.15,
+                0.07,
+                0.09
+              ]
+            },
+            {
+              "word": "cumba",
+              "rect": [
+                0.12,
+                0.08,
+                0.22,
+                0.32
+              ]
+            },
+            {
+              "word": "ağaç",
+              "rect": [
+                0.85,
+                0.0,
+                0.15,
+                0.75
+              ]
+            },
+            {
+              "word": "sokak",
+              "rect": [
+                0.3,
+                0.6,
+                0.4,
+                0.35
+              ]
+            }
+          ],
+          "floorTint": "#8E93BC"
+        }
+      ],
+      "ambience": "crickets",
+      "models": [
+        {
+          "proc": "yagmurSokak",
+          "id": "yagmur",
+          "x": 0.0,
+          "z": 0.03,
+          "y": 0.0,
+          "h": 0.85,
+          "fx": "rainfall"
+        },
+        {
+          "proc": "araba",
+          "id": "araba",
+          "word": "araba",
+          "x": 0.24,
+          "z": 0.42,
+          "h": 0.2,
+          "rotY": 180
+        },
+        {
+          "src": "/models/culture/nazar.glb",
+          "id": "nazar",
+          "word": "nazar boncuğu",
+          "x": -0.11,
+          "z": 0.63,
+          "y": 0.27,
+          "h": 0.06,
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_melek",
+          "label": "Hatıra olsun.",
+          "color": "#E65100",
+          "x": -0.04,
+          "z": 0.6,
+          "y": 0.45,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_dede",
+          "label": "Yolunuz açık olsun!",
+          "color": "#8A5A2B",
+          "x": -0.4,
+          "z": 0.56,
+          "y": 0.595,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "yolcu",
+          "x": 0.06,
+          "z": 0.52,
+          "rotY": -60,
+          "look": "dede",
+          "hold": "semsiye"
+        },
+        {
+          "id": "melek",
+          "x": -0.04,
+          "z": 0.6,
+          "rotY": -60,
+          "look": "elif"
+        },
+        {
+          "id": "elif",
+          "x": -0.18,
+          "z": 0.66,
+          "rotY": 60,
+          "look": "melek"
+        },
+        {
+          "id": "babaanne",
+          "x": -0.26,
+          "z": 0.5,
+          "rotY": 50,
+          "look": "yolcu",
+          "hold": "kurabiyeKutusuEl"
+        },
+        {
+          "id": "dede",
+          "x": -0.4,
+          "z": 0.56,
+          "rotY": 50,
+          "look": "yolcu"
+        },
+        {
+          "id": "can",
+          "x": -0.36,
+          "z": 0.76,
+          "rotY": 40,
+          "look": "melek"
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "araba"
+          ],
+          "who": "araba",
+          "do": "shine",
+          "focus": true
+        },
+        {
+          "cue": [
+            "hazırlandı"
+          ],
+          "who": "yolcu",
+          "do": "nod",
+          "look": "dede"
+        },
+        {
+          "cue": [
+            "melek"
+          ],
+          "who": "melek",
+          "do": "offer",
+          "look": "elif",
+          "len": 1.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "uzattı"
+          ],
+          "who": "nazar",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "tanışmamızın"
+          ],
+          "who": "b_melek",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "b_melek",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "nazar",
+          "len": 1.8,
+          "focus": true
+        },
+        {
+          "cue": [
+            "boncuğa"
+          ],
+          "who": "nazar",
+          "do": "spin"
+        },
+        {
+          "cue": [
+            "boncuğa"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "melek",
+          "wait": 1.0
+        },
+        {
+          "cue": [
+            "fatma"
+          ],
+          "who": "babaanne",
+          "do": "walkTo",
+          "to": [
+            0.2,
+            0,
+            0.0
+          ],
+          "face": 90,
+          "look": "yolcu",
+          "focus": true
+        },
+        {
+          "cue": [
+            "hazırlamıştı"
+          ],
+          "who": "babaanne",
+          "do": "give",
+          "look": "yolcu"
+        },
+        {
+          "cue": [
+            "hazırlamıştı"
+          ],
+          "who": "yolcu",
+          "do": "receive",
+          "target": "kurabiyeKutusuEl",
+          "look": "babaanne",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "ahmet"
+          ],
+          "who": "b_dede",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ahmet"
+          ],
+          "who": "dede",
+          "do": "wave",
+          "look": "yolcu"
+        },
+        {
+          "cue": [
+            "uğurladı"
+          ],
+          "who": "b_dede",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "uğurladı"
+          ],
+          "who": "nazar",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "uğurladı"
+          ],
+          "who": "yolcu",
+          "do": "exit",
+          "to": [
+            0.12,
+            0,
+            -0.024
+          ]
+        },
+        {
+          "cue": [
+            "melek"
+          ],
+          "who": "melek",
+          "do": "wave",
+          "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "melek"
+          ],
+          "who": "melek",
+          "do": "exit",
+          "to": [
+            0.13999999999999996,
+            0,
+            -0.098
+          ],
+          "wait": 1.2
+        },
+        {
+          "cue": [
+            "salladı"
+          ],
+          "who": "elif",
+          "do": "wave",
+          "look": "araba"
+        },
+        {
+          "cue": [
+            "salladı"
+          ],
+          "who": "can",
+          "do": "wave",
+          "look": "araba",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "salladı"
+          ],
+          "who": "araba",
+          "do": "slide",
+          "to": [
+            -0.9,
+            0,
+            0
+          ],
+          "len": 3.0,
+          "wait": 0.8
+        },
+        {
+          "cue": [
+            "azalmıştı"
+          ],
+          "who": "yagmur",
+          "do": "switchOff",
+          "focus": true
+        }
+      ]
+    },
+    {
+      "id": "p8",
+      "title": {
+        "tr": "Lütfen kapıyı çalın",
+        "en": ""
+      },
+      "text": {
+        "tr": "Can {kapısına|kapı} “Lütfen kapıyı çalın” yazılı {kart} {astı|asmak}. Annesi kapıyı tıklatıp izin istedi. Can {gülümsedi|gülümsemek}. Elif de oynamaya geldi. Anneleri “Herkesin {özel alanına|özel alan} {saygı duyarız|saygı duymak}. Seni {rahatsız eden|rahatsız etmek} bir şey olursa bana ya da {güvendiğin|güvenmek} bir {yetişkine|yetişkin} anlatabilirsin.” dedi.",
+        "en": ""
+      },
+      "culture": {
+        "tr": "Herkesin bir özel alanı vardır: odası, bedeni, eşyaları ve bilgileri. Bu sınırlara saygı göstermek hem çocuklar hem de yetişkinler için geçerlidir. Bizi rahatsız eden bir şey olduğunda güvendiğimiz bir yetişkine anlatırız.",
+        "en": ""
+      },
+      "layers": [
+        {
+          "src": "art/oda-arka.webp",
+          "floor": "art/oda-zemin.webp",
+          "full": true,
+          "z": 0,
+          "w": 1,
+          "h": 0.9,
+          "hotspots": [
+            {
+              "word": "pencere",
+              "rect": [
+                0.53,
+                0.12,
+                0.2,
+                0.36
+              ]
+            },
+            {
+              "word": "kapı",
+              "rect": [
+                0.08,
+                0.2,
+                0.23,
+                0.54
+              ]
+            },
+            {
+              "word": "oyuncak",
+              "rect": [
+                0.42,
+                0.55,
+                0.1,
+                0.12
+              ]
+            },
+            {
+              "word": "masa",
+              "rect": [
+                0.62,
+                0.56,
+                0.1,
+                0.1
+              ]
+            }
+          ]
+        }
+      ],
+      "ambience": "home",
+      "models": [
+        {
+          "proc": "panel",
+          "id": "kapi",
+          "decal": "/books/yolcu-misafir/art/oda-kapi.webp",
+          "x": -0.42,
+          "z": 0.012,
+          "y": 0.234,
+          "w": 0.226,
+          "h": 0.487,
+          "word": "kapı"
+        },
+        {
+          "proc": "kapiKarti",
+          "id": "kart",
+          "word": "kart",
+          "x": -0.31,
+          "z": 0.018,
+          "y": 0.42,
+          "h": 0.1,
+          "hidden": true,
+          "magic": true
+        },
+        {
+          "proc": "oyuncaklar",
+          "word": "oyuncak",
+          "x": 0.2,
+          "z": 0.66,
+          "h": 0.1
+        },
+        {
+          "proc": "bubble",
+          "id": "b_anne",
+          "label": "Girebilir miyim?",
+          "color": "#D2372C",
+          "x": -0.25,
+          "z": 0.06,
+          "y": 0.6,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_anne2",
+          "label": "Özel alana saygı duyarız.",
+          "color": "#D2372C",
+          "x": -0.18,
+          "z": 0.26,
+          "y": 0.57,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
+        }
+      ],
+      "cast": [
+        {
+          "id": "can",
+          "x": -0.24,
+          "z": 0.32,
+          "rotY": -120,
+          "look": "kapi",
+          "hold": "kapiKartiEl"
+        },
+        {
+          "id": "anne",
+          "x": -0.31,
+          "z": 0.08,
+          "rotY": 30,
+          "look": "can",
+          "hidden": true
+        },
+        {
+          "id": "elif",
+          "x": -0.26,
+          "z": 0.1,
+          "rotY": 30,
+          "look": "can",
+          "hidden": true
+        }
+      ],
+      "beats": [
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.02,
+            0,
+            -0.171
+          ],
+          "face": 180,
+          "look": "kapi",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kart"
+          ],
+          "who": "can",
+          "do": "give",
+          "look": "kapi"
+        },
+        {
+          "cue": [
+            "astı"
+          ],
+          "who": "kart",
+          "do": "appear",
+          "sound": "shine"
+        },
+        {
+          "cue": [
+            "astı"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.3,
+            0,
+            0.293
+          ],
+          "face": -60,
+          "look": "kart",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "annesi"
+          ],
+          "who": "kapi",
+          "do": "shine",
+          "sound": "knock",
+          "focus": true
+        },
+        {
+          "cue": [
+            "annesi"
+          ],
+          "who": "b_anne",
+          "do": "appear",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "gülümsedi"
+          ],
+          "who": "b_anne",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "gülümsedi"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "kapi",
+          "focus": true
+        },
+        {
+          "cue": [
+            "gülümsedi"
+          ],
+          "who": "kart",
+          "do": "switchOff",
+          "wait": 0.8
+        },
+        {
+          "cue": [
+            "gülümsedi"
+          ],
+          "who": "kapi",
+          "do": "turn",
+          "face": -95,
+          "wait": 0.8
+        },
+        {
+          "cue": [
+            "gülümsedi"
+          ],
+          "who": "anne",
+          "do": "enter",
+          "to": [
+            0.12,
+            0,
+            0.195
+          ],
+          "look": "can",
+          "wait": 1.1
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "elif",
+          "do": "enter",
+          "to": [
+            0.3,
+            0,
+            0.366
+          ],
+          "look": "can",
+          "focus": true
+        },
+        {
+          "cue": [
+            "anneleri"
+          ],
+          "who": "b_anne2",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "anneleri"
+          ],
+          "who": "anne",
+          "do": "talk",
+          "look": "can",
+          "len": 3.4
+        },
+        {
+          "cue": [
+            "anlatabilirsin"
+          ],
+          "who": "b_anne2",
+          "do": "vanish",
+          "wait": 1.0
+        },
+        {
+          "cue": [
+            "anlatabilirsin"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "anne"
+        },
+        {
+          "cue": [
+            "anlatabilirsin"
+          ],
+          "who": "elif",
+          "do": "nod",
+          "look": "anne",
+          "wait": 0.3
+        }
+      ]
+    }
+  ]
+}

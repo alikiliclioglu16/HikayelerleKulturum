@@ -114,7 +114,7 @@ export interface PageModel {
   /** A table: things put down above it land on its top, this far up its height (0..1). */
   top?: number;
   /** Gentle life for still objects: trees sway, a pot wobbles, a lantern swings, a plant breathes. */
-  fx?: 'sway' | 'wobble' | 'swing' | 'breathe' | 'bob' | 'spin' | 'grow' | 'wave' | 'glide' | 'float' | 'peck' | 'wheel';
+  fx?: 'sway' | 'wobble' | 'swing' | 'breathe' | 'bob' | 'spin' | 'grow' | 'wave' | 'glide' | 'float' | 'peck' | 'wheel' | 'rainfall';
 }
 
 /** A 3D object on the reading table, around the book (world units, the book is 2 wide). */

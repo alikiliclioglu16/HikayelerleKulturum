@@ -608,7 +608,7 @@
     },
     {
       "id": "yolcu-misafir",
-      "status": "soon",
+      "status": "ready",
       "title": "Kapıdaki Yolcu",
       "titleEn": "The Traveler at the Door",
       "values": [
@@ -623,13 +623,16 @@
       "cover": {
         "art": "cover-soon",
         "color": "#7A4F35",
-        "motif": "misafir"
+        "motif": "misafir",
+        "src": "kapak.webp",
+        "titled": false
       },
       "carpet": {
         "motif": "elibelinde",
         "field": "#4A2638",
         "src": "/halilar/yolcu-misafir.webp"
-      }
+      },
+      "pages": 8
     },
     {
       "id": "dogu-ekspresi",
