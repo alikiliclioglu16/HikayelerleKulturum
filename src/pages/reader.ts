@@ -60,7 +60,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   cultureBtn.addEventListener('click', () => page().culture && cultureSheet(page()));
   const zoomBtn = h('button', { class: 'btn light icon-only', type: 'button', 'aria-label': 'Yakından bak', title: 'Yakından bak', 'aria-pressed': 'false' }, icon.search());
   const controls = h('nav', { class: 'reader-controls', 'aria-label': 'Okuma kontrolleri' }, prevBtn, playBtn, replayBtn, cultureBtn, zoomBtn, nextBtn);
-  const castWait = h('div', { class: 'cast-wait', role: 'status', hidden: true }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), h('span', { class: 'cw-text' }, 'Karakterler sahneye geliyor…'));
+  const castWait = h('div', { class: 'cast-wait', role: 'status', hidden: true }, h('span', { class: 'spinner', 'aria-hidden': 'true' }), h('span', { class: 'cw-text' }, 'Karakterler hazırlanıyor…'));
 
   shell.replaceChildren(sceneHost, bar, textEl, controls, castWait);
 
@@ -78,7 +78,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   const wiggleTimer = window.setInterval(() => !busy && scene.wiggleTableProp(), 7000);
   scene.onCastProgress = (n, total) => {
     castWait.hidden = total === 0 || n >= total;
-    castWait.querySelector('.cw-text')!.textContent = `Karakterler sahneye geliyor… ${n}/${total}`;
+    castWait.querySelector('.cw-text')!.textContent = `Karakterler hazırlanıyor… ${n}/${total}`;
   };
   void scene.setTable(book.table ?? DEFAULT_TABLE);
   scene.setWall(book.id, listingItem.carpet ?? { motif: 'elibelinde' });
@@ -454,7 +454,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
         onBlocked: () => {
           // the browser wants a new tap before it plays the voice
           pause();
-          toast('Sesi başlatmak için “Bana oku” düğmesine dokun.');
+          toast('Dinlemeye başlamak için “Bana oku” düğmesine dokun.');
         },
         onEnd: () => {
           lastWord = -1;
@@ -539,7 +539,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     sfx.magic('yazi');
     store.setSettings({ big: !store.settings.big });
     layout();
-    toast(store.settings.big ? 'Yazı büyüdü. Küçültmek için yazıya yeniden dokun.' : 'Yazı eski boyutunda.');
+    toast(store.settings.big ? 'Yazı büyüdü. Küçültmek için yeniden dokun.' : 'Yazı eski boyutuna döndü.');
   }
   // in the text card (tall screens) a tap between the words does the same
   textEl.addEventListener('click', (e) => {
@@ -676,20 +676,20 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     const v = narrator.voice;
     if (page().audio) {
       sheetWith(
-        'Kayıtlı anlatıcı sesi',
+        'Anlatıcının sesinden dinle',
         onClose,
-        h('p', null, 'Bu kitap, kayıtlı bir anlatıcı sesiyle okunuyor. Okunan kelime parlar, sahnedeki hareketler sesi izler.'),
-        h('p', null, 'Bir kelimeye dokunursanız o kelimeyi anlatıcının sesinden yeniden duyarsınız.'),
+        h('p', null, 'Bu kitabı bir anlatıcının sesinden dinliyorsun. Okunan kelime parlar; sahnedeki hareketler anlatıma eşlik eder.'),
+        h('p', null, 'Bir kelimeye dokunarak onu yeniden dinleyebilirsin.'),
       );
       return;
     }
     sheetWith(
-      v ? 'Türkçe ses hazır' : 'Bu cihazda Türkçe ses yok',
+      v ? 'Türkçe ses hazır' : 'Türkçe ses bulunamadı',
       onClose,
       v
-        ? h('p', null, `Kitap, cihazınızdaki “${v.name}” sesiyle okunuyor.`)
-        : h('p', null, 'Kelimeler okuma hızında sırayla parlayacak; çocuğunuzla birlikte sesli okuyabilirsiniz.'),
-      v ? h('span') : h('p', null, 'Türkçe sesli okuma için Safari (iPhone, iPad, Mac), Microsoft Edge ya da Android’de Chrome kullanın. Windows’ta Ayarlar > Saat ve dil > Konuşma bölümünden Türkçe ses de ekleyebilirsiniz.'),
+        ? h('p', null, `Bu kitabı cihazındaki “${v.name}” sesiyle dinliyorsun.`)
+        : h('p', null, 'Kelimeler sırayla parlayacak. Kitabı bir yetişkinle birlikte sesli okuyabilirsin.'),
+      v ? h('span') : h('p', null, 'Sesli dinlemek için cihazın dil ve konuşma ayarlarını bir yetişkinle kontrol et.'),
     );
   }
 
@@ -751,7 +751,7 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   try {
     if (!sessionStorage.getItem('hk:ipucu')) {
       sessionStorage.setItem('hk:ipucu', '1');
-      window.setTimeout(() => toast('Kelimelere dokun, dinle. Yazıya dokun, büyüsün. Büyüteçle sahneye yakından bak.'), 1200);
+      window.setTimeout(() => toast('Bir kelimeyi dinlemek için ona dokun. Yazıyı büyütmek için metne dokun. Sahneyi yakından görmek için büyüteci seç.'), 1200);
     }
   } catch {
     /* private mode */

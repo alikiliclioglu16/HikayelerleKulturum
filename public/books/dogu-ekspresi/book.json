@@ -7,14 +7,14 @@
     "en": "The Eastern Express, Anatolian landscapes, Kars, sledding, salep and Ani"
   },
   "summary": {
-    "tr": "Elif ile Can, Doğu Ekspresi’yle Kars’a gidiyor. Trende Kerem’le arkadaş oluyor, karlı Kars’ta kızak kayıp salep içiyor, Ani’yi geziyorlar.",
+    "tr": "Tıkıdık, tıkıdık! Doğu Ekspresi’nde uzun bir yolculuk başlıyor. Elif ile Can’ı yeni bir arkadaş, karlı Kars, kızak keyfi ve Ani’de bir gezi bekliyor.",
     "en": ""
   },
   "values": [
-    "saglikli-yasam",
-    "sabir",
+    "vatanseverlik",
     "dostluk",
-    "vatanseverlik"
+    "saglikli-yasam",
+    "sabir"
   ],
   "music": {
     "src": "/books/dogu-ekspresi/muzik.mp3",
@@ -23,6 +23,86 @@
   },
   "toyCast": true,
   "glossary": {
+    "sabırsızlık": {
+      "en": "impatience",
+      "icon": "⏳"
+    },
+    "köprü": {
+      "en": "bridge",
+      "icon": "🌉"
+    },
+    "tepe": {
+      "en": "hill",
+      "icon": "⛰️"
+    },
+    "yaşıt": {
+      "en": "the same age",
+      "icon": "🧒"
+    },
+    "kutu oyunu": {
+      "en": "board game",
+      "icon": "🎲"
+    },
+    "dürbün": {
+      "en": "binoculars",
+      "icon": "🔭"
+    },
+    "mola": {
+      "en": "break",
+      "icon": "⏸️"
+    },
+    "yürüyüş": {
+      "en": "walk",
+      "icon": "🚶"
+    },
+    "esnemek": {
+      "en": "to yawn",
+      "icon": "🥱"
+    },
+    "yamaç": {
+      "en": "slope",
+      "icon": "🏔️"
+    },
+    "bulut": {
+      "en": "cloud",
+      "icon": "☁️"
+    },
+    "yanak": {
+      "en": "cheek",
+      "icon": "😊"
+    },
+    "hatıra": {
+      "en": "memory, keepsake",
+      "icon": "📷"
+    },
+    "yapı": {
+      "en": "building",
+      "icon": "🏛️"
+    },
+    "miras": {
+      "en": "heritage",
+      "icon": "🏛️"
+    },
+    "dost": {
+      "en": "friend",
+      "icon": "🤝"
+    },
+    "arkadaşlık": {
+      "en": "friendship",
+      "icon": "🤝"
+    },
+    "şekil": {
+      "en": "shape",
+      "icon": "🔺"
+    },
+    "manzara": {
+      "en": "view, landscape",
+      "icon": "🏞️"
+    },
+    "sandviç": {
+      "en": "sandwich",
+      "icon": "🥪"
+    },
     "Ankara Garı": {
       "en": "Ankara railway station",
       "icon": "🚉"
@@ -111,18 +191,6 @@
       "en": "window",
       "icon": "🪟"
     },
-    "şekil": {
-      "en": "shape",
-      "icon": "🔺"
-    },
-    "köprü": {
-      "en": "bridge",
-      "icon": "🌉"
-    },
-    "tepe": {
-      "en": "hill",
-      "icon": "⛰️"
-    },
     "Zaman": {
       "en": "time",
       "icon": "⏰"
@@ -143,18 +211,6 @@
       "en": "Can",
       "icon": "👦"
     },
-    "yaşıt": {
-      "en": "the same age",
-      "icon": "🧒"
-    },
-    "kutu oyunu": {
-      "en": "board game",
-      "icon": "🎲"
-    },
-    "dürbün": {
-      "en": "binoculars",
-      "icon": "🔭"
-    },
     "tanışmak": {
       "en": "to meet",
       "icon": "🤝"
@@ -166,10 +222,6 @@
     "sıra": {
       "en": "turn",
       "icon": "🔁"
-    },
-    "yamaç": {
-      "en": "slope",
-      "icon": "🏔️"
     },
     "ağaç": {
       "en": "tree",
@@ -194,10 +246,6 @@
     "hazırlamak": {
       "en": "to prepare",
       "icon": "🧺"
-    },
-    "sandviç": {
-      "en": "sandwich",
-      "icon": "🥪"
     },
     "elma": {
       "en": "apple",
@@ -254,10 +302,6 @@
     "ilerlemek": {
       "en": "to move along",
       "icon": "➡️"
-    },
-    "esnemek": {
-      "en": "to yawn",
-      "icon": "🥱"
     },
     "sabah": {
       "en": "morning",
@@ -331,10 +375,6 @@
       "en": "steam, vapour",
       "icon": "💨"
     },
-    "manzara": {
-      "en": "view, landscape",
-      "icon": "🏞️"
-    },
     "Sarıkamış": {
       "en": "Sarıkamış, a ski resort near Kars",
       "icon": "🎿"
@@ -385,10 +425,6 @@
     },
     "Ani": {
       "en": "Ani, an ancient city near Kars",
-      "icon": "🏛️"
-    },
-    "yapı": {
-      "en": "building",
       "icon": "🏛️"
     },
     "topluluk": {
@@ -462,6 +498,66 @@
     "kardan adam": {
       "en": "snowman",
       "icon": "⛄"
+    },
+    "ankara Garı": {
+      "en": "Ankara railway station",
+      "icon": "🚉"
+    },
+    "doğu Ekspresi": {
+      "en": "the Eastern Express, a sleeper train to Kars",
+      "icon": "🚆"
+    },
+    "kars": {
+      "en": "Kars, a city in eastern Türkiye",
+      "icon": "🏔️"
+    },
+    "tren": {
+      "en": "train",
+      "icon": "🚆"
+    },
+    "beklemek": {
+      "en": "to wait",
+      "icon": "⏳"
+    },
+    "zaman": {
+      "en": "time",
+      "icon": "⏰"
+    },
+    "kerem": {
+      "en": "Kerem, a boy on the train",
+      "icon": "👦"
+    },
+    "can": {
+      "en": "Can",
+      "icon": "👦"
+    },
+    "yemek": {
+      "en": "meal",
+      "icon": "🍽️"
+    },
+    "tıkıdık": {
+      "en": "clickety-clack (the train's sound)",
+      "icon": "🚆"
+    },
+    "karanlık": {
+      "en": "dark",
+      "icon": "🌑"
+    },
+    "kahvaltı": {
+      "en": "breakfast",
+      "icon": "🍳"
+    },
+    "kars Garı": {
+      "en": "Kars railway station",
+      "icon": "🚉"
+    },
+    "sarıkamış": {
+      "en": "Sarıkamış, a ski resort near Kars",
+      "icon": "🎿"
+    },
+    "ani": {
+      "en": "Ani, an ancient city near Kars",
+      "icon": "🏛️"
     }
   },
   "quiz": [
@@ -673,11 +769,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Elif’in ailesi {Ankara Garı’na|Ankara Garı} geldi. {Doğu Ekspresi} ile {Kars’a|Kars} gideceklerdi. {Kompartımanlarına|kompartıman} {yerleştiler|yerleşmek}. Bu küçük {yolcu} odasındaki {koltuklar|koltuk} {yatağa|yatak} {dönüşebiliyordu|dönüşmek}. Can {katlanan|katlanmak} {masaya|masa} baktı. “{Tekerlekli|tekerlekli} bir ev gibi!” dedi. Elif {defterini|defter} çıkardı. Yol boyunca gördüklerini {çizecekti|çizmek}.",
+        "tr": "Elif ile Can {aileleriyle|aile} {Ankara Garı’na|Ankara Garı} geldi. {Doğu Ekspresi} onları {Kars’a|Kars} götürecekti. {Kompartımanlarına|kompartıman} {yerleştiler|yerleşmek}. Bu küçük {yolcu} odasında {koltuklar|koltuk} {yatağa|yatak} dönüşüyordu. Can {katlanan|katlanmak} {masayı|masa} açtı. “{Tekerlekli|tekerlekli} bir ev gibi!” dedi. Elif {defterini|defter} {pencerenin|pencere} yanına koydu. Yol boyunca gördüklerini {çizecekti|çizmek}. Artık hareket etmeyi {sabırsızlıkla|sabırsızlık} bekliyorlardı.",
         "en": ""
       },
       "culture": {
-        "tr": "Doğu Ekspresi, Ankara ile Kars arasında yaklaşık bir buçuk günde 1300 kilometreden uzun yol alan bir yolcu trenidir. Yataklı kompartımanlarında yolcular gece uyur, gündüz pencereden Anadolu’nun değişen manzarasını izler.",
+        "tr": "Doğu Ekspresi, Ankara ile Kars arasında uzun bir yolculuk yapar. Bazı bölmelerde koltuklar gece yatağa dönüşebilir. Bu küçük yolcu bölmelerine kompartıman denir.",
         "en": ""
       },
       "layers": [
@@ -825,7 +921,7 @@
       "beats": [
         {
           "cue": [
-            "elif’in"
+            "elif"
           ],
           "who": "baba",
           "do": "enter",
@@ -840,7 +936,7 @@
         },
         {
           "cue": [
-            "elif’in"
+            "elif"
           ],
           "who": "anne",
           "do": "enter",
@@ -855,7 +951,7 @@
         },
         {
           "cue": [
-            "elif’in"
+            "elif"
           ],
           "who": "elif",
           "do": "enter",
@@ -870,7 +966,7 @@
         },
         {
           "cue": [
-            "elif’in"
+            "elif"
           ],
           "who": "can",
           "do": "enter",
@@ -930,7 +1026,7 @@
         },
         {
           "cue": [
-            "masaya"
+            "masayı"
           ],
           "who": "masa",
           "do": "shine"
@@ -982,11 +1078,11 @@
         "en": ""
       },
       "text": {
-        "tr": "{Tren} {hareket etti|hareket etmek}. {Babaları|baba} {geceyi|gece} trende geçireceklerini anlattı. Can “Daha gelmedik mi?” diye sordu. {Beklemek} uzun gelmişti. {Anneleri|anne} {oyunları|oyun} gösterdi. {Pencereden|pencere} üç farklı {şekil} aradılar. Elif {köprüyü|köprü}, Can {tepeyi|tepe} buldu. Sonra birbirlerinin gösterdiklerine baktılar. {Zaman} oyunla daha hızlı geçti.",
+        "tr": "{Tren} {hareket etti|hareket etmek}. {Babaları|baba} {geceyi|gece} de trende geçireceklerini anlattı. Çok geçmeden Can, “Daha gelmedik mi?” diye sordu. Annesi bir oyun önerdi: {Pencereden|pencere} üç farklı {şekil} bulacaklardı. Elif, “{Köprü|köprü}!” diye seslendi. Can da “{Tepe|tepe}!” dedi. Sonra üçüncü {şekli|şekil} aramaya koyuldular. Beklerken bakacak ne çok şey vardı!",
         "en": ""
       },
       "culture": {
-        "tr": "Uzun yolculuklarda beklemek kolay değildir. Pencereden şekil aramak, kelime oyunları oynamak ve gördüklerimizi çizmek, yolu hem kısaltır hem de manzarayı dikkatle izlememizi sağlar.",
+        "tr": "Sabır, uzun yolda yalnız beklemek değildir. Bekleme süresini bir oyunla ya da çizimle değerlendirebiliriz. Eğlenirken diğer yolcuları rahatsız etmemeye de dikkat ederiz.",
         "en": ""
       },
       "layers": [
@@ -1107,7 +1203,7 @@
         {
           "proc": "bubble",
           "id": "b_kopru",
-          "label": "köprü!",
+          "label": "Köprü!",
           "color": "#7B4BB7",
           "x": -0.28,
           "z": 0.2,
@@ -1120,7 +1216,7 @@
         {
           "proc": "bubble",
           "id": "b_tepe",
-          "label": "tepe!",
+          "label": "Tepe!",
           "color": "#2F6DC4",
           "x": 0.2,
           "z": 0.2,
@@ -1223,14 +1319,14 @@
         },
         {
           "cue": [
-            "beklemek"
+            "sordu"
           ],
           "who": "b_can",
           "do": "vanish"
         },
         {
           "cue": [
-            "beklemek"
+            "sordu"
           ],
           "who": "can",
           "do": "bow",
@@ -1238,7 +1334,7 @@
         },
         {
           "cue": [
-            "anneleri"
+            "annesi"
           ],
           "who": "anne",
           "do": "point",
@@ -1268,7 +1364,7 @@
         },
         {
           "cue": [
-            "köprüyü"
+            "köprü"
           ],
           "who": "b_kopru",
           "do": "appear",
@@ -1276,7 +1372,7 @@
         },
         {
           "cue": [
-            "köprüyü"
+            "köprü"
           ],
           "who": "elif",
           "do": "point",
@@ -1286,14 +1382,14 @@
         },
         {
           "cue": [
-            "tepeyi"
+            "tepe"
           ],
           "who": "b_tepe",
           "do": "appear"
         },
         {
           "cue": [
-            "tepeyi"
+            "tepe"
           ],
           "who": "can",
           "do": "point",
@@ -1317,7 +1413,7 @@
         },
         {
           "cue": [
-            "baktılar"
+            "aramaya"
           ],
           "who": "elif",
           "do": "nod",
@@ -1325,7 +1421,7 @@
         },
         {
           "cue": [
-            "zaman"
+            "beklerken"
           ],
           "who": "can",
           "do": "cheer",
@@ -1341,11 +1437,11 @@
         "en": ""
       },
       "text": {
-        "tr": "{Kerem} {annesiyle|anne} yan kompartımandan çıktı. Kars’taki {dedesiyle|dede} {babaannesine|babaanne} gidiyordu. {Can’la|Can} {yaşıttı|yaşıt}. Yanında bir {kutu oyunu} ve {dürbün} vardı. Aileler {tanışınca|tanışmak} birlikte oturdular. Kerem dürbününü {uzattı|uzatmak}. {Sırayla|sıra} {yamaçlara|yamaç} baktılar. Elif küçük evi anlattı. Can yanındaki {ağacı|ağaç} buldu.",
+        "tr": "Yan {kompartımandan|kompartıman} {Can’la|Can} {yaşıt} bir çocuk çıktı. Adı Kerem’di. {Annesiyle|anne} Kars’taki dedesine ve {babaannesine|babaanne} gidiyordu. Aileler {tanışınca|tanışmak} birlikte oturdular. {Kerem} {kutu oyununu|kutu oyunu} ve {dürbününü|dürbün} gösterdi. {Dürbünle|dürbün} {sırayla|sıra} dışarı baktılar. Elif, “Küçük ev!” dedi. Can yanındaki {ağacı|ağaç} buldu. Artık {manzaraya|manzara} üç arkadaş birlikte bakıyordu.",
         "en": ""
       },
       "culture": {
-        "tr": "Trende yan yana kompartımanlarda yolculuk edenler kısa sürede tanışır. Yolculukta paylaşılan bir oyun ya da manzara, birbirini tanımayan insanları kolayca arkadaş yapar.",
+        "tr": "Kompartımanlar trenin içindeki küçük yolcu bölmeleridir. Birlikte yapılan yolculuklarda paylaşılan bir oyun, yeni bir arkadaşlığın başlangıcı olabilir.",
         "en": ""
       },
       "layers": [
@@ -1401,7 +1497,7 @@
         {
           "proc": "bubble",
           "id": "b_ev",
-          "label": "küçük ev!",
+          "label": "Küçük ev!",
           "color": "#7B4BB7",
           "x": 0.32,
           "z": 0.4,
@@ -1414,7 +1510,7 @@
         {
           "proc": "bubble",
           "id": "b_agac",
-          "label": "ağaç!",
+          "label": "Ağaç!",
           "color": "#2F6DC4",
           "x": 0.38,
           "z": 0.5,
@@ -1523,7 +1619,7 @@
         },
         {
           "cue": [
-            "yaşıttı"
+            "aileler"
           ],
           "who": "can",
           "do": "wave",
@@ -1532,7 +1628,7 @@
         },
         {
           "cue": [
-            "yaşıttı"
+            "aileler"
           ],
           "who": "kerem",
           "do": "wave",
@@ -1541,7 +1637,7 @@
         },
         {
           "cue": [
-            "kutu"
+            "oturdular"
           ],
           "who": "oyun",
           "do": "appear",
@@ -1549,7 +1645,7 @@
         },
         {
           "cue": [
-            "tanışınca"
+            "oturdular"
           ],
           "who": "baba",
           "do": "talk",
@@ -1558,7 +1654,7 @@
         },
         {
           "cue": [
-            "tanışınca"
+            "oturdular"
           ],
           "who": "keremAnne",
           "do": "bow",
@@ -1566,7 +1662,7 @@
         },
         {
           "cue": [
-            "uzattı"
+            "gösterdi"
           ],
           "who": "kerem",
           "do": "give",
@@ -1575,7 +1671,7 @@
         },
         {
           "cue": [
-            "uzattı"
+            "gösterdi"
           ],
           "who": "can",
           "do": "receive",
@@ -1595,7 +1691,7 @@
         },
         {
           "cue": [
-            "yamaçlara"
+            "baktılar"
           ],
           "who": "can",
           "do": "useTool",
@@ -1657,11 +1753,11 @@
         "en": ""
       },
       "text": {
-        "tr": "{Dağlarda|dağ} {kar} görünüyordu. {Yemek} zamanı ellerini {temizleyip|temizlemek} masayı {hazırladılar|hazırlamak}. {Sandviçler|sandviç}, {elmalar|elma} ve Kerem’in annesinin {pişileri|pişi} vardı. {Paylaşmadan|paylaşmak} önce birbirlerine sordular. Herkes yiyeceği kadar aldı. Can {su} içip kalan sandviçini {saklama kabına|saklama kabı} koydu. Elif “{Manzaralı|manzaralı} {piknikteyiz|piknik}!” dedi. Kerem {peçeteleri|peçete} {topladı|toplamak}.",
+        "tr": "{Dağlarda|dağ} {kar} görünmeye başlayınca {yemek} {molası|mola} verdiler. Ellerini temizlediler. Masada {sandviçler|sandviç}, {elmalar|elma} ve Kerem’in annesinin {pişileri|pişi} vardı. Birbirlerine sorarak paylaştılar. Can kalan {sandviçini|sandviç} {saklama kabına|saklama kabı} koydu. Elif, “{Manzaralı|manzaralı} {piknikteyiz|piknik}!” dedi. {Kerem} {peçeteleri|peçete} {uzattı|uzatmak}. Yemekten sonra {masayı|masa} birlikte topladılar. Ortak kullandıkları yeri temiz bırakacaklardı.",
         "en": ""
       },
       "culture": {
-        "tr": "Pişi, mayalı hamurun yağda kızartılmasıyla yapılan, Anadolu’nun her yerinde sevilen bir kahvaltılıktır. Yolculukta yiyecekleri paylaşmak sofra kültürümüzün parçasıdır; israf etmemek için yalnız yiyeceğimiz kadar alırız.",
+        "tr": "Pişi, hamurun yağda kızartılmasıyla hazırlanan bir yiyecektir. Anadolu’nun farklı yerlerinde yapılır. Yolculuk için hazırlanan azıklarda da yer alabilir.",
         "en": ""
       },
       "layers": [
@@ -1889,7 +1985,7 @@
         },
         {
           "cue": [
-            "hazırladılar"
+            "temizlediler"
           ],
           "who": "piknik",
           "do": "appear"
@@ -1912,7 +2008,7 @@
         },
         {
           "cue": [
-            "paylaşmadan"
+            "birbirlerine"
           ],
           "who": "can",
           "do": "talk",
@@ -1922,7 +2018,7 @@
         },
         {
           "cue": [
-            "paylaşmadan"
+            "birbirlerine"
           ],
           "who": "kerem",
           "do": "nod",
@@ -1931,7 +2027,7 @@
         },
         {
           "cue": [
-            "herkes"
+            "paylaştılar"
           ],
           "who": "anne",
           "do": "nod",
@@ -2009,11 +2105,11 @@
         "en": ""
       },
       "text": {
-        "tr": "{Aileleriyle|aile} {koridorda|koridor} yürüdüler. {Yolculara|yolcu} {yol verip|yol vermek} {tutunarak|tutunmak} {ilerlediler|ilerlemek}. Kompartımana dönünce {yataklarını|yatak} hazırladılar. Can {esniyordu|esnemek}. Kerem’le {sabah} görüşeceklerdi. Babası {örtüyü|örtü} {düzeltti|düzeltmek}. {Tıkıdık}, tıkıdık… Elif defterini kapattı. {Karanlık} {camda|cam} {yansımasını|yansıma} gördü. Trenin sesi {ninni} gibiydi. Gözlerini kapadı.",
+        "tr": "Yemekten sonra {aileleriyle|aile} {koridorda|koridor} kısa bir {yürüyüş} yaptılar. Sonra {kompartımana|kompartıman} dönüp {yataklarını|yatak} {hazırladılar|hazırlamak}. Can {esnedi|esnemek}. Kerem’le {sabah} görüşeceklerdi. {Babaları|baba} {örtüyü|örtü} {düzeltti|düzeltmek}. {Tıkıdık}, {tıkıdık}… Elif {defterini|defter} kapattı. {Karanlık} {camda|cam} kendi {yansımasını|yansıma} gördü. Trenin düzenli sesi {ninni} gibi geliyordu. Gözlerini kapatınca yolculuk uykusunda da sürdü.",
         "en": ""
       },
       "culture": {
-        "tr": "Trenin raylar üzerindeki “tıkıdık tıkıdık” sesi, ray eklerinden geçen tekerleklerin çıkardığı düzenli bir sestir. Birçok yolcu bu sesi ninni gibi dinlendirici bulur.",
+        "tr": "“Tıkıdık tıkıdık”, trenin sesini taklit eden bir sözdür. Böyle kelimeler, okuduğumuz bir sahnenin sesini hayal etmemize yardım eder.",
         "en": ""
       },
       "layers": [
@@ -2184,7 +2280,7 @@
         },
         {
           "cue": [
-            "yolculara"
+            "yürüyüş"
           ],
           "who": "anne",
           "do": "bow",
@@ -2244,7 +2340,7 @@
         },
         {
           "cue": [
-            "babası"
+            "babaları"
           ],
           "who": "baba",
           "do": "walkTo",
@@ -2317,7 +2413,7 @@
         },
         {
           "cue": [
-            "kapadı"
+            "kapatınca"
           ],
           "who": "elif",
           "do": "lieDown",
@@ -2338,11 +2434,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Sabah yolculuk {sürüyordu|sürmek}. {Kahvaltı} yapıp beyaz yamaçları izlediler. Sonunda {Kars Garı’na|Kars Garı} {ulaştılar|ulaşmak}. Kerem’in dedesi onu ve annesini {karşıladı|karşılamak}. Aileler yeniden görüşmek üzere {anlaştı|anlaşmak}. {Meydanda|meydan} {atlı kızak} gördüler. Can’ın {nefesi|nefes} {buhar} oldu. Artık {manzaranın|manzara} içindeydiler.",
+        "tr": "{Sabah|sabah} uyandıklarında {tren} hâlâ ilerliyordu. {Kahvaltı} edip beyaz {yamaçları|yamaç} izlediler. Sonunda {Kars Garı’na|Kars Garı} vardılar. Kerem’in dedesi onları {karşıladı|karşılamak}. Aileler yeniden görüşmek için sözleşti. Dışarı çıkınca Can’ın {nefesi|nefes} beyaz bir {bulut} gibi göründü. {Meydanda|meydan} atlı bir {kızak} vardı. {Pencereden|pencere} izledikleri karlı {manzaranın|manzara} artık içindeydiler!",
         "en": ""
       },
       "culture": {
-        "tr": "Kars, kışları çok soğuk ve karlı geçen bir sınır şehridir. Taş binaları, tarihî garı ve kışın şehirde dolaşan atlı kızaklarıyla bilinir. Soğukta nefesimiz buhar olur; bu yüzden sıkı giyinmek önemlidir.",
+        "tr": "Kars, Türkiye’nin doğusunda, kışları soğuk ve karlı geçen bir şehirdir. Taş binaları, tarihî yapıları ve çevresindeki kış manzaralarıyla tanınır.",
         "en": ""
       },
       "layers": [
@@ -2574,7 +2670,7 @@
         },
         {
           "cue": [
-            "anlaştı"
+            "sözleşti"
           ],
           "who": "baba",
           "do": "wave",
@@ -2582,11 +2678,47 @@
         },
         {
           "cue": [
-            "anlaştı"
+            "sözleşti"
           ],
           "who": "keremAnne",
           "do": "nod",
           "look": "anne"
+        },
+        {
+          "cue": [
+            "nefesi"
+          ],
+          "who": "nefes",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "bulut"
+          ],
+          "who": "nefes",
+          "do": "rise",
+          "to": [
+            0.03,
+            0.05,
+            0
+          ]
+        },
+        {
+          "cue": [
+            "göründü"
+          ],
+          "who": "nefes",
+          "do": "vanish",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "göründü"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "elif"
         },
         {
           "cue": [
@@ -2629,48 +2761,15 @@
         },
         {
           "cue": [
-            "nefesi"
-          ],
-          "who": "nefes",
-          "do": "appear",
-          "focus": true
-        },
-        {
-          "cue": [
-            "buhar"
-          ],
-          "who": "nefes",
-          "do": "rise",
-          "to": [
-            0.03,
-            0.05,
-            0
-          ]
-        },
-        {
-          "cue": [
-            "oldu"
-          ],
-          "who": "nefes",
-          "do": "vanish",
-          "wait": 0.6
-        },
-        {
-          "cue": [
-            "oldu"
-          ],
-          "who": "can",
-          "do": "cheer",
-          "look": "elif"
-        },
-        {
-          "cue": [
             "içindeydiler"
           ],
           "who": "elif",
           "do": "lookAround",
           "len": 2.0
         }
+      ],
+      "life": [
+        "snow"
       ]
     },
     {
@@ -2680,11 +2779,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Ertesi gün Kerem’in ailesiyle {Sarıkamış’ta|Sarıkamış} {kızak} {kaydılar|kaymak}. Sıralarını bekleyip kızağa {ayrılan|ayırmak} yoldan tek tek indiler. {Kardan adam} yaptılar. {Üşüyünce|üşümek} eve döndüler. Kerem’in babaannesi {tarçınlı|tarçın} {salep} getirdi. {Ilınmasını|ılınmak} beklediler. Can {fincanını|fincan} tuttu. Elif “{Bugünü|bugün} de çizeceğim!” dedi.",
+        "tr": "Ertesi gün Kerem’in ailesiyle Sarıkamış’a gittiler. {Kızak|kızak} yolunda {sırayla|sıra} {kaydılar|kaymak}. Sonra birlikte bir {kardan adam} yaptılar. Eve döndüklerinde {yanakları|yanak} kıpkırmızıydı. Kerem’in babaannesi {tarçınlı|tarçın} {salep} getirdi. Biraz {ılınmasını|ılınmak} beklediler. Can {fincanını|fincan} iki eliyle tuttu. Elif, “{Bugünü|bugün} de çizeceğim!” dedi. {Defterine|defter} sığacak ne çok {hatıra} birikmişti.",
         "en": ""
       },
       "culture": {
-        "tr": "Sarıkamış, sarı çam ormanlarıyla çevrili, kış sporlarıyla ünlü bir kayak merkezidir. Kızak kayarken sırayı beklemek ve kızağa ayrılan yolu kullanmak güvenliğimiz için önemlidir. Salep, kış akşamlarının sıcacık, tarçınlı içeceğidir.",
+        "tr": "Sarıkamış, Kars’ta çam ormanları ve kış sporlarıyla tanınan bir yerdir. Salep ise genellikle tarçınla sunulan sıcak bir kış içeceğidir.",
         "en": ""
       },
       "layers": [
@@ -2910,7 +3009,7 @@
         },
         {
           "cue": [
-            "sıralarını"
+            "sırayla"
           ],
           "who": "baba",
           "do": "cheer",
@@ -2918,7 +3017,7 @@
         },
         {
           "cue": [
-            "sıralarını"
+            "sırayla"
           ],
           "who": "kizak_kerem",
           "do": "rise",
@@ -2932,7 +3031,7 @@
         },
         {
           "cue": [
-            "sıralarını"
+            "sırayla"
           ],
           "who": "kerem",
           "do": "glideTo",
@@ -2947,7 +3046,7 @@
         },
         {
           "cue": [
-            "tek"
+            "kaydılar"
           ],
           "who": "kizak_elif",
           "do": "rise",
@@ -2961,7 +3060,7 @@
         },
         {
           "cue": [
-            "tek"
+            "kaydılar"
           ],
           "who": "elif",
           "do": "glideTo",
@@ -3017,7 +3116,7 @@
         },
         {
           "cue": [
-            "üşüyünce"
+            "eve"
           ],
           "who": "can",
           "do": "useTool",
@@ -3141,6 +3240,9 @@
           "do": "cheer",
           "look": "can"
         }
+      ],
+      "life": [
+        "snow"
       ]
     },
     {
@@ -3150,11 +3252,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Sonraki {gezilerinde|gezi} {Ani’nin|Ani} eski taş {yapılarını|yapı} gördüler. Babaları burada farklı {toplulukların|topluluk} yaşadığını anlattı. {Belirlenmiş|belirlemek} yollardan {ayrılmadan|ayrılmak}, yapılara {zarar} vermeden gezdiler. {Ayrılırken|ayrılmak} Elif tren {resmini|resim} Kerem’e verdi. Kerem dürbününü {çantasına|çanta} koydu. Ailelerinin yardımıyla {haberleşmeye|haberleşmek} {karar verdiler|karar vermek}.",
+        "tr": "Ani’yi gezerken {babaları|baba}, burada geçmişte farklı {toplulukların|topluluk} yaşadığını anlattı. Çocuklar belirlenen yollardan {ayrılmadan|ayrılmak} taş {yapıları|yapı} inceledi. Elif, “Bu {mirası|miras} korumalıyız,” dedi. {Ayrılırken|ayrılmak} {tren} {resmini|resim} Kerem’e verdi. Ailelerinin yardımıyla haberleşeceklerdi. Kars’ı tanımış, yeni bir {dost} kazanmışlardı. Yolculukları bitse de öğrendikleri ve {arkadaşlıkları|arkadaşlık} onlarla kalacaktı.",
         "en": ""
       },
       "culture": {
-        "tr": "Ani, Kars yakınlarında, yüzyıllar boyunca farklı toplulukların yaşadığı eski bir şehrin kalıntılarıdır; 2016’da UNESCO Dünya Mirası Listesi’ne girmiştir. Ören yerlerinde belirlenmiş yollardan yürümek ve taşlara dokunmamak, bu mirası korumanın yoludur.",
+        "tr": "Ani, UNESCO Dünya Mirası Listesi’nde yer alan tarihî bir alandır. Ülkemizin tarihî eserlerini tanımak, zarar vermeden gezmek ve korumak kültürel mirasımıza sahip çıkmaktır.",
         "en": ""
       },
       "layers": [
@@ -3247,7 +3349,7 @@
       "beats": [
         {
           "cue": [
-            "sonraki"
+            "ani"
           ],
           "who": "baba",
           "do": "point",
@@ -3275,7 +3377,7 @@
         },
         {
           "cue": [
-            "belirlenmiş"
+            "belirlenen"
           ],
           "who": "elif",
           "do": "walkTo",
@@ -3289,7 +3391,7 @@
         },
         {
           "cue": [
-            "belirlenmiş"
+            "belirlenen"
           ],
           "who": "can",
           "do": "walkTo",
@@ -3303,7 +3405,7 @@
         },
         {
           "cue": [
-            "belirlenmiş"
+            "belirlenen"
           ],
           "who": "kerem",
           "do": "walkTo",
@@ -3335,7 +3437,7 @@
         },
         {
           "cue": [
-            "kerem"
+            "verdi"
           ],
           "who": "kerem",
           "do": "give",
@@ -3344,7 +3446,7 @@
         },
         {
           "cue": [
-            "kerem"
+            "verdi"
           ],
           "who": "kerem",
           "do": "receive",
@@ -3354,7 +3456,7 @@
         },
         {
           "cue": [
-            "haberleşmeye"
+            "haberleşeceklerdi"
           ],
           "who": "can",
           "do": "wave",
@@ -3363,7 +3465,7 @@
         },
         {
           "cue": [
-            "haberleşmeye"
+            "haberleşeceklerdi"
           ],
           "who": "kerem",
           "do": "cheer",
@@ -3372,7 +3474,7 @@
         },
         {
           "cue": [
-            "verdiler"
+            "kazanmışlardı"
           ],
           "who": "keremAnne",
           "do": "nod",
@@ -3380,7 +3482,7 @@
         },
         {
           "cue": [
-            "verdiler"
+            "kazanmışlardı"
           ],
           "who": "anne",
           "do": "wave",

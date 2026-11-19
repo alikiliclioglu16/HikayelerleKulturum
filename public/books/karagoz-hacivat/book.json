@@ -7,7 +7,7 @@
     "en": "The Karagöz shadow play: leather puppets, the lit screen, word play and the closing words"
   },
   "summary": {
-    "tr": "Hayal perdesinde Karagöz ile Hacivat bir bahçe kuruyor. Kelimeler karışıyor, kahkahalar yükseliyor; iki arkadaş birbirinden yeni şeyler öğreniyor.",
+    "tr": "Babaannelerinden gelen paket, Elif ile Can’ı Karagöz ve Hacivat’ın hayal perdesiyle tanıştırıyor. İki kafadarın bahçe kurarken karıştırdığı kelimelere gülen kardeşler, sonunda kendi gölge oyunlarını hazırlıyor.",
     "en": ""
   },
   "values": [
@@ -664,7 +664,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Karagöz oyununun tasvirleri, ışık geçirecek kadar inceltilmiş deve ya da manda derisinden kesilir ve bitkisel boyalarla renklendirilir. Rivayete göre Karagöz ile Hacivat Bursa’da yaşamıştır; bu gelenek bugün de Bursa’da yaşatılıyor.",
+        "tr": "Gölge oyununda kullanılan figürlere “tasvir” denir. Geleneksel Karagöz tasvirleri, ışığı geçirecek kadar inceltilmiş ve boyanmış deriden yapılır. Çubuklarla oynatılan bu figürler, perdede canlanır.",
         "en": ""
       },
       "layers": [
@@ -1045,7 +1045,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Karagöz oyunu “hayal perdesi” denen beyaz bir perdede oynanır. Perdenin arkasındaki ışık, renkli deri tasvirlerden geçerek görüntüyü perdeye düşürür; oyunu oynatan sanatçıya “hayalî” ya da “Karagözcü” denir.",
+        "tr": "Karagöz oyununun beyaz perdesine “hayal perdesi” denir. Arkadaki ışık, ince deri tasvirlerin renklerini görünür kılar. Tasvirleri oynatıp karakterlere ses veren sanatçıya da “hayalî” adı verilir.",
         "en": ""
       },
       "layers": [
@@ -1450,7 +1450,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Hacivat kitap bilgisiyle konuşan, süslü sözler seven bir karakterdir; Karagöz ise halktan, sözünü dolandırmayan, hayatın içinden öğrenmiş biridir. Oyunun güldüren yanı, bu iki farklı arkadaşın konuşmasından doğar.",
+        "tr": "“Kocaman kitap” sözündeki “kocaman”, kitabın büyüklüğünü anlatır; kitabın içinde gerçek bir bahçe olduğu anlamına gelmez. Karagöz’ün sözü başka türlü anlaması, oyundaki şakayı oluşturur.",
         "en": ""
       },
       "layers": [
@@ -1956,7 +1956,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Karagöz oyunlarında kahkahanın büyük kısmı yanlış anlamalardan doğar: Hacivat’ın süslü bir kelimesini Karagöz benzer sesli başka bir kelimeyle karıştırır. Bu söz oyunları dinleyenlere kelimeleri dikkatle dinlemeyi de öğretir.",
+        "tr": "“Tesviye”, bir yüzeyi düzleme işidir. “Tespih” ise ipe dizilmiş boncuklardan oluşur; dua ve zikir sırasında da kullanılır. Benzer sesli kelimelerin karıştırılması, gölge oyununda mizah oluşturabilir.",
         "en": ""
       },
       "layers": [
@@ -2419,7 +2419,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Gölge oyununda tasvirler, arkasına takılan uzun çubuklarla oynatılır. Usta bir hayalî, perdenin arkasında birçok tasviri ve bütün karakterlerin seslerini tek başına yönetebilir.",
+        "tr": "Tasvirlerin kolları gibi bazı parçaları eklemlidir. Oynatıcı, çubukları hareket ettirerek figürün elini kaldırmasını ya da eğilmesini sağlar. Perdedeki bahçe işi, bu hareketlerle anlatılır.",
         "en": ""
       },
       "layers": [
@@ -2899,7 +2899,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Karagöz ile Hacivat sık sık anlaşamaz ama hiçbir zaman birbirini bırakmaz. Oyunun sonunda ikisi de bir şey öğrenmiş olur: biri kitaptan, öteki hayattan bildiğini paylaşır.",
+        "tr": "Kitaptan öğrendiğimiz bilgilerle yaparak kazandığımız deneyimler birbirini tamamlar. Hacivat bitkinin neyi sevdiğini, Karagöz fidanın nasıl dikileceğini biliyordu. Bilgilerini paylaşmaları, bahçeyi birlikte kurmalarını sağladı.",
         "en": ""
       },
       "layers": [
@@ -3323,7 +3323,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Karagöz oyunu, Karagöz’ün seyirciye söylediği geleneksel bir sözle kapanır: “Her ne kadar sürçülisan ettikse affola!” Bu söz, “Konuşurken bir yanlış yaptıysak bağışlayın.” demektir. 2009’da Karagöz, UNESCO’nun yaşayan kültürel miras listesine alındı.",
+        "tr": "“Sürçülisan” konuşurken yapılan yanlış, “affola” ise “bağışlansın” anlamındadır. Karagöz oyununun sonundaki bu söz, seyirciden olabilecek dil hataları için hoşgörü isteyen geleneksel bir kapanıştır.",
         "en": ""
       },
       "layers": [
@@ -3721,7 +3721,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Gölge oyunu evde de kurulabilir: bir beyaz çarşaf, arkasında bir lamba ve kartondan kesilmiş figürler yeter. Karton ışığı geçirmediği için perdede koyu gölgeler oluşur; deri tasvirler ise ışığı geçirip renkli görünür.",
+        "tr": "Karton ışığı geçirmediği için perdede koyu bir gölge oluşturur. İnceltilmiş deri tasvirlerde ise renkler de görülebilir. Aynı oyunu farklı malzemelerle denemek, gölgeler arasındaki farkı keşfetmemizi sağlar.",
         "en": ""
       },
       "layers": [

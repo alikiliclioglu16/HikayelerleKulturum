@@ -7,7 +7,7 @@
     "en": "The neighbourhood bakery, askıda ekmek and not wasting food"
   },
   "summary": {
-    "tr": "Elif ile Can, babaanneleriyle İzmir'deki mahalle fırınına gider. Fırıncı Ali amcadan taş fırını, askıda ekmek geleneğini ve bayat ekmeğin nasıl değerlendirileceğini öğrenirler. Can harçlığıyla askıya bir ekmek bırakır; Amerika'ya dönünce de okulun yiyecek bağışı kutusuna katkıda bulunur.",
+    "tr": "Elif ile Can, babaanneleriyle gittikleri mahalle fırınında ekmeğin sofraya uzanan yolunu keşfediyor. Askıda ekmekle paylaşmayı, dünden kalan ekmeklerden yapılan tatlıyla israfı önlemeyi öğreniyorlar.",
     "en": ""
   },
   "values": [
@@ -440,7 +440,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Türkiye'de neredeyse her mahallenin bir fırını vardır. Sabahları taze ekmek, simit ve pide almak için insanlar fırının önünde sıraya girer.",
+        "tr": "Simit, pide ve ekmek, mahalle fırınlarında bulabileceğimiz hamur işlerindendir. Sabah fırına uğrayan komşular alışveriş yaparken birbirleriyle selamlaşır; fırın böylece mahallenin buluşma yerlerinden biri olur.",
         "en": ""
       },
       "layers": [
@@ -854,7 +854,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Taş fırın, içi taşla örülmüş ve odunla ısıtılan büyük bir fırındır. Fırıncılar ekmeği uzun saplı tahta bir kürekle fırının içine sürer ve pişince yine kürekle çıkarır.",
+        "tr": "Bir somun ekmek için hamurun hazırlanması, dinlenmesi ve pişmesi gerekir. Fırıncıların erken başlayan emeği sayesinde sabah taze ekmek alabiliriz. Çok sıcak olan fırını güvenli bir uzaklıktan izleriz.",
         "en": ""
       },
       "layers": [
@@ -1245,7 +1245,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Askıda ekmek, eski bir Türk yardımlaşma geleneğidir. Fırına gelen biri parasını ödeyip bir ekmeği askıya bırakır, ihtiyacı olan biri de kimseye sormadan alır. Böylece yardım eden de alan da gizli kalır.",
+        "tr": "Askıda ekmekte, isteyen kişi kendi ekmeğinin yanında bir ekmeğin daha ücretini öder. O ekmeği ihtiyacı olan biri alır. Yardım edenle alanın birbirini tanıması gerekmez.",
         "en": ""
       },
       "layers": [
@@ -1629,7 +1629,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Türk mutfağında bayat ekmek boşa gitmez. Ekmek çorbası, ekmek kadayıfı, ekmek tatlısı ve galeta gibi yemeklerde yeniden kullanılır. Küflü ekmek ise yenmez, atılır.",
+        "tr": "Bayat ekmek ile bozulmuş ekmek aynı şey değildir. Doğru saklanmış ve bozulmamış ekmek çorba ya da köftede değerlendirilebilir. Küflenmiş ekmek, küflü kısmı kesilse de yenmez.",
         "en": ""
       },
       "layers": [
@@ -2010,7 +2010,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Ekmek tatlısı, bayat ekmek dilimlerinin sütlü bir karışımla ıslatılıp fırında pişirilmesiyle yapılır. Üstüne tarçın serpilir. Mutfağa girmeden önce eller mutlaka yıkanır.",
+        "tr": "Bozulmamış ekmeği tatlıda ya da başka bir yemekte değerlendirmek, israfı azaltır. İhtiyacımız kadar ekmek almak da bu emeği korur. Nimetleri özenle kullanmak, şükrümüzü davranışlarımızla göstermenin bir yoludur.",
         "en": ""
       },
       "layers": [
@@ -2803,7 +2803,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Türk kültüründe büyüklere kapıyı açık tutmak, yer vermek ve önce onları geçirmek saygının küçük ama önemli işaretleridir.",
+        "tr": "İhtiyaç sahibine yardım etmek için verilen para ya da yiyeceğe sadaka denir. Can’ın harçlığıyla askıya ekmek alması gibi, küçük bir paylaşım da birinin ihtiyacını karşılayabilir.",
         "en": ""
       },
       "layers": [
@@ -3333,7 +3333,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Yardımlaşmada incelik önemlidir. Askıdan ekmek alan kişiye kimse soru sormaz, onu herkes gibi selamlar. Bu, insanın onurunu korumanın bir yoludur.",
+        "tr": "Askıdan ekmek alan birine diğer müşteriler gibi davranmak, onu utandırmadan destek olmanın bir yoludur. Yardım alan kişinin durumunu merak konusu yapmadan, özel hayatına saygı gösteririz.",
         "en": ""
       },
       "layers": [
@@ -3668,7 +3668,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Birçok ülkede okullar ve mahalleler yiyecek bağışı toplar. Bağışta genellikle açılmamış, bozulmayan ürünler kabul edilir. Türkiye'deki askıda ekmek de aynı paylaşma düşüncesinden doğar.",
+        "tr": "Yiyecek bağışı kutuları, ihtiyaç sahipleri için ürün toplamayı sağlar. Bağıştan önce istenen ürünlerin listesine bakılır; uygun ve açılmamış paketler seçilir. Her toplama yerinin kabul ettiği ürünler farklı olabilir.",
         "en": ""
       },
       "layers": [

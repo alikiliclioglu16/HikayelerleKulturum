@@ -7,7 +7,7 @@
     "en": "Cappadocia: fairy chimneys, rock houses and hot-air balloons"
   },
   "summary": {
-    "tr": "Elif ile Can, anne ve babalarıyla Kapadokya'ya gider. Pansiyon sahibinin kızı Zeynep ve babası Mustafa amcayla vadide yürürken ayağı tele takılmış bir tay bulurlar. Taya dokunmadan sessizce bekler, yetişkinlere haber verirler; veteriner Ayten Hanım tayı kurtarır, tay annesine kavuşur ve adını Can koyar: Balon.",
+    "tr": "Elif, Can ve Zeynep, Kapadokya’nın vadilerinde ayağı tele takılmış bir tayla karşılaşıyor. Büyüklerden ve veteriner hekimden yardım isteyerek, yaralı bir hayvana nasıl destek olunacağını öğreniyorlar.",
     "en": ""
   },
   "values": [
@@ -484,7 +484,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Kapadokya, Türkiye'nin ortasında, Nevşehir çevresinde bir bölgedir. Sabahları gökyüzü yüzlerce sıcak hava balonuyla renklenir. Adının eski bir dilde “güzel atlar ülkesi” anlamına geldiği söylenir.",
+        "tr": "Kapadokya, Nevşehir ve çevresine uzanan, peri bacalarıyla tanınan bir bölgedir. Gökyüzündeki renkli araçlar sıcak hava balonlarıdır; uçuşlar havanın uygun olduğu zamanlarda yapılır.",
         "en": ""
       },
       "layers": [
@@ -1027,7 +1027,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Peri bacaları, milyonlarca yıl önce yanardağlardan çıkan kül ve lavların taşlaşmasıyla oluşan yumuşak kayalardan doğdu. Yağmur, rüzgâr ve sel bu kayaları yavaş yavaş aşındırdı; üstteki sert taş şapka gibi kaldı. İnsanlar yumuşak kayayı oyarak ev, ahır ve kilise yaptı.",
+        "tr": "Peri bacaları, yanardağlardan kalan kaya tabakalarının yağmur ve rüzgârla uzun zamanda aşınmasıyla oluşur. İnsanlar geçmişte bu bölgedeki bazı kayaları oyarak evler de yapmıştır.",
         "en": ""
       },
       "layers": [
@@ -1454,7 +1454,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Yaralı ya da korkmuş bir hayvan, kendini korumak için tekmeleyebilir veya ısırabilir. Bu yüzden ona dokunmadan, uzaktan ve sessizce beklemek, sonra bir yetişkinden yardım istemek en doğrusudur.",
+        "tr": "Yaralı bir hayvan korktuğunda beklenmedik hareketler yapabilir. Taya yaklaşmak yerine büyüklerden yardım istemek, hem onu ürkütmemek hem de güvende kalmak için doğru bir davranıştır.",
         "en": ""
       },
       "layers": [
@@ -1874,7 +1874,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Veteriner hekim, hayvanların sağlığıyla ilgilenen doktordur. Yaralı bir hayvana ne yapılacağını en iyi o bilir. Kapadokya'da atlar hâlâ çiftliklerde bakılır ve gezilerde kullanılır; düzenli veteriner kontrolünden geçerler.",
+        "tr": "Veteriner hekimler, hayvanların sağlığını korumak ve hastalıklarını tedavi etmek için çalışır. Yardım isterken hayvanın bulunduğu yeri açıkça anlatmak, hekimin ona ulaşmasını kolaylaştırır.",
         "en": ""
       },
       "layers": [
@@ -2202,7 +2202,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Veteriner hekimler yaralı hayvanın önce durumuna bakar, yarasını temizler ve sarar. İyileşen bir tayın dinlenmesi, annesinin yanında kalması ve birkaç gün sonra yeniden kontrol edilmesi gerekir.",
+        "tr": "Veteriner hekim yaralı hayvanı muayene eder, gereken bakımı uygular. Çevresinde sakin bir alan bırakmak ve yolu açık tutmak, onun rahatça çalışmasına ve hayvana yardım etmesine destek olur.",
         "en": ""
       },
       "layers": [
@@ -2616,7 +2616,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Atların yavrusuna tay, dişi ata kısrak denir. Tay doğduktan birkaç saat sonra ayağa kalkar ve aylarca annesinin yanından ayrılmaz. Kısrak yavrusunu kokusundan ve sesinden tanır.",
+        "tr": "Yetişkin dişi ata “kısrak”, atın yavrusuna “tay”, çıkardığı sese ise “kişneme” denir. Kısrağın yavrusunu koklaması ve tayın kişnemesi, onların birbirleriyle iletişim kurma yollarındandır.",
         "en": ""
       },
       "layers": [
@@ -3073,7 +3073,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Türk kültüründe atın özel bir yeri vardır; atlara güzel ve anlamlı adlar verilir. Kapadokya'nın küçük, güçlü ve sabırlı atları yüzyıllardır bu vadilerde yaşar.",
+        "tr": "Hayvanlara bazen görünümlerinden ya da bir hatıradan yola çıkarak ad veririz. “Balon” adı da çocuklara Kapadokya’daki balonları ve taya yardım ettikleri günü hatırlatacak.",
         "en": ""
       },
       "layers": [
@@ -3542,7 +3542,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Kapadokya'da gün batarken peri bacaları pembe ve turuncuya boyanır. Bu güzel manzarayı izlemek için insanlar tepelere ve teraslara çıkar. Bir hayvana yardım etmenin en güvenli yolu, onu korkutmadan doğru kişiye haber vermektir.",
+        "tr": "Bir hatıra resmine tarih yazmak, olayın ne zaman yaşandığını hatırlamamızı sağlar. Resmi birlikte tamamlamak da herkesin o güne dair bir ayrıntıyı paylaşmasına fırsat verir.",
         "en": ""
       },
       "layers": [

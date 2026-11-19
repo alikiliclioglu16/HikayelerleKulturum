@@ -7,11 +7,12 @@
     "en": "A Turkish grocery in the USA, Turkish greetings, traditional foods and the family table"
   },
   "summary": {
-    "tr": "Elif ile Can yirmi dolar ve bir listeyle Türk marketine gidiyor. Bütçe yapmayı, birim fiyatı ve fazla verilen para üstünü geri vermeyi öğreniyorlar.",
+    "tr": "Liste Elif’te, çanta Can’da! Türk marketinde fiyatları karşılaştırıyor, ihtiyaçlarını seçiyorlar. Kasada fazladan verilen para üstünü fark edince ne yapacaklar?",
     "en": ""
   },
   "values": [
     "tasarruf",
+    "adalet",
     "durustluk",
     "vatanseverlik"
   ],
@@ -22,6 +23,82 @@
   },
   "toyCast": true,
   "glossary": {
+    "liste": {
+      "en": "list",
+      "icon": "📝"
+    },
+    "mutfak": {
+      "en": "kitchen",
+      "icon": "🍳"
+    },
+    "müşteri": {
+      "en": "customer",
+      "icon": "🧍"
+    },
+    "tarhana": {
+      "en": "tarhana, a dried soup mix",
+      "icon": "🥣"
+    },
+    "etiket": {
+      "en": "label",
+      "icon": "🏷️"
+    },
+    "ihtiyaç": {
+      "en": "need",
+      "icon": "📋"
+    },
+    "fiyat": {
+      "en": "price",
+      "icon": "🏷️"
+    },
+    "kasa": {
+      "en": "till, checkout",
+      "icon": "🧾"
+    },
+    "para": {
+      "en": "money",
+      "icon": "💵"
+    },
+    "hesaplamak": {
+      "en": "to work out (a sum)",
+      "icon": "🧮"
+    },
+    "hak": {
+      "en": "what belongs to someone, a right",
+      "icon": "⚖️"
+    },
+    "hesap": {
+      "en": "bill, sum",
+      "icon": "🧮"
+    },
+    "alışveriş": {
+      "en": "shopping",
+      "icon": "🛒"
+    },
+    "planlı": {
+      "en": "planned",
+      "icon": "🗓️"
+    },
+    "kutu": {
+      "en": "box",
+      "icon": "📦"
+    },
+    "paket": {
+      "en": "packet",
+      "icon": "📦"
+    },
+    "dolar": {
+      "en": "dollar",
+      "icon": "💵"
+    },
+    "çikolata": {
+      "en": "chocolate",
+      "icon": "🍫"
+    },
+    "mercimek": {
+      "en": "lentil",
+      "icon": "🫘"
+    },
     "Cumartesi": {
       "en": "Saturday",
       "icon": "📅"
@@ -46,10 +123,6 @@
       "en": "tea",
       "icon": "🍵"
     },
-    "mercimek": {
-      "en": "lentil",
-      "icon": "🫘"
-    },
     "anne": {
       "en": "mum",
       "icon": "👩"
@@ -62,17 +135,9 @@
       "en": "twenty",
       "icon": "2️⃣"
     },
-    "dolar": {
-      "en": "dollar",
-      "icon": "💵"
-    },
     "baba": {
       "en": "dad",
       "icon": "👨"
-    },
-    "fiyat": {
-      "en": "price",
-      "icon": "🏷️"
     },
     "miktar": {
       "en": "amount",
@@ -114,10 +179,6 @@
       "en": "shelf",
       "icon": "🗄️"
     },
-    "tarhana": {
-      "en": "tarhana, a dried soup mix",
-      "icon": "🥣"
-    },
     "lokum": {
       "en": "Turkish delight",
       "icon": "🍬"
@@ -138,10 +199,6 @@
       "en": "English",
       "icon": "🇬🇧"
     },
-    "müşteri": {
-      "en": "customer",
-      "icon": "🧍"
-    },
     "babaanne": {
       "en": "grandma",
       "icon": "👵"
@@ -154,17 +211,9 @@
       "en": "taste, flavour",
       "icon": "😋"
     },
-    "çikolata": {
-      "en": "chocolate",
-      "icon": "🍫"
-    },
     "Kenan Bey": {
       "en": "Kenan Bey, Can and Elif's dad",
       "icon": "👨"
-    },
-    "ihtiyaç": {
-      "en": "need",
-      "icon": "📋"
     },
     "bütçe": {
       "en": "budget",
@@ -173,10 +222,6 @@
     "kontrol etmek": {
       "en": "to check",
       "icon": "✅"
-    },
-    "paket": {
-      "en": "packet",
-      "icon": "📦"
     },
     "sepet": {
       "en": "basket",
@@ -266,10 +311,6 @@
       "en": "too much, extra",
       "icon": "➕"
     },
-    "kasa": {
-      "en": "till, checkout",
-      "icon": "🧾"
-    },
     "sıra": {
       "en": "turn, queue",
       "icon": "🔁"
@@ -289,10 +330,6 @@
     "bildirmek": {
       "en": "to report, let know",
       "icon": "📣"
-    },
-    "hesap": {
-      "en": "bill, sum",
-      "icon": "🧮"
     },
     "tamamlanmak": {
       "en": "to be completed",
@@ -386,13 +423,53 @@
       "en": "table",
       "icon": "🪑"
     },
-    "liste": {
-      "en": "list",
-      "icon": "📝"
+    "cumartesi": {
+      "en": "Saturday",
+      "icon": "📅"
     },
-    "para": {
-      "en": "money",
-      "icon": "💵"
+    "peynir": {
+      "en": "cheese",
+      "icon": "🧀"
+    },
+    "huriye Hanım": {
+      "en": "Huriye Hanım, Can and Elif's mum",
+      "icon": "👩"
+    },
+    "hatice teyze": {
+      "en": "Hatice teyze, the shopkeeper",
+      "icon": "👩‍🍳"
+    },
+    "hoş geldiniz": {
+      "en": "welcome!",
+      "icon": "👋"
+    },
+    "hoş bulduk": {
+      "en": "glad to be here! (the answer to “hoş geldiniz”)",
+      "icon": "🤗"
+    },
+    "ingilizce": {
+      "en": "English",
+      "icon": "🇬🇧"
+    },
+    "tanıdık": {
+      "en": "familiar",
+      "icon": "💛"
+    },
+    "kenan Bey": {
+      "en": "Kenan Bey, Can and Elif's dad",
+      "icon": "👨"
+    },
+    "küçük": {
+      "en": "small",
+      "icon": "🔽"
+    },
+    "altı": {
+      "en": "six",
+      "icon": "6️⃣"
+    },
+    "türkçe": {
+      "en": "Turkish (language)",
+      "icon": "🇹🇷"
     }
   },
   "quiz": [
@@ -604,11 +681,11 @@
         "en": ""
       },
       "text": {
-        "tr": "{Cumartesi} {alışveriş listesi} yaptılar. {Peynir}, {zeytin}, {simit}, {çay} ve {mercimek} gerekiyordu. {Anneleri|anne} {Huriye Hanım} Elif’e listeyle {yirmi} {dolar} verdi. “{Babanızla|baba} {fiyatlara|fiyat} bakıp {miktarları|miktar} {ayarlayın|ayarlamak}.” dedi. Can {çantayı|çanta} aldı. Elif listeyi okudu. Can evdeki {malzemeleri|malzeme} {hatırlattı|hatırlatmak}.",
+        "tr": "{Cumartesi} sabahı ailece {alışveriş listesi} hazırladılar. {Peynir}, {zeytin}, {simit}, {çay} ve {mercimek} gerekiyordu. {Anneleri|anne} Elif’e {listeyi|liste} ve {yirmi} {doları|dolar} {uzattı|uzatmak}. “{Babanızla|baba} {fiyatlara|fiyat} bakıp alacağınız miktarı {ayarlayın|ayarlamak},” dedi. Can {çantayı|çanta} aldı, Elif {listeyi|liste} okudu. Sonra {mutfağı|mutfak} kontrol ettiler. Evde olanları yeniden almaya gerek yoktu.",
         "en": ""
       },
       "culture": {
-        "tr": "Alışverişe çıkmadan önce liste yapmak, ihtiyacımız olmayan şeyleri almamamıza ve paramızı planlı kullanmamıza yardım eder. Evde ne olduğuna bakmak da aynı şeyi iki kez almayı önler.",
+        "tr": "Alışveriş listesi, ne alacağımızı hatırlatır. Önce evdeki malzemelere bakmak, aynı şeyi gereksiz yere yeniden almamızı önler.",
         "en": ""
       },
       "layers": [
@@ -681,7 +758,7 @@
         {
           "proc": "bubble",
           "id": "b_anne",
-          "label": "Fiyatlara bakın!",
+          "label": "Fiyatlara birlikte bakın.",
           "color": "#D2372C",
           "x": -0.2,
           "z": 0.36,
@@ -767,7 +844,7 @@
         },
         {
           "cue": [
-            "verdi"
+            "uzattı"
           ],
           "who": "anne",
           "do": "give",
@@ -775,14 +852,14 @@
         },
         {
           "cue": [
-            "verdi"
+            "uzattı"
           ],
           "who": "liste",
           "do": "vanish"
         },
         {
           "cue": [
-            "verdi"
+            "uzattı"
           ],
           "who": "elif",
           "do": "receive",
@@ -840,7 +917,7 @@
         },
         {
           "cue": [
-            "hatırlattı"
+            "mutfağı"
           ],
           "who": "can",
           "do": "point",
@@ -851,7 +928,7 @@
         },
         {
           "cue": [
-            "hatırlattı"
+            "mutfağı"
           ],
           "who": "baba",
           "do": "nod",
@@ -867,11 +944,11 @@
         "en": ""
       },
       "text": {
-        "tr": "{Markette|market} {ekmek} ve {baharat} {kokusu|koku} vardı. {Raflarda|raf} çay, {tarhana} ve {lokum} diziliydi. {Hatice teyze} “{Hoş geldiniz}!” dedi. Elif “{Hoş bulduk}!” diye karşılık verdi. {İngilizce} konuşan bir {müşteriye|müşteri} de yardım edildi. Can {babaannesinin|babaanne} kullandığı tarhanayı gösterdi. {Tanıdık} {tatları|tat} seviyordu.",
+        "tr": "{Markette|market} {Hatice teyze}, “{Hoş geldiniz}!” dedi. Elif, “{Hoş bulduk}!” diye karşılık verdi. {Hatice teyze} başka bir {müşteriyi|müşteri} de {İngilizce} selamladı. Can {tarhanayı|tarhana} gösterirken babaları ürünlerin {etiketlerini|etiket} birlikte incelemeyi önerdi. Ne aldıklarını bilmek önemliydi. Sonra {listedeki|liste} {ürünleri|ürün} aramaya başladılar. Elif {markette|market} {Türkçe} konuşabildiği için mutluydu.",
         "en": ""
       },
       "culture": {
-        "tr": "Yurt dışındaki Türk marketleri, Türk ailelerinin özlediği tatları bulduğu ve Türkçe konuşabildiği buluşma yerleridir. “Hoş geldiniz!” diyene “Hoş bulduk!” diye karşılık veririz.",
+        "tr": "Alışverişte yalnız fiyata bakmayız. Ürünün içeriğini, temiz ve sağlıklı oluşunu, inancımıza uygunluğunu da ailemizle birlikte değerlendiririz.",
         "en": ""
       },
       "layers": [
@@ -1063,7 +1140,7 @@
         },
         {
           "cue": [
-            "raflarda"
+            "markette"
           ],
           "who": "can",
           "do": "lookAround",
@@ -1134,7 +1211,7 @@
         },
         {
           "cue": [
-            "müşteriye"
+            "selamladı"
           ],
           "who": "musteri",
           "do": "nod",
@@ -1167,7 +1244,7 @@
         },
         {
           "cue": [
-            "tanıdık"
+            "mutluydu"
           ],
           "who": "can",
           "do": "cheer",
@@ -1182,11 +1259,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Can {çikolata} kutusunu gösterdi. “Alabilir miyiz?” diye sordu. Babası {Kenan Bey} önce {ihtiyaçları|ihtiyaç} ve {bütçeyi|bütçe} {kontrol etmelerini|kontrol etmek} söyledi. Elif mercimeği bulmak için yardım istedi. Can {paketi|paket} {sepete|sepet} koydu. Çikolatayı almamaya {karar verdiler|karar vermek}. Paralarını ihtiyaçlarına {ayırmışlardı|ayırmak}. {Sıra} zeytindeydi.",
+        "tr": "Can bir {kutu} {çikolata} gösterdi. “Alabilir miyiz?” diye sordu. Babası, “Önce {listedekilerin|liste} ne kadar tuttuğuna bakalım,” dedi. Elif {mercimeği|mercimek} bulmak için yardım istedi. Can {paketi|paket} {sepete|sepet} {yerleştirdi|yerleştirmek}. Paralarını hesaplayınca bu kez {çikolatayı|çikolata} almamaya {karar verdiler|karar vermek}. Sırada {zeytin} vardı. Can {listeye|liste} bir kez daha baktı.",
         "en": ""
       },
       "culture": {
-        "tr": "Bütçe, harcayacağımız paranın planıdır. Önce ihtiyaçlarımızı, sonra isteklerimizi düşünürüz. Bir şeyi istemek ile ona ihtiyaç duymak arasındaki farkı bilmek tasarrufun ilk adımıdır.",
+        "tr": "Bütçe, paramızı nasıl kullanacağımızın planıdır. Alışverişte önce ihtiyaçlarımıza para ayırırız. Sonra kalan parayla başka bir şey alıp alamayacağımıza bakabiliriz.",
         "en": ""
       },
       "layers": [
@@ -1408,7 +1485,7 @@
         },
         {
           "cue": [
-            "ayırmışlardı"
+            "karar"
           ],
           "who": "elif",
           "do": "nod",
@@ -1433,11 +1510,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Babaları zeytin {paketlerinin|paket} fiyatlarını ve miktarlarını gösterdi. Aynı miktarın fiyatını {karşılaştırdılar|karşılaştırmak}. {Büyük} paketin {birim fiyatı|birim fiyat} {düşüktü|düşük}. Elif “Hepsini {zamanında|zaman} yiyebilir miyiz?” diye sordu. O hafta az zeytin gerekiyordu. {Küçük} paketi {seçtiler|seçmek}. Can sepette {ezilmeyeceği|ezilmek} yere koydu.",
+        "tr": "Babaları iki {zeytin} {paketini|paket} gösterdi. Aynı miktarın hangisinde daha ucuza geldiğine baktılar. {Büyük} paketin {birim fiyatı|birim fiyat} daha {düşüktü|düşük}. Elif, “Hepsini {zamanında|zaman} yiyebilir miyiz?” diye sordu. O hafta az {zeytin} gerekiyordu. Bu yüzden {küçük} {paketi|paket} {seçtiler|seçmek}. Can {paketi|paket} {sepete|sepet} dikkatle koydu. Hem {fiyatı|fiyat} hem {ihtiyacı|ihtiyaç} düşünmüşlerdi.",
         "en": ""
       },
       "culture": {
-        "tr": "Birim fiyat, bir ürünün aynı miktarının (örneğin 100 gramının) fiyatıdır. Büyük paketler çoğu zaman daha ucuzdur; ama yiyemeyeceğimiz kadarını alırsak bozulur ve israf olur.",
+        "tr": "Birim fiyat, ürünlerin aynı miktarının fiyatını karşılaştırmamızı sağlar. Örneğin 100 gramının fiyatına bakarız. Uygun seçim, kullanabileceğimiz miktarı da hesaba katar.",
         "en": ""
       },
       "layers": [
@@ -1569,21 +1646,21 @@
         },
         {
           "cue": [
-            "fiyatlarını"
+            "paketini"
           ],
           "who": "buyuk",
           "do": "shine"
         },
         {
           "cue": [
-            "miktarlarını"
+            "miktarın"
           ],
           "who": "kucuk",
           "do": "shine"
         },
         {
           "cue": [
-            "karşılaştırdılar"
+            "baktılar"
           ],
           "who": "elif",
           "do": "bend",
@@ -1592,7 +1669,7 @@
         },
         {
           "cue": [
-            "karşılaştırdılar"
+            "baktılar"
           ],
           "who": "can",
           "do": "bend",
@@ -1659,7 +1736,7 @@
         },
         {
           "cue": [
-            "ezilmeyeceği"
+            "sepete"
           ],
           "who": "can",
           "do": "give",
@@ -1683,11 +1760,11 @@
         "en": ""
       },
       "text": {
-        "tr": "{Ürünler|ürün} {on dört} dolar {tuttu|tutmak}. Elif yirmi dolar verdi. Hatice teyze {para üstünü|para üstü} {uzattı|uzatmak}. Elif babasıyla {saydı|saymak}. {Altı} yerine {on altı} dolar vardı. Can “Yirmiden on dört {çıkınca|çıkmak} altı kalır. On dolar {fazla}!” dedi. {Kasaya|kasa} geri döndüler.",
+        "tr": "{Kasada|kasa} {alışveriş} {on dört} {dolar} {tuttu|tutmak}. Elif {yirmi} {doları|dolar} verdi. {Hatice teyze} {para üstünü|para üstü} {uzattı|uzatmak}. Elif {parayı|para} babasıyla {saydı|saymak}. {Altı} {dolar} olması gerekirken {on altı} {dolar} vardı! Can parmaklarıyla {hesapladı|hesaplamak}. “Yirmiden {on dört} {çıkınca|çıkmak} {altı} kalır. On {dolar} {fazla}!” dedi. İki kardeş {kasaya|kasa} geri döndü.",
         "en": ""
       },
       "culture": {
-        "tr": "Para üstünü kasadan ayrılmadan saymak iyi bir alışkanlıktır. Çıkarma işlemini kafadan yapmak da alışverişte çok işe yarar: 20 − 14 = 6.",
+        "tr": "Para üstü, verdiğimiz paradan alışveriş tutarı çıkarılınca kalan miktardır. Bu alışverişte hesap şöyle: 20 − 14 = 6 dolar.",
         "en": ""
       },
       "layers": [
@@ -1806,7 +1883,7 @@
       "beats": [
         {
           "cue": [
-            "ürünler"
+            "kasada"
           ],
           "who": "sepet",
           "do": "shine",
@@ -1975,11 +2052,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Elif {sırasını|sıra} bekledi. Hatice teyzeye “Para üstünü kontrol edebilir miyiz? On dolar fazla verdiniz.” dedi. Parayı {tezgâha|tezgâh} koydu. Hatice teyze yeniden saydı. Can {fişi|fiş} uzattı. Fazla para onların değildi. {Yanlışlığı|yanlışlık} {bildirmişlerdi|bildirmek}. Babaları yanlarında {hesabın|hesap} {tamamlanmasını|tamamlanmak} bekledi.",
+        "tr": "Elif sırası gelince {parayı|para} {tezgâha|tezgâh} koydu. “{Para üstüne|para üstü} birlikte bakabilir miyiz? On {dolar} {fazla} verdiniz,” dedi. Can {fişi|fiş} {uzattı|uzatmak}. {Hatice teyze} yeniden {saydı|saymak}. Elif’in aklına {çikolata} gelmişti ama bu para onların değildi. Kendi isteğini karşılamak için başkasının {hakkını|hak} alamazdı. Babası çocukların yanında, {hesabın|hesap} düzelmesini bekledi.",
         "en": ""
       },
       "culture": {
-        "tr": "Bize fazladan verilen bir şeyi sahibine geri vermek dürüstlüktür. Fiş, ne aldığımızı ve ne kadar ödediğimizi gösterir; bir yanlışlık olduğunda kontrol etmek için işe yarar.",
+        "tr": "Bize verilmiş olsa bile hakkımız olmayanı almayız. Yanlışlığı fark ettiğimizde bildirir, sahibinin hakkını koruruz. Dürüst davranmak, aramızdaki güveni güçlendirir.",
         "en": ""
       },
       "layers": [
@@ -2117,32 +2194,22 @@
           "cue": [
             "elif"
           ],
-          "who": "elif",
-          "do": "lookAt",
-          "target": "hatice",
-          "len": 1.4,
-          "focus": true
-        },
-        {
-          "cue": [
-            "hatice"
-          ],
           "who": "musteri2",
           "do": "appear",
           "focus": true
         },
         {
           "cue": [
-            "hatice"
+            "elif"
           ],
           "who": "elif",
-          "do": "talk",
-          "look": "hatice",
-          "len": 3.0
+          "do": "lookAt",
+          "target": "hatice",
+          "len": 1.4
         },
         {
           "cue": [
-            "parayı"
+            "gelince"
           ],
           "who": "musteri2",
           "do": "vanish"
@@ -2153,7 +2220,8 @@
           ],
           "who": "elif",
           "do": "give",
-          "look": "hatice"
+          "look": "hatice",
+          "focus": true
         },
         {
           "cue": [
@@ -2165,13 +2233,19 @@
         },
         {
           "cue": [
-            "hatice"
+            "para üstüne"
           ],
-          "who": "hatice",
-          "do": "bend",
-          "look": "para",
-          "len": 1.6,
-          "focus": true
+          "who": "elif",
+          "do": "talk",
+          "look": "hatice",
+          "len": 3.0
+        },
+        {
+          "cue": [
+            "fazla"
+          ],
+          "who": "para",
+          "do": "shine"
         },
         {
           "cue": [
@@ -2191,14 +2265,17 @@
         },
         {
           "cue": [
-            "fazla"
+            "hatice"
           ],
-          "who": "para",
-          "do": "shine"
+          "who": "hatice",
+          "do": "bend",
+          "look": "para",
+          "len": 1.6,
+          "focus": true
         },
         {
           "cue": [
-            "bildirmişlerdi"
+            "hakkını"
           ],
           "who": "baba",
           "do": "nod",
@@ -2222,11 +2299,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Hatice teyze “Haber verdiğiniz için {teşekkür ederim|teşekkür etmek}.” dedi. Fazla on doları kasaya koydu. Elif altı doları {cüzdanına|cüzdan} {yerleştirdi|yerleştirmek}. Can çantayı {taşıdı|taşımak}. Hatice teyze “Yine {beklerim|beklemek}!” diye {seslendi|seslenmek}. Çocuklar {iyi günler} diledi. Babalarıyla listeyi kontrol ettiler. İhtiyaçlarını almışlardı.",
+        "tr": "{Hatice teyze}, “{Teşekkür ederim|teşekkür etmek}! İyi ki haber verdiniz,” dedi. {Fazla|fazla} on {doları|dolar} {kasaya|kasa} koydu. Elif {altı} {doları|dolar} {cüzdanına|cüzdan} {yerleştirdi|yerleştirmek}, Can {çantayı|çanta} aldı. Kapıdan çıkarken {Hatice teyze} {seslendi|seslenmek}: “Yine {beklerim|beklemek}!” Çocuklar da {iyi günler} diledi. Babalarıyla {listeyi|liste} kontrol ettiler. Gerekenleri almış, {hesabı|hesap} da tamamlamışlardı.",
         "en": ""
       },
       "culture": {
-        "tr": "Türkçede alışveriş sonunda “Yine bekleriz!”, “Hayırlı işler!”, “İyi günler!” gibi güzel dilekler söylenir. Teşekkür etmek ve iyi dileklerde bulunmak, hem satıcıyı hem müşteriyi mutlu eder.",
+        "tr": "Alışveriş bitince satıcı “Yine bekleriz!” diyebilir. Müşteri de “İyi günler!” ya da “Hayırlı işler!” diyerek güzel dileklerini paylaşabilir.",
         "en": ""
       },
       "layers": [
@@ -2498,7 +2575,7 @@
         },
         {
           "cue": [
-            "almışlardı"
+            "tamamlamışlardı"
           ],
           "who": "elif",
           "do": "cheer",
@@ -2513,11 +2590,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Evde {ürünleri|ürün} yerleştirip para üstünü annelerine verdiler. Can {hesaptaki|hesap} yanlışlığı anlattı. {Sofraya|sofra} oturdular. {Büyüklerin|büyük} çayı ve bir {tabak} lokum vardı. Elif babaannesini arayıp {Türkçe} alışveriş yaptıklarını anlattı. Can tarhanayı gösterdi. Başka {ülkede|ülke} de {dillerine|dil} ve {kültürlerine|kültür} {sahip çıkıyorlardı|sahip çıkmak}.",
+        "tr": "Evde {ürünleri|ürün} yerleştirip {para üstünü|para üstü} annelerine verdiler. Can {kasada|kasa} olanları anlattı. {Anneleri|anne}, “Başkasının {hakkını|hak} gözetmeniz güzel,” dedi. Elif babaannesini arayıp {Türkçe} {alışveriş} yaptıklarını anlattı. Can {tarhanayı|tarhana} gösterdi. Sonra ailece {sofraya|sofra} oturdular. Elif o gün hem {parasını|para} {planlı} kullanmış hem doğru olanı seçmişti.",
         "en": ""
       },
       "culture": {
-        "tr": "Başka bir ülkede yaşayan aileler, evde Türkçe konuşarak, Türk mutfağının tatlarını yaşatarak ve büyükleriyle sık sık konuşarak dillerine ve kültürlerine sahip çıkar.",
+        "tr": "Türkçeyi günlük hayatımızda kullanmak, dilimizi canlı tutar. Aile büyüklerimizle konuşmak ve kültürümüze ait bilgileri paylaşmak, kuşaklar arasındaki bağı güçlendirir.",
         "en": ""
       },
       "layers": [
@@ -2672,35 +2749,12 @@
         },
         {
           "cue": [
-            "can"
+            "anneleri"
           ],
           "who": "anne",
-          "do": "nod",
+          "do": "talk",
           "look": "can",
-          "wait": 1.2
-        },
-        {
-          "cue": [
-            "sofraya"
-          ],
-          "who": "cay1",
-          "do": "appear",
-          "focus": true
-        },
-        {
-          "cue": [
-            "sofraya"
-          ],
-          "who": "cay2",
-          "do": "appear",
-          "wait": 0.3
-        },
-        {
-          "cue": [
-            "lokum"
-          ],
-          "who": "lokum",
-          "do": "appear"
+          "len": 2.4
         },
         {
           "cue": [
@@ -2738,7 +2792,31 @@
         },
         {
           "cue": [
-            "çıkıyorlardı"
+            "sofraya"
+          ],
+          "who": "cay1",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "sofraya"
+          ],
+          "who": "cay2",
+          "do": "appear",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "sofraya"
+          ],
+          "who": "lokum",
+          "do": "appear",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "seçmişti"
           ],
           "who": "baba",
           "do": "cheer",
@@ -2746,7 +2824,7 @@
         },
         {
           "cue": [
-            "çıkıyorlardı"
+            "seçmişti"
           ],
           "who": "anne",
           "do": "cheer",

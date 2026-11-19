@@ -25,7 +25,7 @@ async function route() {
       }
       const n = sub ? Number.parseInt(sub, 10) - 1 : undefined;
       const { renderReader } = await import('./pages/reader');
-      document.title = 'Okuyorum | Hikâyelerle Kültürüm';
+      document.title = 'Hikâyelerle Kültürüm';
       const dispose = await renderReader(app, bookId, Number.isFinite(n) ? n : undefined);
       if (id !== routeId) dispose();
       else cleanup = dispose;
@@ -37,7 +37,7 @@ async function route() {
       location.replace('#/');
       return;
     }
-    document.title = 'Hikâyelerle Kültürüm | Türk kültürüyle büyüyen resimli kitaplar';
+    document.title = 'Hikâyelerle Kültürüm | Türkçe sesli ve resimli kitaplar';
     const { renderHome } = await import('./pages/home');
     const disposeHome = await renderHome(app);
     if (id !== routeId) disposeHome();
@@ -52,7 +52,7 @@ async function route() {
           'div',
           { class: 'empty', style: 'margin-top:24px' },
           h('h1', { style: 'color:var(--cobalt)' }, 'Bu sayfa açılamadı'),
-          h('p', null, 'Bağlantınızı kontrol edip sayfayı yenileyin. Sorun sürerse kitaplar sayfasından yeniden deneyin.'),
+          h('p', null, 'İnternet bağlantını kontrol edip sayfayı yenile. Sorun sürerse kitaplara dönüp yeniden dene.'),
           h('a', { class: 'btn', href: '#/' }, 'Kitaplara dön'),
         ),
       ),

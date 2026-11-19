@@ -7,7 +7,7 @@
     "en": "Nasreddin Hodja stories, Akşehir"
   },
   "summary": {
-    "tr": "Ahmet dede, Elif ile Can'a ünlü bir Nasreddin Hoca fıkrası anlatıyor: ödünç alınan kazan bir gün 'doğurur', bir gün de 'ölür'; sonunda Hoca kazanı sahibine geri verir. Fıkra bitince Can da doğruyu söyler ve hatasını düzeltmeye çalışır.",
+    "tr": "Ahmet dede, Elif ile Can’a Nasreddin Hoca’nın ödünç aldığı kazanın fıkrasını anlatıyor. Kazanın önce doğurup sonra öldüğünü duyan çocuklar, bu şaşırtıcı şakanın neyi düşündürdüğünü birlikte keşfediyor.",
     "en": ""
   },
   "values": [
@@ -32,7 +32,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Nasreddin Hoca, yedi yüz yıldan uzun zaman önce Anadolu'da yaşamış, bilge ve şakacı bir halk kahramanıdır. Onun hem güldüren hem düşündüren kısa hikâyelerine fıkra denir. 2022'de UNESCO, Nasreddin Hoca fıkralarını anlatma geleneğini insanlığın somut olmayan kültürel mirası listesine aldı.",
+        "tr": "Nasreddin Hoca fıkraları, büyüklerden küçüklere anlatılarak günümüze ulaşmıştır. Kısa ve güldürücü bu anlatılardaki şaşırtıcı sözler, dinleyenleri olaylar üzerinde düşünmeye çağırır.",
         "en": "Nasreddin Hodja is a wise and witty folk hero who lived in Anatolia more than seven hundred years ago. His short stories, which make you laugh and think, are called fıkra. In 2022 UNESCO added the tradition of telling Nasreddin Hodja stories to its list of the Intangible Cultural Heritage of Humanity."
       },
       "models": [
@@ -431,7 +431,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Akşehir, Konya'da, Sultan Dağları'nın eteğinde bir ilçedir. Nasreddin Hoca hayatının büyük bölümünü burada geçirmiştir. Hoca'nın türbesi de Akşehir'dedir ve şehirde her yaz Nasreddin Hoca Şenliği yapılır.",
+        "tr": "Kazan, çok kişilik yemekler pişirmek için kullanılan büyük bir kaptır. Komşudan bir eşyayı ödünç almak, onu geçici olarak kullanıp sahibine geri vermek demektir.",
         "en": "Akşehir is a town in Konya, at the foot of the Sultan Mountains. Nasreddin Hodja spent most of his life here. His tomb is in Akşehir too, and every summer the town holds a Nasreddin Hodja Festival."
       },
       "models": [
@@ -789,7 +789,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Türkçede ‘Komşu komşunun külüne muhtaçtır’ diye bir atasözü vardır: Komşular en küçük işte bile birbirine yardım eder. Ödünç alınan eşya özenle kullanılır, temizlenip zamanında geri verilir.",
+        "tr": "“Güle güle kullan.” sözü, bir eşyayı kullanacak kişiye söylenen iyi dilektir. Ödünç aldığımız kazanı ya da başka bir eşyayı temiz ve sağlam biçimde geri veririz.",
         "en": ""
       },
       "models": [
@@ -1177,7 +1177,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "'Müjde!' iyi bir haber verirken söylenir. Müjdeli haberi getirene küçük bir hediye vermek eski bir Türk geleneğidir; bu hediyeye 'müjdelik' ya da 'müjde parası' denir.",
+        "tr": "“Müjde”, sevindirici haber demektir. Kazan canlı olmadığı için doğuramaz. Hoca’nın bu şaşırtıcı sözü, komşusunun işine gelen bir şeye neden hemen inandığını düşünmemizi sağlar.",
         "en": "\"Müjde!\" is what you say when you bring good news. It is an old Turkish custom to give a small gift to the person who brings good news; this gift is called müjdelik."
       },
       "models": [
@@ -1824,7 +1824,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Nasreddin Hoca fıkraları genellikle kısa bir olay, şaşırtıcı bir söz ve düşündüren bir sonla biter. Fıkra anlatılırken herkes sondaki o sözü merakla bekler.",
+        "tr": "Doğmak ve ölmek canlılara özgüdür; bir kazan doğuramaz ya da ölemez. Fıkrada aynı kazan için iki sözün de kullanılması, komşunun farklı tepkilerini karşılaştırmamızı sağlar.",
         "en": ""
       },
       "models": [
@@ -2225,7 +2225,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Fıkradaki 'Doğurduğuna inandın da öldüğüne neden inanmıyorsun?' sözü bugün de kullanılır. İşine geleni kabul edip gelmeyeni reddeden birine güler yüzle hatırlatma yapmak için söylenir.",
+        "tr": "Bir sözün hoşumuza gitmesi, onun doğru olduğu anlamına gelmez. Hoca’nın sorusu da komşunun kazanın doğurmasını kabul edip ölmesine neden karşı çıktığını düşündürür.",
         "en": "The line \"You believed it had a baby, so why not that it died?\" is still used today. People say it with a smile to someone who accepts only what suits them."
       },
       "models": [
@@ -2626,7 +2626,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Nasreddin Hoca fıkralarında Hoca'nın amacı çoğu zaman insanları güldürerek düşündürmektir. Bu fıkrada Hoca, kazanı sonunda sahibine geri verir. Ödünç alınan eşyayı özenle kullanıp geri vermek komşuluğun gereğidir.",
+        "tr": "Özür dilemek, yaptığımız hatayı kabul ettiğimizi gösterir. Can’ın kalemin kırıldığını söylemesi gibi, dürüstçe konuşup zararı gidermeye çalışmak aramızdaki güveni korur.",
         "en": ""
       },
       "models": [

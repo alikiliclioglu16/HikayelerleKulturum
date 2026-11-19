@@ -6,7 +6,7 @@ export function header(active: 'home' | 'chest' | 'parents' | 'none' = 'none') {
   return h(
     'header',
     { class: 'site-header' },
-    h('a', { class: 'logo', href: '#/' }, tulipLogo(), h('span', null, 'Hikâyelerle Kültürüm', h('small', null, 'Türk kültürüyle büyüyen resimli kitaplar'))),
+    h('a', { class: 'logo', href: '#/' }, tulipLogo(), h('span', null, 'Hikâyelerle Kültürüm', h('small', null, 'Türkçe sesli ve resimli kitaplar'))),
     h(
       'nav',
       { class: 'site-nav', 'aria-label': 'Ana menü' },
@@ -19,7 +19,7 @@ export function footer() {
   return h(
     'footer',
     { class: 'site-footer' },
-    h('p', null, 'Hesap yok, çerez yok, reklam yok. Okuma ilerlemesi yalnızca bu cihazda saklanır.'),
+    h('p', null, 'Üyelik, çerez ve reklam yok. Okuma ilerlemen yalnızca bu cihazda saklanır.'),
   );
 }
 

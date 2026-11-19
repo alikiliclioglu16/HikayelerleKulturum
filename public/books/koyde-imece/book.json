@@ -7,13 +7,14 @@
     "en": "Imece (working together), the wheat harvest, folk songs, the water mill and tandır bread"
   },
   "summary": {
-    "tr": "Dedenin köyünde ayağını burkan Osman amcanın tarlası imeceyle biçiliyor; ardından su değirmeni ve tandır ekmeği.",
+    "tr": "Osman amcanın buğdayını kim biçecek? Köyde herkes yardıma geliyor. Elif ile Can, imeceye katılıp buğdayın tarladan ekmeğe uzanan yolculuğunu izliyor.",
     "en": ""
   },
   "values": [
     "yardimseverlik",
     "caliskanlik",
-    "aile-butunlugu"
+    "aile-butunlugu",
+    "saygi"
   ],
   "music": {
     "src": "/books/koyde-imece/muzik.mp3",
@@ -22,6 +23,58 @@
   },
   "toyCast": true,
   "glossary": {
+    "güç": {
+      "en": "strength",
+      "icon": "💪"
+    },
+    "üstlenmek": {
+      "en": "to take on",
+      "icon": "🙋"
+    },
+    "el birliği": {
+      "en": "working hand in hand",
+      "icon": "🤝"
+    },
+    "kenar": {
+      "en": "edge, side",
+      "icon": "↔️"
+    },
+    "katkı": {
+      "en": "contribution",
+      "icon": "➕"
+    },
+    "besmele": {
+      "en": "besmele, saying “Bismillah” before starting",
+      "icon": "🤲"
+    },
+    "nimet": {
+      "en": "blessing, food given to us",
+      "icon": "🍞"
+    },
+    "toprak": {
+      "en": "soil",
+      "icon": "🟫"
+    },
+    "bereket": {
+      "en": "plenty, abundance",
+      "icon": "🌾"
+    },
+    "emek": {
+      "en": "effort, hard work",
+      "icon": "💪"
+    },
+    "Allah razı olsun": {
+      "en": "“May God be pleased with you”, a thank-you",
+      "icon": "🤲"
+    },
+    "sargı": {
+      "en": "bandage",
+      "icon": "🩹"
+    },
+    "görev": {
+      "en": "task",
+      "icon": "📋"
+    },
     "dede": {
       "en": "grandpa",
       "icon": "👴"
@@ -165,10 +218,6 @@
     "sabah": {
       "en": "morning",
       "icon": "🌅"
-    },
-    "görev": {
-      "en": "task",
-      "icon": "📋"
     },
     "seçmek": {
       "en": "to choose",
@@ -521,6 +570,22 @@
     "çit": {
       "en": "fence",
       "icon": "🚧"
+    },
+    "allah razı olsun": {
+      "en": "“May God be pleased with you”, a thank-you",
+      "icon": "🤲"
+    },
+    "osman amca": {
+      "en": "Osman amca, a farmer in the village",
+      "icon": "👨‍🌾"
+    },
+    "duman": {
+      "en": "Duman, the grey horse (duman: smoke)",
+      "icon": "🐴"
+    },
+    "değirmenci": {
+      "en": "miller",
+      "icon": "🧑‍🌾"
     }
   },
   "quiz": [
@@ -732,11 +797,11 @@
         "en": ""
       },
       "text": {
-        "tr": "{Ahmet dede|dede} {torunlarını|torun} {doğduğu|doğmak} {köye|köy} {götürdü|götürmek}. {Yol|yol} {dağların|dağ} arasından {kıvrılıyordu|kıvrılmak}. Can {tavukları|tavuk}, {ağaçları|ağaç} ve {taş evleri|taş ev} gördü. “{Masallardaki|masal} köy gibi!” dedi. Dedesi “Bu {meydanda|meydan} {arkadaşlarımla|arkadaş} oynardım.” diye anlattı. Elif sevdiği {oyunları|oyun} sordu. Daha {arabadan|araba} {inmeden|inmek} {hikâyeler|hikâye} başlamıştı.",
+        "tr": "{Ahmet dede|dede}, {torunlarını|torun} {doğduğu|doğmak} {köye|köy} götürüyordu. {Yol|yol} {dağların|dağ} arasında kıvrıldı. Can camdan {tavukları|tavuk}, {ağaçları|ağaç} ve {taş evleri|taş ev} gördü. “{Masallardaki|masal} köy gibi!” dedi. Dedesi {meydanı|meydan} gösterdi. “Bu {meydanda|meydan} oynardım.” Elif hemen sordu: “Hangi {oyunları|oyun}?” Daha {arabadan|araba} {inmeden|inmek} dedelerinin {çocukluk} {hikâyeleri|hikâye} başlamıştı.",
         "en": ""
       },
       "culture": {
-        "tr": "Anadolu köylerinde evler çoğunlukla yöredeki taştan yapılır. Köy meydanı; çeşmesi, kahvesi ve büyük ağacıyla köylülerin buluştuğu, çocukların oyun oynadığı yerdir.",
+        "tr": "Anadolu köylerinin evleri ve meydanları yöreye göre değişir. Çeşme, büyük bir ağaç ya da köy kahvesi, komşuların buluştuğu yerler olabilir.",
         "en": ""
       },
       "layers": [
@@ -997,6 +1062,10 @@
           "look": "dede",
           "wait": 0.4
         }
+      ],
+      "life": [
+        "butterflies",
+        "birds"
       ]
     },
     {
@@ -1006,11 +1075,11 @@
         "en": ""
       },
       "text": {
-        "tr": "{Osman amca} onları {avluda|avlu} {karşıladı|karşılamak}. {Ayağı|ayak} {sargılıydı|sargılı}. “{Doktor|doktor} {dinlenmemi|dinlenmek} istedi. {Buğdaylar|buğday} {biçilecek|biçmek} hâle geldi.” dedi. Ahmet dede {yardım etmeyi|yardım etmek} {önerdi|önermek}. {Komşularla|komşu} konuşup {iş bölümü} yapacaklardı. Elif yeni bir {kelime} duydu: {imece}. Bunun nasıl yapıldığını {merak etti|merak etmek}.",
+        "tr": "{Osman amca} onları {avluda|avlu} {karşıladı|karşılamak}. Ayağında {sargı} vardı. “{Doktor|doktor} {dinlenmemi|dinlenmek} istedi,” dedi. “Ama {buğdaylar|buğday} {biçilecek|biçmek} hâle geldi.” {Ahmet dede|dede}, “{Komşularla|komşu} konuşalım, {imece} yaparız,” diye karşılık verdi. Elif başını kaldırdı. “{İmece|imece}?” Bu yeni {kelime} ne anlama geliyordu? Can da merakla dedesine baktı.",
         "en": ""
       },
       "culture": {
-        "tr": "Köylerde biri hastalanınca ya da işi yetiştiremeyince komşular yardıma koşar. Buğday hasadı gibi büyük işler zamanında yapılmazsa ürün tarlada kalabilir; bu yüzden herkes el verir.",
+        "tr": "Olgunlaşan buğdayın zamanında toplanması gerekir. İşi tek başına yetiştiremeyen birine komşuların yardım etmesi, köylerdeki dayanışma örneklerinden biridir.",
         "en": ""
       },
       "layers": [
@@ -1235,7 +1304,7 @@
         },
         {
           "cue": [
-            "önerdi"
+            "komşularla"
           ],
           "who": "osman",
           "do": "nod",
@@ -1284,6 +1353,9 @@
           "do": "vanish",
           "wait": 1.8
         }
+      ],
+      "life": [
+        "butterflies"
       ]
     },
     {
@@ -1293,11 +1365,11 @@
         "en": ""
       },
       "text": {
-        "tr": "{Dedeleri|dede} “İmece bir işi {gönüllü} olarak birlikte yapmaktır.” dedi. {Sabah|sabah} komşular geldi. Herkes yapabileceği {görevi|görev} {seçti|seçmek}. {Büyükler|büyük} {tarladaki|tarla} {araçlarla|araç} {ilgilendi|ilgilenmek}. {Çocuklar|çocuk} {yetişkinlerle|yetişkin} {su} ve boş {sepet} {taşıyacaktı|taşımak}. Osman amca {gölgede|gölge} oturdu. Gelenlerle {sohbet edip|sohbet etmek} {yardımları|yardım} için {teşekkür etti|teşekkür etmek}.",
+        "tr": "{Dedeleri|dede}, “{İmece|imece}, bir işi {gönüllü} olarak birlikte yapmaktır,” dedi. {Komşular|komşu} {sabah} erkenden geldi. Herkes {gücüne|güç} uygun bir {görev} {üstlendi|üstlenmek}. {Çocuklar|çocuk} da büyükleriyle {su} ve boş {sepet} taşıdı. {Osman amca} dinlenirken gelenlerle {sohbet etti|sohbet etmek}. Kimse ondan bir karşılık istemedi. Yetişmeyen iş, {el birliğiyle|el birliği} ilerliyordu.",
         "en": ""
       },
       "culture": {
-        "tr": "İmece, köylerde tarla, harman, ev yapımı ya da kış hazırlığı gibi büyük işlerin herkesin gönüllü katılımıyla, el birliğiyle yapılmasıdır. Bugün de birçok köyde ve mahallede yaşatılan güzel bir dayanışma geleneğidir.",
+        "tr": "İmecede bilgi, zaman ve emek paylaşılır. Yardım için her zaman para gerekmez. Bir işi gönüllü olarak üstlenmek de komşumuza destek olabilir.",
         "en": ""
       },
       "layers": [
@@ -1399,7 +1471,7 @@
         {
           "proc": "bubble",
           "id": "b_dede",
-          "label": "İmece: birlikte yapmak!",
+          "label": "İmece, birlikte yapmak demek.",
           "color": "#8A5A2B",
           "x": -0.05,
           "z": 0.62,
@@ -1533,14 +1605,14 @@
         },
         {
           "cue": [
-            "seçti"
+            "görev"
           ],
           "who": "orak1",
           "do": "vanish"
         },
         {
           "cue": [
-            "seçti"
+            "görev"
           ],
           "who": "komsuAdam",
           "do": "receive",
@@ -1549,7 +1621,7 @@
         },
         {
           "cue": [
-            "büyükler"
+            "üstlendi"
           ],
           "who": "dede",
           "do": "walkTo",
@@ -1564,14 +1636,14 @@
         },
         {
           "cue": [
-            "ilgilendi"
+            "üstlendi"
           ],
           "who": "orak2",
           "do": "vanish"
         },
         {
           "cue": [
-            "ilgilendi"
+            "üstlendi"
           ],
           "who": "dede",
           "do": "receive",
@@ -1610,14 +1682,14 @@
         },
         {
           "cue": [
-            "taşıyacaktı"
+            "taşıdı"
           ],
           "who": "sepetY",
           "do": "vanish"
         },
         {
           "cue": [
-            "taşıyacaktı"
+            "taşıdı"
           ],
           "who": "can",
           "do": "receive",
@@ -1626,7 +1698,7 @@
         },
         {
           "cue": [
-            "taşıyacaktı"
+            "taşıdı"
           ],
           "who": "testiY",
           "do": "vanish",
@@ -1634,7 +1706,7 @@
         },
         {
           "cue": [
-            "taşıyacaktı"
+            "taşıdı"
           ],
           "who": "elif",
           "do": "receive",
@@ -1653,7 +1725,7 @@
         },
         {
           "cue": [
-            "teşekkür"
+            "sohbet"
           ],
           "who": "osman",
           "do": "talk",
@@ -1662,7 +1734,7 @@
         },
         {
           "cue": [
-            "teşekkür"
+            "sohbet"
           ],
           "who": "komsuKadin",
           "do": "bow",
@@ -1678,11 +1750,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Büyükler buğday biçerken çocuklar {güvenli} {bölümdeydi|bölüm}. Elif {bardakları|bardak} {dizdi|dizmek}, Can boş sepetleri taşıdı. Bir {türkü} {duyuldu|duyulmak}. {Bilenler|bilmek} {eşlik etti|eşlik etmek}. Can “{Dinlenmek|dinlenmek} istiyorum.” dedi. Dedesi yanına oturdu. Su içtiler. İş {molalarla|mola} {ilerledi|ilerlemek}. {Akşam|akşam} tarlanın büyük bölümü biçilmişti.",
+        "tr": "{Buğday|buğday} {biçilirken|biçmek} {çocuklar|çocuk} {kenardaki|kenar} {güvenli} alandaydı. Elif {bardakları|bardak} {dizdi|dizmek}, Can boş sepetleri taşıdı. Bir {türkü} başlayınca {bilenler|bilmek} {eşlik etti|eşlik etmek}. Can yorulduğunda dedesine söyledi. Birlikte {mola} verip {su} içtiler. Sonra {görevlerine|görev} döndüler. İşini özenle yapan herkesin küçük {katkısı|katkı}, {tarladaki|tarla} büyük işi tamamlamaya {yardım} ediyordu.",
         "en": ""
       },
       "culture": {
-        "tr": "Tarlada çalışırken söylenen türkülere iş türküleri denir. Türkü, ritmiyle işi hafifletir; orak sallayanlar aynı ezgiyle birlikte hareket eder. Sıcakta düzenli mola vermek ve su içmek de çok önemlidir.",
+        "tr": "Çalışırken söylenen türkülere iş türküleri denebilir. Birlikte söylenen bir ezgi işi neşelendirebilir. Çalışma arasında mola vermek de işin parçasıdır.",
         "en": ""
       },
       "layers": [
@@ -1834,7 +1906,7 @@
       "beats": [
         {
           "cue": [
-            "büyükler"
+            "buğday"
           ],
           "who": "komsuAdam",
           "do": "useTool",
@@ -1845,7 +1917,7 @@
         },
         {
           "cue": [
-            "büyükler"
+            "buğday"
           ],
           "who": "dede",
           "do": "useTool",
@@ -1941,14 +2013,14 @@
         },
         {
           "cue": [
-            "dinlenmek"
+            "yorulduğunda"
           ],
           "who": "b_can",
           "do": "appear"
         },
         {
           "cue": [
-            "dinlenmek"
+            "yorulduğunda"
           ],
           "who": "can",
           "do": "talk",
@@ -2018,7 +2090,7 @@
         },
         {
           "cue": [
-            "ilerledi"
+            "görevlerine"
           ],
           "who": "komsuAdam",
           "do": "useTool",
@@ -2029,7 +2101,7 @@
         },
         {
           "cue": [
-            "akşam"
+            "katkısı"
           ],
           "who": "bugday",
           "do": "sink",
@@ -2042,7 +2114,7 @@
         },
         {
           "cue": [
-            "akşam"
+            "katkısı"
           ],
           "who": "demetler",
           "do": "appear",
@@ -2050,12 +2122,16 @@
         },
         {
           "cue": [
-            "biçilmişti"
+            "tamamlamaya"
           ],
           "who": "komsuKadin",
           "do": "cheer",
           "look": "demetler"
         }
+      ],
+      "life": [
+        "butterflies",
+        "birds"
       ]
     },
     {
@@ -2065,11 +2141,11 @@
         "en": ""
       },
       "text": {
-        "tr": "{Kuruyan|kurumak} {başaklardan|başak} {taneler|tane} {harmanda|harman} {ayrıldı|ayrılmak}. {Temizlenip|temizlemek} {çuvallandı|çuvallamak}. {Çuvallar|çuval} {Duman} adlı {atın|at} arabasına {dengeli} yerleştirildi. Büyükler {yükü|yük} kontrol etti. Çocuklar {aileleriyle|aile} {değirmene|değirmen} gitti. Duman yolda {dinlendirildi|dinlendirmek}. Can çuvallara bakıp “{Ekmek|ekmek} olmak için daha {yolunuz|yol} var!” dedi.",
+        "tr": "Sonraki günlerde {başaklardan|başak} {buğday} {taneleri|tane} {ayrıldı|ayrılmak}. Temizlenen {taneler|tane} {çuvallara|çuval} dolduruldu. {Çuvallar|çuval}, {Duman} adlı {atın|at} arabasına yerleştirildi. {Büyükler|büyük} {yükü|yük} kontrol etti. {Değirmene|değirmen} doğru yola çıktılar, yolda Duman’ı da {dinlendirdiler|dinlendirmek}. Can {çuvallara|çuval} seslendi: “Daha {yolunuz|yol} var!” Elif güldü. Buğdayların {yolculuğu|yolculuk} henüz bitmemişti.",
         "en": ""
       },
       "culture": {
-        "tr": "Harman, biçilen ekinin dövülüp tanelerinin saptan ayrıldığı yerdir. Eskiden harmanda döven çekilir, taneler rüzgârda savrularak temizlenirdi. Temiz buğday çuvallara doldurulup değirmene götürülür.",
+        "tr": "Harman, biçilen ekinin tanelerinin sapından ayrıldığı yerdir. Temizlenen buğday taneleri, un yapılmak üzere değirmene götürülebilir.",
         "en": ""
       },
       "layers": [
@@ -2212,7 +2288,7 @@
       "beats": [
         {
           "cue": [
-            "kuruyan"
+            "başaklardan"
           ],
           "who": "harman",
           "do": "shine",
@@ -2220,7 +2296,7 @@
         },
         {
           "cue": [
-            "kuruyan"
+            "başaklardan"
           ],
           "who": "komsuAdam",
           "do": "useTool",
@@ -2230,7 +2306,7 @@
         },
         {
           "cue": [
-            "temizlenip"
+            "temizlenen"
           ],
           "who": "cuvallar",
           "do": "appear",
@@ -2238,7 +2314,7 @@
         },
         {
           "cue": [
-            "çuvallandı"
+            "dolduruldu"
           ],
           "who": "elif",
           "do": "cheer",
@@ -2296,7 +2372,7 @@
         },
         {
           "cue": [
-            "çocuklar"
+            "değirmene"
           ],
           "who": "duman",
           "do": "walkTo",
@@ -2312,7 +2388,7 @@
         },
         {
           "cue": [
-            "çocuklar"
+            "değirmene"
           ],
           "who": "arabaK",
           "do": "slide",
@@ -2325,7 +2401,7 @@
         },
         {
           "cue": [
-            "çocuklar"
+            "değirmene"
           ],
           "who": "yuk",
           "do": "slide",
@@ -2338,7 +2414,7 @@
         },
         {
           "cue": [
-            "çocuklar"
+            "değirmene"
           ],
           "who": "can",
           "do": "walkTo",
@@ -2353,7 +2429,7 @@
         },
         {
           "cue": [
-            "dinlendirildi"
+            "dinlendirdiler"
           ],
           "who": "duman",
           "do": "nod",
@@ -2362,7 +2438,7 @@
         },
         {
           "cue": [
-            "dinlendirildi"
+            "dinlendirdiler"
           ],
           "who": "elif",
           "do": "wave",
@@ -2380,14 +2456,14 @@
         },
         {
           "cue": [
-            "ekmek"
+            "daha"
           ],
           "who": "b_can",
           "do": "appear"
         },
         {
           "cue": [
-            "ekmek"
+            "daha"
           ],
           "who": "can",
           "do": "talk",
@@ -2410,11 +2486,11 @@
         "en": ""
       },
       "text": {
-        "tr": "{Değirmende|değirmen} su büyük {çarkı|çark} {döndürüyordu|döndürmek}. {Değirmenci} buğdayın {taşlar|taş} arasında nasıl {öğütüldüğünü|öğütmek} gösterdi. Çocuklar {belirlenen|belirlemek} yerden {izledi|izlemek}. {Çuvalda|çuval} {un} {birikiyordu|birikmek}. Elif “Başaktan buraya gelmesi günler sürdü.” dedi. Dedesi unu aldı. Buğdayın {yolculuğu|yolculuk} şimdi {hamur} olarak {sürecekti|sürmek}.",
+        "tr": "{Değirmende|değirmen} akan {su}, büyük bir {çarkı|çark} {döndürüyordu|döndürmek}. {Değirmenci}, buğdayın iki taş arasında nasıl {öğütüldüğünü|öğütmek} gösterdi. {Çocuklar|çocuk} ayrılan yerden {izledi|izlemek}. {Çuvalın|çuval} içinde bembeyaz {un} {birikiyordu|birikmek}. Elif, “Buraya gelmesi günler sürdü!” dedi. {Dedeleri|dede} {un} {çuvalını|çuval} aldı. {Tarladaki|tarla} {başaklar|başak} şimdi {ekmek} yapılmaya bir adım daha yakındı.",
         "en": ""
       },
       "culture": {
-        "tr": "Su değirmeninde akan su büyük bir çarkı döndürür; çark da içerideki ağır değirmen taşını çevirir. Buğday iki taşın arasında ezilerek una dönüşür. Anadolu’da yüzlerce yıl kullanılan su değirmenlerinin bazıları bugün hâlâ çalışır.",
+        "tr": "Su değirmeninde akan suyun gücü, değirmen taşını döndürür. Buğday, iki taşın arasında ezilip öğütülerek un olur.",
         "en": ""
       },
       "layers": [
@@ -2624,7 +2700,7 @@
         },
         {
           "cue": [
-            "çuvalda"
+            "çuvalın"
           ],
           "who": "un",
           "do": "grow",
@@ -2656,14 +2732,14 @@
         },
         {
           "cue": [
-            "dedesi"
+            "dedeleri"
           ],
           "who": "b_elif",
           "do": "vanish"
         },
         {
           "cue": [
-            "dedesi"
+            "dedeleri"
           ],
           "who": "dede",
           "do": "walkTo",
@@ -2694,7 +2770,7 @@
         },
         {
           "cue": [
-            "hamur"
+            "ekmek"
           ],
           "who": "can",
           "do": "cheer",
@@ -2709,11 +2785,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Osman amcanın avlusunda {sofra} kuruldu. {Babaanneleri|babaanne} hamur {yoğurdu|yoğurmak}. {Tandırı|tandır} kullanmayı bilen büyükler {ekmekleri|ekmek} {pişirdi|pişirmek}. Çocuklar uzaktaki {masaya|masa} {kaşık} ve {peçete} koydu. Komşular {yemek} getirdi. Osman amca teşekkür etti. Can ekmeği {kokladı|koklamak}. Tarlayı, değirmeni ve birlikte çalışanları {hatırladı|hatırlamak}.",
+        "tr": "Osman amcanın avlusunda {sofra} kuruldu. {Babaanneleri|babaanne} unla {hamur} {yoğurdu|yoğurmak}; {büyükler|büyük} {tandırda|tandır} {ekmek} {pişirdi|pişirmek}. {Çocuklar|çocuk} {masayı|masa} hazırladı. {Osman amca} herkese, “{Allah razı olsun},” dedi. Sofraya {besmeleyle|besmele} oturdular. Can {ekmeği|ekmek} {kokladı|koklamak}. {Tarlayı|tarla}, {değirmeni|değirmen} ve çalışan {komşuları|komşu} {hatırladı|hatırlamak}. Önündeki {nimette|nimet} hem {toprağın|toprak} {bereketi|bereket} hem birçok insanın {emeği|emek} vardı.",
         "en": ""
       },
       "culture": {
-        "tr": "Tandır, toprağa ya da kil gövdeye yapılmış derin bir ocaktır. Hamur tandırın sıcak duvarına yapıştırılarak pişirilir. İmece sonunda emeği geçenlerle birlikte kurulan sofra, işin en sevilen bölümüdür.",
+        "tr": "Tandır ekmeği hazırlamak bilgi ve emek ister. Ekmeği paylaşırken emeği geçenlere teşekkür eder, bize verilen nimetler için Allah’a şükrederiz.",
         "en": ""
       },
       "layers": [
@@ -2934,7 +3010,7 @@
         },
         {
           "cue": [
-            "tandırı"
+            "tandırda"
           ],
           "who": "komsuKadin",
           "do": "useTool",
@@ -2973,14 +3049,14 @@
         },
         {
           "cue": [
-            "koydu"
+            "hazırladı"
           ],
           "who": "peceteler",
           "do": "appear"
         },
         {
           "cue": [
-            "koydu"
+            "hazırladı"
           ],
           "who": "pecete2",
           "do": "appear",
@@ -2988,7 +3064,7 @@
         },
         {
           "cue": [
-            "komşular"
+            "hazırladı"
           ],
           "who": "komsuAdam",
           "do": "enter",
@@ -3003,7 +3079,7 @@
         },
         {
           "cue": [
-            "getirdi"
+            "hazırladı"
           ],
           "who": "komsuAdam",
           "do": "offer",
@@ -3012,7 +3088,7 @@
         },
         {
           "cue": [
-            "getirdi"
+            "hazırladı"
           ],
           "who": "pilav",
           "do": "appear",
@@ -3020,7 +3096,7 @@
         },
         {
           "cue": [
-            "getirdi"
+            "hazırladı"
           ],
           "who": "tencere",
           "do": "appear",
@@ -3037,7 +3113,7 @@
         },
         {
           "cue": [
-            "teşekkür"
+            "allah"
           ],
           "who": "osman",
           "do": "talk",
@@ -3087,11 +3163,11 @@
         "en": ""
       },
       "text": {
-        "tr": "{Dönüşte|dönüş} Elif dedesinin {çocukluk} {anılarını|anı} dinledi. Can “Bizim {mahallede|mahalle} imece olur mu?” diye sordu. Dedesi “Önce {komşularınıza|komşu} hangi işte {yardıma|yardım} {ihtiyaç duyduklarını|ihtiyaç duymak} sorun.” dedi. Çocuklar {ortak bahçedeki|ortak bahçe} {yaprakları|yaprak} düşündü. Eve dönünce {danışacaklardı|danışmak}. Elif dedesine {yaklaşıp|yaklaşmak} {sıradaki|sıradaki} hikâyeyi dinledi.",
+        "tr": "{Dönüş|dönüş} yolunda Elif dedesinin {çocukluğunu|çocukluk} dinliyordu. Can, “Bizim {mahallede|mahalle} {imece} olur mu?” diye sordu. “Olur,” dedi dedesi. “Önce {komşularınıza|komşu} hangi işte {yardım} istediklerini sorabilirsiniz.” Elif ile Can birbirine baktı. {Ortak bahçede|ortak bahçe} biriken {yapraklar|yaprak} akıllarına gelmişti. Belki {komşularla|komşu} birlikte bir bahçe günü düzenleyebilirlerdi.",
         "en": ""
       },
       "culture": {
-        "tr": "İmece yalnız köylere özgü değildir. Şehirde de komşular ortak bahçeyi temizlemek, yaşlı bir komşunun alışverişine yardım etmek ya da mahalle şenliği hazırlamak için el birliği yapabilir.",
+        "tr": "İmece yalnız köyde yapılmaz. Ortak bahçeyi temizlemek ya da mahalle şenliği hazırlamak için bir araya gelmek de imeceye örnek olabilir.",
         "en": ""
       },
       "layers": [
@@ -3214,7 +3290,7 @@
       "beats": [
         {
           "cue": [
-            "dönüşte"
+            "dönüş"
           ],
           "who": "dede",
           "do": "talk",
@@ -3224,7 +3300,7 @@
         },
         {
           "cue": [
-            "anılarını"
+            "çocukluğunu"
           ],
           "who": "elif",
           "do": "nod",
@@ -3266,7 +3342,7 @@
         },
         {
           "cue": [
-            "çocuklar"
+            "ortak"
           ],
           "who": "yapraklar",
           "do": "appear",
@@ -3274,7 +3350,7 @@
         },
         {
           "cue": [
-            "çocuklar"
+            "ortak"
           ],
           "who": "can",
           "do": "lookAt",
@@ -3283,7 +3359,7 @@
         },
         {
           "cue": [
-            "çocuklar"
+            "ortak"
           ],
           "who": "elif",
           "do": "lookAt",
@@ -3293,14 +3369,14 @@
         },
         {
           "cue": [
-            "danışacaklardı"
+            "belki"
           ],
           "who": "yapraklar",
           "do": "vanish"
         },
         {
           "cue": [
-            "danışacaklardı"
+            "belki"
           ],
           "who": "can",
           "do": "nod",
@@ -3308,7 +3384,7 @@
         },
         {
           "cue": [
-            "elif"
+            "birlikte"
           ],
           "who": "elif",
           "do": "walkTo",
@@ -3323,12 +3399,15 @@
         },
         {
           "cue": [
-            "dinledi"
+            "düzenleyebilirlerdi"
           ],
           "who": "dede",
           "do": "nod",
           "look": "elif"
         }
+      ],
+      "life": [
+        "fireflies"
       ]
     }
   ]

@@ -53,7 +53,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   const motifName = h('strong', null, '');
   const motifText = h('span', null, '');
   const motifCap = h('div', { class: 'motif-cap', role: 'status', 'aria-live': 'polite' }, h('span', { class: 'mc-dot', 'aria-hidden': 'true' }), h('span', { class: 'mc-body' }, motifName, motifText));
-  const hint = h('div', { class: 'home-hint', hidden: true, role: 'status' }, icon.tulip(), 'Raftaki nesnelere dokun, Türkçe adlarını duy!');
+  const hint = h('div', { class: 'home-hint', hidden: true, role: 'status' }, icon.tulip(), 'Raftaki nesnelere dokun, Türkçe adlarını dinle!');
 
   // each book on the shelf is a button for the keyboard and screen readers, laid invisibly over the book itself
   // (the books carry no labels: a tap on the book opens it)
@@ -78,7 +78,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   );
 
   shell.replaceChildren(
-    h('h1', { class: 'sr-only' }, 'Hikâyelerle Kültürüm: Türk kültürüyle büyüyen resimli kitaplar'),
+    h('h1', { class: 'sr-only' }, 'Hikâyelerle Kültürüm: Türkçe sesli ve resimli kitaplar'),
     sceneHost,
     vignette,
     hud,
@@ -114,7 +114,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     const read = ready.reduce((a, b) => a + store.progress(b.id).read.length, 0);
     statPages.replaceChildren(icon.star(), `${read}/${total}`);
     statCulture.replaceChildren(icon.tulip(), `${store.culture.length}/${culture.length}`);
-    stats.setAttribute('aria-label', `${total} sayfanın ${read} tanesi okundu, kültür rafında ${culture.length} nesneden ${store.culture.length} tanesi keşfedildi`);
+    stats.setAttribute('aria-label', `${total} sayfanın ${read} tanesi okundu.`);
     stats.title = 'Okunan sayfalar, keşfedilen raf nesneleri';
     cards.forEach(({ book, card }) => {
       if (book.status === 'soon') return;
@@ -128,14 +128,14 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   function updateSound() {
     const on = store.settings.sound;
     soundBtn.replaceChildren(on ? icon.speaker() : icon.mute());
-    soundBtn.setAttribute('aria-label', on ? 'Sesleri kapat' : 'Sesleri aç');
+    soundBtn.setAttribute('aria-label', on ? 'Sesi kapat' : 'Sesi aç');
     soundBtn.setAttribute('aria-pressed', String(on));
-    soundBtn.title = on ? 'Sesler açık' : 'Sesler kapalı';
+    soundBtn.title = on ? 'Ses açık' : 'Ses kapalı';
     const m = store.settings.music && on;
     musicBtn.replaceChildren(icon.music());
     musicBtn.setAttribute('aria-label', m ? 'Müziği kapat' : 'Müziği aç');
     musicBtn.setAttribute('aria-pressed', String(m));
-    musicBtn.title = m ? 'Arka plan müziği açık' : 'Arka plan müziği kapalı';
+    musicBtn.title = m ? 'Müzik açık' : 'Müzik kapalı';
     musicBtn.toggleAttribute('disabled', !on);
   }
   soundBtn.addEventListener('click', () => {
@@ -322,7 +322,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     const progress = h('div', { class: 'sc-progress', hidden: soon }, h('span', { class: 'sc-bar' }, fill), status);
     const actions = h('div', { class: 'sc-actions' });
     const body: Node[] = [liveCover(cover), h('h2', { class: 'sc-title' }, b.title), h('p', { class: 'sc-sum', lang: 'tr' }, b.blurb.tr)];
-    if (soon) body.push(h('p', { class: 'sc-soon' }, 'Bu kitap yakında rafta olacak.'));
+    if (soon) body.push(h('p', { class: 'sc-soon' }, 'Bu kitap yakında raftaki yerini alacak.'));
     body.push(progress, actions, backBtn);
     const corners = ['tl', 'tr', 'bl', 'br'].map((c) => h('span', { class: `sc-corner ${c}`, 'aria-hidden': 'true' }));
     const card = h('div', { class: 'story-card', role: 'dialog', 'aria-modal': 'true', 'aria-label': b.title }, ...corners, ...body);
@@ -346,7 +346,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     const ready = () => {
       if (!alive) return;
       fill.style.width = '100%';
-      status.textContent = 'Hazır';
+      status.textContent = 'Okumaya hazır!';
       progress.classList.add('done');
       actions.replaceChildren(read);
       read.focus({ preventScroll: true });

@@ -33,7 +33,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Keloğlan, Türk masallarının en sevilen kahramanıdır. Saçı olmayan, yoksul ama akıllı, iyi kalpli ve çalışkan bir gençtir. Türk masalları çoğu zaman 'Bir varmış, bir yokmuş' diye başlar.",
+        "tr": "Türk masallarının sevilen kahramanı Keloğlan, karşılaştığı güçlükleri çoğu zaman aklı ve iyi kalbiyle aşar. Büyüklerimiz bu masalları anlatırken kültürümüzü ve Türkçenin güzel sözlerini de aktarır.",
         "en": "Keloğlan is the best-loved hero of Turkish tales."
       },
       "models": [
@@ -448,7 +448,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "'Evvel zaman içinde, kalbur saman içinde' bir masal tekerlemesidir. Masalcı bu sözlerle dinleyenleri hayal dünyasına davet eder. Masallar eskiden kış gecelerinde, ocak başında anlatılırdı.",
+        "tr": "“Bir varmış, bir yokmuş” ve “Evvel zaman içinde, kalbur saman içinde” masalların başında söylenen sözlerdir. Bu tekerlemeler, dinleyeni günlük hayattan masalın hayal dünyasına davet eder.",
         "en": "A classic opening rhyme of Turkish tales."
       },
       "models": [
@@ -840,7 +840,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "'Emek olmadan yemek olmaz' bir Türk atasözüdür: Çalışmadan hiçbir şey kazanılmaz. Anadolu köylerinde eskiden suyu kuyulardan ve çeşmelerden kovalarla taşırlardı.",
+        "tr": "“Emek olmadan yemek olmaz.” atasözü, bir ürüne ulaşmak için çalışmak gerektiğini anlatır. Tohumların sebzeye dönüşmesi de toprağı hazırlama, sulama ve düzenli bakım ister.",
         "en": "A Turkish proverb: nothing comes without work."
       },
       "models": [
@@ -1324,7 +1324,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Filizler çok sıcak saatlerde gölgede tutulur, toprak kurumaya başlayınca sulanır. Sabırla bakılan bitkiler zamanla güçlenir. ‘Sabreden derviş muradına ermiş’ atasözü de sabırla bekleyenin isteğine kavuşacağını anlatır.",
+        "tr": "Tohumdan yeni gelişen küçük bitkiye filiz denir. Filizin yeni yapraklar vermesini gözlemleyebiliriz. Yapraklarını çekiştirmek yerine uygun koşullarda büyümesine zaman tanımak gerekir.",
         "en": ""
       },
       "models": [
@@ -1747,7 +1747,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Kurak zamanlarda Anadolu köylerinde su dikkatle paylaşılır: Önce içme suyu ayrılır, kalan su tarlalara verilir. ‘Bir elin nesi var, iki elin sesi var’ atasözü de birlikte çalışınca işlerin kolaylaştığını anlatır.",
+        "tr": "Toprağın üstünü saman gibi uygun malzemelerle örtmek, suyun buharlaşmasını azaltıp nemi korumaya yardımcı olur. Böylece ekinler için ayrılan suyu daha dikkatli kullanabiliriz.",
         "en": ""
       },
       "models": [
@@ -2119,7 +2119,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Anadolu'da yağmur bereket demektir. Kuraklık zamanlarında köylerde birlikte yağmur duasına çıkılır, ardından yağmur yağınca herkes sevinir.",
+        "tr": "Her sebzenin yenilen bölümü aynı değildir: havucun kökü, lahananın yaprakları, mısırın taneleri yenir. Olgunlaşma süreleri de farklıdır; her birini toplamak için uygun zamanı bekleriz.",
         "en": "Rain means plenty in Anatolia."
       },
       "models": [
@@ -2487,7 +2487,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Türk masalları çoğu zaman ‘Gökten üç elma düşmüş: biri anlatana, biri dinleyene, biri de okuyana’ diye biter. Hasat zamanı köylerde ortak sofralar kurulur; herkes ürününden bir pay getirir.",
+        "tr": "“Gökten üç elma düşmüş” sözü, Türk masallarının sonunda kullanılan bir bitiriş kalıbıdır. Elmaların anlatana, dinleyene ve okuyana ayrılması, masalın sevincini herkesle paylaşan hayalî bir armağanı anlatır.",
         "en": ""
       },
       "models": [
@@ -2962,7 +2962,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Bahçede yetişen sebzeler toplandıktan sonra iyice yıkanır. Türk sofralarında taze sebzelerle yapılan salatalar çok sevilir; en bilineni domates, salatalık, biber ve soğanla yapılan çoban salatasıdır. ‘Sabrın sonu selamettir’ atasözü de sabırla bekleyenin sonunda iyiliğe ulaşacağını anlatır.",
+        "tr": "Bir sebzeyi yetiştirmek; sulamayı, gözlemlemeyi ve olgunlaşmasını beklemeyi gerektirir. Can’ın havucu gibi, sofraya gelen her yiyeceğin arkasında emek vardır. Yemeden önce sebzeleri yıkamayı unutmayız.",
         "en": ""
       },
       "models": [

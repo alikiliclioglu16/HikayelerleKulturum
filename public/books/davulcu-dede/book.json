@@ -7,7 +7,7 @@
     "en": "The Ramadan drummer, sahur, mâni, iftar and neighbours helping each other"
   },
   "summary": {
-    "tr": "Ramazan’da İzmir’de sahura kaldıran Hüseyin dedenin dizleri ağrıyınca Can ve mahalleli ona eşlik ediyor. Can fener taşıyor ama yorulunca bunu söylemeyi de öğreniyor.",
+    "tr": "Ramazan’da sahur vakti duyulan davul sesi, Can’ı Hüseyin dedeyle tanıştırıyor. Fenerli bir yürüyüşten mahallenin iftarına uzanan günlerde, oruç ayının paylaşma ve dayanışma güzelliklerini yaşıyor.",
     "en": ""
   },
   "values": [
@@ -552,7 +552,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Ramazan ayında davulcular gece sokakları dolaşıp sahur vaktini haber verir. Davulun sesi ve okunan mâniler, birçok mahallede Ramazan’ın en sevilen seslerindendir.",
+        "tr": "Sahur, oruca hazırlanmak için imsak vaktinden önce yenilen yemektir. Ramazan davulcuları bazı mahallelerde bu vakti hatırlatır. Oruç ise Allah’ın rızasını kazanmak için yapılan bir ibadettir.",
         "en": ""
       },
       "layers": [
@@ -867,7 +867,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Mâni, çoğunlukla dört dizeden oluşan kısa bir halk şiiridir. Ramazan davulcuları sahurda kapı kapı dolaşırken mâni okur, bayramda da aynı kapıları çalıp bahşişlerini alırlardı.",
+        "tr": "Mâni, genellikle dört dizeden oluşan kısa bir halk şiiridir. Hüseyin dedenin mânisinde de dört dize vardır. Dizelerin sonundaki benzer sesler, mâninin ritmini duymamızı kolaylaştırır.",
         "en": ""
       },
       "layers": [
@@ -1134,7 +1134,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Ramazan’da komşular birbirine destek olur: yaşlı komşuların işlerine yardım eder, iftara davet eder, ihtiyacı olana sahip çıkar. Yardım ederken herkesin sağlığını ve dinlenme ihtiyacını düşünmek de önemlidir.",
+        "tr": "Bir büyüğümüzün yorulduğunu fark ettiğimizde neye ihtiyacı olduğunu sorabiliriz. Hüseyin dedenin yürüyüşünü paylaşan komşular gibi, işleri bölüşmek yükü hafifletir. Çocuklar da yaşlarına uygun görevler üstlenebilir.",
         "en": ""
       },
       "layers": [
@@ -1468,7 +1468,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Eskiden sokak lambası olmayan gecelerde insanlar yollarını fenerle bulurdu. Renkli camlı fenerler, Türk el sanatlarının en güzel örneklerindendir; içindeki ışık her rengi duvara yansıtır.",
+        "tr": "Fenerdeki ışık renkli camlardan geçince duvarda renkli ışık lekeleri oluşur. Fener hareket ettikçe bu lekelerin yeri de değişir. Can’ın gördüğü rengârenk izlerin nedeni budur.",
         "en": ""
       },
       "layers": [
@@ -1813,7 +1813,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Davulcular yüzyıllardır mahallenin bir parçasıdır. Sahur yürüyüşünde komşular onlara eşlik eder, pencereden selam verir; böylece mahallede herkes birbirini tanır ve kollar.",
+        "tr": "Bir işi nöbetleşe yapmak, sırayla üstlenmek demektir. Komşuların farklı saatlerde Hüseyin dedeye eşlik etmesi, onun yalnız kalmamasını ve herkesin dinlenebilmesini sağlar.",
         "en": ""
       },
       "layers": [
@@ -2167,7 +2167,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Çocukların büyümesi ve sağlıklı kalması için gece uykusu çok önemlidir. Yorulduğunu fark edip bunu söylemek, kendine iyi bakmanın bir parçasıdır.",
+        "tr": "Yorulduğumuzu söylemek, bedenimizin ihtiyacını fark ettiğimizi gösterir. Yardım ederken de dinlenebiliriz. Can’ın feneri babasına bırakması gibi, bir işi haber vererek devretmek sorumluluğu sürdürmenin bir yoludur.",
         "en": ""
       },
       "layers": [
@@ -2495,7 +2495,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Ramazan’da iftar sofraları paylaşmanın ve birlikteliğin simgesidir. Bayramda davulcular kapıları dolaşıp mâni okur; komşular da onlara gönüllerinden geldiği kadar bahşiş verir.",
+        "tr": "İftar, oruç tutanların gün batımında oruçlarını açmasıdır. Dua ederek Allah’ın verdiği nimetlere şükrederiz. Komşuların yemek getirerek aynı sofrada buluşması, Ramazan’da paylaşma ve dayanışmayı güçlendirir.",
         "en": ""
       },
       "layers": [
@@ -2921,7 +2921,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Ramazan Bayramı’nda büyükler küçüklere hediye verir, çocuklar el öper. Birlikte yaşarken başkalarının ihtiyacını gözetmek, örneğin okuyan birini rahatsız etmemek, saygının bir parçasıdır.",
+        "tr": "Bir çalgıyı ne zaman ve ne kadar sesle çaldığımız çevremizdekileri etkiler. Can’ın davulu sonraya bırakması gibi, okumak ya da dinlenmek isteyen birine kulak vermek nezakettir.",
         "en": ""
       },
       "layers": [

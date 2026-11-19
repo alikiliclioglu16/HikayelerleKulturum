@@ -7,7 +7,7 @@
     "en": "Istanbul ferries, the Bosphorus, simit, tulip-shaped tea glasses and the Maiden's Tower"
   },
   "summary": {
-    "tr": "İstanbul vapurunda simit yiyen Elif ile Can, martıları ve Kız Kulesi’ni izliyor. Denizde gördükleri bir poşet, çevreye özen göstermenin önemini hatırlatıyor.",
+    "tr": "Elif ile Can, aileleriyle İstanbul vapurunda martıları izliyor ve Kız Kulesi’ni keşfediyor. Denizde gördükleri bir poşetin ardından, bu güzel manzarayı korumak için kendilerinin neler yapabileceğini düşünüyorlar.",
     "en": ""
   },
   "values": [
@@ -568,7 +568,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "İstanbul’da vapurlar yüz yılı aşkın bir süredir iki yaka arasında yolcu taşıyor. Eminönü, Karaköy, Üsküdar ve Kadıköy en bilinen iskelelerdendir. Vapurda çay içip simit yemek birçok İstanbullunun sevdiği bir alışkanlıktır.",
+        "tr": "Vapur, deniz üzerinde yolcu taşıyan bir ulaşım aracıdır. Yolcuların vapura binip indiği yere iskele denir. İstanbul’da vapur yolculuğu, şehri denizden görmenin de bir yoludur.",
         "en": ""
       },
       "layers": [
@@ -1046,7 +1046,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "İstanbul Boğazı, Karadeniz’i Marmara Denizi’ne bağlayan yaklaşık 30 kilometrelik bir su yoludur. Şehri Avrupa ve Asya yakası olarak ikiye ayırır. Martılar rüzgârdan yararlanarak kanat çırpmadan uzun süre süzülebilir.",
+        "tr": "Martılar, hava akımlarından yararlanarak kanatlarını sürekli çırpmadan süzülebilir. Böylece daha az enerji harcarlar. Vapurdan onları izlerken süzülme ile kanat çırpma arasındaki farkı görebiliriz.",
         "en": ""
       },
       "layers": [
@@ -1430,7 +1430,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Martılar deniz kıyısında yaşayan kuşlardır. Yiyeceklerini denizde ve kıyıda kendileri arar. İnsan yiyecekleri onların sağlığına iyi gelmeyebilir; bu yüzden martıları beslemek yerine uzaktan izlemek daha doğrudur.",
+        "tr": "Pamuk Kanat, Can’ın kuşun beyaz göğsünden esinlenerek bulduğu bir addır. Bir canlıyı uzaktan gözlemleyerek rengini, hareketlerini ve çıkardığı sesleri onu rahatsız etmeden tanıyabiliriz.",
         "en": ""
       },
       "layers": [
@@ -1879,7 +1879,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Kız Kulesi, Üsküdar kıyısına yakın küçük bir adacığın üzerindedir. Uzun yıllar gemilere yol gösteren bir deniz feneri olarak kullanıldı. Hakkında anlatılan efsaneler de vardır.",
+        "tr": "Deniz fenerleri, ışıklarıyla gemicilerin yerlerini ve kıyıyı fark etmelerine yardımcı olur. Üsküdar açıklarındaki küçük bir adacıkta bulunan Kız Kulesi de geçmişte deniz feneri olarak kullanılmıştır.",
         "en": ""
       },
       "layers": [
@@ -2247,7 +2247,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Denize karışan plastikler yıllarca kaybolmadan kalabilir. Balıklar, kaplumbağalar ve kuşlar onları yiyecek sanabilir. Denizde bir çöp görünce ona uzanmak yerine bir görevliye haber vermek en güvenlisidir.",
+        "tr": "Denizdeki plastik poşetler, onları yiyecek sanan ya da içlerine dolanan canlılara zarar verebilir. Vapurdan uzanarak almaya çalışmak yerine görevliye yerini göstermek, güvenli biçimde yardım istemektir.",
         "en": ""
       },
       "layers": [
@@ -2685,7 +2685,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Vapurlarda ve iskelelerde denizin temiz kalması için görevliler çalışır. Yolcular da çöplerini kapalı tutarak ve çöp kutusuna atarak denize yardım edebilir.",
+        "tr": "Hafif poşetler ve peçeteler rüzgârla denize uçabilir. Vapurda ambalajları kapalı bir çantada toplamak ve çöpleri kutuya atmak, kendi atıklarımızın da denize karışmasını önler.",
         "en": ""
       },
       "layers": [
@@ -3132,7 +3132,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Üsküdar, İstanbul’un Asya yakasındaki en eski semtlerden biridir. İskelenin hemen yanındaki Mihrimah Sultan Camii’ni Mimar Sinan yaptı.",
+        "tr": "Kırık cam kesici olabilir; çocuklar ona dokunmadan bir görevliye haber vermelidir. Vapurdan inerken sırayı beklemek de herkesin güvenli ve rahat biçimde inmesine yardımcı olur.",
         "en": ""
       },
       "layers": [
@@ -3605,7 +3605,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Tek kullanımlık şişe ve ambalajlar çabucak çöpe dönüşür. Geziye matara ve bez çanta götürmek atığı azaltır; böylece denizler ve parklar daha temiz kalır.",
+        "tr": "Matara, suyumuzu yeniden doldurarak kullanabildiğimiz bir kaptır. Geziye matara götürmek, her seferinde yeni bir şişe almaya duyduğumuz ihtiyacı azaltır; böylece daha az ambalaj atığı oluşur.",
         "en": ""
       },
       "layers": [

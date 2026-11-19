@@ -7,7 +7,7 @@
     "en": "Turkish ebru (paper marbling)"
   },
   "summary": {
-    "tr": "Elif ile Can, İzmir'de Ahmet dedenin atölyesinde ebru yapmayı öğrenir: kitreyle koyulaştırılmış su, fırçadan serpilen boyalar, biz ile çizilen lale ve karanfil. İlk denemede boyalar karışsa da sabırla yeniden denerler. Kuruyan ebrular önce ipe, sonra Can'ın Amerika'daki sınıfının panosuna asılır.",
+    "tr": "Elif ile Can, Ahmet dedelerinin atölyesinde suyun üstünde renklerle tanışıyor. İlk denemelerden kâğıda geçen çiçeklere uzanan bu yolculukta, ebrunun nasıl yapıldığını birlikte öğreniyorlar.",
     "en": ""
   },
   "values": [
@@ -384,7 +384,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Ebru, Türk sanatlarından biridir. Kitreyle koyulaştırılmış suyun üstüne boyalar serpilir, oluşan desen kâğıda aktarılır. Türk ebru sanatı 2014'te UNESCO İnsanlığın Somut Olmayan Kültürel Mirası listesine alındı.",
+        "tr": "Geleneksel Türk sanatlarından ebruda, boyalar “tekne” denilen geniş ve sığ bir kaptaki suyun üzerine serpilir. Desen önce suyun yüzeyinde oluşur, sonra kâğıda aktarılır.",
         "en": ""
       },
       "layers": [
@@ -1077,7 +1077,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Ebru suyu, kitre denen bitkisel bir maddeyle koyulaştırılır. Böylece boyalar batmaz, suyun yüzeyinde açılıp yayılır. Ebru boyaları da doğal toprak boyalarıyla hazırlanır.",
+        "tr": "Kitre, ebruda suyu koyulaştırmak için kullanılan bitkisel bir maddedir. Özel hazırlanmış bu su ve ebru boyaları, damlaların yüzeyde açılıp desen oluşturmasına yardımcı olur.",
         "en": ""
       },
       "layers": [
@@ -1539,7 +1539,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Ebrucular boyayı fırçadan suya serperken fırçaya hafifçe vurur. Fırçada çok boya olursa damlalar büyür ve birbirine karışır.",
+        "tr": "Ebru fırçasına hafifçe vurunca boya damlaları suya serpilir. Fırçadaki boya miktarı ve elin hareketi damlaları etkiler. İstediğimiz desen oluşmazsa bunları değiştirerek yeniden deneyebiliriz.",
         "en": ""
       },
       "layers": [
@@ -2022,7 +2022,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Ebruda acele edilmez. Usta, suyun yüzeyini temiz bir kâğıtla toplar ve her denemeye temiz bir suyla başlar. Sabır ebrunun en önemli malzemesidir.",
+        "tr": "Bir denemede kullandığımız boya miktarını değiştirip oluşan desenleri karşılaştırabiliriz. Böylece hangi hareketin neyi değiştirdiğini fark ederiz. Ebruda sakin ve dikkatli çalışmak, el hareketlerini kontrol etmeyi kolaylaştırır.",
         "en": ""
       },
       "layers": [
@@ -2501,7 +2501,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Çiçekli ebruda lale, karanfil, gül ve sümbül gibi çiçekler biz ile suyun üstünde çizilir. Bu türün en ünlü ustası Necmeddin Okyay'dır.",
+        "tr": "Biz, boyayı suyun üzerinde çekip biçimlendirmeye yarayan ince uçlu bir araçtır. Lale ve karanfil gibi çiçekler bu yolla oluşturulur. Çocuklar bu aracı bir büyüğün yardımıyla kullanır.",
         "en": ""
       },
       "layers": [
@@ -3005,7 +3005,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Her ebru bir kez yapılır. Desen kâğıda alındıktan sonra suda bir daha aynısı oluşmaz; bu yüzden her ebru kâğıdı tektir.",
+        "tr": "Suyun üzerindeki desen, yüzeye bırakılan kâğıda tutunur. Kâğıt dikkatle kaldırıldığında renkler onunla birlikte çıkar. Islak çalışmaya dokunmadan kurumasını beklemek, desenin korunmasına yardımcı olur.",
         "en": ""
       },
       "layers": [
@@ -3477,7 +3477,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Ebru kâğıtları ıslakken üst üste konmaz. İpe ya da düz bir yere serilip kurutulur. Kuruyan ebrular kitap kaplarında, kartlarda ve tablolarda kullanılır.",
+        "tr": "Ebru çalışmaları kurumadan üst üste konursa desenleri bozulabilir. Yan yana kurutulan kâğıtlardaki renkleri ve çizgileri karşılaştırarak aynı malzemelerle ne kadar farklı desenler oluştuğunu görebiliriz.",
         "en": ""
       },
       "layers": [
@@ -3960,7 +3960,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Ebru bugün dünyanın birçok ülkesinde Türk sanatı olarak tanınır. Müzelerde, sergilerde ve okullarda ebru atölyeleri düzenlenir.",
+        "tr": "Ebru çalışmalarını sergilemek, bu geleneksel Türk sanatını başkalarına tanıtır. İlk denemeyi de göstermek, yalnızca sonucu değil, öğrenirken verilen emeği ve geçirilen aşamaları paylaşmamızı sağlar.",
         "en": ""
       },
       "layers": [

@@ -7,13 +7,14 @@
     "en": "Hospitality, the “Tanrı misafiri” saying, taking shoes off at home and the evil-eye bead as a keepsake"
   },
   "summary": {
-    "tr": "Yağmurlu bir akşam babaannenin kapısını yolda kalan bir dede ile torunu çalıyor. Can ve Elif misafir ağırlamayı ve izin istemeyi öğreniyor.",
+    "tr": "Yağmurlu bir akşam kapıya iki yolcu geliyor. Sıcak çorba eşliğinde yeni bir dostluk başlarken Can, kapalı bir kapıyı çalmayı da öğreniyor.",
     "en": ""
   },
   "values": [
+    "sevgi",
     "mahremiyet",
-    "yardimseverlik",
-    "saygi"
+    "saygi",
+    "yardimseverlik"
   ],
   "music": {
     "src": "/books/yolcu-misafir/muzik.mp3",
@@ -22,6 +23,90 @@
   },
   "toyCast": true,
   "glossary": {
+    "babaanne": {
+      "en": "grandma (father's mother)",
+      "icon": "👵"
+    },
+    "adam": {
+      "en": "man",
+      "icon": "👴"
+    },
+    "salon": {
+      "en": "living room",
+      "icon": "🛋️"
+    },
+    "misafir": {
+      "en": "guest",
+      "icon": "🧳"
+    },
+    "palto": {
+      "en": "coat",
+      "icon": "🧥"
+    },
+    "ekmek": {
+      "en": "bread",
+      "icon": "🍞"
+    },
+    "masa": {
+      "en": "table",
+      "icon": "🪑"
+    },
+    "besmele": {
+      "en": "besmele, saying “Bismillah” before starting",
+      "icon": "🤲"
+    },
+    "ev sahibi": {
+      "en": "host",
+      "icon": "🏠"
+    },
+    "Allah razı olsun": {
+      "en": "“May God be pleased with you”, a thank-you",
+      "icon": "🤲"
+    },
+    "oda": {
+      "en": "room",
+      "icon": "🛏️"
+    },
+    "cevap": {
+      "en": "answer",
+      "icon": "💬"
+    },
+    "desen": {
+      "en": "pattern",
+      "icon": "🌀"
+    },
+    "yolluk": {
+      "en": "food for the road",
+      "icon": "🧺"
+    },
+    "Allah’a emanet olun": {
+      "en": "“Go with God”, said when someone leaves",
+      "icon": "🤲"
+    },
+    "arkadaş": {
+      "en": "friend",
+      "icon": "🧒"
+    },
+    "özel alan": {
+      "en": "private space",
+      "icon": "🚪"
+    },
+    "çorba": {
+      "en": "soup",
+      "icon": "🥣"
+    },
+    "yağmur": {
+      "en": "rain",
+      "icon": "🌧️"
+    },
+    "tamirci": {
+      "en": "mechanic",
+      "icon": "🧑‍🔧"
+    },
+    "nazar boncuğu": {
+      "en": "the blue evil-eye bead",
+      "icon": "🧿"
+    },
     "kış": {
       "en": "winter",
       "icon": "❄️"
@@ -33,10 +118,6 @@
     "İzmir": {
       "en": "İzmir, a city on the Aegean coast",
       "icon": "🏙️"
-    },
-    "babaanne": {
-      "en": "grandma (father's mother)",
-      "icon": "👵"
     },
     "Yağmur": {
       "en": "rain",
@@ -78,10 +159,6 @@
       "en": "old",
       "icon": "👴"
     },
-    "salon": {
-      "en": "living room",
-      "icon": "🛋️"
-    },
     "konuşma": {
       "en": "conversation",
       "icon": "💬"
@@ -110,10 +187,6 @@
       "en": "to know (someone)",
       "icon": "🤝"
     },
-    "tamirci": {
-      "en": "mechanic",
-      "icon": "🧑‍🔧"
-    },
     "aramak": {
       "en": "to call (on the phone)",
       "icon": "📞"
@@ -121,10 +194,6 @@
     "haber vermek": {
       "en": "to let know",
       "icon": "📣"
-    },
-    "misafir": {
-      "en": "guest",
-      "icon": "🧳"
     },
     "ağırlamak": {
       "en": "to host, look after (a guest)",
@@ -166,10 +235,6 @@
       "en": "wet",
       "icon": "💧"
     },
-    "arkadaş": {
-      "en": "friend",
-      "icon": "🧒"
-    },
     "kural": {
       "en": "rule",
       "icon": "📏"
@@ -177,10 +242,6 @@
     "sormak": {
       "en": "to ask",
       "icon": "❓"
-    },
-    "palto": {
-      "en": "coat",
-      "icon": "🧥"
     },
     "asmak": {
       "en": "to hang",
@@ -197,10 +258,6 @@
     "baba": {
       "en": "dad",
       "icon": "👨"
-    },
-    "çorba": {
-      "en": "soup",
-      "icon": "🥣"
     },
     "ısıtmak": {
       "en": "to warm up",
@@ -233,10 +290,6 @@
     "sofra": {
       "en": "table (set for a meal)",
       "icon": "🍽️"
-    },
-    "ekmek": {
-      "en": "bread",
-      "icon": "🍞"
     },
     "teşekkür etmek": {
       "en": "to thank",
@@ -298,10 +351,6 @@
       "en": "Huriye Hanım, Can and Elif's mum",
       "icon": "👩"
     },
-    "oda": {
-      "en": "room",
-      "icon": "🛏️"
-    },
     "eşya": {
       "en": "belongings, things",
       "icon": "🧸"
@@ -317,10 +366,6 @@
     "hazırlanmak": {
       "en": "to get ready",
       "icon": "🧳"
-    },
-    "nazar boncuğu": {
-      "en": "the blue evil-eye bead",
-      "icon": "🧿"
     },
     "uzatmak": {
       "en": "to hold out",
@@ -374,10 +419,6 @@
       "en": "to smile",
       "icon": "😊"
     },
-    "özel alan": {
-      "en": "private space",
-      "icon": "🚪"
-    },
     "saygı duymak": {
       "en": "to respect",
       "icon": "🤝"
@@ -414,10 +455,6 @@
       "en": "toy",
       "icon": "🧸"
     },
-    "masa": {
-      "en": "table",
-      "icon": "🪑"
-    },
     "ay": {
       "en": "moon",
       "icon": "🌙"
@@ -449,6 +486,58 @@
     "telefon": {
       "en": "phone",
       "icon": "📱"
+    },
+    "allah razı olsun": {
+      "en": "“May God be pleased with you”, a thank-you",
+      "icon": "🤲"
+    },
+    "allah’a emanet olun": {
+      "en": "“Go with God”, said when someone leaves",
+      "icon": "🤲"
+    },
+    "izmir": {
+      "en": "İzmir, a city on the Aegean coast",
+      "icon": "🏙️"
+    },
+    "yaşlı": {
+      "en": "old",
+      "icon": "👴"
+    },
+    "yolcu": {
+      "en": "traveller",
+      "icon": "🧳"
+    },
+    "melek": {
+      "en": "Melek, the traveller's granddaughter",
+      "icon": "👧"
+    },
+    "habersiz": {
+      "en": "without warning",
+      "icon": "❔"
+    },
+    "tanrı misafiri": {
+      "en": "an unexpected guest (“a guest sent by God”)",
+      "icon": "🧳"
+    },
+    "karşılık": {
+      "en": "something in return",
+      "icon": "🎁"
+    },
+    "huriye Hanım": {
+      "en": "Huriye Hanım, Can and Elif's mum",
+      "icon": "👩"
+    },
+    "fatma babaanne": {
+      "en": "Fatma babaanne, Can and Elif's grandma",
+      "icon": "👵"
+    },
+    "ahmet dede": {
+      "en": "Ahmet dede, Can and Elif's grandpa",
+      "icon": "👴"
+    },
+    "saat Kulesi": {
+      "en": "the Clock Tower of İzmir",
+      "icon": "🕰️"
     }
   },
   "quiz": [
@@ -660,11 +749,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Bir {kış} {akşamı|akşam} Elif ile Can {İzmir’de|İzmir} {babaannelerindeydi|babaanne}. {Yağmur} {şakır şakır} {yağıyordu|yağmak}. {Aileleriyle|aile} otururken {kapı} {çalındı|çalınmak}. {Dedeleri|dede} önce kimin geldiğini sordu. {Pencereden|pencere} bakıp kapıyı {araladı|aralamak}. {Yaşlı} bir adamla küçük bir kız vardı. Çocuklar {salonda|salon} {konuşmayı|konuşma} dinledi.",
+        "tr": "Bir {kış} {akşamı|akşam} Elif ile Can, {İzmir’de|İzmir} {babaannelerinin|babaanne} evindeydi. Dışarıda {yağmur} {şakır şakır} {yağıyordu|yağmak}. Birden {kapı} çaldı. {Dedeleri|dede}, “Kim o?” diye sordu. {Pencereden|pencere} baktıktan sonra {kapıyı|kapı} {araladı|aralamak}. Dışarıda {yaşlı} bir {adamla|adam} küçük bir kız duruyordu. Elif ile Can {salondan|salon} merakla {konuşmayı|konuşma} dinledi.",
         "en": ""
       },
       "culture": {
-        "tr": "İzmir kışları ılık ama yağmurlu geçer. Kapı çalındığında önce kimin geldiğini sormak, pencereden bakmak ve tanımadığımız birine kapıyı büyüklerimiz açmak güvenliğimiz için önemlidir.",
+        "tr": "İzmir’in kışları genellikle ılık ve yağmurludur. Kapımız çaldığında kimin geldiğine bir yetişkin bakar. Tanımadığımız birine kapıyı kendimiz açmayız.",
         "en": ""
       },
       "layers": [
@@ -819,7 +908,7 @@
         },
         {
           "cue": [
-            "çalındı"
+            "çaldı"
           ],
           "who": "dede",
           "do": "turn",
@@ -828,7 +917,7 @@
         },
         {
           "cue": [
-            "çalındı"
+            "çaldı"
           ],
           "who": "can",
           "do": "hop",
@@ -912,7 +1001,7 @@
         },
         {
           "cue": [
-            "çocuklar"
+            "merakla"
           ],
           "who": "elif",
           "do": "lookAt",
@@ -937,11 +1026,11 @@
         "en": ""
       },
       "text": {
-        "tr": "{Yolcu} {torunu|torun} {Melek’le|Melek} {arabaları|araba} {bozulduğu|bozulmak} için yağmurda kaldıklarını anlattı. Dedeleri {tanıdığı|tanımak} {tamirciyi|tamirci} {aradı|aramak}. Yolcunun ailesine {haber verdiler|haber vermek}. Tamirci gelene kadar {misafirlerini|misafir} {ağırlayacaklardı|ağırlamak}. Babaanneleri “{Buyurun|buyurmak}, {ısının|ısınmak}.” dedi. Melek kendini {tanıttı|tanıtmak}. Elif salondaki boş {koltuğu|koltuk} {gösterdi|göstermek}.",
+        "tr": "{Yolcu}, {torunu|torun} {Melek’le|Melek} yolda kaldıklarını anlattı. {Arabaları|araba} bozulmuştu. {Dedeleri|dede} {tanıdığı|tanımak} {tamirciyi|tamirci} {aradı|aramak}; yolcunun ailesine de {haber verdiler|haber vermek}. {Babaanneleri|babaanne}, “{Buyurun|buyurmak}, {ısının|ısınmak},” diyerek onları {salona|salon} çağırdı. Melek kendini {tanıttı|tanıtmak}. Elif ona boş {koltuğu|koltuk} {gösterdi|göstermek}. Tamirci gelene kadar sıcak evde bekleyebilirlerdi.",
         "en": ""
       },
       "culture": {
-        "tr": "Türk kültüründe yardıma ihtiyacı olan misafir güler yüzle karşılanır. “Buyurun” sözü hem içeri davet etmek hem de bir şey ikram etmek için kullanılır.",
+        "tr": "“Buyurun” sözü, birini davet ederken ya da bir şey ikram ederken kullanılır. “Buyurun, oturun” ve “Buyurun, çorbanız” gibi farklı biçimlerde söylenebilir.",
         "en": ""
       },
       "layers": [
@@ -1092,7 +1181,7 @@
         },
         {
           "cue": [
-            "bozulduğu"
+            "bozulmuştu"
           ],
           "who": "melek",
           "do": "nod",
@@ -1133,7 +1222,7 @@
         },
         {
           "cue": [
-            "ağırlayacaklardı"
+            "haber"
           ],
           "who": "dede",
           "do": "give",
@@ -1208,11 +1297,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Babaanneleri “Evde {ayakkabılarımızı|ayakkabı} {çıkarıyoruz|çıkarmak}. Size {terlik} verebilirim.” dedi. Melek {ıslak} ayakkabılarını çıkardı. Can terlik getirdi. Elif {arkadaşlarının|arkadaş} evlerinde farklı {kurallar|kural} olabildiğini anlattı. Yolcu “Misafir olunca {sormak} iyi oluyor.” dedi. Babaanneleri {paltoları|palto} {astı|asmak}. Herkes {yerleşince|yerleşmek} {sohbet} başladı.",
+        "tr": "{Babaanneleri|babaanne} {misafirlere|misafir}, “Evde {ayakkabılarımızı|ayakkabı} {çıkarıyoruz|çıkarmak}. Size {terlik} verebilirim,” dedi. Melek {ıslak} {ayakkabılarını|ayakkabı} çıkardı, Can {terlik} getirdi. Elif, “Bazı arkadaşlarımın evinde başka {kurallar|kural} var,” diye anlattı. {Yolcu} {gülümsedi|gülümsemek}. “{Misafir|misafir} olunca {sormak} iyi oluyor.” {Paltolar|palto} asıldı, {terlikler|terlik} giyildi. Herkes biraz daha rahatlamıştı.",
         "en": ""
       },
       "culture": {
-        "tr": "Türk evlerinde içeri girerken ayakkabılar kapının önünde çıkarılır; misafire terlik uzatılır. Böylece ev temiz kalır. Farklı evlerin farklı kuralları olabilir; emin olmadığımızda sormak en güzel yoldur.",
+        "tr": "Birçok Türk evinde içeri girerken ayakkabı çıkarılır ve misafire terlik verilir. Her evin alışkanlıkları farklı olabilir. Emin değilsek ev sahibine sorabiliriz.",
         "en": ""
       },
       "layers": [
@@ -1323,7 +1412,7 @@
         {
           "proc": "bubble",
           "id": "b_babaanne",
-          "label": "Evde ayakkabı çıkarıyoruz.",
+          "label": "Ayakkabılarımızı çıkarıyoruz.",
           "color": "#C2185B",
           "x": 0.36,
           "z": 0.6,
@@ -1336,7 +1425,7 @@
         {
           "proc": "bubble",
           "id": "b_yolcu",
-          "label": "Misafir olunca sormak iyi oluyor.",
+          "label": "Misafir olunca sorarız.",
           "color": "#455A64",
           "x": 0.02,
           "z": 0.34,
@@ -1496,14 +1585,14 @@
         },
         {
           "cue": [
-            "babaanneleri"
+            "paltolar"
           ],
           "who": "b_yolcu",
           "do": "vanish"
         },
         {
           "cue": [
-            "babaanneleri"
+            "paltolar"
           ],
           "who": "babaanne",
           "do": "walkTo",
@@ -1518,14 +1607,14 @@
         },
         {
           "cue": [
-            "astı"
+            "asıldı"
           ],
           "who": "portmantoBos",
           "do": "switchOff"
         },
         {
           "cue": [
-            "astı"
+            "asıldı"
           ],
           "who": "portmanto",
           "do": "switchOn"
@@ -1541,7 +1630,7 @@
         },
         {
           "cue": [
-            "sohbet"
+            "rahatlamıştı"
           ],
           "who": "melek",
           "do": "talk",
@@ -1550,7 +1639,7 @@
         },
         {
           "cue": [
-            "sohbet"
+            "rahatlamıştı"
           ],
           "who": "elif",
           "do": "nod",
@@ -1566,11 +1655,11 @@
         "en": ""
       },
       "text": {
-        "tr": "{Babaları|baba} {çorbayı|çorba} {ısıtırken|ısıtmak} babaanneleri misafirlerin {yiyemediği|yemek} bir şey olup olmadığını sordu. Melek {mercimek} çorbasını sevdiğini söyledi. Elif {izin} isteyip {battaniye} getirdi. Büyükler {çay}, çocuklar {su} içti. Can {sofraya|sofra} {ekmek} koydu. Melek {ısınınca|ısınmak} Elif’e okulda sevdiği bir oyunu anlattı.",
+        "tr": "{Babaları|baba} {çorbayı|çorba} {ısıtırken|ısıtmak} {babaanneleri|babaanne} {misafirlerin|misafir} {yiyemediği|yemek} bir şey olup olmadığını sordu. Elif, “{Battaniye|battaniye} ister misin?” diyerek Melek’e bir {battaniye} getirdi. Can {ekmeği|ekmek} {masaya|masa} koydu. Melek {ısınınca|ısınmak} {gülümsedi|gülümsemek}. “{Mercimek|mercimek} {çorbası|çorba}!” dedi. Ailece {besmeleyle|besmele} yemeğe başladılar. {Yolcu} da kendilerini düşünerek ağırlayan {ev sahiplerine|ev sahibi} {teşekkür etti|teşekkür etmek}.",
         "en": ""
       },
       "culture": {
-        "tr": "Mercimek çorbası Türk mutfağının en sevilen, en kolay ikram edilen yemeklerindendir. Misafire yemekten önce yiyemediği ya da alerjisi olan bir şey olup olmadığını sormak inceliktir.",
+        "tr": "Misafiri düşünmek, ona neye ihtiyacı olduğunu sormakla başlar. Elimizdeki imkânlarla ikram eder, istemediği bir şeyi yemesi için ısrar etmeyiz.",
         "en": ""
       },
       "layers": [
@@ -1767,28 +1856,6 @@
         },
         {
           "cue": [
-            "mercimek"
-          ],
-          "who": "b_melek",
-          "do": "appear"
-        },
-        {
-          "cue": [
-            "mercimek"
-          ],
-          "who": "melek",
-          "do": "nod",
-          "look": "babaanne"
-        },
-        {
-          "cue": [
-            "elif"
-          ],
-          "who": "b_melek",
-          "do": "vanish"
-        },
-        {
-          "cue": [
             "elif"
           ],
           "who": "elif",
@@ -1801,6 +1868,15 @@
           "face": 40,
           "look": "melek",
           "focus": true
+        },
+        {
+          "cue": [
+            "battaniye"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "melek",
+          "len": 1.4
         },
         {
           "cue": [
@@ -1819,30 +1895,6 @@
           "target": "battaniye",
           "look": "elif",
           "wait": 0.4
-        },
-        {
-          "cue": [
-            "büyükler"
-          ],
-          "who": "cay1",
-          "do": "appear",
-          "focus": true
-        },
-        {
-          "cue": [
-            "büyükler"
-          ],
-          "who": "cay2",
-          "do": "appear",
-          "wait": 0.3
-        },
-        {
-          "cue": [
-            "çay"
-          ],
-          "who": "yolcu",
-          "do": "nod",
-          "look": "babaanne"
         },
         {
           "cue": [
@@ -1888,18 +1940,66 @@
             "melek"
           ],
           "who": "melek",
-          "do": "talk",
+          "do": "nod",
           "look": "elif",
+          "focus": true
+        },
+        {
+          "cue": [
+            "mercimek"
+          ],
+          "who": "b_melek",
+          "do": "appear"
+        },
+        {
+          "cue": [
+            "mercimek"
+          ],
+          "who": "melek",
+          "do": "talk",
+          "look": "babaanne",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "ailece"
+          ],
+          "who": "b_melek",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "ailece"
+          ],
+          "who": "cay1",
+          "do": "appear",
+          "focus": true
+        },
+        {
+          "cue": [
+            "ailece"
+          ],
+          "who": "cay2",
+          "do": "appear",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "yolcu"
+          ],
+          "who": "yolcu",
+          "do": "talk",
+          "look": "babaanne",
           "len": 2.6,
           "focus": true
         },
         {
           "cue": [
-            "anlattı"
+            "teşekkür"
           ],
-          "who": "elif",
-          "do": "cheer",
-          "look": "melek"
+          "who": "babaanne",
+          "do": "nod",
+          "look": "yolcu"
         }
       ]
     },
@@ -1910,11 +2010,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Yolcu {teşekkür etti|teşekkür etmek}. Dedeleri “{Habersiz} gelen {konuğa|konuk} {Tanrı misafiri} denir.” dedi. Can bu sözü ilk kez duyuyordu. Babaanneleri “Geleceğinizi bilmiyorduk, şimdi {tanıştık|tanışmak}.” diye {açıkladı|açıklamak}. {Karşılık} {beklemiyorlardı|beklemek}. Dedeleri tamirciyle konuştu. Melek {babasını|baba} arayıp nerede olduklarını anlattı.",
+        "tr": "{Yolcu}, “{Allah razı olsun}. Bizi rahatlattınız,” dedi. {Dedeleri|dede}, “Siz bizim {Tanrı misafirimizsiniz|Tanrı misafiri},” diye {karşılık} verdi. Can, “{Tanrı misafiri}?” diye sordu. {Babaanneleri|babaanne}, “{Habersiz} gelen {konuğa|konuk} böyle denir,” diye {açıkladı|açıklamak}. Melek {babasını|baba} arayıp nerede olduklarını anlattı. {Dedeleri|dede} de {tamirciyle|tamirci} konuştu. Yardım istemek ve yardım etmek, onları bir araya getirmişti.",
         "en": ""
       },
       "culture": {
-        "tr": "Önceden haber vermeden gelen konuğa “Tanrı misafiri” denir. Anadolu’da böyle bir misafir bereket sayılır; ona karşılık beklemeden yer, yemek ve sıcak bir köşe sunulur.",
+        "tr": "Misafirperverlik, konuğu güler yüzle ve elindeki imkânlarla ağırlamaktır. “Allah razı olsun” da bir iyiliğin ardından söylenen teşekkür ve dua sözüdür.",
         "en": ""
       },
       "layers": [
@@ -1972,7 +2072,7 @@
         {
           "proc": "bubble",
           "id": "b_dede",
-          "label": "Tanrı misafiri!",
+          "label": "Tanrı misafirimizsiniz.",
           "color": "#8A5A2B",
           "x": -0.28,
           "z": 0.5,
@@ -1998,7 +2098,7 @@
         {
           "proc": "bubble",
           "id": "b_babaanne",
-          "label": "Şimdi tanıştık.",
+          "label": "Habersiz gelen konuk.",
           "color": "#C2185B",
           "x": -0.4,
           "z": 0.62,
@@ -2131,43 +2231,18 @@
         },
         {
           "cue": [
-            "karşılık"
+            "açıkladı"
           ],
           "who": "b_babaanne",
           "do": "vanish"
         },
         {
           "cue": [
-            "karşılık"
+            "açıkladı"
           ],
           "who": "yolcu",
           "do": "nod",
           "look": "babaanne"
-        },
-        {
-          "cue": [
-            "dedeleri"
-          ],
-          "who": "dede",
-          "do": "receive",
-          "target": "telefon",
-          "look": "reader",
-          "focus": true
-        },
-        {
-          "cue": [
-            "konuştu"
-          ],
-          "who": "dede",
-          "do": "useTool",
-          "style": "ear",
-          "to": [
-            0.0,
-            0.04,
-            0.08
-          ],
-          "look": "reader",
-          "len": 2.0
         },
         {
           "cue": [
@@ -2201,6 +2276,39 @@
           "who": "elif",
           "do": "nod",
           "look": "melek"
+        },
+        {
+          "cue": [
+            "dedeleri"
+          ],
+          "who": "dede",
+          "do": "receive",
+          "target": "telefon",
+          "look": "reader",
+          "focus": true
+        },
+        {
+          "cue": [
+            "konuştu"
+          ],
+          "who": "dede",
+          "do": "useTool",
+          "style": "ear",
+          "to": [
+            0.0,
+            0.04,
+            0.08
+          ],
+          "look": "reader",
+          "len": 2.0
+        },
+        {
+          "cue": [
+            "yardım"
+          ],
+          "who": "yolcu",
+          "do": "nod",
+          "look": "dede"
         }
       ]
     },
@@ -2211,11 +2319,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Elif ile Melek oynarken Can kapıyı {açtı|açmak}. İkisi {irkildi|irkilmek}. Elif “Önce kapıyı çalar mısın?” diye sordu. Can {dışarı} çıkıp kapıyı {tıklattı|tıklatmak}. “{Oynayabilir miyim|oynamak}?” dedi. {Annesi|anne} {Huriye Hanım} “{Odaya|oda} girerken, başkasının {eşyasını|eşya} kullanırken izin isteriz.” dedi. Can {daveti|davet} bekledi.",
+        "tr": "Elif ile Melek {odada|oda} oynarken Can birden {kapıyı|kapı} {açtı|açmak}. İkisi de {irkildi|irkilmek}. Elif, “Önce {kapıyı|kapı} çalar mısın?” dedi. Can geri çıkıp tık tık diye vurdu. “{Oynayabilir miyim|oynamak}?” diye sordu. Anneleri, “Bir {odaya|oda} girmeden ya da birinin {eşyasını|eşya} almadan {izin} isteriz,” dedi. Can bu kez {cevabı|cevap} bekledi.",
         "en": ""
       },
       "culture": {
-        "tr": "Kapalı bir kapıyı çalıp “Girebilir miyim?” diye sormak, içerideki kişinin özel alanına saygıdır. Başkasının eşyasını kullanmadan önce izin istemek de aynı saygının parçasıdır.",
+        "tr": "Kapalı bir kapıyı çalmak yetmez; içeridekinin cevabını da bekleriz. Başkasının odasına girerken ve eşyasını kullanırken izin isteriz.",
         "en": ""
       },
       "layers": [
@@ -2467,7 +2575,7 @@
         },
         {
           "cue": [
-            "tıklattı"
+            "vurdu"
           ],
           "who": "kapi",
           "do": "shine",
@@ -2483,14 +2591,14 @@
         },
         {
           "cue": [
-            "annesi"
+            "anneleri"
           ],
           "who": "b_can",
           "do": "vanish"
         },
         {
           "cue": [
-            "annesi"
+            "anneleri"
           ],
           "who": "b_anne",
           "do": "appear",
@@ -2498,7 +2606,7 @@
         },
         {
           "cue": [
-            "annesi"
+            "anneleri"
           ],
           "who": "anne",
           "do": "talk",
@@ -2539,11 +2647,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Araba {onarılınca|onarmak} yolcu gitmeye {hazırlandı|hazırlanmak}. Melek Elif’e {nazar boncuğu} {uzattı|uzatmak}. “{Tanışmamızın|tanışmak} {hatırası|hatıra} olsun.” dedi. Elif {mavi} {boncuğa|boncuk} baktı. {Fatma babaanne} yolda yemeleri için {kurabiye} {hazırlamıştı|hazırlamak}. {Ahmet dede} “Yolunuz açık olsun!” diyerek {uğurladı|uğurlamak}. Melek arabadan {el salladı|el sallamak}. Yağmur {azalmıştı|azalmak}.",
+        "tr": "Araba {onarılınca|onarmak} {yolcu} ile Melek {hazırlandı|hazırlanmak}. Melek küçük bir cam süsünü Elif’e {uzattı|uzatmak}. “Hatıra olsun,” dedi. {Mavi|mavi} {nazar boncuğunun|nazar boncuğu} {desenlerini|desen} birlikte incelediler. {Babaanneleri|babaanne} {yolluk} {kurabiye} hazırladı. {Dedeleri|dede}, “{Allah’a emanet olun}. Yolunuz açık olsun!” diye {uğurladı|uğurlamak}. Melek arabadan {el salladı|el sallamak}. Elif de yeni {arkadaşına|arkadaş} gülümseyerek {karşılık} verdi.",
         "en": ""
       },
       "culture": {
-        "tr": "Nazar boncuğu, kötü bakışlardan koruduğuna inanılan mavi bir camdır; bugün çoğunlukla güzel bir hatıra olarak hediye edilir. Yola çıkanlar “Yolunuz açık olsun!” diye uğurlanır, arkalarından bazen su dökülür.",
+        "tr": "Nazar boncuğu bir cam süsüdür; bizi koruyan bir güç değildir. Korunmak için Allah’a dua eder, güvenliğimiz için gerekli önlemleri alırız.",
         "en": ""
       },
       "layers": [
@@ -2651,6 +2759,19 @@
           "hidden": true,
           "magic": true,
           "tail": true
+        },
+        {
+          "proc": "bubble",
+          "id": "b_dede2",
+          "label": "Allah’a emanet olun.",
+          "color": "#8A5A2B",
+          "x": -0.4,
+          "z": 0.56,
+          "y": 0.595,
+          "h": 0.085,
+          "hidden": true,
+          "magic": true,
+          "tail": true
         }
       ],
       "cast": [
@@ -2735,21 +2856,21 @@
         },
         {
           "cue": [
-            "tanışmamızın"
+            "hatıra"
           ],
           "who": "b_melek",
           "do": "appear"
         },
         {
           "cue": [
-            "elif"
+            "mavi"
           ],
           "who": "b_melek",
           "do": "vanish"
         },
         {
           "cue": [
-            "elif"
+            "mavi"
           ],
           "who": "elif",
           "do": "lookAt",
@@ -2759,14 +2880,14 @@
         },
         {
           "cue": [
-            "boncuğa"
+            "nazar"
           ],
           "who": "nazar",
           "do": "spin"
         },
         {
           "cue": [
-            "boncuğa"
+            "nazar"
           ],
           "who": "elif",
           "do": "cheer",
@@ -2775,7 +2896,7 @@
         },
         {
           "cue": [
-            "fatma"
+            "babaanneleri"
           ],
           "who": "babaanne",
           "do": "walkTo",
@@ -2790,7 +2911,7 @@
         },
         {
           "cue": [
-            "hazırlamıştı"
+            "hazırladı"
           ],
           "who": "babaanne",
           "do": "give",
@@ -2798,7 +2919,7 @@
         },
         {
           "cue": [
-            "hazırlamıştı"
+            "hazırladı"
           ],
           "who": "yolcu",
           "do": "receive",
@@ -2808,19 +2929,33 @@
         },
         {
           "cue": [
-            "ahmet"
+            "dedeleri"
           ],
-          "who": "b_dede",
+          "who": "b_dede2",
           "do": "appear",
           "focus": true
         },
         {
           "cue": [
-            "ahmet"
+            "dedeleri"
           ],
           "who": "dede",
           "do": "wave",
           "look": "yolcu"
+        },
+        {
+          "cue": [
+            "yolunuz"
+          ],
+          "who": "b_dede2",
+          "do": "vanish"
+        },
+        {
+          "cue": [
+            "yolunuz"
+          ],
+          "who": "b_dede",
+          "do": "appear"
         },
         {
           "cue": [
@@ -2872,7 +3007,7 @@
         },
         {
           "cue": [
-            "salladı"
+            "el salladı"
           ],
           "who": "elif",
           "do": "wave",
@@ -2880,7 +3015,7 @@
         },
         {
           "cue": [
-            "salladı"
+            "el salladı"
           ],
           "who": "can",
           "do": "wave",
@@ -2889,7 +3024,7 @@
         },
         {
           "cue": [
-            "salladı"
+            "el salladı"
           ],
           "who": "araba",
           "do": "slide",
@@ -2903,12 +3038,15 @@
         },
         {
           "cue": [
-            "azalmıştı"
+            "gülümseyerek"
           ],
           "who": "yagmur",
           "do": "switchOff",
           "focus": true
         }
+      ],
+      "life": [
+        "motes"
       ]
     },
     {
@@ -2918,11 +3056,11 @@
         "en": ""
       },
       "text": {
-        "tr": "Can {kapısına|kapı} “Lütfen kapıyı çalın” yazılı {kart} {astı|asmak}. Annesi kapıyı tıklatıp izin istedi. Can {gülümsedi|gülümsemek}. Elif de oynamaya geldi. Anneleri “Herkesin {özel alanına|özel alan} {saygı duyarız|saygı duymak}. Seni {rahatsız eden|rahatsız etmek} bir şey olursa bana ya da {güvendiğin|güvenmek} bir {yetişkine|yetişkin} anlatabilirsin.” dedi.",
+        "tr": "Can {odasının|oda} {kapısına|kapı} “Lütfen {kapıyı|kapı} çalın” yazan bir {kart} {astı|asmak}. {Annesi|anne} {tıklattı|tıklatmak}. “Girebilir miyim?” diye sordu. Can gülümseyip onu çağırdı. Biraz sonra Elif de geldi. Anneleri, “Hepimizin {özel alanı|özel alan} var,” dedi. “Seni {rahatsız eden|rahatsız etmek} bir şey olursa bana ya da {güvendiğin|güvenmek} başka bir {yetişkine|yetişkin} anlatabilirsin.”",
         "en": ""
       },
       "culture": {
-        "tr": "Herkesin bir özel alanı vardır: odası, bedeni, eşyaları ve bilgileri. Bu sınırlara saygı göstermek hem çocuklar hem de yetişkinler için geçerlidir. Bizi rahatsız eden bir şey olduğunda güvendiğimiz bir yetişkine anlatırız.",
+        "tr": "Bedenimiz, eşyalarımız ve kişisel bilgilerimiz bize aittir. Çocukların da yetişkinlerin de sınırlarına saygı gösterilir. Rahatsız olduğumuzda güvendiğimiz bir yetişkinden yardım isteriz.",
         "en": ""
       },
       "layers": [
@@ -3020,7 +3158,7 @@
         {
           "proc": "bubble",
           "id": "b_anne2",
-          "label": "Özel alana saygı duyarız.",
+          "label": "Hepimizin özel alanı var.",
           "color": "#D2372C",
           "x": -0.18,
           "z": 0.26,
@@ -3123,14 +3261,14 @@
         },
         {
           "cue": [
-            "gülümsedi"
+            "gülümseyip"
           ],
           "who": "b_anne",
           "do": "vanish"
         },
         {
           "cue": [
-            "gülümsedi"
+            "gülümseyip"
           ],
           "who": "can",
           "do": "cheer",
@@ -3139,7 +3277,7 @@
         },
         {
           "cue": [
-            "gülümsedi"
+            "gülümseyip"
           ],
           "who": "kart",
           "do": "switchOff",
@@ -3147,7 +3285,7 @@
         },
         {
           "cue": [
-            "gülümsedi"
+            "gülümseyip"
           ],
           "who": "kapi",
           "do": "turn",
@@ -3156,7 +3294,7 @@
         },
         {
           "cue": [
-            "gülümsedi"
+            "gülümseyip"
           ],
           "who": "anne",
           "do": "enter",

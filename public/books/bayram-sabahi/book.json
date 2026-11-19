@@ -7,7 +7,7 @@
     "en": "Ramadan Bayram (Eid al-Fitr)"
   },
   "summary": {
-    "tr": "Elif ile kardeşi Can, Amerika'daki evlerinde Ramazan Bayramı'nı karşılıyor: bayramlıklar, hep birlikte kurulan bayram sofrası, babaanne ve dedeyle görüntülü bayramlaşma, Ayşe teyze'nin ziyareti, şekerleri adil paylaşma ve bayramı merak eden bir arkadaş.",
+    "tr": "Elif ve Can, Amerika’da Ramazan Bayramı’na hazırlanıyor. Bayram namazından sonra kurulan sofra, İzmir’e uzanan görüntülü görüşme ve gelen misafirler, bayram sevincini evlerine taşıyor.",
     "en": ""
   },
   "values": [
@@ -34,7 +34,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Ramazan Bayramı, oruç tutulan Ramazan ayının ardından gelir ve üç gün sürer. Tatlılar ve şekerler ikram edildiği için ona Şeker Bayramı da denir.",
+        "tr": "Ramazan Bayramı, oruç ayı olan Ramazan’ın ardından kutlanır ve üç gün sürer. Müslümanlar bayram sabahı bayram namazı kılar, Ramazan’a kavuşup ibadet edebildikleri için Allah’a şükreder.",
         "en": "Ramadan Bayram comes after the month of Ramadan fasting and lasts three days. Because sweets are offered to everyone, it is also called the Sugar Bayram (Şeker Bayramı)."
       },
       "models": [
@@ -485,7 +485,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Bayram sabahı giyilen temiz ve özenli kıyafetlere bayramlık denir. Pek çok çocuk, bayramlığını bir gece önceden hazırlar ve sabahı sabırsızlıkla bekler.",
+        "tr": "Bayram için hazırlanan giysilere “bayramlık” denir. Bayramda temiz ve özenli giyinmek bir gelenektir; bunun için her yıl yeni kıyafet almak gerekmez.",
         "en": ""
       },
       "models": [
@@ -825,7 +825,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Türkiye'de çay, ince belli bardaklarda içilir ve iki katlı bir çaydanlıkta demlenir. Misafire çay ikram etmek, 'Hoş geldin' demenin bir yoludur.",
+        "tr": "Bayram namazından sonra ailece bayramlaşmak ve birlikte kahvaltı yapmak yaygın bir gelenektir. Sofrayı hazırlarken herkes yapabildiği bir işi üstlenebilir; sıcak tepsileri ise büyükler taşır.",
         "en": "In Türkiye, tea is served in slim, tulip-shaped glasses and brewed in a two-level teapot called a çaydanlık. Offering tea to a guest is a way of saying \"Welcome.\""
       },
       "models": [
@@ -1156,7 +1156,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Bayramda uzaktaki büyükler telefonla ya da görüntülü aranır. “Bayramınız mübarek olsun” ve “İyi bayramlar” en çok söylenen bayram dilekleridir.",
+        "tr": "Bayramda uzakta yaşayan akrabalarımızı aramak da bayramlaşmanın bir yoludur. Akrabaları ziyaret edip hâllerini sormaya dinimizde “sıla-i rahim” denir. Görüntülü görüşmeler, uzaktayken birbirimizi görmemizi sağlar.",
         "en": ""
       },
       "models": [
@@ -1540,7 +1540,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Bazı ailelerde bayramda büyüklerin eli öpülür ve alına götürülür; bu, saygı ve sevgi göstermenin eski bir geleneğidir. El öpmeden önce izin istemek de bir saygı göstergesidir. Büyükler de çocuklara küçük bir bayram harçlığı verebilir.",
+        "tr": "Bayram ziyaretlerinde “Bayramınız mübarek olsun!” ya da “İyi bayramlar!” denir. Büyüklerin elini öpüp alna götürmek de birçok ailede saygıyı gösteren bir bayram geleneğidir.",
         "en": ""
       },
       "models": [
@@ -1988,7 +1988,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Bayramda kapı kapı dolaşan çocuklara şeker ikram edilir. Bu yüzden evlerde bayram şekeri hep hazır bekler.",
+        "tr": "İkram, misafire yiyecek ya da içecek sunmaktır. Şekerleri paylaşmadan önce misafirler için ayırmak, onları düşünmenin bir yoludur. Kalanları sırayla dağıtarak herkesin eşit sayıda almasını sağlayabiliriz.",
         "en": "During Bayram, children go from door to door and are offered candy. That's why every home keeps a bowl of Bayram candy ready."
       },
       "models": [
@@ -2396,7 +2396,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Bayramda komşular ve arkadaşlar birbirini ziyaret eder, küsler barışır. Kapısını herkese açmak bayramın en güzel yanlarındandır.",
+        "tr": "“İyi bayramlar!” sözü, bayram sevincini paylaşmak için söylenir. Bu sözü arkadaşlarımıza öğretip bayramda neler yaptığımızı anlatarak onları kültürümüzle tanıştırabiliriz.",
         "en": "During Bayram, neighbors and friends visit each other, and people who have quarreled make up. Opening your door to everyone is one of the most beautiful parts of Bayram."
       },
       "models": [
@@ -2752,7 +2752,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Bayramların tarihi her yıl yaklaşık on bir gün öne gelir, çünkü Ay takvimine göre belirlenir. Hilal, yeni bir ayın başladığını gösterir.",
+        "tr": "Bayramlaşmak yalnızca ilk günle sınırlı değildir. Ramazan Bayramı’nın üç günü boyunca sevdiklerimizi ziyaret edebilir, uzakta olanları arayabiliriz. Küçük bir görüşme bile bir büyüğümüzü sevindirebilir.",
         "en": "Bayram dates move about eleven days earlier each year because they follow the lunar calendar. The crescent moon marks the start of a new month."
       },
       "models": [

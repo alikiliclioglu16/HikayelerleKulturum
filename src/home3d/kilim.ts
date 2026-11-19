@@ -66,7 +66,7 @@ export const MOTIFS: Motif[] = [
   {
     id: 'elibelinde',
     name: 'Elibelinde',
-    meaning: 'Eli belinde duran bir anneyi anlatır; anneliği ve bereketi simgeler.',
+    meaning: 'Ellerini beline koymuş bir insanı andırır. Geleneksel kilimlerde annelik ve bereketle ilişkilendirilir.',
     en: 'Hands on hips: a symbol of motherhood and plenty.',
     palette: { bg: '#5E2421', a: '#8C3A2E', b: '#C99A55', c: '#2E3F5C', d: '#E6CFA0' },
     draw: (g, p) => {
@@ -90,7 +90,7 @@ export const MOTIFS: Motif[] = [
   {
     id: 'kocboynuzu',
     name: 'Koçboynuzu',
-    meaning: 'Koçun boynuzlarından gelir; güç, kahramanlık ve bereket demektir.',
+    meaning: 'Koçun kıvrık boynuzlarını andırır. Geleneksel yorumlarda gücü simgeler.',
     en: "Ram's horn: strength, courage and plenty.",
     palette: { bg: '#22344F', a: '#C08A48', b: '#8A3A30', c: '#E2CC9C', d: '#3C5A86' },
     draw: (g, p) => {
@@ -113,7 +113,7 @@ export const MOTIFS: Motif[] = [
   {
     id: 'hayat-agaci',
     name: 'Hayat ağacı',
-    meaning: 'Göğe uzanan ağaç; sonsuz yaşamı ve umudu anlatır.',
+    meaning: 'Dalları yukarı uzanan bir ağaç biçimindedir. Hayatı ve kuşakların birbirine bağlanmasını anlatır.',
     en: 'Tree of life: everlasting life and hope.',
     palette: { bg: '#24585C', a: '#C79E55', b: '#8E3B33', c: '#E8D7AE', d: '#357377' },
     draw: (g, p) => {
@@ -137,7 +137,7 @@ export const MOTIFS: Motif[] = [
   {
     id: 'yildiz',
     name: 'Yıldız',
-    meaning: 'Gökyüzündeki yıldız; mutluluğu ve iyi talihi simgeler.',
+    meaning: 'Gökyüzündeki yıldızlardan esinlenen geometrik bir desendir. Kilim ve halıları süsler.',
     en: 'Star: happiness and good luck.',
     palette: { bg: '#3E4A2C', a: '#C4A15E', b: '#8A3A2E', c: '#EADBB4', d: '#5E7044' },
     draw: (g, p) => {
@@ -165,7 +165,7 @@ export const MOTIFS: Motif[] = [
   {
     id: 'goz',
     name: 'Göz',
-    meaning: 'Nazara karşı korunmayı ve iyi dilekleri anlatır.',
+    meaning: 'Göz biçiminden esinlenen geleneksel bir desendir. Desenin kendisine koruyucu bir güç yüklenmez.',
     en: 'Eye: protection from the evil eye.',
     palette: { bg: '#4A2638', a: '#C9A15A', b: '#2F5A60', c: '#E6D3AA', d: '#7A3E5A' },
     draw: (g, p) => {
@@ -180,7 +180,7 @@ export const MOTIFS: Motif[] = [
   {
     id: 'su-yolu',
     name: 'Su yolu',
-    meaning: 'Akıp giden su gibi; hayatın hiç durmadan devam etmesini anlatır.',
+    meaning: 'Akıp giden suyu andırır. Suyun hayatımızdaki önemini hatırlatan bir desendir.',
     en: 'Water path: life that keeps flowing.',
     palette: { bg: '#5B3A23', a: '#D2B07A', b: '#2E4E5A', c: '#9A4A30', d: '#EADCB8' },
     stripes: true,
@@ -203,7 +203,7 @@ export const MOTIFS: Motif[] = [
   {
     id: 'muska',
     name: 'Muska',
-    meaning: 'Üçgen biçimli muska; korunmayı ve iyi dilekleri simgeler.',
+    meaning: 'Üçgenlerden oluşan, geleneksel kilimlerde görülen bir desendir.',
     en: 'Amulet: protection and good wishes.',
     palette: { bg: '#23414A', a: '#C7A05A', b: '#9A3A2E', c: '#E4D4AC', d: '#3A6470' },
     draw: (g, p) => {
@@ -223,7 +223,7 @@ export const MOTIFS: Motif[] = [
   {
     id: 'pitrak',
     name: 'Pıtrak',
-    meaning: 'Dikenli pıtrak bitkisinden gelir; kötülüklerden korunmayı ve bolluğu anlatır.',
+    meaning: 'Pıtrak bitkisinin dikenli biçiminden esinlenir. Dokumacılar doğada gördükleri şekilleri desenlerinde kullanır.',
     en: 'Burdock: protection and plenty.',
     palette: { bg: '#2E2A4A', a: '#C9A15A', b: '#8E3B33', c: '#E6D6B0', d: '#4A4680' },
     draw: (g, p) => {

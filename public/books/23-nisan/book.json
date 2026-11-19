@@ -7,7 +7,7 @@
     "en": "National Sovereignty and Children's Day"
   },
   "summary": {
-    "tr": "Elif'in Amerika'daki okulunda bir Dünya Çocukları Şenliği hazırlanıyor. Elif, babaannesi Fatma Hanım'dan 23 Nisan'ın hikâyesini dinler ve bu bayramı sınıf arkadaşlarıyla paylaşır: herkes kendi dilinde selam verir, hep birlikte halay çekerler ve dilek kartlı balonlarını şenliğin dilek köşesine bağlarlar.",
+    "tr": "Elif, sınıfındaki şenlikte 23 Nisan Ulusal Egemenlik ve Çocuk Bayramı’nı tanıtıyor. Kâğıttan laleler, farklı dillerde selamlar ve birlikte oynanan halay, çocukları aynı sevinçte buluşturuyor.",
     "en": ""
   },
   "values": [
@@ -504,7 +504,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "23 Nisan Ulusal Egemenlik ve Çocuk Bayramı her yıl Türkiye'de kutlanır. O gün okullarda şiirler okunur, gösteriler yapılır; çocuklar bir günlüğüne müdürlük, valilik gibi makamlara oturur.",
+        "tr": "23 Nisan Ulusal Egemenlik ve Çocuk Bayramı, Türkiye’de çocukların katıldığı tören ve şenliklerle kutlanır. Başka ülkelerde yaşayan çocuklar da bu bayramı arkadaşlarına tanıtabilir.",
         "en": "April 23, National Sovereignty and Children's Day, is celebrated every year in Türkiye. Schools hold shows, and children take the seats of officials for a day."
       },
       "layers": [
@@ -930,7 +930,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Türkiye Büyük Millet Meclisi 23 Nisan 1920'de Ankara'da açıldı. 1979'dan beri her nisan dünyanın dört bir yanından çocuklar Türkiye'ye gelip bu bayramı Türk çocuklarıyla birlikte kutluyor.",
+        "tr": "Türkiye Büyük Millet Meclisi, milletin seçtiği temsilcilerin ülke meselelerini görüştüğü yerdir. 23 Nisan’da hem Meclisimizin açılışını hem Atatürk’ün çocuklara armağan ettiği bayramı kutlarız.",
         "en": "The Grand National Assembly of Türkiye opened in Ankara on April 23, 1920. Since 1979, children from all over the world have come to Türkiye every April to celebrate it together."
       },
       "layers": [
@@ -1269,7 +1269,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Lale, Türk sanatında en çok sevilen çiçektir. Çinilerde, halılarda ve kumaşlarda lale desenleri görülür. 23 Nisan'da sınıflar kırmızı-beyaz süslerle, bayraklarla ve çocukların resimleriyle donatılır.",
+        "tr": "Lale, çini ve kumaşlar gibi birçok Türk sanatı örneğinde kullanılan bir motiftir. Kâğıttan lale yaparken de bir çiçeğin biçimini süslemeye dönüştürmüş oluruz.",
         "en": "The tulip is the best-loved flower in Turkish art. On April 23, classrooms are decorated in red and white."
       },
       "layers": [
@@ -1872,7 +1872,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Assalam-o-Alaikum, Pakistan'da konuşulan Urducada 'merhaba' yerine kullanılır. Konnichiwa Japonca 'merhaba', Akwaaba ise Gana'da konuşulan Twi dilinde 'hoş geldin' demektir. Türkçede de birini selamlarken 'Merhaba!' deriz.",
+        "tr": "“Merhaba”, “Hello” ve “Konnichiwa”, farklı dillerde karşılaşınca söylenen selamlardandır. Bir arkadaşımızdan selamlaşma sözünü öğrenmek, onun dilini ve kültürünü tanımak için güzel bir başlangıçtır.",
         "en": ""
       },
       "layers": [
@@ -2398,7 +2398,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "23 Nisan Ulusal Egemenlik ve Çocuk Bayramı, çocukların ülkenin geleceği olduğunu hatırlatır. Bu günde çocuklar şiirler okur, gösteriler hazırlar, düşüncelerini paylaşır. Türkiye Büyük Millet Meclisi'nin genel kurul salonunda 'Egemenlik kayıtsız şartsız milletindir' sözü yazılıdır.",
+        "tr": "Öğrenmek, oyun oynamak ve düşüncelerini söylemek çocukların hakları arasındadır. Bu haklar bütün çocuklar içindir. Arkadaşlarımızın konuşmasını dinlemek ve oyuna katılmasına fırsat vermek de haklarına saygı göstermektir.",
         "en": ""
       },
       "layers": [
@@ -2840,7 +2840,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Halay, Anadolu'nun birçok yerinde düğünlerde ve bayramlarda oynanan bir halk oyunudur. Oyuncular el ele, serçe parmaklarından ya da omuz omuza tutuşur; en başta mendil sallayan kişiye ‘halaybaşı’ denir.",
+        "tr": "Halayda oyuncular müziğin ritmine ve birbirlerinin adımlarına uyum sağlar. Davulun sesi adımlara eşlik eder. Yeni öğrenen birini beklemek ve birlikte yeniden denemek, oyunu paylaşmayı kolaylaştırır.",
         "en": ""
       },
       "layers": [
@@ -3881,7 +3881,7 @@
         }
       ],
       "culture": {
-        "tr": "Şenliklerde balonlar gökyüzüne bırakılmaz; uçan balonlar doğaya ve hayvanlara zarar verebilir. Dilek kartları bunun yerine bir dilek köşesinde ya da dilek ağacında sergilenir.",
+        "tr": "Uçup giden balonlar doğaya çöp olarak düşebilir ve hayvanlara zarar verebilir. Dilek balonlarını bir köşeye bağlayıp şenlik sonunda toplamak, sevincimizi çevreyi koruyarak paylaşmamızı sağlar.",
         "en": ""
       },
       "audio": {
@@ -3977,7 +3977,7 @@
         "en": ""
       },
       "culture": {
-        "tr": "Türkiye'de 23 Nisan'da çocuklar beyaz gömlekler ve kırmızı kurdelelerle bayram törenlerine katılır. Akşam evlerde bayrak asılır, aileler bayramı birbirine kutlar.",
+        "tr": "Bir bayramda öğrendiğimiz sözleri, oyunları ve tanıştığımız arkadaşları resimlerle hatırlayabiliriz. Bu hatıraları aile büyüklerimizle paylaşmak, uzakta yaşarken de onları yaşadıklarımıza ortak eder.",
         "en": "On April 23, children in Türkiye join ceremonies, and families congratulate each other in the evening."
       },
       "layers": [
