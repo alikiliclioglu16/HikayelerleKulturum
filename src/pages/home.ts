@@ -1,7 +1,6 @@
 import { h, icon, tulipLogo } from '../ui/dom';
 import { loadListing, loadCulture, loadBook, coverCanvas, cloneCanvas, fonts } from '../content';
 import { store } from '../store';
-import { valueById } from '../values';
 import { Narrator } from '../narrator';
 import { sfx } from '../sfx';
 import { HomeScene, HEROES, ITEM_GAP, type CultureDef } from '../home3d/homeScene';
@@ -56,28 +55,13 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   const motifCap = h('div', { class: 'motif-cap', role: 'status', 'aria-live': 'polite' }, h('span', { class: 'mc-dot', 'aria-hidden': 'true' }), h('span', { class: 'mc-body' }, motifName, motifText));
   const hint = h('div', { class: 'home-hint', hidden: true, role: 'status' }, icon.tulip(), 'Raftaki nesnelere dokun, Türkçe adlarını duy!');
 
+  // each book on the shelf is a button for the keyboard and screen readers, laid invisibly over the book itself
+  // (the books carry no labels: a tap on the book opens it)
   const cards = list.map((b, i) => {
     const soon = b.status === 'soon';
-    const bar = h('i', null);
-    const meta = h('span', null);
-    // a little table under the title: the page the reader is on, how much is read, the activities done
-    const cell = (label: string) => {
-      const v = h('b', null);
-      return { el: h('span', { class: 'bs-cell' }, v, h('small', null, label)), v };
-    };
-    const cPage = cell('Sayfa');
-    const cRead = cell('Okundu');
-    const table = h('span', { class: 'book-stats', 'aria-hidden': 'true' }, cPage.el, cRead.el);
-    const card = h(
-      'button',
-      { class: `book-card${soon ? ' soon' : ''}`, type: 'button', 'aria-label': `${b.title}${soon ? ', yakında' : ''}` },
-      h('span', { class: 't' }, b.title),
-      soon ? null : table,
-      h('span', { class: 'bar' }, bar),
-      h('span', { class: 'meta' }, meta, soon ? h('span', { class: 'soon-badge' }, 'Yakında') : null),
-    );
+    const card = h('button', { class: `book-card${soon ? ' soon' : ''}`, type: 'button', 'aria-label': `${b.title}${soon ? ', yakında' : ''}` });
     card.addEventListener('click', () => openBook(i));
-    return { card, bar, meta, book: b, cells: { page: cPage.v, read: cRead.v } };
+    return { card, book: b };
   });
   const cardLayer = h('div', { class: 'card-layer' }, ...cards.map((c) => c.card));
 
@@ -132,25 +116,13 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     statCulture.replaceChildren(icon.tulip(), `${store.culture.length}/${culture.length}`);
     stats.setAttribute('aria-label', `${total} sayfanın ${read} tanesi okundu, kültür rafında ${culture.length} nesneden ${store.culture.length} tanesi keşfedildi`);
     stats.title = 'Okunan sayfalar, keşfedilen raf nesneleri';
-    cards.forEach(({ book, bar, meta, card, cells }) => {
-      if (book.status === 'soon') {
-        bar.style.width = '0%';
-        meta.textContent = `${book.values.map((v) => valueById(v).name).join(', ')}`;
-        return;
-      }
+    cards.forEach(({ book, card }) => {
+      if (book.status === 'soon') return;
       const prog = store.progress(book.id);
       const r = prog.read.length;
       const n = book.pages ?? 0;
       const pct = n ? Math.round((r / n) * 100) : 0;
-      bar.style.width = `${pct}%`;
-      // where the reader is in the book, how long it is, how much is read and which activities are done
-      const done = r >= n && n > 0;
-      const page = done ? n : r || prog.page ? Math.min(n, prog.page + 1) : 0;
-      cells.page.textContent = `${page}/${n}`;
-      cells.read.textContent = `%${pct}`;
-      meta.textContent = done ? 'Bitti!' : r || prog.page ? 'Yarım kaldı' : 'Henüz okunmadı';
-      card.classList.toggle('done', done);
-      card.setAttribute('aria-label', `${book.title}. Sayfa ${page} / ${n}, yüzde ${pct} okundu.`);
+      card.setAttribute('aria-label', `${book.title}. ${n} sayfa, yüzde ${pct} okundu.`);
     });
   }
   function updateSound() {
@@ -330,6 +302,7 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     scene.pullBook(i);
     scene.sparkle('book', i, 1.4);
     sfx.slide();
+    sfx.magic('kart', 0.15);
     sheetClose?.();
     const soon = b.status === 'soon';
     const cover = cloneCanvas(covers[i], `${b.title} kitabının kapağı`);
@@ -450,7 +423,6 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   /* ---------- layout & DOM sync ---------- */
   let compact = false;
   let cardW = 220;
-  let cardH = 116;
 
   function layout() {
     const W = shell.clientWidth;
@@ -458,17 +430,11 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
     compact = H < 560;
     shell.classList.toggle('compact', compact);
     shell.classList.toggle('narrow', W < 640);
-    cardH = compact ? 44 : 130;
-    // the interface floats over the room, like a toy shelf seen up close
+    // the interface floats over the room, like a toy shelf seen up close; under the books only the page dots
     const top = compact ? 50 : W < 640 ? 104 : 40;
-    const bottom = cardH + (compact ? 22 : 40);
+    const bottom = compact ? 30 : 56;
     scene.layout(top, bottom);
     cardW = Math.round(Math.max(90, Math.min(270, scene.ppu * 1.2)));
-    cards.forEach(({ card }) => {
-      card.style.width = `${cardW}px`;
-      card.style.height = `${cardH}px`;
-      card.classList.toggle('compact', compact);
-    });
     renderDots();
     syncDom();
   }
@@ -476,19 +442,26 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
   function syncDom() {
     const W = shell.clientWidth;
     const firstOnPage = scene.page * scene.perPage;
-    let cardTop = 0;
+    let bookTop = 0;
+    let bookBottom = 0;
     cards.forEach(({ card }, i) => {
       const a = scene.bookAnchor(i);
+      const top = scene.bookTop(i);
       const onPage = i >= firstOnPage && i < firstOnPage + scene.perPage;
-      card.style.transform = `translate(${Math.round(a.x - cardW / 2)}px, ${Math.round(a.y - 6)}px)`;
+      const w = Math.round(cardW * 0.82);
+      card.style.width = `${w}px`;
+      card.style.height = `${Math.max(20, Math.round(a.y - top.y))}px`;
+      card.style.transform = `translate(${Math.round(a.x - w / 2)}px, ${Math.round(top.y)}px)`;
       card.setAttribute('aria-hidden', String(!onPage));
       card.tabIndex = onPage ? 0 : -1;
-      cardTop = a.y - 6;
+      bookTop = top.y;
+      bookBottom = a.y;
     });
-    const mid = cardTop + cardH / 2;
+    const mid = (bookTop + bookBottom) / 2;
     carPrev.style.top = `${mid - 28}px`;
     carNext.style.top = `${mid - 28}px`;
-    dots.style.top = `${cardTop + cardH + (compact ? 6 : 12)}px`;
+    // the page dots sit under the sideboard, in the band kept free at the bottom
+    dots.style.top = `${Math.max(bookBottom + 24, shell.clientHeight - (compact ? 22 : 34))}px`;
     const [sTop, sBottom] = scene.shelfBand();
     const sMid = (sTop + sBottom) / 2;
     shelfPrev.style.top = `${sMid - 22}px`;

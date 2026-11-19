@@ -203,11 +203,7 @@ export class HomeScene {
     this.scene.add(this.carpet.group);
     this.buildRoom();
     this.scene.add(this.shelf, this.booksGroup, this.sparkles.points);
-    // beside the books: our Turkish flag on its stand (the same flag as on the culture shelf)
     this.lamp = new THREE.Group();
-    this.lamp.position.set(-4, 0, 0.74);
-    this.scene.add(this.lamp);
-    void this.loadFlag();
     const lampLight: THREE.PointLight | null = null;
     this.cinema = new Cinema(
       { camera: this.camera, key: this.key, hemi: this.hemi, lampLight, focus: () => this.focusPoints() },
@@ -378,39 +374,6 @@ export class HomeScene {
   }
 
   /** Swap placeholders for GLB models listed in items.json. */
-  /** The Turkish flag standing beside the books, where the lamp used to be: the GLB, or the drawn one until it loads. */
-  private async loadFlag() {
-    const FLAG_H = 0.9;
-    const place = (o: THREE.Object3D) => {
-      const box = new THREE.Box3().setFromObject(o);
-      const size = box.getSize(new THREE.Vector3());
-      const k = FLAG_H / Math.max(0.001, size.y);
-      o.scale.multiplyScalar(k);
-      const b2 = new THREE.Box3().setFromObject(o);
-      const c = b2.getCenter(new THREE.Vector3());
-      o.position.x -= c.x;
-      o.position.z -= c.z;
-      o.position.y -= b2.min.y;
-      o.traverse((n) => ((n as THREE.Mesh).castShadow = true));
-      this.lamp.clear();
-      this.lamp.add(o);
-      this.invalidate();
-    };
-    const built = CULTURE_BUILDERS.bayrak?.build();
-    if (built) place(built);
-    try {
-      const { loadGltf } = await import('./actors');
-      const gltf = await loadGltf('/models/culture/bayrak.glb');
-      const model = gltf.scene.clone(true);
-      // the flag faces the room a little turned, so its crescent and star show
-      model.rotation.y = -0.35;
-      const wrap = new THREE.Group();
-      wrap.add(model);
-      place(wrap);
-    } catch {
-      /* the drawn flag stays */
-    }
-  }
 
   private async loadModels() {
     const withModels = this.items.filter((it) => it.def.model);
@@ -765,10 +728,16 @@ export class HomeScene {
     return Math.abs(x) < half - SLOT_W * 0.3;
   }
 
-  /** Where a book's card goes: the front edge of the sideboard, under the book. */
+  /** The bottom of a book's front, on the sideboard. */
   bookAnchor(i: number) {
     const b = this.books[i];
     return this.toScreen(V3(this.booksGroup.position.x + b.group.position.x, 0, BOOK_Z + BOOK_D / 2));
+  }
+
+  /** The top of a book's front. */
+  bookTop(i: number) {
+    const b = this.books[i];
+    return this.toScreen(V3(this.booksGroup.position.x + b.group.position.x, BOOK_H, BOOK_Z + BOOK_D / 2));
   }
 
   /* ---------------- shelf scrolling ---------------- */

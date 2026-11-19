@@ -1287,130 +1287,20 @@ input[type='checkbox'].switch:checked::after {
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  padding: 11px 14px 12px;
+  padding: 0;
   border: 0;
-  border-radius: 16px;
-  background: linear-gradient(#fff9ec, #f5e8cd);
-  color: var(--ink);
-  text-align: left;
-  cursor: pointer;
-  pointer-events: auto;
-  box-shadow: 0 0 0 4px #8e5a33, 0 0 0 6px #5a3218, 0 12px 20px -8px rgba(0, 0, 0, 0.6);
-  transition: opacity 0.25s;
-}
-.book-card .t {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  min-height: 2.3em;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.15;
-  color: var(--cobalt);
-}
-.book-card .book-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border: 1.5px solid #d9c49c;
   border-radius: 10px;
-  background: #fffdf6;
-  overflow: hidden;
-}
-.book-card .bs-cell {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3px 2px 2px;
-  line-height: 1.1;
-}
-.book-card .bs-cell + .bs-cell {
-  border-left: 1.5px solid #e6d7b8;
-}
-.book-card .bs-cell b {
-  font-size: 15px;
-  color: var(--cobalt);
-}
-.book-card .bs-cell small {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--ink-soft);
-}
-.book-card.done .bs-cell b {
-  color: #1f8a5b;
-}
-.book-card:not(.soon) .meta {
-  display: none;
-}
-.book-card.compact .book-stats {
-  display: none;
-}
-.book-card .bar {
-  flex: none;
-  height: 8px;
-  margin-top: auto;
-  border-radius: 999px;
-  background: #e6d7b8;
-  overflow: hidden;
-}
-.book-card .bar i {
-  display: block;
-  height: 100%;
-  min-width: 0;
-  border-radius: inherit;
-  background: var(--turq);
-}
-.book-card .meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--ink-soft);
-}
-.book-card .meta > span:first-child {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.book-card .meta .en {
-  font-weight: 400;
-  white-space: nowrap;
-}
-.book-card .soon-badge {
-  flex: none;
-  padding: 1px 9px;
-  border-radius: 999px;
-  background: var(--ink);
-  color: #fff;
-  font-size: 12px;
-}
-.book-card.soon .t {
-  color: #4a5675;
-}
-.book-card[aria-hidden='true'] {
-  opacity: 0;
+  background: transparent;
+  cursor: pointer;
+  /* a tap goes to the 3D book under it; the button is there for the keyboard and screen readers */
   pointer-events: none;
 }
-.book-card.compact {
-  gap: 0;
-  padding: 7px 12px;
+.book-card:focus-visible {
+  outline: 4px solid #ffd76a;
+  outline-offset: 4px;
 }
-.book-card.compact .bar,
-.book-card.compact .meta {
-  display: none;
-}
-.book-card.compact .t {
-  display: block;
-  min-height: 0;
-  font-size: 15px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.book-card[aria-hidden='true'] {
+  visibility: hidden;
 }
 
 .car-arrow {

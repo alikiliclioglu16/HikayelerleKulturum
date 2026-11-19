@@ -346,6 +346,8 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     const res = scene.pick(e.clientX, e.clientY);
     if (!res) return;
     if (playing) pause();
+    // a little ding with a glint, one note higher with every touch, under the word
+    sfx.magic('dokun');
     sayWord(res.word);
     bubble('tag3d', res.x, res.y, res.word, collect(res.word));
     flashWords(res.word);
@@ -528,13 +530,13 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   }
   zoomBtn.addEventListener('click', () => {
     if (busy) return;
-    sfx.tap();
+    sfx.magic(zoomed ? 'uzak' : 'yakin');
     setZoom(!zoomed);
   });
 
   /** The story text grows big for easier reading, or goes back to its size. */
   function toggleBig() {
-    sfx.tap();
+    sfx.magic('yazi');
     store.setSettings({ big: !store.settings.big });
     layout();
     toast(store.settings.big ? 'Yazı büyüdü. Küçültmek için yazıya yeniden dokun.' : 'Yazı eski boyutunda.');
@@ -620,7 +622,9 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     void scene.setCast({ ...page(), cast: [], beats: [], models: [] });
     await scene.showPage([], 0);
     scene.setLeftPage({ title: book.title, sub: '' });
-    window.setTimeout(() => sfx.pageTurn(), scene.reducedMotion ? 0 : 300);
+    window.setTimeout(() => sfx.pageTurn(false), scene.reducedMotion ? 0 : 300);
+    // the end of the tale: a harp running down and a music-box cadence as the book closes
+    sfx.magic('bitis', scene.reducedMotion ? 0 : 0.5);
     await scene.close();
     scene.shot('overhead', 1500);
     await new Promise((r) => window.setTimeout(r, scene.reducedMotion ? 0 : 1300));
@@ -730,7 +734,9 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
   scene.shot('cover', 2200, undefined, 0.15);
   await new Promise((r) => window.setTimeout(r, scene.reducedMotion ? 0 : 1700));
   scene.shot('wide', 1600, angleFor(index));
-  window.setTimeout(() => sfx.pageTurn(), scene.reducedMotion ? 0 : 450);
+  window.setTimeout(() => sfx.pageTurn(false), scene.reducedMotion ? 0 : 450);
+  // once upon a time: a harp glissando and a shower of celesta as the cover opens
+  sfx.magic('acilis', scene.reducedMotion ? 0 : 0.35);
   await scene.open(true);
   scene.shot('close', 1800, angleFor(index));
   await scene.showPage(await firstLayers, 0);

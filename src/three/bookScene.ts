@@ -1403,6 +1403,8 @@ export class BookScene {
     }
 
     this.layers = next.map((b) => this.makeLayer(b));
+    // the pop-up stands up with a music box
+    if (next.length && !this.seeking) this.onSound?.('popup', 0);
     const pops = this.layers.map((l, i) => {
       l.pivot.visible = true;
       if (l.floor) {
@@ -1819,7 +1821,8 @@ export class BookScene {
     this.seeking = true;
     this.stage.reset(this.castBase);
     this.seeking = false;
-    // appear with a soft pop, like the paper layers
+    // appear with a soft pop, like the paper layers (and a kalimba "plink")
+    if (this.performers.size) this.onSound?.('cast', 0);
     for (const p of this.performers.values()) {
       p.root.scale.setScalar(0.001);
       this.tweens.add(this.dur(500), 0.001, 1, (v) => p.root.scale.setScalar(v), ease.back);

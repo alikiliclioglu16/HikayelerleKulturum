@@ -80,6 +80,7 @@ function audio(force = false): AudioContext | null {
     }
     if (ctx.state === "suspended") void ctx.resume();
     loadClips(ctx);
+    loadMagic(ctx);
     return ctx;
   } catch {
     return null;
@@ -179,6 +180,75 @@ function clip(a: AudioContext, t: number, id: string, vol = 0.55) {
   g.gain.value = vol;
   src.connect(g).connect(out());
   src.start(t);
+  return true;
+}
+
+/*
+ * The fairy-tale sound kit of the books (public/sesler/masal, rendered from real instrument samples: harp,
+ * celesta, music box, glockenspiel, bells, kalimba): a harp running up as a book opens, a flourish with every page,
+ * a music box as the pop-up stands, sparkles for magic, a ding for each thing touched, a cadence at the end.
+ * Every clip has the same loudness; MAGIC_LEVEL sets how loud each moment is (the voice stays clearly on top).
+ * Some moments have several takes, so a sound heard again and again never repeats exactly.
+ */
+const MAGIC_TAKES: Record<string, number> = { sayfa: 3, dokun: 6, zipla: 3 };
+const MAGIC_IDS = ['acilis', 'popup', 'belir', 'kaybol', 'parla', 'yuksel', 'alcal', 'sevin', 'pat', 'uc', 'donus', 'yakin', 'uzak', 'yazi', 'tik', 'bitis', 'kart'];
+const MAGIC_LEVEL: Record<string, number> = {
+  acilis: 1, bitis: 1.05, kart: 0.85, sayfa: 0.75, popup: 0.85, dokun: 0.7, zipla: 0.5, tik: 0.55, yazi: 0.7,
+  yakin: 0.75, uzak: 0.7, belir: 1, kaybol: 0.95, parla: 0.95, yuksel: 0.9, alcal: 0.9, sevin: 0.95, pat: 0.9, uc: 0.95, donus: 0.9,
+};
+/** Story sounds of the pop-up's play that come from the kit (the rest, like knocks, rain or horses, are made here). */
+const SCENE_MAGIC: Record<string, string> = {
+  appear: 'belir', vanish: 'kaybol', shine: 'parla', rise: 'yuksel', sink: 'alcal', cheer: 'sevin', pop: 'pat',
+  greet: 'pat', cast: 'pat', fly: 'uc', spin: 'donus', whirl: 'donus', hop: 'zipla', popup: 'popup',
+};
+const magicClips = new Map<string, AudioBuffer>();
+const magicFiles = (() => {
+  const files = [...MAGIC_IDS];
+  for (const [id, n] of Object.entries(MAGIC_TAKES)) for (let i = 1; i <= n; i++) files.push(`${id}${i}`);
+  return files;
+})();
+/** The kit's files are fetched soon after the page loads (before any tap), so the very first sounds are there. */
+const magicBytes = new Map<string, Promise<ArrayBuffer>>();
+function fetchMagic() {
+  for (const f of magicFiles)
+    if (!magicBytes.has(f))
+      magicBytes.set(
+        f,
+        fetch(`/sesler/masal/${f}.mp3`).then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(new Error(String(r.status))))),
+      );
+}
+if (typeof window !== 'undefined') window.setTimeout(fetchMagic, 2500);
+let magicAsked = false;
+function loadMagic(a: AudioContext) {
+  if (magicAsked) return;
+  magicAsked = true;
+  fetchMagic();
+  for (const f of magicFiles)
+    magicBytes
+      .get(f)!
+      .then((d) => new Promise<AudioBuffer>((res, rej) => a.decodeAudioData(d.slice(0), res, rej)))
+      .then((b) => magicClips.set(f, b))
+      .catch(() => undefined);
+}
+const takeAt: Record<string, number> = {};
+/** Play a sound of the kit in `delay` seconds; false while it is still loading (or the sound is off). */
+function playMagic(a: AudioContext, id: string, delay = 0, vol = 1) {
+  let name = id;
+  const n = MAGIC_TAKES[id];
+  if (n) {
+    // dokun climbs the scale touch after touch; the others take a different take each time
+    const i = id === 'dokun' ? (takeAt[id] ?? -1) + 1 : (takeAt[id] ?? 0) + 1 + Math.floor(Math.random() * (n - 1));
+    takeAt[id] = i % n;
+    name = `${id}${takeAt[id] + 1}`;
+  }
+  const b = magicClips.get(name);
+  if (!b) return false;
+  const src = a.createBufferSource();
+  src.buffer = b;
+  const g = a.createGain();
+  g.gain.value = (MAGIC_LEVEL[id] ?? 1) * vol;
+  src.connect(g).connect(fxBus!);
+  src.start(a.currentTime + 0.01 + Math.max(0, delay));
   return true;
 }
 
@@ -1218,10 +1288,20 @@ export const sfx = {
       bell(a, f, t + 0.2 + i * 0.06, 0.7, 0.1, [1, 2.4]),
     );
   },
-  /** A page turning: paper lifting with a little crinkle, a swish through the air, a soft landing. */
-  pageTurn() {
+  /** A sound of the fairy-tale kit (see MAGIC_LEVEL), in `delay` seconds; the tap sound if it is not loaded yet. */
+  magic(id: string, delay = 0, vol = 1) {
     const a = audio();
     if (!a) return;
+    if (!playMagic(a, id, delay, vol) && delay === 0 && id !== 'acilis' && id !== 'bitis') sfx.tap();
+  },
+  /**
+   * A page turning: paper lifting with a little crinkle, a swish through the air, a soft landing; and with
+   * `flourish` a little harp-and-celesta run, like a page of a fairy tale.
+   */
+  pageTurn(flourish = true) {
+    const a = audio();
+    if (!a) return;
+    if (flourish) playMagic(a, 'sayfa', 0.12);
     const t = a.currentTime + 0.02;
     const g = a.createGain();
     g.gain.value = PAGE_GAIN;
@@ -1271,7 +1351,7 @@ export const sfx = {
   },
   tap() {
     const a = audio();
-    if (a) tone(a, "sine", 420, 300, a.currentTime, 0.1, 0.2);
+    if (a && !playMagic(a, 'tik')) tone(a, "sine", 420, 300, a.currentTime, 0.1, 0.2);
   },
 
   /* story sounds */
@@ -1279,6 +1359,9 @@ export const sfx = {
   scene(kind: string, delay = 0, seconds = 4) {
     const a = audio();
     if (!a) return;
+    const m = SCENE_MAGIC[kind];
+    if (m && playMagic(a, m, delay)) return;
+    if (kind === 'popup' || kind === 'cast') return;
     const t = a.currentTime + Math.max(0, delay);
     const g = a.createGain();
     g.gain.value = SCENE_GAIN * (SCENE_LEVEL[kind] ?? 1);
