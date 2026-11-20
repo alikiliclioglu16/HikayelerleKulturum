@@ -2095,6 +2095,102 @@
           "hidden": true,
           "magic": true,
           "tail": true
+        },
+        {
+          "proc": "sekerMasa",
+          "id": "m1",
+          "word": "bayram şekeri",
+          "x": 0.0,
+          "z": 0.74,
+          "y": 0.081,
+          "h": 0.022,
+          "from": [
+            -0.1,
+            0,
+            -0.061
+          ],
+          "hidden": true,
+          "tint": "#F06A8A"
+        },
+        {
+          "proc": "sekerMasa",
+          "id": "m2",
+          "word": "bayram şekeri",
+          "x": 0.0,
+          "z": 0.74,
+          "y": 0.081,
+          "h": 0.022,
+          "from": [
+            -0.1,
+            0,
+            -0.061
+          ],
+          "hidden": true,
+          "tint": "#3F6FE0"
+        },
+        {
+          "proc": "sekerMasa",
+          "id": "s1",
+          "word": "bayram şekeri",
+          "x": 0.0,
+          "z": 0.74,
+          "y": 0.081,
+          "h": 0.022,
+          "from": [
+            -0.1,
+            0,
+            -0.061
+          ],
+          "hidden": true,
+          "tint": "#F2C04D"
+        },
+        {
+          "proc": "sekerMasa",
+          "id": "s2",
+          "word": "bayram şekeri",
+          "x": 0.0,
+          "z": 0.74,
+          "y": 0.081,
+          "h": 0.022,
+          "from": [
+            -0.1,
+            0,
+            -0.061
+          ],
+          "hidden": true,
+          "tint": "#F06A8A"
+        },
+        {
+          "proc": "sekerMasa",
+          "id": "s3",
+          "word": "bayram şekeri",
+          "x": 0.0,
+          "z": 0.74,
+          "y": 0.081,
+          "h": 0.022,
+          "from": [
+            -0.1,
+            0,
+            -0.061
+          ],
+          "hidden": true,
+          "tint": "#3F6FE0"
+        },
+        {
+          "proc": "sekerMasa",
+          "id": "s4",
+          "word": "bayram şekeri",
+          "x": 0.0,
+          "z": 0.74,
+          "y": 0.081,
+          "h": 0.022,
+          "from": [
+            -0.1,
+            0,
+            -0.061
+          ],
+          "hidden": true,
+          "tint": "#F2C04D"
         }
       ],
       "cast": [
@@ -2178,6 +2274,172 @@
         },
         {
           "cue": [
+            "ayırdılar"
+          ],
+          "who": "elif",
+          "do": "useTool",
+          "style": "tap",
+          "to": [
+            0.1,
+            0,
+            0.3
+          ],
+          "len": 1.6,
+          "look": "masa",
+          "wait": 0.9
+        },
+        {
+          "cue": [
+            "ayırdılar"
+          ],
+          "who": "m1",
+          "do": "switchOn",
+          "len": 0.1,
+          "wait": 1.0
+        },
+        {
+          "cue": [
+            "ayırdılar"
+          ],
+          "who": "m1",
+          "do": "hopTo",
+          "to": [
+            -0.2,
+            0,
+            0.07
+          ],
+          "len": 0.42,
+          "face": 40,
+          "wait": 1.05,
+          "sound": "hop"
+        },
+        {
+          "cue": [
+            "ayırdılar"
+          ],
+          "who": "m2",
+          "do": "switchOn",
+          "len": 0.1,
+          "wait": 1.18
+        },
+        {
+          "cue": [
+            "ayırdılar"
+          ],
+          "who": "m2",
+          "do": "hopTo",
+          "to": [
+            -0.155,
+            0,
+            0.075
+          ],
+          "len": 0.42,
+          "face": 40,
+          "wait": 1.23,
+          "sound": null
+        },
+        {
+          "cue": [
+            "ayırdılar"
+          ],
+          "who": "s1",
+          "do": "switchOn",
+          "len": 0.1,
+          "wait": 1.36
+        },
+        {
+          "cue": [
+            "ayırdılar"
+          ],
+          "who": "s1",
+          "do": "hopTo",
+          "to": [
+            -0.07,
+            0,
+            0.07
+          ],
+          "len": 0.42,
+          "face": 40,
+          "wait": 1.41,
+          "sound": "hop"
+        },
+        {
+          "cue": [
+            "ayırdılar"
+          ],
+          "who": "s2",
+          "do": "switchOn",
+          "len": 0.1,
+          "wait": 1.54
+        },
+        {
+          "cue": [
+            "ayırdılar"
+          ],
+          "who": "s2",
+          "do": "hopTo",
+          "to": [
+            -0.025,
+            0,
+            0.075
+          ],
+          "len": 0.42,
+          "face": 40,
+          "wait": 1.59,
+          "sound": null
+        },
+        {
+          "cue": [
+            "ayırdılar"
+          ],
+          "who": "s3",
+          "do": "switchOn",
+          "len": 0.1,
+          "wait": 1.72
+        },
+        {
+          "cue": [
+            "ayırdılar"
+          ],
+          "who": "s3",
+          "do": "hopTo",
+          "to": [
+            0.02,
+            0,
+            0.07
+          ],
+          "len": 0.42,
+          "face": 40,
+          "wait": 1.77,
+          "sound": "hop"
+        },
+        {
+          "cue": [
+            "ayırdılar"
+          ],
+          "who": "s4",
+          "do": "switchOn",
+          "len": 0.1,
+          "wait": 1.9
+        },
+        {
+          "cue": [
+            "ayırdılar"
+          ],
+          "who": "s4",
+          "do": "hopTo",
+          "to": [
+            0.065,
+            0,
+            0.075
+          ],
+          "len": 0.42,
+          "face": 40,
+          "wait": 1.95,
+          "sound": null
+        },
+        {
+          "cue": [
             "saydılar",
             "kalanları"
           ],
@@ -2188,10 +2450,165 @@
         },
         {
           "cue": [
+            "saydılar"
+          ],
+          "who": "s1",
+          "do": "hopTo",
+          "to": [
+            -0.07,
+            0,
+            0.07
+          ],
+          "len": 0.3,
+          "face": 22,
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "saydılar"
+          ],
+          "who": "s2",
+          "do": "hopTo",
+          "to": [
+            -0.025,
+            0,
+            0.075
+          ],
+          "len": 0.3,
+          "face": 22,
+          "wait": 0.9
+        },
+        {
+          "cue": [
+            "saydılar"
+          ],
+          "who": "s3",
+          "do": "hopTo",
+          "to": [
+            0.02,
+            0,
+            0.07
+          ],
+          "len": 0.3,
+          "face": 22,
+          "wait": 1.3
+        },
+        {
+          "cue": [
+            "saydılar"
+          ],
+          "who": "s4",
+          "do": "hopTo",
+          "to": [
+            0.065,
+            0,
+            0.075
+          ],
+          "len": 0.3,
+          "face": 22,
+          "wait": 1.7
+        },
+        {
+          "cue": [
             "Bir"
           ],
           "who": "say_1",
           "do": "appear"
+        },
+        {
+          "cue": [
+            "Bir"
+          ],
+          "who": "can",
+          "do": "useTool",
+          "style": "tap",
+          "to": [
+            -0.05,
+            0,
+            0.3
+          ],
+          "len": 1.8,
+          "look": "masa"
+        },
+        {
+          "cue": [
+            "Bir"
+          ],
+          "who": "elif",
+          "do": "useTool",
+          "style": "tap",
+          "to": [
+            0.05,
+            0,
+            0.3
+          ],
+          "len": 1.8,
+          "look": "masa",
+          "wait": 0.45
+        },
+        {
+          "cue": [
+            "Bir"
+          ],
+          "who": "s1",
+          "do": "hopTo",
+          "to": [
+            -0.04,
+            0,
+            -0.06
+          ],
+          "len": 0.45,
+          "face": 45,
+          "wait": 0.3,
+          "sound": "hop"
+        },
+        {
+          "cue": [
+            "Bir"
+          ],
+          "who": "s2",
+          "do": "hopTo",
+          "to": [
+            0.09,
+            0,
+            -0.06
+          ],
+          "len": 0.45,
+          "face": 45,
+          "wait": 0.8,
+          "sound": "hop"
+        },
+        {
+          "cue": [
+            "Bir"
+          ],
+          "who": "s3",
+          "do": "hopTo",
+          "to": [
+            -0.005,
+            0,
+            -0.07
+          ],
+          "len": 0.45,
+          "face": 45,
+          "wait": 1.3,
+          "sound": "hop"
+        },
+        {
+          "cue": [
+            "Bir"
+          ],
+          "who": "s4",
+          "do": "hopTo",
+          "to": [
+            0.125,
+            0,
+            -0.07
+          ],
+          "len": 0.45,
+          "face": 45,
+          "wait": 1.8,
+          "sound": "hop"
         },
         {
           "cue": [
@@ -2200,7 +2617,7 @@
           "who": "elif",
           "do": "talk",
           "look": "can",
-          "len": 2.0,
+          "len": 1.4,
           "focus": true
         },
         {
@@ -2420,7 +2837,8 @@
             0.96
           ],
           "patrol": true,
-          "speed": 0.07
+          "speed": 0.07,
+          "id": "kopek"
         },
         {
           "proc": "bubble",
@@ -2612,6 +3030,14 @@
           "who": "say_0",
           "do": "vanish",
           "wait": 0.6
+        },
+        {
+          "cue": [
+            "kuyru"
+          ],
+          "who": "kopek",
+          "do": "wag",
+          "len": 3.2
         }
       ],
       "layers": [
@@ -3667,32 +4093,32 @@
     {
       "src": "/models/culture/caydanlik.glb",
       "word": "çaydanlık",
-      "x": -2.55,
-      "z": -0.45,
+      "x": -2.95,
+      "z": -0.4,
       "h": 0.36,
       "rotY": 20
     },
     {
       "src": "/models/culture/cay.glb",
       "word": "çay",
-      "x": -3.15,
-      "z": -0.7,
+      "x": -2.2,
+      "z": -0.5,
       "h": 0.2,
       "steam": true
     },
     {
       "src": "/models/culture/baklava.glb",
       "word": "baklava",
-      "x": 1.62,
-      "z": 0.86,
+      "x": 2.55,
+      "z": 0.55,
       "h": 0.26,
       "w": 0.3
     },
     {
       "src": "/models/culture/dondurma.glb",
       "word": "dondurma",
-      "x": 2.95,
-      "z": -1.2,
+      "x": 2.55,
+      "z": -1.25,
       "h": 0.3
     }
   ]

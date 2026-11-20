@@ -608,6 +608,8 @@ export class HomeScene {
     const to = this.pageX(this.page);
     if (!animate || this.reducedMotion) this.booksGroup.position.x = to;
     else this.tweens.add(650, this.booksGroup.position.x, to, (v) => (this.booksGroup.position.x = v), ease.inOut);
+    // no book stays lifted (and lit) from before the shelf moved
+    this.hoverBook(null);
     this.invalidate();
   }
 
@@ -842,7 +844,8 @@ export class HomeScene {
         b.mesh.position.y = BOOK_H / 2 + v * 0.05;
         b.mesh.rotation.x = -v * 0.05;
         // a living cover lights itself up (sheen, glows); only a touch of warm light on top
-        applyGlow(b.glow, v * (b.cover ? 0.12 : 0.5));
+        // (a flat printed cover takes only a little of it, or its colours wash out to white)
+        applyGlow(b.glow, v * (b.cover ? 0.12 : 0.14));
       }, ease.out);
     });
     this.invalidate();
@@ -905,6 +908,7 @@ export class HomeScene {
     }, (k) => k).then(() => {
       b.pulled = false;
       g.rotation.x = 0;
+      this.hoverBook(null);
       this.sparkle('book', i, 1.4);
     });
     this.invalidate();
@@ -926,6 +930,8 @@ export class HomeScene {
         b.mesh.position.y = y0 + ((want ? BOOK_H / 2 + 0.08 : BOOK_H / 2) - y0) * k;
       }, ease.inOut);
     });
+    // a book put back is not "hovered" any more (on a touch screen nothing else would lower it)
+    if (i === null) this.hoverBook(null);
     this.invalidate();
   }
 

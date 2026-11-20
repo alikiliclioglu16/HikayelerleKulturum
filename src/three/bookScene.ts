@@ -55,21 +55,21 @@ export type ShotKind = 'overhead' | 'cover' | 'wide' | 'close' | 'zoom';
 /** Things that always stand on the reading table, around the book: culture objects from the home shelf. */
 const C = (id: string) => `/models/culture/${id}.glb`;
 const DESK_DECOR: TableModel[] = [
-  { src: C('ebru'), word: 'ebru', x: -2.95, z: -1.2, h: 0.36, rotY: 15 },
-  { src: C('nazar'), word: 'nazar boncuğu', x: -1.22, z: 1.02, h: 0.28, rotY: 25 },
-  { src: C('lokum'), word: 'lokum', x: -0.55, z: 1.16, h: 0.17, rotY: -10 },
-  { src: C('cini'), word: 'çini', x: -0.9, z: -1.2, h: 0.34, rotY: 8 },
-  { src: C('lale'), word: 'lale', x: 2.75, z: -0.3, h: 0.4 },
-  { src: C('mangala'), word: 'mangala', x: 0.25, z: -1.25, h: 0.12, w: 0.5, rotY: -6 },
-  { src: C('baglama'), word: 'bağlama', x: 3.1, z: -0.45, h: 0.5, rotY: -30 },
+  { src: C('ebru'), word: 'ebru', x: -3.3, z: -1.35, h: 0.36, rotY: 15 },
+  { src: C('nazar'), word: 'nazar boncuğu', x: -1.5, z: 0.95, h: 0.28, rotY: 25 },
+  { src: C('lokum'), word: 'lokum', x: -1.95, z: 1.0, h: 0.17, rotY: -10 },
+  { src: C('cini'), word: 'çini', x: -1.1, z: -1.35, h: 0.34, rotY: 8 },
+  { src: C('lale'), word: 'lale', x: 2.15, z: -0.3, h: 0.4 },
+  { src: C('mangala'), word: 'mangala', x: -2.5, z: 0.4, h: 0.12, w: 0.5, rotY: -6 },
+  { src: C('baglama'), word: 'bağlama', x: 3.0, z: -0.35, h: 0.5, rotY: -30 },
   // more of them close around the book, so the table looks lived in
-  { src: C('galata'), word: 'Galata Kulesi', x: -1.75, z: -1.38, h: 0.44, rotY: 12 },
-  { src: C('karagoz'), word: 'Karagöz', x: -0.32, z: -1.45, h: 0.36, rotY: 4 },
-  { src: C('kiz-kulesi'), word: 'Kız Kulesi', x: 1.0, z: -1.4, h: 0.34, rotY: -12 },
-  { src: C('davul'), word: 'davul', x: 1.78, z: -1.15, h: 0.24, rotY: 20 },
-  { src: C('balon'), word: 'balon', x: -2.1, z: 0.62, h: 0.34, rotY: 0 },
-  { src: C('peri-bacasi'), word: 'peri bacası', x: 2.3, z: 0.35, h: 0.36, rotY: -15 },
-  { src: C('bayrak'), word: 'bayrak', x: -2.35, z: -0.95, h: 0.42, rotY: 30 },
+  { src: C('galata'), word: 'Galata Kulesi', x: -1.85, z: -1.35, h: 0.44, rotY: 12 },
+  { src: C('karagoz'), word: 'Karagöz', x: -0.35, z: -1.4, h: 0.36, rotY: 4 },
+  { src: C('kiz-kulesi'), word: 'Kız Kulesi', x: 3.0, z: -1.35, h: 0.34, rotY: -12 },
+  { src: C('davul'), word: 'davul', x: 1.75, z: -1.25, h: 0.24, rotY: 20 },
+  { src: C('balon'), word: 'balon', x: -3.3, z: 0.45, h: 0.34, rotY: 0 },
+  { src: C('peri-bacasi'), word: 'peri bacası', x: 1.7, z: 0.5, h: 0.36, rotY: -15 },
+  { src: C('bayrak'), word: 'bayrak', x: -2.6, z: -1.35, h: 0.42, rotY: 30 },
 ];
 
 export interface Region {
@@ -100,6 +100,9 @@ interface ModelObj {
   born: number;
   walk: { to: THREE.Vector3; from: THREE.Vector3; speed: number; patrol: boolean } | null;
   visible: boolean;
+  /** Tail wagging until this clock time (an animal told to wag), with the tail bones and their rest turn. */
+  wagUntil?: number;
+  tail?: { bone: THREE.Object3D; rest: THREE.Quaternion }[];
 }
 
 interface PropObj {
@@ -372,7 +375,7 @@ function waveCloth(root: THREE.Object3D, t: number, ph: number) {
 
 /** A set piece built in code, wrapped like a loaded model. */
 function procActor(name: string): Actor {
-  return procActorFrom(PROPS[name]?.() ?? mangalaProp(name) ?? new THREE.Group());
+  return procActorFrom(PROPS[name]?.() ?? HELD[name]?.() ?? mangalaProp(name) ?? new THREE.Group());
 }
 
 const textures = new Map<string, Promise<THREE.Texture>>();
@@ -928,12 +931,39 @@ export class BookScene {
     }
   }
 
+  /**
+   * A happy animal wags its tail: the bones named tail… swing from side to side about the world's up axis
+   * (on top of the walking clip, if any), quickly and widest at the tip, then come back to rest.
+   */
+  private wagTail(m: ModelObj, t: number) {
+    if (!m.tail) {
+      m.tail = [];
+      m.actor.root.traverse((n) => {
+        if (/^tail(?!start)/i.test(n.name)) m.tail!.push({ bone: n, rest: n.quaternion.clone() });
+      });
+    }
+    const left = m.wagUntil! - t;
+    const up = new THREE.Vector3(0, 1, 0);
+    const q = new THREE.Quaternion();
+    const fade = THREE.MathUtils.clamp(left / 0.4, 0, 1);
+    m.tail.forEach(({ bone, rest }, i) => {
+      if (!m.animated) bone.quaternion.copy(rest);
+      if (left <= 0) return;
+      // the up axis in the bone's own space, so the swing is side to side whatever way the bone points
+      bone.parent!.getWorldQuaternion(q);
+      const axis = up.clone().applyQuaternion(q.multiply(bone.quaternion).invert());
+      bone.rotateOnAxis(axis.normalize(), Math.sin(t * 16 + i * 0.6) * (0.32 + i * 0.08) * fade);
+    });
+    if (left <= 0) m.wagUntil = undefined;
+  }
+
   /** Idle life for the 3D models on the page: clips, walking, swaying trees, a wobbling pot. */
   private updateModels(dt: number) {
     const t = this.clock;
     for (const m of this.models) {
       if (!m.visible) continue;
       if (m.animated) m.actor.mixer.update(dt);
+      if (m.wagUntil !== undefined) this.wagTail(m, t);
       const r = m.actor.root;
       if (m.walk) {
         const d = m.walk.to.clone().sub(r.position);
@@ -1459,9 +1489,20 @@ export class BookScene {
   /** Freeze the scene (narration paused): characters, animals and the camera stop where they are. */
   freeze(on: boolean) {
     this.frozen = on;
-    if (on) this.stage?.pause();
+    if (on) {
+      // remember that the play was running, so it goes on from the same moment when the reading goes on
+      if (this.stage?.playing) {
+        this.stage.pause();
+        this.frozeStage = this.stage;
+      }
+    } else if (this.frozeStage) {
+      if (this.frozeStage === this.stage) this.stage.resume();
+      this.frozeStage = null;
+    }
     this.invalidate();
   }
+  /** The play that freeze(true) stopped (and freeze(false) starts again). */
+  private frozeStage: Stage | null = null;
 
   /** The camera leans towards a character (or back to the whole pop-up). */
   focus(who: string | null) {
@@ -1787,6 +1828,11 @@ export class BookScene {
       prop.onBurst = (at, half, k) => this.sparkles.burst(at, half, Math.max(3, Math.round(30 * k)), 1.1 * Math.max(0.4, k));
       prop.onRain = (at, width, seconds) => this.rain.start(at, Math.max(0.22, width), seconds, PAGE_TOP + 0.005);
       prop.onGone = (at) => this.released(at, spec.word ?? '');
+      prop.onWag = (seconds) => {
+        const m = this.models.find((x) => x.spec.id === spec.id);
+        if (m) m.wagUntil = this.clock + seconds;
+        this.invalidate();
+      };
       actors.set(spec.id, prop);
     }
     this.rain.stop();

@@ -11,9 +11,9 @@ import { sfx } from '../sfx';
 
 /** Culture objects on the reading table when a book does not choose its own. */
 const DEFAULT_TABLE: TableModel[] = [
-  { src: '/models/culture/caydanlik.glb', word: 'çaydanlık', x: -2.55, z: -0.45, h: 0.36, rotY: 20 },
-  { src: '/models/culture/cay.glb', word: 'çay', x: -3.15, z: -0.7, h: 0.2, steam: true },
-  { src: '/models/culture/simit.glb', word: 'simit', x: 2.95, z: -1.2, h: 0.22, rotY: 10 },
+  { src: '/models/culture/caydanlik.glb', word: 'çaydanlık', x: -2.95, z: -0.4, h: 0.36, rotY: 20 },
+  { src: '/models/culture/cay.glb', word: 'çay', x: -2.2, z: -0.5, h: 0.2, steam: true },
+  { src: '/models/culture/simit.glb', word: 'simit', x: 2.55, z: -1.25, h: 0.22, rotY: 10 },
 ];
 
 const nextFrame = () => new Promise((r) => requestAnimationFrame(() => r(null)));

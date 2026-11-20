@@ -533,6 +533,16 @@ export const HELD: Record<string, () => THREE.Object3D> = {
     Object.assign(g.userData, { word: 'bayram şekeri', hand: 'R' });
     return g;
   },
+  /** A wrapped sweet lying on the table (the ones the children share out), about the size of those on the table. */
+  sekerMasa: () => {
+    const g = HELD.seker();
+    g.scale.setScalar(1.05);
+    const o = new THREE.Group();
+    o.add(g);
+    g.position.y = 0.008 * 0.85 * 1.05;
+    Object.assign(o.userData, { word: 'bayram şekeri' });
+    return o;
+  },
   /** Elif's blue colouring pencil. */
   kalem: () => {
     const g = new THREE.Group();

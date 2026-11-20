@@ -152,6 +152,8 @@ export interface Key {
   burst?: number;
   /** Rain falling from this thing for so many seconds when the key starts (a cloud). */
   rain?: number;
+  /** An animal wagging its tail for so many seconds when the key starts. */
+  wag?: number;
 }
 
 const D2R = Math.PI / 180;

@@ -103,6 +103,8 @@ export class PropActor {
   onBurst: ((at: THREE.Vector3, half: THREE.Vector3, strength: number) => void) | null = null;
   /** Rain under the thing for so many seconds (a cloud). */
   onRain: ((at: THREE.Vector3, width: number, seconds: number) => void) | null = null;
+  /** An animal model wags its tail for so many seconds. */
+  onWag: ((seconds: number) => void) | null = null;
   /** Called when the thing disappears (so a character taking it can make it fly over). */
   onGone: ((at: THREE.Vector3) => void) | null = null;
   /** Height of the model (world units), so effects fit it. */
@@ -201,6 +203,7 @@ export class PropActor {
         this.onBurst(this.centre(), new THREE.Vector3(h * 0.55, h * 0.55, h * 0.3), k.burst);
       }
       if (starts && k.rain && !this.calm && this.onRain) this.onRain(this.centre(), this.height * 1.4, k.rain);
+      if (starts && k.wag && this.onWag) this.onWag(k.wag);
     }
     this.last = t;
     this.apply(s, dt);

@@ -552,7 +552,7 @@
           "who": "hoca",
           "do": "talk",
           "look": "kazan",
-          "len": 2.0
+          "len": 1.8
         },
         {
           "cue": [
@@ -565,62 +565,36 @@
           "cue": [
             "hoca"
           ],
-          "who": "hoca",
-          "do": "nod",
-          "look": "reader"
+          "who": "pilav",
+          "do": "vanish",
+          "wait": 0.2
         },
         {
           "cue": [
-            "ödünç"
+            "hoca"
           ],
-          "who": "pilav",
+          "who": "kazan",
           "do": "vanish",
           "wait": 0.4
         },
         {
           "cue": [
-            "ödünç"
-          ],
-          "who": "kazan",
-          "do": "vanish",
-          "wait": 0.7
-        },
-        {
-          "cue": [
-            "ödünç"
-          ],
-          "who": "hoca",
-          "do": "hop",
-          "look": "kapi",
-          "wow": true
-        },
-        {
-          "cue": [
-            "biliyormuş"
-          ],
-          "who": "hoca",
-          "do": "talk",
-          "look": "reader",
-          "len": 2.0,
-          "optional": true
-        },
-        {
-          "cue": [
-            "biliyormuş"
+            "hoca"
           ],
           "who": "hoca",
           "do": "walkTo",
           "to": [
-            0.44,
+            0.5,
             0,
-            -0.12
+            -0.17
           ],
-          "face": 40,
-          "look": "kapi"
+          "face": 45,
+          "look": "kapi",
+          "focus": true
         },
         {
           "cue": [
-            "biliyormuş"
+            "komşusunun"
           ],
           "who": "hoca",
           "do": "knock",
@@ -629,7 +603,7 @@
         },
         {
           "cue": [
-            "biliyormuş"
+            "ödünç"
           ],
           "who": "komsu",
           "do": "enter",
@@ -640,26 +614,36 @@
           ],
           "face": -60,
           "look": "hoca",
-          "wait": 1.4,
+          "wait": 0.7,
           "focus": true
         },
         {
           "cue": [
-            "biliyormuş"
+            "ödünç"
           ],
           "who": "komsu",
           "do": "wave",
           "look": "hoca",
-          "wait": 2.4
+          "wait": 1.7
+        },
+        {
+          "cue": [
+            "istemiş"
+          ],
+          "who": "hoca",
+          "do": "talk",
+          "look": "komsu",
+          "len": 1.8,
+          "wait": 0.5
         },
         {
           "cue": [
             "biliyormuş"
           ],
           "who": "hoca",
-          "do": "bow",
+          "do": "nod",
           "look": "komsu",
-          "wait": 2.6
+          "optional": true
         }
       ],
       "ambience": "village",
@@ -1036,14 +1020,9 @@
             "hazırlamış"
           ],
           "who": "hoca",
-          "do": "walkTo",
-          "to": [
-            0,
-            0,
-            0
-          ],
+          "do": "turn",
           "face": 40,
-          "look": "komsu"
+          "look": "kapi"
         }
       ],
       "ambience": "village",
@@ -1521,9 +1500,9 @@
       "cast": [
         {
           "id": "hoca",
-          "x": -0.2,
-          "z": 0.56,
-          "rotY": 40
+          "x": 0.12,
+          "z": 0.44,
+          "rotY": 55
         },
         {
           "id": "komsu",
@@ -1536,33 +1515,32 @@
       "beats": [
         {
           "cue": [
-            "hoca",
-            "yeniden"
+            "çalmış"
           ],
           "who": "hoca",
           "do": "knock",
-          "target": "kapi"
-        },
-        {
-          "cue": [
-            "hoca",
-            "yeniden"
-          ],
-          "who": "komsu",
-          "do": "enter",
-          "to": [
-            -0.12,
-            0,
-            0.146
-          ],
-          "face": -40,
-          "look": "hoca",
-          "wait": 1.6,
+          "target": "kapi",
           "focus": true
         },
         {
           "cue": [
             "kazanını"
+          ],
+          "who": "komsu",
+          "do": "enter",
+          "to": [
+            0.0,
+            0,
+            0.171
+          ],
+          "face": -100,
+          "look": "hoca",
+          "wait": 0.9,
+          "focus": true
+        },
+        {
+          "cue": [
+            "ödünç"
           ],
           "who": "hoca",
           "do": "talk",
@@ -1613,11 +1591,11 @@
           "who": "komsu",
           "do": "walkTo",
           "to": [
-            -0.12,
+            0.0,
             0,
-            0.146
+            0.171
           ],
-          "face": -40,
+          "face": -100,
           "look": "hoca"
         },
         {
@@ -2796,6 +2774,16 @@
         },
         {
           "cue": [
+            "ablasına"
+          ],
+          "who": "dede",
+          "do": "turn",
+          "face": -55,
+          "look": "elif",
+          "wait": 0.25
+        },
+        {
+          "cue": [
             "mavi"
           ],
           "who": "can",
@@ -3505,24 +3493,24 @@
     {
       "src": "/models/culture/caydanlik.glb",
       "word": "çaydanlık",
-      "x": -2.55,
-      "z": -0.45,
+      "x": -2.95,
+      "z": -0.4,
       "h": 0.36,
       "rotY": 20
     },
     {
       "src": "/models/culture/cay.glb",
       "word": "çay",
-      "x": -3.15,
-      "z": -0.7,
+      "x": -2.2,
+      "z": -0.5,
       "h": 0.2,
       "steam": true
     },
     {
       "src": "/models/culture/kahve.glb",
       "word": "kahve",
-      "x": 1.62,
-      "z": 0.86,
+      "x": 2.55,
+      "z": 0.55,
       "h": 0.16,
       "w": 0.46,
       "rotY": -25
@@ -3530,8 +3518,8 @@
     {
       "src": "/models/culture/simit.glb",
       "word": "simit",
-      "x": 2.95,
-      "z": -1.2,
+      "x": 2.55,
+      "z": -1.25,
       "h": 0.22,
       "rotY": 10
     }

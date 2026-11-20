@@ -366,6 +366,28 @@ const ACTS: Record<string, Act> = {
     dur: 1.5,
   }),
 
+  /** Works with the hand on the table in front: leans over and taps / picks things up one by one (sharing out sweets). */
+  useTool: (s, b, t) => {
+    const len = Math.max(1, b.len ?? 1.6);
+    const reach = merge(s.pose, { spine: [16, 0, 0], chest: [8, 0, 0], head: [12, 0, 0], upper_arm_R: [-58, 0, 18], forearm_R: [-22, 0, 0] });
+    const keys: Key[] = [key(t, 0.4, { pose: reach, look: b.target ?? b.look ?? 'down' })];
+    for (let k = t + 0.45; k < t + len - 0.6; k += 0.42) {
+      keys.push(key(k, 0.18, { pose: merge(reach, { upper_arm_R: [-46, 0, 22], forearm_R: [-8, 0, 0] }), minor: true }));
+      keys.push(key(k + 0.2, 0.18, { pose: reach, minor: true }));
+    }
+    keys.push(key(t + len - 0.45, 0.45, { pose: merge(s.pose), look: b.look ?? s.look }));
+    return { keys, dur: len };
+  },
+
+  /** A happy little jump on the spot. */
+  hop: (s, b, t) => ({
+    keys: [
+      key(t, 0.2, { root: { y: s.root.y + 0.03 }, look: b.look ?? s.look, minor: true }),
+      key(t + 0.22, 0.22, { root: { y: s.root.y }, minor: true }),
+    ],
+    dur: 0.5,
+  }),
+
   /** Blows a kiss: right hand to the lips, then out towards the target. */
   blowKiss: (s, b, t) => {
     const lips = merge(s.pose, { upper_arm_R: [-55, 0, 30], forearm_R: [-115, 0, 0], head: [4, 0, 0] });
@@ -495,6 +517,8 @@ export const THING_ACTS: Record<string, Act> = {
       dur: len,
     };
   },
+  /** An animal wags its tail for `len` seconds (default 2.6): the tail bones of its model swing from side to side. */
+  wag: (_s, b, t) => ({ keys: [key(t, 0.1, { wag: b.len ?? 2.6 })], dur: b.len ?? 2.6 }),
   /** Turns once round. */
   spin: (s, _b, t) => ({ keys: [key(t, 1.2, { root: { rotY: s.root.rotY + 360, glow: 1 }, burst: 0.6 }), key(t + 1.2, 0.8, { root: { glow: s.root.glow ?? 0.45 } })], dur: 1.2 }),
 };

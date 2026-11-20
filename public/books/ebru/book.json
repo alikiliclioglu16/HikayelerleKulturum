@@ -2337,6 +2337,16 @@
         },
         {
           "cue": [
+            "serpti"
+          ],
+          "who": "dede",
+          "do": "lookAt",
+          "target": "tekne",
+          "len": 2.8,
+          "wait": 0.3
+        },
+        {
+          "cue": [
             "tıp"
           ],
           "who": "halka",
@@ -2801,6 +2811,15 @@
           "cue": [
             "elif"
           ],
+          "who": "dede",
+          "do": "turn",
+          "face": 0,
+          "look": "tekne"
+        },
+        {
+          "cue": [
+            "elif"
+          ],
           "who": "elif",
           "do": "walkTo",
           "to": [
@@ -2909,6 +2928,16 @@
           "who": "dede",
           "do": "nod",
           "look": "elif"
+        },
+        {
+          "cue": [
+            "vermişti"
+          ],
+          "who": "dede",
+          "do": "turn",
+          "face": 0,
+          "look": "tekne",
+          "wait": 1.0
         }
       ],
       "audio": {
@@ -3356,6 +3385,15 @@
           "do": "talk",
           "look": "can",
           "len": 3.4
+        },
+        {
+          "cue": [
+            "ıslak"
+          ],
+          "who": "dede",
+          "do": "turn",
+          "face": 0,
+          "look": "tekne"
         },
         {
           "cue": [

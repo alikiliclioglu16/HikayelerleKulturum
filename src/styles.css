@@ -2153,6 +2153,7 @@ button.t-card:hover .t-stage img {
 }
 .story-card {
   position: relative;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2237,8 +2238,26 @@ button.t-card:hover .t-stage img {
   right: -5px;
 }
 .story-card .bs-cover {
-  width: min(210px, 52vw);
+  /* the cover gives way first on a short screen, so the title, the summary and "Oku" always fit */
+  width: clamp(92px, calc((100dvh - 440px) * 0.72), min(210px, 52vw));
+  flex: none;
   margin-top: 4px;
+}
+@media (max-height: 640px) {
+  .story-card {
+    gap: 8px;
+    padding: 20px 22px 16px;
+  }
+  .sc-title {
+    font-size: 24px;
+  }
+  .sc-sum {
+    font-size: 15.5px;
+    line-height: 1.35;
+  }
+  .sc-read {
+    font-size: 19px;
+  }
 }
 .sc-title {
   margin: 4px 0 0;
