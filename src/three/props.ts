@@ -309,9 +309,8 @@ function tray(w: number, color = '#C9CED6') {
 
 /** Each returns a group sized for a character about 0.4–0.55 tall; userData: word, hand ('R' for one hand), atHeight, ahead. */
 /** A sheet of ebru paper held flat in both hands (w wide), blank or with its pattern (a picture under /books/…). */
-function heldPaper(word: string, pattern?: string) {
+function heldPaper(word: string, pattern?: string, w = 0.13) {
   const g = new THREE.Group();
-  const w = 0.13;
   const paper = new THREE.Mesh(new THREE.BoxGeometry(w, 0.002, w * 0.66), new THREE.MeshStandardMaterial({ color: '#F4ECD8', roughness: 0.85 }));
   paper.castShadow = true;
   g.add(paper);
@@ -346,6 +345,10 @@ export const HELD: Record<string, () => THREE.Object3D> = {
   kagit: () => heldPaper('kâğıt'),
   kagitLale: () => heldPaper('ebru', '/books/ebru/desen/lale.webp'),
   kagitKarisik: () => heldPaper('ebru', '/books/ebru/desen/karisik.webp'),
+  // Kapıdaki Yolcu: the little glass nazar Melek gives Elif, held out in both hands
+  nazarEl: () => glbHeld('/models/culture/nazar.glb', 0.085, { word: 'nazar boncuğu', atHeight: 0.5, ahead: 0.26 }),
+  // Martı ile Simit: Elif's drawing of the Maiden's Tower, a little bigger so it can be seen when she shows it
+  kagitKule: () => heldPaper('resim', '/books/marti-simit/resim/kule-cizim.webp', 0.17),
   // Kapadokya'nın Güzel Atları: the vet's bag, a water bottle, a phone
   ...HORSE_HELD,
   // Martı ile Simit: a simit, the simit bag, a bottle of water, a napkin

@@ -397,6 +397,20 @@ function held(o: THREE.Object3D, data: Record<string, unknown>, s = PAGE) {
   return g;
 }
 
+/** A folded coat carried over the arms (the guest's, taken off at the door). */
+function coatFolded(color = '#3B4A63') {
+  const g = new THREE.Group();
+  const body = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.2, 0.5, 12, 1, true), mat(color, 0.85));
+  (body.material as THREE.MeshStandardMaterial).side = THREE.DoubleSide;
+  body.rotation.z = Math.PI / 2;
+  body.scale.set(1, 1, 0.45);
+  const collar = new THREE.Mesh(new THREE.TorusGeometry(0.09, 0.025, 6, 14), mat(color, 0.85));
+  collar.position.set(0.26, 0.02, 0);
+  collar.rotation.y = Math.PI / 2;
+  g.add(body, collar);
+  return g;
+}
+
 /** Things held in the hands (see HELD in props.ts). */
 export const MISAFIR_HELD: Record<string, () => THREE.Object3D> = {
   semsiye: () => held(umbrella(), { word: 'şemsiye', hand: 'R' }),
@@ -405,4 +419,5 @@ export const MISAFIR_HELD: Record<string, () => THREE.Object3D> = {
   ekmekSepetiEl: () => held(breadBasket(), { word: 'ekmek', atHeight: 0.32, ahead: 0.18 }),
   kurabiyeKutusuEl: () => held(cookieTin(), { word: 'kurabiye', atHeight: 0.36, ahead: 0.2 }),
   kapiKartiEl: () => held(doorCard(), { word: 'kart', atHeight: 0.3, ahead: 0.14 }, PAGE * 0.8),
+  paltoEl: () => held(coatFolded(), { word: 'palto', atHeight: 0.4, ahead: 0.2 }),
 };

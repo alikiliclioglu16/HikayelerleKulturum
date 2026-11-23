@@ -118,12 +118,13 @@ function lightSpots() {
   for (let i = 0; i < 26; i++) {
     const m = new THREE.Mesh(
       new THREE.PlaneGeometry(1, 1),
-      new THREE.MeshBasicMaterial({ color: cols[i % cols.length], map: tex, transparent: true, opacity: 0.75, blending: THREE.AdditiveBlending, depthWrite: false }),
+      // normal blending: added light would wash out on a bright wall, these coloured spots stay visible
+      new THREE.MeshBasicMaterial({ color: cols[i % cols.length], map: tex, transparent: true, opacity: 0.85, depthWrite: false }),
     );
     const a = i * 2.4;
     const r = 0.25 + (i % 5) * 0.12;
     m.position.set(Math.cos(a) * r * 1.6, 0.9 + Math.sin(a) * r, 0);
-    m.scale.setScalar(0.12 + (i % 3) * 0.05);
+    m.scale.setScalar(0.18 + (i % 3) * 0.07);
     g.add(m);
   }
   return g;
@@ -243,6 +244,8 @@ function held(o: THREE.Object3D, data: Record<string, unknown>, s = PAGE) {
 export const DAVULCU_HELD: Record<string, () => THREE.Object3D> = {
   // the drum hangs in front of the drummer's belly
   ramazanDavulu: () => held(drum(0.22, 0.26), { word: 'davul', atHeight: 0.34, ahead: 0.2 }),
+  // the little drum Hüseyin dede gave Can, played held in front of him
+  kucukDavulEl: () => held(drum(0.15, 0.17), { word: 'davul', atHeight: 0.36, ahead: 0.2 }),
   fener: () => held(lantern(), { word: 'fener', hand: 'R' }, PAGE * 1.3),
   fenerIkiEl: () => held(lantern(), { word: 'fener', atHeight: 0.36, ahead: 0.2 }, PAGE * 1.3),
   corbaKasesi: () => held(soup(), { word: 'çorba', atHeight: 0.42, ahead: 0.22 }, PAGE * 1.4),

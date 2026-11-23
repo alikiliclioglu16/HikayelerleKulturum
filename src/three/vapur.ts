@@ -63,6 +63,24 @@ function ferryBench(len = 1.8) {
   return g;
 }
 
+/** A small round café table on the deck (Elif draws at it), 0.72 high. */
+function deckTable() {
+  const g = new THREE.Group();
+  const wood = mat('#B8834E', 0.55);
+  const iron = mat('#2F3A45', 0.45, 0.4);
+  const top = new THREE.Mesh(new THREE.CylinderGeometry(0.36, 0.36, 0.035, 28), wood);
+  top.position.y = 0.705;
+  const rim = new THREE.Mesh(new THREE.TorusGeometry(0.36, 0.012, 6, 28), mat('#8C5D33', 0.55));
+  rim.rotation.x = Math.PI / 2;
+  rim.position.y = 0.705;
+  const post = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.68, 10), iron);
+  post.position.y = 0.35;
+  const foot = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.22, 0.03, 20), iron);
+  foot.position.y = 0.015;
+  g.add(top, rim, post, foot);
+  return g;
+}
+
 /** A red and white life ring (can simidi), standing up as if hung on the railing. */
 function lifeRing() {
   const g = new THREE.Group();
@@ -226,6 +244,7 @@ export const VAPUR_PROPS: Record<string, () => THREE.Object3D> = {
   korkuluk: () => onPage(railing()),
   vapurSirasi: () => onPage(ferryBench()),
   vapurSirasiUzun: () => onPage(ferryBench(2.5)),
+  masaKucuk: () => onPage(deckTable()),
   canSimidi: () => onPage(lifeRing()),
   marti: () => onPage(gull()),
   plastikPoset: () => onPage(floatingBag()),

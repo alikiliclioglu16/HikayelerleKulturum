@@ -47,23 +47,56 @@ function rng(seed: number) {
 
 /* ---------------- the car ---------------- */
 
-/** A round little family car seen from the side: red body, a white roof, windows, four wheels. Faces +x. */
-function car() {
+/** Clear car glass: the people inside are seen through it. */
+const carGlass = new THREE.MeshStandardMaterial({ color: '#CFEAF7', roughness: 0.05, metalness: 0.1, transparent: true, opacity: 0.22, depthWrite: false });
+
+/**
+ * A round little family car seen from the side: red body, a white roof, windows, four wheels. Faces +x.
+ * `open`: the cabin is clear glass under a white roof on thin posts, so the family can be seen sitting inside.
+ */
+function car(open = false) {
   const g = new THREE.Group();
   const red = mat('#C8382C', 0.35, 0.2);
   const body = new THREE.Mesh(new RoundedBoxGeometry(2.1, 0.5, 0.95, 4, 0.16), red);
   body.position.y = 0.46;
-  const cabin = new THREE.Mesh(new RoundedBoxGeometry(1.15, 0.5, 0.86, 4, 0.14), mat('#F4F1EA', 0.4));
-  cabin.position.set(-0.15, 0.88, 0);
-  const glass = mat('#9FD3EE', 0.1, 0.1, '#6FB4D8', 0.25);
-  for (const z of [-0.435, 0.435]) {
-    for (const x of [-0.43, 0.1]) {
-      const w = box(0.42, 0.28, 0.01, glass);
-      w.position.set(x, 0.92, z);
-      g.add(w);
+  let cabin: THREE.Object3D;
+  if (open) {
+    const white = mat('#F4F1EA', 0.4);
+    cabin = new THREE.Group();
+    const roof = new THREE.Mesh(new RoundedBoxGeometry(1.2, 0.08, 0.9, 3, 0.03), white);
+    roof.position.set(-0.15, 1.1, 0);
+    cabin.add(roof);
+    for (const x of [-0.72, -0.15, 0.42])
+      for (const z of [-0.42, 0.42]) {
+        const post = box(0.05, 0.4, 0.05, white);
+        post.position.set(x, 0.9, z);
+        cabin.add(post);
+      }
+    // the inside: dark seats with their backs, seen through the glass
+    const seat = mat('#4A3B35', 0.8);
+    for (const x of [0.02, -0.5]) {
+      const back = box(0.08, 0.32, 0.8, seat);
+      back.position.set(x - 0.16, 0.86, 0);
+      cabin.add(back);
+    }
+    for (const z of [-0.45, 0.45]) {
+      const side = box(1.14, 0.32, 0.01, carGlass);
+      side.position.set(-0.15, 0.9, z);
+      cabin.add(side);
+    }
+  } else {
+    cabin = new THREE.Mesh(new RoundedBoxGeometry(1.15, 0.5, 0.86, 4, 0.14), mat('#F4F1EA', 0.4));
+    cabin.position.set(-0.15, 0.88, 0);
+    const glass = mat('#9FD3EE', 0.1, 0.1, '#6FB4D8', 0.25);
+    for (const z of [-0.435, 0.435]) {
+      for (const x of [-0.43, 0.1]) {
+        const w = box(0.42, 0.28, 0.01, glass);
+        w.position.set(x, 0.92, z);
+        g.add(w);
+      }
     }
   }
-  const front = box(0.01, 0.3, 0.72, glass);
+  const front = box(0.01, 0.3, 0.72, open ? carGlass : mat('#9FD3EE', 0.1, 0.1, '#6FB4D8', 0.25));
   front.position.set(0.43, 0.92, 0);
   const bumper = mat('#5A5A5A', 0.5, 0.4);
   for (const x of [-1.07, 1.07]) {
@@ -89,6 +122,143 @@ function car() {
     lamp.position.set(1.04, 0.52, z);
     g.add(lamp);
   }
+  return g;
+}
+
+/**
+ * One of the car's doors (the side facing the reader), its own thing so it can swing open: a red panel with a
+ * window, the hinge at its front edge (the origin), the door reaching back along +x. Same scale as the car.
+ */
+function carDoor() {
+  const g = new THREE.Group();
+  const red = mat('#C8382C', 0.35, 0.2);
+  const panel = new THREE.Mesh(new RoundedBoxGeometry(0.53, 0.44, 0.035, 2, 0.015), red);
+  panel.position.set(0.265, 0.47, 0);
+  const frame = box(0.53, 0.04, 0.03, red);
+  frame.position.set(0.265, 1.04, 0);
+  const pane = box(0.47, 0.3, 0.01, carGlass);
+  pane.position.set(0.265, 0.86, 0);
+  const handle = box(0.09, 0.025, 0.03, mat('#D9D9D9', 0.3, 0.6));
+  handle.position.set(0.42, 0.6, 0.025);
+  g.add(panel, frame, pane, handle);
+  return g;
+}
+
+/** A village dirt road (in page widths, lying on the page): sandy, with two wheel ruts and grassy edges. */
+function dirtRoad(len: number, width: number) {
+  const c = document.createElement('canvas');
+  c.width = 512;
+  c.height = 96;
+  const x = c.getContext('2d')!;
+  x.fillStyle = '#B5864F';
+  x.fillRect(0, 0, 512, 96);
+  const r = rng(7);
+  for (let i = 0; i < 900; i++) {
+    x.fillStyle = r() < 0.5 ? 'rgba(120,90,50,0.25)' : 'rgba(240,220,170,0.3)';
+    x.fillRect(r() * 512, r() * 96, 2 + r() * 3, 1 + r() * 2);
+  }
+  x.fillStyle = 'rgba(95,62,32,0.55)';
+  x.fillRect(0, 26, 512, 10);
+  x.fillRect(0, 60, 512, 10);
+  x.fillStyle = '#7FA650';
+  for (let i = 0; i < 160; i++) {
+    const y = r() < 0.5 ? r() * 8 : 88 + r() * 8;
+    x.fillRect(r() * 512, y, 3, 4 + r() * 5);
+  }
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(len, width), new THREE.MeshStandardMaterial({ map: tex, roughness: 0.95 }));
+  m.rotation.x = -Math.PI / 2;
+  m.position.y = 0.002;
+  m.receiveShadow = true;
+  const g = new THREE.Group();
+  g.add(m);
+  return g;
+}
+
+/** A stone village house with a red tiled roof, a wooden door and a window. */
+function stoneHouse() {
+  const g = new THREE.Group();
+  const wall = new THREE.Mesh(new RoundedBoxGeometry(2.6, 2.0, 2.0, 2, 0.06), mat('#CDB797', 0.9));
+  wall.position.y = 1.0;
+  g.add(wall);
+  const r = rng(3);
+  for (let i = 0; i < 26; i++) {
+    const st = box(0.3 + r() * 0.25, 0.16 + r() * 0.1, 0.02, mat(r() < 0.5 ? '#B89E7C' : '#DCC8A8', 0.95));
+    st.position.set(-1.1 + r() * 2.2, 0.2 + r() * 1.6, 1.005);
+    g.add(st);
+  }
+  const roof = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 1.0, 2.9, 3, 1), mat('#B8492F', 0.7));
+  roof.rotation.z = Math.PI / 2;
+  roof.rotation.x = Math.PI;
+  roof.scale.set(1, 1, 1.25);
+  roof.position.y = 2.45;
+  g.add(roof);
+  const door = box(0.55, 1.0, 0.05, mat('#7A4A26', 0.7));
+  door.position.set(-0.6, 0.5, 1.02);
+  const win = box(0.6, 0.5, 0.05, mat('#5E8FB0', 0.3));
+  win.position.set(0.55, 1.15, 1.02);
+  const sill = box(0.7, 0.06, 0.1, mat('#E8DCC2', 0.8));
+  sill.position.set(0.55, 0.88, 1.05);
+  g.add(door, win, sill);
+  return g;
+}
+
+/** A round village tree: a trunk and a crown of leaves. */
+function villageTree(seed = 1) {
+  const g = new THREE.Group();
+  const trunk = cyl(0.12, 0.18, 1.6, mat('#7A5233', 0.85), 10);
+  trunk.position.y = 0.8;
+  g.add(trunk);
+  const r = rng(seed);
+  for (let i = 0; i < 5; i++) {
+    const leaf = ball(0.55 + r() * 0.3, mat(i % 2 ? '#5E9B45' : '#71AE52', 0.85), 12);
+    leaf.position.set((r() - 0.5) * 0.9, 1.9 + r() * 0.6, (r() - 0.5) * 0.7);
+    g.add(leaf);
+  }
+  return g;
+}
+
+/** Flowing water (page widths, flat or standing): blue with light ripples on a tile that slides (fx "flowX"/"rainfall"). */
+function water(len: number, width: number, standing = false) {
+  const c = document.createElement('canvas');
+  c.width = 256;
+  c.height = 64;
+  const x = c.getContext('2d')!;
+  const grd = x.createLinearGradient(0, 0, 0, 64);
+  grd.addColorStop(0, '#3E8FD0');
+  grd.addColorStop(0.5, '#5DB0E8');
+  grd.addColorStop(1, '#3E8FD0');
+  x.fillStyle = grd;
+  x.fillRect(0, 0, 256, 64);
+  const r = rng(11);
+  x.strokeStyle = 'rgba(255,255,255,0.7)';
+  x.lineWidth = 2;
+  for (let i = 0; i < 26; i++) {
+    const y = 4 + r() * 56;
+    const x0 = r() * 256;
+    x.beginPath();
+    x.moveTo(x0, y);
+    x.quadraticCurveTo(x0 + 10, y - 3, x0 + 22, y);
+    x.stroke();
+  }
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+  tex.repeat.set(standing ? 1 : Math.max(1, len / width / 3), standing ? 2 : 1);
+  const m = new THREE.Mesh(
+    new THREE.PlaneGeometry(len, width),
+    new THREE.MeshBasicMaterial({ map: tex, transparent: true, opacity: 0.92 }),
+  );
+  if (standing) {
+    m.rotation.z = Math.PI / 2;
+    m.position.y = len / 2;
+  } else {
+    m.rotation.x = -Math.PI / 2;
+    m.position.y = 0.004;
+  }
+  const g = new THREE.Group();
+  g.add(m);
   return g;
 }
 
@@ -548,6 +718,15 @@ function log() {
 /** Things standing on the page (page widths). */
 export const KOY_PROPS: Record<string, () => THREE.Object3D> = {
   araba: () => onPage(car(), PAGE * 0.55),
+  // the family car big enough to sit in, its glass clear, and its two doors on the reader's side
+  arabaAcik: () => onPage(car(true)),
+  arabaKapisi: () => onPage(carDoor()),
+  yolKoy: () => dirtRoad(0.75, 0.34),
+  tasEv: () => onPage(stoneHouse(), PAGE * 0.3),
+  agacKoy: () => onPage(villageTree(2), PAGE * 0.36),
+  agacKoy2: () => onPage(villageTree(5), PAGE * 0.32),
+  dere: () => water(1.0, 0.07),
+  suAkisi: () => water(0.3, 0.05, true),
   tavuk: () => onPage(hen(), PAGE * 0.6),
   tavukKahve: () => onPage(hen('#B5652B'), PAGE * 0.6),
   bugdayTarlasi: () => onPage(wheatField()),

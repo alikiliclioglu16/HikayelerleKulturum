@@ -1187,6 +1187,19 @@
           "who": "baba",
           "do": "walkTo",
           "to": [
+            0.02,
+            0,
+            -0.439
+          ],
+          "look": null
+        },
+        {
+          "cue": [
+            "babaları"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
             -0.22,
             0,
             -0.512
@@ -1211,6 +1224,19 @@
           "do": "hop",
           "look": "isik",
           "wait": 0.3
+        },
+        {
+          "cue": [
+            "anneleri"
+          ],
+          "who": "anne",
+          "do": "walkTo",
+          "to": [
+            -0.02,
+            0,
+            -0.415
+          ],
+          "look": null
         },
         {
           "cue": [
@@ -1328,6 +1354,17 @@
           "do": "lookAt",
           "target": "isik",
           "len": 1.2
+        },
+        {
+          "cue": [
+            "hacivat"
+          ],
+          "who": "hacivat",
+          "do": "jiggle",
+          "len": 0.1,
+          "sound": "kayit:/books/karagoz-hacivat/ses/karagozum.mp3",
+          "wait": 1.4,
+          "optional": true
         },
         {
           "cue": [
@@ -1685,6 +1722,17 @@
           "who": "karagoz",
           "do": "switchOn",
           "focus": true
+        },
+        {
+          "cue": [
+            "karagöz"
+          ],
+          "who": "hacivat",
+          "do": "tip",
+          "face": -10,
+          "len": 0.5,
+          "sound": "kayit:/books/karagoz-hacivat/ses/karagozum.mp3",
+          "wait": 0.2
         },
         {
           "cue": [
@@ -2539,7 +2587,7 @@
           "proc": "panel",
           "id": "kitap",
           "decal": "/books/karagoz-hacivat/art/kitap.webp",
-          "x": 0.05000000000000002,
+          "x": 0.17,
           "z": 0.022,
           "y": 0.3,
           "h": 0.12,
@@ -2626,7 +2674,7 @@
           ],
           "who": "hacivat",
           "do": "jiggle",
-          "len": 1.6
+          "len": 2.0
         },
         {
           "cue": [
@@ -2639,12 +2687,21 @@
         },
         {
           "cue": [
+            "bilemedi"
+          ],
+          "who": "hacivat",
+          "do": "tip",
+          "face": -14,
+          "len": 0.6
+        },
+        {
+          "cue": [
             "karagöz"
           ],
           "who": "karagoz",
           "do": "slide",
           "to": [
-            0.05,
+            0.09,
             0,
             0
           ],
@@ -2675,10 +2732,32 @@
         },
         {
           "cue": [
+            "köklerini"
+          ],
+          "who": "karagoz",
+          "do": "tip",
+          "face": 22,
+          "len": 1.4
+        },
+        {
+          "cue": [
             "gösterdi"
           ],
           "who": "fidan",
           "do": "shine"
+        },
+        {
+          "cue": [
+            "gösterdi"
+          ],
+          "who": "karagoz",
+          "do": "slide",
+          "to": [
+            0.02,
+            0,
+            0
+          ],
+          "len": 0.8
         },
         {
           "cue": [
@@ -2742,6 +2821,32 @@
         },
         {
           "cue": [
+            "birlikte"
+          ],
+          "who": "karagoz",
+          "do": "slide",
+          "to": [
+            0.06,
+            0,
+            0
+          ],
+          "len": 0.9
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "hacivat",
+          "do": "slide",
+          "to": [
+            -0.03,
+            0,
+            0
+          ],
+          "len": 0.9
+        },
+        {
+          "cue": [
             "döktüler"
           ],
           "who": "kova",
@@ -2759,6 +2864,24 @@
         },
         {
           "cue": [
+            "döktüler"
+          ],
+          "who": "karagoz",
+          "do": "tip",
+          "face": 18,
+          "len": 1.0
+        },
+        {
+          "cue": [
+            "döktüler"
+          ],
+          "who": "hacivat",
+          "do": "tip",
+          "face": -18,
+          "len": 1.0
+        },
+        {
+          "cue": [
             "perde"
           ],
           "who": "su",
@@ -2772,6 +2895,45 @@
           "do": "lean",
           "face": 0,
           "len": 0.4
+        },
+        {
+          "cue": [
+            "perde"
+          ],
+          "who": "kova",
+          "do": "slide",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "len": 0.9
+        },
+        {
+          "cue": [
+            "perde"
+          ],
+          "who": "karagoz",
+          "do": "slide",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "len": 0.9
+        },
+        {
+          "cue": [
+            "perde"
+          ],
+          "who": "hacivat",
+          "do": "slide",
+          "to": [
+            0,
+            0,
+            0
+          ],
+          "len": 0.9
         },
         {
           "cue": [
@@ -3136,7 +3298,8 @@
             0
           ],
           "len": 0.8,
-          "focus": true
+          "focus": true,
+          "sound": "kayit:/books/karagoz-hacivat/ses/hacivatim.mp3"
         },
         {
           "cue": [
@@ -3149,7 +3312,9 @@
             0,
             0
           ],
-          "len": 0.8
+          "len": 0.8,
+          "sound": "kayit:/books/karagoz-hacivat/ses/karagozum.mp3",
+          "wait": 1.0
         },
         {
           "cue": [
@@ -3495,6 +3660,19 @@
           "who": "anne",
           "do": "walkTo",
           "to": [
+            -0.28,
+            0,
+            0.024
+          ],
+          "look": null
+        },
+        {
+          "cue": [
+            "anneleri"
+          ],
+          "who": "anne",
+          "do": "walkTo",
+          "to": [
             -0.26,
             0,
             0.39
@@ -3545,6 +3723,19 @@
           "do": "talk",
           "look": "anne",
           "len": 1.4
+        },
+        {
+          "cue": [
+            "babaları"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            0.26,
+            0,
+            0.024
+          ],
+          "look": null
         },
         {
           "cue": [
@@ -3895,6 +4086,38 @@
         },
         {
           "cue": [
+            "çocuklar"
+          ],
+          "who": "can",
+          "do": "useTool",
+          "style": "draw",
+          "look": "elKarton2",
+          "len": 1.8,
+          "to": [
+            0,
+            -0.1,
+            0.3
+          ],
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "çocuklar"
+          ],
+          "who": "elif",
+          "do": "useTool",
+          "style": "draw",
+          "look": "elKarton1",
+          "len": 1.8,
+          "to": [
+            0,
+            -0.1,
+            0.3
+          ],
+          "wait": 0.4
+        },
+        {
+          "cue": [
             "kartondan"
           ],
           "who": "elKarton1",
@@ -3916,6 +4139,19 @@
           "who": "elif",
           "do": "cheer",
           "look": "elKarton1"
+        },
+        {
+          "cue": [
+            "babaları"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            -0.02,
+            0,
+            -0.342
+          ],
+          "look": null
         },
         {
           "cue": [
@@ -3971,12 +4207,66 @@
           "who": "elif",
           "do": "walkTo",
           "to": [
+            0.32,
+            0,
+            -0.415
+          ],
+          "look": null,
+          "wait": 3.6
+        },
+        {
+          "cue": [
+            "kartonlar"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.32,
+            0,
+            -0.671
+          ],
+          "look": null
+        },
+        {
+          "cue": [
+            "kartonlar"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
             0.04,
             0,
             -0.708
           ],
           "face": 180,
           "look": "isik"
+        },
+        {
+          "cue": [
+            "kartonlar"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.22,
+            0,
+            -0.415
+          ],
+          "look": null,
+          "wait": 2.6
+        },
+        {
+          "cue": [
+            "kartonlar"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.22,
+            0,
+            -0.671
+          ],
+          "look": null
         },
         {
           "cue": [
@@ -4000,13 +4290,27 @@
           "who": "baba",
           "do": "walkTo",
           "to": [
-            -0.12,
+            -0.02,
             0,
-            0.195
+            -0.366
+          ],
+          "look": null,
+          "wait": 0
+        },
+        {
+          "cue": [
+            "kartonlar"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            0.04,
+            0,
+            0.244
           ],
           "face": -20,
           "look": "isik",
-          "wait": 1.2
+          "wait": 0
         },
         {
           "cue": [
@@ -4151,6 +4455,19 @@
           "who": "elif",
           "do": "walkTo",
           "to": [
+            0.32,
+            0,
+            -0.683
+          ],
+          "look": null
+        },
+        {
+          "cue": [
+            "kardeşler"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
             0.28,
             0,
             -0.439
@@ -4158,6 +4475,20 @@
           "face": -20,
           "look": "reader",
           "focus": true
+        },
+        {
+          "cue": [
+            "kardeşler"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.22,
+            0,
+            -0.683
+          ],
+          "look": null,
+          "wait": 0.2
         },
         {
           "cue": [

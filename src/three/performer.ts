@@ -20,6 +20,10 @@ export interface CharacterDef {
   /** Eyes for eyelids, in fractions of the model height: x, y (from the feet), z, radius. */
   eyes?: [number, number, number, number][];
   skin?: string;
+  /** A still model sitting down: where its hips and knees bend, in fractions of its height (default 0.42, 0.22). */
+  bend?: [number, number];
+  /** A still model talking: its mouth, in fractions of the model height: x, y (from the feet), z (front), width. */
+  mouth?: [number, number, number, number];
 }
 
 export const CHARACTERS: Record<string, CharacterDef> = {
@@ -87,7 +91,7 @@ export const CHARACTERS: Record<string, CharacterDef> = {
   melek: { src: '/models/23-nisan/amara.glb', height: 0.38, name: 'Melek' },
   // Mangala Turnuvası: stand-ins until the Meshy models come (public/models/mangala/hande.glb, hakem.glb)
   hande: { src: '/models/23-nisan/zara.glb', height: 0.39, name: 'Hande' },
-  hakem: { src: '/models/firin/askidan-ekmek-alan-adam.glb', height: 0.55, name: 'Hakem' },
+  hakem: { src: '/models/firin/askidan-ekmek-alan-adam.glb', height: 0.55, name: 'Hakem', mouth: [0, 0.805, 0.086, 0.05] },
   gorevli: { src: '/models/firin/askidan-ekmek-alan-adam.glb', height: 0.567, name: 'Görevli' },
 };
 
@@ -124,6 +128,8 @@ export interface RootState {
   tr?: number;
   /** Toy characters: wearing an apron (1) or not (0). */
   apron?: number;
+  /** Toy characters: talking (1), the mouth of a still model moves. */
+  mo?: number;
 }
 
 export interface State {

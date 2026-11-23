@@ -18,11 +18,24 @@ import { PageText, pageLogo, type PageTextSpec } from './pageText';
 import { Sparkles } from '../home3d/sparkles';
 import { Party } from './party';
 import { LIFE_BY_AMBIENCE, Life, type LifeKind } from './life';
+import { trLower } from '../text';
 import type { PageData } from '../types';
 import { WallCarpet, type CarpetDesign } from '../home3d/carpet';
 import type { BuiltLayer } from '../art/scenes';
 import { iznikTile } from '../art/kit';
 import { Pen, rng } from '../art/pen';
+
+/** Whose voice a character's feelings are heard in (sfx: public/sesler/duygu). Animals have none. */
+const VOICES: Record<string, string> = {
+  elif: 'kiz', maya: 'kiz', zeynep: 'kiz', zara: 'kiz', amara: 'kiz', hande: 'kiz', melek: 'kiz', 'koylu-cocuk': 'oglan',
+  can: 'oglan', kenji: 'oglan', liam: 'oglan', kerem: 'oglan',
+  anne: 'kadin', ayse: 'kadin', ogretmen: 'kadin', ayten: 'kadin', 'at-sahibi': 'kadin', musteri: 'kadin', keremAnne: 'kadin',
+  komsuKadin: 'kadin', 'koylu-kadin': 'kadin', hatice: 'kadin',
+  babaanne: 'yasli-kadin', 'keloglan-anasi': 'yasli-kadin', 'aksehirli-teyze': 'yasli-kadin', keremBabaanne: 'yasli-kadin',
+  baba: 'erkek', komsu: 'erkek', pazarci: 'erkek', 'hasan-amca': 'erkek', ali: 'erkek', adam: 'erkek', mustafa: 'erkek',
+  osman: 'erkek', degirmenci: 'erkek', komsuAdam: 'erkek', yolcu: 'erkek', hakem: 'erkek', gorevli: 'erkek', mahalleli: 'erkek', keloglan: 'erkek',
+  dede: 'yasli-erkek', hoca: 'yasli-erkek', huseyin: 'yasli-erkek', keremDede: 'yasli-erkek',
+};
 
 const PAGE_W = 1;
 const PAGE_D = 1.36;
@@ -1044,6 +1057,13 @@ export class BookScene {
             if (map) map.offset.y += dt * 1.9;
           });
           break;
+        case 'flowX':
+          // a stream flowing along
+          g.traverse((o) => {
+            const map = ((o as THREE.Mesh).material as THREE.MeshBasicMaterial | undefined)?.map;
+            if (map) map.offset.x -= dt * 0.35;
+          });
+          break;
         case 'scrollX':
           // the view from a moving train: the landscape strip slides by
           g.traverse((o) => {
@@ -1564,11 +1584,26 @@ export class BookScene {
     const play = this.onSound;
     if (this.seeking || !play) return;
     const d = t - now;
-    if (b.sound !== undefined) {
+    this.feelingSound(b, d);
+    // a drummer's beats are always heard one by one (a `sound` on the beat would give only one boom)
+    if (b.sound !== undefined && b.do !== 'drum') {
       if (b.sound) play(b.sound, d);
       return;
     }
     if (this.things.has(b.who)) {
+      // the shadow puppets: the tef while they talk, a slap as they bow, the nareke when one comes on
+      const word = this.models.find((m) => m.spec.id === b.who)?.spec.word;
+      if (word === 'Karagöz' || word === 'Hacivat') {
+        if (b.do === 'jiggle') play('tef', d);
+        else if (b.do === 'tip') play('sak', d);
+        else if (b.do === 'switchOn' || (b.do === 'slide' && (b.len ?? 0) >= 1)) {
+          if (this.clock + d - this.lastNareke > 5) {
+            this.lastNareke = this.clock + d;
+            play('nareke', d);
+          }
+        }
+        return;
+      }
       if (b.do === 'ring') play(b.who === 'saat' ? 'alarm' : 'clink', d);
       else if (b.do === 'rain') play('rain', d + 0.2, b.len ?? 4);
       else if (['appear', 'vanish', 'rise', 'sink', 'shine', 'grow', 'spin', 'whirl'].includes(b.do)) play(b.do, d);
@@ -1592,6 +1627,50 @@ export class BookScene {
     else if (b.do === 'twirl' || b.do === 'spin') play('spin', d);
     else if (b.do === 'hopOut') play('hop', d + 0.7);
   }
+
+  /**
+   * A character's feeling heard in its own voice: a laugh when it is happy (cheering, or the text says it laughs),
+   * a "vaay!" when something surprises it (beats marked `wow`), a sob or a sad sigh when it is upset (`mood: "sad"`,
+   * or the text says it is sad or cries). A magic thing that amazes (`wow`) is answered by one of the children.
+   * Never the same voice twice within a moment, and at most two voices for one cue.
+   */
+  private feelingSound(b: Beat, d: number) {
+    const play = this.onSound!;
+    const cue = (b.cue ?? []).map((c) => trLower(c));
+    const said = (stems: string[]) => cue.some((c) => stems.some((st) => c.startsWith(st)));
+    let who = b.who;
+    let mood: string | null | undefined = b.mood;
+    if (mood === undefined) {
+      if (this.things.has(b.who)) {
+        if (!b.wow) return;
+        // the child who is looking at it (or any child on the page) says it
+        const kids = [...this.performers.keys()].filter((id) => VOICES[id] === 'kiz' || VOICES[id] === 'oglan');
+        if (!kids.length) return;
+        who = kids[this.wowTurn++ % kids.length];
+        mood = 'wow';
+      } else if (said(['üzül', 'ağla', 'ağlı'])) mood = 'sad';
+      else if (b.wow) mood = 'wow';
+      else if (said(['şaşır', 'vay'])) mood = 'wow';
+      else if (b.do === 'cheer' || (said(['gül', 'kahkaha']) && b.do !== 'talk')) mood = 'happy';
+      else return;
+    }
+    if (!mood) return;
+    const voice = VOICES[who];
+    if (!voice) return;
+    const now = this.clock + d;
+    if ((this.lastFeeling.get(who) ?? -9) > now - 2.5) return;
+    const key = cue.join(' ');
+    const same = this.feelingCue.key === key && Math.abs(this.feelingCue.at - now) < 2 ? this.feelingCue.n : 0;
+    if (same >= 2) return;
+    this.feelingCue = { key, at: now, n: same + 1 };
+    this.lastFeeling.set(who, now);
+    const clip = mood === 'happy' ? 'gul' : mood === 'wow' ? 'vay' : 'uzgun';
+    play(`duygu:${clip}-${voice}`, d + (mood === 'happy' ? 0.15 : 0.05));
+  }
+  private lastFeeling = new Map<string, number>();
+  private lastNareke = -9;
+  private feelingCue = { key: '', at: -9, n: 0 };
+  private wowTurn = 0;
 
   /**
    * Something (`word`) left a character's hands, or a magic thing vanished: a character who takes the same
@@ -1619,7 +1698,8 @@ export class BookScene {
    * yet, it waits hidden until they do. Taken out of nowhere, it pops in with a burst.
    */
   private arrive(obj: THREE.Object3D, taker: Performer | ToyPerformer) {
-    if (this.seeking || this.reducedMotion || !obj.parent) return;
+    // taken while out of sight (behind a door): it simply comes in with them
+    if (this.seeking || this.reducedMotion || !obj.parent || !taker.root.visible || obj.userData.quiet) return;
     const word = (obj.userData.word as string | undefined) ?? '';
     const r = this.lastRelease;
     if (r && r.word === word && this.clock - r.time < 1.2) {
@@ -1802,7 +1882,7 @@ export class BookScene {
       this.castBase.set(c.id, base);
       starts.set(c.id, {
         pose: { ...(POSES[c.pose ?? 'stand'] ?? POSES.stand) },
-        root: { x: 0, y: 0, z: 0, rotY: c.rotY ?? 0, lie: c.lie ?? 0, ...(c.hidden ? { show: 0 } : {}), ...(c.apron ? { apron: 1 } : {}) },
+        root: { x: 0, y: 0, z: 0, rotY: c.rotY ?? 0, lie: c.lie ?? 0, ...(c.hidden ? { show: 0 } : {}), ...(c.apron ? { apron: 1 } : {}), ...(c.pose === 'sit' && this.toyCast ? { sit: 1 } : {}) },
         eyes: c.eyes ?? 1,
         look: c.look ?? null,
         hold: c.hold ?? null,

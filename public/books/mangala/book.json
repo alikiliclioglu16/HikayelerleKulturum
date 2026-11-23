@@ -957,6 +957,34 @@
           "cue": [
             "düşünerek"
           ],
+          "who": "dede",
+          "do": "turn",
+          "face": -33,
+          "look": "can"
+        },
+        {
+          "cue": [
+            "düşünerek"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "can",
+          "len": 2.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "düşünerek"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "dede",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "düşünerek"
+          ],
           "who": "b_dede",
           "do": "appear",
           "wait": 0.0
@@ -971,13 +999,12 @@
         },
         {
           "cue": [
-            "düşünerek"
+            "sonunda"
           ],
           "who": "dede",
           "do": "talk",
           "look": "can",
-          "len": 2.4,
-          "focus": true
+          "len": 1.6
         },
         {
           "cue": [
@@ -986,7 +1013,7 @@
           "who": "dede",
           "do": "point",
           "target": "tahta",
-          "look": "tahta",
+          "look": "can",
           "len": 1.6
         },
         {
@@ -1003,6 +1030,14 @@
           "who": "k_hazine",
           "do": "vanish",
           "wait": 0.4
+        },
+        {
+          "cue": [
+            "kazanır"
+          ],
+          "who": "can",
+          "do": "nod",
+          "look": "dede"
         },
         {
           "cue": [
@@ -1761,7 +1796,8 @@
             "alıştırma"
           ],
           "who": "elif",
-          "do": "bend",
+          "do": "useTool",
+          "style": "tap",
           "look": "tahta",
           "len": 1.4
         },
@@ -1770,7 +1806,8 @@
             "alıştırma"
           ],
           "who": "can",
-          "do": "bend",
+          "do": "useTool",
+          "style": "tap",
           "look": "tahta",
           "len": 1.4,
           "wait": 0.3
@@ -1779,9 +1816,9 @@
           "cue": [
             "bilmediği"
           ],
-          "who": "elif",
+          "who": "can",
           "do": "turn",
-          "face": 54,
+          "face": 110,
           "look": "dede",
           "focus": true
         },
@@ -1789,7 +1826,7 @@
           "cue": [
             "sordu"
           ],
-          "who": "elif",
+          "who": "can",
           "do": "talk",
           "look": "dede",
           "len": 1.4
@@ -1800,9 +1837,37 @@
           ],
           "who": "dede",
           "do": "talk",
-          "look": "elif",
+          "look": "can",
           "len": 1.6,
-          "wait": 0.8
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "sordu"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 60,
+          "look": "dede",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "kazanmayı"
+          ],
+          "who": "can",
+          "do": "cheer",
+          "look": "dede",
+          "focus": true
+        },
+        {
+          "cue": [
+            "kazanmayı"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "can",
+          "len": 1.6
         },
         {
           "cue": [
@@ -1822,12 +1887,59 @@
         },
         {
           "cue": [
-            "kazanmayı"
+            "dedesi"
+          ],
+          "who": "dede",
+          "do": "talk",
+          "look": "can",
+          "len": 2.8
+        },
+        {
+          "cue": [
+            "dedesi"
           ],
           "who": "can",
-          "do": "cheer",
-          "look": "elif",
+          "do": "lookAt",
+          "target": "dede",
+          "len": 2.8
+        },
+        {
+          "cue": [
+            "dedesi"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "dede",
+          "len": 2.6,
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "ben"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": -34,
+          "look": "can",
           "focus": true
+        },
+        {
+          "cue": [
+            "ben"
+          ],
+          "who": "elif",
+          "do": "talk",
+          "look": "can",
+          "len": 1.6
+        },
+        {
+          "cue": [
+            "ben"
+          ],
+          "who": "can",
+          "do": "lookAt",
+          "target": "elif",
+          "len": 2.0
         },
         {
           "cue": [
@@ -1844,25 +1956,6 @@
           "who": "b_elif",
           "do": "vanish",
           "wait": 0.4
-        },
-        {
-          "cue": [
-            "heyecanlıydı"
-          ],
-          "who": "elif",
-          "do": "turn",
-          "face": -34,
-          "look": "can",
-          "focus": true
-        },
-        {
-          "cue": [
-            "ben"
-          ],
-          "who": "elif",
-          "do": "talk",
-          "look": "can",
-          "len": 1.6
         },
         {
           "cue": [
@@ -1885,9 +1978,10 @@
             "sayıp"
           ],
           "who": "can",
-          "do": "bend",
+          "do": "useTool",
+          "style": "tap",
           "look": "kutu",
-          "len": 1.0
+          "len": 1.2
         },
         {
           "cue": [
@@ -2282,8 +2376,8 @@
           "id": "elif",
           "x": -0.3,
           "z": 0.76,
-          "rotY": 50,
-          "look": "can"
+          "rotY": 130,
+          "look": "tahta"
         }
       ],
       "beats": [
@@ -2292,8 +2386,9 @@
             "dernek"
           ],
           "who": "elif",
-          "do": "lookAround",
-          "len": 2.0
+          "do": "lookAt",
+          "target": "tahta",
+          "len": 1.6
         },
         {
           "cue": [
@@ -2302,9 +2397,9 @@
           "who": "can",
           "do": "walkTo",
           "to": [
-            0.33999999999999997,
+            0.34,
             0,
-            0.061
+            -0.037
           ],
           "face": 0,
           "look": "tahta",
@@ -2346,13 +2441,42 @@
         },
         {
           "cue": [
+            "hande"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "hande",
+          "len": 1.4,
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "hakem"
+          ],
+          "who": "hakem",
+          "do": "turn",
+          "face": -30,
+          "look": "hande"
+        },
+        {
+          "cue": [
             "hakem"
           ],
           "who": "hakem",
           "do": "talk",
-          "look": "can",
+          "look": "hande",
           "len": 2.6,
           "focus": true
+        },
+        {
+          "cue": [
+            "sıranızı"
+          ],
+          "who": "hakem",
+          "do": "point",
+          "target": "tahta",
+          "look": "tahta",
+          "len": 1.4
         },
         {
           "cue": [
@@ -2372,20 +2496,11 @@
         },
         {
           "cue": [
-            "sıranızı"
-          ],
-          "who": "hakem",
-          "do": "point",
-          "target": "tahta",
-          "look": "tahta",
-          "len": 1.4
-        },
-        {
-          "cue": [
             "hande"
           ],
           "who": "hande",
-          "do": "bend",
+          "do": "useTool",
+          "style": "tap",
           "look": "tahta",
           "len": 1.6,
           "focus": true
@@ -2395,7 +2510,8 @@
             "can"
           ],
           "who": "can",
-          "do": "bend",
+          "do": "useTool",
+          "style": "tap",
           "look": "tahta",
           "len": 1.6,
           "focus": true
@@ -2498,6 +2614,22 @@
           "do": "nod",
           "look": "can",
           "focus": true
+        },
+        {
+          "cue": [
+            "hazır"
+          ],
+          "who": "hande",
+          "do": "nod",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "nefes"
+          ],
+          "who": "elif",
+          "do": "hop",
+          "look": "can"
         },
         {
           "cue": [
@@ -2974,7 +3106,7 @@
         {
           "id": "can",
           "x": -0.02,
-          "z": 0.41,
+          "z": 0.33,
           "rotY": 0,
           "look": "tahta"
         },
@@ -3024,9 +3156,10 @@
             "hande"
           ],
           "who": "hande",
-          "do": "bend",
+          "do": "useTool",
+          "style": "tap",
           "look": "tahta",
-          "len": 2.4,
+          "len": 1.6,
           "focus": true
         },
         {
@@ -3037,6 +3170,14 @@
           "do": "lookAt",
           "target": "hande",
           "len": 1.6
+        },
+        {
+          "cue": [
+            "sayıyordu"
+          ],
+          "who": "hande",
+          "do": "nod",
+          "look": "tahta"
         },
         {
           "cue": [
@@ -3284,7 +3425,8 @@
           "who": "can",
           "do": "bow",
           "look": "tahta",
-          "focus": true
+          "focus": true,
+          "mood": "sad"
         },
         {
           "cue": [
@@ -3316,7 +3458,8 @@
             "saydılar"
           ],
           "who": "can",
-          "do": "bend",
+          "do": "useTool",
+          "style": "tap",
           "look": "tahta",
           "len": 1.4
         },
@@ -3325,7 +3468,8 @@
             "saydılar"
           ],
           "who": "hande",
-          "do": "bend",
+          "do": "useTool",
+          "style": "tap",
           "look": "tahta",
           "len": 1.4,
           "wait": 0.2
@@ -3345,6 +3489,23 @@
           "who": "hande",
           "do": "nod",
           "look": "can"
+        },
+        {
+          "cue": [
+            "fazlaydı"
+          ],
+          "who": "hande",
+          "do": "hop",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "fazlaydı"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "can",
+          "len": 2.0
         },
         {
           "cue": [
@@ -3548,9 +3709,7 @@
           "x": 0.16,
           "z": 0.5,
           "y": 0.235,
-          "h": 0.03,
-          "hidden": true,
-          "magic": true
+          "h": 0.03
         },
         {
           "proc": "bubble",
@@ -3577,13 +3736,97 @@
           "hidden": true,
           "magic": true,
           "tail": true
+        },
+        {
+          "proc": "tas:1",
+          "id": "kt0",
+          "x": 0.0,
+          "z": 0.55,
+          "y": 0.257,
+          "h": 0.01,
+          "from": [
+            -0.132,
+            0,
+            0
+          ],
+          "hidden": true
+        },
+        {
+          "proc": "tas:2",
+          "id": "kt1",
+          "x": 0.0,
+          "z": 0.55,
+          "y": 0.257,
+          "h": 0.01,
+          "from": [
+            0.132,
+            0,
+            0
+          ],
+          "hidden": true
+        },
+        {
+          "proc": "tas:3",
+          "id": "kt2",
+          "x": 0.0,
+          "z": 0.55,
+          "y": 0.257,
+          "h": 0.01,
+          "from": [
+            -0.132,
+            0,
+            0
+          ],
+          "hidden": true
+        },
+        {
+          "proc": "tas:4",
+          "id": "kt3",
+          "x": 0.0,
+          "z": 0.55,
+          "y": 0.257,
+          "h": 0.01,
+          "from": [
+            0.132,
+            0,
+            0
+          ],
+          "hidden": true
+        },
+        {
+          "proc": "tas:5",
+          "id": "kt4",
+          "x": 0.0,
+          "z": 0.55,
+          "y": 0.257,
+          "h": 0.01,
+          "from": [
+            -0.132,
+            0,
+            0
+          ],
+          "hidden": true
+        },
+        {
+          "proc": "tas:6",
+          "id": "kt5",
+          "x": 0.0,
+          "z": 0.55,
+          "y": 0.257,
+          "h": 0.01,
+          "from": [
+            0.132,
+            0,
+            0
+          ],
+          "hidden": true
         }
       ],
       "cast": [
         {
           "id": "can",
           "x": -0.02,
-          "z": 0.41,
+          "z": 0.33,
           "rotY": 0,
           "look": "tahta"
         },
@@ -3647,22 +3890,6 @@
           "cue": [
             "istersen"
           ],
-          "who": "b_dede",
-          "do": "appear",
-          "wait": 0.0
-        },
-        {
-          "cue": [
-            "can"
-          ],
-          "who": "b_dede",
-          "do": "vanish",
-          "wait": 0.4
-        },
-        {
-          "cue": [
-            "istersen"
-          ],
           "who": "dede",
           "do": "talk",
           "look": "can",
@@ -3676,6 +3903,22 @@
           "do": "turn",
           "face": -110,
           "look": "dede",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "istersen"
+          ],
+          "who": "b_dede",
+          "do": "appear",
+          "wait": 0.0
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "b_dede",
+          "do": "vanish",
           "wait": 0.4
         },
         {
@@ -3726,6 +3969,15 @@
           "cue": [
             "tebrik"
           ],
+          "who": "can",
+          "do": "talk",
+          "look": "hande",
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "tebrik"
+          ],
           "who": "b_can",
           "do": "appear",
           "wait": 0.0
@@ -3740,21 +3992,30 @@
         },
         {
           "cue": [
-            "tebrik"
-          ],
-          "who": "can",
-          "do": "talk",
-          "look": "hande",
-          "len": 2.6
-        },
-        {
-          "cue": [
             "hande"
           ],
           "who": "hande",
           "do": "bow",
           "look": "can",
           "focus": true
+        },
+        {
+          "cue": [
+            "seninle"
+          ],
+          "who": "hande",
+          "do": "talk",
+          "look": "can",
+          "len": 1.8
+        },
+        {
+          "cue": [
+            "seninle"
+          ],
+          "who": "elif",
+          "do": "hop",
+          "look": "hande",
+          "wait": 0.6
         },
         {
           "cue": [
@@ -3776,8 +4037,153 @@
           "cue": [
             "birlikte"
           ],
+          "who": "kt0",
+          "do": "switchOn",
+          "wait": 0.0,
+          "len": 0.1
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "kt0",
+          "do": "hopTo",
+          "to": [
+            0.16,
+            0,
+            -0.061
+          ],
+          "len": 0.36,
+          "face": 40,
+          "wait": 0.1
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "kt1",
+          "do": "switchOn",
+          "wait": 0.3,
+          "len": 0.1
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "kt1",
+          "do": "hopTo",
+          "to": [
+            0.16,
+            0,
+            -0.061
+          ],
+          "len": 0.36,
+          "face": 40,
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "kt2",
+          "do": "switchOn",
+          "wait": 0.6,
+          "len": 0.1
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "kt2",
+          "do": "hopTo",
+          "to": [
+            0.16,
+            0,
+            -0.061
+          ],
+          "len": 0.36,
+          "face": 40,
+          "wait": 0.7
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "kt3",
+          "do": "switchOn",
+          "wait": 0.9,
+          "len": 0.1
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "kt3",
+          "do": "hopTo",
+          "to": [
+            0.16,
+            0,
+            -0.061
+          ],
+          "len": 0.36,
+          "face": 40,
+          "wait": 1.0
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "kt4",
+          "do": "switchOn",
+          "wait": 1.2,
+          "len": 0.1
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "kt4",
+          "do": "hopTo",
+          "to": [
+            0.16,
+            0,
+            -0.061
+          ],
+          "len": 0.36,
+          "face": 40,
+          "wait": 1.3
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "kt5",
+          "do": "switchOn",
+          "wait": 1.5,
+          "len": 0.1
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
+          "who": "kt5",
+          "do": "hopTo",
+          "to": [
+            0.16,
+            0,
+            -0.061
+          ],
+          "len": 0.36,
+          "face": 40,
+          "wait": 1.6
+        },
+        {
+          "cue": [
+            "birlikte"
+          ],
           "who": "son",
-          "do": "vanish",
+          "do": "switchOff",
+          "wait": 2.4,
           "focus": true
         },
         {
@@ -3785,26 +4191,76 @@
             "birlikte"
           ],
           "who": "can",
-          "do": "bend",
-          "look": "tahta",
-          "len": 1.2
+          "do": "useTool",
+          "style": "tap",
+          "look": "kutu",
+          "len": 1.8
         },
         {
           "cue": [
             "birlikte"
           ],
           "who": "hande",
-          "do": "bend",
-          "look": "tahta",
-          "len": 1.2,
+          "do": "useTool",
+          "style": "tap",
+          "look": "kutu",
+          "len": 1.8,
           "wait": 0.2
         },
         {
           "cue": [
             "koydular"
           ],
+          "who": "kt0",
+          "do": "switchOff",
+          "wait": 1.2
+        },
+        {
+          "cue": [
+            "koydular"
+          ],
+          "who": "kt1",
+          "do": "switchOff",
+          "wait": 1.2
+        },
+        {
+          "cue": [
+            "koydular"
+          ],
+          "who": "kt2",
+          "do": "switchOff",
+          "wait": 1.2
+        },
+        {
+          "cue": [
+            "koydular"
+          ],
+          "who": "kt3",
+          "do": "switchOff",
+          "wait": 1.2
+        },
+        {
+          "cue": [
+            "koydular"
+          ],
+          "who": "kt4",
+          "do": "switchOff",
+          "wait": 1.2
+        },
+        {
+          "cue": [
+            "koydular"
+          ],
+          "who": "kt5",
+          "do": "switchOff",
+          "wait": 1.2
+        },
+        {
+          "cue": [
+            "koydular"
+          ],
           "who": "kutu",
-          "do": "appear"
+          "do": "shine"
         }
       ]
     },
@@ -4067,13 +4523,97 @@
           "hidden": true,
           "magic": true,
           "tail": true
+        },
+        {
+          "proc": "tas:1",
+          "id": "kt0",
+          "x": 0.0,
+          "z": 0.55,
+          "y": 0.257,
+          "h": 0.01,
+          "from": [
+            0.16,
+            0,
+            -0.061
+          ],
+          "hidden": true
+        },
+        {
+          "proc": "tas:2",
+          "id": "kt1",
+          "x": 0.0,
+          "z": 0.55,
+          "y": 0.257,
+          "h": 0.01,
+          "from": [
+            0.16,
+            0,
+            -0.061
+          ],
+          "hidden": true
+        },
+        {
+          "proc": "tas:3",
+          "id": "kt2",
+          "x": 0.0,
+          "z": 0.55,
+          "y": 0.257,
+          "h": 0.01,
+          "from": [
+            0.16,
+            0,
+            -0.061
+          ],
+          "hidden": true
+        },
+        {
+          "proc": "tas:4",
+          "id": "kt3",
+          "x": 0.0,
+          "z": 0.55,
+          "y": 0.257,
+          "h": 0.01,
+          "from": [
+            0.16,
+            0,
+            -0.061
+          ],
+          "hidden": true
+        },
+        {
+          "proc": "tas:5",
+          "id": "kt4",
+          "x": 0.0,
+          "z": 0.55,
+          "y": 0.257,
+          "h": 0.01,
+          "from": [
+            0.16,
+            0,
+            -0.061
+          ],
+          "hidden": true
+        },
+        {
+          "proc": "tas:6",
+          "id": "kt5",
+          "x": 0.0,
+          "z": 0.55,
+          "y": 0.257,
+          "h": 0.01,
+          "from": [
+            0.16,
+            0,
+            -0.061
+          ],
+          "hidden": true
         }
       ],
       "cast": [
         {
           "id": "can",
           "x": -0.02,
-          "z": 0.41,
+          "z": 0.33,
           "rotY": 0,
           "look": "tahta"
         },
@@ -4114,6 +4654,15 @@
           "cue": [
             "hamleye"
           ],
+          "who": "hande",
+          "do": "talk",
+          "look": "can",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "hamleye"
+          ],
           "who": "b_hande",
           "do": "appear",
           "wait": 0.0
@@ -4128,21 +4677,29 @@
         },
         {
           "cue": [
-            "hamleye"
-          ],
-          "who": "hande",
-          "do": "talk",
-          "look": "can",
-          "len": 2.4
-        },
-        {
-          "cue": [
             "can"
           ],
           "who": "can",
           "do": "nod",
           "look": "hande",
           "focus": true
+        },
+        {
+          "cue": [
+            "kabul"
+          ],
+          "who": "hande",
+          "do": "hop",
+          "look": "can"
+        },
+        {
+          "cue": [
+            "kabul"
+          ],
+          "who": "elif",
+          "do": "cheer",
+          "look": "can",
+          "wait": 0.3
         },
         {
           "cue": [
@@ -4155,27 +4712,221 @@
           "cue": [
             "taşları"
           ],
-          "who": "d0",
-          "do": "appear",
+          "who": "kt0",
+          "do": "switchOn",
+          "wait": 0.0,
+          "len": 0.1
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt0",
+          "do": "hopTo",
+          "to": [
+            -0.1,
+            0,
+            0.026
+          ],
+          "len": 0.36,
+          "face": 40,
+          "wait": 0.1
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt0",
+          "do": "switchOff",
+          "wait": 2.35
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt1",
+          "do": "switchOn",
+          "wait": 0.3,
+          "len": 0.1
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt1",
+          "do": "hopTo",
+          "to": [
+            0.02,
+            0,
+            -0.026
+          ],
+          "len": 0.36,
+          "face": 40,
           "wait": 0.4
         },
         {
           "cue": [
             "taşları"
           ],
+          "who": "kt1",
+          "do": "switchOff",
+          "wait": 2.35
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt2",
+          "do": "switchOn",
+          "wait": 0.6,
+          "len": 0.1
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt2",
+          "do": "hopTo",
+          "to": [
+            -0.06,
+            0,
+            -0.026
+          ],
+          "len": 0.36,
+          "face": 40,
+          "wait": 0.7
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt2",
+          "do": "switchOff",
+          "wait": 2.35
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt3",
+          "do": "switchOn",
+          "wait": 0.9,
+          "len": 0.1
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt3",
+          "do": "hopTo",
+          "to": [
+            0.06,
+            0,
+            0.026
+          ],
+          "len": 0.36,
+          "face": 40,
+          "wait": 1.0
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt3",
+          "do": "switchOff",
+          "wait": 2.35
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt4",
+          "do": "switchOn",
+          "wait": 1.2,
+          "len": 0.1
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt4",
+          "do": "hopTo",
+          "to": [
+            0.1,
+            0,
+            -0.026
+          ],
+          "len": 0.36,
+          "face": 40,
+          "wait": 1.3
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt4",
+          "do": "switchOff",
+          "wait": 2.35
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt5",
+          "do": "switchOn",
+          "wait": 1.5,
+          "len": 0.1
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt5",
+          "do": "hopTo",
+          "to": [
+            -0.02,
+            0,
+            0.026
+          ],
+          "len": 0.36,
+          "face": 40,
+          "wait": 1.6
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "kt5",
+          "do": "switchOff",
+          "wait": 2.35
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
+          "who": "d0",
+          "do": "appear",
+          "wait": 2.3
+        },
+        {
+          "cue": [
+            "taşları"
+          ],
           "who": "can",
-          "do": "bend",
-          "look": "tahta",
-          "len": 1.2
+          "do": "useTool",
+          "style": "tap",
+          "look": "kutu",
+          "len": 1.8
         },
         {
           "cue": [
             "taşları"
           ],
           "who": "hande",
-          "do": "bend",
+          "do": "useTool",
+          "style": "tap",
           "look": "tahta",
-          "len": 1.2,
+          "len": 1.8,
           "wait": 0.2
         },
         {
@@ -4224,6 +4975,16 @@
           "cue": [
             "sadece"
           ],
+          "who": "can",
+          "do": "talk",
+          "look": "hande",
+          "len": 2.4,
+          "focus": true
+        },
+        {
+          "cue": [
+            "sadece"
+          ],
           "who": "o0",
           "do": "vanish"
         },
@@ -4263,16 +5024,6 @@
           "who": "b_can",
           "do": "vanish",
           "wait": 0.4
-        },
-        {
-          "cue": [
-            "sadece"
-          ],
-          "who": "can",
-          "do": "talk",
-          "look": "hande",
-          "len": 2.4,
-          "focus": true
         },
         {
           "cue": [
@@ -4496,6 +5247,32 @@
           "hidden": true,
           "magic": true,
           "tail": true
+        },
+        {
+          "proc": "kapiCercevesi",
+          "x": 0.46,
+          "z": 0.62,
+          "h": 0.55,
+          "rotY": -90,
+          "word": "kapı"
+        },
+        {
+          "proc": "kapiKanadi",
+          "id": "kapi",
+          "x": 0.46,
+          "z": 0.522,
+          "h": 0.52,
+          "rotY": -90,
+          "word": "kapı"
+        },
+        {
+          "proc": "sandalye",
+          "id": "cekSandalye",
+          "word": "sandalye",
+          "x": 0.36,
+          "z": 0.84,
+          "h": 0.28,
+          "rotY": -90
         }
       ],
       "cast": [
@@ -4515,7 +5292,7 @@
         },
         {
           "id": "elif",
-          "x": 0.6,
+          "x": 0.5,
           "z": 0.62,
           "rotY": -90,
           "look": "can",
@@ -4580,6 +5357,15 @@
           "target": "tahta",
           "len": 2.6,
           "focus": true
+        },
+        {
+          "cue": [
+            "durup"
+          ],
+          "who": "dede",
+          "do": "lookAt",
+          "target": "can",
+          "len": 2.6
         },
         {
           "cue": [
@@ -4660,6 +5446,15 @@
           "cue": [
             "can"
           ],
+          "who": "dede",
+          "do": "lookAt",
+          "target": "can",
+          "len": 2.4
+        },
+        {
+          "cue": [
+            "can"
+          ],
           "who": "k_dede",
           "do": "vanish"
         },
@@ -4677,6 +5472,15 @@
           "cue": [
             "şu"
           ],
+          "who": "can",
+          "do": "talk",
+          "look": "dede",
+          "len": 3.0
+        },
+        {
+          "cue": [
+            "şu"
+          ],
           "who": "b_can",
           "do": "appear",
           "wait": 0.0
@@ -4688,15 +5492,6 @@
           "who": "b_can",
           "do": "vanish",
           "wait": 0.4
-        },
-        {
-          "cue": [
-            "bugün"
-          ],
-          "who": "can",
-          "do": "talk",
-          "look": "dede",
-          "len": 3.0
         },
         {
           "cue": [
@@ -4726,16 +5521,78 @@
           "cue": [
             "elif"
           ],
+          "who": "kapi",
+          "do": "turn",
+          "face": -80,
+          "sound": null
+        },
+        {
+          "cue": [
+            "elif"
+          ],
           "who": "elif",
           "do": "enter",
           "to": [
-            -0.3,
+            -0.18,
             0,
-            0.024
+            0.146
           ],
-          "face": -120,
+          "face": 180,
+          "look": "cekSandalye",
+          "focus": true,
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "sandalye"
+          ],
+          "who": "kapi",
+          "do": "turn",
+          "face": 0,
+          "sound": null
+        },
+        {
+          "cue": [
+            "sandalye"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            -0.16,
+            0,
+            0.0
+          ],
+          "face": -90,
+          "look": "tahta"
+        },
+        {
+          "cue": [
+            "sandalye"
+          ],
+          "who": "cekSandalye",
+          "do": "slide",
+          "to": [
+            -0.268,
+            0,
+            0.1
+          ],
+          "len": 1.6,
+          "sound": null
+        },
+        {
+          "cue": [
+            "çekti"
+          ],
+          "who": "elif",
+          "do": "sit",
+          "to": [
+            -0.24,
+            -0.02,
+            0.0
+          ],
+          "face": -90,
           "look": "tahta",
-          "focus": true
+          "wait": 0.8
         },
         {
           "cue": [

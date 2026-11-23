@@ -81,6 +81,7 @@ function audio(force = false): AudioContext | null {
     if (ctx.state === "suspended") void ctx.resume();
     loadClips(ctx);
     loadMagic(ctx);
+    loadDuygu(ctx);
     return ctx;
   } catch {
     return null;
@@ -127,7 +128,7 @@ const AMBIENCE_LEVEL: Record<string, number> = {
 const SCENE_LEVEL: Record<string, number> = {
   kisneme: 1.6, tayKisneme: 1.8, nal: 1.5, telefon: 1.6, duduk: 1.3, marti: 1.6,
   hop: 1.8, cheer: 1.35, pop: 1.7, greet: 1.7, balloon: 4, rain: 0.5, whirl: 1.5, knock: 1.1, angry: 0.85, put: 1.5,
-  fly: 2, vanish: 1.6, lift: 1.8, damla: 1.5, cizgi: 1.6, kagit: 2, tek: 1.2, shutter: 1.4, rise: 1.6, sink: 1.7, clink: 1.3, alarm: 1.5, shine: 1.2, davul: 0.85, applause: 3.6, spin: 4.5,
+  fly: 2, vanish: 1.6, lift: 1.8, damla: 1.5, cizgi: 1.6, kagit: 2, tek: 1.2, shutter: 1.4, rise: 1.6, sink: 1.7, clink: 1.3, alarm: 1.5, shine: 1.2, davul: 0.85, applause: 3.6, spin: 4.5, nareke: 1.1, tef: 1.2, sak: 1.0,
 };
 
 /**
@@ -230,6 +231,61 @@ function loadMagic(a: AudioContext) {
       .then((b) => magicClips.set(f, b))
       .catch(() => undefined);
 }
+/*
+ * The characters' own voices for feelings (public/sesler/duygu): a laugh when they are happy, a "vaay!" when
+ * something surprises them, a sob (children) or a sad sigh (grown-ups) when they are upset. One set for each kind
+ * of voice: kiz, oglan, kadin, yasli-kadin, erkek, yasli-erkek.
+ */
+const DUYGU_FILES = ['gul', 'vay', 'uzgun'].flatMap((f) => ['kiz', 'oglan', 'kadin', 'yasli-kadin', 'erkek', 'yasli-erkek'].map((v) => `${f}-${v}`));
+const DUYGU_LEVEL: Record<string, number> = { gul: 0.8, vay: 0.85, uzgun: 0.75 };
+const duyguClips = new Map<string, AudioBuffer>();
+let duyguAsked = false;
+function loadDuygu(a: AudioContext) {
+  if (duyguAsked) return;
+  duyguAsked = true;
+  for (const f of DUYGU_FILES)
+    fetch(`/sesler/duygu/${f}.mp3`)
+      .then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(new Error(String(r.status)))))
+      .then((d) => new Promise<AudioBuffer>((res, rej) => a.decodeAudioData(d, res, rej)))
+      .then((b) => duyguClips.set(f, b))
+      .catch(() => undefined);
+}
+/** A feeling in a character's voice ("gul-kiz"), a little higher or lower each time so it never sounds the same. */
+function playDuygu(a: AudioContext, name: string, delay = 0) {
+  const b = duyguClips.get(name);
+  if (!b) return;
+  const src = a.createBufferSource();
+  src.buffer = b;
+  src.playbackRate.value = 0.94 + Math.random() * 0.12;
+  const g = a.createGain();
+  g.gain.value = DUYGU_LEVEL[name.split('-')[0]] ?? 0.8;
+  src.connect(g).connect(fxBus!);
+  src.start(a.currentTime + 0.01 + Math.max(0, delay));
+}
+
+/** A recorded voice that belongs to a book (Karagöz calling "Hacivatım!"); quietly nothing until the file is there. */
+const recordings = new Map<string, Promise<AudioBuffer | null>>();
+function playRecording(a: AudioContext, src: string, delay = 0) {
+  let p = recordings.get(src);
+  if (!p) {
+    p = fetch(src)
+      .then((r) => (r.ok && /audio|mpeg|octet/.test(r.headers.get('content-type') ?? '') ? r.arrayBuffer() : null))
+      .then((d) => (d ? new Promise<AudioBuffer>((res, rej) => a.decodeAudioData(d, res, rej)) : null))
+      .catch(() => null);
+    recordings.set(src, p);
+  }
+  const at = a.currentTime + Math.max(0, delay);
+  void p.then((b) => {
+    if (!b) return;
+    const s = a.createBufferSource();
+    s.buffer = b;
+    const g = a.createGain();
+    g.gain.value = 1.1;
+    s.connect(g).connect(fxBus!);
+    s.start(Math.max(a.currentTime + 0.01, at));
+  });
+}
+
 const takeAt: Record<string, number> = {};
 /** Play a sound of the kit in `delay` seconds; false while it is still loading (or the sound is off). */
 function playMagic(a: AudioContext, id: string, delay = 0, vol = 1) {
@@ -867,6 +923,25 @@ const SCENE_SOUNDS: Record<string, (a: AudioContext, t: number) => void> = {
   marti: (a, t) => {
     for (const [d, f] of [[0, 1800], [0.24, 1700], [0.5, 1600]] as const) warble(a, f, f * 0.65, t + d, 0.2, 0.14, 22, 90, "triangle");
   },
+  // Karagöz ile Hacivat: the nareke (the shadow play's reed whistle) as a puppet comes on, the tef's jingles while
+  // they talk, and Karagöz's "şak!" slap
+  nareke: (a, t) => {
+    warble(a, 1180, 1420, t, 0.32, 0.09, 7, 55, 'sawtooth');
+    warble(a, 1420, 1650, t + 0.3, 0.42, 0.08, 7, 70, 'sawtooth');
+    hiss(a, 'bandpass', 2600, 2900, t, 0.7, 0.015, 3, 0.05);
+  },
+  tef: (a, t) => {
+    for (let i = 0; i < 5; i++) {
+      const d = i * 0.07 + Math.random() * 0.02;
+      hiss(a, 'highpass', 6500, 7500, t + d, 0.09, 0.05, 0.7, 0.002);
+      bell(a, 4200 + Math.random() * 900, t + d, 0.12, 0.012, [1, 1.7, 2.6]);
+    }
+    tone(a, 'sine', 180, 120, t, 0.1, 0.12, 0.002);
+  },
+  sak: (a, t) => {
+    hiss(a, 'bandpass', 1800, 1200, t, 0.08, 0.3, 0.8, 0.001);
+    tone(a, 'sine', 160, 90, t, 0.08, 0.2, 0.001);
+  },
   telefon: (a, t) => {
     for (const d of [0, 0.55, 1.6, 2.15]) tone(a, 'sine', 440, 440, t + d, 0.4, 0.12, 0.02);
   },
@@ -1041,27 +1116,50 @@ const SCENE_SOUNDS: Record<string, (a: AudioContext, t: number) => void> = {
 };
 
 /** Rain: thunder far away, then a steady shower with drops plinking, for `seconds`. */
+/**
+ * Rain outside: a soft, even shower (a long noise, low passed, with a little sizzle on top) that fades in and out,
+ * and drops pattering on the glass and the sill — short ticks of filtered noise, some lighter, some heavier.
+ */
+let rainBuf: AudioBuffer | null = null;
 function rainSound(a: AudioContext, t: number, seconds: number) {
-  hiss(a, "lowpass", 220, 80, t, 2.2, 0.35, 0.8, 0.25);
-  tone(a, "sine", 55, 40, t, 1.8, 0.2, 0.2);
-  const src = a.createBufferSource();
-  src.buffer = noise(a);
-  src.loop = true;
-  const f = a.createBiquadFilter();
-  f.type = "bandpass";
-  f.frequency.value = 2600;
-  f.Q.value = 0.6;
-  const g = a.createGain();
-  g.gain.setValueAtTime(0.0001, t + 0.3);
-  g.gain.linearRampToValueAtTime(0.16, t + 1.2);
-  g.gain.setValueAtTime(0.16, t + seconds);
-  g.gain.linearRampToValueAtTime(0.0001, t + seconds + 1.5);
-  src.connect(f).connect(g).connect(out());
-  src.start(t + 0.3);
-  src.stop(t + seconds + 1.6);
-  for (let i = 0; i < seconds * 5; i++) {
-    const d = t + 0.6 + Math.random() * seconds;
-    tone(a, "sine", 1800 + Math.random() * 1600, 900, d, 0.05, 0.03, 0.001);
+  if (!rainBuf) {
+    rainBuf = a.createBuffer(1, a.sampleRate * 6, a.sampleRate);
+    const d = rainBuf.getChannelData(0);
+    // pinkish noise: white noise through a few leaky integrators
+    let b0 = 0, b1 = 0, b2 = 0;
+    for (let i = 0; i < d.length; i++) {
+      const w = Math.random() * 2 - 1;
+      b0 = 0.997 * b0 + 0.029 * w;
+      b1 = 0.985 * b1 + 0.032 * w;
+      b2 = 0.95 * b2 + 0.048 * w;
+      d[i] = (b0 + b1 + b2 + w * 0.08) * 0.66;
+    }
+  }
+  const end = t + 0.3 + seconds;
+  const shower = (type: BiquadFilterType, f: number, q: number, vol: number) => {
+    const src = a.createBufferSource();
+    src.buffer = rainBuf;
+    src.loop = true;
+    const fl = a.createBiquadFilter();
+    fl.type = type;
+    fl.frequency.value = f;
+    fl.Q.value = q;
+    const g = a.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(vol, t + 1.6);
+    g.gain.setValueAtTime(vol, end);
+    g.gain.linearRampToValueAtTime(0.0001, end + 1.8);
+    src.connect(fl).connect(g).connect(out());
+    src.start(t, Math.random() * 5);
+    src.stop(end + 1.9);
+  };
+  shower('lowpass', 1400, 0.5, 0.22);
+  shower('highpass', 5200, 0.4, 0.05);
+  // drops on the window and the sill
+  for (let i = 0; i < seconds * 9; i++) {
+    const d = t + 0.4 + Math.random() * (seconds + 1);
+    const heavy = Math.random() < 0.2;
+    hiss(a, 'bandpass', heavy ? 1500 + Math.random() * 600 : 3200 + Math.random() * 2600, heavy ? 1100 : 2600, d, heavy ? 0.045 : 0.022, heavy ? 0.05 : 0.03, heavy ? 2.5 : 3.5, 0.001);
   }
 }
 
@@ -1123,6 +1221,73 @@ function murmur(a: AudioContext, t: number, vol = 1) {
 
 /** Soft sounds of a place, under a page: birds, crickets at night, a quiet room, a kitchen, a village, a market, a school. */
 let ambience: { kind: string; timer: number } | null = null;
+
+/**
+ * The sea breeze on the ferry's deck: one soft, steady wind that slowly swells and settles (long brown noise, low
+ * passed, its loudness and brightness drifting), instead of separate gusts every second.
+ */
+let seaBed: { src: AudioBufferSourceNode; gain: GainNode; lfos: OscillatorNode[] } | null = null;
+let windBuf: AudioBuffer | null = null;
+function startSeaBed(a: AudioContext) {
+  if (seaBed) return;
+  if (!windBuf) {
+    windBuf = a.createBuffer(1, a.sampleRate * 9, a.sampleRate);
+    const d = windBuf.getChannelData(0);
+    let last = 0;
+    for (let i = 0; i < d.length; i++) {
+      last = (last + 0.02 * (Math.random() * 2 - 1)) / 1.02;
+      d[i] = last * 3.5;
+    }
+    // the loop's ends meet softly (no click every nine seconds)
+    const fade = Math.floor(a.sampleRate * 0.5);
+    for (let i = 0; i < fade; i++) {
+      const k = i / fade;
+      d[i] = d[i] * k + d[d.length - fade + i] * (1 - k);
+    }
+  }
+  const src = a.createBufferSource();
+  src.buffer = windBuf;
+  src.loop = true;
+  src.loopEnd = windBuf.duration - 0.5;
+  const lp = a.createBiquadFilter();
+  lp.type = 'lowpass';
+  lp.frequency.value = 520;
+  lp.Q.value = 0.4;
+  const gain = a.createGain();
+  const t = a.currentTime;
+  gain.gain.setValueAtTime(0.0001, t);
+  gain.gain.linearRampToValueAtTime(0.9, t + 3);
+  // a slow swell of the breeze (about 9 s) and a slower change of its colour
+  const swell = a.createOscillator();
+  swell.frequency.value = 0.11;
+  const sg = a.createGain();
+  sg.gain.value = 0.35;
+  swell.connect(sg).connect(gain.gain);
+  const tint = a.createOscillator();
+  tint.frequency.value = 0.045;
+  const tg = a.createGain();
+  tg.gain.value = 160;
+  tint.connect(tg).connect(lp.frequency);
+  const out = a.createGain();
+  out.gain.value = 0.5 * (AMBIENCE_LEVEL.sea ?? 2) * 0.05;
+  src.connect(lp).connect(gain).connect(out).connect(fxBus!);
+  src.start(t, Math.random() * 8);
+  swell.start(t);
+  tint.start(t);
+  seaBed = { src, gain, lfos: [swell, tint] };
+}
+function stopSeaBed() {
+  const a = ctx;
+  if (!seaBed || !a) return (seaBed = null);
+  const { src, gain, lfos } = seaBed;
+  seaBed = null;
+  const t = a.currentTime;
+  gain.gain.cancelScheduledValues(t);
+  gain.gain.setValueAtTime(gain.gain.value, t);
+  gain.gain.linearRampToValueAtTime(0.0001, t + 1.2);
+  src.stop(t + 1.3);
+  for (const o of lfos) o.stop(t + 1.3);
+}
 function ambienceTick() {
   const a = ctx;
   if (!a || !ambience || document.hidden) return;
@@ -1174,11 +1339,11 @@ function ambienceTick() {
       if (r < 0.35)
         bell(a, 1900 + Math.random() * 600, t + 0.4, 0.3, 0.01, [1, 2.6]);
     } else if (k === "sea") {
-      // on the ferry's deck: a wave against the hull, gulls calling, the engine's low hum
-      if (r < 0.5) hiss(a, "lowpass", 380, 1400, t, 1.4, 0.3, 0.7, 0.5);
-      else if (r < 0.85)
-        for (const d of [0, 0.22]) warble(a, 1650 + Math.random() * 200, 1100, t + d, 0.22, 0.1, 20, 80, "triangle");
-      else tone(a, "sawtooth", 62, 60, t, 1.5, 0.03, 0.4);
+      // on the ferry's deck: the steady breeze (seaBed), now and then a soft wave against the hull, gulls far off
+      startSeaBed(a);
+      if (r < 0.3) hiss(a, "lowpass", 260, 520, t, 2.6, 0.12, 0.5, 1.1);
+      else if (r < 0.55)
+        for (const d of [0, 0.24]) warble(a, 1650 + Math.random() * 200, 1150, t + d, 0.22, 0.06, 20, 70, "triangle");
     } else if (k === "school" || k === "hall") {
       // children talking and laughing nearby (a hall is fuller; a school yard has birds)
       murmur(a, t, k === "hall" ? 1.1 : 0.8);
@@ -1359,6 +1524,8 @@ export const sfx = {
   scene(kind: string, delay = 0, seconds = 4) {
     const a = audio();
     if (!a) return;
+    if (kind.startsWith('duygu:')) return playDuygu(a, kind.slice(6), delay);
+    if (kind.startsWith('kayit:')) return playRecording(a, kind.slice(6), delay);
     const m = SCENE_MAGIC[kind];
     if (m && playMagic(a, m, delay)) return;
     if (kind === 'popup' || kind === 'cast') return;
@@ -1378,6 +1545,7 @@ export const sfx = {
   setAmbience(kind: string | null) {
     if (ambience?.kind === kind) return;
     if (ambience) window.clearInterval(ambience.timer);
+    if (kind !== 'sea') stopSeaBed();
     ambience = null;
     if (!kind) return;
     const odds: Record<string, number> = {
@@ -1389,7 +1557,7 @@ export const sfx = {
       market: 0.6,
       school: 0.55,
       hall: 0.6,
-      sea: 0.55,
+      sea: 0.45,
     };
     ambience = {
       kind,

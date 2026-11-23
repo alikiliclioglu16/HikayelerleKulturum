@@ -35,6 +35,10 @@ export interface Beat {
   keep?: boolean;
   /** A story sound instead of the act's own (see sfx.ts → SCENE_SOUNDS), or null for none. */
   sound?: string | null;
+  /** Something amazing happens: the character (or, for a magic thing, a child looking at it) says "vaay!". */
+  wow?: boolean;
+  /** The feeling heard in the character's voice: "happy" (a laugh), "wow", "sad" (a sob or a sigh); null for none. */
+  mood?: 'happy' | 'wow' | 'sad' | null;
 }
 
 export interface ActResult {
@@ -584,6 +588,15 @@ Object.assign(THING_ACTS, {
     return { keys: ks, dur: len + 0.25 };
   },
   /** A puppet talks: little jerks of the stick for `len` seconds, then still. */
+  /** Trembles quickly a little (a door shaking under the knocks) for `len` seconds. */
+  rattle: (s: State, b: Beat, t: number) => {
+    const len = b.len ?? 1.0;
+    const n = Math.max(4, Math.round(len / 0.07));
+    const ks: Key[] = [];
+    for (let i = 0; i < n; i++) ks.push(key(t + i * 0.07, 0.07, { root: { tilt: (s.root.tilt ?? 0) + (i % 2 ? -1.6 : 1.6), x: s.root.x + (i % 2 ? -0.002 : 0.002) }, minor: true }));
+    ks.push(key(t + n * 0.07, 0.12, { root: { tilt: s.root.tilt ?? 0, x: s.root.x } }));
+    return { keys: ks, dur: n * 0.07 + 0.12 };
+  },
   jiggle: (s: State, b: Beat, t: number) => {
     const len = b.len ?? 1.8;
     const n = Math.max(2, Math.round(len / 0.18));
