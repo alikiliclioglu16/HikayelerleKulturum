@@ -24,6 +24,8 @@ export interface CharacterDef {
   bend?: [number, number];
   /** A still model talking: its mouth, in fractions of the model height: x, y (from the feet), z (front), width. */
   mouth?: [number, number, number, number];
+  /** A white bandage wound round a leg (fractions of the height): x, y (its middle), z, radius, height. */
+  bandage?: [number, number, number, number, number];
 }
 
 export const CHARACTERS: Record<string, CharacterDef> = {
@@ -33,7 +35,8 @@ export const CHARACTERS: Record<string, CharacterDef> = {
   },
   can: { src: '/models/aile/can.glb', height: 0.34, name: 'Can' },
   maya: { src: '/models/aile/maya.glb', height: 0.4, name: 'Maya' },
-  anne: { src: '/models/aile/anne.glb', height: 0.5, name: 'Anne' },
+  // in her dress; in the kitchen her cast spec picks the model with the apron (model: '/models/aile/anne.glb')
+  anne: { src: '/models/aile/anne-elbise.glb', height: 0.5, name: 'Anne' },
   baba: { src: '/models/aile/baba.glb', height: 0.55, name: 'Baba' },
   babaanne: { src: '/models/aile/babaanne.glb', height: 0.49, name: 'Babaanne' },
   dede: { src: '/models/aile/dede.glb', height: 0.525, name: 'Dede' },
@@ -73,7 +76,8 @@ export const CHARACTERS: Record<string, CharacterDef> = {
   mahalleli: { src: '/models/masal/pazarci.glb', height: 0.53, name: 'Komşu' },
   huseyin: { src: '/models/masal/komsu.glb', height: 0.551, name: 'Hüseyin Dede' },
   // Dedemin Köyünde İmece: stand-ins until the Meshy models come (public/models/koy/osman-amca.glb, degirmenci.glb)
-  osman: { src: '/models/masal/hasan-amca.glb', height: 0.5, name: 'Osman amca' },
+  // his leg hurt in the fall: a white bandage round the ankle
+  osman: { src: '/models/masal/hasan-amca.glb', height: 0.5, name: 'Osman amca', bandage: [0.085, 0.075, -0.026, 0.064, 0.11] },
   degirmenci: { src: '/models/masal/pazarci.glb', height: 0.53, name: 'Değirmenci' },
   komsuKadin: { src: '/models/masal/koylu-kadin.glb', height: 0.47, name: 'Komşu teyze' },
   komsuAdam: { src: '/models/masal/komsu.glb', height: 0.52, name: 'Komşu amca' },
@@ -90,7 +94,8 @@ export const CHARACTERS: Record<string, CharacterDef> = {
   yolcu: { src: '/models/masal/komsu.glb', height: 0.52, name: 'Yolcu' },
   melek: { src: '/models/23-nisan/amara.glb', height: 0.38, name: 'Melek' },
   // Mangala Turnuvası: stand-ins until the Meshy models come (public/models/mangala/hande.glb, hakem.glb)
-  hande: { src: '/models/23-nisan/zara.glb', height: 0.39, name: 'Hande' },
+  // a girl who moves her arms (she plays the stones with her hands)
+  hande: { src: '/models/aile/maya.glb', height: 0.39, name: 'Hande' },
   hakem: { src: '/models/firin/askidan-ekmek-alan-adam.glb', height: 0.55, name: 'Hakem', mouth: [0, 0.805, 0.086, 0.05] },
   gorevli: { src: '/models/firin/askidan-ekmek-alan-adam.glb', height: 0.567, name: 'Görevli' },
 };
@@ -130,6 +135,10 @@ export interface RootState {
   apron?: number;
   /** Toy characters: talking (1), the mouth of a still model moves. */
   mo?: number;
+  /** Toy characters: sitting inside a car (1), hidden below the car's sides (see CastSpec.clip). */
+  inCar?: number;
+  /** A thing that sets the room's light: 1 as it is, lower is darker (see the "dim" act). */
+  dim?: number;
 }
 
 export interface State {
@@ -192,6 +201,13 @@ export class Performer {
   /** Turned and laid down; the model hangs below it. */
   private body = new THREE.Group();
   private bones: Record<string, THREE.Bone> = {};
+  /** Where the right hand is in the world (a toy family member's small things sit in it). */
+  handWorld(out = new THREE.Vector3()) {
+    const b = this.bones.hand_R ?? this.bones.forearm_R;
+    if (!b) return null;
+    b.updateWorldMatrix(true, false);
+    return b.getWorldPosition(out);
+  }
   private rest: Record<string, { ql: THREE.Quaternion; pw: THREE.Quaternion }> = {};
   private lids: THREE.Group[] = [];
   readonly hit: THREE.Mesh;
@@ -246,9 +262,9 @@ export class Performer {
     this.buildLids();
   }
 
-  static async load(id: string, height?: number) {
+  static async load(id: string, height?: number, src?: string) {
     const def = CHARACTERS[id];
-    const gltf = await loadGltf(def.src);
+    const gltf = await loadGltf(src ?? def.src);
     const { clone } = await import('three/examples/jsm/utils/SkeletonUtils.js');
     const model = clone(gltf.scene);
     // scale to the character's height, feet on y = 0, centred

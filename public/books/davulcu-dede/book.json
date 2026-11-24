@@ -824,11 +824,12 @@
           "do": "lieDown",
           "to": [
             0,
-            0.14,
+            0,
             0
           ],
           "face": 30,
-          "focus": true
+          "focus": true,
+          "look": null
         },
         {
           "cue": [
@@ -1629,7 +1630,7 @@
           "z": 0.56,
           "rotY": -20,
           "look": "down",
-          "hold": "fener"
+          "hold": "fenerIkiEl"
         },
         {
           "id": "can",

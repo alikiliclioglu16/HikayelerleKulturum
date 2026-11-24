@@ -18,24 +18,11 @@ import { PageText, pageLogo, type PageTextSpec } from './pageText';
 import { Sparkles } from '../home3d/sparkles';
 import { Party } from './party';
 import { LIFE_BY_AMBIENCE, Life, type LifeKind } from './life';
-import { trLower } from '../text';
 import type { PageData } from '../types';
 import { WallCarpet, type CarpetDesign } from '../home3d/carpet';
 import type { BuiltLayer } from '../art/scenes';
 import { iznikTile } from '../art/kit';
 import { Pen, rng } from '../art/pen';
-
-/** Whose voice a character's feelings are heard in (sfx: public/sesler/duygu). Animals have none. */
-const VOICES: Record<string, string> = {
-  elif: 'kiz', maya: 'kiz', zeynep: 'kiz', zara: 'kiz', amara: 'kiz', hande: 'kiz', melek: 'kiz', 'koylu-cocuk': 'oglan',
-  can: 'oglan', kenji: 'oglan', liam: 'oglan', kerem: 'oglan',
-  anne: 'kadin', ayse: 'kadin', ogretmen: 'kadin', ayten: 'kadin', 'at-sahibi': 'kadin', musteri: 'kadin', keremAnne: 'kadin',
-  komsuKadin: 'kadin', 'koylu-kadin': 'kadin', hatice: 'kadin',
-  babaanne: 'yasli-kadin', 'keloglan-anasi': 'yasli-kadin', 'aksehirli-teyze': 'yasli-kadin', keremBabaanne: 'yasli-kadin',
-  baba: 'erkek', komsu: 'erkek', pazarci: 'erkek', 'hasan-amca': 'erkek', ali: 'erkek', adam: 'erkek', mustafa: 'erkek',
-  osman: 'erkek', degirmenci: 'erkek', komsuAdam: 'erkek', yolcu: 'erkek', hakem: 'erkek', gorevli: 'erkek', mahalleli: 'erkek', keloglan: 'erkek',
-  dede: 'yasli-erkek', hoca: 'yasli-erkek', huseyin: 'yasli-erkek', keremDede: 'yasli-erkek',
-};
 
 const PAGE_W = 1;
 const PAGE_D = 1.36;
@@ -528,6 +515,7 @@ export class BookScene {
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.NeutralToneMapping;
     this.renderer.toneMappingExposure = 1.04;
+    this.renderer.localClippingEnabled = true;
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.renderer.domElement.className = 'scene-canvas';
@@ -970,9 +958,34 @@ export class BookScene {
     if (left <= 0) m.wagUntil = undefined;
   }
 
+  /**
+   * The room darkens ("Oda karardı"): the whole picture is exposed darker, but what gives its own light (the lit
+   * shadow screen, the coloured puppets on it: models marked unlit or glowing) keeps its brightness.
+   */
+  private roomDim = 1;
+  private dimmers: PropActor[] = [];
+  private updateDim() {
+    let k = 1;
+    for (const a of this.dimmers) k = Math.min(k, a.dimLevel);
+    if (Math.abs(k - this.roomDim) < 0.002) return;
+    this.roomDim = k;
+    this.renderer.toneMappingExposure = 1.04 * k;
+    for (const m of this.models) {
+      if (!m.spec.unlit && !/Isigi$|Sonuk$/.test(m.spec.proc ?? '')) continue;
+      m.actor.root.traverse((o) => {
+        const mat = (o as THREE.Mesh).material as THREE.MeshBasicMaterial | undefined;
+        if (!mat || !(mat as THREE.Material & { isMeshBasicMaterial?: boolean }).isMeshBasicMaterial) return;
+        const base = (mat.userData.baseColor ??= mat.color.clone()) as THREE.Color;
+        mat.color.copy(base).multiplyScalar(1 / k);
+      });
+    }
+    this.invalidate();
+  }
+
   /** Idle life for the 3D models on the page: clips, walking, swaying trees, a wobbling pot. */
   private updateModels(dt: number) {
     const t = this.clock;
+    this.updateDim();
     for (const m of this.models) {
       if (!m.visible) continue;
       if (m.animated) m.actor.mixer.update(dt);
@@ -1584,7 +1597,6 @@ export class BookScene {
     const play = this.onSound;
     if (this.seeking || !play) return;
     const d = t - now;
-    this.feelingSound(b, d);
     // a drummer's beats are always heard one by one (a `sound` on the beat would give only one boom)
     if (b.sound !== undefined && b.do !== 'drum') {
       if (b.sound) play(b.sound, d);
@@ -1617,7 +1629,17 @@ export class BookScene {
       }
       return;
     }
-    for (const k of res.keys) if (k.root?.sq === 0.9) play('hop', k.t - now);
+    // steps: a walk is heard softly (every third step), and when several walk at once their steps do not pile up
+    const walking = b.do === 'walkTo' || b.do === 'enter' || b.do === 'exit';
+    let n = 0;
+    for (const k of res.keys) {
+      if (k.root?.sq !== 0.9) continue;
+      if (walking && n++ % 3 !== 0) continue;
+      const at = this.clock + (k.t - now);
+      if (walking && Math.abs(at - this.lastStep) < 0.45) continue;
+      if (walking) this.lastStep = at;
+      play('hop', k.t - now);
+    }
     if (b.do === 'drum') {
       // düm, tek, düm, tek: every beat of the act sounds, the boom and the crack in turn
       let i = 0;
@@ -1628,49 +1650,8 @@ export class BookScene {
     else if (b.do === 'hopOut') play('hop', d + 0.7);
   }
 
-  /**
-   * A character's feeling heard in its own voice: a laugh when it is happy (cheering, or the text says it laughs),
-   * a "vaay!" when something surprises it (beats marked `wow`), a sob or a sad sigh when it is upset (`mood: "sad"`,
-   * or the text says it is sad or cries). A magic thing that amazes (`wow`) is answered by one of the children.
-   * Never the same voice twice within a moment, and at most two voices for one cue.
-   */
-  private feelingSound(b: Beat, d: number) {
-    const play = this.onSound!;
-    const cue = (b.cue ?? []).map((c) => trLower(c));
-    const said = (stems: string[]) => cue.some((c) => stems.some((st) => c.startsWith(st)));
-    let who = b.who;
-    let mood: string | null | undefined = b.mood;
-    if (mood === undefined) {
-      if (this.things.has(b.who)) {
-        if (!b.wow) return;
-        // the child who is looking at it (or any child on the page) says it
-        const kids = [...this.performers.keys()].filter((id) => VOICES[id] === 'kiz' || VOICES[id] === 'oglan');
-        if (!kids.length) return;
-        who = kids[this.wowTurn++ % kids.length];
-        mood = 'wow';
-      } else if (said(['üzül', 'ağla', 'ağlı'])) mood = 'sad';
-      else if (b.wow) mood = 'wow';
-      else if (said(['şaşır', 'vay'])) mood = 'wow';
-      else if (b.do === 'cheer' || (said(['gül', 'kahkaha']) && b.do !== 'talk')) mood = 'happy';
-      else return;
-    }
-    if (!mood) return;
-    const voice = VOICES[who];
-    if (!voice) return;
-    const now = this.clock + d;
-    if ((this.lastFeeling.get(who) ?? -9) > now - 2.5) return;
-    const key = cue.join(' ');
-    const same = this.feelingCue.key === key && Math.abs(this.feelingCue.at - now) < 2 ? this.feelingCue.n : 0;
-    if (same >= 2) return;
-    this.feelingCue = { key, at: now, n: same + 1 };
-    this.lastFeeling.set(who, now);
-    const clip = mood === 'happy' ? 'gul' : mood === 'wow' ? 'vay' : 'uzgun';
-    play(`duygu:${clip}-${voice}`, d + (mood === 'happy' ? 0.15 : 0.05));
-  }
-  private lastFeeling = new Map<string, number>();
   private lastNareke = -9;
-  private feelingCue = { key: '', at: -9, n: 0 };
-  private wowTurn = 0;
+  private lastStep = -9;
 
   /**
    * Something (`word`) left a character's hands, or a magic thing vanished: a character who takes the same
@@ -1859,7 +1840,7 @@ export class BookScene {
     else this.onCastProgress?.(0, 0);
     const list = await Promise.all(
       cast.map((c) =>
-        (this.toyCast ? ToyPerformer.load(c.id) : Performer.load(c.id)).then(
+        (this.toyCast ? ToyPerformer.load(c.id, c.model) : Performer.load(c.id, undefined, c.model)).then(
           (p) => {
             this.onCastProgress?.(++loaded, cast.length);
             return p;
@@ -1880,9 +1861,10 @@ export class BookScene {
       const base = c.screen ? new THREE.Vector3(c.x, c.y ?? 0, c.z) : this.pagePoint(c.x, c.z);
       if (!c.screen) base.y += c.y ?? 0;
       this.castBase.set(c.id, base);
+      if (p instanceof ToyPerformer) p.clipY = c.clip !== undefined ? base.y - (c.y ?? 0) + c.clip : null;
       starts.set(c.id, {
         pose: { ...(POSES[c.pose ?? 'stand'] ?? POSES.stand) },
-        root: { x: 0, y: 0, z: 0, rotY: c.rotY ?? 0, lie: c.lie ?? 0, ...(c.hidden ? { show: 0 } : {}), ...(c.apron ? { apron: 1 } : {}), ...(c.pose === 'sit' && this.toyCast ? { sit: 1 } : {}) },
+        root: { x: 0, y: 0, z: 0, rotY: c.rotY ?? 0, lie: c.lie ?? 0, ...(c.hidden ? { show: 0 } : {}), ...(c.apron ? { apron: 1 } : {}), ...(c.pose === 'sit' && this.toyCast ? { sit: 1 } : {}), ...(c.clip !== undefined && c.pose === 'sit' ? { inCar: 1 } : {}) },
         eyes: c.eyes ?? 1,
         look: c.look ?? null,
         hold: c.hold ?? null,
@@ -1903,7 +1885,7 @@ export class BookScene {
       const prop = spec.id ? this.things.get(spec.id) : undefined;
       if (!prop || !spec.id) continue;
       const f = spec.from ?? [0, 0, 0];
-      starts.set(spec.id, { pose: {}, root: { x: f[0], y: f[1], z: f[2], rotY: 0, lie: 0, show: spec.hidden ? 0 : 1, tilt: 0, glow: 0.45 }, eyes: 1, look: null });
+      starts.set(spec.id, { pose: {}, root: { x: f[0], y: f[1], z: f[2], rotY: 0, lie: 0, show: spec.hidden ? 0 : 1, tilt: 0, glow: 0.45, dim: 1 }, eyes: 1, look: null });
       prop.calm = this.reducedMotion;
       prop.onBurst = (at, half, k) => this.sparkles.burst(at, half, Math.max(3, Math.round(30 * k)), 1.1 * Math.max(0.4, k));
       prop.onRain = (at, width, seconds) => this.rain.start(at, Math.max(0.22, width), seconds, PAGE_TOP + 0.005);
@@ -1919,6 +1901,7 @@ export class BookScene {
     this.lastRelease = null;
     this.pendingTake = null;
     this.stage = new Stage(actors, starts, page.beats ?? []);
+    this.dimmers = [...actors.values()].filter((a): a is PropActor => a instanceof PropActor);
     // the page's little lives: from its own list, or from its sound
     const kinds = (page.life ?? LIFE_BY_AMBIENCE[page.ambience ?? ''] ?? []) as LifeKind[];
     const a = this.pagePoint(-0.46, 0.06);

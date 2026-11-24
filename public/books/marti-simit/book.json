@@ -726,6 +726,15 @@
           "h": 0.05,
           "word": "simit",
           "hidden": true
+        },
+        {
+          "proc": "spot",
+          "id": "duduk",
+          "x": 0.3,
+          "z": 0.05,
+          "y": 0.5,
+          "h": 0.05,
+          "word": "vapur düdüğü"
         }
       ],
       "cast": [
@@ -823,8 +832,19 @@
             "vapura"
           ],
           "who": "elif",
-          "do": "lookAround",
-          "len": 1.6
+          "do": "turn",
+          "face": -145,
+          "look": "marti",
+          "focus": false
+        },
+        {
+          "cue": [
+            "vapura"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "marti",
+          "len": 2.0
         },
         {
           "cue": [
@@ -840,10 +860,17 @@
           "cue": [
             "düdük"
           ],
+          "who": "duduk",
+          "do": "shine",
+          "sound": "duduk"
+        },
+        {
+          "cue": [
+            "düdük"
+          ],
           "who": "can",
           "do": "hop",
           "look": "reader",
-          "sound": "duduk",
           "focus": true
         },
         {
@@ -1355,7 +1382,7 @@
           "id": "elif",
           "x": 0.02,
           "z": 0.6,
-          "rotY": -10,
+          "rotY": 145,
           "look": "marti",
           "hold": "simit"
         },
@@ -1398,6 +1425,15 @@
           ],
           "len": 2.4,
           "face": 0
+        },
+        {
+          "cue": [
+            "uçuyordu"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 160,
+          "look": "marti"
         },
         {
           "cue": [
@@ -1735,7 +1771,7 @@
           "id": "elif",
           "x": 0.08,
           "z": 0.5800000000000001,
-          "rotY": 0,
+          "rotY": 150,
           "look": "marti"
         },
         {
@@ -1822,6 +1858,15 @@
             "göğsü"
           ],
           "who": "elif",
+          "do": "turn",
+          "face": 170,
+          "look": "marti"
+        },
+        {
+          "cue": [
+            "göğsü"
+          ],
+          "who": "elif",
           "do": "lookAt",
           "target": "marti",
           "len": 1.8,
@@ -1842,6 +1887,15 @@
           "who": "elif",
           "do": "nod",
           "look": "can"
+        },
+        {
+          "cue": [
+            "kuşu"
+          ],
+          "who": "elif",
+          "do": "lookAt",
+          "target": "marti",
+          "len": 1.6
         },
         {
           "cue": [
@@ -4022,31 +4076,31 @@
           "id": "defter",
           "decal": "/books/marti-simit/resim/defter-resmi.webp",
           "x": 0.25,
-          "z": 0.74,
-          "w": 0.24,
-          "d": 0.16,
+          "z": 0.725,
+          "w": 0.12,
+          "d": 0.08,
           "h": 0.01,
           "paper": true,
-          "pitch": 62,
+          "pitch": 0,
           "word": "defter",
           "hidden": true,
-          "y": 0.2
+          "y": 0.248
         },
         {
           "proc": "sheet",
           "id": "kutuKatmani",
           "decal": "/books/marti-simit/resim/cop-kutusu-katmani.webp",
           "x": 0.25,
-          "z": 0.744,
-          "w": 0.24,
-          "d": 0.16,
+          "z": 0.729,
+          "w": 0.12,
+          "d": 0.08,
           "h": 0.01,
           "paper": true,
           "layer": true,
-          "pitch": 62,
+          "pitch": 0,
           "word": "çöp kutusu",
           "hidden": true,
-          "y": 0.2
+          "y": 0.248
         },
         {
           "proc": "writing",
@@ -4054,14 +4108,14 @@
           "label": "Deniz hepimizin",
           "color": "#2B4C9A",
           "x": 0.25,
-          "z": 0.748,
-          "w": 0.24,
-          "d": 0.16,
+          "z": 0.733,
+          "w": 0.12,
+          "d": 0.08,
           "h": 0.01,
-          "pitch": 62,
+          "pitch": 0,
           "word": "deniz",
           "hidden": true,
-          "y": 0.2
+          "y": 0.248
         },
         {
           "proc": "matara",
@@ -4339,11 +4393,11 @@
           "who": "can",
           "do": "walkTo",
           "to": [
-            0.44,
+            0.26,
             0,
-            0.146
+            -0.061
           ],
-          "face": -90,
+          "face": 10,
           "look": "defter",
           "focus": true
         },

@@ -776,7 +776,8 @@
           "z": 0.36,
           "rotY": 30,
           "look": "elif",
-          "hold": "paraEl"
+          "hold": "paraEl",
+          "model": "/models/aile/anne.glb"
         },
         {
           "id": "elif",
@@ -1164,6 +1165,16 @@
         },
         {
           "cue": [
+            "hatice"
+          ],
+          "who": "baba",
+          "do": "lookAt",
+          "target": "hatice",
+          "len": 2.4,
+          "wait": 0.3
+        },
+        {
+          "cue": [
             "elif"
           ],
           "who": "b_hatice",
@@ -1211,11 +1222,31 @@
         },
         {
           "cue": [
+            "ingilizce"
+          ],
+          "who": "baba",
+          "do": "lookAt",
+          "target": "hatice",
+          "len": 2.0,
+          "wait": 0.2
+        },
+        {
+          "cue": [
             "selamladı"
           ],
           "who": "musteri",
           "do": "nod",
           "look": "hatice"
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "point",
+          "target": "tarhana",
+          "look": "tarhana",
+          "len": 1.8
         },
         {
           "cue": [
@@ -1234,13 +1265,91 @@
         },
         {
           "cue": [
-            "can"
+            "babaları"
+          ],
+          "who": "baba",
+          "do": "talk",
+          "look": "can",
+          "len": 2.6
+        },
+        {
+          "cue": [
+            "babaları"
           ],
           "who": "can",
-          "do": "point",
-          "target": "tarhana",
-          "look": "tarhana",
-          "len": 1.8
+          "do": "lookAt",
+          "target": "baba",
+          "len": 2.2,
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "aramaya"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            0.42,
+            0,
+            -0.415
+          ],
+          "face": 180,
+          "look": "raf"
+        },
+        {
+          "cue": [
+            "aramaya"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.56,
+            0,
+            -0.488
+          ],
+          "face": 170,
+          "look": "raf",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "aramaya"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            0.26,
+            0,
+            -0.561
+          ],
+          "face": -170,
+          "look": "raf",
+          "wait": 0.5
+        },
+        {
+          "cue": [
+            "aramaya"
+          ],
+          "who": "tarhana",
+          "do": "vanish",
+          "sound": null
+        },
+        {
+          "cue": [
+            "türkçe"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": 30,
+          "look": "hatice"
+        },
+        {
+          "cue": [
+            "mutluydu"
+          ],
+          "who": "elif",
+          "do": "hop",
+          "look": "hatice"
         },
         {
           "cue": [
@@ -1248,9 +1357,16 @@
           ],
           "who": "can",
           "do": "cheer",
-          "look": "baba"
+          "look": "elif"
         }
-      ]
+      ],
+      "spots": {
+        "raf": [
+          0.0,
+          0.3,
+          0.02
+        ]
+      }
     },
     {
       "id": "p3",
@@ -1400,6 +1516,16 @@
         },
         {
           "cue": [
+            "can"
+          ],
+          "who": "baba",
+          "do": "lookAt",
+          "target": "cikolata",
+          "len": 1.4,
+          "wait": 0.4
+        },
+        {
+          "cue": [
             "alabilir"
           ],
           "who": "b_can",
@@ -1416,6 +1542,15 @@
         },
         {
           "cue": [
+            "alabilir"
+          ],
+          "who": "baba",
+          "do": "turn",
+          "face": -70,
+          "look": "can"
+        },
+        {
+          "cue": [
             "babası"
           ],
           "who": "b_can",
@@ -1428,7 +1563,7 @@
           "who": "baba",
           "do": "talk",
           "look": "can",
-          "len": 3.0,
+          "len": 3.4,
           "focus": true
         },
         {
@@ -1445,6 +1580,15 @@
           "face": 141,
           "look": "hatice",
           "focus": true
+        },
+        {
+          "cue": [
+            "elif"
+          ],
+          "who": "baba",
+          "do": "lookAt",
+          "target": "elif",
+          "len": 1.6
         },
         {
           "cue": [
@@ -1476,6 +1620,24 @@
         },
         {
           "cue": [
+            "sepete"
+          ],
+          "who": "baba",
+          "do": "nod",
+          "look": "can",
+          "wait": 0.4
+        },
+        {
+          "cue": [
+            "hesaplayınca"
+          ],
+          "who": "baba",
+          "do": "talk",
+          "look": "elif",
+          "len": 1.8
+        },
+        {
+          "cue": [
             "çikolatayı"
           ],
           "who": "can",
@@ -1490,6 +1652,15 @@
           "who": "elif",
           "do": "nod",
           "look": "can"
+        },
+        {
+          "cue": [
+            "karar"
+          ],
+          "who": "baba",
+          "do": "nod",
+          "look": "can",
+          "wait": 0.3
         },
         {
           "cue": [
@@ -1638,18 +1809,64 @@
             "babaları"
           ],
           "who": "baba",
-          "do": "point",
-          "target": "buyuk",
-          "look": "buyuk",
-          "len": 1.4,
-          "focus": true
+          "do": "put",
+          "look": "down",
+          "focus": true,
+          "wait": 1.1
         },
         {
           "cue": [
-            "paketini"
+            "babaları"
           ],
           "who": "buyuk",
-          "do": "shine"
+          "do": "vanish",
+          "wait": 2.0,
+          "sound": null
+        },
+        {
+          "cue": [
+            "babaları"
+          ],
+          "who": "baba",
+          "do": "receive",
+          "target": "zeytinBuyukEl",
+          "look": "buyuk",
+          "wait": 2.0
+        },
+        {
+          "cue": [
+            "gösterdi"
+          ],
+          "who": "baba",
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "gösterdi"
+          ],
+          "who": "baba",
+          "do": "lookAt",
+          "target": "can",
+          "len": 1.2,
+          "wait": 0.8
+        },
+        {
+          "cue": [
+            "miktarın"
+          ],
+          "who": "baba",
+          "do": "put",
+          "look": "kucuk"
+        },
+        {
+          "cue": [
+            "miktarın"
+          ],
+          "who": "buyuk",
+          "do": "appear",
+          "wait": 0.5,
+          "sound": null
         },
         {
           "cue": [
@@ -1976,9 +2193,18 @@
             "saydı"
           ],
           "who": "baba",
-          "do": "bend",
-          "look": "elif",
-          "len": 1.4
+          "do": "nod",
+          "look": "elif"
+        },
+        {
+          "cue": [
+            "saydı"
+          ],
+          "who": "baba",
+          "do": "lookAt",
+          "target": "elif",
+          "len": 1.6,
+          "wait": 0.6
         },
         {
           "cue": [
@@ -2397,6 +2623,23 @@
           "hidden": true,
           "magic": true,
           "tail": true
+        },
+        {
+          "proc": "kapiCercevesi",
+          "x": 0.46,
+          "z": 0.5,
+          "h": 0.55,
+          "rotY": -90,
+          "word": "kapı"
+        },
+        {
+          "proc": "kapiKanadi",
+          "id": "kapi",
+          "x": 0.46,
+          "z": 0.402,
+          "h": 0.52,
+          "rotY": -90,
+          "word": "kapı"
         }
       ],
       "cast": [
@@ -2499,18 +2742,47 @@
         },
         {
           "cue": [
-            "can"
+            "kapıdan"
           ],
           "who": "can",
           "do": "walkTo",
           "to": [
-            0.3,
+            0.22,
             0,
-            0.268
+            0.073
           ],
-          "face": -120,
-          "look": "hatice",
-          "wait": 1.6
+          "face": 90,
+          "look": "kapi"
+        },
+        {
+          "cue": [
+            "kapıdan"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            0.32,
+            0,
+            0.024
+          ],
+          "face": 90,
+          "look": "kapi",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "kapıdan"
+          ],
+          "who": "baba",
+          "do": "walkTo",
+          "to": [
+            0.06,
+            0,
+            -0.146
+          ],
+          "face": 120,
+          "look": "kapi",
+          "wait": 0.1
         },
         {
           "cue": [
@@ -2527,6 +2799,45 @@
           "who": "hatice",
           "do": "wave",
           "look": "can"
+        },
+        {
+          "cue": [
+            "hatice"
+          ],
+          "who": "kapi",
+          "do": "turn",
+          "face": 80,
+          "sound": null
+        },
+        {
+          "cue": [
+            "seslendi"
+          ],
+          "who": "can",
+          "do": "turn",
+          "face": -100,
+          "look": "hatice",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "seslendi"
+          ],
+          "who": "elif",
+          "do": "turn",
+          "face": -100,
+          "look": "hatice",
+          "wait": 0.15
+        },
+        {
+          "cue": [
+            "seslendi"
+          ],
+          "who": "baba",
+          "do": "turn",
+          "face": -120,
+          "look": "hatice",
+          "wait": 0.0
         },
         {
           "cue": [
@@ -2568,9 +2879,8 @@
             "babalarıyla"
           ],
           "who": "baba",
-          "do": "bend",
+          "do": "nod",
           "look": "elif",
-          "len": 1.4,
           "wait": 0.4
         },
         {
@@ -2580,6 +2890,16 @@
           "who": "elif",
           "do": "cheer",
           "look": "baba"
+        },
+        {
+          "cue": [
+            "tamamlamışlardı"
+          ],
+          "who": "kapi",
+          "do": "turn",
+          "face": 0,
+          "wait": 1.4,
+          "sound": null
         }
       ]
     },
@@ -2691,7 +3011,8 @@
           "x": -0.24,
           "z": 0.38,
           "rotY": 40,
-          "look": "elif"
+          "look": "elif",
+          "model": "/models/aile/anne.glb"
         },
         {
           "id": "baba",

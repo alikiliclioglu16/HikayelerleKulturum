@@ -722,7 +722,7 @@
           "id": "paket",
           "word": "paket",
           "x": 0.02,
-          "z": 0.56,
+          "z": 0.6,
           "h": 0.085
         },
         {
@@ -782,10 +782,10 @@
       "cast": [
         {
           "id": "anne",
-          "x": 0.3,
-          "z": 0.46,
-          "rotY": -50,
-          "look": "paket"
+          "x": 0.06,
+          "z": 0.44,
+          "rotY": 10,
+          "look": "can"
         },
         {
           "id": "elif",
@@ -1146,6 +1146,15 @@
           "hidden": true,
           "magic": true,
           "tail": true
+        },
+        {
+          "proc": "spot",
+          "id": "oda",
+          "x": 0,
+          "z": 0.5,
+          "y": 0.3,
+          "h": 0.02,
+          "word": "oda"
         }
       ],
       "cast": [
@@ -1316,6 +1325,15 @@
           "who": "karagoz",
           "do": "tip",
           "face": 20
+        },
+        {
+          "cue": [
+            "oda"
+          ],
+          "who": "oda",
+          "do": "dim",
+          "len": 0.3,
+          "focus": true
         },
         {
           "cue": [

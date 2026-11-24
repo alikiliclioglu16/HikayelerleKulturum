@@ -209,7 +209,10 @@ export class PropActor {
     this.apply(s, dt);
   }
 
+  /** How bright this thing wants the room (the "dim" act). */
+  dimLevel = 1;
   private apply(s: State, dt: number) {
+    this.dimLevel = s.root.dim ?? 1;
     const r = s.root;
     const show = Math.max(0, Math.min(1.5, r.show ?? 1));
     this.group.position.set(r.x, r.y, r.z);

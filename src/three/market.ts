@@ -276,6 +276,8 @@ export const MARKET_HELD: Record<string, () => THREE.Object3D> = {
   mercimekEl: () => held(packet('MERCİMEK', '#E65100', 0.16, 0.24, 0.08), { word: 'mercimek', hand: 'R' }, PAGE * 1.1),
   tarhanaEl: () => held(packet('TARHANA', '#B23A48', 0.16, 0.24, 0.08), { word: 'tarhana', hand: 'R' }, PAGE * 1.1),
   zeytinEl: () => held(olives(false), { word: 'zeytin', hand: 'R' }, PAGE * 1.1),
+  // the big olive pack, held up in both hands to show it
+  zeytinBuyukEl: () => held(olives(true), { word: 'zeytin', atHeight: 0.6, ahead: 0.2 }, PAGE * 0.85),
   fisEl: () => held(receipt(), { word: 'fiş', hand: 'R' }, PAGE * 1.3),
   cuzdanEl: () => held(wallet(), { word: 'cüzdan', hand: 'R' }, PAGE * 1.3),
 };

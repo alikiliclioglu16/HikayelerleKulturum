@@ -53,6 +53,11 @@ export class ToyPerformer {
   private seatedModel: THREE.Object3D | null = null;
   private isSeated = false;
   private mouthMesh: THREE.Mesh | null = null;
+  /** Sitting in a car: the world height below which nothing of it shows (null: never). */
+  clipY: number | null = null;
+  private clipped = false;
+  private clipPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
+  private beater: THREE.Object3D | null = null;
 
   private constructor(
     readonly id: string,
@@ -63,6 +68,23 @@ export class ToyPerformer {
     this.root.add(this.body);
     this.body.add(model);
     this.standing = model;
+    if (def.bandage) {
+      const [bx, by, bz, br, bh] = def.bandage;
+      const cloth = new THREE.MeshStandardMaterial({ color: '#F8F6F0', roughness: 0.95 });
+      const wrap = new THREE.Group();
+      const band = new THREE.Mesh(new THREE.CylinderGeometry(br * height, br * height * 1.08, bh * height, 18), cloth);
+      wrap.add(band);
+      // the turns of the bandage
+      for (let i = -1; i <= 1; i++) {
+        const turn = new THREE.Mesh(new THREE.TorusGeometry(br * height * 1.04, 0.004 * height, 5, 18), cloth);
+        turn.rotation.x = Math.PI / 2 + i * 0.12;
+        turn.position.y = i * bh * height * 0.3;
+        wrap.add(turn);
+      }
+      wrap.position.set(bx * height, by * height, bz * height);
+      wrap.traverse((o) => ((o as THREE.Mesh).castShadow = true));
+      model.add(wrap);
+    }
     // a still model that talks: a mouth drawn on its face opens and closes while it speaks
     if (def.mouth) {
       const [mx, my, mz, mw] = def.mouth;
@@ -94,11 +116,11 @@ export class ToyPerformer {
    * A tale character comes from a still model (public/models/masal); a family member is the rigged model put
    * once in its relaxed pose (arms down) and then moved only as a whole.
    */
-  static async load(id: string) {
+  static async load(id: string, src?: string) {
     const def = CHARACTERS[id];
     const h = def.height;
     if (def.src.includes('/models/aile/')) {
-      const p = await Performer.load(id);
+      const p = await Performer.load(id, undefined, src);
       p.reset({ pose: { ...RELAXED }, root: { x: 0, y: 0, z: 0, rotY: 0, lie: 0 }, eyes: 1, look: null }, new THREE.Vector3());
       const toy = new ToyPerformer(id, def, p.root, h);
       toy.inner = p;
@@ -185,7 +207,8 @@ export class ToyPerformer {
     // turning towards what it looks at (the whole figure, a little)
     let want = 0;
     const target = s.look ? this.targets(s.look) : null;
-    if (target) {
+    // lying in bed the body stays along the bed (only the eyes and head look)
+    if (target && (r.lie ?? 0) < 0.3) {
       const d = target.clone().sub(this.root.position);
       let yaw = Math.atan2(d.x, d.z) - r.rotY * D2R;
       yaw = Math.atan2(Math.sin(yaw), Math.cos(yaw));
@@ -212,6 +235,27 @@ export class ToyPerformer {
       this.held.grip.rotation.set((r.tp ?? 0) * D2R, 0, (r.tr ?? 0) * D2R);
     }
     this.setApron((r.apron ?? 0) > 0.5);
+    const inCar = this.clipY !== null && (r.inCar ?? 0) > 0.5;
+    if (inCar !== this.clipped) {
+      this.clipped = inCar;
+      this.clipPlane.constant = -(this.clipY ?? 0);
+      this.root.traverse((o) => {
+        const m = o as THREE.Mesh;
+        if (!m.isMesh || !m.material) return;
+        const one = (mat: THREE.Material) => {
+          // its own copy of the material, so the same model elsewhere is not cut
+          const own = mat.userData.clipOwn ? mat : Object.assign(mat.clone(), { userData: { ...mat.userData, clipOwn: true } });
+          own.clippingPlanes = inCar ? [this.clipPlane] : null;
+          own.needsUpdate = true;
+          return own;
+        };
+        m.material = Array.isArray(m.material) ? m.material.map(one) : one(m.material);
+      });
+    }
+    if (this.beater?.parent) {
+      const bt = this.beater.userData.beater as { rest: number; swing: number };
+      this.beater.rotation.z = bt.rest + bt.swing * Math.min(1, Math.max(0, (1 - (r.sq ?? 1)) / 0.08));
+    }
     if (this.mouthMesh) {
       const talking = (r.mo ?? 0) > 0.5;
       this.mouthMesh.visible = talking;
@@ -262,8 +306,18 @@ export class ToyPerformer {
         else if (this.nextBlink - t > 8) this.nextBlink = t + 1 + Math.random() * 2; // the clock went back
       }
       this.inner.bend(pose, eyes, this.headYaw, 0);
+      // a small thing (a phone, a pencil) sits in the real hand and goes where the hand goes
+      if (this.held && this.held.obj.userData.hand === 'R') {
+        const w = this.inner.handWorld(this.tmpHand);
+        if (w) {
+          this.body.updateWorldMatrix(true, false);
+          const local = this.body.worldToLocal(w);
+          this.held.grip.position.set(local.x, local.y - 0.015 * this.height, local.z + 0.02 * this.height);
+        }
+      }
     }
   }
+  private tmpHand = new THREE.Vector3();
 
   /** Two-handed things float in front of the chest, small ones beside the right hand. */
   private setHeld(name: string | null) {
@@ -274,10 +328,11 @@ export class ToyPerformer {
       const o = this.held.obj;
       const grip = this.held.grip;
       this.held = null;
-      grip.parent?.remove(grip);
       const host = this.root.parent;
+      // attached while the grip is still on the body, so it stays where the hands were
+      if (host) host.attach(o);
+      grip.parent?.remove(grip);
       if (host) {
-        host.attach(o);
         const p = o.getWorldPosition(new THREE.Vector3());
         const onto = this.surfaceAt(p);
         if (onto) o.position.set(onto.x, onto.y + 0.004, onto.z);
@@ -307,6 +362,11 @@ export class ToyPerformer {
     this.body.add(grip);
     this.held = { name, obj, grip };
     if (this.lastT <= this.quietTakeUntil) obj.userData.quiet = true;
+    // a beater that swings with the beats (the drummer's tokmak)
+    this.beater = null;
+    obj.traverse((o) => {
+      if (o.userData.beater) this.beater = o;
+    });
     this.onTake?.(obj);
   }
 
@@ -449,9 +509,29 @@ const GESTURES: Record<string, (s: State, b: Beat, t: number, dur: number) => Ke
   ],
   /** Both arms reach forwards to the thing being used. */
   useTool: (s, b, t, dur) => {
+    // eating: the right hand goes from the table to the mouth and back, again and again
+    if (b.style === 'eat') {
+      const mouth: Pose = { upper_arm_R: [-48, 0, 18], forearm_R: [-128, 0, 0], head: [6, 0, 0] };
+      const table: Pose = { upper_arm_R: [-50, 0, 12], forearm_R: [-34, 0, 0], head: [16, 0, 0] };
+      const ks = [pk(t, 0.35, table)];
+      for (let at = t + 0.4, i = 0; at < t + dur - 0.6; at += 0.55, i++) ks.push(pk(at, 0.27, i % 2 ? table : mouth, true));
+      if (!b.keep) ks.push(pk(t + dur - 0.45, 0.45, { ...ARMS_DOWN, head: [0, 0, 0] }));
+      return ks;
+    }
+    // a phone to the ear: the right hand up beside the head
+    if (b.style === 'ear')
+      return [pk(t, 0.4, { upper_arm_R: [-28, 0, 62], forearm_R: [-138, 0, 0], hand_R: [0, 0, 0], head: [0, 0, -8] }), ...(b.keep ? [] : [pk(t + dur - 0.45, 0.45, { ...ARMS_DOWN, head: [0, 0, 0] })])];
     const ks = [pk(t, 0.35, { upper_arm_L: [-55, 0, -12], upper_arm_R: [-62, 0, 12], forearm_L: [-30, 0, 0], forearm_R: [-34, 0, 0], head: [14, 0, 0] })];
     // tapping with nothing in the hands (moving stones, closing a lid): the hands go out and come back in turn
-    if ((b.style ?? 'tap') === 'tap' && !s.hold)
+    // kneading dough: leaning over the trough, the two hands push down into it in turn
+    if (b.style === 'knead') {
+      ks.length = 0;
+      ks.push(pk(t, 0.35, { upper_arm_L: [-38, 0, -8], upper_arm_R: [-38, 0, 8], forearm_L: [-28, 0, 0], forearm_R: [-28, 0, 0], head: [22, 0, 0] }));
+      for (let at = t + 0.4, i = 0; at < t + dur - 0.6; at += 0.42, i++) {
+        const r = i % 2 === 0;
+        ks.push(pk(at, 0.2, r ? { upper_arm_R: [-30, 0, 6], forearm_R: [-6, 0, 0], upper_arm_L: [-44, 0, -10], forearm_L: [-40, 0, 0] } : { upper_arm_L: [-30, 0, -6], forearm_L: [-6, 0, 0], upper_arm_R: [-44, 0, 10], forearm_R: [-40, 0, 0] }, true));
+      }
+    } else if ((b.style ?? 'tap') === 'tap' && !s.hold)
       for (let at = t + 0.4, i = 0; at < t + dur - 0.6; at += 0.34, i++) {
         const r = i % 2 === 0;
         ks.push(pk(at, 0.17, r ? { upper_arm_R: [-78, 0, 6], forearm_R: [-8, 0, 0], upper_arm_L: [-48, 0, -14], forearm_L: [-40, 0, 0] } : { upper_arm_L: [-74, 0, -6], forearm_L: [-10, 0, 0], upper_arm_R: [-50, 0, 14], forearm_R: [-42, 0, 0] }, true));
@@ -891,7 +971,7 @@ export const TOY_ACTS: Record<string, ToyAct> = {
     const style = b.style ?? 'tap';
     const len = b.len ?? 1.6;
     const at = { tx: to[0], ty: to[1], tz: to[2] };
-    const keys: Key[] = [key(t, 0.4, { root: { ...at, lean: style === 'lift' ? 0 : 10, tp: style === 'lift' ? 70 : style === 'lay' ? 0 : 15 }, look: b.look ?? (style === 'lift' ? 'reader' : 'down') })];
+    const keys: Key[] = [key(t, 0.4, { root: { ...at, lean: style === 'lift' || style === 'eat' ? 0 : style === 'knead' ? 24 : 10, tp: style === 'lift' ? 70 : style === 'lay' ? 0 : 15 }, look: b.look ?? (style === 'lift' ? 'reader' : 'down') })];
     const t0 = t + 0.4;
     if (style === 'tap') {
       const n = Math.max(2, Math.round(len / 0.32));
@@ -960,14 +1040,14 @@ export const TOY_ACTS: Record<string, ToyAct> = {
     const to = b.to ? { x: b.to[0], y: b.to[1], z: b.to[2] } : {};
     const face = b.face !== undefined ? near(s.root.rotY, b.face) : s.root.rotY;
     return {
-      keys: [key(t, 0.2, { root: { rotY: face }, look: b.look ?? s.look }), ...hopKeys(s, t + 0.15, 0.1 * H, { ...to, rotY: face }), key(t + 0.4, 0.05, { root: { sit: 1 } })],
+      keys: [key(t, 0.2, { root: { rotY: face }, look: b.look ?? s.look }), ...hopKeys(s, t + 0.15, 0.1 * H, { ...to, rotY: face }), key(t + 0.4, 0.05, { root: { sit: 1, ...(b.style === 'car' ? { inCar: 1 } : {}) } })],
       dur: 0.8,
     };
   },
   /** Stands up from a seat and hops down to `to` (or just in front). */
   stand: (s, b, t, H) => {
     const to = b.to ? { x: b.to[0], y: b.to[1], z: b.to[2] } : { y: 0 };
-    return { keys: [key(t, 0.05, { root: { sit: 0 } }), ...hopKeys(s, t + 0.05, 0.08 * H, to), key(t + 0.5, 0.3, { look: b.look ?? s.look })], dur: 0.8 };
+    return { keys: [key(t, 0.05, { root: { sit: 0, inCar: 0 } }), ...hopKeys(s, t + 0.05, 0.08 * H, to), key(t + 0.5, 0.3, { look: b.look ?? s.look })], dur: 0.8 };
   },
 
   /** Takes something (`target`) out of a pocket: looks down, the hand goes to the side, and it is in the hand. */

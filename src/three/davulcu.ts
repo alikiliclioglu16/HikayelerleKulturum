@@ -69,6 +69,34 @@ function drum(r = 0.27, w = 0.32) {
   return o;
 }
 
+/**
+ * The drum as the drummer holds it, with its tokmak (the big wooden beater with a felt-wrapped head) over the
+ * right skin and the thin çubuk over the left. The tokmak swings down onto the skin with every beat (its group is
+ * marked `beater`: the drummer's beat squash turns it, see ToyPerformer).
+ */
+function drumPlayed(r: number, w: number) {
+  const o = drum(r, w);
+  const wood = mat('#8A5A2B', 0.5);
+  const felt = mat('#EFE6D2', 0.9);
+  // tokmak: pivots above the right skin, the stick reaching down to it
+  const tokmak = new THREE.Group();
+  tokmak.position.set(w / 2 + 0.05, r * 2.15, 0);
+  const stick = cyl(0.012, 0.014, r * 1.1, wood, 8);
+  stick.position.y = -r * 0.55;
+  const head = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 10), felt);
+  head.scale.set(1, 1.2, 1);
+  head.position.y = -r * 1.1;
+  tokmak.add(stick, head);
+  tokmak.rotation.z = 0.35;
+  tokmak.userData.beater = { axis: 'z', rest: 0.35, swing: -0.5 };
+  // çubuk: a thin switch held against the left skin
+  const cubuk = cyl(0.006, 0.006, r * 1.4, wood, 6);
+  cubuk.position.set(-w / 2 - 0.04, r * 1.45, 0);
+  cubuk.rotation.z = -0.5;
+  o.add(tokmak, cubuk);
+  return o;
+}
+
 /** A coloured-glass lantern: a brass frame, red, blue, green and amber panes, a light inside. */
 function lantern(lit = true) {
   const g = new THREE.Group();
@@ -243,9 +271,9 @@ function held(o: THREE.Object3D, data: Record<string, unknown>, s = PAGE) {
 /** Things held in the hands (see HELD in props.ts). */
 export const DAVULCU_HELD: Record<string, () => THREE.Object3D> = {
   // the drum hangs in front of the drummer's belly
-  ramazanDavulu: () => held(drum(0.22, 0.26), { word: 'davul', atHeight: 0.34, ahead: 0.2 }),
+  ramazanDavulu: () => held(drumPlayed(0.22, 0.26), { word: 'davul', atHeight: 0.34, ahead: 0.2 }),
   // the little drum Hüseyin dede gave Can, played held in front of him
-  kucukDavulEl: () => held(drum(0.15, 0.17), { word: 'davul', atHeight: 0.36, ahead: 0.2 }),
+  kucukDavulEl: () => held(drumPlayed(0.15, 0.17), { word: 'davul', atHeight: 0.36, ahead: 0.2 }),
   fener: () => held(lantern(), { word: 'fener', hand: 'R' }, PAGE * 1.3),
   fenerIkiEl: () => held(lantern(), { word: 'fener', atHeight: 0.36, ahead: 0.2 }, PAGE * 1.3),
   corbaKasesi: () => held(soup(), { word: 'çorba', atHeight: 0.42, ahead: 0.22 }, PAGE * 1.4),

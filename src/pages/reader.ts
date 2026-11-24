@@ -626,6 +626,12 @@ export async function renderReader(root: HTMLElement, bookId: string, startPage?
     // the end of the tale: a harp running down and a music-box cadence as the book closes
     sfx.magic('bitis', scene.reducedMotion ? 0 : 0.5);
     await scene.close();
+    // finished to the end: on the shelf the camera then goes on to the next book
+    try {
+      sessionStorage.setItem('hk:sonraki', bookId);
+    } catch {
+      /* private mode */
+    }
     scene.shot('overhead', 1500);
     await new Promise((r) => window.setTimeout(r, scene.reducedMotion ? 0 : 1300));
     if (location.hash.startsWith(`#/kitap/${bookId}`)) location.hash = '#/';

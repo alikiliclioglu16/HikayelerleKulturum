@@ -279,7 +279,7 @@ function horseSled() {
   const seat = rbox(1.0, 0.35, 0.4, 0.05, mat('#A61C2B', 0.8));
   seat.position.set(0, 0.85, -0.5);
   const rug = box(1.0, 0.04, 0.9, mat('#C0392B', 0.9));
-  rug.position.set(0, 0.79, 0.15);
+  rug.position.set(0, 0.815, 0.15); // above the gold trim (their tops met and flickered)
   g.add(body, trim, seat, rug);
   const steel = mat('#5A5A5A', 0.3, 0.7);
   for (const x of [-0.45, 0.45]) {

@@ -81,7 +81,6 @@ function audio(force = false): AudioContext | null {
     if (ctx.state === "suspended") void ctx.resume();
     loadClips(ctx);
     loadMagic(ctx);
-    loadDuygu(ctx);
     return ctx;
   } catch {
     return null;
@@ -126,7 +125,7 @@ const AMBIENCE_LEVEL: Record<string, number> = {
 };
 /** Each story sound evened out (measured), so a hop, a pop, a balloon or the applause are all heard alike. */
 const SCENE_LEVEL: Record<string, number> = {
-  kisneme: 1.6, tayKisneme: 1.8, nal: 1.5, telefon: 1.6, duduk: 1.3, marti: 1.6,
+  kisneme: 1.6, tayKisneme: 1.8, nal: 1.5, telefon: 1.6, duduk: 3.4, marti: 1.6,
   hop: 1.8, cheer: 1.35, pop: 1.7, greet: 1.7, balloon: 4, rain: 0.5, whirl: 1.5, knock: 1.1, angry: 0.85, put: 1.5,
   fly: 2, vanish: 1.6, lift: 1.8, damla: 1.5, cizgi: 1.6, kagit: 2, tek: 1.2, shutter: 1.4, rise: 1.6, sink: 1.7, clink: 1.3, alarm: 1.5, shine: 1.2, davul: 0.85, applause: 3.6, spin: 4.5, nareke: 1.1, tef: 1.2, sak: 1.0,
 };
@@ -231,38 +230,6 @@ function loadMagic(a: AudioContext) {
       .then((b) => magicClips.set(f, b))
       .catch(() => undefined);
 }
-/*
- * The characters' own voices for feelings (public/sesler/duygu): a laugh when they are happy, a "vaay!" when
- * something surprises them, a sob (children) or a sad sigh (grown-ups) when they are upset. One set for each kind
- * of voice: kiz, oglan, kadin, yasli-kadin, erkek, yasli-erkek.
- */
-const DUYGU_FILES = ['gul', 'vay', 'uzgun'].flatMap((f) => ['kiz', 'oglan', 'kadin', 'yasli-kadin', 'erkek', 'yasli-erkek'].map((v) => `${f}-${v}`));
-const DUYGU_LEVEL: Record<string, number> = { gul: 0.8, vay: 0.85, uzgun: 0.75 };
-const duyguClips = new Map<string, AudioBuffer>();
-let duyguAsked = false;
-function loadDuygu(a: AudioContext) {
-  if (duyguAsked) return;
-  duyguAsked = true;
-  for (const f of DUYGU_FILES)
-    fetch(`/sesler/duygu/${f}.mp3`)
-      .then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(new Error(String(r.status)))))
-      .then((d) => new Promise<AudioBuffer>((res, rej) => a.decodeAudioData(d, res, rej)))
-      .then((b) => duyguClips.set(f, b))
-      .catch(() => undefined);
-}
-/** A feeling in a character's voice ("gul-kiz"), a little higher or lower each time so it never sounds the same. */
-function playDuygu(a: AudioContext, name: string, delay = 0) {
-  const b = duyguClips.get(name);
-  if (!b) return;
-  const src = a.createBufferSource();
-  src.buffer = b;
-  src.playbackRate.value = 0.94 + Math.random() * 0.12;
-  const g = a.createGain();
-  g.gain.value = DUYGU_LEVEL[name.split('-')[0]] ?? 0.8;
-  src.connect(g).connect(fxBus!);
-  src.start(a.currentTime + 0.01 + Math.max(0, delay));
-}
-
 /** A recorded voice that belongs to a book (Karagöz calling "Hacivatım!"); quietly nothing until the file is there. */
 const recordings = new Map<string, Promise<AudioBuffer | null>>();
 function playRecording(a: AudioContext, src: string, delay = 0) {
@@ -916,9 +883,13 @@ const SCENE_SOUNDS: Record<string, (a: AudioContext, t: number) => void> = {
   nal: (a, t) => hooves(a, t),
   // Martı ile Simit: the ferry's deep horn, a seagull calling
   duduk: (a, t) => {
-    tone(a, "sawtooth", 147, 145, t, 1.6, 0.16, 0.08);
-    tone(a, "sawtooth", 220, 218, t, 1.6, 0.08, 0.08);
-    tone(a, "sine", 73, 73, t, 1.6, 0.2, 0.1);
+    // two long blasts of a ship's horn (a low chord, clearly heard on small speakers too)
+    for (const [d, len] of [[0, 1.3], [1.55, 1.7]] as const) {
+      tone(a, "sawtooth", 185, 183, t + d, len, 0.2, 0.09);
+      tone(a, "sawtooth", 233, 231, t + d, len, 0.14, 0.09);
+      tone(a, "square", 370, 368, t + d, len, 0.035, 0.12);
+      tone(a, "sine", 92, 92, t + d, len, 0.22, 0.12);
+    }
   },
   marti: (a, t) => {
     for (const [d, f] of [[0, 1800], [0.24, 1700], [0.5, 1600]] as const) warble(a, f, f * 0.65, t + d, 0.2, 0.14, 22, 90, "triangle");
@@ -1524,7 +1495,6 @@ export const sfx = {
   scene(kind: string, delay = 0, seconds = 4) {
     const a = audio();
     if (!a) return;
-    if (kind.startsWith('duygu:')) return playDuygu(a, kind.slice(6), delay);
     if (kind.startsWith('kayit:')) return playRecording(a, kind.slice(6), delay);
     const m = SCENE_MAGIC[kind];
     if (m && playMagic(a, m, delay)) return;

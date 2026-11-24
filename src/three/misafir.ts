@@ -371,7 +371,42 @@ function doorCard() {
 }
 
 /** Things standing on the page (page widths). */
+/** A kitchen stove with a pot of soup on the front burner (baba warms the soup there). Page widths. */
+function stove() {
+  const g = new THREE.Group();
+  const body = box(0.6, 0.86, 0.55, mat('#ECEAE4', 0.4, 0.1));
+  body.position.y = 0.43;
+  const top = box(0.62, 0.03, 0.57, mat('#2E2E31', 0.35, 0.4));
+  top.position.y = 0.875;
+  const door = box(0.46, 0.4, 0.02, mat('#3A3A3E', 0.2, 0.3));
+  door.position.set(0, 0.42, 0.28);
+  const handle = box(0.36, 0.025, 0.04, mat('#C9C9C9', 0.3, 0.7));
+  handle.position.set(0, 0.68, 0.3);
+  g.add(body, top, door, handle);
+  for (const [x, z] of [[-0.15, -0.13], [0.15, -0.13], [-0.15, 0.13], [0.15, 0.13]]) {
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.08, 0.012, 6, 20), mat('#151515', 0.5));
+    ring.rotation.x = Math.PI / 2;
+    ring.position.set(x, 0.895, z);
+    g.add(ring);
+  }
+  // a little blue flame under the pot
+  const flame = new THREE.Mesh(new THREE.TorusGeometry(0.075, 0.014, 6, 20), new THREE.MeshBasicMaterial({ color: '#5BA8FF' }));
+  flame.rotation.x = Math.PI / 2;
+  flame.position.set(0.15, 0.9, 0.13);
+  // the pot
+  const pot = cyl(0.14, 0.12, 0.17, mat('#B8452E', 0.45, 0.2), 24);
+  pot.position.set(0.15, 0.985, 0.13);
+  const soup = cyl(0.13, 0.13, 0.01, mat('#E0882F', 0.6), 24);
+  soup.position.set(0.15, 1.06, 0.13);
+  const ladle = cyl(0.012, 0.012, 0.32, mat('#C9C9C9', 0.3, 0.7), 8);
+  ladle.position.set(0.2, 1.12, 0.13);
+  ladle.rotation.z = -0.4;
+  g.add(flame, pot, soup, ladle);
+  return g;
+}
+
 export const MISAFIR_PROPS: Record<string, () => THREE.Object3D> = {
+  ocak: () => onPage(stove()),
   yagmurKapi: () => rain(0.3, 0.56),
   yagmurPencere: () => rain(0.2, 0.36),
   yagmurSokak: () => rain(1.0, 0.85),

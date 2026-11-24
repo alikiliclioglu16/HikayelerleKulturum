@@ -7,7 +7,7 @@ import { ROOM_PROPS } from './room';
 import { VAPUR_HELD, VAPUR_PROPS } from './vapur';
 import { DAVULCU_HELD, DAVULCU_PROPS } from './davulcu';
 import { KARAGOZ_HELD, KARAGOZ_PROPS } from './karagoz';
-import { MANGALA_PROPS } from './mangala';
+import { MANGALA_PROPS, MANGALA_HELD } from './mangala';
 import { KOY_HELD, KOY_PROPS } from './koy';
 import { MISAFIR_HELD, MISAFIR_PROPS } from './misafir';
 import { TREN_HELD, TREN_PROPS } from './tren';
@@ -355,6 +355,7 @@ export const HELD: Record<string, () => THREE.Object3D> = {
   ...VAPUR_HELD,
   // Davulcu Dede: the drum, the lantern, iftar dishes
   ...DAVULCU_HELD,
+  ...MANGALA_HELD,
   ...KARAGOZ_HELD,
   ...KOY_HELD,
   ...MISAFIR_HELD,

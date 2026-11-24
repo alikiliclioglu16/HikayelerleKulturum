@@ -634,9 +634,33 @@ export async function renderHome(root: HTMLElement): Promise<() => void> {
         renderDots();
       }
       scene.showCarpet(bi);
+      let next = -1;
+      try {
+        if (sessionStorage.getItem('hk:sonraki') === back) next = list.findIndex((b, n) => n > bi && b.status !== 'soon');
+        sessionStorage.removeItem('hk:sonraki');
+      } catch {
+        /* private mode */
+      }
       window.setTimeout(() => {
         sfx.slide();
-        void scene.flyBookIn(bi);
+        void scene.flyBookIn(bi).then(() => {
+          // the book was read to the end: the camera moves on to the next story, which comes forward a little
+          if (next < 0) return;
+          window.setTimeout(() => {
+            const pg = scene.pageOfBook(next);
+            if (pg !== scene.page) {
+              scene.setPage(pg);
+              renderDots();
+            }
+            scene.showCarpet(next);
+            window.setTimeout(() => {
+              scene.hoverBook(next);
+              scene.sparkle('book', next, 1.6);
+              sfx.magic('kart', 0);
+              cards[next]?.card.focus({ preventScroll: true });
+            }, 700);
+          }, 600);
+        });
       }, 500);
     }
   }

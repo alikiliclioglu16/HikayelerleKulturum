@@ -231,6 +231,16 @@ function onPage(o: THREE.Object3D, s = PAGE) {
   return g;
 }
 
+/** The board carried in both hands (Ahmet dede brings it to the table). */
+export const MANGALA_HELD: Record<string, () => THREE.Object3D> = {
+  mangalaEl: () => {
+    const g = new THREE.Group();
+    g.add(board());
+    Object.assign(g.userData, { word: 'mangala', atHeight: 0.42, ahead: 0.26 });
+    return g;
+  },
+};
+
 /** Things standing on the page (page widths). */
 export const MANGALA_PROPS: Record<string, () => THREE.Object3D> = {
   mangala: board,

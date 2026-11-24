@@ -63,13 +63,14 @@ function car(open = false) {
   if (open) {
     const white = mat('#F4F1EA', 0.4);
     cabin = new THREE.Group();
+    // a tall cabin (they sit upright in it, heads under the roof)
     const roof = new THREE.Mesh(new RoundedBoxGeometry(1.2, 0.08, 0.9, 3, 0.03), white);
-    roof.position.set(-0.15, 1.1, 0);
+    roof.position.set(-0.15, 1.34, 0);
     cabin.add(roof);
     for (const x of [-0.72, -0.15, 0.42])
       for (const z of [-0.42, 0.42]) {
-        const post = box(0.05, 0.4, 0.05, white);
-        post.position.set(x, 0.9, z);
+        const post = box(0.05, 0.64, 0.05, white);
+        post.position.set(x, 1.02, z);
         cabin.add(post);
       }
     // the inside: dark seats with their backs, seen through the glass
@@ -80,8 +81,8 @@ function car(open = false) {
       cabin.add(back);
     }
     for (const z of [-0.45, 0.45]) {
-      const side = box(1.14, 0.32, 0.01, carGlass);
-      side.position.set(-0.15, 0.9, z);
+      const side = box(1.14, 0.56, 0.01, carGlass);
+      side.position.set(-0.15, 1.02, z);
       cabin.add(side);
     }
   } else {
@@ -96,8 +97,8 @@ function car(open = false) {
       }
     }
   }
-  const front = box(0.01, 0.3, 0.72, open ? carGlass : mat('#9FD3EE', 0.1, 0.1, '#6FB4D8', 0.25));
-  front.position.set(0.43, 0.92, 0);
+  const front = box(0.01, open ? 0.56 : 0.3, 0.72, open ? carGlass : mat('#9FD3EE', 0.1, 0.1, '#6FB4D8', 0.25));
+  front.position.set(0.43, open ? 1.02 : 0.92, 0);
   const bumper = mat('#5A5A5A', 0.5, 0.4);
   for (const x of [-1.07, 1.07]) {
     const b = box(0.06, 0.12, 0.9, bumper);
@@ -135,9 +136,9 @@ function carDoor() {
   const panel = new THREE.Mesh(new RoundedBoxGeometry(0.53, 0.44, 0.035, 2, 0.015), red);
   panel.position.set(0.265, 0.47, 0);
   const frame = box(0.53, 0.04, 0.03, red);
-  frame.position.set(0.265, 1.04, 0);
-  const pane = box(0.47, 0.3, 0.01, carGlass);
-  pane.position.set(0.265, 0.86, 0);
+  frame.position.set(0.265, 1.28, 0);
+  const pane = box(0.47, 0.56, 0.01, carGlass);
+  pane.position.set(0.265, 0.98, 0);
   const handle = box(0.09, 0.025, 0.03, mat('#D9D9D9', 0.3, 0.6));
   handle.position.set(0.42, 0.6, 0.025);
   g.add(panel, frame, pane, handle);
@@ -631,7 +632,7 @@ function tandir() {
   return g;
 }
 /** A wooden kneading trough with a round dough in it. */
-function trough() {
+function trough(withDough = true) {
   const g = new THREE.Group();
   const wood = mat('#A0673A', 0.6);
   const t = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.3, 0.16, 24, 1, true), wood);
@@ -646,7 +647,17 @@ function trough() {
   const dough = ball(0.17, mat('#F3E3C3', 0.9));
   dough.scale.set(1.2, 0.55, 0.8);
   dough.position.y = 0.5;
-  g.add(base, bottom, t, dough);
+  g.add(base, bottom, t);
+  if (withDough) g.add(dough);
+  return g;
+}
+/** The dough alone (kneaded in the trough, then baked). */
+function doughBall() {
+  const dough = ball(0.17, mat('#F3E3C3', 0.9));
+  dough.scale.set(1.2, 0.55, 0.8);
+  dough.position.y = 0.17 * 0.55;
+  const g = new THREE.Group();
+  g.add(dough);
   return g;
 }
 /** A stack of round tandır breads on a cloth. */
@@ -752,6 +763,8 @@ export const KOY_PROPS: Record<string, () => THREE.Object3D> = {
   cit: () => onPage(fence()),
   tandir: () => onPage(tandir()),
   hamurTeknesi: () => onPage(trough()),
+  tekneBos: () => onPage(trough(false)),
+  hamurTopu: () => onPage(doughBall()),
   tandirEkmekleri: () => onPage(breads()),
   baston: () => onPage(stick()),
   yapraklar: () => onPage(leaves()),

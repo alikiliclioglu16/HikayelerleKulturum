@@ -856,7 +856,8 @@
           "z": 0.5,
           "rotY": 12,
           "hold": "baklavaTepsisi",
-          "pose": "hold"
+          "pose": "hold",
+          "model": "/models/aile/anne.glb"
         },
         {
           "id": "baba",

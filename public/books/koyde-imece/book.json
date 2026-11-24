@@ -998,26 +998,32 @@
         {
           "id": "dede",
           "x": 0.681,
-          "z": 0.618,
+          "z": 0.588,
           "rotY": -90,
-          "look": "reader",
-          "y": -0.19
+          "look": null,
+          "y": -0.115,
+          "pose": "sit",
+          "clip": 0.1
         },
         {
           "id": "can",
           "x": 0.817,
-          "z": 0.618,
+          "z": 0.588,
           "rotY": -90,
-          "look": "reader",
-          "y": -0.035
+          "look": null,
+          "y": 0.0,
+          "pose": "sit",
+          "clip": 0.1
         },
         {
           "id": "elif",
           "x": 0.914,
-          "z": 0.507,
+          "z": 0.477,
           "rotY": -90,
-          "look": "reader",
-          "y": -0.07
+          "look": null,
+          "y": -0.05,
+          "pose": "sit",
+          "clip": 0.1
         }
       ],
       "beats": [
@@ -1118,7 +1124,8 @@
           ],
           "who": "can",
           "do": "lookAround",
-          "len": 1.6
+          "len": 1.6,
+          "wait": 0
         },
         {
           "cue": [
@@ -1134,7 +1141,8 @@
           "who": "can",
           "do": "talk",
           "look": "elif",
-          "len": 1.4
+          "len": 1.4,
+          "wait": 0
         },
         {
           "cue": [
@@ -1143,7 +1151,8 @@
           "who": "elif",
           "do": "lookAt",
           "target": "can",
-          "len": 1.4
+          "len": 1.4,
+          "wait": 0
         },
         {
           "cue": [
@@ -1167,7 +1176,8 @@
           "do": "point",
           "target": "left",
           "look": "can",
-          "len": 1.2
+          "len": 1.2,
+          "wait": 0
         },
         {
           "cue": [
@@ -1176,7 +1186,8 @@
           "who": "dede",
           "do": "talk",
           "look": "can",
-          "len": 1.6
+          "len": 1.6,
+          "wait": 0
         },
         {
           "cue": [
@@ -1185,7 +1196,8 @@
           "who": "can",
           "do": "lookAt",
           "target": "dede",
-          "len": 1.6
+          "len": 1.6,
+          "wait": 0
         },
         {
           "cue": [
@@ -1201,7 +1213,8 @@
           "who": "elif",
           "do": "talk",
           "look": "dede",
-          "len": 1.2
+          "len": 1.2,
+          "wait": 0
         },
         {
           "cue": [
@@ -1210,7 +1223,8 @@
           "who": "dede",
           "do": "lookAt",
           "target": "elif",
-          "len": 1.4
+          "len": 1.4,
+          "wait": 0
         },
         {
           "cue": [
@@ -1230,8 +1244,8 @@
           "do": "stand",
           "to": [
             -0.621,
-            0.19,
-            0.198
+            0.115,
+            0.235
           ],
           "look": "reader",
           "wait": 0.5
@@ -1268,8 +1282,8 @@
           "do": "stand",
           "to": [
             -0.577,
-            0.035,
-            0.198
+            -0.0,
+            0.235
           ],
           "look": "reader",
           "wait": 1.4
@@ -1296,8 +1310,8 @@
           "do": "stand",
           "to": [
             -0.644,
-            0.07,
-            0.333
+            0.05,
+            0.37
           ],
           "look": "reader",
           "wait": 2.6
@@ -1344,7 +1358,8 @@
           "do": "point",
           "target": "left",
           "look": "reader",
-          "len": 1.6
+          "len": 1.6,
+          "wait": 0
         },
         {
           "cue": [
@@ -2271,13 +2286,27 @@
           "who": "can",
           "do": "walkTo",
           "to": [
-            -0.28,
+            -0.12,
             0,
-            -0.098
+            -0.195
           ],
-          "face": -120,
+          "face": -140,
           "look": "sepetY",
           "focus": true
+        },
+        {
+          "cue": [
+            "can"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.3,
+            0,
+            -0.171
+          ],
+          "face": -110,
+          "look": "sepetY"
         },
         {
           "cue": [
@@ -2326,9 +2355,23 @@
           "who": "can",
           "do": "walkTo",
           "to": [
-            -0.04,
+            -0.26,
             0,
-            -0.122
+            -0.195
+          ],
+          "face": 60,
+          "look": "reader"
+        },
+        {
+          "cue": [
+            "taşıdı"
+          ],
+          "who": "can",
+          "do": "walkTo",
+          "to": [
+            -0.06,
+            0,
+            -0.146
           ],
           "face": 30,
           "look": "reader"
@@ -2573,10 +2616,17 @@
       "ambience": "village",
       "models": [
         {
+          "proc": "yolKoy",
+          "word": "yol",
+          "x": 0.0,
+          "z": 0.52,
+          "h": 0.01
+        },
+        {
           "proc": "harman",
           "id": "harman",
           "word": "harman",
-          "x": -0.2,
+          "x": 0.36,
           "z": 0.3,
           "h": 0.12
         },
@@ -2584,8 +2634,8 @@
           "proc": "cuvallar",
           "id": "cuvallar",
           "word": "çuval",
-          "x": -0.14,
-          "z": 0.62,
+          "x": 0.12,
+          "z": 0.66,
           "h": 0.15,
           "hidden": true
         },
@@ -2620,6 +2670,33 @@
           "hidden": true,
           "magic": true,
           "tail": true
+        },
+        {
+          "proc": "agacKoy",
+          "id": "yolAgac1",
+          "word": "ağaç",
+          "x": -0.5,
+          "z": 0.3,
+          "h": 0.28,
+          "hidden": true
+        },
+        {
+          "proc": "agacKoy2",
+          "id": "yolAgac2",
+          "word": "ağaç",
+          "x": -0.5,
+          "z": 0.86,
+          "h": 0.22,
+          "hidden": true
+        },
+        {
+          "proc": "agacKoy2",
+          "id": "yolAgac3",
+          "word": "ağaç",
+          "x": -0.5,
+          "z": 0.32,
+          "h": 0.24,
+          "hidden": true
         }
       ],
       "cast": [
@@ -2751,7 +2828,7 @@
           "who": "duman",
           "do": "walkTo",
           "to": [
-            -0.3,
+            -0.6,
             0,
             0
           ],
@@ -2767,11 +2844,11 @@
           "who": "arabaK",
           "do": "slide",
           "to": [
-            -0.3,
+            -0.6,
             0,
             0
           ],
-          "len": 2.4
+          "len": 4.6
         },
         {
           "cue": [
@@ -2780,11 +2857,11 @@
           "who": "yuk",
           "do": "slide",
           "to": [
-            -0.3,
+            -0.6,
             0,
             0
           ],
-          "len": 2.4
+          "len": 4.6
         },
         {
           "cue": [
@@ -2793,13 +2870,157 @@
           "who": "can",
           "do": "walkTo",
           "to": [
-            -0.08,
+            -0.14,
             0,
-            0.049
+            -0.171
           ],
-          "face": -80,
+          "face": -90,
           "look": "duman",
           "wait": 0.4
+        },
+        {
+          "cue": [
+            "değirmene"
+          ],
+          "who": "dede",
+          "do": "walkTo",
+          "to": [
+            -0.14,
+            0,
+            -0.073
+          ],
+          "face": -90,
+          "look": "duman",
+          "wait": 0.6
+        },
+        {
+          "cue": [
+            "değirmene"
+          ],
+          "who": "komsuAdam",
+          "do": "walkTo",
+          "to": [
+            -0.26,
+            0,
+            0.024
+          ],
+          "face": -90,
+          "look": "duman",
+          "wait": 0.3
+        },
+        {
+          "cue": [
+            "değirmene"
+          ],
+          "who": "elif",
+          "do": "walkTo",
+          "to": [
+            -0.02,
+            0,
+            0.171
+          ],
+          "face": -60,
+          "look": "duman",
+          "wait": 0.2
+        },
+        {
+          "cue": [
+            "yola"
+          ],
+          "who": "yolAgac1",
+          "do": "switchOn",
+          "wait": 0.0,
+          "sound": null
+        },
+        {
+          "cue": [
+            "yola"
+          ],
+          "who": "yolAgac1",
+          "do": "slide",
+          "to": [
+            0.95,
+            0,
+            0
+          ],
+          "len": 3.4,
+          "wait": 0.05,
+          "sound": null
+        },
+        {
+          "cue": [
+            "yola"
+          ],
+          "who": "yolAgac1",
+          "do": "switchOff",
+          "wait": 3.4,
+          "sound": null
+        },
+        {
+          "cue": [
+            "yola"
+          ],
+          "who": "yolAgac2",
+          "do": "switchOn",
+          "wait": 1.4,
+          "sound": null
+        },
+        {
+          "cue": [
+            "yola"
+          ],
+          "who": "yolAgac2",
+          "do": "slide",
+          "to": [
+            0.95,
+            0,
+            0
+          ],
+          "len": 3.4,
+          "wait": 1.45,
+          "sound": null
+        },
+        {
+          "cue": [
+            "yola"
+          ],
+          "who": "yolAgac2",
+          "do": "switchOff",
+          "wait": 4.8,
+          "sound": null
+        },
+        {
+          "cue": [
+            "yola"
+          ],
+          "who": "yolAgac3",
+          "do": "switchOn",
+          "wait": 2.8,
+          "sound": null
+        },
+        {
+          "cue": [
+            "yola"
+          ],
+          "who": "yolAgac3",
+          "do": "slide",
+          "to": [
+            0.95,
+            0,
+            0
+          ],
+          "len": 3.4,
+          "wait": 2.85,
+          "sound": null
+        },
+        {
+          "cue": [
+            "yola"
+          ],
+          "who": "yolAgac3",
+          "do": "switchOff",
+          "wait": 6.2,
+          "sound": null
         },
         {
           "cue": [
@@ -3242,11 +3463,20 @@
           "steam": true
         },
         {
-          "proc": "hamurTeknesi",
+          "proc": "tekneBos",
           "word": "hamur",
           "x": 0.02,
           "z": 0.34,
           "h": 0.2
+        },
+        {
+          "proc": "hamurTopu",
+          "id": "hamur",
+          "word": "hamur",
+          "x": 0.02,
+          "z": 0.34,
+          "y": 0.165,
+          "h": 0.03
         },
         {
           "src": "/models/masal/koy-sofrasi.glb",
@@ -3323,7 +3553,7 @@
         {
           "id": "babaanne",
           "x": 0.02,
-          "z": 0.24,
+          "z": 0.25,
           "rotY": 0,
           "look": "down"
         },
@@ -3389,15 +3619,19 @@
           ],
           "who": "babaanne",
           "do": "useTool",
-          "style": "tap",
-          "to": [
-            0.0,
-            -0.05,
-            0.3
-          ],
-          "look": "down",
-          "len": 3.2,
+          "style": "knead",
+          "look": "hamur",
+          "len": 3.4,
           "focus": true
+        },
+        {
+          "cue": [
+            "unla"
+          ],
+          "who": "hamur",
+          "do": "jiggle",
+          "len": 2.8,
+          "sound": null
         },
         {
           "cue": [
@@ -3414,9 +3648,33 @@
           "cue": [
             "pişirdi"
           ],
+          "who": "hamur",
+          "do": "hopTo",
+          "to": [
+            0.26,
+            0.1,
+            0.02
+          ],
+          "len": 0.7,
+          "face": 0,
+          "sound": null
+        },
+        {
+          "cue": [
+            "pişirdi"
+          ],
+          "who": "hamur",
+          "do": "vanish",
+          "wait": 0.7,
+          "sound": null
+        },
+        {
+          "cue": [
+            "pişirdi"
+          ],
           "who": "ekmekler",
           "do": "appear",
-          "wait": 0.6
+          "wait": 1.0
         },
         {
           "cue": [

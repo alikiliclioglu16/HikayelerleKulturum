@@ -153,6 +153,13 @@ export interface CastMember {
   hidden?: boolean;
   /** Wears an apron from the start (toy characters; the "wearApron" act puts it on). */
   apron?: boolean;
+  /**
+   * Sitting inside something (a car): nothing of the character shows below this height over the page (in the same
+   * units as `y`), as if hidden by the car's sides, until it stands up (the "stand" act).
+   */
+  clip?: number;
+  /** Another model for the same character on this page (anne in her kitchen apron). */
+  model?: string;
 }
 
 export interface PageAudio {

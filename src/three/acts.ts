@@ -37,8 +37,6 @@ export interface Beat {
   sound?: string | null;
   /** Something amazing happens: the character (or, for a magic thing, a child looking at it) says "vaay!". */
   wow?: boolean;
-  /** The feeling heard in the character's voice: "happy" (a laugh), "wow", "sad" (a sob or a sigh); null for none. */
-  mood?: 'happy' | 'wow' | 'sad' | null;
 }
 
 export interface ActResult {
@@ -522,6 +520,8 @@ export const THING_ACTS: Record<string, Act> = {
     };
   },
   /** An animal wags its tail for `len` seconds (default 2.6): the tail bones of its model swing from side to side. */
+  /** The room goes darker (len: how bright it stays, 0–1; 1 lights it again), slowly. */
+  dim: (_s, b, t) => ({ keys: [key(t, 1.4, { root: { dim: b.len ?? 0.5 } })], dur: 1.4 }),
   wag: (_s, b, t) => ({ keys: [key(t, 0.1, { wag: b.len ?? 2.6 })], dur: b.len ?? 2.6 }),
   /** Turns once round. */
   spin: (s, _b, t) => ({ keys: [key(t, 1.2, { root: { rotY: s.root.rotY + 360, glow: 1 }, burst: 0.6 }), key(t + 1.2, 0.8, { root: { glow: s.root.glow ?? 0.45 } })], dur: 1.2 }),
@@ -593,8 +593,14 @@ Object.assign(THING_ACTS, {
     const len = b.len ?? 1.0;
     const n = Math.max(4, Math.round(len / 0.07));
     const ks: Key[] = [];
-    for (let i = 0; i < n; i++) ks.push(key(t + i * 0.07, 0.07, { root: { tilt: (s.root.tilt ?? 0) + (i % 2 ? -1.6 : 1.6), x: s.root.x + (i % 2 ? -0.002 : 0.002) }, minor: true }));
-    ks.push(key(t + n * 0.07, 0.12, { root: { tilt: s.root.tilt ?? 0, x: s.root.x } }));
+    // shaking in its frame: a little twist on its hinge and a jolt to the side with every knock (not "minor": it
+    // is the point of the beat, so it plays even with calmer motion)
+    for (let i = 0; i < n; i++) {
+      const k = i % 2 ? -1 : 1;
+      const knock = i % 5 < 2 ? 1 : 0.5;
+      ks.push(key(t + i * 0.07, 0.07, { root: { tilt: (s.root.tilt ?? 0) + 2.6 * k * knock, rotY: s.root.rotY + 4 * k * knock, x: s.root.x + 0.004 * k * knock } }));
+    }
+    ks.push(key(t + n * 0.07, 0.12, { root: { tilt: s.root.tilt ?? 0, rotY: s.root.rotY, x: s.root.x } }));
     return { keys: ks, dur: n * 0.07 + 0.12 };
   },
   jiggle: (s: State, b: Beat, t: number) => {
